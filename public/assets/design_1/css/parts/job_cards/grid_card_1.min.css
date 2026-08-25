@@ -1,0 +1,30 @@
+/*
+@media (max-width: $screen-sm-max) {
+    width: 100px;
+    height: 100px;
+}*/
+.job-grid-card-1__mask {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  right: 12px;
+  bottom: -8px;
+  background-color: var(--white);
+  opacity: 0.5;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.profile-container .job-grid-card-1, .profile-container .job-grid-card-1__mask {
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+}
+.job-grid-card-1:hover .job-grid-card-1__mask {
+  top: -8px;
+  bottom: 8px;
+}
+.job-grid-card-1__before-line {
+  width: 8px;
+  height: 2px;
+  background-color: var(--primary);
+}
