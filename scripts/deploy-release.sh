@@ -174,7 +174,7 @@ if [[ "$health_ok" != true ]]; then
         mv -Tf "$next_link" "$current_link"
 
         if [[ "$branch_name" == "develop" ]]; then
-            "$previous_target/scripts/install-staging-bridge.sh"
+            "$release_dir/scripts/install-staging-bridge.sh" "$previous_target"
         fi
 
         echo "Restored previous release: $previous_target" >&2

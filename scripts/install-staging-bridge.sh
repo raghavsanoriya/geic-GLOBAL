@@ -3,21 +3,25 @@
 set -Eeuo pipefail
 
 staging_root="/home2/geicic3c/staging"
-current_public="$staging_root/current/public"
-webroot="$staging_root/webroot"
-next_webroot="$staging_root/webroot.next"
-previous_webroot="$staging_root/webroot.previous"
+release_root="${1:-$staging_root/current}"
+current_public="$release_root/public"
+public_staging_root="/home2/geicic3c/public_html/staging"
+webroot="$public_staging_root/webroot"
+next_webroot="$public_staging_root/webroot.next"
+previous_webroot="$public_staging_root/webroot.previous"
 
-if [[ ! -d "$staging_root" || ! -d "$current_public" ]]; then
+if [[ ! -d "$release_root" || ! -d "$current_public" ]]; then
     echo "Staging directory or active release is missing." >&2
     exit 78
 fi
 
-if [[ "$webroot" != "$staging_root/webroot" || "$next_webroot" != "$staging_root/webroot.next" ]]; then
+if [[ "$webroot" != "$public_staging_root/webroot" || "$next_webroot" != "$public_staging_root/webroot.next" ]]; then
     echo "Refusing unsafe staging webroot path." >&2
     exit 64
 fi
 
+mkdir -p "$public_staging_root"
+chmod 0755 "$public_staging_root"
 rm -rf -- "$next_webroot"
 mkdir "$next_webroot"
 
@@ -30,14 +34,14 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-if (file_exists($maintenance = __DIR__.'/../current/storage/framework/maintenance.php')) {
+if (file_exists($maintenance = '/home2/geicic3c/staging/current/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
-require __DIR__.'/../current/vendor/autoload.php';
+require '/home2/geicic3c/staging/current/vendor/autoload.php';
 
 /** @var \Illuminate\Foundation\Application $app */
-$app = require_once __DIR__.'/../current/bootstrap/app.php';
+$app = require_once '/home2/geicic3c/staging/current/bootstrap/app.php';
 
 $app->handleRequest(Request::capture());
 PHP
