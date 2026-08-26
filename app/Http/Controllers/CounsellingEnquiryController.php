@@ -28,9 +28,66 @@ class CounsellingEnquiryController extends Controller
         return $this->store($request, $details['slug'], $details['name']);
     }
 
-    private function store(Request $request, string $slug, string $destinationName): RedirectResponse
+    /**
+     * Store a general enquiry from the dedicated contact page.
+     */
+    public function storeContact(Request $request): RedirectResponse
     {
-        $returnUrl = "/destinations/{$slug}#contact";
+        return $this->store($request, 'contact', 'General enquiry', '/contact#enquiry');
+    }
+
+    /**
+     * Store the compact enquiry form displayed in detail-page heroes.
+     */
+    public function storeHero(Request $request): RedirectResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'full_name' => ['required', 'string', 'max:120'],
+            'email' => ['required', 'email:rfc', 'max:160'],
+            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'source_context' => ['required', 'string', 'max:120'],
+            'return_to' => ['required', 'regex:~^/(?:destinations|services|scholarships|tests)/[a-z\-]+\#overview$~'],
+            'website' => ['nullable', 'max:0'],
+        ], [
+            'phone.regex' => 'Enter a valid phone number using digits and standard phone symbols.',
+        ]);
+
+        $returnUrl = $request->string('return_to')->toString() ?: '/contact#enquiry';
+
+        if ($validator->fails()) {
+            return redirect($returnUrl)->withErrors($validator)->withInput();
+        }
+
+        if ($request->filled('website')) {
+            return redirect($returnUrl)
+                ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+        }
+
+        $data = $validator->validated();
+
+        DB::table('counselling_enquiries')->insert([
+            'destination' => $data['source_context'],
+            'full_name' => $data['full_name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'city' => 'Not provided',
+            'study_level' => 'Not sure yet',
+            'preferred_intake' => 'Not sure yet',
+            'preferred_course' => null,
+            'english_test' => 'Not sure yet',
+            'message' => 'Submitted through the detail-page hero form.',
+            'source_page' => strtok($returnUrl, '#'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect($returnUrl)
+            ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+    }
+
+    private function store(Request $request, string $slug, string $destinationName, ?string $returnUrl = null): RedirectResponse
+    {
+        $returnUrl ??= "/destinations/{$slug}#contact";
 
         if ($request->filled('website')) {
             return redirect($returnUrl)
@@ -73,7 +130,7 @@ class CounsellingEnquiryController extends Controller
             'preferred_course' => $data['preferred_course'] ?? null,
             'english_test' => $data['english_test'],
             'message' => $data['message'] ?? null,
-            'source_page' => "/destinations/{$slug}",
+            'source_page' => $slug === 'contact' ? '/contact' : "/destinations/{$slug}",
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -4,6 +4,7 @@
 @php
     $slug = $destination['slug'];
     $name = $destination['name'];
+    $detailUrl = url()->current();
 @endphp
 
 <style>
@@ -26,7 +27,7 @@
     .cd-hero__image,.cd-hero__overlay { position:absolute; inset:0; width:100%; height:100%; }
     .cd-hero__image { object-fit:cover; object-position:var(--hero-position, center); }
     .cd-hero__overlay { background:linear-gradient(90deg,rgba(5,17,39,.96) 0%,rgba(5,17,39,.82) 45%,rgba(5,17,39,.22) 100%); }
-    .cd-hero__content { position:relative; z-index:2; width:min(760px,100%); padding:64px; }
+    .cd-hero__content { position:relative; z-index:2; width:min(660px,calc(100% - 380px)); padding:64px; }
     .cd-breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; color:rgba(255,255,255,.68); font-size:13px; }
     .cd-breadcrumb a { color:#fff; }
     .cd-label { display:inline-flex; align-items:center; gap:10px; margin-top:30px; padding:8px 13px; border:1px solid rgba(255,255,255,.25); border-radius:999px; color:#fff; background:rgba(14,33,69,.45); backdrop-filter:blur(12px); }
@@ -160,6 +161,10 @@
         .cd-step:not(:nth-child(4n))::after { display:none; }
         .cd-costs { grid-template-columns:repeat(2,1fr); }
     }
+    @media (max-width:900px) {
+        .cd-hero__shell { display:block; min-height:0; }
+        .cd-hero__content { width:100%; }
+    }
     @media (max-width:767px) {
         .cd-page { padding-bottom:76px; }
         .cd-container,.cd-narrow { width:min(100% - 28px, 620px); }
@@ -218,8 +223,9 @@
                     <div class="cd-label"><img src="{{ asset('assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $name }} flag"><span>Expert guidance from GEIC Indore</span></div>
                     <h1>Study in <span>{{ $name }}</span></h1>
                     <p class="cd-hero__copy">{{ $destination['tagline'] }}</p>
-                    <div class="cd-actions"><a class="cd-button" href="#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="#journey">See the complete journey</a></div>
+                    <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">See the complete journey</a></div>
                 </div>
+                @include('mirror.partials.hero-enquiry', ['formId' => 'destination-hero', 'sourceContext' => 'Study in '.$name, 'returnTo' => '/destinations/'.$slug.'#overview'])
             </div>
             <div class="cd-stats" aria-label="{{ $name }} study highlights">
                 @foreach($destination['stats'] as [$value,$label])<div class="cd-stat"><strong>{{ $value }}</strong><span>{{ $label }}</span></div>@endforeach
@@ -228,12 +234,12 @@
     </section>
 
     <nav class="cd-anchor" aria-label="Page sections"><div class="cd-container"><div class="cd-anchor__inner">
-        <a class="is-active" href="#overview">Overview</a><a href="#why">Why {{ $name }}</a><a href="#journey">Study journey</a><a href="#requirements">Requirements</a><a href="#budget">Costs</a><a href="#careers">Intakes & careers</a><a href="#faqs">FAQs</a><a href="#contact">Enquire</a>
+        <a class="is-active" href="{{ $detailUrl }}#overview">Overview</a><a href="{{ $detailUrl }}#why">Why {{ $name }}</a><a href="{{ $detailUrl }}#journey">Study journey</a><a href="{{ $detailUrl }}#requirements">Requirements</a><a href="{{ $detailUrl }}#budget">Costs</a><a href="{{ $detailUrl }}#careers">Intakes & careers</a><a href="{{ $detailUrl }}#faqs">FAQs</a><a href="{{ $detailUrl }}#contact">Enquire</a>
     </div></div></nav>
 
     <section class="cd-section">
         <div class="cd-container cd-overview">
-            <div class="cd-overview__copy"><div class="cd-kicker">Study in {{ $name }}</div><h2 class="cd-heading">A closer look at your study destination</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="#requirements" style="margin-top:26px">Check requirements</a></div>
+            <div class="cd-overview__copy"><div class="cd-kicker">Study in {{ $name }}</div><h2 class="cd-heading">A closer look at your study destination</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="{{ $detailUrl }}#requirements" style="margin-top:26px">Check requirements</a></div>
             <div class="cd-visual" aria-label="{{ $name }} destination gallery">
                 <div class="cd-visual__main"><img src="{{ asset($destination['hero']) }}" alt="Landscape and student destination in {{ $name }}" loading="lazy" width="1200" height="800"></div>
                 <div class="cd-visual__card"><img src="{{ asset($destination['card']) }}" alt="Explore student life in {{ $name }}" loading="lazy" width="800" height="600"><span class="cd-visual__badge">Explore {{ $name }}</span></div>
@@ -260,7 +266,7 @@
 
     <section class="cd-section cd-section--soft" id="requirements">
         <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Admission and visa</div><h2 class="cd-heading">Prepare the right documents with confidence</h2><p class="cd-lead">Exact requirements vary by program and institution; we help you build a complete, well-organised application.</p></div>
-            <div class="cd-requirements"><article class="cd-panel"><h3>Typical admission documents</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">Student visa</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.</div><a class="cd-button" href="#contact" style="margin-top:24px">Discuss my eligibility</a></article></div>
+            <div class="cd-requirements"><article class="cd-panel"><h3>Typical admission documents</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">Student visa</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.</div><a class="cd-button" href="{{ $detailUrl }}#contact" style="margin-top:24px">Discuss my eligibility</a></article></div>
         </div>
     </section>
 
