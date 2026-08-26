@@ -6,6 +6,10 @@ repository_root="$(git rev-parse --show-toplevel)"
 branch_name="$(git rev-parse --abbrev-ref HEAD)"
 release_name="$(git rev-parse HEAD)"
 
+export HOME="/home2/geicic3c"
+export COMPOSER_HOME="$HOME/.composer"
+mkdir -p "$COMPOSER_HOME"
+
 case "$branch_name" in
     develop)
         deploy_root="/home2/geicic3c/staging"
