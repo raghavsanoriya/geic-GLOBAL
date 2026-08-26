@@ -18,7 +18,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-${{ github.event_name == 'workflow_dispatch' && inputs.target || (github.ref_name == 'main' && 'production' || 'staging') }}
+  group: deploy-v2-${{ github.event_name == 'workflow_dispatch' && inputs.target || (github.ref_name == 'main' && 'production' || 'staging') }}
   cancel-in-progress: false
 
 jobs:
