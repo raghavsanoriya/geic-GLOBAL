@@ -94,22 +94,22 @@
                                                                                                                                         <a href="destinations" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Study Destinations</span>
                                         </a>
-                                                                                                                                                <a href="index.html#services" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/#services') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Our Services</span>
                                         </a>
-                                                                                                                                                <a href="index.html#scholarships" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/#scholarships') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Scholarships</span>
                                         </a>
-                                                                                                                                                <a href="index.html#test-prep" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/#test-prep') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Test Preparation</span>
                                         </a>
-                                                                                                                                                <a href="index.html#why-trans-globe" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/#why-trans-globe') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Why Trans Globe Indore</span>
                                         </a>
-                                                                                                                                                <a href="index.html#faq" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/#faq') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">FAQs</span>
                                         </a>
-                                                                                                                                                <a href="pages/terms.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/pages/terms') }}" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Terms and Policies</span>
                                         </a>
                                                                                                                                                                                             </div>
@@ -117,25 +117,25 @@
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Top Destinations</h4>
                             
-                                                                                                                                        <a href="destinations#country-australia" class="d-block font-16 text-white opacity-70 mt-16">
+                                                                                                                                        <a href="destinations/australia" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Australia</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-united-kingdom" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/uk" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">United Kingdom</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-united-states" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/usa" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">United States</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-canada" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/canada" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Canada</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-germany" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/germany" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Germany</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-new-zealand" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/new-zealand" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">New Zealand</span>
                                         </a>
-                                                                                                                                                <a href="destinations#country-ireland" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="destinations/ireland" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Ireland</span>
                                         </a>
                                                                                                                                                                                             </div>
@@ -237,7 +237,7 @@
         </div>
 
         <div class="mt-12">
-            <a href="login.html" class="btn btn-outline-primary btn-block">View Cart</a>
+            <a href="{{ url('/login') }}" class="btn btn-outline-primary btn-block">View Cart</a>
         </div>
     </div>
 </div>
@@ -247,7 +247,7 @@
 
 <!-- Template JS File -->
 <script>
-    var siteDomain = 'index.html';
+    var siteDomain = '{{ url('/') }}';
     var deleteAlertTitle = 'Are you sure?';
     var deleteAlertHint = 'This action cannot be undone!';
     var deleteAlertConfirm = 'Delete';

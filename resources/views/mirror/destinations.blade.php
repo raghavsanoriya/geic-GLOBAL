@@ -1,14 +1,15 @@
 @include('mirror.partials.header')
+@include('mirror.partials.mobile-destination-nav')
 
 @php
     $destinations = [
         ['slug' => 'australia', 'name' => 'Australia', 'flag' => 'au.png', 'image' => 'australia.jpg', 'tagline' => 'Research-led learning', 'copy' => 'Practical education, globally respected degrees and the prestigious Group of Eight universities.'],
         ['slug' => 'new-zealand', 'name' => 'New Zealand', 'flag' => 'nz.png', 'image' => 'new-zealand.jpg', 'tagline' => 'Quality with balance', 'copy' => 'Government-regulated education in a safe, welcoming setting with an exceptional quality of life.'],
-        ['slug' => 'united-kingdom', 'name' => 'United Kingdom', 'flag' => 'gb.png', 'image' => 'uk.jpg', 'tagline' => 'Prestigious education', 'copy' => 'Rigorous academic standards, globally recognised qualifications and a rich international student culture.'],
+        ['slug' => 'uk', 'name' => 'United Kingdom', 'flag' => 'gb.png', 'image' => 'uk.jpg', 'tagline' => 'Prestigious education', 'copy' => 'Rigorous academic standards, globally recognised qualifications and a rich international student culture.'],
         ['slug' => 'ireland', 'name' => 'Ireland', 'flag' => 'ie.png', 'image' => 'ireland.jpg', 'tagline' => 'Europe’s technology hub', 'copy' => 'English-medium study, vibrant student life and strong post-study opportunities in a growing tech economy.'],
         ['slug' => 'germany', 'name' => 'Germany', 'flag' => 'de.png', 'image' => 'germany.webp', 'tagline' => 'Engineering excellence', 'copy' => 'World-class public universities, outstanding innovation and many affordable study pathways.'],
         ['slug' => 'europe', 'name' => 'Europe', 'flag' => 'eu.png', 'image' => 'europe-card.jpg', 'tagline' => 'Many cultures, one journey', 'copy' => 'Diverse countries, renowned universities and rewarding international exposure across the continent.'],
-        ['slug' => 'united-states', 'name' => 'United States', 'flag' => 'us.png', 'image' => 'usa.jpg', 'tagline' => 'Limitless academic choice', 'copy' => 'More than 4,000 accredited colleges and universities with an extraordinary range of programs.'],
+        ['slug' => 'usa', 'name' => 'United States', 'flag' => 'us.png', 'image' => 'usa.jpg', 'tagline' => 'Limitless academic choice', 'copy' => 'More than 4,000 accredited colleges and universities with an extraordinary range of programs.'],
         ['slug' => 'canada', 'name' => 'Canada', 'flag' => 'ca.png', 'image' => 'canada.jpg', 'tagline' => 'Study, work and grow', 'copy' => 'High-quality education in a welcoming country with attractive post-study work and PR pathways.'],
         ['slug' => 'singapore', 'name' => 'Singapore', 'flag' => 'sg.png', 'image' => 'singapore.jpg', 'tagline' => 'Asia’s education hub', 'copy' => 'World-ranked institutions, a bilingual environment and close connections to global business.'],
         ['slug' => 'dubai', 'name' => 'Dubai & UAE', 'flag' => 'ae.png', 'image' => 'dubai-card.jpg', 'tagline' => 'Global degrees, global city', 'copy' => 'International qualifications in a fast-growing, tax-free and cosmopolitan education centre.'],
@@ -117,6 +118,50 @@
         .tg-dest-grid { grid-template-columns: 1fr; }
         .tg-country-card__body p { min-height: auto; }
     }
+    @media (max-width: 767px), (max-width: 991px) and (max-height: 500px) {
+        .tg-dest-page { padding: 10px 0 2px; background: #f3f6f9; }
+        .tg-dest-page .container { padding-right: 14px; padding-left: 14px; }
+        .tg-dest-hero { padding: 0; background: transparent; }
+        .tg-dest-hero__shell { padding: 28px 18px 20px; border-radius: 28px; box-shadow: 0 15px 36px rgba(14,33,69,.14); }
+        .tg-dest-eyebrow { font-size: 10px; letter-spacing: .1em; }
+        .tg-dest-hero h1 { margin-top: 14px; font-size: 34px; line-height: 1.08; }
+        .tg-dest-hero__copy { margin-top: 14px; font-size: 14px; line-height: 1.6; }
+        .tg-dest-hero__actions { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
+        .tg-dest-hero__actions a { width: 100%; min-height: 50px; }
+        .tg-dest-proof { display: flex; gap: 10px; margin: 18px -18px 0; padding: 0 18px 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+        .tg-dest-proof::-webkit-scrollbar { display: none; }
+        .tg-dest-proof__item { min-width: 148px; flex: 0 0 148px; padding: 13px 14px; scroll-snap-align: start; }
+        .tg-dest-proof__item strong { font-size: 19px; }
+        .tg-dest-hero__mosaic { grid-template-columns: 1.3fr .7fr; gap: 9px; min-height: 218px; margin-top: 22px; }
+        .tg-dest-hero__tile { min-height: 104px; border-radius: 16px; }
+        .tg-dest-hero__tile span { left: 9px; bottom: 9px; padding: 5px 8px; font-size: 10px; }
+
+        .tg-dest-list { margin: 12px 10px; padding: 30px 0 34px; border-radius: 28px; background: #fff; scroll-margin-top: 84px; box-shadow: 0 10px 30px rgba(14,33,69,.055); }
+        .tg-dest-list:target { margin-top: 12px; padding-top: 30px; }
+        .tg-dest-list__head { gap: 20px; }
+        .tg-dest-list__head h2 { margin-top: 10px !important; font-size: 30px; }
+        .tg-dest-list__head p { margin-top: 10px; font-size: 14px; line-height: 1.6; }
+        .tg-dest-search { position: sticky; z-index: 20; top: 82px; padding: 7px; border: 1px solid #e3e8ef; border-radius: 20px; background: rgba(255,255,255,.96); box-shadow: 0 10px 26px rgba(14,33,69,.09); backdrop-filter: blur(14px); }
+        .tg-dest-search svg { left: 23px; }
+        .tg-dest-search input { height: 48px; border: 0; border-radius: 14px; background: #f6f8fb; box-shadow: none; }
+        .tg-dest-result-count { margin-top: 15px; font-size: 12px; }
+        .tg-dest-grid { gap: 12px; margin-top: 18px; }
+        .tg-country-card { border-radius: 19px; box-shadow: 0 9px 24px rgba(14,33,69,.08); }
+        .tg-country-card__media { aspect-ratio: .93 / 1; }
+        .tg-country-card__content { padding: 13px; }
+        .tg-country-card__content h3 { font-size: 17px; }
+        .tg-country-card__body { padding: 13px; }
+        .tg-country-card__body p { min-height: 90px; font-size: 11.5px; line-height: 1.5; }
+        .tg-country-card__link { min-height: 44px; margin-top: 10px; padding-top: 10px; font-size: 11.5px; }
+
+        .tg-dest-cta { margin: 12px 10px; padding: 0; }
+        .tg-dest-cta .container { padding: 0; }
+        .tg-dest-cta__shell { gap: 22px; padding: 28px 20px; border-radius: 27px; }
+        .tg-dest-cta h2 { font-size: 28px; }
+        .tg-dest-cta p { font-size: 13px; line-height: 1.6; }
+        .tg-dest-cta__action, .tg-dest-cta__action a { width: 100%; }
+        .tg-dest-cta__action a { min-height: 52px; }
+    }
     @media (prefers-reduced-motion: reduce) {
         .tg-country-card, .tg-country-card__media > img:first-child, .tg-country-card__link svg, .tg-dest-hero__tile img { transition: none; }
         .tg-country-card:hover { transform: none; }
@@ -135,7 +180,7 @@
                             <p class="tg-dest-hero__copy">Compare leading study destinations, understand what makes each one different and choose your next step with guidance from Trans Globe Indore.</p>
                             <div class="tg-dest-hero__actions">
                                 <a href="#explore-destinations" class="btn btn-primary btn-xlg text-white">Explore countries</a>
-                                <a href="index.html#contact" class="tg-dest-secondary-btn">Book free counselling</a>
+                                <a href="{{ url('/#contact') }}" class="tg-dest-secondary-btn">Book free counselling</a>
                             </div>
                             <div class="tg-dest-proof" aria-label="Trans Globe experience">
                                 <div class="tg-dest-proof__item"><strong>98.7%</strong><span>Visa success rate</span></div>
@@ -186,7 +231,7 @@
                         </div>
                         <div class="tg-country-card__body">
                             <p>{{ $destination['copy'] }}</p>
-                            <a href="{{ $destination['slug'] === 'australia' ? 'destinations/australia' : 'index.html#contact' }}" class="tg-country-card__link" aria-label="Get more information about studying in {{ $destination['name'] }}">
+                            <a href="{{ url('/destinations/'.$destination['slug']) }}" class="tg-country-card__link" aria-label="Get more information about studying in {{ $destination['name'] }}">
                                 <span>Get more info</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </a>

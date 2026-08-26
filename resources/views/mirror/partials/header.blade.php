@@ -12,11 +12,11 @@
 <meta name="csrf-token" content="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="{{ ($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.') }}">
+    <meta name="description" content="{{ isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.')) }}">
     <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
     <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
 
@@ -26,7 +26,7 @@
 <!-- Windows Phone -->
 <meta name="msapplication-starturl" content="/">
 <meta name="msapplication-TileColor" content="#FFF">
-<meta name="msapplication-TileImage" content="ms-icon-144x144.html">
+<meta name="msapplication-TileImage" content="/store/1/geic-icon.png">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-title" content="Trans Globe Indore">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
@@ -38,7 +38,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
-<link rel="home" href="index.html">
+<link rel="home" href="{{ url('/') }}">
 
 <!-- Open Graph -->
 <meta property='og:title' content='Home'>
@@ -47,14 +47,14 @@
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
-<meta property='og:image' content='/store/1/geic-icon.png'>
-<meta name='twitter:image' content='/store/1/geic-icon.png'>
-<meta property='og:locale' content='en_US.html'>
+<meta property='og:image' content='{{ isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png' }}'>
+<meta name='twitter:image' content='{{ isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png' }}'>
+<meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>{{ ($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC') }}</title>
+    <title>{{ isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC')) }}</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
@@ -168,9 +168,9 @@
 
         :root{
 --primary:#E31E24;
---primary-hover:#0064e5;
+--primary-hover:#F3951E;
 --primary-border:#E31E24;
---primary-hover-border:#0064e5;
+--primary-hover-border:#F3951E;
 --primary-btn-color:#ffffff;
 --primary-btn-hover-color:#ffffff;
 --primary-saturated:#67a9ff;
@@ -260,10 +260,20 @@
         aspect-ratio: 453 / 89;
         object-fit: contain !important;
     }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    a.btn-primary:hover,
+    button.btn-primary:hover {
+        background-color: #F3951E !important;
+        border-color: #F3951E !important;
+        color: #fff !important;
+    }
 </style>
 </head>
 
-<body class="bg-gray  light-mode">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
 
 <div id="app">
 
@@ -433,11 +443,11 @@
                                                             </div>
 
                             <div class="d-flex align-items-center">
-                                            <a href="index.html#why-trans-globe" class="d-flex align-items-center text-white opacity-75">
+                                            <a href="{{ url('/#why-trans-globe') }}" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">About GEIC Indore</span>
                                         </a>
                                     
-                                                                            <a href="index.html#contact" class="d-flex align-items-center text-white opacity-75 ml-32">
+                                                                            <a href="{{ url('/#contact') }}" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Contact</span>
                                         </a>
                                                                                                 </div>
@@ -459,7 +469,7 @@
             <div class="row align-items-center h-100">
                 
                 <div class="col-8 col-lg-3">
-                    <a href="index.html" class="theme-header-1__logo text-left d-block">
+                    <a href="{{ url('/') }}" class="theme-header-1__logo text-left d-block">
                         <img src="assets/transglobe/trans-globe-logo.png" class="tg-header-brand-logo" alt="Trans Globe Indore managed by Global Education and Immigration Consultants">
                     </a>
                 </div>
@@ -477,7 +487,7 @@
 
         <ul class="theme-header-1__categories">
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="categories/Development" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
                             
@@ -490,7 +500,7 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Development/Web-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
                                             
@@ -499,7 +509,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Development/Mobile-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
                                             
@@ -508,7 +518,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Development/Game-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
                                             
@@ -519,7 +529,7 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="categories/Business" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
                             
@@ -532,7 +542,7 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Business/Management" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
                                             
@@ -541,7 +551,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Business/Communications" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
                                             
@@ -550,7 +560,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Business/Business-Strategy" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
                                             
@@ -561,7 +571,7 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="categories/Marketing" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
                             
@@ -572,7 +582,7 @@
 
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="categories/Lifestyles" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
                             
@@ -585,7 +595,7 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Lifestyles/Lifestyle" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
                                             
@@ -594,7 +604,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Lifestyles/Beauty-and-Makeup" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
                                             
@@ -605,7 +615,7 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="categories/Health-and-Fitness" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
                             
@@ -616,7 +626,7 @@
 
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="categories/Academics" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
                             
@@ -629,7 +639,7 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Academics/Math" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
                                             
@@ -638,7 +648,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Academics/Science" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
                                             
@@ -647,7 +657,7 @@
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="categories/Academics/Language" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
                                             
@@ -658,7 +668,7 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="categories/Design" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
                             
@@ -677,19 +687,17 @@
                 
                 <div class="col-12 col-lg-6 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="index.html" class="text-dark">Home</a>
-                                                            <a href="destinations" class="{{ ($mirrorPage ?? '') === 'destinations' ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
-                                                            <a href="index.html#services" class="text-dark">Services</a>
-                                                            <a href="index.html#scholarships" class="text-dark">Scholarships</a>
-                                                            <a href="index.html#test-prep" class="text-dark">Test Prep</a>
-                                                            <a href="index.html#why-trans-globe" class="text-dark">About</a>
-                                                            <a href="index.html#faq" class="text-dark">FAQs</a>
+                                                            <a href="{{ url('/') }}" class="text-dark">Home</a>
+                                                            <a href="destinations" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
+                                                            <a href="{{ url('/#services') }}" class="text-dark">Services</a>
+                                                            <a href="{{ url('/#scholarships') }}" class="text-dark">Scholarships</a>
+                                                            <a href="{{ url('/#test-prep') }}" class="text-dark">Test Prep</a>
                                                     </div>
                                     </div>
 
                 
                 <div class="col-4 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
-                                            <a href="index.html#contact" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Speak to a Counsellor">
+                                            <a href="{{ url('/#contact') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Speak to a Counsellor">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>

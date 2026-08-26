@@ -9,14 +9,28 @@
     .tg-copy { color: var(--gray-500); font-size: 16px; line-height: 1.75; }
     .tg-card { height: 100%; background: #fff; border: 1px solid #e8edf4; border-radius: 24px; padding: 28px; box-shadow: 0 14px 40px rgba(30, 55, 90, .06); transition: transform .2s ease, box-shadow .2s ease; }
     .tg-card:hover { transform: translateY(-4px); box-shadow: 0 18px 50px rgba(30, 55, 90, .11); }
-    .tg-guidance-section { scroll-margin-top: 190px; }
-    .tg-guidance-card { height: 100%; overflow: hidden; border: 1px solid #e3e9f1; border-radius: 24px; background: #fff; box-shadow: 0 14px 40px rgba(30,55,90,.08); }
-    .tg-guidance-card__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #e8edf4; }
-    .tg-guidance-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .tg-guidance-card__tag { position: absolute; left: 16px; bottom: 16px; padding: 8px 12px; border-radius: 999px; background: #fff; color: var(--primary); font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px rgba(14,33,69,.18); }
-    .tg-guidance-card__body { padding: 22px; }
-    .tg-guidance-card__body h3 { color: var(--dark); font-size: 19px; line-height: 1.35; font-weight: 700; }
-    .tg-guidance-card__body p { color: var(--gray-500); font-size: 16px; line-height: 1.55; }
+    .tg-blog-section { overflow: hidden; scroll-margin-top: 190px; background: #f5f8fc; }
+    .tg-blog-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+    .tg-blog-header__copy { max-width: 760px; }
+    .tg-blog-all { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; flex: 0 0 auto; gap: 10px; padding: 0 20px; border: 1px solid rgba(14,33,69,.14); border-radius: 14px; background: #fff; color: #0e2145; font-size: 14px; font-weight: 700; box-shadow: 0 8px 24px rgba(14,33,69,.06); }
+    .tg-blog-all:hover { border-color: #F3951E; background: #F3951E; color: #fff; transform: translateY(-2px); }
+    .tg-blog-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: repeat(2, 232px); gap: 20px; margin-top: 38px; }
+    .tg-blog-card { position: relative; min-width: 0; overflow: hidden; border-radius: 24px; background: #0e2145; box-shadow: 0 16px 38px rgba(14,33,69,.14); }
+    .tg-blog-card--featured { grid-row: 1 / 3; }
+    .tg-blog-card__link { position: absolute; inset: 0; display: flex; color: #fff; }
+    .tg-blog-card__link:focus-visible { outline: 3px solid #F3951E; outline-offset: -5px; }
+    .tg-blog-card__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .tg-blog-card__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,17,39,.04) 18%, rgba(5,17,39,.96) 100%); }
+    .tg-blog-card__content { position: relative; z-index: 2; display: flex; width: 100%; min-width: 0; padding: 22px; flex-direction: column; justify-content: flex-end; }
+    .tg-blog-card--featured .tg-blog-card__content { padding: 34px; }
+    .tg-blog-card__category { align-self: flex-start; padding: 7px 11px; border-radius: 999px; background: #fff; color: #E31E24; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 8px 18px rgba(5,17,39,.16); }
+    .tg-blog-card__title { max-width: 95%; margin-top: 14px; color: #fff; font-size: 18px; line-height: 1.3; font-weight: 700; text-wrap: balance; }
+    .tg-blog-card--featured .tg-blog-card__title { max-width: 90%; font-size: 29px; line-height: 1.22; }
+    .tg-blog-card__excerpt { display: -webkit-box; max-width: 92%; margin-top: 13px; overflow: hidden; color: rgba(255,255,255,.78); font-size: 14px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+    .tg-blog-card__meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; color: rgba(255,255,255,.72); font-size: 12px; }
+    .tg-blog-card__action { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #E31E24; color: #fff; font-size: 20px; box-shadow: 0 8px 20px rgba(227,30,36,.28); transition: background-color .2s ease, transform .2s ease; }
+    .tg-blog-card:hover .tg-blog-card__image { transform: scale(1.07); }
+    .tg-blog-card:hover .tg-blog-card__action { background: #F3951E; transform: translateX(3px); }
     .tg-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: rgba(227, 30, 36, .1); color: var(--primary); font-size: 24px; font-weight: 700; }
     .tg-step { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; }
     .tg-stat-wrap { display: flex; align-items: center; gap: 16px; }
@@ -85,6 +99,7 @@
     .tg-why-track__heading { color: #fff; }
     .tg-why-track p { color: rgba(255,255,255,.8); font-size: 16px; line-height: 1.75; }
     .tg-why-track p + p { margin-top: 16px; }
+    .tg-mobile-read-more { display: none; }
     .tg-reviews { overflow: hidden; background: #f5f8fc; }
     .tg-google-score { display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px; border: 1px solid #e2e8f0; border-radius: 999px; background: #fff; color: var(--dark); box-shadow: 0 8px 24px rgba(19,42,82,.07); }
     .tg-google-mark { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #4285f4; border: 1px solid #e6eaf0; font-size: 18px; font-weight: 800; }
@@ -115,6 +130,7 @@
     .tg-faq details p { margin-top: 14px; color: var(--gray-500); line-height: 1.7; }
     .tg-contact-card { background: var(--secondary); background-image: url('store/themes/footers/2/footer_background_7gn.png'); border-radius: 32px; padding: 56px; color: #fff; overflow: hidden; }
     .tg-contact-pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 10px 16px; color: #fff; }
+    .tg-mobile-app-bar, .tg-mobile-discovery, .tg-mobile-bottom-nav, .tg-mobile-drawer, .tg-mobile-drawer-backdrop { display: none; }
     @media (max-width: 991px) {
         .tg-section { padding: 64px 0; }
         .tg-title { font-size: 32px; }
@@ -134,6 +150,142 @@
         .tg-review-card { width: 330px; height: 286px; flex-basis: 330px; padding: 20px; }
         .tg-review-row::before, .tg-review-row::after { width: 32px; }
     }
+    @media (max-width: 767px) {
+        html { scroll-padding-top: 86px; }
+        body.home-page { overflow-x: hidden; padding-bottom: calc(90px + env(safe-area-inset-bottom)); background: #edf1f5; }
+        .home-page #appHeaderArea { display: none !important; }
+        .home-page main { padding-top: 78px; }
+        .home-page main > .container { padding-right: 12px; padding-left: 12px; }
+
+        .tg-mobile-app-bar { position: fixed; z-index: 1002; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 10px 16px; border-bottom: 1px solid rgba(14,33,69,.08); background: rgba(255,255,255,.94); box-shadow: 0 8px 24px rgba(14,33,69,.08); backdrop-filter: blur(16px); }
+        .tg-mobile-app-bar__brand { display: flex; align-items: center; height: 48px; min-width: 0; }
+        .tg-mobile-app-bar__brand img { display: block; width: auto !important; height: auto !important; max-width: 210px; max-height: 44px; object-fit: contain; }
+        .tg-mobile-menu-button, .tg-mobile-drawer__close { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 48px; border: 0; border-radius: 50%; background: #f5f7fa; color: #0e2145; }
+        .tg-mobile-menu-button { flex-direction: column; gap: 5px; }
+        .tg-mobile-menu-button span { width: 20px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .24s cubic-bezier(.2,0,0,1), opacity .16s ease; }
+        .tg-mobile-menu-button[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .tg-mobile-menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .tg-mobile-menu-button[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .tg-mobile-discovery { display: flex; align-items: center; gap: 10px; margin: 8px 14px 12px; padding: 8px; border: 1px solid #e3e8ef; border-radius: 22px; background: #fff; box-shadow: 0 10px 28px rgba(14,33,69,.07); }
+        .tg-mobile-discovery__search { display: flex; align-items: center; min-width: 0; min-height: 48px; flex: 1; gap: 11px; padding: 0 14px; border-radius: 16px; background: #f6f8fb; color: #6f7f96; font-size: 14px; }
+        .tg-mobile-discovery__search span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tg-mobile-discovery svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .tg-mobile-discovery__filter { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border-radius: 15px; background: #F3951E; color: #fff; box-shadow: 0 8px 18px rgba(243,149,30,.28); }
+
+        .tg-mobile-drawer-backdrop { position: fixed; z-index: 1003; inset: 0; display: block; visibility: hidden; background: rgba(5,17,39,.48); opacity: 0; transition: opacity .22s ease, visibility 0s linear .22s; }
+        .tg-mobile-drawer { position: fixed; z-index: 1004; top: 0; right: 0; bottom: 0; display: flex; width: min(88vw, 360px); padding: 20px 18px calc(24px + env(safe-area-inset-bottom)); flex-direction: column; background: #fff; box-shadow: -22px 0 60px rgba(5,17,39,.22); transform: translate3d(105%,0,0); transition: transform .3s cubic-bezier(.2,0,0,1); }
+        .tg-mobile-menu-open { overflow: hidden; }
+        .tg-mobile-menu-open .tg-mobile-drawer { transform: translate3d(0,0,0); }
+        .tg-mobile-menu-open .tg-mobile-drawer-backdrop { visibility: visible; opacity: 1; transition-delay: 0s; }
+        .tg-mobile-drawer__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid #e8edf3; }
+        .tg-mobile-drawer__header span, .tg-mobile-drawer__header strong { display: block; }
+        .tg-mobile-drawer__header span { color: #8a98aa; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .tg-mobile-drawer__header strong { margin-top: 3px; color: #0e2145; font-size: 19px; }
+        .tg-mobile-drawer__close { font-size: 28px; font-weight: 300; }
+        .tg-mobile-drawer__nav { display: grid; gap: 7px; margin-top: 14px; overflow-y: auto; }
+        .tg-mobile-drawer__nav a { min-height: 58px; padding: 11px 14px; border-radius: 16px; color: #0e2145; background: #f7f9fc; }
+        .tg-mobile-drawer__nav span, .tg-mobile-drawer__nav small { display: block; }
+        .tg-mobile-drawer__nav span { font-size: 15px; font-weight: 700; }
+        .tg-mobile-drawer__nav small { margin-top: 2px; color: #7c8ca2; font-size: 11px; }
+        .tg-mobile-drawer__cta { display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: auto; border-radius: 16px; background: #E31E24; color: #fff; font-weight: 700; box-shadow: 0 10px 24px rgba(227,30,36,.22); }
+
+        .tg-mobile-bottom-nav { position: fixed; z-index: 1001; left: 10px; right: 10px; bottom: calc(8px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); min-height: 72px; padding: 7px 6px 6px; border: 1px solid rgba(14,33,69,.1); border-radius: 24px; background: rgba(255,255,255,.96); box-shadow: 0 15px 42px rgba(5,17,39,.18); backdrop-filter: blur(18px); }
+        .tg-mobile-bottom-nav a { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 58px; flex-direction: column; gap: 4px; border-radius: 17px; color: #7e8b9d; }
+        .tg-mobile-bottom-nav svg { width: 22px; height: 22px; fill: currentColor; transition: transform .18s cubic-bezier(.2,0,0,1); }
+        .tg-mobile-bottom-nav span { font-size: 10px; font-weight: 700; }
+        .tg-mobile-bottom-nav a::before { content: ''; position: absolute; top: 3px; left: 50%; width: 18px; height: 3px; border-radius: 4px; background: #F3951E; opacity: 0; transform: translateX(-50%) scaleX(.3); transition: opacity .18s ease, transform .22s cubic-bezier(.2,0,0,1); }
+        .tg-mobile-bottom-nav a.is-active { color: #E31E24; background: rgba(227,30,36,.07); }
+        .tg-mobile-bottom-nav a.is-active::before { opacity: 1; transform: translateX(-50%) scaleX(1); }
+        .tg-mobile-bottom-nav a.is-active svg { transform: translateY(-2px); }
+        .tg-mobile-bottom-nav__action { color: #fff !important; background: #E31E24 !important; }
+        .tg-mobile-bottom-nav__action::before { background: #F3951E !important; }
+
+        .home-page .two-columns-hero-section { min-height: auto; height: auto; margin: 0 10px 14px; padding: 18px 0 22px; overflow: hidden; border-radius: 30px; background-color: #fff; background-size: cover; box-shadow: 0 14px 36px rgba(14,33,69,.08); }
+        .home-page .two-columns-hero-section__content { padding-top: 4px; padding-bottom: 10px; }
+        .home-page .two-columns-hero-section__content > div:first-child { max-width: 100%; padding-right: 12px !important; white-space: normal; }
+        .home-page .two-columns-hero-section h1 { font-size: 37px !important; line-height: 1.06; letter-spacing: -.025em; }
+        .home-page .two-columns-hero-section .btn { width: 100%; min-height: 52px; }
+        .home-page .two-columns-hero-section__images-side { min-height: 330px; margin-top: 8px; transform: scale(.92); transform-origin: center top; }
+
+        .home-page .statistics-section { margin: 0; }
+        .home-page .statistics-section__contents { padding: 14px 0 5px; border-radius: 28px; }
+        .home-page .statistics-section__mask { border-radius: 28px; }
+        .home-page .tg-section { margin: 12px 10px; padding: 34px 0; overflow: hidden; border-radius: 28px; background-color: #fff; box-shadow: 0 10px 30px rgba(14,33,69,.055); scroll-margin-top: 82px; }
+        .home-page .tg-section-soft { background: #f7f9fc; }
+        .home-page .tg-title { font-size: 29px; line-height: 1.15; letter-spacing: -.018em; }
+        .home-page .tg-copy { font-size: 15px; line-height: 1.62; }
+        .home-page .tg-eyebrow { font-size: 11px; }
+        .home-page .text-center { text-align: left !important; }
+        .home-page .mx-auto { margin-left: 0 !important; }
+
+        .tg-mobile-slider { display: flex; flex-wrap: nowrap; gap: 0; margin-right: -18px; margin-left: -18px; padding: 0 10px 18px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-padding-inline: 10px; scroll-snap-type: inline mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .tg-mobile-slider::-webkit-scrollbar { display: none; }
+        .tg-mobile-slider > [class*="col-"] { width: 84vw; max-width: 84vw; flex: 0 0 84vw; padding-right: 8px; padding-left: 8px; scroll-snap-align: start; scroll-snap-stop: always; }
+        .statistics-section .tg-mobile-slider { margin: 0; padding: 6px 12px 12px; }
+        .statistics-section .tg-mobile-slider > [class*="col-"] { width: 100%; max-width: 100%; flex-basis: 100%; padding: 0; }
+        .statistics-section .statistic-col { border-right: 0; }
+        .statistics-section .tg-stat-wrap { min-height: 98px; padding: 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: rgba(255,255,255,.07); }
+        .statistics-section .tg-stat-icon { width: 52px; height: 52px; flex-basis: 52px; }
+        .statistics-section .tg-stat-icon svg { width: 23px; height: 23px; }
+        .statistics-section h4 { font-size: 23px !important; }
+        .statistics-section p { font-size: 14px !important; }
+        .tg-mobile-slider > [class*="col-"] > .tg-card,
+        .tg-mobile-slider > [class*="col-"] > .tg-destination,
+        .tg-mobile-slider > [class*="col-"] > .tg-work-country { height: 100%; }
+        .home-page .tg-card { padding: 24px; border-radius: 23px; }
+
+
+        .home-page .tg-work-visa-shell { padding: 22px 18px 18px; border-radius: 26px; }
+        .tg-mobile-slider--work { margin-right: -18px; margin-left: -18px; padding-left: 10px; }
+        .tg-mobile-slider--work .tg-work-visa-intro { min-height: 350px; padding: 24px 12px; }
+        .tg-mobile-slider--work .tg-work-country { min-height: 380px; }
+        .home-page .tg-universities { background: #f3f4ff; }
+        .home-page .tg-university-viewport { overflow: hidden; scroll-snap-type: none; }
+        .home-page .tg-university-viewport::-webkit-scrollbar { display: none; }
+        .home-page .tg-university-track { animation: tg-university-scroll 30s linear infinite; }
+        .home-page .tg-university-viewport:active .tg-university-track { animation-play-state: paused; }
+        .home-page .tg-university-group { padding-left: 18px; }
+        .home-page .tg-university-group[aria-hidden="true"] { display: flex; }
+        .home-page .tg-university-card { scroll-snap-align: none; }
+        .home-page .tg-why-matters { background-color: #0e2145; }
+        .home-page .tg-why-title { font-size: 31px; text-align: left; }
+        .home-page .tg-why-card { min-height: 0; }
+        .home-page .tg-why-track { margin: 20px 0 0 !important; }
+        .home-page .tg-why-expandable__content { position: relative; max-height: 158px; overflow: hidden; }
+        .home-page .tg-why-expandable__content:not(.is-expanded)::after { content: ''; position: absolute; right: 0; bottom: 0; left: 0; height: 52px; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0), #fff 88%); }
+        .home-page .tg-why-track .tg-why-expandable__content:not(.is-expanded)::after { background: linear-gradient(180deg, rgba(35,59,98,0), #233b62 88%); }
+        .home-page .tg-why-expandable__content.is-expanded { max-height: none; }
+        .home-page .tg-mobile-read-more { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 12px; padding: 0 16px; border: 1px solid rgba(227,30,36,.22); border-radius: 999px; background: rgba(227,30,36,.08); color: #E31E24; font-size: 13px; font-weight: 700; }
+        .home-page .tg-why-track .tg-mobile-read-more { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.09); color: #fff; }
+
+        .home-page .tg-blog-header { display: block; }
+        .home-page .tg-blog-all { width: 100%; margin-top: 20px; }
+        .home-page .tg-blog-grid { display: flex; gap: 14px; margin: 26px -18px 0; padding: 0 10px 18px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-padding-inline: 10px; scroll-snap-type: inline mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .home-page .tg-blog-grid::-webkit-scrollbar { display: none; }
+        .home-page .tg-blog-card, .home-page .tg-blog-card--featured { width: 82vw; min-width: 82vw; height: 410px; flex: 0 0 82vw; scroll-snap-align: start; scroll-snap-stop: always; }
+        .home-page .tg-blog-card__content, .home-page .tg-blog-card--featured .tg-blog-card__content { padding: 24px; }
+        .home-page .tg-blog-card__title, .home-page .tg-blog-card--featured .tg-blog-card__title { max-width: 100%; font-size: 22px; line-height: 1.25; }
+        .home-page .tg-blog-card__excerpt { max-width: 100%; -webkit-line-clamp: 3; }
+
+        .home-page .tg-review-track { animation: none; }
+        .home-page .tg-review-group[aria-hidden="true"] { display: none; }
+        .home-page .tg-review-row { padding: 8px 14px 16px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-padding-left: 14px; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .home-page .tg-review-row::-webkit-scrollbar { display: none; }
+        .home-page .tg-review-row::before, .home-page .tg-review-row::after { display: none; }
+        .home-page .tg-review-card { width: 84vw; height: 300px; flex-basis: 84vw; scroll-snap-align: start; }
+        .home-page .tg-faq details { padding: 18px; }
+        .home-page .tg-faq summary { font-size: 15px; line-height: 1.4; }
+        .home-page .tg-contact-card { padding: 30px 22px; border-radius: 25px; }
+        .home-page .tg-contact-card h2 { font-size: 31px !important; line-height: 1.12; }
+        .home-page .tg-contact-card .btn { width: 100%; min-height: 52px; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 { padding-top: 4px; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img { width: 230px !important; max-width: 62vw !important; margin-bottom: 16px !important; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center { gap: 6px !important; max-width: 100%; padding: 8px 12px !important; border-width: 1px !important; font-size: 12px; line-height: 1.35; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center .size-24 { width: 18px !important; min-width: 18px !important; height: 18px !important; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3 { margin-top: 12px !important; font-size: 28px !important; line-height: 1.2 !important; }
+        .home-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .btn { margin-top: 20px !important; }
+    }
     @media (prefers-reduced-motion: reduce) {
         .tg-university-viewport { overflow-x: auto; }
         .tg-university-track { animation: none; }
@@ -141,10 +293,66 @@
         .tg-review-row { overflow-x: auto; }
         .tg-review-track { animation: none; }
         .tg-review-group[aria-hidden="true"] { display: none; }
+        .tg-blog-card__image, .tg-blog-card__action, .tg-blog-all, .tg-mobile-menu-button span, .tg-mobile-drawer, .tg-mobile-drawer-backdrop, .tg-mobile-bottom-nav svg, .tg-mobile-bottom-nav a::before { transition: none; }
     }
 </style>
 
-<main>
+<main id="home">
+    <header class="tg-mobile-app-bar" aria-label="Mobile application header">
+        <a href="#home" class="tg-mobile-app-bar__brand" aria-label="Trans Globe Indore home">
+            <img src="assets/transglobe/trans-globe-logo.png" alt="Trans Globe Indore managed by GEIC">
+        </a>
+        <button type="button" class="tg-mobile-menu-button" aria-label="Open navigation menu" aria-controls="tgMobileDrawer" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="tg-mobile-drawer-backdrop" data-mobile-menu-close aria-hidden="true"></div>
+    <aside id="tgMobileDrawer" class="tg-mobile-drawer" aria-label="Mobile menu" aria-hidden="true">
+        <div class="tg-mobile-drawer__header">
+            <div><span>Explore</span><strong>Trans Globe Indore</strong></div>
+            <button type="button" class="tg-mobile-drawer__close" data-mobile-menu-close aria-label="Close navigation menu">×</button>
+        </div>
+        <nav class="tg-mobile-drawer__nav">
+            <a href="destinations"><span>Study destinations</span><small>Compare countries</small></a>
+            <a href="#work-visas"><span>Work visa pathways</span><small>Explore skilled routes</small></a>
+            <a href="#universities"><span>Partner universities</span><small>800+ global institutions</small></a>
+            <a href="#scholarships"><span>Scholarships</span><small>Funding guidance</small></a>
+            <a href="#test-prep"><span>Test preparation</span><small>IELTS, PTE and more</small></a>
+            <a href="#why-trans-globe"><span>Why choose us</span><small>Experience and results</small></a>
+            <a href="#faq"><span>FAQs</span><small>Common questions answered</small></a>
+        </nav>
+        <a href="#contact" class="tg-mobile-drawer__cta">Book free counselling</a>
+    </aside>
+
+    <section class="tg-mobile-discovery" aria-label="Quick actions">
+        <a href="destinations" class="tg-mobile-discovery__search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+            <span>Search countries and study options</span>
+        </a>
+        <a href="#contact" class="tg-mobile-discovery__filter" aria-label="Open free counselling section">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>
+        </a>
+    </section>
+
+    <nav class="tg-mobile-bottom-nav" aria-label="Primary mobile navigation">
+        <a href="#home" class="is-active" data-mobile-nav="home" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3V10.5Z"/></svg><span>Home</span>
+        </a>
+        <a href="#destinations" data-mobile-nav="destinations">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 1 0-14 0c0 6.8 7 13 7 13Zm0-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg><span>Explore</span>
+        </a>
+        <a href="#services" data-mobile-nav="services">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/></svg><span>Services</span>
+        </a>
+        <a href="#reviews" data-mobile-nav="reviews">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8l5.8.8-4.2 4.1 1 5.8-5.4-2.8-5.4 2.8 1-5.8-4.2-4.1L9.2 8 12 2.8Z"/></svg><span>Reviews</span>
+        </a>
+        <a href="#contact" class="tg-mobile-bottom-nav__action" data-mobile-nav="contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z"/></svg><span>Consult</span>
+        </a>
+    </nav>
+
     <div class="two-columns-hero-section" style="background-image: url(store/landing_builder/landing_1/1/hero_background_xfq.svg)">
         <div class="container h-100">
             <div class="row h-100 flex-column flex-lg-row">
@@ -203,7 +411,7 @@
         <div class="statistics-section">
             <div class="statistics-section__mask"></div>
             <div class="statistics-section__contents position-relative z-index-2" style="background-color: var(--secondary); background-image: url(store/landing_builder/landing_13/372/statistics_bg_T0k.png)">
-                <div class="row">
+                <div class="row tg-mobile-slider" data-slider-name="Highlights">
                     <div class="statistic-col col-6 col-lg-3">
                         <div class="tg-stat-wrap">
                             <span class="tg-stat-icon" style="background:#E31E24"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-6 9.18V16c0 2.21 2.69 4 6 4s6-1.79 6-4v-3.82l-6 3.27-6-3.27Z"/></svg></span>
@@ -233,14 +441,14 @@
         </div>
     </div>
 
-    <section class="tg-section">
+    <section id="how-it-works" class="tg-section">
         <div class="container">
             <div class="text-center mx-auto" style="max-width: 760px">
                 <div class="tg-eyebrow">How it works</div>
                 <h2 class="tg-title mt-12">Four Simple Steps to Study Abroad</h2>
                 <p class="tg-copy mt-16">From your first conversation to the day you board your flight, Trans Globe Indore makes the process clear, personal and manageable.</p>
             </div>
-            <div class="row mt-32">
+            <div class="row mt-32 tg-mobile-slider" data-slider-name="Your journey">
                 <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">01</span><h3 class="font-20 text-dark mt-20">Tell Us About Yourself</h3><p class="tg-copy mt-12">Share your academic background, interests, preferred countries and career goals. This first conversation helps us understand where you want to go.</p></div></div>
                 <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">02</span><h3 class="font-20 text-dark mt-20">Meet a Specialist</h3><p class="tg-copy mt-12">Work with a country-and-course specialist to shortlist universities, explore scholarships and build a plan that suits your profile and budget.</p></div></div>
                 <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">03</span><h3 class="font-20 text-dark mt-20">Apply With Confidence</h3><p class="tg-copy mt-12">We help with your SOP, recommendations, transcripts, documents and application forms so every submission is complete and compelling.</p></div></div>
@@ -260,7 +468,7 @@
                 <div class="col-12 col-lg-5 mt-20 mt-lg-0 text-lg-right"><a href="#contact" class="btn btn-primary btn-lg text-white">Discuss Your Study Plan</a></div>
             </div>
 
-            <div class="row mt-24">
+            <div class="row mt-24 tg-mobile-slider" data-slider-name="Services">
                 <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">01</span><h3 class="font-20 text-dark mt-20">Expert Counselling</h3><p class="tg-copy mt-12">Find the country, university and course that genuinely fit your goals—without being pushed toward a particular institution.</p></div></div>
                 <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">02</span><h3 class="font-20 text-dark mt-20">University Admissions</h3><p class="tg-copy mt-12">Build a strong, error-free application with the right SOP, recommendation letters, documents and submission timeline.</p></div></div>
                 <div id="scholarships" class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">03</span><h3 class="font-20 text-dark mt-20">Scholarship Guidance</h3><p class="tg-copy mt-12">Discover scholarships and bursaries you may not know you qualify for. More than 2,000 Trans Globe students receive awards each year.</p></div></div>
@@ -278,23 +486,23 @@
                 <h2 class="tg-title mt-12">Explore the World’s Best Study Destinations</h2>
                 <p class="tg-copy mt-16">From research-led universities to affordable public education and strong post-study pathways, discover the destination that best fits your future.</p>
             </div>
-            <div class="row mt-24">
+            <div class="row mt-24 tg-mobile-slider" data-slider-name="Destinations">
                 @foreach ([
-                    ['Australia', 'Research-led education, practical learning and the prestigious Group of Eight universities.', 'australia.jpg', 'au.png'],
-                    ['New Zealand', 'Government-regulated education in a peaceful, welcoming environment.', 'new-zealand.jpg', 'nz.png'],
-                    ['United Kingdom', 'Prestigious institutions with rigorous academic quality standards.', 'uk.jpg', 'gb.png'],
-                    ['Ireland', 'English-medium education in one of Europe’s fastest-growing technology hubs.', 'ireland.jpg', 'ie.png'],
-                    ['Germany', 'World-class engineering and innovation with low-cost public education options.', 'germany.webp', 'de.png'],
-                    ['Europe', 'Diverse cultures, affordable tuition and outstanding international exposure.', 'europe-card.jpg', 'eu.png'],
-                    ['United States', 'More than 4,000 accredited colleges and universities with diverse programs.', 'usa.jpg', 'us.png'],
-                    ['Canada', 'High-quality education with attractive post-study work pathways.', 'canada.jpg', 'ca.png'],
-                    ['Singapore', 'Asia’s education and business hub with globally ranked universities.', 'singapore.jpg', 'sg.png'],
-                    ['Dubai & UAE', 'Globally recognised degrees in a fast-growing, cosmopolitan hub.', 'dubai-card.jpg', 'ae.png'],
-                    ['Malaysia', 'Affordable study with international branch campuses and a multicultural lifestyle.', 'malaysia.webp', 'my.png'],
-                    ['Switzerland', 'World-class education, research, innovation and exceptional quality of life.', 'switzerland.webp', 'ch.png'],
-                ] as [$country, $description, $image, $flag])
+                    ['Australia', 'Research-led education, practical learning and the prestigious Group of Eight universities.', 'australia.jpg', 'au.png', 'australia'],
+                    ['New Zealand', 'Government-regulated education in a peaceful, welcoming environment.', 'new-zealand.jpg', 'nz.png', 'new-zealand'],
+                    ['United Kingdom', 'Prestigious institutions with rigorous academic quality standards.', 'uk.jpg', 'gb.png', 'uk'],
+                    ['Ireland', 'English-medium education in one of Europe’s fastest-growing technology hubs.', 'ireland.jpg', 'ie.png', 'ireland'],
+                    ['Germany', 'World-class engineering and innovation with low-cost public education options.', 'germany.webp', 'de.png', 'germany'],
+                    ['Europe', 'Diverse cultures, affordable tuition and outstanding international exposure.', 'europe-card.jpg', 'eu.png', 'europe'],
+                    ['United States', 'More than 4,000 accredited colleges and universities with diverse programs.', 'usa.jpg', 'us.png', 'usa'],
+                    ['Canada', 'High-quality education with attractive post-study work pathways.', 'canada.jpg', 'ca.png', 'canada'],
+                    ['Singapore', 'Asia’s education and business hub with globally ranked universities.', 'singapore.jpg', 'sg.png', 'singapore'],
+                    ['Dubai & UAE', 'Globally recognised degrees in a fast-growing, cosmopolitan hub.', 'dubai-card.jpg', 'ae.png', 'dubai'],
+                    ['Malaysia', 'Affordable study with international branch campuses and a multicultural lifestyle.', 'malaysia.webp', 'my.png', 'malaysia'],
+                    ['Switzerland', 'World-class education, research, innovation and exceptional quality of life.', 'switzerland.webp', 'ch.png', 'switzerland'],
+                ] as [$country, $description, $image, $flag, $slug])
                     <div class="col-12 col-md-6 col-lg-4 mt-20">
-                        <div class="tg-destination">
+                        <a href="{{ url('/destinations/'.$slug) }}" class="tg-destination d-block" aria-label="Explore studying in {{ $country }}">
                             <img src="assets/transglobe/destinations/{{ $image }}" alt="{{ $country }} study destination" class="tg-destination__image" loading="lazy">
                             <div class="tg-destination__overlay"></div>
                             <img src="assets/transglobe/destinations/flags/{{ $flag }}" alt="{{ $country }} flag" class="tg-destination__flag" loading="lazy">
@@ -303,7 +511,7 @@
                                 <p class="font-14 mt-10">{{ $description }}</p>
                                 <span class="font-14 text-warning mt-12">Explore opportunities →</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -313,7 +521,7 @@
     <section id="work-visas" class="tg-section tg-section-soft">
         <div class="container">
             <div class="tg-work-visa-shell">
-                <div class="row align-items-stretch position-relative z-index-2">
+                <div class="row align-items-stretch position-relative z-index-2 tg-mobile-slider tg-mobile-slider--work" data-slider-name="Work pathways">
                     <div class="col-12 col-lg-3">
                         <div class="tg-work-visa-intro">
                             <span class="tg-contact-pill mb-20">Work visa pathways</span>
@@ -405,96 +613,136 @@
                 </h2>
             </header>
 
-            <div class="row mt-24">
+            <div class="row mt-24 tg-mobile-slider" data-slider-name="Why Trans Globe">
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
                         <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>The Scale of the Opportunity</h3>
-                        <p class="mt-20">Every year, over 1.3 million Indian students study abroad—to build genuinely global careers, access research facilities that don't exist in India, and earn degrees that open doors everywhere. The opportunity has never been greater. But navigating it without guidance has never been more complex.</p>
-                        <p>Visa policies change. Deadlines shift. Scholarship requirements update every year. What worked three years ago may not work today. This is why working with experienced overseas education consultants isn't just convenient—it's genuinely important.</p>
+                        <div id="why-scale-copy" class="tg-why-expandable__content">
+                            <p class="mt-20">Every year, over 1.3 million Indian students study abroad—to build genuinely global careers, access research facilities that don't exist in India, and earn degrees that open doors everywhere. The opportunity has never been greater. But navigating it without guidance has never been more complex.</p>
+                            <p>Visa policies change. Deadlines shift. Scholarship requirements update every year. What worked three years ago may not work today. This is why working with experienced overseas education consultants isn't just convenient—it's genuinely important.</p>
+                        </div>
+                        <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-scale-copy">View more</button>
                     </article>
                 </div>
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
                         <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>What Makes a Good Consultant</h3>
-                        <p class="mt-20">Not all study-abroad consultants are the same. Some work with only a handful of universities and steer students regardless of fit. Some don't update their knowledge of visa policies. Some charge for services reputable consultancies include for free.</p>
-                        <p>At Trans Globe, we've been doing this since 1992. Our counsellors are specialists, not generalists—each focuses on specific countries and knows those visa processes in detail. We're affiliated with 800+ universities, so we recommend what's right for you, not what's easiest for us.</p>
+                        <div id="why-consultant-copy" class="tg-why-expandable__content">
+                            <p class="mt-20">Not all study-abroad consultants are the same. Some work with only a handful of universities and steer students regardless of fit. Some don't update their knowledge of visa policies. Some charge for services reputable consultancies include for free.</p>
+                            <p>At Trans Globe, we've been doing this since 1992. Our counsellors are specialists, not generalists—each focuses on specific countries and knows those visa processes in detail. We're affiliated with 800+ universities, so we recommend what's right for you, not what's easiest for us.</p>
+                        </div>
+                        <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-consultant-copy">View more</button>
                     </article>
                 </div>
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
                         <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>Covering All of India</h3>
-                        <p class="mt-20">Trans Globe has 16 offices across India—Rajkot, Ahmedabad, Surat, Anand, Gandhinagar, Vadodara, Jaipur, Delhi, Chandigarh, Pune, Indore, Jamnagar, Morbi and Kochi—plus an international office in Kathmandu, Nepal. We also offer online counselling.</p>
-                        <p>Our reach means we understand students from different backgrounds, cities and academic systems. A student from a small town in Gujarat and one from a metro in Maharashtra have different needs—our counsellors understand both.</p>
+                        <div id="why-india-copy" class="tg-why-expandable__content">
+                            <p class="mt-20">Trans Globe has 16 offices across India—Rajkot, Ahmedabad, Surat, Anand, Gandhinagar, Vadodara, Jaipur, Delhi, Chandigarh, Pune, Indore, Jamnagar, Morbi and Kochi—plus an international office in Kathmandu, Nepal. We also offer online counselling.</p>
+                            <p>Our reach means we understand students from different backgrounds, cities and academic systems. A student from a small town in Gujarat and one from a metro in Maharashtra have different needs—our counsellors understand both.</p>
+                        </div>
+                        <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-india-copy">View more</button>
                     </article>
                 </div>
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
                         <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>The Countries We Specialise In</h3>
-                        <p class="mt-20">We help students study in Australia, Canada, the USA, the UK, Germany, New Zealand, Ireland, Singapore, Dubai &amp; the UAE, and across Europe. Each destination has its own visa requirements and post-study work opportunities, and our specialists track all of it continuously.</p>
-                        <p>Germany is popular for its low public-university fees and strong engineering programs. Canada is sought after for its Post-Graduation Work Permit. Australia's Group of Eight universities rank among the world's best with clear pathways for skilled graduates.</p>
+                        <div id="why-countries-copy" class="tg-why-expandable__content">
+                            <p class="mt-20">We help students study in Australia, Canada, the USA, the UK, Germany, New Zealand, Ireland, Singapore, Dubai &amp; the UAE, and across Europe. Each destination has its own visa requirements and post-study work opportunities, and our specialists track all of it continuously.</p>
+                            <p>Germany is popular for its low public-university fees and strong engineering programs. Canada is sought after for its Post-Graduation Work Permit. Australia's Group of Eight universities rank among the world's best with clear pathways for skilled graduates.</p>
+                        </div>
+                        <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-countries-copy">View more</button>
                     </article>
                 </div>
             </div>
 
             <article class="tg-why-track mt-24">
                 <h3 class="tg-why-track__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>Our Track Record</h3>
-                <p class="mt-20">Since 1992, Trans Globe has placed more than 70,250 students at universities in over 10 countries. Our 98.7% visa success rate is built on three decades of understanding what visa officers look for. Our scholarship success—80% of our students receive some form of scholarship or bursary—comes from knowing which universities offer merit-based aid to Indian students.</p>
-                <p>We're proud of these numbers. But we're prouder of the messages from students now working at top companies in London, Sydney, Toronto and Dubai, who tell us studying abroad was the best decision they ever made.</p>
+                <div id="why-track-copy" class="tg-why-expandable__content">
+                    <p class="mt-20">Since 1992, Trans Globe has placed more than 70,250 students at universities in over 10 countries. Our 98.7% visa success rate is built on three decades of understanding what visa officers look for. Our scholarship success—80% of our students receive some form of scholarship or bursary—comes from knowing which universities offer merit-based aid to Indian students.</p>
+                    <p>We're proud of these numbers. But we're prouder of the messages from students now working at top companies in London, Sydney, Toronto and Dubai, who tell us studying abroad was the best decision they ever made.</p>
+                </div>
+                <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-track-copy">View more</button>
             </article>
         </div>
     </section>
 
-    <section id="guidance" class="tg-section tg-guidance-section">
+    <section id="blogs" class="tg-section tg-blog-section" aria-labelledby="blog-section-title">
+        @php
+            $recentBlogs = [
+                [
+                    'title' => 'Is It Still Safe to Study Abroad in 2026?',
+                    'category' => 'Student Guidance',
+                    'excerpt' => 'A calm, factual guide for Indian students and parents navigating travel concerns, visa scrutiny and changing global conditions.',
+                    'image' => 'assets/transglobe/destinations/australia/campus-students.jpg',
+                    'url' => 'https://transglobeedu.com/blog/is-it-safe-to-study-abroad-2026-indian-students',
+                ],
+                [
+                    'title' => 'What University Admissions Officers Look For',
+                    'category' => 'Admissions',
+                    'excerpt' => 'Understand what matters beyond grades, from a strong SOP to a well-rounded global profile.',
+                    'image' => 'assets/transglobe/destinations/europe-card.jpg',
+                    'url' => 'https://transglobeedu.com/blog/university-admissions-guide-for-international-students-2025',
+                ],
+                [
+                    'title' => 'Common Study Visa Mistakes and How to Avoid Them',
+                    'category' => 'Student Visa',
+                    'excerpt' => 'Learn how weak SOPs, inconsistent finances and incomplete documents can affect a visa application.',
+                    'image' => 'store/1/default_images/blogs/blog2.jpg',
+                    'url' => 'https://transglobeedu.com/blog/student-visa-mistakes-2025',
+                ],
+                [
+                    'title' => 'USA vs UK vs Canada: Which Visa Process Is Easiest?',
+                    'category' => 'Visa Comparison',
+                    'excerpt' => 'Compare student visa requirements, timelines and practical considerations for three popular destinations.',
+                    'image' => 'store/1/default_images/blogs/blog4.jpg',
+                    'url' => 'https://transglobeedu.com/blog/student-visa-2025-usa-vs-uk-vs-canada',
+                ],
+                [
+                    'title' => 'Choose the Best Study Destination for Your Career Goals',
+                    'category' => 'Career Planning',
+                    'excerpt' => 'Match your country choice with your budget, career direction and post-study opportunities.',
+                    'image' => 'assets/transglobe/destinations/dubai-card.jpg',
+                    'url' => 'https://transglobeedu.com/blog/best-study-abroad-destination-career-goals',
+                ],
+            ];
+        @endphp
+
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <div class="tg-eyebrow">Stay informed</div>
-                    <h2 class="tg-title mt-12">Study-Abroad Guidance in Plain Language</h2>
-                    <p class="tg-copy mt-16">Follow Trans Globe Indore for visa updates, scholarship alerts, student stories and honest advice that helps families make better decisions.</p>
+            <header class="tg-blog-header">
+                <div class="tg-blog-header__copy">
+                    <div class="tg-eyebrow">From the blog</div>
+                    <h2 id="blog-section-title" class="tg-title mt-12">Fresh Study-Abroad Insights, Without the Jargon</h2>
+                    <p class="tg-copy mt-16">Recent guidance from Trans Globe on university admissions, student visas and choosing the right destination for your future.</p>
                 </div>
-                <div class="col-12 col-lg-7 mt-24 mt-lg-0">
-                    <div class="row">
-                        <div class="col-12 col-md-4 mt-16">
-                            <article class="tg-guidance-card">
-                                <div class="tg-guidance-card__media">
-                                    <img src="store/1/default_images/blogs/blog2.jpg" alt="Student reviewing visa documents" width="1368" height="978" loading="lazy" decoding="async">
-                                    <span class="tg-guidance-card__tag">Visa</span>
-                                </div>
-                                <div class="tg-guidance-card__body">
-                                    <h3>Visa Updates</h3>
-                                    <p class="mt-8">Understand current policies, documents and timelines.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-12 col-md-4 mt-16">
-                            <article class="tg-guidance-card">
-                                <div class="tg-guidance-card__media">
-                                    <img src="store/1/default_images/blogs/blog3.jpg" alt="Student researching scholarship opportunities online" width="1368" height="978" loading="lazy" decoding="async">
-                                    <span class="tg-guidance-card__tag">Scholarships</span>
-                                </div>
-                                <div class="tg-guidance-card__body">
-                                    <h3>Scholarship Alerts</h3>
-                                    <p class="mt-8">Find funding opportunities matched to your profile.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-12 col-md-4 mt-16">
-                            <article class="tg-guidance-card">
-                                <div class="tg-guidance-card__media">
-                                    <img src="assets/transglobe/destinations/australia.jpg" alt="Sydney, Australia study destination" width="1920" height="1440" loading="lazy" decoding="async">
-                                    <span class="tg-guidance-card__tag">Destinations</span>
-                                </div>
-                                <div class="tg-guidance-card__body">
-                                    <h3>Country Guides</h3>
-                                    <p class="mt-8">Compare study, work and lifestyle opportunities.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://transglobeedu.com/blogs" target="_blank" rel="noopener noreferrer" class="tg-blog-all">
+                    Explore all articles <span aria-hidden="true">→</span>
+                </a>
+            </header>
+
+            <div class="tg-blog-grid" aria-label="Recent Trans Globe articles">
+                @foreach ($recentBlogs as $index => $blog)
+                    <article class="tg-blog-card blog-section__post-card {{ $index === 0 ? 'tg-blog-card--featured' : '' }}">
+                        <a href="{{ $blog['url'] }}" target="_blank" rel="noopener noreferrer" class="tg-blog-card__link" aria-label="Read {{ $blog['title'] }} on Trans Globe">
+                            <img src="{{ $blog['image'] }}" alt="{{ $blog['title'] }}" class="tg-blog-card__image blog-section__post-card-img" width="1200" height="800" loading="lazy" decoding="async">
+                            <span class="tg-blog-card__overlay" aria-hidden="true"></span>
+                            <span class="tg-blog-card__content">
+                                <span class="tg-blog-card__category">{{ $blog['category'] }}</span>
+                                <span class="tg-blog-card__title">{{ $blog['title'] }}</span>
+                                @if ($index === 0)
+                                    <span class="tg-blog-card__excerpt">{{ $blog['excerpt'] }}</span>
+                                @endif
+                                <span class="tg-blog-card__meta">
+                                    <span>By Trans Globe</span>
+                                    <span class="tg-blog-card__action" aria-hidden="true">→</span>
+                                </span>
+                            </span>
+                        </a>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
@@ -601,5 +849,86 @@
         </div>
     </section>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileQuery = window.matchMedia('(max-width: 767px)');
+        if (!mobileQuery.matches) return;
+
+        const body = document.body;
+        const menuButton = document.querySelector('.tg-mobile-menu-button');
+        const drawer = document.getElementById('tgMobileDrawer');
+        const menuClosers = document.querySelectorAll('[data-mobile-menu-close], .tg-mobile-drawer a');
+        let lastFocused = null;
+
+        function openMenu() {
+            lastFocused = document.activeElement;
+            body.classList.add('tg-mobile-menu-open');
+            menuButton.setAttribute('aria-expanded', 'true');
+            drawer.setAttribute('aria-hidden', 'false');
+            window.setTimeout(function () { drawer.querySelector('a')?.focus(); }, 180);
+        }
+
+        function closeMenu() {
+            body.classList.remove('tg-mobile-menu-open');
+            menuButton.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            lastFocused?.focus();
+        }
+
+        menuButton.addEventListener('click', function () {
+            if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
+            else openMenu();
+        });
+        menuClosers.forEach(function (item) { item.addEventListener('click', closeMenu); });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && body.classList.contains('tg-mobile-menu-open')) closeMenu();
+        });
+
+        document.querySelectorAll('.tg-mobile-read-more').forEach(function (button) {
+            const content = document.getElementById(button.getAttribute('aria-controls'));
+            if (!content) return;
+            button.addEventListener('click', function () {
+                const expanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', String(!expanded));
+                button.textContent = expanded ? 'View more' : 'View less';
+                content.classList.toggle('is-expanded', !expanded);
+            });
+        });
+
+        const bottomLinks = Array.from(document.querySelectorAll('.tg-mobile-bottom-nav a[data-mobile-nav]'));
+        const trackedSections = [
+            ['home', document.querySelector('.two-columns-hero-section')],
+            ['services', document.getElementById('services')],
+            ['destinations', document.getElementById('destinations')],
+            ['reviews', document.getElementById('reviews')],
+            ['contact', document.getElementById('contact')]
+        ].filter(function (entry) { return entry[1]; });
+        let navTicking = false;
+
+        function updateBottomNavigation() {
+            const marker = window.scrollY + (window.innerHeight * .35);
+            let current = 'home';
+            trackedSections.forEach(function (entry) {
+                if (marker >= entry[1].offsetTop) current = entry[0];
+            });
+            bottomLinks.forEach(function (link) {
+                const active = link.dataset.mobileNav === current;
+                link.classList.toggle('is-active', active);
+                if (active) link.setAttribute('aria-current', 'page');
+                else link.removeAttribute('aria-current');
+            });
+            navTicking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!navTicking) {
+                window.requestAnimationFrame(updateBottomNavigation);
+                navTicking = true;
+            }
+        }, { passive: true });
+        updateBottomNavigation();
+    });
+</script>
 
 @include('mirror.partials.footer')
