@@ -26,6 +26,7 @@ rm -rf -- "$next_webroot"
 mkdir "$next_webroot"
 
 tar -cf - -C "$current_public" . | tar -xf - -C "$next_webroot"
+printf '%s' "$(basename "$release_root")" > "$next_webroot/release.txt"
 
 cat > "$next_webroot/index.php" <<'PHP'
 <?php
