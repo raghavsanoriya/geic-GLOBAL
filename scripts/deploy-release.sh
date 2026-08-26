@@ -8,7 +8,7 @@ release_name="$(git rev-parse HEAD)"
 
 case "$branch_name" in
     develop)
-        deploy_root="/home2/geicic3c/public_html/staging"
+        deploy_root="/home2/geicic3c/staging"
         ;;
     main)
         deploy_root="/home2/geicic3c/apps/geic-production"
@@ -19,7 +19,7 @@ case "$branch_name" in
         ;;
 esac
 
-if [[ "$deploy_root" != "/home2/geicic3c/public_html/staging" && "$deploy_root" != "/home2/geicic3c/apps/geic-production" ]]; then
+if [[ "$deploy_root" != "/home2/geicic3c/staging" && "$deploy_root" != "/home2/geicic3c/apps/geic-production" ]]; then
     echo "Refusing unsafe deployment root: $deploy_root" >&2
     exit 64
 fi
