@@ -172,6 +172,11 @@ if [[ "$health_ok" != true ]]; then
         rm -f -- "$next_link"
         ln -s "$previous_target" "$next_link"
         mv -Tf "$next_link" "$current_link"
+
+        if [[ "$branch_name" == "develop" ]]; then
+            "$previous_target/scripts/install-staging-bridge.sh"
+        fi
+
         echo "Restored previous release: $previous_target" >&2
     else
         echo "No previous release was available for rollback." >&2
