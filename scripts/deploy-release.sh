@@ -139,7 +139,9 @@ rm -f -- "$next_link"
 ln -s "$release_dir" "$next_link"
 mv -Tf "$next_link" "$current_link"
 
-if [[ "$branch_name" == "main" && ! -L "/home2/geicic3c/public_html/_geic_release" ]]; then
+if [[ "$branch_name" == "develop" ]]; then
+    "$release_dir/scripts/install-staging-bridge.sh"
+elif [[ "$branch_name" == "main" && ! -L "/home2/geicic3c/public_html/_geic_release" ]]; then
     "$release_dir/scripts/install-production-bridge.sh"
 fi
 

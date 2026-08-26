@@ -48,6 +48,8 @@ The deploy script creates this layout for each environment:
 
 Staging deploys under `/home2/geicic3c/staging`, the configured `staging.geic.in` document root. Production deploys under `/home2/geicic3c/apps/geic-production`. Five releases are retained.
 
+The staging subdomain document root is `/home2/geicic3c/staging`. A stable `_geic_release` bridge routes requests to `current/public`, allowing atomic release switches without pointing Apache directly through the rotating `current` symlink.
+
 Before the first production cutover, run `scripts/install-production-bridge.sh` from the production repository. It creates a timestamped backup and connects `public_html` to the active release. Do not run it until a production release exists and passes its local Laravel setup.
 
 ## Environment requirements
