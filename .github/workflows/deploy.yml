@@ -1,0 +1,148 @@
+name: Deploy
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Deployment environment
+        required: true
+        type: choice
+        default: staging
+        options:
+          - staging
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.event_name == 'push' && 'staging' || inputs.target }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify release
+    if: >-
+      github.event_name == 'push' ||
+      (inputs.target == 'staging' && github.ref_name == 'develop') ||
+      (inputs.target == 'production' && github.ref_name == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+          tools: composer:v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install PHP dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
+
+      - name: Prepare test environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          touch database/database.sqlite
+
+      - name: Run verification suite
+        run: |
+          php artisan migrate --force
+          vendor/bin/pint --test
+          php artisan test --compact
+
+  deploy:
+    name: Deploy ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+      url: ${{ vars.APP_URL }}
+
+    steps:
+      - name: Update cPanel repository from GitHub
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          CPANEL_REPOSITORY_ROOT: ${{ vars.CPANEL_REPOSITORY_ROOT }}
+        run: |
+          response=$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+            --get \
+            --data-urlencode "repository_root=$CPANEL_REPOSITORY_ROOT" \
+            --data-urlencode "branch=$GITHUB_REF_NAME" \
+            --data-urlencode 'source_repository={"remote_name":"origin"}' \
+            "https://$CPANEL_HOST:2083/execute/VersionControl/update")
+
+          status=$(jq -r '.result.status // .status // 0' <<< "$response")
+          remote_sha=$(jq -r '.result.data.last_update.identifier // .data.last_update.identifier // empty' <<< "$response")
+
+          if [[ "$status" != "1" ]]; then
+            jq . <<< "$response"
+            exit 1
+          fi
+
+          if [[ "$remote_sha" != "$GITHUB_SHA" ]]; then
+            echo "cPanel checked out $remote_sha instead of $GITHUB_SHA" >&2
+            exit 1
+          fi
+
+      - name: Ask cPanel to deploy the verified commit
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          CPANEL_REPOSITORY_ROOT: ${{ vars.CPANEL_REPOSITORY_ROOT }}
+        run: |
+          response=$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+            --get \
+            --data-urlencode "repository_root=$CPANEL_REPOSITORY_ROOT" \
+            "https://$CPANEL_HOST:2083/execute/VersionControlDeployment/create")
+
+          status=$(jq -r '.result.status // .status // 0' <<< "$response")
+
+          if [[ "$status" != "1" ]]; then
+            jq . <<< "$response"
+            exit 1
+          fi
+
+      - name: Verify deployed website
+        env:
+          APP_URL: ${{ vars.APP_URL }}
+        run: |
+          for attempt in {1..24}; do
+            deployed_sha=$(curl --fail --silent --show-error "$APP_URL/release.txt" || true)
+
+            if [[ "$deployed_sha" == "$GITHUB_SHA" ]]; then
+              curl --fail --silent --show-error "$APP_URL/up"
+              exit 0
+            fi
+
+            echo "Waiting for cPanel deployment ($attempt/24)..."
+            sleep 5
+          done
+
+          echo "The deployed release did not report commit $GITHUB_SHA." >&2
+          exit 1
