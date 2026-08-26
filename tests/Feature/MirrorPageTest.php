@@ -48,4 +48,11 @@ class MirrorPageTest extends TestCase
             $this->get('/destinations/'.$destination)->assertOk();
         }
     }
+
+    public function test_primary_public_pages_are_available(): void
+    {
+        foreach (['/', '/destinations', '/destinations/australia', '/services', '/scholarships', '/tests', '/contact'] as $page) {
+            $this->get($page)->assertOk();
+        }
+    }
 }
