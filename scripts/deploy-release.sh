@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 repository_root="$(git rev-parse --show-toplevel)"
-branch_name="$(git branch --show-current)"
+branch_name="$(git rev-parse --abbrev-ref HEAD)"
 release_name="$(git rev-parse HEAD)"
 
 case "$branch_name" in
