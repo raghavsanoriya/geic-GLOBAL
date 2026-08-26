@@ -18,7 +18,7 @@
     .ct-button--light:hover { background:#fff; color:var(--ct-red)!important; }
 
     .ct-hero { padding:128px 0 0; background:var(--ct-soft); }
-    .ct-hero__shell { position:relative; overflow:hidden; min-height:438px; padding:64px; border-radius:34px; background:var(--ct-navy); box-shadow:0 26px 65px rgba(14,33,69,.19); }
+    .ct-hero__shell { position:relative; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr); align-items:center; gap:46px; overflow:hidden; min-height:438px; padding:64px; border-radius:34px; background:var(--ct-navy); box-shadow:0 26px 65px rgba(14,33,69,.19); }
     .ct-hero__shell::before { position:absolute; inset:0; opacity:.23; background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px); background-size:42px 42px; mask-image:linear-gradient(90deg,#000 0%,transparent 90%); content:''; }
     .ct-hero__orb { position:absolute; top:-190px; right:-108px; width:560px; height:560px; border:76px solid rgba(227,30,36,.48); border-radius:50%; }
     .ct-hero__orb::after { position:absolute; top:88px; left:88px; width:238px; height:238px; border:1px solid rgba(255,255,255,.24); border-radius:50%; content:''; }
@@ -32,6 +32,9 @@
     .ct-hero__actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:28px; }
     .ct-hero__call { display:inline-flex; min-height:52px; align-items:center; gap:9px; padding:0 8px; color:#fff; font-size:14px; font-weight:800; }
     .ct-hero__call svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; }
+    .ct-hero__visual { position:relative; z-index:1; overflow:hidden; width:100%; aspect-ratio:4 / 3; border:1px solid rgba(255,255,255,.18); border-radius:25px; background:#1b335e; box-shadow:0 22px 48px rgba(4,15,36,.3); }
+    .ct-hero__visual::after { position:absolute; inset:0; background:linear-gradient(145deg,rgba(14,33,69,.24),transparent 48%,rgba(227,30,36,.18)); pointer-events:none; content:''; }
+    .ct-hero__visual img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 
     .ct-quick { position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); margin:-1px 30px 0; border:1px solid var(--ct-line); border-radius:0 0 25px 25px; background:#fff; box-shadow:0 18px 42px rgba(14,33,69,.08); }
     .ct-quick__item { display:flex; align-items:center; gap:13px; min-width:0; padding:22px 24px; border-right:1px solid var(--ct-line); }
@@ -74,8 +77,8 @@
     .ct-honeypot { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
     .ct-form-note { margin:14px 0 0; color:var(--ct-muted); font-size:12px; line-height:1.6; }
 
-    @media (max-width:991px) { .ct-hero { padding-top:106px; } .ct-connect,.ct-form-layout { grid-template-columns:1fr; gap:42px; } .ct-form-intro { position:static; } .ct-map { min-height:420px; } .ct-map iframe,.ct-map__fallback { min-height:420px; height:420px; } }
-    @media (max-width:767px) { .ct-page { padding-bottom:76px; } .ct-wrap { width:min(100% - 28px,620px); } .ct-section { padding:58px 0; } .ct-hero { padding-top:82px; } .ct-hero__shell { min-height:510px; padding:29px 24px; border-radius:25px; } .ct-hero__orb { top:-102px; right:-125px; width:370px; height:370px; border-width:52px; } .ct-hero h1 { font-size:42px; } .ct-hero p { font-size:15px; line-height:1.65; } .ct-hero__actions { display:grid; grid-template-columns:1fr; } .ct-button,.ct-hero__call { width:100%; } .ct-hero__call { justify-content:center; } .ct-quick { display:flex; overflow-x:auto; margin:0 10px; border-radius:0 0 21px 21px; scroll-snap-type:x mandatory; scrollbar-width:none; } .ct-quick::-webkit-scrollbar { display:none; } .ct-quick__item { flex:0 0 84%; padding:19px; border-right:1px solid var(--ct-line)!important; scroll-snap-align:start; } .ct-title { font-size:32px; } .ct-lead { font-size:15px; } .ct-contact-list { margin-top:24px; } .ct-map,.ct-map iframe,.ct-map__fallback { min-height:350px; height:350px; } .ct-form-card { padding:22px; border-radius:21px; } .ct-form-grid { grid-template-columns:1fr; gap:14px; } .ct-field--full { grid-column:auto; } }
+    @media (max-width:991px) { .ct-hero { padding-top:106px; } .ct-hero__shell { grid-template-columns:minmax(0,1fr) minmax(280px,.75fr); gap:30px; padding:46px; } .ct-connect,.ct-form-layout { grid-template-columns:1fr; gap:42px; } .ct-form-intro { position:static; } .ct-map { min-height:420px; } .ct-map iframe,.ct-map__fallback { min-height:420px; height:420px; } }
+    @media (max-width:767px) { .ct-page { padding-bottom:76px; } .ct-wrap { width:min(100% - 28px,620px); } .ct-section { padding:58px 0; } .ct-hero { padding-top:82px; } .ct-hero__shell { grid-template-columns:1fr; gap:28px; min-height:0; padding:29px 24px; border-radius:25px; } .ct-hero__orb { top:-102px; right:-125px; width:370px; height:370px; border-width:52px; } .ct-hero h1 { font-size:42px; } .ct-hero p { font-size:15px; line-height:1.65; } .ct-hero__actions { display:grid; grid-template-columns:1fr; } .ct-button,.ct-hero__call { width:100%; } .ct-hero__call { justify-content:center; } .ct-hero__visual { aspect-ratio:16 / 10; border-radius:20px; } .ct-quick { display:flex; overflow-x:auto; margin:0 10px; border-radius:0 0 21px 21px; scroll-snap-type:x mandatory; scrollbar-width:none; } .ct-quick::-webkit-scrollbar { display:none; } .ct-quick__item { flex:0 0 84%; padding:19px; border-right:1px solid var(--ct-line)!important; scroll-snap-align:start; } .ct-title { font-size:32px; } .ct-lead { font-size:15px; } .ct-contact-list { margin-top:24px; } .ct-map,.ct-map iframe,.ct-map__fallback { min-height:350px; height:350px; } .ct-form-card { padding:22px; border-radius:21px; } .ct-form-grid { grid-template-columns:1fr; gap:14px; } .ct-field--full { grid-column:auto; } }
     @media (prefers-reduced-motion:reduce) { .ct-page * { transition-duration:.01ms!important; scroll-behavior:auto!important; } }
 </style>
 
@@ -91,6 +94,9 @@
                     <p>Speak with the Trans Globe Indore team about study destinations, applications, scholarships, test preparation or your student-visa pathway.</p>
                     <div class="ct-hero__actions"><a href="{{ url('/contact') }}#enquiry" class="ct-button">Send an enquiry <span aria-hidden="true">↓</span></a><a href="tel:+919826666886" class="ct-hero__call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.3 4.2 2 2 0 0 1 4.3 2h3a2 2 0 0 1 2 1.7c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.3 9.66a16 16 0 0 0 6 6l1.25-1.25a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.9Z"/></svg>+91 98266 66886</a></div>
                 </div>
+                <figure class="ct-hero__visual">
+                    <img src="{{ asset('assets/services/expert-counselling.jpg') }}" alt="Students working together during an international education counselling session" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
+                </figure>
             </div>
             <div class="ct-quick" aria-label="Contact highlights">
                 <div class="ct-quick__item"><span class="ct-quick__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.9 7-12a7 7 0 1 0-14 0c0 6.1 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg></span><span><strong>Visit us in Indore</strong><span>Near Nehru Park 2, Lad Colony</span></span></div>
