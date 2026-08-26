@@ -1,1080 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
+@include('mirror.partials.header')
+@include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/'), 'mobileBackLabel' => 'Back to home'])
 
+<style>
+    :root { --ct-navy:#0e2145; --ct-red:#e31e24; --ct-soft:#f4f7fb; --ct-ink:#15294d; --ct-muted:#64748b; --ct-line:#dfe7f0; }
+    .ct-page { overflow:clip; background:#fff; color:var(--ct-ink); }
+    .ct-wrap { width:min(1280px,calc(100% - 48px)); margin-inline:auto; }
+    .ct-section { padding:88px 0; scroll-margin-top:92px; }
+    .ct-kicker { display:inline-flex; align-items:center; gap:10px; color:var(--ct-red); font-size:12px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    .ct-kicker::before { width:28px; height:2px; background:currentColor; content:''; }
+    .ct-title { max-width:760px; margin:14px 0 0; color:var(--ct-navy); font-size:clamp(34px,4vw,52px); line-height:1.08; font-weight:800; letter-spacing:-.048em; text-wrap:balance; }
+    .ct-title span { color:var(--ct-red); }
+    .ct-lead { max-width:650px; margin:17px 0 0; color:var(--ct-muted); font-size:16px; line-height:1.75; }
+    .ct-page :is(a,input,select,textarea,button):focus-visible { outline:3px solid rgba(227,30,36,.3); outline-offset:3px; }
+    .ct-button { display:inline-flex; min-height:52px; align-items:center; justify-content:center; gap:9px; padding:0 22px; border:0; border-radius:14px; background:var(--ct-red); color:#fff!important; font-size:14px; font-weight:800; box-shadow:0 11px 22px rgba(227,30,36,.18); transition:transform .2s ease,background .2s ease; }
+    .ct-button:hover { background:#c81820; color:#fff; transform:translateY(-2px); }
+    .ct-button--light { background:#fff; color:var(--ct-navy)!important; box-shadow:none; }
+    .ct-button--light:hover { background:#fff; color:var(--ct-red)!important; }
 
+    .ct-hero { padding:128px 0 0; background:var(--ct-soft); }
+    .ct-hero__shell { position:relative; overflow:hidden; min-height:438px; padding:64px; border-radius:34px; background:var(--ct-navy); box-shadow:0 26px 65px rgba(14,33,69,.19); }
+    .ct-hero__shell::before { position:absolute; inset:0; opacity:.23; background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px); background-size:42px 42px; mask-image:linear-gradient(90deg,#000 0%,transparent 90%); content:''; }
+    .ct-hero__orb { position:absolute; top:-190px; right:-108px; width:560px; height:560px; border:76px solid rgba(227,30,36,.48); border-radius:50%; }
+    .ct-hero__orb::after { position:absolute; top:88px; left:88px; width:238px; height:238px; border:1px solid rgba(255,255,255,.24); border-radius:50%; content:''; }
+    .ct-hero__content { position:relative; z-index:1; max-width:740px; }
+    .ct-crumbs { display:flex; flex-wrap:wrap; gap:8px; color:rgba(255,255,255,.64); font-size:13px; }
+    .ct-crumbs a { color:#fff; font-weight:700; }
+    .ct-hero .ct-kicker { margin-top:32px; color:rgba(255,255,255,.74); }
+    .ct-hero h1 { max-width:680px; margin:16px 0 0; color:#fff; font-size:clamp(44px,5.3vw,67px); line-height:1.02; font-weight:800; letter-spacing:-.056em; text-wrap:balance; }
+    .ct-hero h1 span { color:#ff626a; }
+    .ct-hero p { max-width:610px; margin:18px 0 0; color:rgba(255,255,255,.8); font-size:17px; line-height:1.72; }
+    .ct-hero__actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:28px; }
+    .ct-hero__call { display:inline-flex; min-height:52px; align-items:center; gap:9px; padding:0 8px; color:#fff; font-size:14px; font-weight:800; }
+    .ct-hero__call svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; }
 
-<!-- Mirrored from lms.rocket-soft.org/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:26:46 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-<!-- CSRF Token -->
-<meta name="csrf-token" content="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
+    .ct-quick { position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); margin:-1px 30px 0; border:1px solid var(--ct-line); border-radius:0 0 25px 25px; background:#fff; box-shadow:0 18px 42px rgba(14,33,69,.08); }
+    .ct-quick__item { display:flex; align-items:center; gap:13px; min-width:0; padding:22px 24px; border-right:1px solid var(--ct-line); }
+    .ct-quick__item:last-child { border:0; }
+    .ct-quick__icon { display:grid; width:39px; height:39px; flex:0 0 39px; place-items:center; border-radius:12px; color:var(--ct-red); background:#fdebed; }
+    .ct-quick__icon svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.9; }
+    .ct-quick strong { display:block; color:var(--ct-navy); font-size:14px; }
+    .ct-quick span { display:block; margin-top:3px; color:var(--ct-muted); font-size:12px; line-height:1.4; }
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    .ct-connect { display:grid; grid-template-columns:.9fr 1.1fr; align-items:start; gap:60px; }
+    .ct-contact-list { display:grid; gap:12px; margin-top:30px; }
+    .ct-contact-item { display:flex; gap:15px; padding:18px; border:1px solid var(--ct-line); border-radius:18px; background:#fff; box-shadow:0 10px 24px rgba(14,33,69,.04); }
+    .ct-contact-item__icon { display:grid; width:43px; height:43px; flex:0 0 43px; place-items:center; border-radius:13px; color:var(--ct-red); background:#fdebed; }
+    .ct-contact-item__icon svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8; }
+    .ct-contact-item small { display:block; color:var(--ct-muted); font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+    .ct-contact-item strong,.ct-contact-item a { display:block; margin-top:5px; color:var(--ct-navy); font-size:15px; font-weight:800; line-height:1.5; }
+    .ct-contact-item a:hover { color:var(--ct-red); }
+    .ct-contact-item p { margin:5px 0 0; color:var(--ct-muted); font-size:13px; line-height:1.48; }
+    .ct-map { overflow:hidden; min-height:532px; border:1px solid var(--ct-line); border-radius:26px; background:#e5ebf1; box-shadow:0 18px 42px rgba(14,33,69,.1); }
+    .ct-map iframe { display:block; width:100%; height:532px; border:0; }
+    .ct-map__fallback { display:flex; min-height:532px; align-items:center; justify-content:center; padding:32px; background:linear-gradient(135deg,#dfe7ed,#f7f9fb); text-align:center; }
 
-<meta name='robots' content="index, follow, all">
+    .ct-enquiry { background:var(--ct-soft); }
+    .ct-form-layout { display:grid; grid-template-columns:.76fr 1.24fr; align-items:start; gap:58px; }
+    .ct-form-intro { position:sticky; top:100px; }
+    .ct-form-card { padding:31px; border:1px solid var(--ct-line); border-radius:25px; background:#fff; box-shadow:0 18px 42px rgba(14,33,69,.08); }
+    .ct-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; }
+    .ct-field { min-width:0; }
+    .ct-field--full { grid-column:1 / -1; }
+    .ct-field label { display:block; margin-bottom:8px; color:var(--ct-navy); font-size:13px; font-weight:800; }
+    .ct-field input,.ct-field select,.ct-field textarea { width:100%; min-height:50px; padding:0 14px; border:1px solid #d7e0eb; border-radius:13px; background:#fff; color:var(--ct-ink); font:inherit; font-size:14px; transition:border-color .2s ease,box-shadow .2s ease; }
+    .ct-field textarea { min-height:118px; padding-top:13px; resize:vertical; }
+    .ct-field input:focus,.ct-field select:focus,.ct-field textarea:focus { border-color:var(--ct-red); box-shadow:0 0 0 4px rgba(227,30,36,.08); outline:0; }
+    .ct-consent { display:flex!important; align-items:flex-start; gap:10px; margin:4px 0 0!important; color:var(--ct-muted)!important; font-size:12px!important; font-weight:500!important; line-height:1.5; }
+    .ct-consent input { width:17px; min-height:17px; height:17px; margin:1px 0 0; accent-color:var(--ct-red); }
+    .ct-alert { padding:14px 16px; border:1px solid rgba(29,128,78,.24); border-radius:13px; background:#effaf4; color:#177445; font-size:14px; line-height:1.5; }
+    .ct-alert--error { border-color:rgba(227,30,36,.25); background:#fff1f1; color:#a91d24; }
+    .ct-alert ul { margin:8px 0 0; padding-left:18px; }
+    .ct-error { display:block; margin-top:6px; color:#c81820; font-size:12px; font-weight:700; }
+    .ct-honeypot { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+    .ct-form-note { margin:14px 0 0; color:var(--ct-muted); font-size:12px; line-height:1.6; }
 
-    <meta name="description" content="Contact Page Description">
-    <meta property="og:description" content="Contact Page Description">
-    <meta name='twitter:description' content='Contact Page Description'>
+    @media (max-width:991px) { .ct-hero { padding-top:106px; } .ct-connect,.ct-form-layout { grid-template-columns:1fr; gap:42px; } .ct-form-intro { position:static; } .ct-map { min-height:420px; } .ct-map iframe,.ct-map__fallback { min-height:420px; height:420px; } }
+    @media (max-width:767px) { .ct-page { padding-bottom:76px; } .ct-wrap { width:min(100% - 28px,620px); } .ct-section { padding:58px 0; } .ct-hero { padding-top:82px; } .ct-hero__shell { min-height:510px; padding:29px 24px; border-radius:25px; } .ct-hero__orb { top:-102px; right:-125px; width:370px; height:370px; border-width:52px; } .ct-hero h1 { font-size:42px; } .ct-hero p { font-size:15px; line-height:1.65; } .ct-hero__actions { display:grid; grid-template-columns:1fr; } .ct-button,.ct-hero__call { width:100%; } .ct-hero__call { justify-content:center; } .ct-quick { display:flex; overflow-x:auto; margin:0 10px; border-radius:0 0 21px 21px; scroll-snap-type:x mandatory; scrollbar-width:none; } .ct-quick::-webkit-scrollbar { display:none; } .ct-quick__item { flex:0 0 84%; padding:19px; border-right:1px solid var(--ct-line)!important; scroll-snap-align:start; } .ct-title { font-size:32px; } .ct-lead { font-size:15px; } .ct-contact-list { margin-top:24px; } .ct-map,.ct-map iframe,.ct-map__fallback { min-height:350px; height:350px; } .ct-form-card { padding:22px; border-radius:21px; } .ct-form-grid { grid-template-columns:1fr; gap:14px; } .ct-field--full { grid-column:auto; } }
+    @media (prefers-reduced-motion:reduce) { .ct-page * { transition-duration:.01ms!important; scroll-behavior:auto!important; } }
+</style>
 
-<link rel='shortcut icon' type='image/x-icon' href="/store/1/geic-icon.png">
-<link rel="manifest" href="mix-manifest7b30.json?v=4">
-<meta name="theme-color" content="#FFF">
-<!-- Windows Phone -->
-<meta name="msapplication-starturl" content="/">
-<meta name="msapplication-TileColor" content="#FFF">
-<meta name="msapplication-TileImage" content="ms-icon-144x144.html">
-<!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
-<link rel="apple-touch-icon" href="/store/1/geic-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<!-- Android -->
-<link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
-<meta name="mobile-web-app-capable" content="yes">
-<!-- Other -->
-<meta name="layoutmode" content="fitscreen/standard">
-<link rel="home" href="index.html">
-
-<!-- Open Graph -->
-<meta property='og:title' content='Contact'>
-<meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='Contact'>
-
-
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
-<meta property='og:image' content='/store/1/geic-icon.png'>
-<meta name='twitter:image' content='/store/1/geic-icon.png'>
-<meta property='og:locale' content='en_US.html'>
-<meta property='og:type' content='website'>
-
-
-
-    <title>Contact | Rocket LMS</title>
-
-    <!-- General CSS File -->
-    <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
-    <link rel="stylesheet" href="assets/design_1/css/app.min.css">
-
-    
-            <link rel="stylesheet" href="assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
-            <link rel="stylesheet" href="assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
-        <link rel="stylesheet" href="assets/design_1/css/parts/contactus.min.css">
-    <link rel="stylesheet" href="assets/vendors/leaflet/leaflet.css">
-    
-    <style>
-        
-
-        @font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: 400;
-                      font-display: swap;
-                      src: url(store/1/fonts/Gilroy-Regular.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: bold;
-                      font-display: swap;
-                      src: url(store/1/fonts/Gilroy-Bold.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: 500;
-                      font-display: swap;
-                      src: url(store/1/fonts/Gilroy-Medium.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: 400;
-                      font-display: swap;
-                      src: url(store/1/fonts/Tajawal-Regular.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: bold;
-                      font-display: swap;
-                      src: url(store/1/fonts/Tajawal-Bold.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: 500;
-                      font-display: swap;
-                      src: url(store/1/fonts/Tajawal-Medium.woff2) format('woff2');
-                    }
-
-        :root{
---primary:#E31E24;
---primary-hover:#0064e5;
---primary-border:#E31E24;
---primary-hover-border:#0064e5;
---primary-btn-color:#ffffff;
---primary-btn-hover-color:#ffffff;
---primary-saturated:#67a9ff;
---secondary:#0e2145;
---secondary-hover:#0c1d3e;
---secondary-border:#0e2145;
---secondary-hover-border:#0c1d3e;
---secondary-btn-color:#ffffff;
---secondary-btn-hover-color:#ffffff;
---accent:#fe6257;
---accent-hover:#e4584e;
---accent-border:#fe6257;
---accent-hover-border:#e4584e;
---accent-btn-color:#ffffff;
---accent-btn-hover-color:#ffffff;
---success:#3fcd82;
---success-hover:#38b875;
---success-border:#3fcd82;
---success-hover-border:#38b875;
---success-btn-color:#ffffff;
---success-btn-hover-color:#ffffff;
---info:#67a9ff;
---info-hover:#5c98e5;
---info-border:#67a9ff;
---info-hover-border:#5c98e5;
---info-btn-color:#ffffff;
---info-btn-hover-color:#ffffff;
---warning:#ffa200;
---warning-hover:#e59100;
---warning-border:#ffa200;
---warning-hover-border:#e59100;
---warning-btn-color:#ffffff;
---warning-btn-hover-color:#ffffff;
---danger:#f63c3c;
---danger-hover:#dd3636;
---danger-border:#f63c3c;
---danger-hover-border:#dd3636;
---danger-btn-color:#ffffff;
---danger-btn-hover-color:#ffffff;
---dark:#121f3e;
---black:#000000;
---white:#ffffff;
---white-hover:#e5e5e5;
---white-border:#ffffff;
---white-hover-border:#e5e5e5;
---white-btn-color:#ffffff;
---white-btn-hover-color:#ffffff;
---gray-100:#fafcff;
---gray-200:#f0f4f9;
---gray-300:#e9edf3;
---gray-400:#cdd5e2;
---gray-500:#97a7bf;
---gray:#f5f8f9;
---section-bg:#eaf0f3;
-}
-
-    </style>
-
-</head>
-
-<body class="bg-gray  light-mode">
-
-<div id="app">
-
-    
-            <div id="appHeaderArea">
-            <div id="themeHeaderVacuum"></div>
-    <div class="theme-header-1">
-        
-                    <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
-    <div class="container">
-        <div class="row align-items-center">
-
-            <div class="col-12 col-lg-4">
-                <div class="d-flex align-items-center gap-24">
-                    
-                                            <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
-</svg>                            <span class="text-white">+1 (323) 555-9876</span>
-                        </div>
-                    
-                    
-                                            <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
-                        </div>
-                    
-                    
-                                            <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
-                            <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
-</svg>                            <svg width="16px" height="16px" class="light-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
-</svg>                        </div>
-                    
+<main class="ct-page">
+    <section class="ct-hero">
+        <div class="ct-wrap">
+            <div class="ct-hero__shell">
+                <div class="ct-hero__orb" aria-hidden="true"></div>
+                <div class="ct-hero__content">
+                    <nav class="ct-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><span>Contact</span></nav>
+                    <span class="ct-kicker">GEIC Indore</span>
+                    <h1>Let’s make your <span>next step clear.</span></h1>
+                    <p>Speak with the Trans Globe Indore team about study destinations, applications, scholarships, test preparation or your student-visa pathway.</p>
+                    <div class="ct-hero__actions"><a href="{{ url('/contact') }}#enquiry" class="ct-button">Send an enquiry <span aria-hidden="true">↓</span></a><a href="tel:+919826666886" class="ct-hero__call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.3 4.2 2 2 0 0 1 4.3 2h3a2 2 0 0 1 2 1.7c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.3 9.66a16 16 0 0 0 6 6l1.25-1.25a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.9Z"/></svg>+91 98266 66886</a></div>
                 </div>
             </div>
-
-            <div class="col-12 col-lg-8 mt-12 mt-lg-0">
-                <div class="row">
-                    
-                    <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
-                            <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
-
-                            <button type="submit" class="btn-transparent d-flex-center search-icon">
-                                <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 20a9 9 0 100-18 9 9 0 000 18zM18.93 20.69c.53 1.6 1.74 1.76 2.67.36.85-1.28.29-2.33-1.25-2.33-1.14-.01-1.78.88-1.42 1.97z"/>
-</svg>                            </button>
-                        </form>
-                    </div>
-                                         <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
-                        <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
-                            <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
-                                <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
-        <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-        <input type="hidden" name="locale" value="en">
-
-                                    <div class="d-flex align-items-center gap-8">
-                    <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                        <img src="vendor/blade-country-flags/4x3-us.svg" class="img-fluid" width="16px" height="16px" alt="English flag"/>
-                    </div>
-                    <span class="js-lang-title text-white opacity-75 d-none d-md-flex">English</span>
-                    <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 8.95l-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/>
-</svg>                </div>
-                                                                </form>
-
-    <div class="header-1-dropdown-menu py-8 mx-w-200">
-
-        <div class="py-8 px-16 font-12 text-gray-500">Select a Language</div>
-
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="EN" data-title="English">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-us.svg" class="img-cover" alt="English flag"/>
-                    </div>
-                    <span class="ml-8 font-14">English</span>
-                </div>
-            </div>
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="AR" data-title="Arabic">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-sa.svg" class="img-cover" alt="Arabic flag"/>
-                    </div>
-                    <span class="ml-8 font-14">Arabic</span>
-                </div>
-            </div>
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="ES" data-title="Spanish">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-es.svg" class="img-cover" alt="Spanish flag"/>
-                    </div>
-                    <span class="ml-8 font-14">Spanish</span>
-                </div>
-            </div>
-        
-    </div>
-</div>
-
-                                
-                                <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
-            <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-            <input type="hidden" name="currency" value="USD">
-
-                                                <div class="d-flex align-items-center gap-8">
-                        <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                            <span class="font-12 text-white opacity-75">$</span>
-                        </div>
-                        <span class="js-lang-title text-white opacity-75 d-none d-md-flex">USD</span>
-                        <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 8.95l-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/>
-</svg>                    </div>
-                                                                                            </form>
-
-        <div class="header-1-dropdown-menu py-8">
-
-            <div class="py-8 px-16 font-12 text-gray-500">Select a Currency</div>
-
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="USD" data-title="USD">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">United States Dollar</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            $
-                        </div>
-                    </div>
-                </div>
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="EUR" data-title="EUR">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">Euro Member Countries</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            €
-                        </div>
-                    </div>
-                </div>
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="INR" data-title="INR">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">India Rupee</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            ₹
-                        </div>
-                    </div>
-                </div>
-            
-        </div>
-    </div>
-
-                                
-                                                                    <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
-                                        <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
-  <path stroke-width="1.5" d="M2 7.85c0-1.85.99-2 2.22-2h15.56c1.23 0 2.22.15 2.22 2 0 2.15-.99 2-2.22 2H4.22C2.99 9.85 2 10 2 7.85z"/>
-  <path stroke-linecap="round" stroke-width="1.5" d="M9.76 14v3.55M14.36 14v3.55M3.5 10l1.41 8.64C5.23 20.58 6 22 8.86 22h6.03c3.11 0 3.57-1.36 3.93-3.24L20.5 10"/>
-</svg>                                        <span class="js-cart-counter theme-header-1__top-navbar-cart-counter d-inline-flex-center font-12 text-white d-none">0</span>
-                                    </div>
-                                                            </div>
-
-                            <div class="d-flex align-items-center">
-                                                                                                            <a href="login.html" class="d-flex align-items-center text-white opacity-75">
-                                            <span class="">Login</span>
-                                        </a>
-                                    
-                                                                            <a href="register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
-                                            <span class="">Register</span>
-                                        </a>
-                                                                                                </div>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="ct-quick" aria-label="Contact highlights">
+                <div class="ct-quick__item"><span class="ct-quick__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.9 7-12a7 7 0 1 0-14 0c0 6.1 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg></span><span><strong>Visit us in Indore</strong><span>Near Nehru Park 2, Lad Colony</span></span></div>
+                <div class="ct-quick__item"><span class="ct-quick__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 9h8M8 13h5"/></svg></span><span><strong>Talk to an expert</strong><span>Call or submit an enquiry</span></span></div>
+                <div class="ct-quick__item"><span class="ct-quick__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M7 11h10M8 15h3"/></svg></span><span><strong>Monday to Saturday</strong><span>10:00 AM to 6:30 PM</span></span></div>
             </div>
         </div>
-    </div>
-</div>
-        
-        
-        <div id="themeHeaderSticky" class="theme-header-1__main">
-    <div class="container h-100 position-relative">
-        <div class="theme-header-1__main-mask"></div>
+    </section>
 
-        <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
-            <div class="row align-items-center h-100">
-                
-                <div class="col-6 col-lg-2">
-                    <a href="index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
-                                            </a>
-                </div>
-
-                
-                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
-                    <div class="theme-header-1__dropdown position-relative">
-    <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
-        <svg width="16px" height="16px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M5 10h2c2 0 3-1 3-3V5c0-2-1-3-3-3H5C3 2 2 3 2 5v2c0 2 1 3 3 3zM17 10h2c2 0 3-1 3-3V5c0-2-1-3-3-3h-2c-2 0-3 1-3 3v2c0 2 1 3 3 3zM17 22h2c2 0 3-1 3-3v-2c0-2-1-3-3-3h-2c-2 0-3 1-3 3v2c0 2 1 3 3 3zM5 22h2c2 0 3-1 3-3v-2c0-2-1-3-3-3H5c-2 0-3 1-3 3v2c0 2 1 3 3 3z"/>
-</svg>        <span class="text-gray-500">Categories</span>
-    </div>
-
-    <div class="header-1-dropdown-menu auth-user-info-dropdown-menu py-12">
-
-        <ul class="theme-header-1__categories">
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
-                            <span class="">Development</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
-                                            <span class="">Web Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
-                                            <span class="">Mobile Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
-                                            <span class="">Game Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
-                            <span class="">Business</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
-                                            <span class="">Management</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
-                                            <span class="">Communications</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
-                                            <span class="">Business Strategy</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
-                            <span class="">Marketing</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
-                            <span class="">Lifestyle</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
-                                            <span class="">Lifestyle</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
-                                            <span class="">Beauty &amp; Makeup</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
-                            <span class="">Health &amp; Fitness</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
-                            <span class="">Academics</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
-                                            <span class="">Math</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
-                                            <span class="">Science</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
-                                            <span class="">Language</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
-                            <span class="">Design</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                    </ul>
-
-    </div>
-</div>
-                </div>
-
-                
-                <div class="col-6 col-lg-5 mt-12 mt-lg-0">
-                                            <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="index.html" class="text-dark">Home</a>
-                                                            <a href="classes8676.html?sort=newest" class="text-dark">Courses</a>
-                                                            <a href="instructor-finder.html" class="text-dark">Instructors</a>
-                                                            <a href="products.html" class="text-dark">Store</a>
-                                                            <a href="forums.html" class="text-dark">Forums</a>
-                                                            <a href="events.html" class="text-dark">Events</a>
-                                                            <a href="jobs.html" class="text-dark">Jobs</a>
-                                                    </div>
-                                    </div>
-
-                
-                <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
-                                            <a href="login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
-                                                            <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
-  <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
-                            <span class="btn-flip-effect__text text-white">Start Learning</span>
-                        </a>
-                                    </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-        </div>
-    
-    
-        <div class="container mt-96 pb-104">
-        <div class="bg-white p-16 rounded-32">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <div class="d-flex flex-column bg-primary p-16 rounded-16 w-100 h-100">
-
-    <div class="mb-40">
-        
-        <div class="d-flex align-items-start">
-            <svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M11.79 14.21l-3.27 3.27c-.36-.32-.71-.65-1.05-.99a28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.36.35.71.69 1.06.99z" opacity=".4"/>
-  <path d="M21.97 18.33a2.54 2.54 0 01-.25 1.09c-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.01 0-.02.01-.03.01-.59.24-1.23.37-1.92.37-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98c-.39-.29-.78-.58-1.15-.89l3.27-3.27c.28.21.53.37.74.48.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
-</svg>            <div class="ml-8 mt-4">
-                <h4 class="font-16 font-weight-bold text-white">Contact Numbers</h4>
-
-                                    
-                                                                        <p class="font-14 text-white mt-8">415-716-1166 </p>
-                                                    <p class="font-14 text-white mt-8"> 415-716-1167</p>
-                                                                        </div>
-        </div>
-
-        
-        <div class="d-flex align-items-start mt-32">
-            <svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z" opacity=".4"/>
-  <path d="M12 12.87c-.84 0-1.69-.26-2.34-.79l-3.13-2.5a.748.748 0 01.93-1.17l3.13 2.5c.76.61 2.05.61 2.81 0l3.13-2.5c.32-.26.8-.21 1.05.12.26.32.21.8-.12 1.05l-3.13 2.5c-.64.53-1.49.79-2.33.79z"/>
-</svg>            <div class="ml-8 mt-4">
-                <h4 class="font-16 font-weight-bold text-white">Email</h4>
-
-                                    
-                                                                        <p class="font-14 text-white mt-8">mail@lms.rocket-soft.org </p>
-                                                    <p class="font-14 text-white mt-8"> info@lms.rocket-soft.org</p>
-                                                                        </div>
-        </div>
-
-        
-        <div class="d-flex align-items-start mt-32">
-            <svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M20.62 8.45c-1.05-4.62-5.08-6.7-8.62-6.7h-.01c-3.53 0-7.57 2.07-8.62 6.69-1.17 5.16 1.99 9.53 4.85 12.28A5.436 5.436 0 0012 22.25c1.36 0 2.72-.51 3.77-1.53 2.86-2.75 6.02-7.11 4.85-12.27z" opacity=".4"/>
-  <path d="M12 13.46a3.15 3.15 0 100-6.3 3.15 3.15 0 000 6.3z"/>
-</svg>            <div class="ml-8 mt-4">
-                <h4 class="font-16 font-weight-bold text-white">Address</h4>
-
-                                    <p class="font-14 text-white mt-8">4193 Roosevelt Street<br />
-San Francisco, CA 94103<br />
-<br />
-1812 Downtown Street<br />
-San Francisco, CA 94103</p>
-                            </div>
-        </div>
-    </div>
-
-
-            <div class="contact-page-additional-information-card bg-white p-16 rounded-12 mt-auto">
-            <h5 class="font-14 font-weight-bold">Contact Time</h5>
-            <div class="mt-8 font-12 text-gray-500">Saturday to Thursday 18-19<br />
-We will try to answer messages lastly in 72 hours</div>
-
-                            <div class="contact-page-adif__image d-flex-center">
-                    <img src="store/1/themes/general/contact_icon.png" alt="" class="img-fluid">
-                </div>
-                    </div>
-    
-</div>
-                </div>
-
-                <div class="col-12 col-md-5 mt-20 mt-md-0">
-                    <h5 class="font-16 font-weight-bold">Have a Question? 👋</h5>
-<h1 class="font-24 font-weight-bold mt-4">Contact Our Team</h1>
-
-<form action="https://lms.rocket-soft.org/contact/store" method="post" class="mt-20">
-    <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-
-    <div class="form-group mt-28">
-        <label class="form-group-label">Your Name</label>
-        <input type="text" name="name" value="" class="form-control "/>
-            </div>
-
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                <label class="form-group-label">Email</label>
-                <input type="text" name="email" value="" class="form-control "/>
-                            </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                <label class="form-group-label">Phone</label>
-                <input type="text" name="phone" value="" class="form-control "/>
-                            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="form-group-label">Subject</label>
-        <input type="text" name="subject" value="" class="form-control "/>
-            </div>
-
-    <div class="form-group">
-        <label class="form-group-label">Message</label>
-        <textarea name="message" id="" rows="10" class="form-control "></textarea>
-            </div>
-
-    <div class="form-group">
-    <label class="form-group-label">Captcha</label>
-
-    <div class="d-flex align-items-center flex-wrap gap-16">
-        <div class="flex-1">
-            <input type="text" name="captcha" class="js-ajax-captcha form-control ">
-        </div>
-
-        <div class="flex-1">
-            <div class="d-flex align-items-center border-gray-300 p-4 rounded-12">
-                <div class="captcha-image-card d-flex-center bg-gray-100 p-4 rounded-4 flex-1">
-                    <img id="captchaImageComment" class="captcha-image rounded-4" src="#">
-                </div>
-
-                <div id="refreshCaptcha" class="d-flex-center size-40 bg-hover-gray-100 ml-8 mr-4 rounded-8 cursor-pointer">
-                    <svg width="16px" height="16px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M22 12c0 5.52-4.48 10-10 10s-8.89-5.56-8.89-5.56m0 0h4.52m-4.52 0v5M2 12C2 6.48 6.44 2 12 2c6.67 0 10 5.56 10 5.56m0 0v-5m0 5h-4.44"/>
-</svg>                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="invalid-feedback mt-4 d-block">
-            </div>
-</div>
-
-    <button type="submit" class="btn btn-primary btn-lg btn-block mt-20">Send Message</button>
-</form>
-                </div>
-
-                <div class="col-12 col-md-4 mt-20 mt-md-0">
-                    <div class="region-map contactus-map with-default-initial rounded-8 bg-gray-100" id="contactMap"
-         data-latitude="43.46150279436183"
-         data-longitude="11.854462623596191"
-         data-zoom="16"
-         data-dragging="false"
-         data-zoomControl="true"
-         data-scrollWheelZoom="false"
-    >
-        <img src="assets/design_1/img/map/pin_large.svg" class="marker" width="40" height="40">
-    </div>
+    <section class="ct-section">
+        <div class="ct-wrap ct-connect">
+            <div>
+                <span class="ct-kicker">Contact details</span>
+                <h2 class="ct-title">Come by, call us, or <span>write to us.</span></h2>
+                <p class="ct-lead">Choose the way that is easiest for you. Our Indore team can help you understand your options before you make a commitment.</p>
+                <div class="ct-contact-list">
+                    <article class="ct-contact-item"><span class="ct-contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.9 7-12a7 7 0 1 0-14 0c0 6.1 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg></span><div><small>Office</small><strong>Global Education and Immigration Consultants</strong><p>Office No. 503, THE VIEW Tower 1, Yeshwant Niwas Rd, above Jade Blue Showroom, Nehru Park 2, Lad Colony, Indore, Madhya Pradesh 452001</p></div></article>
+                    <article class="ct-contact-item"><span class="ct-contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.3 4.2 2 2 0 0 1 4.3 2h3a2 2 0 0 1 2 1.7c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.3 9.66a16 16 0 0 0 6 6l1.25-1.25a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.9Z"/></svg></span><div><small>Phone</small><a href="tel:+919826666886">+91 98266 66886</a><p>For study-abroad counselling enquiries</p></div></article>
+                    <article class="ct-contact-item"><span class="ct-contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:info@geic.in">info@geic.in</a><p>We will help direct your enquiry to the right team</p></div></article>
+                    <article class="ct-contact-item"><span class="ct-contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.3 2"/></svg></span><div><small>Office hours</small><strong>Monday to Saturday</strong><p>10:00 AM–6:30 PM</p></div></article>
                 </div>
             </div>
+            <div class="ct-map"><iframe title="Map to GEIC Indore" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Office%20No.%20503%2C%20THE%20VIEW%20Tower%201%2C%20Yeshwant%20Niwas%20Rd%2C%20Indore%20452001&output=embed"></iframe></div>
         </div>
-    </div>
+    </section>
 
-            <div id="appFooterArea">
-            <div class="theme-footer-1 position-relative has-newsletter">
-        <div class="theme-footer-1__section position-relative">
-            <div class="theme-footer-1__section-bg-wrapper light-only" style="background-color: var(--secondary); background-image: url(store/themes/footers/2/footer_background_7gn.png); "></div>
-            <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(store/themes/footers/2/footer_background_7gn.png); "></div>
-
-
-            
-                            <div class="theme-footer-1__newsletter">
-    <div class="container position-relative">
-        <div class="theme-footer-1__newsletter-mask"></div>
-
-        <div class="position-relative z-index-2 bg-white p-16 rounded-24">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6">
-                    <div class="">
-                        <div class="d-flex align-items-center gap-4">
-                                                            <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
-                                                            <div class="theme-footer-1__newsletter-emoji">
-                                    <img src="store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
-                                </div>
-                                                    </div>
-
-                                                    <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
-                    </div>
+    <section class="ct-section ct-enquiry" id="enquiry">
+        <div class="ct-wrap ct-form-layout">
+            <div class="ct-form-intro"><span class="ct-kicker">Free counselling enquiry</span><h2 class="ct-title">Tell us what you’re planning. <span>We’ll help you navigate it.</span></h2><p class="ct-lead">Share a few details so the right counsellor can prepare for your conversation. There is no obligation to proceed.</p></div>
+            <form class="ct-form-card" method="post" action="{{ route('contact.enquire') }}" novalidate>
+                @csrf
+                @if(session('enquiry_success'))<div class="ct-alert" role="status">{{ session('enquiry_success') }}</div>@endif
+                @if($errors->any())<div class="ct-alert ct-alert--error" role="alert"><strong>Please check the highlighted fields.</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
+                <div class="ct-form-grid" @if(session('enquiry_success') || $errors->any()) style="margin-top:18px" @endif>
+                    <div class="ct-field"><label for="full_name">Full name *</label><input id="full_name" name="full_name" value="{{ old('full_name') }}" autocomplete="name" required>@error('full_name')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="phone">Phone number *</label><input id="phone" name="phone" value="{{ old('phone') }}" inputmode="tel" autocomplete="tel" required>@error('phone')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="email">Email address *</label><input id="email" name="email" type="email" value="{{ old('email') }}" autocomplete="email" required>@error('email')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="city">Current city *</label><input id="city" name="city" value="{{ old('city') }}" autocomplete="address-level2" required>@error('city')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="study_level">Preferred study level *</label><select id="study_level" name="study_level" required><option value="">Select study level</option>@foreach(['Undergraduate','Postgraduate','Diploma or pathway','Research','Not sure yet'] as $option)<option value="{{ $option }}" @selected(old('study_level')===$option)>{{ $option }}</option>@endforeach</select>@error('study_level')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="preferred_intake">Preferred intake *</label><select id="preferred_intake" name="preferred_intake" required><option value="">Select intake</option>@foreach(['Next available intake','February intake','July intake','October intake','Not sure yet'] as $option)<option value="{{ $option }}" @selected(old('preferred_intake')===$option)>{{ $option }}</option>@endforeach</select>@error('preferred_intake')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="preferred_course">Preferred course</label><input id="preferred_course" name="preferred_course" value="{{ old('preferred_course') }}" placeholder="e.g. Data Science">@error('preferred_course')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field"><label for="english_test">English-test status *</label><select id="english_test" name="english_test" required><option value="">Select status</option>@foreach(['IELTS','PTE','TOEFL','Planning to take a test','Not sure yet'] as $option)<option value="{{ $option }}" @selected(old('english_test')===$option)>{{ $option }}</option>@endforeach</select>@error('english_test')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field ct-field--full"><label for="message">What can we help with?</label><textarea id="message" name="message" placeholder="Tell us about your study plan, preferred destination or any questions.">{{ old('message') }}</textarea>@error('message')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-field ct-field--full"><label class="ct-consent"><input type="checkbox" name="consent" value="1" @checked(old('consent')) required><span>I agree that GEIC Indore may contact me about this study-abroad enquiry.</span></label>@error('consent')<span class="ct-error">{{ $message }}</span>@enderror</div>
+                    <div class="ct-honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+                    <div class="ct-field ct-field--full"><button class="ct-button" type="submit">Send my enquiry <span aria-hidden="true">→</span></button><p class="ct-form-note">Your details are used only to respond to your counselling enquiry.</p></div>
                 </div>
-
-                <div class="col-12 col-lg-6 mt-16 mt-lg-0 d-flex justify-content-end">
-                    <div class="js-newsletter-form newsletter-form d-flex align-items-center justify-content-between p-12 rounded-12 border-gray-200">
-                        <div class="form-group mb-0 flex-1">
-                            <div class="d-flex align-items-center gap-8 px-12 flex-1">
-                                <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                                <input type="email" name="newsletter_email" class="js-ajax-newsletter_email flex-1" placeholder="Enter your email address here">
-                            </div>
-
-                            <div class="invalid-feedback d-block position-absolute position-bottom-0"></div>
-                        </div>
-
-                        <button type="button" class="js-submit-newsletter-btn btn btn-primary btn-lg text-white">Join</button>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
-    </div>
-</div>
-            
-            <div class="position-relative z-index-2">
+    </section>
+</main>
 
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-12 col-lg-5">
-                                                            <div class="d-inline-flex-center gap-8 border-2 border-white rounded-32 bg-white-10 text-white px-16 py-12">
-                                                                            <div class="size-24">
-                                            <img src="store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
-                                        </div>
-                                    
-                                                                            <span class="">Let’s get started now!</span>
-                                                                    </div>
-
-                                                                    <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
-                                                                    <a href="classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
-                                                                                    <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
-  <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
-                                        <span class="btn-flip-effect__text">Enroll on Courses</span>
-                                    </a>
-                                                                                    </div>
-
-                        <div class="col-6 col-lg-2 mt-32 mt-lg-0">
-                                                            <h4 class="font-16 text-white">Additional Links</h4>
-                            
-                                                                                                                                        <a href="login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
-                                            <span class="">Login</span>
-                                        </a>
-                                                                                                                                                <a href="register.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Register</span>
-                                        </a>
-                                                                                                                                                <a href="contact.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Contact</span>
-                                        </a>
-                                                                                                                                                <a href="certificate_validation.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Certificate Validation</span>
-                                        </a>
-                                                                                                                                                <a href="login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Become Instructor</span>
-                                        </a>
-                                                                                                                                                <a href="pages/about.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">About</span>
-                                        </a>
-                                                                                                                                                <a href="pages/terms.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Terms and Policies</span>
-                                        </a>
-                                                                                                                                                                                            </div>
-
-                        <div class="col-6 col-lg-2 mt-32 mt-lg-0">
-                                                            <h4 class="font-16 text-white">Popular Categories</h4>
-                            
-                                                                                                                                        <a href="categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
-                                            <span class="">Development</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Business.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Business</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Marketing.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Marketing</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Lifestyles.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Lifestyle</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Health-and-Fitness.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Health</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Academics.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Academics</span>
-                                        </a>
-                                                                                                                                                <a href="categories/Design.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Design</span>
-                                        </a>
-                                                                                                                                                                                            </div>
-
-                        <div class="col-12 col-lg-3 mt-32 mt-lg-0">
-                                                                                                <h4 class="font-16 text-white">Contact US</h4>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-20">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-width="1.5" d="M12 13.43a3.12 3.12 0 100-6.24 3.12 3.12 0 000 6.24z"/>
-  <path stroke-width="1.5" d="M3.62 8.49c1.97-8.66 14.8-8.65 16.76.01 1.15 5.08-2.01 9.38-4.78 12.04a5.193 5.193 0 01-7.21 0c-2.76-2.66-5.92-6.97-4.77-12.05z"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 6v10c0 4-1 5-5 5H6c-4 0-5-1-5-5V6c0-4 1-5 5-5h6c4 0 5 1 5 5zM11 4.5H7"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 18.1A1.55 1.55 0 109 15a1.55 1.55 0 000 3.1z"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
-                                    </div>
-                                                                                    </div>
-
-
-                    </div>
-                </div>
-
-                <div class="theme-footer-1__bottom-section-divider"></div>
-
-                <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
-                    <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
-                                                                                                                                        <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
-                                            <img src="store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://web.whatsapp.com/" target="_blank" rel="nofollow" title="Whatsapp" class="d-flex-center size-24">
-                                            <img src="store/1/default_images/social/whatsapp.svg" alt="Whatsapp" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://twitter.com/" target="_blank" rel="nofollow" title="Messenger" class="d-flex-center size-24">
-                                            <img src="store/1/default_images/social/messenger.svg" alt="Messenger" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://www.facebook.com/" target="_blank" rel="nofollow" title="Facebook" class="d-flex-center size-24">
-                                            <img src="store/1/default_images/social/facebook.svg" alt="Facebook" class="img-cover">
-                                        </a>
-                                                                                                                                            </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
-    
-    
-    
-    
-    <div class="cart-drawer no-footer bg-white py-16">
-    <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
-        <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
-            <svg width="25px" height="25px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/>
-</svg>        </button>
-
-        <span class="font-14 font-weight-bold ml-8">Cart</span>
-    </div>
-
-    <div class="cart-drawer__body pb-32" data-simplebar >
-
-    </div>
-
-    <div class="cart-drawer__footer pt-16 border-top-gray-bg d-none px-16">
-        <div class="d-flex align-items-center justify-content-between">
-            <span class="text-gray-500">Subtotal</span>
-            <span class="js-side-cart-subtotal text-dark font-weight-bold"></span>
-        </div>
-
-        <div class="mt-12">
-            <a href="login.html" class="btn btn-outline-primary btn-block">View Cart</a>
-        </div>
-    </div>
-</div>
-<div class="cart-drawer-mask"></div>
-
-</div>
-
-<!-- Template JS File -->
-<script>
-    var siteDomain = 'index.html';
-    var deleteAlertTitle = 'Are you sure?';
-    var deleteAlertHint = 'This action cannot be undone!';
-    var deleteAlertConfirm = 'Delete';
-    var deleteAlertCancel = 'Cancel';
-    var deleteAlertSuccess = 'Success';
-    var deleteAlertFail = 'Failed';
-    var deleteAlertFailHint = 'Failed to delete item!';
-    var deleteAlertSuccessHint = 'Item deleted successfully.';
-    var forbiddenRequestToastTitleLang = 'Forbidden Request';
-    var forbiddenRequestToastMsgLang = 'You do not have access to this content.';
-    var priceInvalidHintLang = 'Invalid price. Only numbers and decimals are accepted.';
-    var clearLang = 'clear';
-    var requestSuccessLang = 'Request completed successfully!';
-    var saveSuccessLang = 'Item added successfully.';
-    var requestFailedLang = 'Request Failed';
-    var oopsLang = 'Oops...';
-    var somethingWentWrongLang = 'Something went wrong...';
-    var loadingDataPleaseWaitLang = 'Loading data. Please wait...';
-    var deleteRequestLang = 'Content Deletion Request';
-    var deleteRequestTitleLang = 'Are you sure to delete content?';
-    var deleteRequestDescriptionLang = 'If you wish to remove your content, please provide a clear and detailed explanation.';
-    var requestDetailsLang = 'Request Details';
-    var sendRequestLang = 'Submit Request';
-    var closeLang = 'Close';
-    var generatedContentLang = 'Generated Content';
-    var copyLang = 'Copy';
-    var doneLang = 'Completed';
-    var jsCurrentCurrency = '$';
-    var defaultLocale = 'en';
-    var appLocale = 'en';
-    var dangerCloseIcon = `<svg width="24" height="24" class="icons text-danger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12M12 18V6"/>
-</svg>`;
-    var directSendIcon = `<svg width="24" height="24" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9V2l-2 2M12 2l2 2M1.98 13h4.41c.38 0 .72.21.89.55l1.17 2.34A2 2 0 0010.24 17h3.53a2 2 0 001.79-1.11l1.17-2.34a1 1 0 01.89-.55h4.36"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 5.13c-3.54.52-5 2.6-5 6.87v3c0 5 2 7 7 7h6c5 0 7-2 7-7v-3c0-4.27-1.46-6.35-5-6.87"/>
-</svg>`;
-    var closeIcon = `<svg width="25px" height="25px" class="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12M12 18V6"/>
-</svg>`;
-    var bulDangerIcon = `<svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M21.76 15.92L15.36 4.4C14.5 2.85 13.31 2 12 2s-2.5.85-3.36 2.4l-6.4 11.52c-.81 1.47-.9 2.88-.25 3.99.65 1.11 1.93 1.72 3.61 1.72h12.8c1.68 0 2.96-.61 3.61-1.72.65-1.11.56-2.53-.25-3.99z" opacity=".4"/>
-  <path d="M12 14.75c-.41 0-.75-.34-.75-.75V9c0-.41.34-.75.75-.75s.75.34.75.75v5c0 .41-.34.75-.75.75zM12 18c-.06 0-.13-.01-.2-.02a.636.636 0 01-.18-.06.757.757 0 01-.18-.09l-.15-.12c-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71l.15-.12c.06-.04.12-.07.18-.09.06-.03.12-.05.18-.06.13-.03.27-.03.39 0 .07.01.13.03.19.06.06.02.12.05.18.09l.15.12c.18.19.29.45.29.71 0 .26-.11.52-.29.71l-.15.12c-.06.04-.12.07-.18.09-.06.03-.12.05-.19.06-.06.01-.13.02-.19.02z"/>
-</svg>`;
-    var defaultAvatarPath = "store/1/default_images/default_profile.jpg";
-    var themeColorsMode = {"light":{"primary":"#E31E24","primary_saturated":"#67a9ff","secondary":"#0e2145","accent":"#fe6257","success":"#3fcd82","info":"#67a9ff","warning":"#ffa200","danger":"#f63c3c","dark":"#121f3e","black":"#000000","white":"#ffffff","gray_100":"#fafcff","gray_200":"#f0f4f9","gray_300":"#e9edf3","gray_400":"#cdd5e2","gray_500":"#97a7bf","gray":"#f5f8f9","section_bg":"#eaf0f3"},"dark":{"primary":"#3e93ff","primary_saturated":"#8dbeff","secondary":"#2658b7","accent":"#ff8077","success":"#5ade98","info":"#8dbeff","warning":"#ffb32d","danger":"#fe6363","dark":"#aab8c5","black":"#e1eaf6","white":"#1e1f26","gray_100":"#272832","gray_200":"#30313e","gray_300":"#3e404e","gray_400":"#5d5f72","gray_500":"#8391a2","gray":"#17181e","section_bg":"#2d323a"}};
-</script>
-
-
-<script type="text/javascript" src="assets/design_1/js/app.min.js"></script>
-<script type="text/javascript" src="assets/default/vendors/simplebar/simplebar.min.js"></script>
-<script defer src="assets/design_1/js/parts/content_delete.min.js"></script>
-
-
-
-
-
-    <script>
-        var leafletApiPath = '../%7bs%7d.tile.openstreetmap.org/%7bz%7d/%7bx%7d/%7by%7d.png';
-    </script>
-
-    <script src="assets/vendors/leaflet/leaflet.min.js"></script>
-    <script src="assets/design_1/js/parts/leaflet_map.min.js"></script>
-
-
-<script>
-
-    
-    
-</script>
-
-<script src="assets/design_1/js/parts/general.min.js"></script>
-
-</body>
-
-<!-- Mirrored from lms.rocket-soft.org/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:26:48 GMT -->
-</html>
-
+@include('mirror.partials.footer')

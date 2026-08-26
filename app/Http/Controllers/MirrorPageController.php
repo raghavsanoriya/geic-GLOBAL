@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Support\DestinationCatalog;
+use App\Support\ScholarshipCatalog;
+use App\Support\ServiceCatalog;
+use App\Support\TestPrepCatalog;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -47,6 +50,39 @@ class MirrorPageController extends Controller
             return view('mirror.destinations.detail', [
                 'mirrorPage' => 'destinations/'.$destination['slug'],
                 'destination' => $destination,
+            ]);
+        }
+
+        if (preg_match('#^services/([a-z\-]+)$#', $page, $matches)) {
+            $service = ServiceCatalog::find($matches[1]);
+
+            abort_unless($service, 404);
+
+            return view('mirror.services.detail', [
+                'mirrorPage' => $page,
+                'service' => $service,
+            ]);
+        }
+
+        if (preg_match('#^scholarships/([a-z\-]+)$#', $page, $matches)) {
+            $scholarship = ScholarshipCatalog::find($matches[1]);
+
+            abort_unless($scholarship, 404);
+
+            return view('mirror.scholarships.detail', [
+                'mirrorPage' => $page,
+                'scholarship' => $scholarship,
+            ]);
+        }
+
+        if (preg_match('#^tests/([a-z\-]+)$#', $page, $matches)) {
+            $test = TestPrepCatalog::find($matches[1]);
+
+            abort_unless($test, 404);
+
+            return view('mirror.tests.detail', [
+                'mirrorPage' => $page,
+                'test' => $test,
             ]);
         }
 
