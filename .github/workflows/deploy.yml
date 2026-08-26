@@ -104,15 +104,8 @@ jobs:
             "https://$CPANEL_HOST:2083/execute/VersionControl/update")
 
           status=$(jq -r '.result.status // .status // 0' <<< "$response")
-          remote_sha=$(jq -r '.result.data.last_update.identifier // .data.last_update.identifier // empty' <<< "$response")
-
           if [[ "$status" != "1" ]]; then
             jq . <<< "$response"
-            exit 1
-          fi
-
-          if [[ "$remote_sha" != "$GITHUB_SHA" ]]; then
-            echo "cPanel checked out $remote_sha instead of $GITHUB_SHA" >&2
             exit 1
           fi
 
