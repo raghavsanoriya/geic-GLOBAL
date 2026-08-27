@@ -267,13 +267,13 @@
     <section class="cd-hero" id="overview">
         <div class="cd-container">
             <div class="cd-hero__shell" style="--hero-position:{{ $destination['hero_position'] }}">
-                <img class="cd-hero__image" src="{{ asset($destination['hero']) }}" alt="Study in {{ $name }}" fetchpriority="high" width="1920" height="1200">
+                <img class="cd-hero__image" src="{{ asset($cms['hero_image'] ?? $destination['hero']) }}" alt="Study in {{ $name }}" fetchpriority="high" width="1920" height="1200">
                 <div class="cd-hero__overlay"></div>
                 <div class="cd-hero__content">
                     <nav class="cd-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/destinations') }}">Destinations</a><span>/</span><span>{{ $name }}</span></nav>
                     <div class="cd-label"><img src="{{ asset('assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $name }} flag"><span>Expert guidance from GEIC Indore</span></div>
-                    <h1>Study in <span>{{ $name }}</span></h1>
-                    <p class="cd-hero__copy">{{ $destination['tagline'] }}</p>
+                    <h1>{{ $cms['hero_title'] ?? 'Study in '.$name }}</h1>
+                    <p class="cd-hero__copy">{{ $cms['hero_copy'] ?? $destination['tagline'] }}</p>
                     <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">See the complete journey</a></div>
                 </div>
                 @include('mirror.partials.hero-enquiry', ['formId' => 'destination-hero', 'sourceContext' => 'Study in '.$name, 'returnTo' => '/destinations/'.$slug.'#overview'])

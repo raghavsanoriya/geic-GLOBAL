@@ -80,13 +80,13 @@
     <section class="tp-hero">
         <div class="tp-wrap">
             <div class="tp-hero__shell">
-                <img class="tp-hero__image" src="{{ asset('assets/services/university-admissions.jpg') }}" alt="" fetchpriority="high" width="1200" height="800">
+                <img class="tp-hero__image" src="{{ asset($cms['hero_image'] ?? 'assets/services/university-admissions.jpg') }}" alt="" fetchpriority="high" width="1200" height="800">
                 <div class="tp-hero__overlay"></div>
                 <div class="tp-hero__orb" aria-hidden="true"></div>
                 <div class="tp-hero__content">
                     <span class="tp-kicker tp-hero__eyebrow">Test preparation</span>
-                    <h1>Prepare with purpose. <span>Test with confidence.</span></h1>
-                    <p>Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.</p>
+                    <h1>{{ $cms['hero_title'] ?? 'Prepare with purpose. Test with confidence.' }}</h1>
+                    <p>{{ $cms['hero_copy'] ?? 'Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.' }}</p>
                     <div class="tp-hero__actions"><a href="#test-grid" class="tp-button">Explore test options <span aria-hidden="true">↓</span></a><a href="{{ url('/#contact') }}" class="tp-hero__alt">Talk to a counsellor</a></div>
                     <div class="tp-proof" aria-label="Test preparation highlights"><div class="tp-proof__item"><b>8</b><span>test-prep pathways</span></div><div class="tp-proof__item"><b>1:1</b><span>test and score planning</span></div><div class="tp-proof__item"><b>Mock-led</b><span>readiness and feedback</span></div></div>
                 </div>

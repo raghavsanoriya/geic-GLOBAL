@@ -358,17 +358,14 @@
             <div class="row h-100 flex-column flex-lg-row">
                 <div class="col-12 col-lg-5 two-columns-hero-section__content">
                     <div class="d-inline-flex align-items-center gap-8 p-8 pr-16 rounded-32 border-2 border-dark">
-                        <span class="font-14 text-primary font-weight-bold">Since 1992</span>
+                        <span class="font-14 text-primary font-weight-bold">{{ $cms['hero_eyebrow'] ?? 'Since 1992' }}</span>
                         <span class="font-14 text-dark">Built on trust. Driven by student success.</span>
                     </div>
 
-                    <h1 class="d-inline-flex flex-column font-64 mt-24">
-                        <span class="text-dark">Shape Your Ambition</span>
-                        <span class="mt-4 text-primary">Into International Success</span>
-                    </h1>
+                    <h1 class="d-inline-flex flex-column font-64 mt-24"><span class="text-dark">{{ $cms['hero_title'] ?? 'Shape Your Ambition Into International Success' }}</span></h1>
 
                     <div class="mt-16 font-16 text-gray-500">
-                        At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.
+                        {{ $cms['hero_copy'] ?? 'At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.' }}
                     </div>
 
                     <div class="d-flex align-items-lg-center flex-column flex-lg-row mt-32 gap-16">
@@ -393,7 +390,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="two-columns-hero-section__images-side position-relative d-flex justify-content-end w-100 h-100 px-lg-24">
                         <div class="d-flex-center two-columns-hero-section__main-img">
-                            <img src="store/landing_builder/landing_13/371/hero_image_j5t.png" alt="Students preparing to study abroad" class="img-cover">
+                            <img src="{{ asset($cms['hero_image'] ?? 'store/landing_builder/landing_13/371/hero_image_j5t.png') }}" alt="Students preparing to study abroad" class="img-cover">
                         </div>
                         <div class="d-flex-center two-columns-hero-section__spinning-img">
                             <img src="assets/transglobe/geic-revolver.svg?v=20260825b" alt="Global education" class="img-cover">
