@@ -45,6 +45,7 @@ if [[ ! -f "$shared_dir/.env" ]]; then
 fi
 
 mkdir -p \
+    "$shared_dir/database" \
     "$shared_dir/storage/app/public" \
     "$shared_dir/storage/framework/cache/data" \
     "$shared_dir/storage/framework/sessions" \
@@ -84,6 +85,13 @@ tar \
 ln -s "$shared_dir/.env" "$release_dir/.env"
 rm -rf "$release_dir/storage"
 ln -s "$shared_dir/storage" "$release_dir/storage"
+
+# Keep SQLite data outside immutable releases. This is harmless for MySQL
+# environments and lets a SQLite-configured production environment survive
+# atomic release switches.
+touch "$shared_dir/database/database.sqlite"
+rm -f -- "$release_dir/database/database.sqlite"
+ln -s "$shared_dir/database/database.sqlite" "$release_dir/database/database.sqlite"
 
 php_bin=""
 for candidate in \
@@ -126,8 +134,8 @@ cd "$release_dir"
     --no-progress \
     --optimize-autoloader
 
-"$php_bin" artisan optimize:clear
 "$php_bin" artisan migrate --force
+"$php_bin" artisan optimize:clear
 "$php_bin" artisan storage:link
 "$php_bin" artisan config:cache
 "$php_bin" artisan route:cache
