@@ -119,6 +119,48 @@ class CmsPageCatalog
         return null;
     }
 
+    /**
+     * Return non-editable visual groups used by a public page.
+     *
+     * These groups sit alongside image fields in the CMS so editors can see
+     * the complete visual footprint of a page, not just its editable hero.
+     * `usageCount` is the number of individual assets rendered in that group.
+     *
+     * @return array<int, array{label: string, section: string, path: string, usageCount: int}>
+     */
+    public static function mediaGroupsForPage(string $pageKey): array
+    {
+        if ($pageKey === 'home') {
+            return [
+                ['label' => 'Hero global-orbit graphic', 'section' => 'Hero', 'path' => 'assets/transglobe/geic-revolver.svg?v=20260825b', 'usageCount' => 1],
+                ['label' => 'Hero supporting overlay', 'section' => 'Hero', 'path' => 'store/landing_builder/landing_13/371/hero_overlay_UGc.png', 'usageCount' => 1],
+                ['label' => 'Statistics background texture', 'section' => 'Highlights', 'path' => 'store/landing_builder/landing_13/372/statistics_bg_T0k.png', 'usageCount' => 1],
+                ['label' => 'Study-destination card gallery', 'section' => 'Destinations section', 'path' => 'assets/transglobe/destinations/australia.jpg', 'usageCount' => 24],
+                ['label' => 'Work-visa pathway cards', 'section' => 'Work visa pathways', 'path' => 'assets/transglobe/destinations/canada.jpg', 'usageCount' => 6],
+                ['label' => 'Partner-university logo carousel', 'section' => 'Partner universities', 'path' => 'assets/transglobe/universities/australian-national-university.png', 'usageCount' => 10],
+                ['label' => 'Study-abroad blog cards', 'section' => 'Blog', 'path' => 'assets/transglobe/destinations/australia/campus-students.jpg', 'usageCount' => 5],
+                ['label' => 'Google-review profile images', 'section' => 'Student reviews', 'path' => 'assets/geic/reviewers/arun-rawat.jpg', 'usageCount' => 10],
+            ];
+        }
+
+        if (str_starts_with($pageKey, 'destination.')) {
+            $destination = DestinationCatalog::find(substr($pageKey, strlen('destination.')));
+
+            if (! $destination) {
+                return [];
+            }
+
+            return [
+                ['label' => 'Country flag', 'section' => 'Hero', 'path' => 'assets/transglobe/destinations/flags/'.$destination['flag'], 'usageCount' => 1],
+                ['label' => 'Destination lifestyle gallery', 'section' => 'Discover '.$destination['name'], 'path' => $destination['gallery'][0]['src'], 'usageCount' => count($destination['gallery'])],
+                ['label' => 'Career and intake visual', 'section' => 'Courses & careers', 'path' => $destination['support_image']['src'], 'usageCount' => 1],
+                ['label' => 'University logo network', 'section' => 'Universities', 'path' => $destination['universities'][0]['logo'] ?? 'assets/transglobe/geic-revolver.svg', 'usageCount' => count($destination['universities'])],
+            ];
+        }
+
+        return [];
+    }
+
     private static function page(string $key, string $name, string $description, array $fields): array
     {
         return compact('key', 'name', 'description', 'fields');

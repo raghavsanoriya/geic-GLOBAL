@@ -80,9 +80,12 @@ class AdminDashboardTest extends TestCase
         $this->actingAs($admin)
             ->get('/admin/pages/home')
             ->assertOk()
-            ->assertSee('Header & navigation')
+            ->assertSee('Step 1 of 8')
             ->assertSee('Conversion CTA')
-            ->assertSee('Footer copyright');
+            ->assertSee('Media usage')
+            ->assertSee('Study-destination card gallery')
+            ->assertSee('Save draft')
+            ->assertSee('Publish changes');
 
         $this->actingAs($admin)
             ->put('/admin/pages/home', ['content' => [
@@ -94,7 +97,7 @@ class AdminDashboardTest extends TestCase
                 'hero_primary_cta_label' => 'Start my study plan',
                 'journey_step_two_title' => 'Build your shortlist',
                 'footer_cta_label' => 'Plan with our team',
-            ]])
+            ], 'intent' => 'publish'])
             ->assertRedirect('/admin/pages/home');
 
         $this->assertDatabaseHas('site_contents', [
@@ -115,5 +118,59 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Start my study plan')
             ->assertSee('Build your shortlist')
             ->assertSee('Plan with our team');
+    }
+
+    public function test_draft_homepage_content_stays_private_until_it_is_published(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/home', ['content' => [
+                'hero_title' => 'Private draft headline',
+            ], 'intent' => 'draft'])
+            ->assertRedirect('/admin/pages/home');
+
+        $this->assertDatabaseHas('cms_page_states', [
+            'page_key' => 'home',
+            'status' => 'draft',
+        ]);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertDontSee('Private draft headline');
+    }
+
+    public function test_administrator_can_unpublish_a_published_cms_page_version(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/home', ['content' => [
+                'hero_title' => 'Published before unpublishing',
+            ], 'intent' => 'publish'])
+            ->assertRedirect('/admin/pages/home');
+
+        $this->actingAs($admin)
+            ->delete('/admin/pages/home/published')
+            ->assertRedirect('/admin/pages/home');
+
+        $this->assertDatabaseHas('cms_page_states', [
+            'page_key' => 'home',
+            'status' => 'unpublished',
+        ]);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertDontSee('Published before unpublishing');
     }
 }

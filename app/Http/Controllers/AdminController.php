@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CmsPageState;
 use App\Models\MediaAsset;
 use App\Models\SiteContent;
 use App\Models\User;
 use App\Support\CmsPageCatalog;
 use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -130,6 +131,7 @@ class AdminController extends Controller
         return view('admin.pages.index', [
             'pages' => CmsPageCatalog::all(),
             'saved' => $saved,
+            'states' => CmsPageState::query()->get()->keyBy('page_key'),
         ]);
     }
 
@@ -138,9 +140,14 @@ class AdminController extends Controller
         $page = CmsPageCatalog::find($pageKey);
         abort_unless($page, 404);
 
+        $values = SiteContent::valuesForPage($pageKey);
+        $workflow = $this->workflowForPage($pageKey);
+
         return view('admin.pages.edit', [
             'page' => $page,
-            'values' => SiteContent::valuesForPage($pageKey),
+            'values' => $values,
+            'workflow' => $workflow,
+            'mediaUsage' => $this->mediaUsageForPage($page, $values, $workflow['publishedValues']),
         ]);
     }
 
@@ -152,10 +159,13 @@ class AdminController extends Controller
         $validated = $request->validate([
             'content' => ['required', 'array'],
             'content.*' => ['nullable', 'string', 'max:12000'],
+            'intent' => ['required', 'in:draft,publish'],
         ]);
         $fieldMap = collect($page['fields'])->keyBy('key');
 
         DB::transaction(function () use ($validated, $fieldMap, $pageKey): void {
+            $pageState = $this->initialisePageState($pageKey);
+
             foreach ($validated['content'] as $key => $value) {
                 $field = $fieldMap->get($key);
                 if (! $field) {
@@ -167,9 +177,40 @@ class AdminController extends Controller
                     ['label' => $field['label'], 'type' => $field['type'], 'value' => blank($value) ? null : trim($value)],
                 );
             }
+
+            if ($validated['intent'] === 'publish') {
+                SiteContent::query()
+                    ->where('page_key', $pageKey)
+                    ->update(['published_value' => DB::raw('value')]);
+
+                $pageState->update([
+                    'status' => 'published',
+                    'published_at' => now(),
+                    'drafted_at' => null,
+                    'unpublished_at' => null,
+                ]);
+            } else {
+                $pageState->update(['drafted_at' => now()]);
+            }
         });
 
-        return redirect()->route('admin.pages.edit', $pageKey)->with('status', 'Website content saved. It is live on the public page now.');
+        $message = $validated['intent'] === 'publish'
+            ? 'Page published. Visitors can now see this version.'
+            : 'Draft saved. Visitors still see the previously published version.';
+
+        return redirect()->route('admin.pages.edit', $pageKey)->with('status', $message);
+    }
+
+    public function unpublishPage(string $pageKey): RedirectResponse
+    {
+        abort_unless(CmsPageCatalog::find($pageKey), 404);
+
+        CmsPageState::query()->updateOrCreate(
+            ['page_key' => $pageKey],
+            ['status' => 'unpublished', 'unpublished_at' => now()],
+        );
+
+        return redirect()->route('admin.pages.edit', $pageKey)->with('status', 'The published CMS version has been unpublished. Your draft is still available in this editor.');
     }
 
     public function media(): View
@@ -247,5 +288,116 @@ class AdminController extends Controller
             })
             ->when($request->filled('destination'), fn ($query) => $query->where('destination', $request->string('destination')->toString()))
             ->orderByDesc('created_at');
+    }
+
+    /**
+     * @return array{status: string, label: string, publishedAt: CarbonInterface|null, publishedValues: array<string, string>, hasDraftChanges: bool}
+     */
+    private function workflowForPage(string $pageKey): array
+    {
+        $pageState = CmsPageState::query()->where('page_key', $pageKey)->first();
+        if (! $pageState) {
+            return [
+                'status' => 'published',
+                'label' => 'Published baseline',
+                'publishedAt' => null,
+                'publishedValues' => SiteContent::valuesForPage($pageKey),
+                'hasDraftChanges' => false,
+            ];
+        }
+
+        $hasDraftChanges = $pageState->status === 'draft'
+            || ($pageState->drafted_at && (! $pageState->published_at || $pageState->drafted_at->greaterThan($pageState->published_at)));
+
+        $label = match ($pageState->status) {
+            'unpublished' => 'Unpublished',
+            'draft' => 'Draft only',
+            default => $hasDraftChanges ? 'Published + draft changes' : 'Published',
+        };
+
+        return [
+            'status' => $pageState->status,
+            'label' => $label,
+            'publishedAt' => $pageState->published_at,
+            'publishedValues' => $pageState->status === 'published'
+                ? SiteContent::query()
+                    ->where('page_key', $pageKey)
+                    ->whereNotNull('published_value')
+                    ->pluck('published_value', 'field_key')
+                    ->all()
+                : [],
+            'hasDraftChanges' => (bool) $hasDraftChanges,
+        ];
+    }
+
+    private function initialisePageState(string $pageKey): CmsPageState
+    {
+        $pageState = CmsPageState::query()->where('page_key', $pageKey)->first();
+
+        if ($pageState) {
+            return $pageState;
+        }
+
+        $hasSavedContent = SiteContent::query()->where('page_key', $pageKey)->exists();
+
+        if ($hasSavedContent) {
+            SiteContent::query()
+                ->where('page_key', $pageKey)
+                ->whereNull('published_value')
+                ->update(['published_value' => DB::raw('value')]);
+        }
+
+        return CmsPageState::query()->create([
+            'page_key' => $pageKey,
+            'status' => $hasSavedContent ? 'published' : 'draft',
+            'published_at' => $hasSavedContent ? now() : null,
+        ]);
+    }
+
+    /**
+     * @param  array{key: string, fields: array<int, array{key: string, label: string, default: string, type: string, section: string}>}  $page
+     * @param  array<string, string>  $values
+     * @param  array<string, string>  $publishedValues
+     * @return array<int, array{fieldKey: string|null, label: string, section: string, draftPath: string, publishedPath: string, status: string, usageCount: int, editable: bool, libraryAsset: MediaAsset|null}>
+     */
+    private function mediaUsageForPage(array $page, array $values, array $publishedValues): array
+    {
+        $mediaUsage = collect($page['fields'])
+            ->filter(fn (array $field): bool => $field['type'] === 'image')
+            ->map(function (array $field) use ($values, $publishedValues): array {
+                $draftPath = $values[$field['key']] ?? $field['default'];
+                $publishedPath = $publishedValues[$field['key']] ?? $field['default'];
+
+                return [
+                    'fieldKey' => $field['key'],
+                    'label' => $field['label'],
+                    'section' => $field['section'] ?? 'Page content',
+                    'draftPath' => $draftPath,
+                    'publishedPath' => $publishedPath,
+                    'status' => $draftPath === $publishedPath ? 'Matches published image' : 'Draft replacement',
+                    'usageCount' => 1,
+                    'editable' => true,
+                ];
+            })
+            ->merge(collect(CmsPageCatalog::mediaGroupsForPage($page['key']))->map(fn (array $media): array => [
+                'fieldKey' => null,
+                'label' => $media['label'],
+                'section' => $media['section'],
+                'draftPath' => $media['path'],
+                'publishedPath' => $media['path'],
+                'status' => 'Shared site asset',
+                'usageCount' => $media['usageCount'],
+                'editable' => false,
+            ]))
+            ->values();
+
+        $libraryAssets = MediaAsset::query()
+            ->whereIn('path', $mediaUsage->pluck('draftPath')->filter()->unique()->all())
+            ->get()
+            ->keyBy('path');
+
+        return $mediaUsage
+            ->map(fn (array $item): array => [...$item, 'libraryAsset' => $libraryAssets->get($item['draftPath'])])
+            ->all();
     }
 }
