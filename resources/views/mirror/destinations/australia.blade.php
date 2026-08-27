@@ -58,7 +58,7 @@
     .au-hero__image, .au-hero__overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
     .au-hero__image { object-fit: cover; }
     .au-hero__overlay { background: linear-gradient(90deg, rgba(5,17,39,.94) 0%, rgba(5,17,39,.76) 48%, rgba(5,17,39,.18) 100%); }
-    .au-hero__content { position: relative; z-index: 2; width: min(720px, 100%); padding: 64px; }
+    .au-hero__content { position: relative; z-index: 2; width: min(660px, calc(100% - 380px)); padding: 64px; }
     .au-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: rgba(255,255,255,.68); font-size: 13px; }
     .au-breadcrumb a { color: #fff; }
     .au-country-label { display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: #fff; background: rgba(14,33,69,.42); backdrop-filter: blur(10px); }
@@ -336,6 +336,11 @@
         .au-faq summary { font-size: 14px; line-height: 1.45; }
         #contact .au-dark-band__content { gap: 22px; }
     }
+    @media (max-width:900px) {
+        .au-hero__shell { display:block; min-height:0; }
+        .au-hero__content { width:100%; }
+    }
+    @media (max-width:575px) { .au-hero__shell { min-height:0; } }
     @media (prefers-reduced-motion: reduce) {
         .au-benefit, .au-benefit__icon, .au-journey-step, .au-life-gallery__item img { transition: none; }
         .au-benefit:hover, .au-journey-step:hover, .au-life-gallery__item:hover img { transform: none; }
@@ -354,10 +359,11 @@
                     <h1>Study in <span>Australia</span></h1>
                     <p class="au-hero__copy">Build a globally respected education and career path through research-led universities, practical learning and welcoming student cities.</p>
                     <div class="au-hero__actions">
-                        <a href="destinations/australia#contact" class="btn btn-primary btn-xlg text-white">Free consultation</a>
-                        <a href="destinations/australia#journey" class="au-outline-button">See the complete process</a>
+                        <a href="{{ url('/destinations/australia') }}#contact" class="btn btn-primary btn-xlg text-white">Free consultation</a>
+                        <a href="{{ url('/destinations/australia') }}#journey" class="au-outline-button">See the complete process</a>
                     </div>
                 </div>
+                @include('mirror.partials.hero-enquiry', ['formId' => 'australia-hero', 'sourceContext' => 'Study in Australia', 'returnTo' => '/destinations/australia#overview'])
             </div>
 
             <div class="au-quick-facts" aria-label="Australia study facts">
@@ -373,7 +379,7 @@
     <nav class="au-anchor-nav" aria-label="Australia page sections">
         <div class="container">
             <div class="au-anchor-nav__inner">
-                <a class="is-active" href="destinations/australia#overview">Overview</a><a href="destinations/australia#why-australia">Why Australia</a><a href="destinations/australia#journey">Study journey</a><a href="destinations/australia#requirements">Requirements</a><a href="destinations/australia#budget">Costs</a><a href="destinations/australia#intakes">Intakes & careers</a><a href="destinations/australia#universities">Universities</a><a href="destinations/australia#faqs">FAQs</a>
+                <a class="is-active" href="{{ url('/destinations/australia') }}#overview">Overview</a><a href="{{ url('/destinations/australia') }}#why-australia">Why Australia</a><a href="{{ url('/destinations/australia') }}#journey">Study journey</a><a href="{{ url('/destinations/australia') }}#requirements">Requirements</a><a href="{{ url('/destinations/australia') }}#budget">Costs</a><a href="{{ url('/destinations/australia') }}#intakes">Intakes & careers</a><a href="{{ url('/destinations/australia') }}#universities">Universities</a><a href="{{ url('/destinations/australia') }}#faqs">FAQs</a>
             </div>
         </div>
     </nav>
@@ -390,7 +396,7 @@
                     <h2 class="au-heading">Academic prestige meets real-world learning</h2>
                     <p>Australia combines research-focused universities with teaching designed around industry. Students can study across the Group of Eight, technology-focused institutions and strong regional university networks.</p>
                     <p>Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra and other student cities offer reliable infrastructure, healthcare, public transport and multicultural communities.</p>
-                    <a href="destinations/australia#requirements" class="btn btn-primary btn-lg text-white mt-24">Check admission requirements</a>
+                    <a href="{{ url('/destinations/australia') }}#requirements" class="btn btn-primary btn-lg text-white mt-24">Check admission requirements</a>
                 </div>
             </div>
         </div>
@@ -433,7 +439,7 @@
             <div class="au-dark-band">
                 <div class="au-dark-band__content">
                     <div><h2>Your Australia plan starts with one clear conversation</h2><p>Understand your eligible courses, realistic budget, intake timeline and visa pathway before you make a decision.</p></div>
-                    <a href="destinations/australia#contact" class="btn btn-primary btn-xlg text-white">Plan my journey</a>
+                    <a href="{{ url('/destinations/australia') }}#contact" class="btn btn-primary btn-xlg text-white">Plan my journey</a>
                 </div>
             </div>
         </div>
@@ -465,7 +471,7 @@
             <div class="au-journey-outcome">
                 <span class="au-journey-outcome__icon" aria-hidden="true">✓</span>
                 <div class="au-journey-outcome__copy"><small>Destination reached</small><strong>Arrive informed, prepared and ready for student life.</strong></div>
-                <a href="destinations/australia#contact">Start my journey →</a>
+                <a href="{{ url('/destinations/australia') }}#contact">Start my journey →</a>
             </div>
         </div>
     </section>
@@ -489,7 +495,7 @@
                         <div class="au-visa-item"><strong>Financial capacity</strong><span>Evidence covering tuition and living costs.</span></div>
                         <div class="au-visa-item"><strong>CoE and OSHC</strong><span>Confirmation of Enrolment and health cover.</span></div>
                     </div>
-                    <a href="destinations/australia#contact" class="btn btn-primary btn-lg text-white mt-24">Discuss my eligibility</a>
+                    <a href="{{ url('/destinations/australia') }}#contact" class="btn btn-primary btn-lg text-white mt-24">Discuss my eligibility</a>
                 </article>
             </div>
         </div>

@@ -10,10 +10,24 @@
     .tg-page-mobile-bottom { display: none; }
 
     @media (max-width: 767px), (max-width: 991px) and (max-height: 500px) {
+        body.contact-page,
         body.destination-page,
-        body.country-detail-page { padding-top: 72px; padding-bottom: calc(92px + env(safe-area-inset-bottom)); background: #f3f6f9; }
+        body.country-detail-page,
+        body.services-page,
+        body.service-detail-page,
+        body.scholarships-page,
+        body.scholarship-detail-page,
+        body.tests-page,
+        body.test-detail-page { padding-top: 72px; padding-bottom: calc(92px + env(safe-area-inset-bottom)); background: #f3f6f9; }
+        body.contact-page #appHeaderArea,
         body.destination-page #appHeaderArea,
-        body.country-detail-page #appHeaderArea { display: none !important; }
+        body.country-detail-page #appHeaderArea,
+        body.services-page #appHeaderArea,
+        body.service-detail-page #appHeaderArea,
+        body.scholarships-page #appHeaderArea,
+        body.scholarship-detail-page #appHeaderArea,
+        body.tests-page #appHeaderArea,
+        body.test-detail-page #appHeaderArea { display: none !important; }
         body.tg-page-menu-open { overflow: hidden; }
 
         .tg-page-mobile-bar { position: fixed; z-index: 1100; top: 0; right: 0; left: 0; display: grid; grid-template-columns: 48px minmax(0,1fr) 48px; align-items: center; gap: 8px; min-height: 72px; padding: 10px 14px; border-bottom: 1px solid rgba(14,33,69,.08); background: rgba(255,255,255,.97); box-shadow: 0 8px 24px rgba(14,33,69,.08); backdrop-filter: blur(18px); }
@@ -53,11 +67,17 @@
         .tg-page-mobile-bottom__action::before { background: #F3951E !important; }
 
         body.destination-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img,
-        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img { width: 230px !important; max-width: 62vw !important; margin-bottom: 16px !important; }
+        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img,
+        body.services-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img,
+        body.service-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > img { width: 230px !important; max-width: 62vw !important; margin-bottom: 16px !important; }
         body.destination-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center,
-        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center { gap: 6px !important; max-width: 100%; padding: 8px 12px !important; border-width: 1px !important; font-size: 12px; line-height: 1.35; }
+        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center,
+        body.services-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center,
+        body.service-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > .d-inline-flex-center { gap: 6px !important; max-width: 100%; padding: 8px 12px !important; border-width: 1px !important; font-size: 12px; line-height: 1.35; }
         body.destination-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3,
-        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3 { margin-top: 12px !important; font-size: 28px !important; line-height: 1.2 !important; }
+        body.country-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3,
+        body.services-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3,
+        body.service-detail-page #appFooterArea .theme-footer-1__section > .position-relative.z-index-2 > .container > .row > .col-12.col-lg-5 > h3 { margin-top: 12px !important; font-size: 28px !important; line-height: 1.2 !important; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -89,21 +109,21 @@
     </div>
     <nav aria-label="Mobile menu">
         <a href="{{ url('/') }}">Home</a>
-        <a href="destinations">Study destinations</a>
-        <a href="{{ url('/#services') }}">Our services</a>
-        <a href="{{ url('/#scholarships') }}">Scholarships</a>
-        <a href="{{ url('/#test-prep') }}">Test preparation</a>
+        <a href="{{ url('/destinations') }}">Study destinations</a>
+        <a href="{{ url('/services') }}">Our services</a>
+        <a href="{{ url('/scholarships') }}">Scholarships</a>
+        <a href="{{ url('/tests') }}">Test preparation</a>
         <a href="{{ url('/#work-visas') }}">Work visa pathways</a>
     </nav>
-    <a href="{{ url('/#contact') }}" class="tg-page-mobile-drawer__cta">Book free counselling</a>
+    <a href="{{ url('/contact#enquiry') }}" class="tg-page-mobile-drawer__cta">Book free counselling</a>
 </aside>
 
 <nav class="tg-page-mobile-bottom" aria-label="Primary mobile navigation">
     <a href="{{ url('/') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3V10.5Z"/></svg><span>Home</span></a>
-    <a href="destinations" class="is-active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 1 0-14 0c0 6.8 7 13 7 13Zm0-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg><span>Explore</span></a>
-    <a href="{{ url('/#services') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/></svg><span>Services</span></a>
+    <a href="{{ url('/destinations') }}" class="{{ ($mirrorPage ?? '') === 'destinations' ? 'is-active' : '' }}" @if(($mirrorPage ?? '') === 'destinations') aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 1 0-14 0c0 6.8 7 13 7 13Zm0-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg><span>Explore</span></a>
+    <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'is-active' : '' }}" @if(str_starts_with(($mirrorPage ?? ''), 'services')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/></svg><span>Services</span></a>
     <a href="{{ url('/#reviews') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8l5.8.8-4.2 4.1 1 5.8-5.4-2.8-5.4 2.8 1-5.8-4.2-4.1L9.2 8 12 2.8Z"/></svg><span>Reviews</span></a>
-    <a href="{{ url('/#contact') }}" class="tg-page-mobile-bottom__action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z"/></svg><span>Consult</span></a>
+    <a href="{{ url('/contact#enquiry') }}" class="tg-page-mobile-bottom__action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z"/></svg><span>Consult</span></a>
 </nav>
 
 <script>

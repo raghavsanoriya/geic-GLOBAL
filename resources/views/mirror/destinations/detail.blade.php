@@ -4,6 +4,7 @@
 @php
     $slug = $destination['slug'];
     $name = $destination['name'];
+    $detailUrl = url()->current();
 @endphp
 
 <style>
@@ -26,7 +27,7 @@
     .cd-hero__image,.cd-hero__overlay { position:absolute; inset:0; width:100%; height:100%; }
     .cd-hero__image { object-fit:cover; object-position:var(--hero-position, center); }
     .cd-hero__overlay { background:linear-gradient(90deg,rgba(5,17,39,.96) 0%,rgba(5,17,39,.82) 45%,rgba(5,17,39,.22) 100%); }
-    .cd-hero__content { position:relative; z-index:2; width:min(760px,100%); padding:64px; }
+    .cd-hero__content { position:relative; z-index:2; width:min(660px,calc(100% - 380px)); padding:64px; }
     .cd-breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; color:rgba(255,255,255,.68); font-size:13px; }
     .cd-breadcrumb a { color:#fff; }
     .cd-label { display:inline-flex; align-items:center; gap:10px; margin-top:30px; padding:8px 13px; border:1px solid rgba(255,255,255,.25); border-radius:999px; color:#fff; background:rgba(14,33,69,.45); backdrop-filter:blur(12px); }
@@ -62,6 +63,8 @@
     .cd-visual__card { position:absolute; right:0; bottom:0; width:52%; min-height:220px; overflow:hidden; border:9px solid #fff; border-radius:26px; background:var(--cd-navy); box-shadow:0 20px 44px rgba(14,33,69,.22); }
     .cd-visual__card img { width:100%; height:220px; object-fit:cover; opacity:.78; }
     .cd-visual__badge { position:absolute; left:22px; bottom:20px; padding:9px 13px; border-radius:999px; color:#fff; background:rgba(14,33,69,.88); font-size:12px; font-weight:800; }
+    .cd-visual__mini { position:absolute; top:28px; right:0; width:42%; height:178px; overflow:hidden; border:8px solid #fff; border-radius:24px; box-shadow:0 18px 42px rgba(14,33,69,.18); }
+    .cd-visual__mini img { width:100%; height:100%; object-fit:cover; }
 
     .cd-benefits { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:42px; }
     .cd-benefit { padding:28px; border:1px solid var(--cd-border); border-radius:22px; background:#fff; box-shadow:0 12px 32px rgba(14,33,69,.05); transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease; }
@@ -70,6 +73,13 @@
     .cd-benefit__icon svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.9; }
     .cd-benefit h3 { margin:18px 0 0; color:var(--cd-navy); font-size:19px; }
     .cd-benefit p { margin:10px 0 0; color:var(--cd-muted); line-height:1.65; }
+    .cd-life-gallery { display:grid; grid-template-columns:1.15fr .85fr .85fr; gap:16px; margin-top:50px; }
+    .cd-life-card { position:relative; min-height:280px; overflow:hidden; border-radius:24px; background:var(--cd-navy); }
+    .cd-life-card:first-child { min-height:360px; }
+    .cd-life-card img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .cd-life-card:hover img { transform:scale(1.035); }
+    .cd-life-card::after { position:absolute; inset:auto 0 0; height:55%; background:linear-gradient(transparent,rgba(5,17,39,.82)); content:''; }
+    .cd-life-card figcaption { position:absolute; z-index:2; right:20px; bottom:18px; left:20px; color:#fff; font-size:16px; font-weight:800; }
 
     .cd-facts { display:grid; grid-template-columns:.85fr 1.15fr; gap:24px; margin-top:42px; }
     .cd-fact-image { min-height:410px; overflow:hidden; border-radius:28px; }
@@ -109,13 +119,16 @@
     .cd-cost span { color:var(--cd-muted); font-size:13px; font-weight:700; }
     .cd-cost strong { display:block; margin-top:14px; color:var(--cd-navy); font-size:21px; line-height:1.35; }
     .cd-cost small { display:block; margin-top:10px; color:#8896aa; line-height:1.5; }
-    .cd-career-intakes { display:grid; grid-template-columns:1.1fr .9fr; gap:28px; margin-top:30px; }
+    .cd-career-intakes { display:grid; grid-template-columns:1fr 1fr .9fr; gap:22px; margin-top:30px; }
     .cd-careers { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
     .cd-careers span { padding:11px 15px; border:1px solid #dce5ef; border-radius:999px; color:#425877; background:var(--cd-soft); font-size:13px; font-weight:700; }
     .cd-intakes { display:grid; gap:12px; margin-top:22px; }
     .cd-intake { padding:18px 20px; border-left:4px solid var(--cd-red); border-radius:12px; background:var(--cd-soft); }
     .cd-intake strong { display:block; color:var(--cd-navy); }
     .cd-intake span { display:block; margin-top:5px; color:var(--cd-muted); font-size:13px; line-height:1.5; }
+    .cd-career-media { position:relative; min-height:360px; overflow:hidden; border-radius:26px; }
+    .cd-career-media img { width:100%; height:100%; object-fit:cover; }
+    .cd-career-media figcaption { position:absolute; right:18px; bottom:18px; left:18px; padding:13px 15px; border-radius:14px; color:#fff; background:rgba(14,33,69,.86); font-size:13px; font-weight:800; backdrop-filter:blur(10px); }
 
     .cd-faq { display:grid; gap:12px; margin-top:38px; }
     .cd-faq details { overflow:hidden; border:1px solid var(--cd-border); border-radius:17px; background:#fff; }
@@ -155,10 +168,16 @@
         .cd-stat:nth-child(-n+2) { border-bottom:1px solid var(--cd-border); }
         .cd-overview,.cd-requirements,.cd-career-intakes,.cd-contact { grid-template-columns:1fr; }
         .cd-benefits { grid-template-columns:repeat(2,1fr); }
+        .cd-life-gallery { grid-template-columns:1fr 1fr; }
+        .cd-life-card:first-child { grid-column:1/-1; }
         .cd-facts { grid-template-columns:1fr; }
         .cd-journey { grid-template-columns:repeat(2,1fr); }
         .cd-step:not(:nth-child(4n))::after { display:none; }
         .cd-costs { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:900px) {
+        .cd-hero__shell { display:block; min-height:0; }
+        .cd-hero__content { width:100%; }
     }
     @media (max-width:767px) {
         .cd-page { padding-bottom:76px; }
@@ -186,9 +205,13 @@
         .cd-visual__main { inset:0 34px 45px 0; border-radius:23px; }
         .cd-visual__card { width:58%; min-height:165px; border-width:6px; border-radius:20px; }
         .cd-visual__card img { height:165px; }
+        .cd-visual__mini { top:18px; width:46%; height:128px; border-width:5px; border-radius:18px; }
         .cd-benefits { display:flex; overflow-x:auto; gap:14px; margin-inline:-14px; padding:0 14px 8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
         .cd-benefits::-webkit-scrollbar { display:none; }
         .cd-benefit { flex:0 0 84%; scroll-snap-align:start; }
+        .cd-life-gallery { display:flex; overflow-x:auto; gap:14px; margin-inline:-14px; padding:0 14px 8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+        .cd-life-gallery::-webkit-scrollbar { display:none; }
+        .cd-life-card,.cd-life-card:first-child { flex:0 0 84%; min-height:300px; scroll-snap-align:start; }
         .cd-fact-image { min-height:300px; }
         .cd-fact-panel { grid-template-columns:1fr; padding:24px; }
         .cd-journey-wrap { margin-inline:-14px; padding:24px 14px; border-radius:0; }
@@ -200,11 +223,12 @@
         .cd-field--full { grid-column:auto; }
         .cd-costs { display:flex; overflow-x:auto; margin-inline:-14px; padding:0 14px 8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
         .cd-cost { flex:0 0 82%; scroll-snap-align:start; }
+        .cd-career-media { min-height:290px; }
         .cd-contact { border-radius:24px; }
         .cd-contact__intro,.cd-form { padding:28px 22px; }
         .cd-contact__intro h2 { font-size:31px; }
     }
-    @media (prefers-reduced-motion:reduce) { .cd-button,.cd-benefit { transition:none; } }
+    @media (prefers-reduced-motion:reduce) { .cd-button,.cd-benefit,.cd-life-card img { transition:none; } }
 </style>
 
 <main class="cd-page">
@@ -218,8 +242,9 @@
                     <div class="cd-label"><img src="{{ asset('assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $name }} flag"><span>Expert guidance from GEIC Indore</span></div>
                     <h1>Study in <span>{{ $name }}</span></h1>
                     <p class="cd-hero__copy">{{ $destination['tagline'] }}</p>
-                    <div class="cd-actions"><a class="cd-button" href="#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="#journey">See the complete journey</a></div>
+                    <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">See the complete journey</a></div>
                 </div>
+                @include('mirror.partials.hero-enquiry', ['formId' => 'destination-hero', 'sourceContext' => 'Study in '.$name, 'returnTo' => '/destinations/'.$slug.'#overview'])
             </div>
             <div class="cd-stats" aria-label="{{ $name }} study highlights">
                 @foreach($destination['stats'] as [$value,$label])<div class="cd-stat"><strong>{{ $value }}</strong><span>{{ $label }}</span></div>@endforeach
@@ -228,15 +253,16 @@
     </section>
 
     <nav class="cd-anchor" aria-label="Page sections"><div class="cd-container"><div class="cd-anchor__inner">
-        <a class="is-active" href="#overview">Overview</a><a href="#why">Why {{ $name }}</a><a href="#journey">Study journey</a><a href="#requirements">Requirements</a><a href="#budget">Costs</a><a href="#careers">Intakes & careers</a><a href="#faqs">FAQs</a><a href="#contact">Enquire</a>
+        <a class="is-active" href="{{ $detailUrl }}#overview">Overview</a><a href="{{ $detailUrl }}#why">Why {{ $name }}</a><a href="{{ $detailUrl }}#journey">Study journey</a><a href="{{ $detailUrl }}#requirements">Requirements</a><a href="{{ $detailUrl }}#budget">Costs</a><a href="{{ $detailUrl }}#careers">Intakes & careers</a><a href="{{ $detailUrl }}#universities">Universities</a><a href="{{ $detailUrl }}#faqs">FAQs</a><a href="{{ $detailUrl }}#contact">Enquire</a>
     </div></div></nav>
 
     <section class="cd-section">
         <div class="cd-container cd-overview">
-            <div class="cd-overview__copy"><div class="cd-kicker">Study in {{ $name }}</div><h2 class="cd-heading">A closer look at your study destination</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="#requirements" style="margin-top:26px">Check requirements</a></div>
+            <div class="cd-overview__copy"><div class="cd-kicker">Study in {{ $name }}</div><h2 class="cd-heading">A closer look at your study destination</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="{{ $detailUrl }}#requirements" style="margin-top:26px">Check requirements</a></div>
             <div class="cd-visual" aria-label="{{ $name }} destination gallery">
-                <div class="cd-visual__main"><img src="{{ asset($destination['hero']) }}" alt="Landscape and student destination in {{ $name }}" loading="lazy" width="1200" height="800"></div>
-                <div class="cd-visual__card"><img src="{{ asset($destination['card']) }}" alt="Explore student life in {{ $name }}" loading="lazy" width="800" height="600"><span class="cd-visual__badge">Explore {{ $name }}</span></div>
+                <div class="cd-visual__main"><img src="{{ asset($destination['gallery'][0]['src']) }}" alt="{{ $destination['gallery'][0]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
+                <div class="cd-visual__mini"><img src="{{ asset($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
+                <div class="cd-visual__card"><img src="{{ asset($destination['gallery'][2]['src']) }}" alt="{{ $destination['gallery'][2]['alt'] }}" loading="lazy" width="1600" height="1100"><span class="cd-visual__badge">Explore {{ $name }}</span></div>
             </div>
         </div>
     </section>
@@ -248,7 +274,11 @@
                     <article class="cd-benefit"><div class="cd-benefit__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 13 5 5L20 7"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></div><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>
                 @endforeach
             </div>
-            <div class="cd-facts"><div class="cd-fact-image"><img src="{{ asset($destination['card']) }}" alt="City and campus experience in {{ $name }}" loading="lazy" width="1000" height="760"></div><div class="cd-fact-panel"><div class="cd-fact-panel__intro"><h3>{{ $name }} at a glance</h3><p>{{ $destination['facts_intro'] }}</p></div>@foreach($destination['facts'] as [$label,$value])<div class="cd-fact"><span>{{ $label }}</span><strong>{{ $value }}</strong></div>@endforeach</div></div>
+            <div class="cd-center" style="margin-top:62px"><div class="cd-kicker">Beyond the classroom</div><h2 class="cd-heading">Student life in {{ $name }}</h2></div>
+            <div class="cd-life-gallery">
+                @foreach($destination['gallery'] as $image)<figure class="cd-life-card"><img src="{{ asset($image['src']) }}" alt="{{ $image['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>{{ $image['label'] }}</figcaption></figure>@endforeach
+            </div>
+            <div class="cd-facts"><div class="cd-fact-image"><img src="{{ asset($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div><div class="cd-fact-panel"><div class="cd-fact-panel__intro"><h3>{{ $name }} at a glance</h3><p>{{ $destination['facts_intro'] }}</p></div>@foreach($destination['facts'] as [$label,$value])<div class="cd-fact"><span>{{ $label }}</span><strong>{{ $value }}</strong></div>@endforeach</div></div>
         </div>
     </section>
 
@@ -260,7 +290,7 @@
 
     <section class="cd-section cd-section--soft" id="requirements">
         <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Admission and visa</div><h2 class="cd-heading">Prepare the right documents with confidence</h2><p class="cd-lead">Exact requirements vary by program and institution; we help you build a complete, well-organised application.</p></div>
-            <div class="cd-requirements"><article class="cd-panel"><h3>Typical admission documents</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">Student visa</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.</div><a class="cd-button" href="#contact" style="margin-top:24px">Discuss my eligibility</a></article></div>
+            <div class="cd-requirements"><article class="cd-panel"><h3>Typical admission documents</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">Student visa</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.</div><a class="cd-button" href="{{ $detailUrl }}#contact" style="margin-top:24px">Discuss my eligibility</a></article></div>
         </div>
     </section>
 
@@ -271,10 +301,12 @@
     </section>
 
     <section class="cd-section cd-section--soft" id="careers">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Future ready</div><h2 class="cd-heading">Build your course and intake shortlist</h2></div><div class="cd-career-intakes"><article class="cd-panel"><h3>Popular career-focused fields</h3><div class="cd-careers">@foreach($destination['careers'] as $career)<span>{{ $career }}</span>@endforeach</div></article><article class="cd-panel"><h3>Common intakes</h3><div class="cd-intakes">@foreach($destination['intakes'] as [$intake,$copy])<div class="cd-intake"><strong>{{ $intake }}</strong><span>{{ $copy }}</span></div>@endforeach</div></article></div></div>
+        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Future ready</div><h2 class="cd-heading">Build your course and intake shortlist</h2></div><div class="cd-career-intakes"><article class="cd-panel"><h3>Popular career-focused fields</h3><div class="cd-careers">@foreach($destination['careers'] as $career)<span>{{ $career }}</span>@endforeach</div></article><article class="cd-panel"><h3>Common intakes</h3><div class="cd-intakes">@foreach($destination['intakes'] as [$intake,$copy])<div class="cd-intake"><strong>{{ $intake }}</strong><span>{{ $copy }}</span></div>@endforeach</div></article><figure class="cd-career-media"><img src="{{ asset($destination['support_image']['src']) }}" alt="{{ $destination['support_image']['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>Build experience, networks and career confidence in {{ $name }}.</figcaption></figure></div></div>
     </section>
 
-    <section class="cd-section" id="faqs"><div class="cd-narrow"><div class="cd-center"><div class="cd-kicker">Questions, answered</div><h2 class="cd-heading">Study in {{ $name }} FAQs</h2></div><div class="cd-faq">@foreach($destination['faqs'] as $index => [$question,$answer])<details @if($index===0) open @endif><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>@endforeach</div></div></section>
+    <section class="cd-section" id="universities"><div class="cd-container"><div class="cd-center"><div class="cd-kicker">University network</div><h2 class="cd-heading">Explore institutions in {{ $name }}</h2><p class="cd-lead">Country-specific university options sourced from the Trans Globe destination network.</p></div><x-university-network :universities="$destination['universities']" :country="$name" :slug="$slug" /></div></section>
+
+    <section class="cd-section cd-section--soft" id="faqs"><div class="cd-narrow"><div class="cd-center"><div class="cd-kicker">Questions, answered</div><h2 class="cd-heading">Study in {{ $name }} FAQs</h2></div><div class="cd-faq">@foreach($destination['faqs'] as $index => [$question,$answer])<details @if($index===0) open @endif><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>@endforeach</div></div></section>
 
     <section class="cd-section cd-section--soft" id="contact">
         <div class="cd-container"><div class="cd-contact"><div class="cd-contact__intro"><div class="cd-kicker" style="color:#ffb45a">Free counselling</div><h2>Build your {{ $name }} shortlist with GEIC Indore</h2><p>Share your profile, course interests and preferred intake. Our destination specialist will help you understand realistic institution, budget and visa options.</p><div class="cd-contact__meta"><a href="tel:+919826666886">+91 98266 66886</a><a href="mailto:info@geic.in">info@geic.in</a><span>503, THE VIEW Tower 1, Yeshwant Niwas Rd, Indore 452001</span></div></div>

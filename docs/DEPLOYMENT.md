@@ -1,58 +1,64 @@
 # GitHub to cPanel deployment
 
-This repository uses two protected GitHub environments and atomic Laravel releases.
+This repository uses GitHub Actions, two protected environments, and atomic Laravel releases.
 
 ## Release flow
 
-1. Develop changes on a feature branch.
-2. Merge reviewed changes into `develop`.
-3. GitHub Actions runs formatting, migrations, tests, and the frontend build.
-4. A successful `develop` build deploys automatically to staging.
-5. After staging approval, merge `develop` into `main`.
-6. In GitHub Actions, run the **Deploy** workflow from `main`, choose `production`, and confirm the run.
+1. Develop changes on a feature branch and merge them into `develop`.
+2. GitHub Actions validates Composer, builds assets, checks formatting, and runs the test suite.
+3. A successful `develop` push deploys the exact commit automatically to `https://staging.geic.in`.
+4. Review and test staging, then open a pull request from `develop` to `main`.
+5. After the required checks pass and the pull request is merged, the `main` commit deploys automatically to `https://www.geic.in`.
+6. The **Deploy** workflow can also be dispatched manually for the branch that belongs to the selected environment.
 
-Production never deploys from a push. It only deploys through the manual workflow.
+## GitHub configuration
 
-## GitHub environment configuration
+Create `staging` and `production` environments. Restrict staging to `develop` and production to `main`.
 
-Both `staging` and `production` require these secrets:
+Store these as repository Actions secrets:
 
 - `CPANEL_HOST`
 - `CPANEL_USER`
 - `CPANEL_API_TOKEN`
 
-Both environments require these variables:
+Define these variables in both environments:
 
-- `APP_URL`: environment base URL without a trailing slash
-- `CPANEL_REPOSITORY_ROOT`: absolute path to the cPanel-managed Git repository
+- `APP_URL`: environment URL without a trailing slash
+- `CPANEL_REPOSITORY_ROOT`: absolute cPanel-managed repository path
 
-The `staging` environment accepts only the `develop` branch. The `production` environment accepts only `main`.
+Protect `main`: require a pull request and the `Test and build` status check, and block force pushes and branch deletion.
 
-## cPanel directory layout
+## cPanel configuration
 
-Each environment has an independent cPanel-managed repository and deployment root:
+Use a repository-scoped read-only SSH deploy key for GitHub. Configure two independent cPanel Git Version Control clones:
+
+- `develop` at `/home2/geicic3c/repositories/geic-staging`
+- `main` at `/home2/geicic3c/repositories/geic-production`
+
+The deploy script creates this layout for each environment:
 
 ```text
 <deploy-path>/
-├── current -> releases/<git-sha>
-├── incoming/
-├── releases/
-└── shared/
-    ├── .env
-    └── storage/
+|-- current -> releases/<git-sha>
+|-- releases/
+`-- shared/
+    |-- .env
+    `-- storage/
 ```
 
-The staging document root points to `/home2/geicic3c/public_html/staging/current/public`. Production releases are prepared under `/home2/geicic3c/apps/geic-production`; the main-domain cutover remains a separate, explicitly approved step.
+Staging deploys under `/home2/geicic3c/staging`, the configured `staging.geic.in` document root. Production deploys under `/home2/geicic3c/apps/geic-production`. Five releases are retained.
 
-The remote `.env`, database, uploaded files, logs, and sessions are never committed or replaced by a deployment. Five releases are retained for diagnosis and rollback.
+The staging subdomain document root is `/home2/geicic3c/staging`. A stable `_geic_release` bridge routes requests to `current/public`, allowing atomic release switches without pointing Apache directly through the rotating `current` symlink.
 
-## First deployment checklist
+Before the first production cutover, run `scripts/install-production-bridge.sh` from the production repository. It creates a timestamped backup and connects `public_html` to the active release. Do not run it until a production release exists and passes its local Laravel setup.
 
-- cPanel has a dedicated, revocable API token stored only in the GitHub environments.
-- cPanel Git Version Control contains independent `develop` and `main` clones.
-- `shared/.env` exists separately for staging and production.
-- Staging uses a separate database and `APP_ENV=staging`, `APP_DEBUG=false`.
-- Production uses `APP_ENV=production`, `APP_DEBUG=false`.
-- The two document roots point to their own `current/public` paths.
-- HTTPS is enabled for both environment URLs.
-- The `/up` health endpoint returns HTTP 200.
+## Environment requirements
+
+- Staging uses its own `.env`, application key, SQLite database, and `APP_URL=https://staging.geic.in`.
+- Production preserves its existing application key and database configuration with `APP_URL=https://www.geic.in`.
+- Both environments use `APP_DEBUG=false` and PHP 8.3.
+- Shared storage, databases, uploaded files, logs, and sessions are never committed or replaced.
+
+## Deployment safety
+
+The deployment is idempotent for an already-active commit. It prepares a release before switching the `current` symlink, validates public routes and CSS after activation, and restores the previous symlink if a health check fails. GitHub independently verifies the deployed SHA through `/release.txt` and checks the primary routes and stylesheet.

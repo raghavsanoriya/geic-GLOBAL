@@ -12,6 +12,12 @@
                 #appFooterArea .tg-footer-bottom {
                     width: 100%;
                     background-color: #0e2145 !important;
+                    /* Keep the divider spacing inside the dark footer surface. */
+                    padding-top: 42px;
+                    margin-top: 0;
+                }
+                #appFooterArea .theme-footer-1__bottom-section-divider {
+                    margin-top: 0;
                 }
             </style>
             <div class="theme-footer-1 position-relative has-newsletter">
@@ -79,7 +85,7 @@
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Start With GEIC Indore</h3>
                                 
-                                                                    <a href="#contact" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Book Free Counselling">
+                                                                    <a href="{{ url('/contact#enquiry') }}" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Book Free Counselling">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
@@ -91,16 +97,16 @@
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Explore</h4>
                             
-                                                                                                                                        <a href="destinations" class="d-block font-16 text-white opacity-70 mt-16">
+                                                                                                                                        <a href="{{ url('/destinations') }}" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Study Destinations</span>
                                         </a>
-                                                                                                                                                <a href="{{ url('/#services') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                <a href="{{ url('/services') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Our Services</span>
                                         </a>
-                                                                                                                                                <a href="{{ url('/#scholarships') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/scholarships') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Scholarships</span>
                                         </a>
-                                                                                                                                                <a href="{{ url('/#test-prep') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                <a href="{{ url('/tests') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Test Preparation</span>
                                         </a>
                                                                                                                                                 <a href="{{ url('/#why-trans-globe') }}" class="d-block font-16 text-white opacity-70 mt-12">
@@ -117,25 +123,25 @@
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Top Destinations</h4>
                             
-                                                                                                                                        <a href="destinations/australia" class="d-block font-16 text-white opacity-70 mt-16">
+                                                                                                                                        <a href="{{ url('/destinations/australia') }}" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Australia</span>
                                         </a>
-                                                                                                                                                <a href="destinations/uk" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/uk') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">United Kingdom</span>
                                         </a>
-                                                                                                                                                <a href="destinations/usa" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/usa') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">United States</span>
                                         </a>
-                                                                                                                                                <a href="destinations/canada" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/canada') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Canada</span>
                                         </a>
-                                                                                                                                                <a href="destinations/germany" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/germany') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Germany</span>
                                         </a>
-                                                                                                                                                <a href="destinations/new-zealand" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/new-zealand') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">New Zealand</span>
                                         </a>
-                                                                                                                                                <a href="destinations/ireland" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="{{ url('/destinations/ireland') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Ireland</span>
                                         </a>
                                                                                                                                                                                             </div>

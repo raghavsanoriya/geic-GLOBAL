@@ -13,6 +13,14 @@ Route::post('/destinations/{destination}/enquire', [CounsellingEnquiryController
     ->middleware('throttle:10,1')
     ->name('destinations.enquire');
 
+Route::post('/contact/enquire', [CounsellingEnquiryController::class, 'storeContact'])
+    ->middleware('throttle:10,1')
+    ->name('contact.enquire');
+
+Route::post('/hero-enquire', [CounsellingEnquiryController::class, 'storeHero'])
+    ->middleware('throttle:10,1')
+    ->name('hero.enquire');
+
 Route::get('/{page?}', [MirrorPageController::class, 'show'])
     ->where('page', '.*')
     ->name('mirror.page');

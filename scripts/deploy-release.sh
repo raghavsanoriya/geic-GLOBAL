@@ -3,12 +3,16 @@
 set -Eeuo pipefail
 
 repository_root="$(git rev-parse --show-toplevel)"
-branch_name="$(git branch --show-current)"
+branch_name="$(git rev-parse --abbrev-ref HEAD)"
 release_name="$(git rev-parse HEAD)"
+
+export HOME="/home2/geicic3c"
+export COMPOSER_HOME="$HOME/.composer"
+mkdir -p "$COMPOSER_HOME"
 
 case "$branch_name" in
     develop)
-        deploy_root="/home2/geicic3c/public_html/staging"
+        deploy_root="/home2/geicic3c/staging"
         ;;
     main)
         deploy_root="/home2/geicic3c/apps/geic-production"
@@ -19,7 +23,7 @@ case "$branch_name" in
         ;;
 esac
 
-if [[ "$deploy_root" != "/home2/geicic3c/public_html/staging" && "$deploy_root" != "/home2/geicic3c/apps/geic-production" ]]; then
+if [[ "$deploy_root" != "/home2/geicic3c/staging" && "$deploy_root" != "/home2/geicic3c/apps/geic-production" ]]; then
     echo "Refusing unsafe deployment root: $deploy_root" >&2
     exit 64
 fi
@@ -29,6 +33,11 @@ releases_dir="$deploy_root/releases"
 release_dir="$releases_dir/$release_name"
 next_link="$deploy_root/current.next"
 current_link="$deploy_root/current"
+previous_target=""
+
+if [[ -L "$current_link" ]]; then
+    previous_target="$(readlink -f "$current_link")"
+fi
 
 if [[ ! -f "$shared_dir/.env" ]]; then
     echo "Missing $shared_dir/.env. Configure the environment before the first deployment." >&2
@@ -45,8 +54,17 @@ mkdir -p \
     "$releases_dir"
 
 if [[ -e "$release_dir" ]]; then
-    echo "Release $release_name already exists; refusing to overwrite it." >&2
-    exit 73
+    if [[ "$previous_target" == "$release_dir" && -f "$release_dir/public/release.txt" ]]; then
+        echo "Release $release_name is already active."
+        exit 0
+    fi
+
+    if [[ "$release_dir" != "$releases_dir/"* ]]; then
+        echo "Refusing unsafe partial-release cleanup: $release_dir" >&2
+        exit 64
+    fi
+
+    rm -rf -- "$release_dir"
 fi
 
 mkdir "$release_dir"
@@ -117,8 +135,55 @@ cd "$release_dir"
 
 printf '%s' "$release_name" > "$release_dir/public/release.txt"
 
+rm -f -- "$next_link"
 ln -s "$release_dir" "$next_link"
 mv -Tf "$next_link" "$current_link"
+
+if [[ "$branch_name" == "develop" ]]; then
+    "$release_dir/scripts/install-staging-bridge.sh" "$release_dir"
+elif [[ "$branch_name" == "main" && ! -L "/home2/geicic3c/public_html/_geic_release" ]]; then
+    "$release_dir/scripts/install-production-bridge.sh"
+fi
+
+app_url="$("$php_bin" -r '
+require "vendor/autoload.php";
+$app = require "bootstrap/app.php";
+$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+echo rtrim((string) config("app.url"), "/");
+')"
+
+if [[ ! "$app_url" =~ ^https?:// ]]; then
+    echo "APP_URL is invalid or missing: $app_url" >&2
+    health_ok=false
+else
+    health_ok=true
+
+    for path in /up / /destinations /destinations/australia /assets/design_1/css/app.min.css; do
+        if ! curl --fail --silent --show-error --max-time 20 --output /dev/null "$app_url$path"; then
+            echo "Health check failed: $app_url$path" >&2
+            health_ok=false
+            break
+        fi
+    done
+fi
+
+if [[ "$health_ok" != true ]]; then
+    if [[ -n "$previous_target" && -d "$previous_target" ]]; then
+        rm -f -- "$next_link"
+        ln -s "$previous_target" "$next_link"
+        mv -Tf "$next_link" "$current_link"
+
+        if [[ "$branch_name" == "develop" ]]; then
+            "$release_dir/scripts/install-staging-bridge.sh" "$previous_target"
+        fi
+
+        echo "Restored previous release: $previous_target" >&2
+    else
+        echo "No previous release was available for rollback." >&2
+    fi
+
+    exit 70
+fi
 
 mapfile -t old_releases < <(
     find "$releases_dir" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \

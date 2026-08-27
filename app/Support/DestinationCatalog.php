@@ -2,6 +2,8 @@
 
 namespace App\Support;
 
+use Illuminate\Support\Str;
+
 class DestinationCatalog
 {
     public static function find(string $slug): ?array
@@ -29,6 +31,13 @@ class DestinationCatalog
     private static function withDefaults(string $slug, array $destination): array
     {
         $name = $destination['name'];
+        $universities = array_map(
+            fn (string $university): array => [
+                'name' => $university,
+                'logo' => self::universityLogo($slug, $university),
+            ],
+            self::universities()[$slug] ?? [],
+        );
 
         return array_merge([
             'slug' => $slug,
@@ -36,6 +45,16 @@ class DestinationCatalog
             'hero' => "assets/transglobe/destinations/detail/{$slug}-hero.webp",
             'card' => "assets/transglobe/destinations/{$slug}.jpg",
             'hero_position' => 'center',
+            'gallery' => [
+                ['src' => "assets/transglobe/destinations/{$slug}/campus.webp", 'alt' => "University campus in {$name}", 'label' => 'Campus life'],
+                ['src' => "assets/transglobe/destinations/{$slug}/city.webp", 'alt' => "City and lifestyle in {$name}", 'label' => 'City life'],
+                ['src' => "assets/transglobe/destinations/{$slug}/students.webp", 'alt' => "International students studying in {$name}", 'label' => 'Student experience'],
+            ],
+            'support_image' => [
+                'src' => "assets/transglobe/destinations/{$slug}/city.webp",
+                'alt' => "Career and lifestyle opportunities in {$name}",
+            ],
+            'universities' => $universities,
             'tagline' => "Globally recognised education and career-focused learning in {$name}.",
             'facts_intro' => "A quick view of the study environment, costs and opportunities in {$name}.",
             'requirements' => [
@@ -66,9 +85,24 @@ class DestinationCatalog
         ], $destination);
     }
 
+    private static function universityLogo(string $slug, string $name): string
+    {
+        $filename = Str::of(strtolower($name))
+            ->replaceMatches('/[^a-z0-9]+/', '-')
+            ->trim('-');
+
+        return "assets/transglobe/destinations/{$slug}/universities/{$filename}.webp";
+    }
+
     private static function destinations(): array
     {
         return [
+            'australia' => [
+                'name' => 'Australia',
+                'flag' => 'au.png',
+                'hero' => 'assets/transglobe/destinations/australia-detail-hero.jpg',
+                'card' => 'assets/transglobe/destinations/australia.jpg',
+            ],
             'new-zealand' => [
                 'name' => 'New Zealand', 'flag' => 'nz.png', 'card' => 'assets/transglobe/destinations/new-zealand.jpg',
                 'tagline' => 'Government-regulated education, practical learning and an exceptional quality of life.',
@@ -288,6 +322,144 @@ class DestinationCatalog
                 'costs' => [['Undergraduate tuition', 'CHF 1,000–25,000 / year'], ['Postgraduate tuition', 'CHF 1,500–35,000 / year'], ['Living and accommodation', 'CHF 18,000–30,000 / year'], ['National D visa', 'About CHF 88–100']],
                 'careers' => ['Mechanical Engineering', 'Robotics & AI', 'Data Science', 'Cybersecurity', 'Banking & FinTech', 'Hospitality', 'Pharmaceuticals', 'Biotechnology'],
                 'intakes' => [['August / September', 'Primary fall intake with maximum program choice.'], ['February', 'Secondary spring intake for selected programs.']],
+            ],
+        ];
+    }
+
+    private static function universities(): array
+    {
+        return [
+            'australia' => [
+                'Australian National University (ANU)',
+                'University of Adelaide',
+                'University of Melbourne',
+                'University of New South Wales (UNSW Sydney)',
+                'University of Queensland (UQ)',
+                'University of Sydney',
+                'University of Western Australia (UWA)',
+                'Monash University',
+            ],
+            'new-zealand' => [
+                'University of Auckland',
+                'Auckland University of Technology (AUT)',
+                'Massey University',
+                'University of Waikato',
+                'Victoria University of Wellington',
+                'University of Canterbury',
+                'University of Otago',
+                'Lincoln University',
+            ],
+            'uk' => [
+                'University of Oxford',
+                'University of Cambridge',
+                'Imperial College London',
+                'University College London',
+                'University of Edinburgh',
+                'Manchester University',
+                "King's College London",
+                'LSE University',
+            ],
+            'ireland' => [
+                'Trinity College Dublin',
+                'University College Dublin',
+                'University College Cork',
+                'University of Galway',
+                'Dublin City University',
+                'University of Limerick',
+                'Maynooth University',
+            ],
+            'germany' => [
+                'Technical University of Munich',
+                'Karlsruhe Institute of Technology (KIT)',
+                'Technical University of Berlin',
+                'Technical University of Dresden',
+                'Technical University of Darmstadt',
+                'University of Stuttgart',
+                'Leibniz University Hannover',
+                'Technical University of Braunschweig',
+                'RWTH Aachen University',
+            ],
+            'europe' => [
+                'University of Bologna (Italy)',
+                'WU Vienna (Austria)',
+                'Sorbonne University (France)',
+                'TU Leoben (Austria)',
+                'Autonomous University of Madrid (Spain)',
+            ],
+            'usa' => [
+                'Arizona State University',
+                'Baltimore Maryland University',
+                'Columbia University',
+                'Cornell University',
+                'DEPAUL UNIVERSITY',
+                'Drexel University',
+                'Duquesne University',
+                'East Tennessee State University',
+                'Educo Global',
+                'Embry Riddle Aeronautical University',
+            ],
+            'canada' => [
+                'Brock University',
+                'Cape Breton University',
+                'Concordia University',
+                'Durham College',
+                'Fraser International College (FIC)',
+                'International College of Manitoba (ICM)',
+                'McGill University',
+                'McMaster University',
+                'Ontario Tech University',
+                'Oulton College',
+            ],
+            'singapore' => [
+                'SP Jain School Of Global Management In Singapore',
+                'Curtin University, Singapore',
+                'PSB Academy',
+                'Murdoch University, Singapore',
+                'James Cook University, Singapore',
+                'First Media Design School (FDMS)',
+                'Raffles Design Institute, Singapore',
+                'Singapore Institute Of Materials Management (SIMM)',
+                'Management Development Institute Of Singapore (MDIS)',
+            ],
+            'dubai' => [
+                'Arden University Dubai',
+                'SAE Institute Dubai',
+                'HTMi Dubai',
+                'University of Europe for Applied Sciences Dubai',
+                'Royal Roads University (Canada) – Dubai Partnerships',
+                'University of Wollongong in Dubai',
+                'Middlesex University Dubai',
+                'Heriot-Watt University Dubai',
+                'Curtin University Dubai',
+                'University of Birmingham Dubai',
+                'Murdoch University Dubai',
+                'SP Jain School of Global Management',
+                'Hult International Business School',
+                'Ajman University',
+                'Emirates Aviation University',
+                'Amity University Dubai',
+                'Jaipur National University',
+                'Manipal Academy of Higher Education Dubai',
+                'University of Hertfordshire Dubai',
+            ],
+            'malaysia' => [
+                'Monash University - Malaysia',
+                'Curtin University Malaysia',
+                'Heriot-Watt University - Malaysia',
+                'Lincoln University - Malaysia',
+                'Western Sydney University - Indonesia',
+                "Taylor's University",
+            ],
+            'switzerland' => [
+                'Culinary Arts Academy Switzerland',
+                'HIM Business School',
+                'Les Roches',
+                'Glion Institute of Higher Education',
+                'HTMi Switzerland',
+                'EU Business School',
+                'SRH University',
+                'Swiss Hotel Management School (SHMS)',
+                'César Ritz Colleges Switzerland',
             ],
         ];
     }

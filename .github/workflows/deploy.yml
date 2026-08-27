@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [develop]
+    branches: [develop, main]
   workflow_dispatch:
     inputs:
       target:
@@ -18,7 +18,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-${{ github.event_name == 'push' && 'staging' || inputs.target }}
+  group: deploy-v2-${{ github.event_name == 'workflow_dispatch' && inputs.target || (github.ref_name == 'main' && 'production' || 'staging') }}
   cancel-in-progress: false
 
 jobs:
@@ -58,6 +58,14 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Verify compiled assets are committed
+        run: |
+          if [[ -n "$(git status --porcelain -- public/build)" ]]; then
+            echo "Frontend assets are stale. Run npm run build and commit public/build." >&2
+            git status --short -- public/build
+            exit 1
+          fi
+
       - name: Prepare test environment
         run: |
           cp .env.example .env
@@ -71,12 +79,12 @@ jobs:
           php artisan test --compact
 
   deploy:
-    name: Deploy ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+    name: Deploy ${{ github.event_name == 'workflow_dispatch' && inputs.target || (github.ref_name == 'main' && 'production' || 'staging') }}
     needs: verify
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
-      name: ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+      name: ${{ github.event_name == 'workflow_dispatch' && inputs.target || (github.ref_name == 'main' && 'production' || 'staging') }}
       url: ${{ vars.APP_URL }}
 
     steps:
@@ -96,15 +104,8 @@ jobs:
             "https://$CPANEL_HOST:2083/execute/VersionControl/update")
 
           status=$(jq -r '.result.status // .status // 0' <<< "$response")
-          remote_sha=$(jq -r '.result.data.last_update.identifier // .data.last_update.identifier // empty' <<< "$response")
-
           if [[ "$status" != "1" ]]; then
             jq . <<< "$response"
-            exit 1
-          fi
-
-          if [[ "$remote_sha" != "$GITHUB_SHA" ]]; then
-            echo "cPanel checked out $remote_sha instead of $GITHUB_SHA" >&2
             exit 1
           fi
 
@@ -132,17 +133,33 @@ jobs:
         env:
           APP_URL: ${{ vars.APP_URL }}
         run: |
+          base_url="${APP_URL%/}"
+
           for attempt in {1..24}; do
-            deployed_sha=$(curl --fail --silent --show-error "$APP_URL/release.txt" || true)
+            deployed_sha=$(curl --fail --silent --show-error "$base_url/release.txt" || true)
 
             if [[ "$deployed_sha" == "$GITHUB_SHA" ]]; then
-              curl --fail --silent --show-error "$APP_URL/up"
-              exit 0
+              break
             fi
 
             echo "Waiting for cPanel deployment ($attempt/24)..."
             sleep 5
           done
 
-          echo "The deployed release did not report commit $GITHUB_SHA." >&2
-          exit 1
+          if [[ "$deployed_sha" != "$GITHUB_SHA" ]]; then
+            echo "The deployed release did not report commit $GITHUB_SHA." >&2
+            exit 1
+          fi
+
+          for path in \
+            /up \
+            / \
+            /destinations \
+            /destinations/australia \
+            /services \
+            /scholarships \
+            /tests \
+            /contact \
+            /assets/design_1/css/app.min.css; do
+            curl --fail --silent --show-error --output /dev/null "$base_url$path"
+          done

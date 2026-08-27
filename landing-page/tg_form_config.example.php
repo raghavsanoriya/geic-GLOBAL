@@ -1,4 +1,5 @@
 <?php
+
 // Copy this file to /home2/geicic3c/.tg_form_config.php (one level above public_html)
 // and replace the values after creating the MySQL database in cPanel.
 return [

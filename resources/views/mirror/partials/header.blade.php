@@ -16,7 +16,7 @@
 
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="{{ isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.')) }}">
+    <meta name="description" content="{{ isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.')))) }}">
     <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
     <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
 
@@ -47,14 +47,14 @@
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
-<meta property='og:image' content='{{ isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png' }}'>
-<meta name='twitter:image' content='{{ isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png' }}'>
+<meta property='og:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
+<meta name='twitter:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
 <meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>{{ isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC')) }}</title>
+    <title>{{ isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC'))))) }}</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
@@ -261,6 +261,16 @@
         object-fit: contain !important;
     }
 
+    /* On detail pages, section tabs are the one persistent navigation layer. */
+    @if(isset($mirrorPage) && (str_starts_with($mirrorPage, 'destinations/') || str_starts_with($mirrorPage, 'services/') || str_starts_with($mirrorPage, 'scholarships/') || str_starts_with($mirrorPage, 'tests/')))
+    #themeHeaderSticky.sticky {
+        position: relative !important;
+        top: -42px !important;
+        width: auto !important;
+        animation: none !important;
+    }
+    @endif
+
     .btn-primary:hover,
     .btn-primary:focus,
     .btn-primary:focus-visible,
@@ -273,7 +283,7 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
 
 <div id="app">
 
@@ -447,7 +457,7 @@
                                             <span class="">About GEIC Indore</span>
                                         </a>
                                     
-                                                                            <a href="{{ url('/#contact') }}" class="d-flex align-items-center text-white opacity-75 ml-32">
+                                                                            <a href="{{ url('/contact') }}" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Contact</span>
                                         </a>
                                                                                                 </div>
@@ -688,16 +698,16 @@
                 <div class="col-12 col-lg-6 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
                                                             <a href="{{ url('/') }}" class="text-dark">Home</a>
-                                                            <a href="destinations" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
-                                                            <a href="{{ url('/#services') }}" class="text-dark">Services</a>
-                                                            <a href="{{ url('/#scholarships') }}" class="text-dark">Scholarships</a>
-                                                            <a href="{{ url('/#test-prep') }}" class="text-dark">Test Prep</a>
+                                                            <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
+                                                            <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">Services</a>
+                                                            <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">Scholarships</a>
+                                                            <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">Test Prep</a>
                                                     </div>
                                     </div>
 
                 
                 <div class="col-4 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
-                                            <a href="{{ url('/#contact') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Speak to a Counsellor">
+                                            <a href="{{ url('/contact#enquiry') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Speak to a Counsellor">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
