@@ -92,7 +92,7 @@ jobs:
           base_url="${APP_URL%/}"
           deployed_sha=""
 
-          for attempt in {1..30}; do
+          for attempt in {1..60}; do
             deployed_sha=$(curl --fail --silent --show-error \
               --retry 1 --retry-all-errors \
               "$base_url/release.txt" || true)
@@ -102,10 +102,10 @@ jobs:
               break
             fi
 
-            if (( attempt % 5 == 0 )); then
-              echo "Waiting for cPanel activation ($attempt/30). Current release: ${deployed_sha:-unavailable}"
+            if (( attempt % 10 == 0 )); then
+              echo "Waiting for cPanel activation ($attempt/60). Current release: ${deployed_sha:-unavailable}"
             fi
-            sleep 4
+            sleep 2
           done
 
           if [[ "$deployed_sha" != "$EXPECTED_SHA" ]]; then
@@ -113,7 +113,7 @@ jobs:
             exit 1
           fi
 
-          for path in \
+          printf '%s\n' \
             /up \
             / \
             /pages/about \
@@ -126,10 +126,11 @@ jobs:
             /tests \
             /contact \
             /admin/login \
-            /assets/design_1/css/app.min.css; do
-            curl --fail --silent --show-error --output /dev/null \
-              --retry 2 --retry-delay 1 --retry-all-errors \
-              "$base_url$path"
-          done
+            /assets/design_1/css/app.min.css \
+            | xargs -P 4 -I '{}' bash -c '
+                curl --fail --silent --show-error --output /dev/null \
+                  --retry 2 --retry-delay 1 --retry-all-errors \
+                  "$1$2"
+              ' _ "$base_url" '{}'
 
           echo "All production smoke checks passed."

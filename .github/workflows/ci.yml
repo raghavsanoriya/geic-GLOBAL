@@ -16,10 +16,10 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  test:
-    name: Test and build
+  php:
+    name: PHP verification
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
 
     steps:
       - name: Check out repository
@@ -40,31 +40,11 @@ jobs:
           key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
           restore-keys: composer-${{ runner.os }}-
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: '.node-version'
-          cache: npm
-
       - name: Validate Composer files
         run: composer validate --strict
 
       - name: Install PHP dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
-
-      - name: Install frontend dependencies
-        run: npm ci
-
-      - name: Build frontend assets
-        run: npm run build
-
-      - name: Verify compiled assets are committed
-        run: |
-          if [[ -n "$(git status --porcelain -- public/build)" ]]; then
-            echo "Frontend assets are stale. Run npm run build and commit public/build." >&2
-            git status --short -- public/build
-            exit 1
-          fi
 
       - name: Prepare test environment
         run: |
@@ -80,6 +60,56 @@ jobs:
 
       - name: Run application tests
         run: php artisan test --compact
+
+  frontend:
+    name: Frontend verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
+
+      - name: Verify compiled assets are committed
+        run: |
+          if [[ -n "$(git status --porcelain -- public/build)" ]]; then
+            echo "Frontend assets are stale. Run npm run build and commit public/build." >&2
+            git status --short -- public/build
+            exit 1
+          fi
+
+  test:
+    name: Test and build
+    needs: [php, frontend]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Require every verification lane
+        env:
+          PHP_RESULT: ${{ needs.php.result }}
+          FRONTEND_RESULT: ${{ needs.frontend.result }}
+        run: |
+          if [[ "$PHP_RESULT" != "success" || "$FRONTEND_RESULT" != "success" ]]; then
+            echo "PHP verification: $PHP_RESULT" >&2
+            echo "Frontend verification: $FRONTEND_RESULT" >&2
+            exit 1
+          fi
+
+          echo "PHP and frontend verification passed."
 
   deploy:
     name: Release after verification
