@@ -13,6 +13,7 @@ class ImportWordpressLeads extends Command
     protected $signature = 'legacy:import-wordpress-leads
         {--wp-config= : Absolute path to the legacy WordPress wp-config.php}
         {--prefix=wplb_ : WordPress table prefix}
+        {--new-only : Import only submissions newer than each form\'s latest imported data ID}
         {--dry-run : Read and validate without saving anything}';
 
     protected $description = 'Idempotently import historical Contact Form 7 leads into the GEIC lead database';
@@ -22,9 +23,23 @@ class ImportWordpressLeads extends Command
         try {
             $this->configureLegacyConnection();
             $prefix = $this->safePrefix((string) $this->option('prefix'));
-            $rows = DB::connection('legacy_wordpress')
+            $query = DB::connection('legacy_wordpress')
                 ->table($prefix.'cf7anyapi_entries')
-                ->whereIn('form_id', [1946, 2174, 3270, 3787])
+                ->whereIn('form_id', $this->formIds());
+
+            if ($this->option('new-only')) {
+                $latestIds = $this->latestImportedIds();
+                $query->where(function ($query) use ($latestIds): void {
+                    foreach ($this->formIds() as $formId) {
+                        $query->orWhere(function ($query) use ($formId, $latestIds): void {
+                            $query->where('form_id', $formId)
+                                ->where('data_id', '>', $latestIds[$formId]);
+                        });
+                    }
+                });
+            }
+
+            $rows = $query
                 ->orderBy('data_id')
                 ->get(['form_id', 'data_id', 'field_name', 'field_value', 'date']);
         } catch (\Throwable $exception) {
@@ -199,5 +214,34 @@ class ImportWordpressLeads extends Command
         }
 
         return $prefix;
+    }
+
+    /** @return array<int> */
+    private function formIds(): array
+    {
+        return [1946, 2174, 3270, 3787];
+    }
+
+    /** @return array<int, int> */
+    private function latestImportedIds(): array
+    {
+        $latestIds = array_fill_keys($this->formIds(), 0);
+
+        DB::table('counselling_enquiries')
+            ->where('source', 'wordpress')
+            ->whereNotNull('external_id')
+            ->pluck('external_id')
+            ->each(function (string $externalId) use (&$latestIds): void {
+                if (! preg_match('/^(\d+):(\d+)$/', $externalId, $matches)) {
+                    return;
+                }
+
+                $formId = (int) $matches[1];
+                if (array_key_exists($formId, $latestIds)) {
+                    $latestIds[$formId] = max($latestIds[$formId], (int) $matches[2]);
+                }
+            });
+
+        return $latestIds;
     }
 }

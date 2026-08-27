@@ -55,6 +55,7 @@ class ImportWordpressLeadsTest extends TestCase
 
         $this->artisan('legacy:import-wordpress-leads')->assertSuccessful();
         $this->artisan('legacy:import-wordpress-leads')->assertSuccessful();
+        $this->artisan('legacy:import-wordpress-leads --new-only')->assertSuccessful();
 
         $this->assertDatabaseCount('counselling_enquiries', 1);
         $this->assertDatabaseHas('counselling_enquiries', [
@@ -68,6 +69,22 @@ class ImportWordpressLeadsTest extends TestCase
         $metadata = json_decode((string) DB::table('counselling_enquiries')->value('metadata'), true);
         $this->assertArrayHasKey('legacy_ip_hash', $metadata);
         $this->assertArrayNotHasKey('User_IP', $metadata);
+
+        DB::connection('legacy_wordpress')->table('wplb_cf7anyapi_entries')->insert([
+            'form_id' => 2174,
+            'data_id' => 9,
+            'field_name' => 'email-171',
+            'field_value' => 'new-history@example.com',
+            'date' => '2024-03-03 09:15:00',
+        ]);
+
+        $this->artisan('legacy:import-wordpress-leads --new-only')->assertSuccessful();
+        $this->assertDatabaseCount('counselling_enquiries', 2);
+        $this->assertDatabaseHas('counselling_enquiries', [
+            'source' => 'wordpress',
+            'external_id' => '2174:9',
+            'email' => 'new-history@example.com',
+        ]);
 
         Schema::connection('legacy_wordpress')->drop('wplb_cf7anyapi_entries');
         @unlink($legacyDatabase);
