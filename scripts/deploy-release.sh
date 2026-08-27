@@ -69,7 +69,6 @@ if [[ -e "$release_dir" ]]; then
 fi
 
 mkdir "$release_dir"
-chmod 0755 "$release_dir"
 tar \
     --exclude=.git \
     --exclude=.env \
@@ -82,6 +81,10 @@ tar \
     -cf - \
     -C "$repository_root" . \
     | tar -xf - -C "$release_dir"
+
+# The archive's root entry inherits cPanel's private repository mode (0700),
+# so correct the release directory after extraction for Apache traversal.
+chmod 0755 "$release_dir"
 
 ln -s "$shared_dir/.env" "$release_dir/.env"
 rm -rf "$release_dir/storage"
