@@ -65,6 +65,6 @@ The deployment is idempotent for an already-active commit. It prepares a release
 
 Production dependencies are cached by the combined `composer.json` and `composer.lock` hash. An unchanged dependency set is restored locally on cPanel instead of being downloaded again. The historical WordPress importer runs in incremental mode during production releases, so already-imported leads are not read and rewritten on every deployment.
 
-Node and npm are pinned by `.node-version` and `package.json`. This keeps Vite output identical locally and in CI and prevents cross-version asset hash failures. Pull-request runs are superseded when newer commits arrive, while branch deployments are serialized so remote cPanel activations never overlap.
+Node and npm are pinned by `.node-version` and `package.json`. Application fonts are stored in `resources/fonts`, so Vite builds do not depend on a third-party font service being available. Together these keep frontend output deterministic in CI. Pull-request runs are superseded when newer commits arrive, while branch deployments are serialized so remote cPanel activations never overlap.
 
 Public route smoke tests use four bounded workers after the expected release SHA becomes active. This keeps broad route coverage without paying for each network round trip sequentially.
