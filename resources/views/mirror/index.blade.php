@@ -923,4 +923,5 @@
     });
 </script>
 
+@include('components.home-promo-modal', ['cms' => $cms])
 @include('mirror.partials.footer', ['siteCms' => $cms])

@@ -6,6 +6,7 @@ use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Models\SiteContent;
 use App\Support\DestinationCatalog;
+use App\Support\EventCatalog;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
@@ -93,6 +94,18 @@ class MirrorPageController extends Controller
             ]);
         }
 
+        if (preg_match('#^events/([a-z0-9\-]+)$#', $page, $matches)) {
+            $event = EventCatalog::find($matches[1]);
+
+            abort_unless($event, 404);
+
+            return view('mirror.events.detail', [
+                'mirrorPage' => $page,
+                'event' => $event,
+                'cms' => SiteContent::publicValuesForPage('event.'.$event['slug']),
+            ]);
+        }
+
         if (preg_match('#^scholarships/([a-z\-]+)$#', $page, $matches)) {
             $scholarship = ScholarshipCatalog::find($matches[1]);
 
@@ -124,6 +137,7 @@ class MirrorPageController extends Controller
         return view()->file($viewPath, [
             'mirrorPage' => $page,
             'cms' => SiteContent::publicValuesForPage($page === 'index' ? 'home' : str_replace('/', '.', $page)),
+            'events' => $page === 'events' ? EventCatalog::all() : [],
         ]);
     }
 }

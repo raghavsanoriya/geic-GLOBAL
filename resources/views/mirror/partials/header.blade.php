@@ -15,9 +15,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+@php($isAboutPage = ($mirrorPage ?? '') === 'pages/about')
+@php($isTermsPage = ($mirrorPage ?? '') === 'pages/terms')
+
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="{{ isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.')))) }}">
+    <meta name="description" content="{{ $isTermsPage ? 'Read the terms and conditions for using the Trans Globe Indore website and study-abroad counselling services managed by GEIC.' : ($isAboutPage ? 'Meet Trans Globe Indore, managed by GEIC. Learn about our mission, counselling approach and complete support for students planning an international education.' : (isset($event) ? $event['summary'] : (isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'events' ? 'Explore university visits, admission days and study-abroad events with Trans Globe Indore.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.'))))))) }}">
     <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
     <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
 
@@ -42,20 +45,20 @@
 <link rel="home" href="{{ url('/') }}">
 
 <!-- Open Graph -->
-<meta property='og:title' content='Home'>
+<meta property='og:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
 <meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='Home'>
+<meta name='twitter:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
-<meta property='og:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
-<meta name='twitter:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
+<meta property='og:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
+<meta name='twitter:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
 <meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>{{ isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC'))))) }}</title>
+    <title>{{ $isTermsPage ? 'Terms & Conditions | Trans Globe Indore – GEIC' : ($isAboutPage ? 'About Trans Globe Indore | GEIC' : (isset($event) ? $event['title'].' | Trans Globe Indore Events' : (isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'events' ? 'Study Abroad Events | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC')))))))) }}</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
@@ -263,7 +266,7 @@
     }
 
     /* On detail pages, section tabs are the one persistent navigation layer. */
-    @if(isset($mirrorPage) && (str_starts_with($mirrorPage, 'destinations/') || str_starts_with($mirrorPage, 'services/') || str_starts_with($mirrorPage, 'scholarships/') || str_starts_with($mirrorPage, 'tests/')))
+    @if(isset($mirrorPage) && (str_starts_with($mirrorPage, 'destinations/') || str_starts_with($mirrorPage, 'services/') || str_starts_with($mirrorPage, 'events/') || str_starts_with($mirrorPage, 'scholarships/') || str_starts_with($mirrorPage, 'tests/')))
     #themeHeaderSticky.sticky {
         position: relative !important;
         top: -42px !important;
@@ -284,7 +287,7 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
 
 <div id="app">
 
@@ -454,7 +457,7 @@
                                                             </div>
 
                             <div class="d-flex align-items-center">
-                                            <a href="{{ url('/#why-trans-globe') }}" class="d-flex align-items-center text-white opacity-75">
+                                            <a href="{{ url('/pages/about') }}" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">{{ $siteCms['header_about_label'] ?? 'About GEIC Indore' }}</span>
                                         </a>
 
@@ -701,6 +704,7 @@
                                                             <a href="{{ url('/') }}" class="text-dark">{{ $siteCms['header_nav_home'] ?? 'Home' }}</a>
                                                             <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_destinations'] ?? 'Destinations' }}</a>
                                                             <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_services'] ?? 'Services' }}</a>
+                                                            <a href="{{ url('/events') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'events') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_events'] ?? 'Events' }}</a>
                                                             <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
                                                             <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
                                                     </div>

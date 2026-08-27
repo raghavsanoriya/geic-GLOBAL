@@ -107,7 +107,7 @@ class AdminDashboardTest extends TestCase
         $this->actingAs($admin)
             ->get('/admin/pages/home')
             ->assertOk()
-            ->assertSee('Step 1 of 16')
+            ->assertSee('Step 1 of 17')
             ->assertSee('University network')
             ->assertSee('Google reviews')
             ->assertSee('Frequently asked questions')
@@ -116,6 +116,20 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Study-destination card gallery')
             ->assertSee('Save draft')
             ->assertSee('Publish changes');
+
+        $this->actingAs($admin)
+            ->get('/admin/pages/pages.about')
+            ->assertOk()
+            ->assertSee('Our story')
+            ->assertSee('Purpose')
+            ->assertSee('Leadership team')
+            ->assertSee('Team member 1 portrait')
+            ->assertSee('Johar Ali')
+            ->assertSee('Photo gallery')
+            ->assertSee('Gallery image 19')
+            ->assertSee('What we do')
+            ->assertSee('Track record')
+            ->assertSee('Questions students ask');
 
         $this->actingAs($admin)
             ->put('/admin/pages/home', ['content' => [
@@ -128,6 +142,7 @@ class AdminDashboardTest extends TestCase
                 'journey_step_two_title' => 'Build your shortlist',
                 'universities_title' => 'Our global university network',
                 'faq_one_question' => 'How does GEIC support students?',
+                'popup_title' => 'Build your international study plan with GEIC.',
                 'footer_cta_label' => 'Plan with our team',
             ], 'intent' => 'publish'])
             ->assertRedirect('/admin/pages/home');
@@ -148,6 +163,7 @@ class AdminDashboardTest extends TestCase
             ->assertSee('A practical international future')
             ->assertSee('Support services')
             ->assertSee('Start my study plan')
+            ->assertSee('Build your international study plan with GEIC.')
             ->assertSee('Build your shortlist')
             ->assertSee('Our global university network')
             ->assertSee('How does GEIC support students?')
