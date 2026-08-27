@@ -350,6 +350,8 @@
 
 <script src="assets/design_1/js/parts/general.min.js"></script>
 
+@include('mirror.partials.site-analytics')
+
 </body>
 
 <!-- Mirrored from www.geic.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:21:50 GMT -->

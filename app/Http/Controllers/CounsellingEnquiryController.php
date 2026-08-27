@@ -77,9 +77,12 @@ class CounsellingEnquiryController extends Controller
             'english_test' => 'Not sure yet',
             'message' => 'Submitted through the detail-page hero form.',
             'source_page' => strtok($returnUrl, '#'),
+            ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        $this->recordConversion($request, strtok($returnUrl, '#'), $data['source_context']);
 
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
@@ -131,11 +134,50 @@ class CounsellingEnquiryController extends Controller
             'english_test' => $data['english_test'],
             'message' => $data['message'] ?? null,
             'source_page' => $slug === 'contact' ? '/contact' : "/destinations/{$slug}",
+            ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
+        $this->recordConversion($request, $slug === 'contact' ? '/contact' : "/destinations/{$slug}", $destinationName);
+
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+    }
+
+    /** @return array{source: string, utm_source: ?string, utm_medium: ?string, utm_campaign: ?string} */
+    private function trackingAttributes(Request $request): array
+    {
+        return [
+            'source' => 'website',
+            'utm_source' => $this->limited($request->input('utm_source'), 120),
+            'utm_medium' => $this->limited($request->input('utm_medium'), 120),
+            'utm_campaign' => $this->limited($request->input('utm_campaign'), 180),
+        ];
+    }
+
+    private function recordConversion(Request $request, string $path, string $label): void
+    {
+        DB::table('site_events')->insert([
+            'event_type' => 'form_submit',
+            'path' => $path,
+            'label' => $label,
+            'target' => null,
+            'referrer_domain' => null,
+            'utm_source' => $this->limited($request->input('utm_source'), 120),
+            'utm_medium' => $this->limited($request->input('utm_medium'), 120),
+            'utm_campaign' => $this->limited($request->input('utm_campaign'), 180),
+            'visitor_hash' => hash_hmac('sha256', $request->ip().'|'.mb_substr((string) $request->userAgent(), 0, 180), (string) config('app.key')),
+            'session_hash' => filled($request->input('analytics_session_id'))
+                ? hash_hmac('sha256', (string) $request->input('analytics_session_id'), (string) config('app.key'))
+                : null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    private function limited(mixed $value, int $length): ?string
+    {
+        return is_string($value) && trim($value) !== '' ? mb_substr(trim($value), 0, $length) : null;
     }
 }

@@ -5,7 +5,12 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\MirrorPageController;
+use App\Http\Controllers\SiteAnalyticsController;
 use Illuminate\Support\Facades\Route;
+
+Route::post('/site-events', [SiteAnalyticsController::class, 'store'])
+    ->middleware('throttle:90,1')
+    ->name('site-events.store');
 
 Route::post('/destinations/australia/enquire', [CounsellingEnquiryController::class, 'storeAustralia'])
     ->middleware('throttle:10,1')
