@@ -1,8 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 Artisan::command('inspire', function () {
@@ -14,6 +14,7 @@ Artisan::command('admin:make {email : Administrator email address} {--name=Admin
 
     if (! is_string($password) || mb_strlen($password) < 12) {
         $this->error('Use a password with at least 12 characters.');
+
         return;
     }
 

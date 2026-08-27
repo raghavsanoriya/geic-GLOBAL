@@ -2,9 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Models\SiteContent;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class AdminDashboardTest extends TestCase
@@ -46,6 +49,13 @@ class AdminDashboardTest extends TestCase
             ->get('/admin')
             ->assertOk()
             ->assertSee('Trans Globe Indore LMS')
+            ->assertSee('data-admin-shell', false)
+            ->assertSee('assets/admin/trans-globe-indore-logo-horizontal.svg', false)
+            ->assertSee('assets/admin/trans-globe-indore-icon.svg', false)
+            ->assertSee('Gilroy-Regular.woff2', false)
+            ->assertSee('--admin-primary:#e31e24', false)
+            ->assertSee('--admin-hover:#f3951e', false)
+            ->assertDontSee('fonts.googleapis.com', false)
             ->assertSee('Dashboard Student');
     }
 
@@ -78,9 +88,29 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Manage website content');
 
         $this->actingAs($admin)
+            ->get('/admin/pages')
+            ->assertOk()
+            ->assertSee('Landing pages')
+            ->assertSee('Destinations')
+            ->assertSee('Services')
+            ->assertSee('Home page')
+            ->assertDontSee('Destination · Australia');
+
+        $this->actingAs($admin)
+            ->get('/admin/pages?group=destinations')
+            ->assertOk()
+            ->assertSee('Destination · Australia')
+            ->assertSee('assets/transglobe/destinations/australia-detail-hero.jpg', false)
+            ->assertSee('content-card__thumbnail', false)
+            ->assertDontSee('Home page');
+
+        $this->actingAs($admin)
             ->get('/admin/pages/home')
             ->assertOk()
-            ->assertSee('Step 1 of 8')
+            ->assertSee('Step 1 of 16')
+            ->assertSee('University network')
+            ->assertSee('Google reviews')
+            ->assertSee('Frequently asked questions')
             ->assertSee('Conversion CTA')
             ->assertSee('Media usage')
             ->assertSee('Study-destination card gallery')
@@ -96,6 +126,8 @@ class AdminDashboardTest extends TestCase
                 'header_nav_services' => 'Support services',
                 'hero_primary_cta_label' => 'Start my study plan',
                 'journey_step_two_title' => 'Build your shortlist',
+                'universities_title' => 'Our global university network',
+                'faq_one_question' => 'How does GEIC support students?',
                 'footer_cta_label' => 'Plan with our team',
             ], 'intent' => 'publish'])
             ->assertRedirect('/admin/pages/home');
@@ -117,7 +149,141 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Support services')
             ->assertSee('Start my study plan')
             ->assertSee('Build your shortlist')
+            ->assertSee('Our global university network')
+            ->assertSee('How does GEIC support students?')
             ->assertSee('Plan with our team');
+    }
+
+    public function test_administrator_can_create_and_publish_a_new_page_but_cannot_replace_home(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->get('/admin/pages/create?group=tests')
+            ->assertOk()
+            ->assertSee('Add a new page')
+            ->assertSee('Home stays protected');
+
+        $this->actingAs($admin)
+            ->post('/admin/pages', [
+                'name' => 'Duolingo English Test',
+                'slug' => 'duolingo-english-test',
+                'group' => 'tests',
+                'description' => 'A new test preparation page.',
+                'hero_title' => 'Prepare for the Duolingo English Test',
+                'hero_copy' => 'Build your language confidence with a practical preparation plan.',
+                'hero_image' => 'assets/services/university-admissions.jpg',
+            ])
+            ->assertRedirect('/admin/pages/test.duolingo-english-test');
+
+        $this->assertDatabaseHas('cms_pages', [
+            'page_key' => 'test.duolingo-english-test',
+            'group' => 'tests',
+            'path' => 'tests/duolingo-english-test',
+        ]);
+
+        $this->get('/tests/duolingo-english-test')->assertNotFound();
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/test.duolingo-english-test', [
+                'content' => [
+                    'hero_title' => 'Prepare for the Duolingo English Test',
+                    'content_title' => 'A focused preparation pathway',
+                ],
+                'intent' => 'publish',
+            ])
+            ->assertRedirect('/admin/pages/test.duolingo-english-test');
+
+        $this->get('/tests/duolingo-english-test')
+            ->assertOk()
+            ->assertSee('Prepare for the Duolingo English Test')
+            ->assertSee('A focused preparation pathway');
+
+        $this->actingAs($admin)
+            ->from('/admin/pages/create')
+            ->post('/admin/pages', [
+                'name' => 'Replacement Home',
+                'slug' => 'home',
+                'group' => 'landing',
+                'hero_title' => 'Replacement Home',
+                'hero_copy' => 'This must not be created.',
+            ])
+            ->assertRedirect('/admin/pages/create')
+            ->assertSessionHasErrors('slug');
+
+        $this->assertDatabaseMissing('cms_pages', ['slug' => 'home']);
+    }
+
+    public function test_destination_editor_controls_complete_content_and_uploaded_images(): void
+    {
+        Storage::fake('public');
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->get('/admin/pages/destination.australia')
+            ->assertOk()
+            ->assertSee('Page identity')
+            ->assertSee('Lifestyle gallery')
+            ->assertSee('Requirements &amp; visa', false)
+            ->assertSee('Careers &amp; intakes', false)
+            ->assertSee('Universities')
+            ->assertSee('Frequently asked questions')
+            ->assertSee('Drag &amp; drop or', false)
+            ->assertSee('Choose from library');
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/destination.australia', [
+                'content' => [
+                    'hero_title' => 'A new Australia study journey',
+                    'overview_title' => 'Australia overview managed in CMS',
+                    'benefit_1_title' => 'Editable destination benefit',
+                    'cost_1_value' => 'AUD 30K–42K',
+                    'faq_1_question' => 'Is every section editable?',
+                ],
+                'content_images' => [
+                    'hero_image' => UploadedFile::fake()->createWithContent(
+                        'australia-new.png',
+                        base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII='),
+                    ),
+                ],
+                'intent' => 'publish',
+            ])
+            ->assertRedirect('/admin/pages/destination.australia');
+
+        $heroImage = SiteContent::query()
+            ->where('page_key', 'destination.australia')
+            ->where('field_key', 'hero_image')
+            ->value('value');
+
+        $this->assertNotNull($heroImage);
+        $this->assertStringStartsWith('storage/cms/pages/', $heroImage);
+        Storage::disk('public')->assertExists(str_replace('storage/', '', $heroImage));
+
+        $this->actingAs($admin)
+            ->get('/admin/pages/destination.australia')
+            ->assertOk()
+            ->assertSee('Choose from media library')
+            ->assertSee('australia-new.png')
+            ->assertSee($heroImage);
+
+        $this->get('/destinations/australia')
+            ->assertOk()
+            ->assertSee('A new Australia study journey')
+            ->assertSee('Australia overview managed in CMS')
+            ->assertSee('Editable destination benefit')
+            ->assertSee('AUD 30K–42K')
+            ->assertSee('Is every section editable?')
+            ->assertSee($heroImage);
     }
 
     public function test_draft_homepage_content_stays_private_until_it_is_published(): void

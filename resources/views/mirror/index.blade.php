@@ -412,25 +412,25 @@
                     <div class="statistic-col col-6 col-lg-3">
                         <div class="tg-stat-wrap">
                             <span class="tg-stat-icon" style="background:#E31E24"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-6 9.18V16c0 2.21 2.69 4 6 4s6-1.79 6-4v-3.82l-6 3.27-6-3.27Z"/></svg></span>
-                            <div><h4 class="font-28 text-white">70,250+</h4><p class="font-16 text-white mt-4">Students Placed</p></div>
+                            <div><h4 class="font-28 text-white">{{ $cms['stat_students_value'] ?? '70,250+' }}</h4><p class="font-16 text-white mt-4">{{ $cms['stat_students_label'] ?? 'Students Placed' }}</p></div>
                         </div>
                     </div>
                     <div class="statistic-col col-6 col-lg-3">
                         <div class="tg-stat-wrap">
                             <span class="tg-stat-icon" style="background:#3fcd82"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 21V3h8v4h10v14h-8v-4h-2v4H3Zm4-4h2v-2H7v2Zm0-4h2v-2H7v2Zm0-4h2V7H7v2Zm8 8h2v-2h-2v2Zm0-4h2v-2h-2v2Z"/></svg></span>
-                            <div><h4 class="font-28 text-white">800+</h4><p class="font-16 text-white mt-4">Partner Universities</p></div>
+                            <div><h4 class="font-28 text-white">{{ $cms['stat_universities_value'] ?? '800+' }}</h4><p class="font-16 text-white mt-4">{{ $cms['stat_universities_label'] ?? 'Partner Universities' }}</p></div>
                         </div>
                     </div>
                     <div class="statistic-col col-6 col-lg-3">
                         <div class="tg-stat-wrap">
                             <span class="tg-stat-icon" style="background:#ef6262"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm-1.1 14.2-3.6-3.6 1.4-1.4 2.2 2.19 4.4-4.39 1.4 1.4-5.8 5.8Z"/></svg></span>
-                            <div><h4 class="font-28 text-white">98.7%</h4><p class="font-16 text-white mt-4">Visa Success Rate</p></div>
+                            <div><h4 class="font-28 text-white">{{ $cms['stat_visas_value'] ?? '98.7%' }}</h4><p class="font-16 text-white mt-4">{{ $cms['stat_visas_label'] ?? 'Visa Success Rate' }}</p></div>
                         </div>
                     </div>
                     <div class="statistic-col col-6 col-lg-3">
                         <div class="tg-stat-wrap">
                             <span class="tg-stat-icon" style="background:#ffa200"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg></span>
-                            <div><h4 class="font-28 text-white">16+</h4><p class="font-16 text-white mt-4">Branches in India &amp; Nepal</p></div>
+                            <div><h4 class="font-28 text-white">{{ $cms['stat_branches_value'] ?? '16+' }}</h4><p class="font-16 text-white mt-4">{{ $cms['stat_branches_label'] ?? 'Branches in India & Nepal' }}</p></div>
                         </div>
                     </div>
                 </div>
@@ -466,12 +466,12 @@
             </div>
 
             <div class="row mt-24 tg-mobile-slider" data-slider-name="Services">
-                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">01</span><h3 class="font-20 text-dark mt-20">Expert Counselling</h3><p class="tg-copy mt-12">Find the country, university and course that genuinely fit your goals—without being pushed toward a particular institution.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">02</span><h3 class="font-20 text-dark mt-20">University Admissions</h3><p class="tg-copy mt-12">Build a strong, error-free application with the right SOP, recommendation letters, documents and submission timeline.</p></div></div>
-                <div id="scholarships" class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">03</span><h3 class="font-20 text-dark mt-20">Scholarship Guidance</h3><p class="tg-copy mt-12">Discover scholarships and bursaries you may not know you qualify for. More than 2,000 Trans Globe students receive awards each year.</p></div></div>
-                <div id="test-prep" class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">04</span><h3 class="font-20 text-dark mt-20">IELTS, PTE, TOEFL &amp; More</h3><p class="tg-copy mt-12">Prepare for IELTS, PTE, TOEFL, GRE, GMAT and SAT with expert trainers, realistic practice and proven score-improvement support.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">05</span><h3 class="font-20 text-dark mt-20">Visa Assistance</h3><p class="tg-copy mt-12">Avoid incomplete or inconsistent applications with detailed document checks, financial guidance and interview preparation.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">06</span><h3 class="font-20 text-dark mt-20">Pre &amp; Post Departure Support</h3><p class="tg-copy mt-12">Get practical help with packing, banking, arrival and settling into your new university city—you are never doing this alone.</p></div></div>
+                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">01</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_one_title'] ?? 'Expert Counselling' }}</h3><p class="tg-copy mt-12">{{ $cms['service_one_copy'] ?? 'Find the country, university and course that genuinely fit your goals—without being pushed toward a particular institution.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">02</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_two_title'] ?? 'University Admissions' }}</h3><p class="tg-copy mt-12">{{ $cms['service_two_copy'] ?? 'Build a strong, error-free application with the right SOP, recommendation letters, documents and submission timeline.' }}</p></div></div>
+                <div id="scholarships" class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">03</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_three_title'] ?? 'Scholarship Guidance' }}</h3><p class="tg-copy mt-12">{{ $cms['service_three_copy'] ?? 'Discover scholarships and bursaries you may not know you qualify for. More than 2,000 Trans Globe students receive awards each year.' }}</p></div></div>
+                <div id="test-prep" class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">04</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_four_title'] ?? 'IELTS, PTE, TOEFL & More' }}</h3><p class="tg-copy mt-12">{{ $cms['service_four_copy'] ?? 'Prepare for IELTS, PTE, TOEFL, GRE, GMAT and SAT with expert trainers, realistic practice and proven score-improvement support.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">05</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_five_title'] ?? 'Visa Assistance' }}</h3><p class="tg-copy mt-12">{{ $cms['service_five_copy'] ?? 'Avoid incomplete or inconsistent applications with detailed document checks, financial guidance and interview preparation.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-4 mt-24"><div class="tg-card"><span class="tg-icon">06</span><h3 class="font-20 text-dark mt-20">{{ $cms['service_six_title'] ?? 'Pre & Post Departure Support' }}</h3><p class="tg-copy mt-12">{{ $cms['service_six_copy'] ?? 'Get practical help with packing, banking, arrival and settling into your new university city—you are never doing this alone.' }}</p></div></div>
             </div>
         </div>
     </section>
@@ -521,10 +521,10 @@
                 <div class="row align-items-stretch position-relative z-index-2 tg-mobile-slider tg-mobile-slider--work" data-slider-name="Work pathways">
                     <div class="col-12 col-lg-3">
                         <div class="tg-work-visa-intro">
-                            <span class="tg-contact-pill mb-20">Work visa pathways</span>
-                            <h2>Build Your Career Abroad</h2>
-                            <p class="mt-16">Explore skilled-work opportunities with practical guidance on eligibility, documentation and the right pathway for your profile.</p>
-                            <a href="#contact" class="tg-work-visa-link mt-22">Free Profile Assessment <span aria-hidden="true">→</span></a>
+                            <span class="tg-contact-pill mb-20">{{ $cms['work_visa_badge'] ?? 'Work visa pathways' }}</span>
+                            <h2>{{ $cms['work_visa_title'] ?? 'Build Your Career Abroad' }}</h2>
+                            <p class="mt-16">{{ $cms['work_visa_copy'] ?? 'Explore skilled-work opportunities with practical guidance on eligibility, documentation and the right pathway for your profile.' }}</p>
+                            <a href="{{ $cms['work_visa_cta_url'] ?? '#contact' }}" class="tg-work-visa-link mt-22">{{ $cms['work_visa_cta_label'] ?? 'Free Profile Assessment' }} <span aria-hidden="true">→</span></a>
                             <span class="tg-work-visa-art" aria-hidden="true">
                                 <svg viewBox="0 0 128 128" fill="currentColor"><path d="M71 9 54 44 16 53l-7 11 40 5-10 21-15 4-6 10 24 1 14 18 6-10-4-15 14-18 22 34 12-5-13-38 30-25 1-13-40 8L71 9Z"/></svg>
                             </span>
@@ -576,9 +576,9 @@
         @endphp
 
         <div class="container text-center">
-            <span class="tg-university-kicker">Global partner network</span>
-            <h2 class="tg-title mt-20">800+ University Tie-Ups Worldwide</h2>
-            <p class="tg-copy mt-12 mx-auto" style="max-width: 720px">Explore opportunities across a trusted global network of leading universities and find the institution that fits your ambitions.</p>
+            <span class="tg-university-kicker">{{ $cms['universities_kicker'] ?? 'Global partner network' }}</span>
+            <h2 class="tg-title mt-20">{{ $cms['universities_title'] ?? '800+ University Tie-Ups Worldwide' }}</h2>
+            <p class="tg-copy mt-12 mx-auto" style="max-width: 720px">{{ $cms['universities_copy'] ?? 'Explore opportunities across a trusted global network of leading universities and find the institution that fits your ambitions.' }}</p>
         </div>
 
         <div class="tg-university-viewport" aria-label="Partner universities">
@@ -596,27 +596,26 @@
         </div>
 
         <div class="container text-center mt-40">
-            <a href="#contact" class="btn btn-primary btn-lg text-white">View All Universities <span aria-hidden="true">→</span></a>
+            <a href="{{ $cms['universities_cta_url'] ?? '#contact' }}" class="btn btn-primary btn-lg text-white">{{ $cms['universities_cta_label'] ?? 'View All Universities' }} <span aria-hidden="true">→</span></a>
         </div>
     </section>
 
     <section id="why-trans-globe" class="tg-section tg-why-matters" aria-labelledby="why-matters-title">
         <div class="container">
             <header class="text-center">
-                <div class="tg-why-eyebrow">Why it matters</div>
+                <div class="tg-why-eyebrow">{{ $cms['why_eyebrow'] ?? 'Why it matters' }}</div>
                 <h2 id="why-matters-title" class="tg-why-title">
-                    Why the Right Consultants in India
-                    <span class="tg-why-title__accent">Make All the Difference</span>
+                    {{ $cms['why_title'] ?? 'Why the Right Consultants in India' }}
+                    <span class="tg-why-title__accent">{{ $cms['why_title_accent'] ?? 'Make All the Difference' }}</span>
                 </h2>
             </header>
 
             <div class="row mt-24 tg-mobile-slider" data-slider-name="Why Trans Globe">
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
-                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>The Scale of the Opportunity</h3>
+                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>{{ $cms['why_scale_title'] ?? 'The Scale of the Opportunity' }}</h3>
                         <div id="why-scale-copy" class="tg-why-expandable__content">
-                            <p class="mt-20">Every year, over 1.3 million Indian students study abroad—to build genuinely global careers, access research facilities that don't exist in India, and earn degrees that open doors everywhere. The opportunity has never been greater. But navigating it without guidance has never been more complex.</p>
-                            <p>Visa policies change. Deadlines shift. Scholarship requirements update every year. What worked three years ago may not work today. This is why working with experienced overseas education consultants isn't just convenient—it's genuinely important.</p>
+                            <p class="mt-20">{{ $cms['why_scale_copy'] ?? "Every year, over 1.3 million Indian students study abroad—to build genuinely global careers, access research facilities that don't exist in India, and earn degrees that open doors everywhere. Visa policies, deadlines and scholarship requirements change every year, making experienced guidance genuinely important." }}</p>
                         </div>
                         <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-scale-copy">View more</button>
                     </article>
@@ -624,10 +623,9 @@
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
-                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>What Makes a Good Consultant</h3>
+                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>{{ $cms['why_consultant_title'] ?? 'What Makes a Good Consultant' }}</h3>
                         <div id="why-consultant-copy" class="tg-why-expandable__content">
-                            <p class="mt-20">Not all study-abroad consultants are the same. Some work with only a handful of universities and steer students regardless of fit. Some don't update their knowledge of visa policies. Some charge for services reputable consultancies include for free.</p>
-                            <p>At Trans Globe, we've been doing this since 1992. Our counsellors are specialists, not generalists—each focuses on specific countries and knows those visa processes in detail. We're affiliated with 800+ universities, so we recommend what's right for you, not what's easiest for us.</p>
+                            <p class="mt-20">{{ $cms['why_consultant_copy'] ?? "Not all study-abroad consultants are the same. Trans Globe counsellors are specialists, not generalists—each focuses on specific countries and visa processes. With 800+ university affiliations, recommendations focus on what is right for the student." }}</p>
                         </div>
                         <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-consultant-copy">View more</button>
                     </article>
@@ -635,10 +633,9 @@
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
-                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>Covering All of India</h3>
+                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>{{ $cms['why_india_title'] ?? 'Covering All of India' }}</h3>
                         <div id="why-india-copy" class="tg-why-expandable__content">
-                            <p class="mt-20">Trans Globe has 16 offices across India—Rajkot, Ahmedabad, Surat, Anand, Gandhinagar, Vadodara, Jaipur, Delhi, Chandigarh, Pune, Indore, Jamnagar, Morbi and Kochi—plus an international office in Kathmandu, Nepal. We also offer online counselling.</p>
-                            <p>Our reach means we understand students from different backgrounds, cities and academic systems. A student from a small town in Gujarat and one from a metro in Maharashtra have different needs—our counsellors understand both.</p>
+                            <p class="mt-20">{{ $cms['why_india_copy'] ?? 'Trans Globe has 16 offices across India plus an international office in Kathmandu, Nepal and online counselling. This reach helps our counsellors understand students from different cities, academic systems and backgrounds.' }}</p>
                         </div>
                         <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-india-copy">View more</button>
                     </article>
@@ -646,10 +643,9 @@
 
                 <div class="col-12 col-lg-6 mt-24">
                     <article class="tg-why-card">
-                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>The Countries We Specialise In</h3>
+                        <h3 class="tg-why-card__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>{{ $cms['why_countries_title'] ?? 'The Countries We Specialise In' }}</h3>
                         <div id="why-countries-copy" class="tg-why-expandable__content">
-                            <p class="mt-20">We help students study in Australia, Canada, the USA, the UK, Germany, New Zealand, Ireland, Singapore, Dubai &amp; the UAE, and across Europe. Each destination has its own visa requirements and post-study work opportunities, and our specialists track all of it continuously.</p>
-                            <p>Germany is popular for its low public-university fees and strong engineering programs. Canada is sought after for its Post-Graduation Work Permit. Australia's Group of Eight universities rank among the world's best with clear pathways for skilled graduates.</p>
+                            <p class="mt-20">{{ $cms['why_countries_copy'] ?? 'We help students study in Australia, Canada, the USA, the UK, Germany, New Zealand, Ireland, Singapore, Dubai & the UAE, and across Europe. Our specialists continuously track destination-specific requirements and post-study opportunities.' }}</p>
                         </div>
                         <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-countries-copy">View more</button>
                     </article>
@@ -657,10 +653,9 @@
             </div>
 
             <article class="tg-why-track mt-24">
-                <h3 class="tg-why-track__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>Our Track Record</h3>
+                <h3 class="tg-why-track__heading"><span class="tg-why-card__marker" aria-hidden="true"></span>{{ $cms['why_track_title'] ?? 'Our Track Record' }}</h3>
                 <div id="why-track-copy" class="tg-why-expandable__content">
-                    <p class="mt-20">Since 1992, Trans Globe has placed more than 70,250 students at universities in over 10 countries. Our 98.7% visa success rate is built on three decades of understanding what visa officers look for. Our scholarship success—80% of our students receive some form of scholarship or bursary—comes from knowing which universities offer merit-based aid to Indian students.</p>
-                    <p>We're proud of these numbers. But we're prouder of the messages from students now working at top companies in London, Sydney, Toronto and Dubai, who tell us studying abroad was the best decision they ever made.</p>
+                    <p class="mt-20">{{ $cms['why_track_copy'] ?? "Since 1992, Trans Globe has placed more than 70,250 students at universities in over 10 countries. Its 98.7% visa success rate and strong scholarship outcomes are built on decades of experience and a clear understanding of what universities and visa officers require." }}</p>
                 </div>
                 <button type="button" class="tg-mobile-read-more" aria-expanded="false" aria-controls="why-track-copy">View more</button>
             </article>
@@ -711,12 +706,12 @@
         <div class="container">
             <header class="tg-blog-header">
                 <div class="tg-blog-header__copy">
-                    <div class="tg-eyebrow">From the blog</div>
-                    <h2 id="blog-section-title" class="tg-title mt-12">Fresh Study-Abroad Insights, Without the Jargon</h2>
-                    <p class="tg-copy mt-16">Recent guidance from Trans Globe on university admissions, student visas and choosing the right destination for your future.</p>
+                    <div class="tg-eyebrow">{{ $cms['blog_eyebrow'] ?? 'From the blog' }}</div>
+                    <h2 id="blog-section-title" class="tg-title mt-12">{{ $cms['blog_title'] ?? 'Fresh Study-Abroad Insights, Without the Jargon' }}</h2>
+                    <p class="tg-copy mt-16">{{ $cms['blog_copy'] ?? 'Recent guidance from Trans Globe on university admissions, student visas and choosing the right destination for your future.' }}</p>
                 </div>
-                <a href="https://transglobeedu.com/blogs" target="_blank" rel="noopener noreferrer" class="tg-blog-all">
-                    Explore all articles <span aria-hidden="true">→</span>
+                <a href="{{ $cms['blog_cta_url'] ?? 'https://transglobeedu.com/blogs' }}" target="_blank" rel="noopener noreferrer" class="tg-blog-all">
+                    {{ $cms['blog_cta_label'] ?? 'Explore all articles' }} <span aria-hidden="true">→</span>
                 </a>
             </header>
 
@@ -762,14 +757,14 @@
         @endphp
 
         <div class="container text-center">
-            <div class="tg-eyebrow">Student experiences</div>
-            <h2 class="tg-title mt-12">Real Students. Real Google Reviews.</h2>
-            <p class="tg-copy mt-16 mx-auto" style="max-width: 740px">Hear directly from students who trusted Trans Globe Indore, managed by GEIC, for counselling, admissions, visa support and test preparation.</p>
-            <a href="https://www.google.com/search?q=geic+indore#lrd=0x3962fd400e5c61eb:0x6db8cf73bcf20625,1,,,," target="_blank" rel="noopener noreferrer" class="tg-google-score mt-24" aria-label="View GEIC Indore reviews on Google">
+            <div class="tg-eyebrow">{{ $cms['reviews_eyebrow'] ?? 'Student experiences' }}</div>
+            <h2 class="tg-title mt-12">{{ $cms['reviews_title'] ?? 'Real Students. Real Google Reviews.' }}</h2>
+            <p class="tg-copy mt-16 mx-auto" style="max-width: 740px">{{ $cms['reviews_copy'] ?? 'Hear directly from students who trusted Trans Globe Indore, managed by GEIC, for counselling, admissions, visa support and test preparation.' }}</p>
+            <a href="{{ $cms['reviews_url'] ?? 'https://www.google.com/search?q=geic+indore#lrd=0x3962fd400e5c61eb:0x6db8cf73bcf20625,1,,,,' }}" target="_blank" rel="noopener noreferrer" class="tg-google-score mt-24" aria-label="View GEIC Indore reviews on Google">
                 <span class="tg-google-mark" aria-hidden="true">G</span>
-                <span class="font-weight-bold">4.8</span>
+                <span class="font-weight-bold">{{ $cms['reviews_score'] ?? '4.8' }}</span>
                 <span class="tg-review-rating" aria-hidden="true">★★★★★</span>
-                <span class="font-13 text-gray-500">495 Google reviews</span>
+                <span class="font-13 text-gray-500">{{ $cms['reviews_count_label'] ?? '495 Google reviews' }}</span>
             </a>
         </div>
 
@@ -809,16 +804,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5">
-                    <div class="tg-eyebrow">Questions, answered</div>
-                    <h2 class="tg-title mt-12">Frequently Asked Questions</h2>
-                    <p class="tg-copy mt-16">Clear answers to the questions students and families ask before beginning their international education journey.</p>
+                    <div class="tg-eyebrow">{{ $cms['faq_eyebrow'] ?? 'Questions, answered' }}</div>
+                    <h2 class="tg-title mt-12">{{ $cms['faq_title'] ?? 'Frequently Asked Questions' }}</h2>
+                    <p class="tg-copy mt-16">{{ $cms['faq_copy'] ?? 'Clear answers to the questions students and families ask before beginning their international education journey.' }}</p>
                 </div>
                 <div class="col-12 col-lg-7 mt-24 mt-lg-0 tg-faq">
-                    <details open><summary>What does a study-abroad consultant do?</summary><p>A consultant helps you choose a country and course, shortlist universities, strengthen applications, find scholarships, prepare your student visa and get ready for life abroad. At Trans Globe Indore, this support is free for students.</p></details>
-                    <details><summary>How early should I start the application process?</summary><p>For most destinations, begin 12 to 18 months before your intended intake. This leaves enough time for language tests, university applications, scholarships and visa processing.</p></details>
-                    <details><summary>Can Indian students get scholarships?</summary><p>Yes. Universities, governments and private organisations offer awards based on merit, field of study, financial need and other criteria. Trans Globe Indore helps identify and apply for suitable options.</p></details>
-                    <details><summary>What is Trans Globe’s visa success rate?</summary><p>The Trans Globe network reports a 98.7% visa success rate, built on decades of experience preparing complete, consistent applications for students across 10+ countries.</p></details>
-                    <details><summary>Can I get counselling if I cannot visit the Indore office?</summary><p>Yes. Trans Globe Indore offers online counselling sessions with the same detailed, specialist guidance available at our Indore office.</p></details>
+                    <details open><summary>{{ $cms['faq_one_question'] ?? 'What does a study-abroad consultant do?' }}</summary><p>{{ $cms['faq_one_answer'] ?? 'A consultant helps you choose a country and course, shortlist universities, strengthen applications, find scholarships, prepare your student visa and get ready for life abroad. At Trans Globe Indore, this support is free for students.' }}</p></details>
+                    <details><summary>{{ $cms['faq_two_question'] ?? 'How early should I start the application process?' }}</summary><p>{{ $cms['faq_two_answer'] ?? 'For most destinations, begin 12 to 18 months before your intended intake. This leaves enough time for language tests, university applications, scholarships and visa processing.' }}</p></details>
+                    <details><summary>{{ $cms['faq_three_question'] ?? 'Can Indian students get scholarships?' }}</summary><p>{{ $cms['faq_three_answer'] ?? 'Yes. Universities, governments and private organisations offer awards based on merit, field of study, financial need and other criteria. Trans Globe Indore helps identify and apply for suitable options.' }}</p></details>
+                    <details><summary>{{ $cms['faq_four_question'] ?? 'What is Trans Globe’s visa success rate?' }}</summary><p>{{ $cms['faq_four_answer'] ?? 'The Trans Globe network reports a 98.7% visa success rate, built on decades of experience preparing complete, consistent applications for students across 10+ countries.' }}</p></details>
+                    <details><summary>{{ $cms['faq_five_question'] ?? 'Can I get counselling if I cannot visit the Indore office?' }}</summary><p>{{ $cms['faq_five_answer'] ?? 'Yes. Trans Globe Indore offers online counselling sessions with the same detailed, specialist guidance available at our Indore office.' }}</p></details>
                 </div>
             </div>
         </div>
