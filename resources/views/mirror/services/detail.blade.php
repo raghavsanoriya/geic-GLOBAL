@@ -1,6 +1,8 @@
 @include('mirror.partials.header')
 @include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/services'), 'mobileBackLabel' => 'Back to services'])
 @php($detailUrl = url()->current())
+@php($serviceMedia = \App\Support\DetailPageAssets::serviceGallery($service))
+@php($serviceUniversities = \App\Support\DetailPageAssets::universityNetwork())
 
 <style>
     :root { --sd-navy: #0e2145; --sd-red: #e31e24; --sd-soft: #f4f7fb; --sd-ink: #15294d; --sd-muted: #64748b; --sd-line: #dfe7f0; }
@@ -88,13 +90,13 @@
     .sd-faq details[open] summary::after { content: '−'; }
     .sd-faq p { padding: 0 23px 22px; color: var(--sd-muted); line-height: 1.72; }
     .sd-section#enquire { padding-top: 56px; padding-bottom: 56px; }
-    .sd-cta { position: relative; overflow: hidden; padding: 32px 38px; border-radius: 24px; background: var(--sd-red); box-shadow: 0 16px 34px rgba(227,30,36,.16); }
-    .sd-cta::after { position: absolute; top: -104px; right: -92px; width: 280px; height: 280px; border: 40px solid rgba(255,255,255,.12); border-radius: 50%; content: ''; }
-    .sd-cta__content { position: relative; z-index: 1; max-width: 820px; }
+    .sd-cta { position: relative; overflow: hidden; padding: 23px 30px; border-radius: 20px; background: var(--sd-red); box-shadow: 0 13px 28px rgba(227,30,36,.14); }
+    .sd-cta::after { position: absolute; top: -82px; right: -76px; width: 210px; height: 210px; border: 30px solid rgba(255,255,255,.12); border-radius: 50%; content: ''; }
+    .sd-cta__content { position: relative; z-index: 1; max-width: 680px; }
     .sd-cta .sd-kicker { color: rgba(255,255,255,.75); }
-    .sd-cta h2 { margin: 9px 0 0; color: #fff; font-size: clamp(26px, 2.7vw, 36px); line-height: 1.14; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
-    .sd-cta p { max-width: 730px; margin: 10px 0 0; color: rgba(255,255,255,.85); font-size: 14px; line-height: 1.65; }
-    .sd-cta .sd-button { min-height: 48px; margin-top: 18px; background: #fff; color: var(--sd-navy) !important; }
+    .sd-cta h2 { margin: 7px 0 0; color: #fff; font-size: clamp(23px, 2.25vw, 30px); line-height: 1.13; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
+    .sd-cta p { max-width: 640px; margin: 8px 0 0; color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.58; }
+    .sd-cta .sd-button { min-height: 42px; margin-top: 14px; padding-inline: 18px; background: #fff; color: var(--sd-navy) !important; }
     .sd-cta .sd-button:hover { color: var(--sd-red) !important; background: #fff; }
 
     @media (max-width: 991px) {
@@ -144,9 +146,9 @@
         .sd-results::-webkit-scrollbar { display: none; }
         .sd-result { flex: 0 0 84%; min-height: 178px; scroll-snap-align: start; }
         .sd-section#enquire { padding-top: 42px; padding-bottom: 42px; }
-        .sd-cta { padding: 27px 22px; border-radius: 21px; }
-        .sd-cta h2 { font-size: 27px; }
-        .sd-cta p { font-size: 14px; }
+        .sd-cta { padding: 22px 20px; border-radius: 18px; }
+        .sd-cta h2 { font-size: 24px; }
+        .sd-cta p { font-size: 13px; }
     }
     @media (prefers-reduced-motion: reduce) { .sd-page *, .sd-page *::before, .sd-page *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; } }
 </style>
@@ -155,14 +157,14 @@
     <section class="sd-hero" id="overview">
         <div class="sd-wrap">
             <div class="sd-hero__shell">
-                <img class="sd-hero__image" src="{{ asset($service['image']) }}" alt="{{ $service['image_alt'] }}" fetchpriority="high" width="1366" height="685">
+                <img class="sd-hero__image" src="{{ asset($cms['hero_image'] ?? $service['image']) }}" alt="{{ $service['image_alt'] }}" fetchpriority="high" width="1366" height="685">
                 <div class="sd-hero__overlay"></div>
                 <span class="sd-hero__number" aria-label="Service {{ $service['number'] }}">{{ $service['number'] }}</span>
                 <div class="sd-hero__content">
                     <nav class="sd-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/services') }}">Services</a><span>/</span><span>{{ $service['title'] }}</span></nav>
                     <span class="sd-hero__eyebrow">{{ $service['eyebrow'] }}</span>
-                    <h1>{{ $service['title'] }}</h1>
-                    <p class="sd-hero__lead">{{ $service['summary'] }}</p>
+                    <h1>{{ $cms['hero_title'] ?? $service['title'] }}</h1>
+                    <p class="sd-hero__lead">{{ $cms['hero_copy'] ?? $service['summary'] }}</p>
                     <div class="sd-hero__actions"><a href="{{ url('/#contact') }}" class="sd-button">Book free counselling <span aria-hidden="true">→</span></a><a href="{{ $detailUrl }}#process" class="sd-button sd-button--outline">See how it works</a></div>
                 </div>
                 @include('mirror.partials.hero-enquiry', ['formId' => 'service-hero', 'sourceContext' => 'Service — '.$service['title'], 'returnTo' => '/services/'.$service['slug'].'#overview'])
@@ -175,7 +177,7 @@
         </div>
     </section>
 
-    <nav class="sd-anchor" aria-label="Service page sections"><div class="sd-wrap"><div class="sd-anchor__bar"><a href="{{ $detailUrl }}#overview">Overview</a><a href="{{ $detailUrl }}#process">How it works</a><a href="{{ $detailUrl }}#outcomes">What you get</a><a href="{{ $detailUrl }}#faqs">FAQs</a><a href="{{ $detailUrl }}#enquire">Enquire</a></div></div></nav>
+    <nav class="sd-anchor" aria-label="Service page sections"><div class="sd-wrap"><div class="sd-anchor__bar"><a href="{{ $detailUrl }}#overview">Overview</a><a href="{{ $detailUrl }}#gallery">In focus</a><a href="{{ $detailUrl }}#process">How it works</a><a href="{{ $detailUrl }}#outcomes">What you get</a><a href="{{ $detailUrl }}#universities">Universities</a><a href="{{ $detailUrl }}#faqs">FAQs</a><a href="{{ $detailUrl }}#enquire">Enquire</a></div></div></nav>
 
     <section class="sd-section" id="overview">
         <div class="sd-wrap sd-overview">
@@ -183,6 +185,8 @@
             <div class="sd-overview__image"><div class="sd-overview__image-main"><img src="{{ asset($service['image']) }}" alt="{{ $service['image_alt'] }}" loading="lazy" width="1366" height="685"></div><div class="sd-overview__flag"><strong>{{ $service['number'] }}</strong><span>of 10 integrated services for your global education journey</span></div></div>
         </div>
     </section>
+
+    <x-detail-media-gallery :images="$serviceMedia" id="gallery" eyebrow="Your study journey" title="Guidance that connects every important decision." lead="A clearer path from your current profile to a university application that feels ready to submit." />
 
     <section class="sd-section sd-process-wrap" id="process">
         <div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">A simple, supported process</div><h2 class="sd-title">Move forward with a plan, not a guessing game.</h2><p class="sd-lead">The exact details differ by student and destination, but every service begins by understanding your profile and ends with a confident next step.</p></div>
@@ -203,6 +207,8 @@
             </div>
         </div>
     </section>
+
+    <section class="sd-section" id="universities"><div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">University network</div><h2 class="sd-title">Institutions students often consider with this service.</h2><p class="sd-lead">A selection of recognised universities across the destinations we support. Your shortlist is always matched to your profile, course and intake.</p></div><x-university-network :universities="$serviceUniversities" country="Global" slug="service-{{ $service['slug'] }}" /></div></section>
 
     <section class="sd-section" id="faqs">
         <div class="sd-wrap sd-faq-layout"><div class="sd-faq-intro"><div class="sd-kicker">Common questions</div><h2 class="sd-title">Answers before you begin.</h2><p class="sd-lead">Still deciding? A free counselling conversation is the easiest way to discuss your profile and next steps.</p><a href="{{ url('/#contact') }}" class="sd-button" style="margin-top: 25px">Talk to a counsellor</a></div>

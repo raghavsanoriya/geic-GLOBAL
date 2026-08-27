@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SiteContent;
 use App\Support\DestinationCatalog;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
@@ -12,7 +13,7 @@ use Illuminate\Http\RedirectResponse;
 class MirrorPageController extends Controller
 {
     /**
-     * Render a page converted from the downloaded Rocket LMS HTML mirror.
+     * Render a page converted from the downloaded Trans Globe Indore LMS HTML mirror.
      */
     public function show(?string $page = null): View|RedirectResponse
     {
@@ -22,6 +23,7 @@ class MirrorPageController extends Controller
         if ($page === 'public') {
             return view('mirror.index', [
                 'mirrorPage' => 'index',
+                'cms' => SiteContent::publicValuesForPage('home'),
             ]);
         }
 
@@ -50,6 +52,7 @@ class MirrorPageController extends Controller
             return view('mirror.destinations.detail', [
                 'mirrorPage' => 'destinations/'.$destination['slug'],
                 'destination' => $destination,
+                'cms' => SiteContent::publicValuesForPage('destination.'.$destination['slug']),
             ]);
         }
 
@@ -61,6 +64,7 @@ class MirrorPageController extends Controller
             return view('mirror.services.detail', [
                 'mirrorPage' => $page,
                 'service' => $service,
+                'cms' => SiteContent::publicValuesForPage('service.'.$service['slug']),
             ]);
         }
 
@@ -72,6 +76,7 @@ class MirrorPageController extends Controller
             return view('mirror.scholarships.detail', [
                 'mirrorPage' => $page,
                 'scholarship' => $scholarship,
+                'cms' => SiteContent::publicValuesForPage('scholarship.'.$scholarship['slug']),
             ]);
         }
 
@@ -83,6 +88,7 @@ class MirrorPageController extends Controller
             return view('mirror.tests.detail', [
                 'mirrorPage' => $page,
                 'test' => $test,
+                'cms' => SiteContent::publicValuesForPage('test.'.$test['slug']),
             ]);
         }
 
@@ -92,6 +98,7 @@ class MirrorPageController extends Controller
 
         return view()->file($viewPath, [
             'mirrorPage' => $page,
+            'cms' => SiteContent::publicValuesForPage($page === 'index' ? 'home' : str_replace('/', '.', $page)),
         ]);
     }
 }

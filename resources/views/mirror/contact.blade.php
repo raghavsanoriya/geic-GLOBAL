@@ -90,12 +90,12 @@
                 <div class="ct-hero__content">
                     <nav class="ct-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><span>Contact</span></nav>
                     <span class="ct-kicker">GEIC Indore</span>
-                    <h1>Let’s make your <span>next step clear.</span></h1>
-                    <p>Speak with the Trans Globe Indore team about study destinations, applications, scholarships, test preparation or your student-visa pathway.</p>
+                    <h1>{{ $cms['hero_title'] ?? 'Let’s make your next step clear.' }}</h1>
+                    <p>{{ $cms['hero_copy'] ?? 'Speak with the Trans Globe Indore team about study destinations, applications, scholarships, test preparation or your student-visa pathway.' }}</p>
                     <div class="ct-hero__actions"><a href="{{ url('/contact') }}#enquiry" class="ct-button">Send an enquiry <span aria-hidden="true">↓</span></a><a href="tel:+919826666886" class="ct-hero__call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.3 4.2 2 2 0 0 1 4.3 2h3a2 2 0 0 1 2 1.7c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.3 9.66a16 16 0 0 0 6 6l1.25-1.25a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.9Z"/></svg>+91 98266 66886</a></div>
                 </div>
                 <figure class="ct-hero__visual">
-                    <img src="{{ asset('assets/services/expert-counselling.jpg') }}" alt="Students working together during an international education counselling session" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="{{ asset($cms['hero_image'] ?? 'assets/services/expert-counselling.jpg') }}" alt="Students working together during an international education counselling session" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
                 </figure>
             </div>
             <div class="ct-quick" aria-label="Contact highlights">

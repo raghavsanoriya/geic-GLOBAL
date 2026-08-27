@@ -171,12 +171,12 @@
     .tg-service-card__link { display: inline-flex; align-items: center; gap: 9px; margin-top: auto; padding-top: 20px; color: #0e2145; font-size: 14px; font-weight: 800; }
     .tg-service-card__link svg { width: 19px; height: 19px; transition: transform .2s ease; }
     .tg-service-card:hover .tg-service-card__link svg { transform: translateX(4px); }
-    .tg-services-cta { position: relative; overflow: hidden; margin-top: 54px; padding: 32px 38px; border-radius: 24px; background: #e31e24; box-shadow: 0 16px 34px rgba(227,30,36,.16); }
-    .tg-services-cta::after { content: ''; position: absolute; width: 280px; height: 280px; right: -92px; top: -104px; border: 40px solid rgba(255,255,255,.12); border-radius: 50%; }
+    .tg-services-cta { position: relative; overflow: hidden; margin-top: 38px; padding: 23px 30px; border-radius: 20px; background: #e31e24; box-shadow: 0 13px 28px rgba(227,30,36,.14); }
+    .tg-services-cta::after { content: ''; position: absolute; width: 210px; height: 210px; right: -76px; top: -82px; border: 30px solid rgba(255,255,255,.12); border-radius: 50%; }
     .tg-services-cta__content { position: relative; z-index: 2; }
-    .tg-services-cta__content h2 { max-width: 820px; margin: 9px 0 0; color: #fff; font-size: clamp(26px, 2.7vw, 36px); line-height: 1.14; font-weight: 700; letter-spacing: -.035em; }
-    .tg-services-cta__content p { max-width: 730px; margin: 10px 0 0; color: rgba(255,255,255,.84); font-size: 14px; line-height: 1.65; }
-    .tg-services-cta__button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; margin-top: 18px; padding: 0 22px; border-radius: 13px; background: #fff; color: #0e2145; font-weight: 800; box-shadow: 0 10px 20px rgba(78,0,0,.15); }
+    .tg-services-cta__content h2 { max-width: 680px; margin: 7px 0 0; color: #fff; font-size: clamp(23px, 2.25vw, 30px); line-height: 1.13; font-weight: 700; letter-spacing: -.035em; }
+    .tg-services-cta__content p { max-width: 640px; margin: 8px 0 0; color: rgba(255,255,255,.84); font-size: 13px; line-height: 1.58; }
+    .tg-services-cta__button { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; margin-top: 14px; padding: 0 18px; border-radius: 12px; background: #fff; color: #0e2145; font-weight: 800; box-shadow: 0 10px 20px rgba(78,0,0,.15); }
     .tg-services-cta__button:hover { color: #e31e24; transform: translateY(-2px); }
     .tg-services-cta__image { position: absolute; z-index: 1; top: 0; right: 0; width: 41%; height: 100%; object-fit: cover; opacity: .6; mix-blend-mode: multiply; }
     .tg-services-cta__image-overlay { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, #e31e24 43%, rgba(227,30,36,.12) 83%); }
@@ -212,10 +212,10 @@
         .tg-service-card--featured { grid-column: span 1; }
         .tg-service-card--featured h3 { font-size: 28px; }
         .tg-service-card__thumb { height: 142px; margin: -6px -6px 18px; }
-        .tg-services-cta { margin-top: 42px; padding: 27px 22px 138px; border-radius: 21px; }
-        .tg-services-cta__content h2 { font-size: 27px; }
-        .tg-services-cta__content p { font-size: 14px; }
-        .tg-services-cta__image { width: 100%; height: 164px; top: auto; bottom: 0; opacity: .48; }
+        .tg-services-cta { margin-top: 32px; padding: 22px 20px 112px; border-radius: 18px; }
+        .tg-services-cta__content h2 { font-size: 24px; }
+        .tg-services-cta__content p { font-size: 13px; }
+        .tg-services-cta__image { width: 100%; height: 132px; top: auto; bottom: 0; opacity: .48; }
         .tg-services-cta__image-overlay { background: linear-gradient(180deg, #e31e24 18%, rgba(227,30,36,.12) 100%); }
     }
     @media (prefers-reduced-motion: reduce) { .tg-services-page *, .tg-services-page *::before, .tg-services-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
@@ -229,8 +229,8 @@
                     <div class="col-12 col-lg-7">
                         <div class="tg-services-hero__copy">
                             <div class="tg-services-eyebrow">Trans Globe Indore services</div>
-                            <h1>Every expert step for your <span>global future.</span></h1>
-                            <p class="tg-services-hero__lead">From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.</p>
+                            <h1>{{ $cms['hero_title'] ?? 'Every expert step for your global future.' }}</h1>
+                            <p class="tg-services-hero__lead">{{ $cms['hero_copy'] ?? 'From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.' }}</p>
                             <div class="tg-services-hero__actions">
                                 <a href="{{ url('/#contact') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Book Free Counselling"><span class="btn-flip-effect__text text-white">Book Free Counselling</span></a>
                                 <a href="#services-grid" class="tg-services-hero__secondary">Explore every service</a>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="tg-services-hero__visual" aria-label="Students supported at every step of their overseas education journey">
-                            <div class="tg-services-hero__picture tg-services-hero__picture--large"><img src="{{ asset('assets/transglobe/services/services-team.avif') }}" alt="Trans Globe student support team" width="768" height="768"><span>Profile-first guidance</span></div>
+                            <div class="tg-services-hero__picture tg-services-hero__picture--large"><img src="{{ asset($cms['hero_image'] ?? 'assets/transglobe/services/services-team.avif') }}" alt="Trans Globe student support team" width="768" height="768"><span>Profile-first guidance</span></div>
                             <div class="tg-services-hero__picture"><img src="{{ asset('assets/transglobe/services/services-hero.avif') }}" alt="International education journey" width="1366" height="685"><span>One connected plan</span></div>
                             <div class="tg-services-hero__stamp"><span class="tg-services-hero__stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>10 services</b><small>One trusted team</small></span></div>
                         </div>

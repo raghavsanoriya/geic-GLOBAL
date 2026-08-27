@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/jobs/ui-ux-designer by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:36:30 GMT -->
+<!-- Mirrored from www.geic.in/jobs/ui-ux-designer by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:36:30 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -27,13 +27,13 @@
 <meta name="msapplication-TileColor" content="#FFF">
 <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
@@ -45,7 +45,7 @@
 <meta name='twitter:title' content='UI/UX Designer'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
 <meta property='og:image' content='/store/1/geic-icon.png'>
 <meta name='twitter:image' content='/store/1/geic-icon.png'>
 <meta property='og:locale' content='../en_US.html'>
@@ -53,25 +53,25 @@
 
 
 
-    <title>UI/UX Designer | Rocket LMS</title>
+    <title>UI/UX Designer | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="../assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="../assets/design_1/css/app.min.css">
 
-    
+
             <link rel="stylesheet" href="../assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
+
             <link rel="stylesheet" href="../assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
+
         <link rel="stylesheet" href="../assets/default/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/vendors/leaflet/leaflet.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/css_stars.min.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/reviews_and_comments.min.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/show_job.min.css">
-    
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
@@ -180,34 +180,34 @@
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <span class="text-white">+1 (323) 555-9876</span>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -215,15 +215,15 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -233,12 +233,12 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -280,13 +280,13 @@
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -331,11 +331,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -349,7 +349,7 @@
                                                                                                             <a href="../login.html" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">Login</span>
                                         </a>
-                                    
+
                                                                             <a href="../register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Register</span>
                                         </a>
@@ -362,24 +362,24 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-6 col-lg-2">
                     <a href="../index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
+
+                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -395,7 +395,7 @@
                     <a href="../categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+
                             <span class="">Development</span>
                         </div>
 
@@ -408,7 +408,7 @@
                                     <a href="../categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
@@ -417,7 +417,7 @@
                                     <a href="../categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
@@ -426,7 +426,7 @@
                                     <a href="../categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -437,7 +437,7 @@
                     <a href="../categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+
                             <span class="">Business</span>
                         </div>
 
@@ -450,7 +450,7 @@
                                     <a href="../categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
@@ -459,7 +459,7 @@
                                     <a href="../categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
@@ -468,7 +468,7 @@
                                     <a href="../categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -479,7 +479,7 @@
                     <a href="../categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -490,7 +490,7 @@
                     <a href="../categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -503,7 +503,7 @@
                                     <a href="../categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
@@ -512,7 +512,7 @@
                                     <a href="../categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -523,7 +523,7 @@
                     <a href="../categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -534,7 +534,7 @@
                     <a href="../categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+
                             <span class="">Academics</span>
                         </div>
 
@@ -547,7 +547,7 @@
                                     <a href="../categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
@@ -556,7 +556,7 @@
                                     <a href="../categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
@@ -565,7 +565,7 @@
                                     <a href="../categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -576,7 +576,7 @@
                     <a href="../categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+
                             <span class="">Design</span>
                         </div>
 
@@ -589,7 +589,7 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-5 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
                                                             <a href="../index.html" class="text-dark">Home</a>
@@ -602,13 +602,13 @@
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
                                             <a href="../login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Start Learning</span>
                         </a>
                                     </div>
@@ -619,11 +619,11 @@
 </div>
     </div>
         </div>
-    
-    
+
+
         <div class="container position-relative mt-80 pb-120 ">
 
-        
+
         <div class="job-hero d-flex flex-column justify-content-end rounded-32 px-20 bg-gray-200">
     <div class="job-hero__mask rounded-32"></div>
 
@@ -636,20 +636,20 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
 </svg>                <a href="../jobsd7b8.html?category_id=3" class="text-white">Design &amp; Creative</a>
             </div>
-        
+
         <div class="d-flex align-items-center flex-wrap gap-12 mt-4">
             <h1 class="job-hero__title font-32 font-weight-bold text-white text-ellipsis">UI/UX Designer</h1>
 
-            
-            
-            
+
+
+
         </div>
 
                     <div class="mt-8 text-white opacity-50">We are looking for a skilled UI/UX Designer.</div>
-        
-        
+
+
         <div class="d-flex align-items-center flex-wrap gap-24 mt-12">
-            
+
                             <div class="d-flex align-items-center gap-4 font-12 text-white">
                     <svg height="16" width="16" class="text-white opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M22 6v2.42C22 10 21 11 19.42 11H16V4.01c0-1.11.91-2.02 2.02-2.01 1.09.01 2.09.45 2.81 1.17C21.55 3.9 22 4.9 22 6z"/>
@@ -658,8 +658,8 @@
 </svg>
                     <span class=" font-weight-bold">Contract</span>
                 </div>
-            
-            
+
+
                             <div class="d-flex align-items-center gap-4 font-12 text-white">
                     <svg height="16" width="16" class="text-white opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M8.67 14H4c-1.1 0-2 .9-2 2v6h6.67v-8z" opacity=".4"/>
@@ -669,17 +669,17 @@
 </svg>
                     <span class=" font-weight-bold">Mid Level</span>
                 </div>
-            
-            
-                            
+
+
+
                 <div class="d-flex align-items-center gap-4 font-12 text-white">
                     <svg width="16px" height="16px" class="icons text-white opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-width="1.5" d="M12 13.43a3.12 3.12 0 100-6.24 3.12 3.12 0 000 6.24z"/>
   <path stroke-width="1.5" d="M3.62 8.49c1.97-8.66 14.8-8.65 16.76.01 1.15 5.08-2.01 9.38-4.78 12.04a5.193 5.193 0 01-7.21 0c-2.76-2.66-5.92-6.97-4.77-12.05z"/>
 </svg>                    <span class=" font-weight-bold">California, San Francisco</span>
                 </div>
-            
-            
+
+
             <div class="d-flex align-items-center gap-4 font-12 text-white">
                 <svg height="16" width="16" class="text-white opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 12a5 5 0 100-10 5 5 0 000 10zM3.41 22c0-3.87 3.85-7 8.59-7 .96 0 1.89.13 2.76.37"/>
@@ -703,9 +703,9 @@
 </div>
 
         <div class="d-flex flex-column flex-lg-row gap-24">
-            
+
             <div class="job-body-side position-relative job-body-card flex-1">
-                
+
                 <div class="custom-tabs mt-16">
                     <div class="job-tabs-card position-relative">
                         <div class="job-tabs-card__mask"></div>
@@ -731,9 +731,9 @@
                         <div class="custom-tabs-content active" id="aboutJobTab">
                             <div class="bg-white py-16 rounded-24">
 
-    
-    
-    
+
+
+
             <div class="px-16">
             <h2 class="font-16 font-weight-bold">About the Job</h2>
 
@@ -741,8 +741,8 @@
                 <p>We are looking for a highly skilled UI/UX Designer to join our growing team. In this position, you will play a key role in designing beautiful and intuitive user interfaces. You will collaborate closely with other departments to create prototypes and wireframes. This is a fantastic opportunity for someone who is passionate about user-centered design and wants to make a real impact in a fast-paced environment.</p><p>Your day-to-day responsibilities will include conducting user research and usability testing, monitoring system performance, and proposing improvements. You will be expected to stay up-to-date with the latest industry trends and bring fresh ideas to the table.</p><p>Key Requirements:</p><ul><li>At least 3 years of proven experience as a UI/UX Designer or similar position.</li><li>Strong understanding of Figma, Adobe XD, Sketch and User psychology and interaction design.</li><li>Excellent communication and teamwork skills.</li><li>Ability to troubleshoot complex problems efficiently.</li></ul><p>We offer a comprehensive benefits package including health insurance, paid time off, and professional development budgets. If you meet these criteria and are ready for a new challenge, we would love to hear from you!</p>
             </div>
         </div>
-    
-    
+
+
             <div class="px-16 mt-32">
             <h2 class="font-16 font-weight-bold">Company Location</h2>
 
@@ -757,7 +757,7 @@
                     >
                         <img src="../assets/default/img/location.png" class="marker" width="40" height="40">
                     </div>
-                
+
                 <div class="d-flex align-items-center">
                     <div class="d-flex-center size-48 rounded-12 bg-gray-300">
                         <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -771,17 +771,17 @@
                 </div>
             </div>
         </div>
-    
 
-    
-    
-    
-    
-    
-    
 
-    
-    
+
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -801,7 +801,7 @@
                         <h6 class="font-14 font-weight-bold text-dark">Linda Anderson</h6>
                     </a>
 
-                    
+
                     <div class="stars-card d-flex align-items-center mt-4">
                     <span class="stars-card__item active">
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -823,7 +823,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(2)</span>
             </div>
 
@@ -878,7 +878,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
                         <div class="custom-tabs-content " id="commentsTab">
                             <div class="bg-white p-16 rounded-24">
 
-    
+
     <div class="d-flex-center flex-column text-center rounded-12 border-gray-200 border-dashed bg-white p-32 pb-40">
         <div class="d-flex-center size-56 rounded-12 bg-primary-20">
             <svg width="32px" height="32px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -891,8 +891,8 @@ I have gained experience in a wide range of industries including Utilities, Reta
         <a href="../login.html" class="font-12 text-gray-500 mt-4">Please log in to leave a comment.</a>
     </div>
 
-    
-    
+
+
 </div>
 
 <div class="js-reply-to-comment-html d-none">
@@ -935,49 +935,49 @@ I have gained experience in a wide range of industries including Utilities, Reta
                 </div>
 
 
-                
-                                
+
+
             </div>
 
-            
+
             <div class="job-right-side position-relative">
                 <div class="job-right-side-section position-relative">
     <div class="job-right-side-section__mask"></div>
 
     <div class="position-relative bg-white rounded-24 pb-24 z-index-2">
 
-        
+
         <div class="job-right-side__thumbnail position-relative bg-gray-200">
             <img src="../store/934/Python%20for%20Beginners.jpg" class="img-cover" alt="UI/UX Designer">
 
                     </div>
 
-        
+
         <div class="d-flex-center gap-4 font-24 font-weight-bold text-dark mt-20">
                                                                         <span class="">$4,500</span>
-                    
+
                     <span class="font-14 text-gray-500 font-weight-400">/Month</span>
                                     </div>
 
         <div class="js-apply-for-job-actions-card px-16">
-            
+
                             <a href="../login.html" class="btn btn-primary btn-block btn-xlg mt-20">
                     <span class="">Apply for Job</span>
                 </a>
-            
+
                             <div class="d-flex-center gap-4 mt-12 font-12 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.44 2h11.11C21.11 2 22 2.89 22 6.44v6.33c0 3.56-.89 4.44-4.44 4.44H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2zM12 17.22V22M2 13h20M7.5 22h9"/>
 </svg>                    <span class="">Remote Opportunity</span>
                 </div>
-            
-            
+
+
                             <div class="bg-gray-200 mt-20 p-12 rounded-12">
                     <h4 class="text-gray-500">Important Notes</h4>
                     <p class="mt-8 text-gray-500">Remote work and flexible hours allowed.</p>
                 </div>
-            
-            
+
+
             <div class="d-flex align-items-center justify-content-around mt-16 p-12 rounded-12 border-dashed border-gray-200">
 
                 <a  href="../login.html"  class="d-flex-center flex-column font-12 text-gray-500">
@@ -994,7 +994,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
                 </div>
             </div>
 
-            
+
             <div class="mt-24 text-center">
                                     <a href="../login.html" class="font-12 text-gray-500">Report Content</a>
                             </div>
@@ -1030,7 +1030,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
                 <span class="">0</span>
             </div>
-        
+
         <div class="d-flex align-items-center justify-content-between mt-16">
             <div class="d-flex align-items-center font-14 text-gray-500">
                 <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1043,8 +1043,8 @@ I have gained experience in a wide range of industries including Utilities, Reta
         </div>
 
 
-        
-        
+
+
                     <div class="d-flex align-items-center justify-content-between mt-16">
                 <div class="d-flex align-items-center font-14 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1056,7 +1056,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
                 <span class="">4 May 2028 | 17:42</span>
             </div>
-        
+
                     <div class="d-flex align-items-center justify-content-between mt-16">
                 <div class="d-flex align-items-center font-14 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1067,7 +1067,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
                 <span class="">Contract</span>
             </div>
-        
+
         <div class="d-flex align-items-center justify-content-between mt-16">
             <div class="d-flex align-items-center font-14 text-gray-500">
                 <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1113,7 +1113,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
             </div>
         </div>
 
-        
+
         <div class="position-relative d-flex align-items-center flex-wrap gap-12 mt-32 pt-36 pr-16 pl-20 pb-20 rounded-12 border-gray-200">
 
             <div class="job-right-side__teacher-rate-card p-8 rounded-24 bg-gray-100">
@@ -1138,7 +1138,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(2)</span>
             </div>
             </div>
@@ -1160,19 +1160,19 @@ I have gained experience in a wide range of industries including Utilities, Reta
                 </div>
                     </div>
 
-        
+
     </div>
 </div>
 
 
 
 
-                
+
                             </div>
         </div>
     </div>
 
-    
+
     <div class="job-bottom-fixed-card bg-white">
     <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between h-100">
         <div class="d-flex align-items-center mb-16 mb-lg-0">
@@ -1201,7 +1201,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
             <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(../store/themes/footers/2/footer_background_7gn.png); "></div>
 
 
-            
+
                             <div class="theme-footer-1__newsletter">
     <div class="container position-relative">
         <div class="theme-footer-1__newsletter-mask"></div>
@@ -1212,14 +1212,14 @@ I have gained experience in a wide range of industries including Utilities, Reta
                     <div class="">
                         <div class="d-flex align-items-center gap-4">
                                                             <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
+
                                                             <div class="theme-footer-1__newsletter-emoji">
                                     <img src="../store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
                                 </div>
                                                     </div>
 
                                                     <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
+
                     </div>
                 </div>
 
@@ -1243,7 +1243,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
         </div>
     </div>
 </div>
-            
+
             <div class="position-relative z-index-2">
 
                 <div class="container position-relative">
@@ -1253,24 +1253,24 @@ I have gained experience in a wide range of industries including Utilities, Reta
                                                                             <div class="size-24">
                                             <img src="../store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
                                         </div>
-                                    
+
                                                                             <span class="">Let’s get started now!</span>
                                                                     </div>
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
+
                                                                     <a href="../classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text">Enroll on Courses</span>
                                     </a>
                                                                                     </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Additional Links</h4>
-                            
+
                                                                                                                                         <a href="../login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Login</span>
                                         </a>
@@ -1296,7 +1296,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Popular Categories</h4>
-                            
+
                                                                                                                                         <a href="../categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Development</span>
                                         </a>
@@ -1322,7 +1322,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
                         <div class="col-12 col-lg-3 mt-32 mt-lg-0">
                                                                                                 <h4 class="font-16 text-white">Contact US</h4>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-20">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1331,7 +1331,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1340,7 +1340,7 @@ I have gained experience in a wide range of industries including Utilities, Reta
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
@@ -1349,14 +1349,14 @@ I have gained experience in a wide range of industries including Utilities, Reta
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -1367,10 +1367,10 @@ I have gained experience in a wide range of industries including Utilities, Reta
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
+
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
+
                                                                                                                                         <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
                                             <img src="../store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
                                         </a>
@@ -1390,10 +1390,10 @@ I have gained experience in a wide range of industries including Utilities, Reta
         </div>
     </div>
         </div>
-    
-    
-    
-    
+
+
+
+
     <div class="cart-drawer no-footer bg-white py-16">
     <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
         <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
@@ -1508,14 +1508,14 @@ I have gained experience in a wide range of industries including Utilities, Reta
 
 <script>
 
-    
-    
+
+
 </script>
 
 <script src="../assets/design_1/js/parts/general.min.js"></script>
 
 </body>
 
-<!-- Mirrored from lms.rocket-soft.org/jobs/ui-ux-designer by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:36:40 GMT -->
+<!-- Mirrored from www.geic.in/jobs/ui-ux-designer by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:36:40 GMT -->
 </html>
 

@@ -63,16 +63,16 @@
     .tp-note strong { display: block; color: var(--tp-navy); font-size: 15px; }
     .tp-note p { margin: 4px 0 0; color: var(--tp-muted); font-size: 13px; line-height: 1.55; }
     .tp-note a { color: var(--tp-red); font-size: 13px; font-weight: 800; white-space: nowrap; }
-    .tp-cta { position: relative; overflow: hidden; margin-top: 54px; padding: 32px 38px; border-radius: 24px; background: var(--tp-red); box-shadow: 0 16px 34px rgba(227,30,36,.16); }
-    .tp-cta::after { position: absolute; top: -104px; right: -92px; width: 280px; height: 280px; border: 40px solid rgba(255,255,255,.12); border-radius: 50%; content: ''; }
-    .tp-cta__content { position: relative; z-index: 1; max-width: 820px; }
+    .tp-cta { position: relative; overflow: hidden; margin-top: 38px; padding: 23px 30px; border-radius: 20px; background: var(--tp-red); box-shadow: 0 13px 28px rgba(227,30,36,.14); }
+    .tp-cta::after { position: absolute; top: -82px; right: -76px; width: 210px; height: 210px; border: 30px solid rgba(255,255,255,.12); border-radius: 50%; content: ''; }
+    .tp-cta__content { position: relative; z-index: 1; max-width: 680px; }
     .tp-cta .tp-kicker { color: rgba(255,255,255,.78); }
-    .tp-cta h2 { margin: 9px 0 0; color: #fff; font-size: clamp(26px, 2.7vw, 36px); line-height: 1.14; font-weight: 800; letter-spacing: -.045em; text-wrap: balance; }
-    .tp-cta p { max-width: 730px; margin: 10px 0 0; color: rgba(255,255,255,.86); font-size: 14px; line-height: 1.65; }
-    .tp-cta .tp-button { min-height: 48px; margin-top: 18px; background: #fff; color: var(--tp-navy) !important; }
+    .tp-cta h2 { margin: 7px 0 0; color: #fff; font-size: clamp(23px, 2.25vw, 30px); line-height: 1.13; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
+    .tp-cta p { max-width: 640px; margin: 8px 0 0; color: rgba(255,255,255,.86); font-size: 13px; line-height: 1.58; }
+    .tp-cta .tp-button { min-height: 42px; margin-top: 14px; padding-inline: 18px; background: #fff; color: var(--tp-navy) !important; }
     .tp-cta .tp-button:hover { color: var(--tp-red) !important; }
     @media (max-width: 991px) { .tp-hero { padding-top: 106px; } .tp-intro { align-items: start; flex-direction: column; } .tp-intro p { max-width: 670px; } .tp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 767px) { .tp-page { padding-bottom: calc(92px + env(safe-area-inset-bottom)); } .tp-wrap { width: min(100% - 28px, 620px); } .tp-hero { padding: 84px 0 47px; } .tp-hero__shell { padding: 31px 23px; border-radius: 25px; } .tp-hero__orb { top: -117px; right: -115px; width: 330px; height: 330px; border-width: 49px; } .tp-hero h1 { font-size: 40px; } .tp-hero p { font-size: 15px; } .tp-hero__actions { display: grid; grid-template-columns: 1fr; } .tp-hero__actions > * { width: 100%; } .tp-proof { grid-template-columns: 1fr; gap: 8px; } .tp-proof__item { display: flex; gap: 9px; align-items: baseline; padding: 12px 14px; } .tp-proof__item span { margin: 0; } .tp-main { padding-top: 4px; } .tp-intro h2 { font-size: 34px; } .tp-intro p { font-size: 15px; } .tp-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; } .tp-card { min-height: 406px; padding: 24px; border-radius: 24px; } .tp-card__thumb { height: 154px; margin: -7px -7px 20px; } .tp-card h3 { font-size: 29px; } .tp-card__detail { font-size: 14px; } .tp-card__copy { font-size: 14px; } .tp-note { grid-template-columns: auto 1fr; gap: 14px; padding: 19px; } .tp-note a { grid-column: 1 / -1; } .tp-cta { margin-top: 42px; padding: 27px 22px; border-radius: 21px; } .tp-cta h2 { font-size: 27px; } .tp-cta p { font-size: 14px; } }
+    @media (max-width: 767px) { .tp-page { padding-bottom: calc(92px + env(safe-area-inset-bottom)); } .tp-wrap { width: min(100% - 28px, 620px); } .tp-hero { padding: 84px 0 47px; } .tp-hero__shell { padding: 31px 23px; border-radius: 25px; } .tp-hero__orb { top: -117px; right: -115px; width: 330px; height: 330px; border-width: 49px; } .tp-hero h1 { font-size: 40px; } .tp-hero p { font-size: 15px; } .tp-hero__actions { display: grid; grid-template-columns: 1fr; } .tp-hero__actions > * { width: 100%; } .tp-proof { grid-template-columns: 1fr; gap: 8px; } .tp-proof__item { display: flex; gap: 9px; align-items: baseline; padding: 12px 14px; } .tp-proof__item span { margin: 0; } .tp-main { padding-top: 4px; } .tp-intro h2 { font-size: 34px; } .tp-intro p { font-size: 15px; } .tp-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; } .tp-card { min-height: 406px; padding: 24px; border-radius: 24px; } .tp-card__thumb { height: 154px; margin: -7px -7px 20px; } .tp-card h3 { font-size: 29px; } .tp-card__detail { font-size: 14px; } .tp-card__copy { font-size: 14px; } .tp-note { grid-template-columns: auto 1fr; gap: 14px; padding: 19px; } .tp-note a { grid-column: 1 / -1; } .tp-cta { margin-top: 32px; padding: 22px 20px; border-radius: 18px; } .tp-cta h2 { font-size: 24px; } .tp-cta p { font-size: 13px; } }
     @media (prefers-reduced-motion: reduce) { .tp-page *, .tp-page *::before, .tp-page *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; } }
 </style>
 
@@ -80,13 +80,13 @@
     <section class="tp-hero">
         <div class="tp-wrap">
             <div class="tp-hero__shell">
-                <img class="tp-hero__image" src="{{ asset('assets/services/university-admissions.jpg') }}" alt="" fetchpriority="high" width="1200" height="800">
+                <img class="tp-hero__image" src="{{ asset($cms['hero_image'] ?? 'assets/services/university-admissions.jpg') }}" alt="" fetchpriority="high" width="1200" height="800">
                 <div class="tp-hero__overlay"></div>
                 <div class="tp-hero__orb" aria-hidden="true"></div>
                 <div class="tp-hero__content">
                     <span class="tp-kicker tp-hero__eyebrow">Test preparation</span>
-                    <h1>Prepare with purpose. <span>Test with confidence.</span></h1>
-                    <p>Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.</p>
+                    <h1>{{ $cms['hero_title'] ?? 'Prepare with purpose. Test with confidence.' }}</h1>
+                    <p>{{ $cms['hero_copy'] ?? 'Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.' }}</p>
                     <div class="tp-hero__actions"><a href="#test-grid" class="tp-button">Explore test options <span aria-hidden="true">↓</span></a><a href="{{ url('/#contact') }}" class="tp-hero__alt">Talk to a counsellor</a></div>
                     <div class="tp-proof" aria-label="Test preparation highlights"><div class="tp-proof__item"><b>8</b><span>test-prep pathways</span></div><div class="tp-proof__item"><b>1:1</b><span>test and score planning</span></div><div class="tp-proof__item"><b>Mock-led</b><span>readiness and feedback</span></div></div>
                 </div>

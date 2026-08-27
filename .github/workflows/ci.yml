@@ -49,6 +49,14 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Verify compiled assets are committed
+        run: |
+          if [[ -n "$(git status --porcelain -- public/build)" ]]; then
+            echo "Frontend assets are stale. Run npm run build and commit public/build." >&2
+            git status --short -- public/build
+            exit 1
+          fi
+
       - name: Prepare test environment
         run: |
           cp .env.example .env

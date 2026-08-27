@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/products/ui-ux-playbook by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:52 GMT -->
+<!-- Mirrored from www.geic.in/products/ui-ux-playbook by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:52 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -27,13 +27,13 @@
 <meta name="msapplication-TileColor" content="#FFF">
 <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
@@ -45,7 +45,7 @@
 <meta name='twitter:title' content='Practical UI/UX Playbook E-book'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
 <meta property='og:image' content='../store/1/default_images/store/products/book1.jpg'>
 <meta name='twitter:image' content='../store/1/default_images/store/products/book1.jpg'>
 <meta property='og:locale' content='../en_US.html'>
@@ -53,7 +53,7 @@
 
 
 
-    <title>Practical UI/UX Playbook E-book | Rocket LMS</title>
+    <title>Practical UI/UX Playbook E-book | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="../assets/default/vendors/simplebar/simplebar.css">
@@ -207,7 +207,7 @@
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
                     
                     
@@ -226,7 +226,7 @@
                 <div class="row">
                     
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -241,7 +241,7 @@
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
                                 
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -289,7 +289,7 @@
 
                                 
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -376,9 +376,9 @@
                 
                 <div class="col-6 col-lg-2">
                     <a href="../index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
+                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
                         
-                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
@@ -664,7 +664,7 @@
         
         
         <div class="breadcrumb d-flex align-items-center">
-            <a href="../index.html" class="breadcrumb-item font-14 text-gray-500">Rocket LMS</a>
+            <a href="../index.html" class="breadcrumb-item font-14 text-gray-500">Trans Globe Indore LMS</a>
             <svg width="14px" height="14px" class="icons text-gray-500 mx-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
 </svg>            <a href="../products.html" class="breadcrumb-item font-14 text-gray-500">Store</a>
@@ -1175,7 +1175,7 @@ I only keep few book's that I know I will read again. This is staying in my libr
     <div class="bg-white mt-16 p-16 rounded-8 border-gray-200 border-dashed">
     <h5 class="font-14 font-weight-bold">Reply to Review</h5>
 
-    <form action="https://lms.rocket-soft.org/products/reviews/store-reply-comment" class="mt-16" method="post">
+    <form action="https://www.geic.in/products/reviews/store-reply-comment" class="mt-16" method="post">
         <input type="hidden" name="product_id" value="6"/>
         <input type="hidden" name="review_id" value=""/>
 
@@ -1458,7 +1458,7 @@ I only keep few book's that I know I will read again. This is staying in my libr
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -1469,7 +1469,7 @@ I only keep few book's that I know I will read again. This is staying in my libr
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
                     
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
                                                     
@@ -1613,6 +1613,6 @@ I only keep few book's that I know I will read again. This is staying in my libr
 
 </body>
 
-<!-- Mirrored from lms.rocket-soft.org/products/ui-ux-playbook by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:58 GMT -->
+<!-- Mirrored from www.geic.in/products/ui-ux-playbook by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:58 GMT -->
 </html>
 

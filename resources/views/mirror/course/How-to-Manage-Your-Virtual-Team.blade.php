@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/course/How-to-Manage-Your-Virtual-Team by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:39:57 GMT -->
+<!-- Mirrored from www.geic.in/course/How-to-Manage-Your-Virtual-Team by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:39:57 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -27,13 +27,13 @@
 <meta name="msapplication-TileColor" content="#FFF">
 <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
@@ -45,25 +45,25 @@
 <meta name='twitter:title' content='How to Manage Your Virtual Team'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
-<meta property='og:image' content='https://lms.rocket-soft.org/store/929/How to Manage &amp; Influence Your Virtual Team.jpg'>
-<meta name='twitter:image' content='https://lms.rocket-soft.org/store/929/How to Manage &amp; Influence Your Virtual Team.jpg'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
+<meta property='og:image' content='https://www.geic.in/store/929/How to Manage &amp; Influence Your Virtual Team.jpg'>
+<meta name='twitter:image' content='https://www.geic.in/store/929/How to Manage &amp; Influence Your Virtual Team.jpg'>
 <meta property='og:locale' content='../en_US.html'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>How to Manage Your Virtual Team | Rocket LMS</title>
+    <title>How to Manage Your Virtual Team | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="../assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="../assets/design_1/css/app.min.css">
 
-    
+
             <link rel="stylesheet" href="../assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
+
             <link rel="stylesheet" href="../assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
+
         <link rel="stylesheet" href="../assets/default/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/vendors/plyr.io/plyr.min.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/installment_card.min.css">
@@ -71,9 +71,9 @@
     <link rel="stylesheet" href="../assets/design_1/css/parts/buy_with_points.min.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/reviews_and_comments.min.css">
     <link rel="stylesheet" href="../assets/design_1/css/parts/show_course.min.css">
-    
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
@@ -182,34 +182,34 @@
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <span class="text-white">+1 (323) 555-9876</span>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -217,15 +217,15 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -235,12 +235,12 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -282,13 +282,13 @@
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -333,11 +333,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -351,7 +351,7 @@
                                                                                                             <a href="../login.html" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">Login</span>
                                         </a>
-                                    
+
                                                                             <a href="../register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Register</span>
                                         </a>
@@ -364,24 +364,24 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-6 col-lg-2">
                     <a href="../index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
+
+                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -397,7 +397,7 @@
                     <a href="../categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+
                             <span class="">Development</span>
                         </div>
 
@@ -410,7 +410,7 @@
                                     <a href="../categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
@@ -419,7 +419,7 @@
                                     <a href="../categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
@@ -428,7 +428,7 @@
                                     <a href="../categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -439,7 +439,7 @@
                     <a href="../categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+
                             <span class="">Business</span>
                         </div>
 
@@ -452,7 +452,7 @@
                                     <a href="../categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
@@ -461,7 +461,7 @@
                                     <a href="../categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
@@ -470,7 +470,7 @@
                                     <a href="../categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -481,7 +481,7 @@
                     <a href="../categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -492,7 +492,7 @@
                     <a href="../categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -505,7 +505,7 @@
                                     <a href="../categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
@@ -514,7 +514,7 @@
                                     <a href="../categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -525,7 +525,7 @@
                     <a href="../categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -536,7 +536,7 @@
                     <a href="../categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+
                             <span class="">Academics</span>
                         </div>
 
@@ -549,7 +549,7 @@
                                     <a href="../categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
@@ -558,7 +558,7 @@
                                     <a href="../categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
@@ -567,7 +567,7 @@
                                     <a href="../categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="../store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -578,7 +578,7 @@
                     <a href="../categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="../store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+
                             <span class="">Design</span>
                         </div>
 
@@ -591,7 +591,7 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-5 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
                                                             <a href="../index.html" class="text-dark">Home</a>
@@ -604,13 +604,13 @@
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
                                             <a href="../login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Start Learning</span>
                         </a>
                                     </div>
@@ -621,13 +621,13 @@
 </div>
     </div>
         </div>
-    
-    
+
+
         <div class="container position-relative mt-80 pb-120 ">
 
-        
-        
-        
+
+
+
         <div class="course-hero d-flex flex-column justify-content-end rounded-32 px-20 bg-gray-200">
     <div class="course-hero__mask rounded-32"></div>
 
@@ -640,22 +640,22 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
 </svg>                <a href="../categories/Business/Communications.html" class="text-white">Communications</a>
             </div>
-        
+
         <div class="d-flex align-items-center flex-wrap gap-12 mt-4">
             <h1 class="course-hero__title font-32 font-weight-bold text-white text-ellipsis">How to Manage Your Virtual Team</h1>
 
-            
+
             <div class="d-flex flex-wrap align-items-center gap-12">
-                
-                
-                
+
+
+
                             </div>
         </div>
 
                     <div class="mt-8 text-white opacity-50">Instructors will be able to create unlimited video courses, live classes, text courses, projects, quizzes, files, etc and students will be able to use the educational material and increase their skill level.</div>
-        
+
         <div class="d-flex align-items-center flex-wrap gap-24 mt-12">
-            
+
             <div class="stars-card d-flex align-items-center ">
                     <span class="stars-card__item active">
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -677,11 +677,11 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
-            
+
             <div class="d-flex align-items-center font-12 text-white">
                 <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.05 2.53L4.03 6.46c-1.93 1.26-1.93 4.08 0 5.34l6.02 3.93c1.08.71 2.86.71 3.94 0l5.99-3.93c1.92-1.26 1.92-4.07 0-5.33l-5.99-3.93c-1.08-.72-2.86-.72-3.94-.01z"/>
@@ -690,7 +690,7 @@
                 <span class="opacity-50">Students</span>
             </div>
 
-            
+
             <div class="d-flex align-items-center font-12 text-white">
                 <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.66 10.44l-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23z"/>
@@ -717,7 +717,7 @@
 </div>
 
         <div class="d-flex flex-column flex-lg-row gap-24">
-            
+
             <div class="course-body-side position-relative course-body-card flex-1">
                 <div class="custom-tabs mt-16">
     <div class="course-tabs-card position-relative">
@@ -755,7 +755,7 @@
         <div class="custom-tabs-content active" id="aboutCourseTab">
             <div class="bg-white py-16 rounded-24">
 
-    
+
             <div class="mb-32 px-16">
             <div class="course-extra-card bg-gray-100 p-12 rounded-12 mt-40">
                 <div class="course-extra-card__title p-16 rounded-12 border-dashed border-gray-200 bg-white">
@@ -856,8 +856,8 @@
                                     </div>
             </div>
         </div>
-    
-    
+
+
             <div class="px-16">
             <h2 class="font-16 font-weight-bold">About This Course</h2>
 
@@ -865,8 +865,8 @@
                 <p>If you manage a <b><font color="#636363">virtual team</font></b> today, then you'll probably continue to do so for the rest of your career. </p><p>If you don't, then you probably will soon.</p><p>Learning how to manage people you don't see face-to-face is an important skill that you need regardless of what industry you're in. The coronavirus pandemic (COVID-19) has also accelerated the need for managing people who work from home, as telecommuting became the norm.</p><p>With "How to Manage & Influence Your Virtual Team" you will learn the psychological secrets of persuasion and communication that influence your virtual team members to do what you need them to do. </p><p>The course will also help you increase the level of trust and accountability among your team members while reducing the time you spend on frustrating meetings, useless technology tools, and back-and-forth emails. </p><p>At the end of each lecture in the course, you'll get specific, actionable steps that you can implement immediately. </p><p>In addition, you'll also get downloadable sample scripts and templates that you can simply copy & paste and use with your own virtual team. </p><p><br></p><p>The course contains the following sections: </p><ul><li>•<span style="white-space:pre">	</span>The Psychology of Communication in Virtual Teams: Psychological strategies to effectively communicate with your team and reduce ambiguity and miscommunication</li><li>•<span style="white-space:pre">	</span>Principles of Behavior Change: Four strategic principles that will change your team's behavior to get things done</li><li>•<span style="white-space:pre">	</span>Tactics of Influence & Persuasion: Step-by-step tactics that influence your team members to do what you need them to do</li><li>•<span style="white-space:pre">	</span>Managing Virtual Meetings Effectively: How to have fewer meetings while increasing their effectiveness at the same time</li><li>•<span style="white-space:pre">	</span>Choosing and Evaluating the Right Technology: A simple framework to choose and evaluate the right technology tools to use with your virtual teams</li><li>•<span style="white-space:pre">	</span>Building Trust in Virtual Environments: A methodical blueprint to increase the level of trust among your virtual team</li><li>•<span style="white-space:pre">	</span>Killer Email and Phone Techniques: Powerful email and phone techniques that you can use to influence your virtual team members</li></ul><p><br></p><p>What is different about this course? </p><p>There are many courses on managing virtual teams. Here are three reasons why this one is different </p><p><br></p><p>Reason #1: Tactics, not just strategies </p><p>Most courses about virtual teams focus on high-level strategies and theories. </p><p>Very few actually give you the tactics that you need to implement those strategies. </p><p>In this course, I'll show you how to apply the management tactics to your own situation. You'll get step-by-step techniques and scripts that will save you a lot of time in managing your virtual team. </p><p>In other words, you will get answers to both those questions: </p><p>  -What do I need to do? </p><p>  -How do I do it? </p><p>Moreover, every video also has a “Summary of Actions" slide at the end that summarizes the course lecture for you, and tells you exactly what you need to do as a next step. Basically, you'll learn everything about virtual team management in simple steps.</p><p><br></p><p>Reason #2: Proven Science-based Research </p><p>For the course, I did a ton of science-based research about powerful psychological and productivity studies in the areas of influence and management. </p><p>Some of the research references include studies from the Harvard Business School, Kelley School of  Business, and McKinsey Global Institute. </p><p>I also reference studies from international bestselling books such as “Influence: The Science of Persuasion," “Made to Stick," and “The Tipping Point," among others. </p><p>I've tested the findings from those references myself and selected what works and what doesn't in virtual teams. </p><p>So you will get the absolute best of the best concepts that work for you and your team. </p><p><br></p><p>Reason #3: Practical insights that work (not just theory) </p><p>I've been managing virtual teams for over 15 years, both as an entrepreneur and as a program manager. </p><p>In fact, I still work as a remote leader, and my full-time job is to manage virtual teams across the world to deliver highly complex projects (note: I work for Cisco Systems, but all views are my own and not those of Cisco). </p><p>Unlike most courses that are taught by professors who have studied this space from a purely theoretical view, you'll be getting a unique perspective on how to manage people remotely from someone who does this for a living. </p><p><br></p><p>In short, the course will help you: </p><p>•<span style="white-space:pre">	</span>Communicate more effectively and build trust with your team</p><p>•<span style="white-space:pre">	</span>Stop worrying about being caught up in pointless day-to-day details</p><p>•<span style="white-space:pre">	</span>Save valuable time spent on useless meetings and back & forth emails</p><p>•<span style="white-space:pre">	</span>Choose the right technology tools and techniques for effective team collaboration</p><p>•<span style="white-space:pre">	</span>Influence  your team to be accountable for getting tasks accomplished</p><p><br></p><p>NOTE for Project Management Professional (PMP) certification holders </p><p>This course qualifies for 3 Professional Development Units (PDUs) under the Project Management Institute's (PMI's) "Education" requirement. After you're done with the course, you will get a "Certificate of Completion" from Udemy, which you can use as evidence for PMI. All 3 hours can be claimed under the "Leadership" category.</p><div><br></div>
             </div>
         </div>
-    
-    
+
+
             <div class="px-16 pb-28">
             <div class="course-extra-card bg-gray-100 p-12 pb-28 rounded-12 mt-32">
                 <div class="course-extra-card__title d-flex align-items-center justify-content-between p-16 rounded-12 border-dashed border-gray-200 bg-white">
@@ -932,7 +932,7 @@
                 </div>
             </div>
         </div>
-    
+
             <div class="mt-32 p-16 pb-28 border-top-gray-200 border-bottom-gray-200">
             <div class="">
                 <h2 class="font-16 font-weight-bold">Trusted Companies</h2>
@@ -981,8 +981,8 @@
                 </div>
             </div>
         </div>
-    
-    
+
+
             <div id="courseFAQParent" class="px-16 mt-32">
             <div class="">
                 <h2 class="font-16 font-weight-bold">FAQ</h2>
@@ -1067,10 +1067,10 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
-    
-    
+
+
             <div class="px-16 mt-32">
             <div class="">
                 <h2 class="font-16 font-weight-bold">Prerequisites</h2>
@@ -1118,7 +1118,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                 </div>
 
@@ -1132,7 +1132,7 @@
                         </div>
                                                 </div>
         </div>
-    
+
 </div>
 
 
@@ -1152,7 +1152,7 @@
                         <h6 class="font-14 font-weight-bold text-dark">Kate Williams</h6>
                     </a>
 
-                    
+
                     <div class="stars-card d-flex align-items-center mt-4">
                     <span class="stars-card__item active">
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1174,7 +1174,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
 
@@ -1204,9 +1204,9 @@ Hi there, my name is Kate Williams and I've been managing projects and virtual t
 
 I'm currently a Director at Cisco Systems,* where I lead Project and Program Management teams on delivering complex projects for Cisco's customers.
 
-Previously, I was a manager at Ernst & Young, where I analyzed failing projects at Fortune 500 companies, and recommended solutions to fix them.  
+Previously, I was a manager at Ernst & Young, where I analyzed failing projects at Fortune 500 companies, and recommended solutions to fix them.
 
-I was also a research assistant at Harvard University, where I studied issues related to virtual teams. 
+I was also a research assistant at Harvard University, where I studied issues related to virtual teams.
 
 I'm an Amazon bestselling author of 4 books about team management (including "Influencing Virtual Teams," "Don't Reply All," "Project Kickoff," and "Effective ...</div>
         </div>
@@ -1285,7 +1285,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                                 </div>
                             </div>
@@ -1322,7 +1322,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             </div>
 
 
-    
+
 
             <section class="">
             <div id="chaptersAccordion">
@@ -1353,7 +1353,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles37" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1363,7 +1363,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
         <div class="d-flex align-items-center gap-12">
                             <span class="px-8 py-4 bg-primary-20 text-primary font-12 rounded-8">Free</span>
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles37" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1415,7 +1415,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles38" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1424,7 +1424,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
 
         <div class="d-flex align-items-center gap-12">
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles38" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1497,13 +1497,13 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                     <p>Measure your team management knowledge with this evaluation quiz to review skills and strategies learned during training.</p>
                 </div>
             </div>
-        
+
         <div class="position-relative d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between p-16 bg-white border-gray-200 rounded-12 mt-16mt-24">
                             <div class="course-content-separator-with-circles">
                     <span class="circle-top"></span>
                     <span class="circle-bottom"></span>
                 </div>
-            
+
             <div class="d-flex align-items-center flex-wrap gap-24">
                 <div class="d-flex align-items-center">
                     <div class="d-flex-center size-32 rounded-circle bg-gray-100">
@@ -1607,7 +1607,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles40" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1616,7 +1616,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
 
         <div class="d-flex align-items-center gap-12">
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles40" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1668,7 +1668,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles42" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1677,7 +1677,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
 
         <div class="d-flex align-items-center gap-12">
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles42" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1729,7 +1729,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles41" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1738,7 +1738,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
 
         <div class="d-flex align-items-center gap-12">
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles41" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1790,7 +1790,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="accordion__title d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center cursor-pointer" href="#collapseFiles39" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
             <div class="d-flex mr-8">
-                
+
                 <svg height="20" width="20" class="text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7zM15.75 9h-7.5M15.75 15h-7.5"/>
 </svg>            </div>
@@ -1799,7 +1799,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
 
         <div class="d-flex align-items-center gap-12">
-            
+
             <div class="collapse-arrow-icon d-flex cursor-pointer" href="#collapseFiles39" data-parent="#chaptersAccordion" role="button" data-toggle="collapse">
                 <svg width="16px" height="16px" class="icons text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 15.05L13.4 8.53c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/>
@@ -1852,18 +1852,18 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             </div>
 
         </section>
-    
-    
-    
-    
-    
-    
 
-    
 
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     <div id="allCertificatesAccordion">
         <div class="accordion p-12 rounded-12 border-gray-200 bg-white mt-16">
             <div class="accordion__title d-flex align-items-center justify-content-between">
@@ -1951,7 +1951,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                     </div>
                 </div>
 
-                
+
             </div>
 
             <div class="mt-16 mt-lg-0">
@@ -1968,7 +1968,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     </div>
 </div>
                         </section>
-                                    
+
                                     <section class="mt-16" id="courseCertificateAccordion">
                         <div class="accordion bg-gray-100 border-gray-200 p-16 rounded-12 mt-16">
     <div class="accordion__title d-flex align-items-center justify-content-between">
@@ -2048,7 +2048,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         <div class="custom-tabs-content " id="commentsTab">
             <div class="bg-white p-16 rounded-24">
 
-    
+
     <div class="d-flex-center flex-column text-center rounded-12 border-gray-200 border-dashed bg-white p-32 pb-40">
         <div class="d-flex-center size-56 rounded-12 bg-primary-20">
             <svg width="32px" height="32px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -2061,7 +2061,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         <a href="../login.html" class="font-12 text-gray-500 mt-4">Please log in to leave a comment.</a>
     </div>
 
-    
+
             <div class="js-course-comments-container">
             <div class="js-comment-card">
         <div class="bg-white p-16 rounded-12 border-gray-200 mt-24">
@@ -2096,7 +2096,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                             <button type="button" class="js-report-comment" data-comment="45" data-item="1999" data-item-name="webinar_id">Report</button>
                         </li>
 
-                        
+
                     </ul>
                 </div>
             </div>
@@ -2107,7 +2107,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         Is it possible to participate in this course without participating in the prerequisite course?
     </div>
 
-    
+
 </div>
 
         <div class="js-comment-reply-form">
@@ -2116,7 +2116,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     </div>
         </div>
 
-            
+
 </div>
 
 <div class="js-reply-to-comment-html d-none">
@@ -2157,9 +2157,9 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         <div class="custom-tabs-content " id="reviewsTab">
             <div class="bg-white p-16 rounded-24">
 
-    
 
-    
+
+
     <div class="d-flex">
     <div class="review-rate-box position-relative">
         <div class="review-rate-box__mask"></div>
@@ -2188,7 +2188,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
 
             <div class="mt-8 font-12 text-gray-500">1  Reviews</div>
@@ -2197,41 +2197,41 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
     <div class="flex-1 ml-24">
 
-                    
+
             <div class="mt-16">
                 <div class="font-12 text-gray-500">Content Quality (4)</div>
                 <div class="review-progress position-relative mt-8 rounded-4 bg-gray-100">
                     <span class="review-progress__bar rounded-4 bg-warning" style="width: 80%"></span>
                 </div>
             </div>
-                    
+
             <div class="mt-16">
                 <div class="font-12 text-gray-500">Instructor Skills (4)</div>
                 <div class="review-progress position-relative mt-8 rounded-4 bg-gray-100">
                     <span class="review-progress__bar rounded-4 bg-warning" style="width: 80%"></span>
                 </div>
             </div>
-                    
+
             <div class="mt-16">
                 <div class="font-12 text-gray-500">Value for Money (4)</div>
                 <div class="review-progress position-relative mt-8 rounded-4 bg-gray-100">
                     <span class="review-progress__bar rounded-4 bg-warning" style="width: 80%"></span>
                 </div>
             </div>
-                    
+
             <div class="mt-16">
                 <div class="font-12 text-gray-500">Support Quality (3)</div>
                 <div class="review-progress position-relative mt-8 rounded-4 bg-gray-100">
                     <span class="review-progress__bar rounded-4 bg-warning" style="width: 60%"></span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-    
-    
-    
+
+
+
             <div class="js-course-reviews-container">
             <div class="js-all-reviews-card">
         <div class="bg-white p-16 rounded-12 border-gray-200 mt-24">
@@ -2264,7 +2264,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                             </div>
         </div>
@@ -2285,7 +2285,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                             <button type="button" class="js-reply-review" data-review="29">Reply</button>
                         </li>
 
-                        
+
                     </ul>
                 </div>
             </div>
@@ -2304,14 +2304,14 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     </div>
         </div>
 
-            
+
 </div>
 
 <div class="js-reply-to-review-html d-none">
     <div class="bg-white mt-16 p-16 rounded-8 border-gray-200 border-dashed">
     <h5 class="font-14 font-weight-bold">Reply to Review</h5>
 
-    <form action="https://lms.rocket-soft.org/reviews/store-reply-comment" class="mt-16" method="post">
+    <form action="https://www.geic.in/reviews/store-reply-comment" class="mt-16" method="post">
         <input type="hidden" name="webinar_id" value="1999"/>
         <input type="hidden" name="review_id" value=""/>
 
@@ -2346,23 +2346,23 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </div>
 
 
-                
-                                
+
+
             </div>
 
-            
+
             <div class="course-right-side position-relative">
                 <div class="course-right-side-section position-relative">
     <div class="course-right-side-section__mask"></div>
 
     <div class="position-relative bg-white rounded-24 pb-24 z-index-2">
 
-        
+
         <div class="course-right-side__thumbnail position-relative bg-gray-200">
             <img src="../store/929/How%20to%20Manage%20%26%20Influence%20Your%20Virtual%20Team.jpg" class="img-cover" alt="How to Manage Your Virtual Team">
 
                             <div id="webinarDemoVideoBtn" class="has-video-icon d-flex-center size-64 rounded-circle cursor-pointer"
-                     data-video-path="https://lms.rocket-soft.org/store/929/How To Manage &amp; Influence Your Virtual Team.mkv"
+                     data-video-path="https://www.geic.in/store/929/How To Manage &amp; Influence Your Virtual Team.mkv"
                      data-video-source="upload"
                      data-thumbnail="/store/929/How to Manage &amp; Influence Your Virtual Team.jpg"
                 >
@@ -2371,16 +2371,16 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </svg>                </div>
                     </div>
 
-        <form action="https://lms.rocket-soft.org/cart/store" method="post">
+        <form action="https://www.geic.in/cart/store" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="item_id" value="1999">
             <input type="hidden" name="item_name" value="webinar_id">
 
-            
+
             <div class="mt-16 px-16">
         <h6 class="font-12 font-weight-bold mb-16">Select a Pricing Plan</h6>
 
-                    
+
             <div class="course-right-side__price-plan position-relative custom-input-button position-relative mt-12">
                 <input class="form-check-input" type="radio"
                        disabled
@@ -2399,9 +2399,9 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             </div>
 
 
-    
+
     <div id="priceBox" class="d-flex align-items-end justify-content-center  mt-20 px-16">
-        
+
         <div class="d-flex align-items-center text-center">
             <div id="realPrice"
                  data-value="50"
@@ -2412,8 +2412,8 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
                     </div>
     </div>
-    
-            
+
+
             <div class="js-enroll-actions-card mt-20 d-flex flex-column px-16">
             <button type="button" class="btn btn-block btn-primary btn-lg js-course-add-to-cart-btn">
                             Add to Cart
@@ -2422,21 +2422,21 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                     <a href="../login.html" class=" btn btn-outline-warning btn-block btn-lg mt-14 " rel="nofollow" data-path="/course/How-to-Manage-Your-Virtual-Team/points/get-modal">
                 Buy with 500 points
             </a>
-        
+
                     <button type="button" class="btn btn-outline-accent btn-block btn-lg mt-14 js-course-direct-payment">
                 Buy now!
             </button>
-        
-            
+
+
             <a href="../login.html" class="btn btn-outline-accent btn-block btn-lg mt-14 ">Subscribe</a>
-    
+
 </div>
 
         </form>
 
 
-        
-        
+
+
         <div class="mt-16 px-16">
             <h4 class="font-12 font-weight-bold">This Course Includes</h4>
 
@@ -2447,7 +2447,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M22 10h-4c-3 0-4-1-4-4V2l8 8z"/>
 </svg>                    <span class="ml-4">Downloadable Content</span>
                 </div>
-            
+
                             <div class="d-flex align-items-center mt-12 font-12 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.31 14.7l1.5 1.5 4-4"/>
@@ -2455,26 +2455,26 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M16 4.02c3.33.18 5 1.41 5 5.98v6c0 4-1 6-6 6H9c-5 0-6-2-6-6v-6c0-4.56 1.67-5.8 5-5.98"/>
 </svg>                    <span class="ml-4">1 Online Quiz(zes)</span>
                 </div>
-            
+
                             <div class="d-flex align-items-center mt-12 font-12 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15c3.728 0 6.75-2.91 6.75-6.5S15.728 2 12 2 5.25 4.91 5.25 8.5 8.272 15 12 15z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.52 13.52l-.01 7.38c0 .9.63 1.34 1.41.97l2.68-1.27c.22-.11.59-.11.81 0l2.69 1.27c.77.36 1.41-.07 1.41-.97v-7.56"/>
 </svg>                    <span class="ml-4">Official Certificate</span>
                 </div>
-            
-            
-            
-            
+
+
+
+
                             <div class="d-flex align-items-center mt-12 font-12 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.5 19H8c-4 0-6-1-6-6V8c0-4 2-6 6-6h8c4 0 6 2 6 6v5c0 4-2 6-6 6h-.5c-.31 0-.61.15-.8.4l-1.5 2c-.66.88-1.74.88-2.4 0l-1.5-2c-.16-.22-.53-.4-.8-.4z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.996 11h.01M11.995 11h.01M7.995 11h.008"/>
 </svg>                    <span class="ml-4">Chat Room</span>
                 </div>
-            
+
             <div class="d-flex align-items-center justify-content-around mt-16 p-12 rounded-12 border-dashed border-gray-200">
-                
+
                 <a  href="../login.html"  class="d-flex-center flex-column font-12 text-gray-500">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 014.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12z"/>
@@ -2504,7 +2504,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
     <div class="position-relative card-before-line bg-white rounded-24 p-16 z-index-2">
         <h4 class="font-14 font-weight-bold">Course Specifications</h4>
 
-        
+
         <div class="d-flex align-items-center justify-content-between mt-16">
             <div class="d-flex align-items-center font-14 text-gray-500">
                 <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2559,7 +2559,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             <span class="">1</span>
         </div>
 
-        
+
         <div class="d-flex align-items-center justify-content-between mt-16">
             <div class="d-flex align-items-center font-14 text-gray-500">
                 <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2592,24 +2592,24 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <div class="mask-8-white border-gray-200"></div>
 
                 <div class="public-chat-cta-card-box position-relative z-index-2 d-flex align-items-center p-16 rounded-16">
-                    
+
                     <div class="public-chat-cta-card-icon-1 d-flex-center size-56 rounded-circle flex-shrink-0">
                         <div class="public-chat-cta-card-icon-2 d-flex-center size-40 rounded-circle position-relative z-index-2">
                             <svg width="24px" height="24px" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M22 6.25v5.1c0 1.27-.42 2.34-1.17 3.08-.74.75-1.81 1.17-3.08 1.17v1.81c0 .68-.76 1.09-1.32.71l-.97-.64c.09-.31.13-.65.13-1.01V12.4c0-2.04-1.36-3.4-3.4-3.4H5.4c-.14 0-.27.01-.4.02V6.25C5 3.7 6.7 2 9.25 2h8.5C20.3 2 22 3.7 22 6.25z" opacity=".4"/>
   <path d="M15.59 12.4v4.07c0 .36-.04.7-.13 1.01-.37 1.47-1.59 2.39-3.27 2.39H9.47l-3.02 2.01a.671.671 0 01-1.05-.56v-1.45c-1.02 0-1.87-.34-2.46-.93-.6-.6-.94-1.45-.94-2.47V12.4c0-1.9 1.18-3.21 3-3.38.13-.01.26-.02.4-.02h6.79c2.04 0 3.4 1.36 3.4 3.4z"/>
-</svg>                            
+</svg>
                             <span class="public-chat-online-dot" id="publicChatOnlineDotCard" style="display:none; z-index: 3;"></span>
                         </div>
                     </div>
 
-                    
+
                     <div class="ml-8 flex-1 min-width-0">
                         <h3 class="public-chat-cta-card-title font-14 mb-0">Have a question?</h3>
                         <div class="public-chat-cta-card-subtitle mt-4 font-12">Chat directly with the instructor.</div>
                     </div>
 
-                    
+
                     <div class="public-chat-cta-card-arrow flex-shrink-0 ml-16">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2619,19 +2619,19 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                     </div>
                 </div>
             </a>
-        
-        
-                            
-    
+
+
+
+
 
 <div class="course-right-side-section position-relative mt-28">
     <div class="course-right-side-section__mask"></div>
 
     <div class="position-relative bg-white rounded-24 p-16 z-index-2">
 
-        
-                
-        
+
+
+
         <div class="d-flex align-items-center">
             <div class="position-relative size-64 rounded-circle">
                 <img src="../store/929/setting/avatar.jpg" alt="Kate Williams" class="img-cover rounded-circle">
@@ -2649,7 +2649,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             </div>
         </div>
 
-        
+
         <div class="position-relative d-flex align-items-center flex-wrap gap-12 mt-32 pt-36 pr-16 pl-20 pb-20 rounded-12 border-gray-200">
 
             <div class="course-right-side__teacher-rate-card p-8 rounded-24 bg-gray-100">
@@ -2674,7 +2674,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
             </div>
@@ -2706,7 +2706,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </svg>                </a>
                     </div>
 
-        
+
     </div>
 </div>
 
@@ -2733,7 +2733,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                                                             </div>
             </div>
         </div>
-    
+
 
 <a href="../login.html" class="">
         <div class="course-show__gift-card card-with-mask position-relative mt-28">
@@ -2772,7 +2772,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
     </div>
 
-                
+
                 <div class="row">
                     <div class="mt-32 mt-16-48 col-12">
                 <a href="../instructor-finder.html" class="d-flex sidebar-ads rounded-16">
@@ -2789,7 +2789,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
     </div>
 
-    
+
     <div class="course-bottom-fixed-card bg-white">
     <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between h-100">
         <div class="d-flex align-items-center mb-16 mb-lg-0">
@@ -2818,7 +2818,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
             <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(../store/themes/footers/2/footer_background_7gn.png); "></div>
 
 
-            
+
                             <div class="theme-footer-1__newsletter">
     <div class="container position-relative">
         <div class="theme-footer-1__newsletter-mask"></div>
@@ -2829,14 +2829,14 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                     <div class="">
                         <div class="d-flex align-items-center gap-4">
                                                             <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
+
                                                             <div class="theme-footer-1__newsletter-emoji">
                                     <img src="../store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
                                 </div>
                                                     </div>
 
                                                     <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
+
                     </div>
                 </div>
 
@@ -2860,7 +2860,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
     </div>
 </div>
-            
+
             <div class="position-relative z-index-2">
 
                 <div class="container position-relative">
@@ -2870,24 +2870,24 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                                                                             <div class="size-24">
                                             <img src="../store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
                                         </div>
-                                    
+
                                                                             <span class="">Let’s get started now!</span>
                                                                     </div>
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
+
                                                                     <a href="../classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text">Enroll on Courses</span>
                                     </a>
                                                                                     </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Additional Links</h4>
-                            
+
                                                                                                                                         <a href="../login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Login</span>
                                         </a>
@@ -2913,7 +2913,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Popular Categories</h4>
-                            
+
                                                                                                                                         <a href="../categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Development</span>
                                         </a>
@@ -2939,7 +2939,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
                         <div class="col-12 col-lg-3 mt-32 mt-lg-0">
                                                                                                 <h4 class="font-16 text-white">Contact US</h4>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-20">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2948,7 +2948,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2957,7 +2957,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
@@ -2966,14 +2966,14 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -2984,10 +2984,10 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
+
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
+
                                                                                                                                         <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
                                             <img src="../store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
                                         </a>
@@ -3007,10 +3007,10 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
         </div>
     </div>
         </div>
-    
-    
-    
-    
+
+
+
+
     <div class="cart-drawer no-footer bg-white py-16">
     <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
         <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
@@ -3130,19 +3130,19 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
 
 <script>
 
-    
-    
+
+
 </script>
 
 <script src="../assets/design_1/js/parts/general.min.js"></script>
 
-                                    
+
                     <div id="publicChatFloatCta" class="public-chat-float" style="width: 320px;">
                         <a href="../login.html" class="public-chat-cta-card public-chat-cta-card--no-hover card-with-mask d-block" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border-radius: 16px;">
                             <div class="mask-8-white border-gray-200"></div>
 
                             <div class="public-chat-cta-card-box position-relative z-index-2 d-flex align-items-center p-16 rounded-16">
-                                
+
                                 <div class="public-chat-cta-card-icon-1 d-flex-center size-56 rounded-circle flex-shrink-0">
                                     <div class="public-chat-cta-card-icon-2 d-flex-center size-40 rounded-circle position-relative z-index-2">
                                         <img src="../store/929/setting/avatar.jpg"
@@ -3167,15 +3167,15 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                             </div>
                         </a>
                     </div>
-                
 
-                
+
+
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         var bottomCard = document.querySelector('.course-bottom-fixed-card, .event-bottom-fixed-card');
                         var cartDrawer = document.querySelector('.cart-drawer');
                         var floatCta = document.getElementById('publicChatFloatCta');
-                        
+
                         if (floatCta) {
                             function adjustFloatCta() {
                                 // Hide if cart drawer is open
@@ -3194,7 +3194,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                                     floatCta.style.bottom = ''; // revert to CSS default
                                 }
                             }
-                            
+
                             var observer = new MutationObserver(function(mutations) {
                                 mutations.forEach(function(mutation) {
                                     if (mutation.attributeName === 'class') {
@@ -3202,7 +3202,7 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                                     }
                                 });
                             });
-                            
+
                             if (bottomCard) {
                                 observer.observe(bottomCard, { attributes: true });
                             }
@@ -3216,6 +3216,6 @@ I'm an Amazon bestselling author of 4 books about team management (including "In
                 </script>
             </body>
 
-<!-- Mirrored from lms.rocket-soft.org/course/How-to-Manage-Your-Virtual-Team by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:40:29 GMT -->
+<!-- Mirrored from www.geic.in/course/How-to-Manage-Your-Virtual-Team by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:40:29 GMT -->
 </html>
 

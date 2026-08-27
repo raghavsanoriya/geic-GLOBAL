@@ -92,15 +92,41 @@
     .cd-fact span { display:block; color:rgba(255,255,255,.62); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
     .cd-fact strong { display:block; margin-top:8px; color:#fff; font-size:20px; line-height:1.3; }
 
-    .cd-journey-wrap { margin-top:44px; padding:34px; border-radius:32px; background:var(--cd-navy); background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:80px 80px; }
-    .cd-journey { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-    .cd-step { position:relative; min-height:210px; padding:24px; border:1px solid rgba(255,255,255,.16); border-radius:20px; background:rgba(255,255,255,.07); }
-    .cd-step:not(:nth-child(4n))::after { position:absolute; z-index:2; top:34px; right:-17px; width:18px; border-top:2px dashed rgba(243,149,30,.8); content:''; }
-    .cd-step__top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .cd-step__number { display:grid; width:42px; height:42px; place-items:center; border:6px solid rgba(255,255,255,.09); border-radius:50%; color:#fff; background:var(--cd-red); font-size:12px; font-weight:800; background-clip:padding-box; }
-    .cd-step__stage { color:#ffb45a; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-    .cd-step h3 { margin:18px 0 0; color:#fff; font-size:17px; }
-    .cd-step p { margin:9px 0 0; color:rgba(255,255,255,.68); font-size:13px; line-height:1.65; }
+    .cd-journey { position:relative; overflow:hidden; padding:92px 0; background-color:var(--cd-navy); background-image:radial-gradient(rgba(255,255,255,.065) 1px,transparent 1px),radial-gradient(circle at 8% 16%,rgba(227,30,36,.14),transparent 24%),radial-gradient(circle at 94% 82%,rgba(243,149,30,.11),transparent 26%); background-size:18px 18px,auto,auto; color:#fff; scroll-margin-top:92px; }
+    .cd-journey::before,.cd-journey::after { position:absolute; border:1px solid rgba(255,255,255,.06); border-radius:50%; content:''; pointer-events:none; }
+    .cd-journey::before { top:-220px; left:-250px; width:420px; height:420px; box-shadow:0 0 0 58px rgba(255,255,255,.018); }
+    .cd-journey::after { right:-190px; bottom:-210px; width:360px; height:360px; box-shadow:0 0 0 72px rgba(255,255,255,.018); }
+    .cd-journey .cd-container { position:relative; z-index:1; }
+    .cd-journey .cd-kicker { color:#ff777d; }
+    .cd-journey .cd-heading { color:#fff; }
+    .cd-journey .cd-lead { color:rgba(255,255,255,.68); }
+    .cd-journey__intro { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+    .cd-journey__intro-copy { max-width:780px; }
+    .cd-journey__count { display:flex; flex:0 0 auto; align-items:center; gap:14px; padding:15px 18px; border:1px solid rgba(255,255,255,.14); border-radius:18px; background:rgba(255,255,255,.07); backdrop-filter:blur(10px); }
+    .cd-journey__count strong { display:grid; width:48px; height:48px; place-items:center; border-radius:15px; background:var(--cd-red); color:#fff; font-size:22px; box-shadow:0 10px 25px rgba(227,30,36,.28); }
+    .cd-journey__count span { max-width:96px; color:rgba(255,255,255,.74); font-size:12px; font-weight:800; line-height:1.35; letter-spacing:.08em; text-transform:uppercase; }
+    .cd-journey-grid { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:1fr; gap:56px 44px; margin-top:52px; }
+    .cd-step { position:relative; z-index:2; min-width:0; min-height:228px; padding:24px; border:1px solid rgba(255,255,255,.14); border-radius:24px; background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.052)); box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px rgba(3,13,32,.15); backdrop-filter:blur(8px); transition:transform .22s ease,border-color .22s ease,background-color .22s ease; }
+    .cd-step:hover { border-color:rgba(255,255,255,.27); background-color:rgba(255,255,255,.05); transform:translateY(-5px); }
+    .cd-step:nth-child(5) { grid-column:4; grid-row:2; } .cd-step:nth-child(6) { grid-column:3; grid-row:2; } .cd-step:nth-child(7) { grid-column:2; grid-row:2; } .cd-step:nth-child(8) { grid-column:1; grid-row:2; }
+    .cd-step__top { display:flex; align-items:center; justify-content:space-between; gap:14px; }
+    .cd-step__number { display:inline-flex; width:48px; height:48px; align-items:center; justify-content:center; border-radius:16px; background:linear-gradient(145deg,#f32930,#c90f15); color:#fff; font-size:13px; font-weight:800; box-shadow:0 0 0 7px rgba(14,33,69,.72),0 12px 24px rgba(227,30,36,.25); }
+    .cd-step__stage { display:inline-flex; align-items:center; gap:7px; color:#ffb4b7; font-size:11px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+    .cd-step__stage::before { width:7px; height:7px; border:2px solid currentColor; border-radius:50%; content:''; }
+    .cd-step h3 { margin:25px 0 0; color:#fff; font-size:18px; line-height:1.35; }
+    .cd-step p { margin:10px 0 0; color:rgba(255,255,255,.67); font-size:13px; line-height:1.68; }
+    .cd-step__connector { position:absolute; z-index:3; top:37px; right:-45px; width:45px; height:22px; pointer-events:none; }
+    .cd-step__connector::before { position:absolute; top:10px; right:8px; left:0; border-top:2px dashed rgba(255,255,255,.34); content:''; }
+    .cd-step__connector::after { position:absolute; top:6px; right:3px; width:9px; height:9px; border-top:2px solid #ff5a60; border-right:2px solid #ff5a60; content:''; transform:rotate(45deg); }
+    .cd-step:nth-child(4) .cd-step__connector { top:100%; right:50%; width:22px; height:57px; transform:translateX(50%); }
+    .cd-step:nth-child(4) .cd-step__connector::before { top:0; bottom:8px; right:auto; left:10px; border-top:0; border-left:2px dashed rgba(255,255,255,.34); }
+    .cd-step:nth-child(4) .cd-step__connector::after { top:auto; right:6px; bottom:3px; transform:rotate(135deg); }
+    .cd-step:nth-child(n+5):nth-child(-n+7) .cd-step__connector { right:auto; left:-45px; transform:rotate(180deg); }
+    .cd-step:nth-child(8) .cd-step__connector { display:none; }
+    .cd-journey-outcome { display:flex; width:min(760px,100%); align-items:center; gap:18px; margin:48px auto 0; padding:18px 20px; border:1px solid rgba(255,255,255,.15); border-radius:22px; background:rgba(255,255,255,.075); box-shadow:0 18px 40px rgba(3,13,32,.18); }
+    .cd-journey-outcome__icon { display:grid; width:48px; height:48px; flex:0 0 48px; place-items:center; border-radius:50%; background:#fff; color:#159657; font-size:21px; font-weight:900; box-shadow:0 0 0 7px rgba(255,255,255,.08); }
+    .cd-journey-outcome__copy { min-width:0; flex:1; } .cd-journey-outcome small { display:block; color:#ffb4b7; font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; } .cd-journey-outcome strong { display:block; margin-top:4px; color:#fff; font-size:17px; }
+    .cd-journey-outcome a { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:0 17px; border-radius:12px; background:var(--cd-red); color:#fff!important; font-size:13px; font-weight:800; white-space:nowrap; }
 
     .cd-requirements { display:grid; grid-template-columns:1fr .86fr; gap:28px; margin-top:42px; }
     .cd-panel { padding:36px; border:1px solid var(--cd-border); border-radius:26px; background:#fff; box-shadow:0 14px 38px rgba(14,33,69,.06); }
@@ -171,8 +197,10 @@
         .cd-life-gallery { grid-template-columns:1fr 1fr; }
         .cd-life-card:first-child { grid-column:1/-1; }
         .cd-facts { grid-template-columns:1fr; }
-        .cd-journey { grid-template-columns:repeat(2,1fr); }
-        .cd-step:not(:nth-child(4n))::after { display:none; }
+        .cd-journey { padding:72px 0; }
+        .cd-journey-grid { grid-template-columns:repeat(2,1fr); gap:28px 24px; }
+        .cd-step:nth-child(n) { grid-column:auto; grid-row:auto; }
+        .cd-step__connector { display:none; }
         .cd-costs { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:900px) {
@@ -214,10 +242,14 @@
         .cd-life-card,.cd-life-card:first-child { flex:0 0 84%; min-height:300px; scroll-snap-align:start; }
         .cd-fact-image { min-height:300px; }
         .cd-fact-panel { grid-template-columns:1fr; padding:24px; }
-        .cd-journey-wrap { margin-inline:-14px; padding:24px 14px; border-radius:0; }
-        .cd-journey { display:flex; overflow-x:auto; gap:14px; padding-bottom:8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
-        .cd-journey::-webkit-scrollbar { display:none; }
-        .cd-step { flex:0 0 84%; min-height:230px; scroll-snap-align:center; }
+        .cd-journey { padding:58px 0; }
+        .cd-journey__intro { align-items:flex-start; flex-direction:column; gap:24px; }
+        .cd-journey-grid { display:grid; grid-template-columns:1fr; gap:14px; margin-top:34px; padding-left:25px; }
+        .cd-journey-grid::before { position:absolute; top:26px; bottom:26px; left:8px; border-left:2px dashed rgba(255,255,255,.32); content:''; }
+        .cd-step { min-height:0; padding:22px; }
+        .cd-step::before { position:absolute; top:30px; left:-30px; width:14px; height:14px; border:4px solid var(--cd-navy); border-radius:50%; background:#ff5a60; box-shadow:0 0 0 2px rgba(255,255,255,.3); content:''; }
+        .cd-journey-outcome { align-items:flex-start; flex-wrap:wrap; margin-top:32px; padding:17px; }
+        .cd-journey-outcome a { width:100%; }
         .cd-panel { padding:25px; }
         .cd-checks,.cd-costs,.cd-form__grid { grid-template-columns:1fr; }
         .cd-field--full { grid-column:auto; }
@@ -235,13 +267,13 @@
     <section class="cd-hero" id="overview">
         <div class="cd-container">
             <div class="cd-hero__shell" style="--hero-position:{{ $destination['hero_position'] }}">
-                <img class="cd-hero__image" src="{{ asset($destination['hero']) }}" alt="Study in {{ $name }}" fetchpriority="high" width="1920" height="1200">
+                <img class="cd-hero__image" src="{{ asset($cms['hero_image'] ?? $destination['hero']) }}" alt="Study in {{ $name }}" fetchpriority="high" width="1920" height="1200">
                 <div class="cd-hero__overlay"></div>
                 <div class="cd-hero__content">
                     <nav class="cd-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/destinations') }}">Destinations</a><span>/</span><span>{{ $name }}</span></nav>
                     <div class="cd-label"><img src="{{ asset('assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $name }} flag"><span>Expert guidance from GEIC Indore</span></div>
-                    <h1>Study in <span>{{ $name }}</span></h1>
-                    <p class="cd-hero__copy">{{ $destination['tagline'] }}</p>
+                    <h1>{{ $cms['hero_title'] ?? 'Study in '.$name }}</h1>
+                    <p class="cd-hero__copy">{{ $cms['hero_copy'] ?? $destination['tagline'] }}</p>
                     <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">See the complete journey</a></div>
                 </div>
                 @include('mirror.partials.hero-enquiry', ['formId' => 'destination-hero', 'sourceContext' => 'Study in '.$name, 'returnTo' => '/destinations/'.$slug.'#overview'])
@@ -282,9 +314,10 @@
         </div>
     </section>
 
-    <section class="cd-section" id="journey">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">The complete journey</div><h2 class="cd-heading">From counselling to arriving in {{ $name }}</h2><p class="cd-lead">A connected, step-by-step path with GEIC Indore supporting the details at every stage.</p></div>
-            <div class="cd-journey-wrap"><div class="cd-journey">@foreach($destination['journey'] as $index => [$stage,$title,$copy])<article class="cd-step"><div class="cd-step__top"><span class="cd-step__number">{{ str_pad($index+1,2,'0',STR_PAD_LEFT) }}</span><span class="cd-step__stage">{{ $stage }}</span></div><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>@endforeach</div></div>
+    <section class="cd-journey" id="journey">
+        <div class="cd-container"><div class="cd-journey__intro"><div class="cd-journey__intro-copy"><div class="cd-kicker">The complete journey</div><h2 class="cd-heading">One connected path from counselling to {{ $name }}</h2><p class="cd-lead">Follow one clear route through every milestone, document and decision, with Trans Globe Indore supporting you all the way.</p></div><div class="cd-journey__count" aria-label="Eight guided milestones"><strong>{{ count($destination['journey']) }}</strong><span>Guided milestones</span></div></div>
+            <div class="cd-journey-grid">@foreach($destination['journey'] as $index => [$stage,$title,$copy])<article class="cd-step"><div class="cd-step__top"><span class="cd-step__number">{{ str_pad($index+1,2,'0',STR_PAD_LEFT) }}</span><span class="cd-step__stage">{{ $stage }}</span></div><h3>{{ $title }}</h3><p>{{ $copy }}</p><span class="cd-step__connector" aria-hidden="true"></span></article>@endforeach</div>
+            <div class="cd-journey-outcome"><span class="cd-journey-outcome__icon" aria-hidden="true">✓</span><div class="cd-journey-outcome__copy"><small>Destination reached</small><strong>Arrive informed, prepared and ready for student life in {{ $name }}.</strong></div><a href="{{ $detailUrl }}#contact">Start my journey →</a></div>
         </div>
     </section>
 

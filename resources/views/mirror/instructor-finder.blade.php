@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/instructor-finder by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:24:56 GMT -->
+<!-- Mirrored from www.geic.in/instructor-finder by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:24:56 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -27,13 +27,13 @@
 <meta name="msapplication-TileColor" content="#FFF">
 <meta name="msapplication-TileImage" content="ms-icon-144x144.html">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
@@ -45,7 +45,7 @@
 <meta name='twitter:title' content='Instructor finder'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
 <meta property='og:image' content='/store/1/geic-icon.png'>
 <meta name='twitter:image' content='/store/1/geic-icon.png'>
 <meta property='og:locale' content='en_US.html'>
@@ -53,26 +53,26 @@
 
 
 
-    <title>Instructor finder | Rocket LMS</title>
+    <title>Instructor finder | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="assets/design_1/css/app.min.css">
 
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
+
         <link rel="stylesheet" href="assets/vendors/leaflet/leaflet.css">
     <link rel="stylesheet" href="assets/vendors/leaflet/leaflet.markercluster/markerCluster.css">
     <link rel="stylesheet" href="assets/vendors/leaflet/leaflet.markercluster/markerCluster.Default.css">
     <link rel="stylesheet" href="assets/default/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/vendors/wrunner-html-range-slider-with-2-handles/css/wrunner-default-theme.css">
     <link rel="stylesheet" href="assets/design_1/css/parts/instructor_finder.min.css">
-    
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
@@ -181,34 +181,34 @@
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <span class="text-white">+1 (323) 555-9876</span>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -216,15 +216,15 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -234,12 +234,12 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -281,13 +281,13 @@
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -332,11 +332,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -350,7 +350,7 @@
                                                                                                             <a href="login.html" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">Login</span>
                                         </a>
-                                    
+
                                                                             <a href="register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Register</span>
                                         </a>
@@ -363,24 +363,24 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-6 col-lg-2">
                     <a href="index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                                                    <img src="store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
+
+                                                    <img src="store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -396,7 +396,7 @@
                     <a href="categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+
                             <span class="">Development</span>
                         </div>
 
@@ -409,7 +409,7 @@
                                     <a href="categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
@@ -418,7 +418,7 @@
                                     <a href="categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
@@ -427,7 +427,7 @@
                                     <a href="categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -438,7 +438,7 @@
                     <a href="categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+
                             <span class="">Business</span>
                         </div>
 
@@ -451,7 +451,7 @@
                                     <a href="categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
@@ -460,7 +460,7 @@
                                     <a href="categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
@@ -469,7 +469,7 @@
                                     <a href="categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -480,7 +480,7 @@
                     <a href="categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -491,7 +491,7 @@
                     <a href="categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -504,7 +504,7 @@
                                     <a href="categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
@@ -513,7 +513,7 @@
                                     <a href="categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -524,7 +524,7 @@
                     <a href="categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -535,7 +535,7 @@
                     <a href="categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+
                             <span class="">Academics</span>
                         </div>
 
@@ -548,7 +548,7 @@
                                     <a href="categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
@@ -557,7 +557,7 @@
                                     <a href="categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
@@ -566,7 +566,7 @@
                                     <a href="categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -577,7 +577,7 @@
                     <a href="categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+
                             <span class="">Design</span>
                         </div>
 
@@ -590,7 +590,7 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-5 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
                                                             <a href="index.html" class="text-dark">Home</a>
@@ -603,13 +603,13 @@
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
                                             <a href="login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Start Learning</span>
                         </a>
                                     </div>
@@ -620,11 +620,11 @@
 </div>
     </div>
         </div>
-    
-    
+
+
         <div class="container instructor-finder mt-80 pb-60">
 
-        
+
         <div class="position-relative z-index-15">
             <div class="instructor-finder__top-hero-mask rounded-32"></div>
 
@@ -641,7 +641,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="position-relative mt-32">
         <div class="swiper-container js-make-swiper top-featured-instructors pb-0"
              data-item="top-featured-instructors"
@@ -660,7 +660,7 @@
                                 <div class="ml-8">
                                     <h6 class="font-14 font-weight-bold text-dark text-ellipsis">John Powe</h6>
 
-                                                                            
+
                                         <div class="d-flex align-items-start font-12 text-gray-500 mt-4">
                                                                                             <div class="d-flex flex-column">
                                                     <span class="">$90</span>
@@ -670,7 +670,7 @@
 
                                                 <span class="">/Hr.</span>
                                                                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -685,7 +685,7 @@
                                 <div class="ml-8">
                                     <h6 class="font-14 font-weight-bold text-dark text-ellipsis">Kate Williams</h6>
 
-                                                                            
+
                                         <div class="d-flex align-items-start font-12 text-gray-500 mt-4">
                                                                                             <div class="d-flex flex-column">
                                                     <span class="">$200</span>
@@ -694,7 +694,7 @@
 
                                                 <span class="">/Hr.</span>
                                                                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -709,7 +709,7 @@
                                 <div class="ml-8">
                                     <h6 class="font-14 font-weight-bold text-dark text-ellipsis">Linda Anderson</h6>
 
-                                                                            
+
                                         <div class="d-flex align-items-start font-12 text-gray-500 mt-4">
                                                                                             <div class="d-flex flex-column">
                                                     <span class="">$100</span>
@@ -718,7 +718,7 @@
 
                                                 <span class="">/Hr.</span>
                                                                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -733,7 +733,7 @@
                                 <div class="ml-8">
                                     <h6 class="font-14 font-weight-bold text-dark text-ellipsis">Robert Ransdell</h6>
 
-                                                                            
+
                                         <div class="d-flex align-items-start font-12 text-gray-500 mt-4">
                                                                                             <div class="d-flex flex-column">
                                                     <span class="">$100</span>
@@ -742,7 +742,7 @@
 
                                                 <span class="">/Hr.</span>
                                                                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -757,7 +757,7 @@
                                 <div class="ml-8">
                                     <h6 class="font-14 font-weight-bold text-dark text-ellipsis">Ricardo Dave</h6>
 
-                                                                            
+
                                         <div class="d-flex align-items-start font-12 text-gray-500 mt-4">
                                                                                             <div class="d-flex flex-column">
                                                     <span class="">$60</span>
@@ -766,7 +766,7 @@
 
                                                 <span class="">/Hr.</span>
                                                                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -777,7 +777,7 @@
             </div>
         </div>
 
-        
+
         <div class="position-relative instructor-finder__map-container bg-gray-200" id="instructorFinderPageMap"
          data-latitude="43.461502794362"
          data-longitude="11.854462623596"
@@ -787,14 +787,14 @@
          data-scrollWheelZoom="true"
          data-zoomControlPosition="bottomleft"
     >
-        
+
     </div>
 
 
 
-        <form id="filtersForm" action="https://lms.rocket-soft.org/instructor-finder" method="get">
+        <form id="filtersForm" action="https://www.geic.in/instructor-finder" method="get">
 
-            
+
             <div class="instructor-finder__top-filters position-relative d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between bg-white p-12 rounded-24">
     <div class="d-flex flex-wrap align-items-center gap-20 gap-lg-48 px-12 py-10">
 
@@ -846,7 +846,7 @@
 
 
             <div class="row flex-md-row-reverse">
-                
+
                 <div class="col-12 col-md-8 col-lg-9 mt-20">
                     <div id="instructorsList">
                                                                                     <div class="instructor-finder__user-card d-flex align-items-start flex-column flex-lg-row gap-24 bg-white p-16 rounded-24 mb-20">
@@ -885,7 +885,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
         </div>
@@ -897,9 +897,9 @@
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Web Development</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Mobile Development</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -912,7 +912,7 @@
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -925,7 +925,7 @@
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -939,7 +939,7 @@
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -956,7 +956,7 @@
 
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
-                            
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -971,7 +971,7 @@
                         <span class="font-14 text-gray-500">/Hour</span>
                     </div>
 
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/ricardo-dave/profile" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1027,7 +1027,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(5)</span>
             </div>
         </div>
@@ -1041,9 +1041,9 @@ Robert has professional experience with CentOS, RedHat ...</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Web Development</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Mobile Development</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1056,7 +1056,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1069,7 +1069,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1083,7 +1083,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1100,7 +1100,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
 
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
-                            
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -1115,7 +1115,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
                         <span class="font-14 text-gray-500">/Hour</span>
                     </div>
 
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/robert-ransdell/profile.html" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1166,7 +1166,7 @@ Robert has professional experience with CentOS, RedHat ...</div>
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(2)</span>
             </div>
         </div>
@@ -1183,9 +1183,9 @@ The first program I sold controlled stock ...</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Mobile Development</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Game Development</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1198,7 +1198,7 @@ The first program I sold controlled stock ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1211,7 +1211,7 @@ The first program I sold controlled stock ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1225,7 +1225,7 @@ The first program I sold controlled stock ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1242,7 +1242,7 @@ The first program I sold controlled stock ...</div>
 
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
-                            
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -1257,7 +1257,7 @@ The first program I sold controlled stock ...</div>
                         <span class="font-14 text-gray-500">/Hour</span>
                     </div>
 
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/linda-anderson/profile.html" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1308,7 +1308,7 @@ The first program I sold controlled stock ...</div>
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
         </div>
@@ -1328,9 +1328,9 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Communications</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Business Strategy</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1343,7 +1343,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1356,7 +1356,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1370,7 +1370,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1387,7 +1387,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
 
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
-                            
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -1402,7 +1402,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                         <span class="font-14 text-gray-500">/Hour</span>
                     </div>
 
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/kate-williams/profile.html" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1458,7 +1458,7 @@ Previously, I was a manager at Ernst &amp; Young, where I analyzed failing proje
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(2)</span>
             </div>
         </div>
@@ -1472,9 +1472,9 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Management</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Business Strategy</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1487,7 +1487,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1500,7 +1500,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1514,7 +1514,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1532,7 +1532,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
                                                 <div class="discount-box d-flex-center px-8 py-4 bg-badge rounded-16 font-12 text-white">10% Off</div>
-                
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -1548,7 +1548,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                     </div>
 
                                             <span class="font-14 text-gray-500 text-decoration-line-through mt-8">$100</span>
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/john-powe/profile.html" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1604,7 +1604,7 @@ I am a Gold Medalist Student of my time. With the passage of time, I ...</div>
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
         </div>
@@ -1624,9 +1624,9 @@ My expertise includes science-based personal development, health &amp; fitness a
                                                             <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Health &amp; Fitness</div>
                                                                                 <div class="d-flex-center p-10 rounded-8 bg-gray-100 text-center font-14 text-gray-500">Lifestyle</div>
                                                 </div>
-        
+
         <div class="d-flex align-items-lg-center flex-wrap gap-32 mt-auto p-12 rounded-12 border-gray-200 border-dashed">
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1639,7 +1639,7 @@ My expertise includes science-based personal development, health &amp; fitness a
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1652,7 +1652,7 @@ My expertise includes science-based personal development, health &amp; fitness a
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1666,7 +1666,7 @@ My expertise includes science-based personal development, health &amp; fitness a
                 </div>
             </div>
 
-            
+
             <div class="d-flex align-items-center">
                 <div class="d-flex-center size-40 rounded-circle bg-gray-100">
                     <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1683,7 +1683,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 
     <div class="position-relative actions-box bg-gray-100 rounded-12 p-16">
         <div class="d-flex-center flex-column text-center mt-36">
-                            
+
                 <div class="d-flex-center bg-primary-20 rounded-8 size-48">
                     <svg width="24px" height="24px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M20 12.2v1.7c0 3.15-1.8 4.5-4.5 4.5h-9c-2.7 0-4.5-1.35-4.5-4.5V8.5C2 5.35 3.8 4 6.5 4h2.7c-.13.38-.2.8-.2 1.25v3.9c0 .97.32 1.79.89 2.36.57.57 1.39.89 2.36.89v1.39c0 .51.58.82 1.01.54l2.89-1.93h2.6c.45 0 .87-.07 1.25-.2z"/>
@@ -1698,7 +1698,7 @@ My expertise includes science-based personal development, health &amp; fitness a
                         <span class="font-14 text-gray-500">/Hour</span>
                     </div>
 
-                                    
+
                 <div class="d-flex align-items-center gap-12 mt-16">
                     <a href="users/jessica-wray/profile.html" class="d-flex-center size-36 rounded-circle bg-gray-200 bg-hover-gray-300" target="_blank" data-tippy-content="View Profile">
                         <svg width="20px" height="20px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1721,10 +1721,10 @@ My expertise includes science-based personal development, health &amp; fitness a
 
                 </div>
 
-                
+
                 <div class="col-12 col-md-4 col-lg-3 mt-20">
 
-                    
+
                     <div class="position-relative bg-primary rounded-24 py-16">
         <div class="instructor-finder__top-mentors-mask"></div>
 
@@ -1812,10 +1812,10 @@ My expertise includes science-based personal development, health &amp; fitness a
         </div>
     </div>
 
-                    
+
                     <div class="instructor-finder__filters-card position-relative bg-white p-16 rounded-24 mt-28">
 
-    
+
     <div class="accordion py-16 border-bottom-gray-100">
         <div class="accordion__title d-flex align-items-center justify-content-between">
             <div class="instructor-finder__filters-title font-14 font-weight-bold text-dark cursor-pointer" href="#sidebarFilterInstructors" data-parent="#sidebarFiltersAccordion" role="button" data-toggle="collapse">
@@ -1895,12 +1895,12 @@ My expertise includes science-based personal development, health &amp; fitness a
         </div>
     </div>
 
-    
-    
+
+
 
 </div>
 
-                    
+
                     <div class="js-instructor-location instructor-finder__filters-card position-relative bg-white p-16 rounded-24 mt-28">
     <h5 class="instructor-finder__filters-title font-14 font-weight-bold">Location</h5>
 
@@ -1932,7 +1932,7 @@ My expertise includes science-based personal development, health &amp; fitness a
         >
             <option value="">Choose a State</option>
 
-            
+
         </select>
 
         <div class="invalid-feedback"></div>
@@ -1949,7 +1949,7 @@ My expertise includes science-based personal development, health &amp; fitness a
         >
             <option value="">Choose a City</option>
 
-            
+
         </select>
 
         <div class="invalid-feedback"></div>
@@ -1973,10 +1973,10 @@ My expertise includes science-based personal development, health &amp; fitness a
 
 </div>
 
-                    
+
                     <div class="instructor-finder__filters-card position-relative bg-white p-16 rounded-24 mt-28">
 
-    
+
     <div class="accordion py-16 border-bottom-gray-100">
         <div class="accordion__title d-flex align-items-center justify-content-between">
             <div class="instructor-finder__filters-title font-14 font-weight-bold text-dark cursor-pointer" href="#sidebarFiltersMeetingType" data-parent="#sidebarFiltersAccordion" role="button" data-toggle="collapse">
@@ -2066,7 +2066,7 @@ My expertise includes science-based personal development, health &amp; fitness a
         </div>
     </div>
 
-    
+
     <div class="accordion py-16 border-bottom-gray-100">
         <div class="accordion__title d-flex align-items-center justify-content-between">
             <div class="instructor-finder__filters-title font-14 font-weight-bold text-dark cursor-pointer" href="#sidebarFiltersDays" data-parent="#sidebarFiltersAccordion" role="button" data-toggle="collapse">
@@ -2079,7 +2079,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 </svg>            </span>
         </div>
 
-        
+
         <div id="sidebarFiltersDays" class="accordion__collapse show pt-0 mt-0 border-0 " role="tabpanel">
 
                             <div class="custom-control custom-checkbox mt-16">
@@ -2113,7 +2113,7 @@ My expertise includes science-based personal development, health &amp; fitness a
                     </div>
     </div>
 
-    
+
     <div class="accordion pt-16">
         <div class="accordion__title d-flex align-items-center justify-content-between">
             <div class="instructor-finder__filters-title font-14 font-weight-bold text-dark cursor-pointer" href="#sidebarFiltersTimeRange" data-parent="#sidebarFiltersAccordion" role="button" data-toggle="collapse">
@@ -2165,7 +2165,7 @@ My expertise includes science-based personal development, health &amp; fitness a
             <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(store/themes/footers/2/footer_background_7gn.png); "></div>
 
 
-            
+
                             <div class="theme-footer-1__newsletter">
     <div class="container position-relative">
         <div class="theme-footer-1__newsletter-mask"></div>
@@ -2176,14 +2176,14 @@ My expertise includes science-based personal development, health &amp; fitness a
                     <div class="">
                         <div class="d-flex align-items-center gap-4">
                                                             <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
+
                                                             <div class="theme-footer-1__newsletter-emoji">
                                     <img src="store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
                                 </div>
                                                     </div>
 
                                                     <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
+
                     </div>
                 </div>
 
@@ -2207,7 +2207,7 @@ My expertise includes science-based personal development, health &amp; fitness a
         </div>
     </div>
 </div>
-            
+
             <div class="position-relative z-index-2">
 
                 <div class="container position-relative">
@@ -2217,24 +2217,24 @@ My expertise includes science-based personal development, health &amp; fitness a
                                                                             <div class="size-24">
                                             <img src="store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
                                         </div>
-                                    
+
                                                                             <span class="">Let’s get started now!</span>
                                                                     </div>
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
+
                                                                     <a href="classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text">Enroll on Courses</span>
                                     </a>
                                                                                     </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Additional Links</h4>
-                            
+
                                                                                                                                         <a href="login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Login</span>
                                         </a>
@@ -2260,7 +2260,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Popular Categories</h4>
-                            
+
                                                                                                                                         <a href="categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Development</span>
                                         </a>
@@ -2286,7 +2286,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 
                         <div class="col-12 col-lg-3 mt-32 mt-lg-0">
                                                                                                 <h4 class="font-16 text-white">Contact US</h4>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-20">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2295,7 +2295,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -2304,7 +2304,7 @@ My expertise includes science-based personal development, health &amp; fitness a
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
@@ -2313,14 +2313,14 @@ My expertise includes science-based personal development, health &amp; fitness a
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -2331,10 +2331,10 @@ My expertise includes science-based personal development, health &amp; fitness a
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
+
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
+
                                                                                                                                         <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
                                             <img src="store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
                                         </a>
@@ -2354,10 +2354,10 @@ My expertise includes science-based personal development, health &amp; fitness a
         </div>
     </div>
         </div>
-    
-    
-    
-    
+
+
+
+
     <div class="cart-drawer no-footer bg-white py-16">
     <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
         <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
@@ -2460,7 +2460,7 @@ My expertise includes science-based personal development, health &amp; fitness a
         var noResultTitle = 'No results found!';
         var noResultHint = 'Sorry! No instructors match your criteria. Try adjusting your filters.';
         var currency = '$';
-        var mapUsers = JSON.parse("[{\u0022id\u0022:1016,\u0022username\u0022:\u0022ricardo-dave\u0022,\u0022full_name\u0022:\u0022Ricardo Dave\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025250175\u0022,\u0022email\u0022:\u0022Ricardodave09@hotmail.com\u0022,\u0022bio\u0022:\u0022Data Analyst at Microsoft\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/1016\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/1016\\\/7.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/1016\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Ricardo dave has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science and programming. He has publications and patents in various fields such as microfluidics, materials science, and data science technologies. Over the course of his career he has developed a skill set in analyzing data and he hopes to use his experience in teaching and data science to help other people learn the power of programming the ability to analyze data, as well as present the data in clear and beautiful visualizations. Currently he works as the Head of Data Science for Pierian Data Inc. and provides in-person data science and python programming training courses to employees working at top companies, including General Electric, Cigna, The New York Times, Credit Suisse, McKinsey and many more. Feel free to contact him on LinkedIn for more information on in-person training sessions or group training sessions in Las Vegas, NV.\u0022,\u0022address\u0022:\u0022Luib, 72 Wern Ddu Lane\u0022,\u0022country_id\u0022:16,\u0022province_id\u0022:22,\u0022city_id\u0022:23,\u0022district_id\u0022:25,\u0022location\u0022:[\u002248.8123499131626\u0022,\u00222.24758102259453\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/1016\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:1,\u0022offline_message\u0022:\u0022I am not available for 2 days due to a business trip\u0022,\u0022created_at\u0022:1624817905,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.8123499131626 2.24758102259453)\u0022,\u0022price\u0022:60,\u0022rate\u0022:\u00224.58\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/ricardo-dave\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:35,\u0022creator_id\u0022:1016,\u0022amount\u0022:60,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625941278,\u0022meeting_times_count\u0022:16,\u0022meeting_times\u0022:[{\u0022id\u0022:124,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941315},{\u0022id\u0022:125,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002211:00AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941331},{\u0022id\u0022:126,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941347},{\u0022id\u0022:127,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941388},{\u0022id\u0022:128,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941418},{\u0022id\u0022:129,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941460},{\u0022id\u0022:130,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941475},{\u0022id\u0022:131,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:00AM-09:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941557},{\u0022id\u0022:132,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941580},{\u0022id\u0022:133,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941611},{\u0022id\u0022:134,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002207:30PM-08:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941640},{\u0022id\u0022:135,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:00PM-11:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941668},{\u0022id\u0022:136,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:00PM-10:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941731},{\u0022id\u0022:137,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:15PM-11:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941832},{\u0022id\u0022:138,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002209:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941864},{\u0022id\u0022:139,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941879}]},\u0022occupations\u0022:[{\u0022id\u0022:1004,\u0022user_id\u0022:1016,\u0022category_id\u0022:520},{\u0022id\u0022:1005,\u0022user_id\u0022:1016,\u0022category_id\u0022:606},{\u0022id\u0022:1006,\u0022user_id\u0022:1016,\u0022category_id\u0022:607}]},{\u0022id\u0022:1015,\u0022username\u0022:\u0022robert-ransdell\u0022,\u0022full_name\u0022:\u0022Robert Ransdell\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:867,\u0022mobile\u0022:\u0022+61491170156\u0022,\u0022email\u0022:\u0022instructor@demo.com\u0022,\u0022bio\u0022:\u0022System Administrator at Amazon\u0022,\u0022logged_count\u0022:8,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:1,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/1015\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/1015\\\/6.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/1015\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Robert started his career as a Unix and Linux System Engineer in 1999. Since that time he has utilized his Linux skills at companies such as Xerox, UPS, Hewlett-Packard, and Amazon.com. Additionally, he has acted as a technical consultant and independent contractor for small businesses and Fortune 500 companies.\\r\\n\\r\\nRobert has professional experience with CentOS, RedHat Enterprise Linux, SUSE Linux Enterprise Server, and Ubuntu. He has used several Linux distributions on personal projects including Debian, Slackware, CrunchBang, and others. In addition to Linux, Jason has experience supporting proprietary Unix operating systems including AIX, HP-UX, and Solaris.\\r\\n\\r\\nHe enjoys teaching others how to use and exploit the power of the Linux operating system. He is also the author of the books \\\u0022Linux for Beginners\\\u0022 and \\\u0022Command Line Kung Fu.\\\u0022\u0022,\u0022address\u0022:\u0022Al Wakrah ,27904 Hilpert Knoll\u0022,\u0022country_id\u0022:18,\u0022province_id\u0022:46,\u0022city_id\u0022:49,\u0022district_id\u0022:55,\u0022location\u0022:[\u002240.7161108229911\u0022,\u0022-74.0115263531368\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:\u0022USD\u0022,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:\u0022light\u0022,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/1015\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\\\/store\\\/1015\\\/certificate_validation.jpg\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1624817207,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(40.7161108229911 -74.0115263531368)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00224.75\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/robert-ransdell\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:30,\u0022creator_id\u0022:1015,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:250,\u0022group_meeting\u0022:1,\u0022online_group_min_student\u0022:20,\u0022online_group_max_student\u0022:200,\u0022online_group_amount\u0022:50,\u0022in_person_group_min_student\u0022:5,\u0022in_person_group_max_student\u0022:30,\u0022in_person_group_amount\u0022:150,\u0022enable_meeting_packages\u0022:1,\u0022disabled\u0022:0,\u0022created_at\u0022:1625938321,\u0022meeting_times_count\u0022:20,\u0022meeting_times\u0022:[{\u0022id\u0022:93,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938350},{\u0022id\u0022:94,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002205:00PM-06:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938383},{\u0022id\u0022:95,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002206:30PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938416},{\u0022id\u0022:96,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:45AM-10:15AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938436},{\u0022id\u0022:97,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002211:00AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938462},{\u0022id\u0022:98,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938497},{\u0022id\u0022:99,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938517},{\u0022id\u0022:100,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938585},{\u0022id\u0022:101,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002204:50PM-05:50PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938619},{\u0022id\u0022:102,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938647},{\u0022id\u0022:103,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:30PM-09:45PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938681},{\u0022id\u0022:104,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:00PM-10:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938700},{\u0022id\u0022:105,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002206:00PM-08:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938755},{\u0022id\u0022:106,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:15AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938776},{\u0022id\u0022:168,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:\u0022School Management Workshop.\u0022,\u0022created_at\u0022:1646352499},{\u0022id\u0022:169,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352560},{\u0022id\u0022:170,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022online\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002204:30PM-05:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1646352585},{\u0022id\u0022:171,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022online\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352619},{\u0022id\u0022:172,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352638},{\u0022id\u0022:173,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002212:15PM-01:45PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352676}]},\u0022occupations\u0022:[{\u0022id\u0022:1010,\u0022user_id\u0022:1015,\u0022category_id\u0022:609},{\u0022id\u0022:1011,\u0022user_id\u0022:1015,\u0022category_id\u0022:606},{\u0022id\u0022:1012,\u0022user_id\u0022:1015,\u0022category_id\u0022:607}]},{\u0022id\u0022:934,\u0022username\u0022:\u0022linda-anderson\u0022,\u0022full_name\u0022:\u0022Linda Anderson\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:4,\u0022mobile\u0022:\u0022+12025550143\u0022,\u0022email\u0022:\u0022Lindaanderson_92@gmail.com\u0022,\u0022bio\u0022:\u0022IT Technician at IBM\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/934\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/934\\\/2.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/934\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022I am a programmer with over 12 years\u0027 experience gained in a range of industries, the last 16 with IBM.\\r\\n\\r\\nI am now self employed developing apps for Android; programming in a range of languages including Java, Javascript and Python; and helping the next generation of programmers gain the skills that I have acquired over the years.\\r\\n\\r\\nThe first program I sold controlled stock movement in a warehouse, and ran on a CP\\\/M computer - both the program and operating system lived in the 64 kb (yes, kilobytes) that was all CP\\\/M systems had in those days.\\r\\n\\r\\nI have gained experience in a wide range of industries including Utilities, Retail, Insurance and the Motor Manufacturing industry. My clients and employers have included Northumbrian Water, Arcadia, Royal Sun Alliance, Nissan and Jaguar Landrover. I also worked for Sunderland University for 3 years preparing and delivering training courses in computing.\\r\\n\\r\\nTimes have changed, the challenges are very different to what they were, but programming remains fun!\\r\\n\\r\\nWhen not at my computer, I am often riding my motorbike through the wonderful countryside of the UK and Europe.\u0022,\u0022address\u0022:\u0022OX7 3NH, England, Oxfordshire, Ascott-under-Wychwood\u0022,\u0022country_id\u0022:19,\u0022province_id\u0022:59,\u0022city_id\u0022:60,\u0022district_id\u0022:63,\u0022location\u0022:[\u002212.0933742840385\u0022,\u002215.0818819044672\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/934\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1612680476,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(12.0933742840385 15.0818819044672)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00224.63\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/linda-anderson\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:31,\u0022creator_id\u0022:934,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:1,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939199,\u0022meeting_times_count\u0022:26,\u0022meeting_times\u0022:[{\u0022id\u0022:140,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:40AM-09:40AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942014},{\u0022id\u0022:141,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942028},{\u0022id\u0022:142,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942048},{\u0022id\u0022:143,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002206:45PM-07:45PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942079},{\u0022id\u0022:144,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942101},{\u0022id\u0022:145,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:00PM-10:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942137},{\u0022id\u0022:146,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942159},{\u0022id\u0022:147,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:00AM-11:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942173},{\u0022id\u0022:148,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002206:00PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942191},{\u0022id\u0022:149,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942210},{\u0022id\u0022:150,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942229},{\u0022id\u0022:151,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002209:45AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942247},{\u0022id\u0022:152,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002210:30AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942266},{\u0022id\u0022:153,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942311},{\u0022id\u0022:154,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942351},{\u0022id\u0022:155,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:15AM-09:15AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942379},{\u0022id\u0022:156,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942395},{\u0022id\u0022:157,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942414},{\u0022id\u0022:158,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002207:30AM-08:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942446},{\u0022id\u0022:159,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:45AM-09:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942461},{\u0022id\u0022:160,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:00AM-11:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942474},{\u0022id\u0022:161,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002205:30PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942499},{\u0022id\u0022:162,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002209:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942521},{\u0022id\u0022:163,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942564},{\u0022id\u0022:164,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:00PM-09:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942840},{\u0022id\u0022:165,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002206:00PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625943005}]},\u0022occupations\u0022:[{\u0022id\u0022:1039,\u0022user_id\u0022:934,\u0022category_id\u0022:525},{\u0022id\u0022:1040,\u0022user_id\u0022:934,\u0022category_id\u0022:606},{\u0022id\u0022:1041,\u0022user_id\u0022:934,\u0022category_id\u0022:607},{\u0022id\u0022:1042,\u0022user_id\u0022:934,\u0022category_id\u0022:608}]},{\u0022id\u0022:929,\u0022username\u0022:\u0022kate-williams\u0022,\u0022full_name\u0022:\u0022Kate Williams\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:868,\u0022mobile\u0022:\u0022+12025550148\u0022,\u0022email\u0022:\u0022kate.williams.dev@yahoo.com\u0022,\u0022bio\u0022:\u0022Computer Engineer at Oracle\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/929\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:\u0022{\\\u0022color\\\u0022:\\\u0022FFFFFF\\\u0022,\\\u0022background\\\u0022:\\\u00228e24aa\\\u0022}\u0022,\u0022cover_img\u0022:\u0022\\\/store\\\/929\\\/15.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/929\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022\\\u0022Short courses for busy managers\\\u0022\\r\\n\\r\\nHi there, my name is Kate Williams and I\u0027ve been managing projects and virtual teams for the past 10+ years.\\r\\n\\r\\nI\u0027m currently a Director at Cisco Systems,* where I lead Project and Program Management teams on delivering complex projects for Cisco\u0027s customers.\\r\\n\\r\\nPreviously, I was a manager at Ernst \u0026 Young, where I analyzed failing projects at Fortune 500 companies, and recommended solutions to fix them.  \\r\\n\\r\\nI was also a research assistant at Harvard University, where I studied issues related to virtual teams. \\r\\n\\r\\nI\u0027m an Amazon bestselling author of 4 books about team management (including \\\u0022Influencing Virtual Teams,\\\u0022 \\\u0022Don\u0027t Reply All,\\\u0022 \\\u0022Project Kickoff,\\\u0022 and \\\u0022Effective Delegation of Authority\\\u0022), and I hold the PMP, CSM and ITIL certifications.\\r\\n\\r\\nMost managers don\u0027t have a lot of time to watch lengthy courses (that are usually full of fluff). So I focus on creating short courses that help busy managers become more effective leaders, without wasting their time.\\r\\n\\r\\nI have published courses about Writing Better Emails, Delegating Effectively, Leading Virtual Meetings, and Managing and Influencing Virtual Teams.\u0022,\u0022address\u0022:null,\u0022country_id\u0022:17,\u0022province_id\u0022:27,\u0022city_id\u0022:29,\u0022district_id\u0022:36,\u0022location\u0022:[\u002228.5561791651924\u0022,\u002277.2149246071805\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1605463391,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:1622030241,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(28.5561791651924 77.2149246071805)\u0022,\u0022price\u0022:200,\u0022rate\u0022:\u00223.42\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/kate-williams\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:32,\u0022creator_id\u0022:929,\u0022amount\u0022:200,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:500,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939298,\u0022meeting_times_count\u0022:5,\u0022meeting_times\u0022:[{\u0022id\u0022:107,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002209:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939319},{\u0022id\u0022:108,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:00AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939339},{\u0022id\u0022:109,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939358},{\u0022id\u0022:110,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939384},{\u0022id\u0022:167,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002206:30PM-08:30PM\u0022,\u0022description\u0022:\u0022School Management Workshop\u0022,\u0022created_at\u0022:1646352258}]},\u0022occupations\u0022:[{\u0022id\u0022:1027,\u0022user_id\u0022:929,\u0022category_id\u0022:604},{\u0022id\u0022:1028,\u0022user_id\u0022:929,\u0022category_id\u0022:525},{\u0022id\u0022:1029,\u0022user_id\u0022:929,\u0022category_id\u0022:609},{\u0022id\u0022:1030,\u0022user_id\u0022:929,\u0022category_id\u0022:610},{\u0022id\u0022:1031,\u0022user_id\u0022:929,\u0022category_id\u0022:611}]},{\u0022id\u0022:870,\u0022username\u0022:\u0022jessica-wray\u0022,\u0022full_name\u0022:\u0022Jessica Wray\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:863,\u0022mobile\u0022:\u0022+12025550188\u0022,\u0022email\u0022:\u0022marques.torp@hotmail.com\u0022,\u0022bio\u0022:\u0022Network Technician at Cisco\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/870\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/870\\\/16.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/870\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Hi,\\r\\n\\r\\nI\\u2019m a certified coach and author. Over the years I\u0027ve worked with and coached 100,000 students from all over the world.\\r\\nMy expertise includes science-based personal development, health \u0026 fitness advice in the following areas:\\r\\n- Self Improvement\\r\\n- Life Coaching\\r\\n- Stress Management\\r\\n- Muscle Growth \u0026 Fat Loss\\r\\n- Healthy Living \u0026 Meal Planning\\r\\n- Gym Workouts \u0026 Bodybuilding\\r\\n\\r\\nPersonal Development doesn\u0027t have to be difficult!\\r\\nWhat you need are the right strategies and a few simple - but crucial - tips on how to get started and stay motivated. That\u0027s what I teach in my courses, on my blog and in my books.\u0022,\u0022address\u0022:null,\u0022country_id\u0022:16,\u0022province_id\u0022:22,\u0022city_id\u0022:23,\u0022district_id\u0022:26,\u0022location\u0022:[\u002248.8525914381802\u0022,\u00222.39911493026148\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:\u0022USD\u0022,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.8525914381802 2.39911493026148)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/jessica-wray\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:33,\u0022creator_id\u0022:870,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:200,\u0022group_meeting\u0022:1,\u0022online_group_min_student\u0022:20,\u0022online_group_max_student\u0022:100,\u0022online_group_amount\u0022:80,\u0022in_person_group_min_student\u0022:5,\u0022in_person_group_max_student\u0022:30,\u0022in_person_group_amount\u0022:150,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939436,\u0022meeting_times_count\u0022:6,\u0022meeting_times\u0022:[{\u0022id\u0022:111,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939462},{\u0022id\u0022:112,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939477},{\u0022id\u0022:113,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939493},{\u0022id\u0022:114,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-09:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939508},{\u0022id\u0022:115,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939527},{\u0022id\u0022:116,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939551}]},\u0022occupations\u0022:[{\u0022id\u0022:1032,\u0022user_id\u0022:870,\u0022category_id\u0022:523},{\u0022id\u0022:1033,\u0022user_id\u0022:870,\u0022category_id\u0022:604}]},{\u0022id\u0022:867,\u0022username\u0022:\u0022light-moon\u0022,\u0022full_name\u0022:\u0022Light Moon\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550151\u0022,\u0022email\u0022:\u0022organization@demo.com\u0022,\u0022bio\u0022:\u0022Building Better Professionals\u0022,\u0022logged_count\u0022:1,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/867\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/867\\\/18.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022The Light Moon Academy was created by Tim Buchalka, a software developer with 35 years experience, who is also an instructor on Udemy, with over 1.22M+ students in his courses on Java, Python, Android, C#  and the Spring framework. \\r\\n\\r\\nThe Academy\\u2019s goal in the next three years, is to teach one million people to learn how to program.\\r\\n\\r\\nApart from Tim\\u2019s own courses, which are all available here, we are working with the very best teachers, creating courses to teach the essential skills required by developers, at all levels.\\r\\n\\r\\nOne other important philosophy is that our courses are taught by real professionals; software developers with real and substantial experience in the industry, who are also great teachers.  All our instructors are experienced, software developers!\\r\\n\\r\\nOur team is busy creating new courses right now.\\r\\n\\r\\nWhether you are a beginner, looking to learn how to program for the very first time, or to brush up on your existing skills, or to learn new languages and frameworks, the Academy has you covered.\u0022,\u0022address\u0022:\u0022Massachusetts, West Roxbury, 3979 Smith Street\u0022,\u0022country_id\u0022:16,\u0022province_id\u0022:21,\u0022city_id\u0022:67,\u0022district_id\u0022:68,\u0022location\u0022:[\u002248.1133483367843\u0022,\u0022-1.70754716561707\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/867\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.1133483367843 -1.70754716561707)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/light-moon\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:36,\u0022creator_id\u0022:867,\u0022amount\u0022:null,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1751711380,\u0022meeting_times_count\u0022:0,\u0022meeting_times\u0022:[]},\u0022occupations\u0022:[{\u0022id\u0022:1016,\u0022user_id\u0022:867,\u0022category_id\u0022:520},{\u0022id\u0022:1017,\u0022user_id\u0022:867,\u0022category_id\u0022:525},{\u0022id\u0022:1018,\u0022user_id\u0022:867,\u0022category_id\u0022:611},{\u0022id\u0022:1019,\u0022user_id\u0022:867,\u0022category_id\u0022:606},{\u0022id\u0022:1020,\u0022user_id\u0022:867,\u0022category_id\u0022:607},{\u0022id\u0022:1021,\u0022user_id\u0022:867,\u0022category_id\u0022:608}]},{\u0022id\u0022:3,\u0022username\u0022:\u0022james-kong\u0022,\u0022full_name\u0022:\u0022James Kong\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:864,\u0022mobile\u0022:\u0022+12085141324\u0022,\u0022email\u0022:\u0022Jameskong2021@gmail.com\u0022,\u0022bio\u0022:\u0022Master Certified Coach\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/3\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/3\\\/17.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/3\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022James Kong is a sound and communication expert. His vision is for a world that listens consciously and speaks powerfully.\\r\\n\\r\\nJulian is author of the books How to be Heard: Secrets for Powerful Speaking and Listening and Sound Business. \\r\\n\\r\\nHis five TED talks about sound and communication have been watched over 90 million times and his latest talk, How to speak so that people want to listen, is the sixth most watched TED talk of all time. \\r\\n\\r\\nJames is a media commentator on speaking and listening skills, and has been featured by the likes of TIME Magazine, The Economist, The BBC, and The Times. \\r\\n\\r\\nJames\u0027s company, The Sound Agency, works with major brands worldwide to improve the way they sound. Their pioneering methods have improved customer happiness, raised sales, and even lowered crime rates, and their work has made headlines internationally.\u0022,\u0022address\u0022:\u0022638153, Tamil Nadu, Modakkurichi, Elumathur\u0022,\u0022country_id\u0022:20,\u0022province_id\u0022:33,\u0022city_id\u0022:34,\u0022district_id\u0022:42,\u0022location\u0022:[\u002224.643516369262\u0022,\u002246.6575362831465\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/3\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:1,\u0022offline_message\u0022:\u0022I will not be available for 2 weeks until  end of January due to a business trip.\u0022,\u0022created_at\u0022:1597826952,\u0022updated_at\u0022:1597826952,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(24.643516369262 46.6575362831465)\u0022,\u0022price\u0022:50,\u0022rate\u0022:\u00223.88\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/james-kong\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:34,\u0022creator_id\u0022:3,\u0022amount\u0022:50,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:1,\u0022created_at\u0022:1625939607,\u0022meeting_times_count\u0022:7,\u0022meeting_times\u0022:[{\u0022id\u0022:117,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939631},{\u0022id\u0022:118,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939646},{\u0022id\u0022:119,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939660},{\u0022id\u0022:120,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939678},{\u0022id\u0022:121,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939700},{\u0022id\u0022:122,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939744},{\u0022id\u0022:123,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939763}]},\u0022occupations\u0022:[{\u0022id\u0022:1034,\u0022user_id\u0022:3,\u0022category_id\u0022:602},{\u0022id\u0022:1035,\u0022user_id\u0022:3,\u0022category_id\u0022:525},{\u0022id\u0022:1036,\u0022user_id\u0022:3,\u0022category_id\u0022:609},{\u0022id\u0022:1037,\u0022user_id\u0022:3,\u0022category_id\u0022:611},{\u0022id\u0022:1038,\u0022user_id\u0022:3,\u0022category_id\u0022:606}]},{\u0022id\u0022:864,\u0022username\u0022:\u0022affogato-media\u0022,\u0022full_name\u0022:\u0022Affogato Media\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550131\u0022,\u0022email\u0022:\u0022affogato@yahoo.com\u0022,\u0022bio\u0022:\u0022Learn Creative Skills\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/864\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/864\\\/20.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Learn creative skills, from absolute beginner to advanced mastery. \\r\\n\\r\\nVideo School exists to help you succeed in life. Each course has been hand-tailored to teach a specific skill from photography and video to art, design and business.\\r\\n\\r\\nWhether you\\u2019re trying to learn a new skill from scratch, or want to refresh your memory on something you\\u2019ve learned in the past, you\\u2019ve come to the right place.\\r\\n\\r\\nEducation makes the world a better place. Make your world better with new skills!\\r\\n\\r\\nOur courses can be watched 24\\\/7 wherever you are. Most are fully downloadable so you can take them with you.\\r\\n\\r\\nAll courses have a 30-day money-back guarantee so that you can check it out, make sure it\\u2019s the right course for you, and get a refund if it\\u2019s not!\u0022,\u0022address\u0022:null,\u0022country_id\u0022:19,\u0022province_id\u0022:61,\u0022city_id\u0022:62,\u0022district_id\u0022:65,\u0022location\u0022:[\u00228.57440130671175\u0022,\u002216.0714316236417\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(8.57440130671175 16.0714316236417)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/affogato-media\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1055,\u0022user_id\u0022:864,\u0022category_id\u0022:520},{\u0022id\u0022:1056,\u0022user_id\u0022:864,\u0022category_id\u0022:601},{\u0022id\u0022:1057,\u0022user_id\u0022:864,\u0022category_id\u0022:602},{\u0022id\u0022:1058,\u0022user_id\u0022:864,\u0022category_id\u0022:603}]},{\u0022id\u0022:863,\u0022username\u0022:\u0022owosso\u0022,\u0022full_name\u0022:\u0022Owosso\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550198\u0022,\u0022email\u0022:\u0022owosso@info.com\u0022,\u0022bio\u0022:\u0022Chemical Engineering Institute\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/863\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/863\\\/2.png\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Dear students,\\r\\n\\r\\nWR Training is a group of professional engineers from various disciplines (chemical, petrochemical, mechanical, electrical\\u2026) providing academic and industrial online courses.\\r\\n\\r\\nWhether you\\u2019re trying to learn and discover a new scientific or engineering topic from scratch, or want to refresh your memory on something you\\u2019ve learnt in the past, you\\u2019ve come to the right place.\\r\\n\\r\\nWR Training exists to help you succeed in your academic and professional life. Our goal is to spread the knowledge and promote science.\\r\\n\\r\\nThe courses, you are about to enroll in, were undertaken to give you a clear view of scientific and engineering topics through detailed examples using hands on demo and provide numerous problems with their solutions. You can also use these courses as a review for taking exams or as a vehicle for self-instruction.\\r\\n\\r\\nOur training methodology was designed to enable individual self paced e-learning.\\r\\n\\r\\nEach course has been undertaken to teach a specific skill.\\r\\n\\r\\nOur courses can be watched 24\\\/7 wherever you are. You can also view them on mobile devices with the Udemy mobile app.\\r\\n\\r\\nWe are active online instructors and we will be here for you every step of the way. If you have questions about the course content, you can always post your questions or send us a private message. It will be our pleasure to provide assistance and answer your questions.\\r\\n\\r\\nSo with no further ado, go ahead, select the course suitable for you, click the enroll button and we\u0027ll see you in the first section !\\r\\n\\r\\nWR Training\\r\\n\\r\\nSpread the wings of your knowledge\u0022,\u0022address\u0022:null,\u0022country_id\u0022:17,\u0022province_id\u0022:28,\u0022city_id\u0022:30,\u0022district_id\u0022:37,\u0022location\u0022:[\u002218.967571186446\u0022,\u002272.8258094243416\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022online\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(18.967571186446 72.8258094243416)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/owosso\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1050,\u0022user_id\u0022:863,\u0022category_id\u0022:601},{\u0022id\u0022:1051,\u0022user_id\u0022:863,\u0022category_id\u0022:602},{\u0022id\u0022:1052,\u0022user_id\u0022:863,\u0022category_id\u0022:603},{\u0022id\u0022:1053,\u0022user_id\u0022:863,\u0022category_id\u0022:609},{\u0022id\u0022:1054,\u0022user_id\u0022:863,\u0022category_id\u0022:611}]},{\u0022id\u0022:859,\u0022username\u0022:\u0022cactuscat-clothing\u0022,\u0022full_name\u0022:\u0022Cactuscat Clothing\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550132\u0022,\u0022email\u0022:\u0022cactuscat@hotmail.com\u0022,\u0022bio\u0022:\u0022Programming Training Institute\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/859\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/859\\\/8.png\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Eduonix creates and distributes high quality technology training content. Our team of  industry professionals have been training manpower for more than a decade. We aim to teach technology the way it is used in industry and professional world.  We have professional team of trainers for technologies ranging from Mobility, Web to Enterprise and Database and Server Administration.\u0022,\u0022address\u0022:\u0022\u0022,\u0022country_id\u0022:20,\u0022province_id\u0022:31,\u0022city_id\u0022:32,\u0022district_id\u0022:40,\u0022location\u0022:[\u002224.4817783459103\u0022,\u002239.5948390276255\u0022],\u0022level_of_training\u0022:[\u0022beginner\u0022,\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/859\\\/certificate.jpg\u0022,\u0022certificate\u0022:\u0022\\\/store\\\/859\\\/certificate.jpg\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(24.4817783459103 39.5948390276255)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00220.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/lms.rocket-soft.org\\\/users\\\/cactuscat-clothing\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1067,\u0022user_id\u0022:859,\u0022category_id\u0022:520},{\u0022id\u0022:1068,\u0022user_id\u0022:859,\u0022category_id\u0022:601},{\u0022id\u0022:1069,\u0022user_id\u0022:859,\u0022category_id\u0022:604},{\u0022id\u0022:1070,\u0022user_id\u0022:859,\u0022category_id\u0022:611}]}]");
+        var mapUsers = JSON.parse("[{\u0022id\u0022:1016,\u0022username\u0022:\u0022ricardo-dave\u0022,\u0022full_name\u0022:\u0022Ricardo Dave\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025250175\u0022,\u0022email\u0022:\u0022Ricardodave09@hotmail.com\u0022,\u0022bio\u0022:\u0022Data Analyst at Microsoft\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/1016\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/1016\\\/7.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/1016\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Ricardo dave has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science and programming. He has publications and patents in various fields such as microfluidics, materials science, and data science technologies. Over the course of his career he has developed a skill set in analyzing data and he hopes to use his experience in teaching and data science to help other people learn the power of programming the ability to analyze data, as well as present the data in clear and beautiful visualizations. Currently he works as the Head of Data Science for Pierian Data Inc. and provides in-person data science and python programming training courses to employees working at top companies, including General Electric, Cigna, The New York Times, Credit Suisse, McKinsey and many more. Feel free to contact him on LinkedIn for more information on in-person training sessions or group training sessions in Las Vegas, NV.\u0022,\u0022address\u0022:\u0022Luib, 72 Wern Ddu Lane\u0022,\u0022country_id\u0022:16,\u0022province_id\u0022:22,\u0022city_id\u0022:23,\u0022district_id\u0022:25,\u0022location\u0022:[\u002248.8123499131626\u0022,\u00222.24758102259453\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/1016\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:1,\u0022offline_message\u0022:\u0022I am not available for 2 days due to a business trip\u0022,\u0022created_at\u0022:1624817905,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.8123499131626 2.24758102259453)\u0022,\u0022price\u0022:60,\u0022rate\u0022:\u00224.58\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/ricardo-dave\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:35,\u0022creator_id\u0022:1016,\u0022amount\u0022:60,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625941278,\u0022meeting_times_count\u0022:16,\u0022meeting_times\u0022:[{\u0022id\u0022:124,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941315},{\u0022id\u0022:125,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002211:00AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941331},{\u0022id\u0022:126,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941347},{\u0022id\u0022:127,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941388},{\u0022id\u0022:128,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941418},{\u0022id\u0022:129,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941460},{\u0022id\u0022:130,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941475},{\u0022id\u0022:131,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:00AM-09:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941557},{\u0022id\u0022:132,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941580},{\u0022id\u0022:133,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941611},{\u0022id\u0022:134,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002207:30PM-08:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941640},{\u0022id\u0022:135,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:00PM-11:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941668},{\u0022id\u0022:136,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:00PM-10:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941731},{\u0022id\u0022:137,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:15PM-11:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941832},{\u0022id\u0022:138,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002209:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941864},{\u0022id\u0022:139,\u0022meeting_id\u0022:35,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625941879}]},\u0022occupations\u0022:[{\u0022id\u0022:1004,\u0022user_id\u0022:1016,\u0022category_id\u0022:520},{\u0022id\u0022:1005,\u0022user_id\u0022:1016,\u0022category_id\u0022:606},{\u0022id\u0022:1006,\u0022user_id\u0022:1016,\u0022category_id\u0022:607}]},{\u0022id\u0022:1015,\u0022username\u0022:\u0022robert-ransdell\u0022,\u0022full_name\u0022:\u0022Robert Ransdell\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:867,\u0022mobile\u0022:\u0022+61491170156\u0022,\u0022email\u0022:\u0022instructor@demo.com\u0022,\u0022bio\u0022:\u0022System Administrator at Amazon\u0022,\u0022logged_count\u0022:8,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:1,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/1015\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/1015\\\/6.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/1015\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Robert started his career as a Unix and Linux System Engineer in 1999. Since that time he has utilized his Linux skills at companies such as Xerox, UPS, Hewlett-Packard, and Amazon.com. Additionally, he has acted as a technical consultant and independent contractor for small businesses and Fortune 500 companies.\\r\\n\\r\\nRobert has professional experience with CentOS, RedHat Enterprise Linux, SUSE Linux Enterprise Server, and Ubuntu. He has used several Linux distributions on personal projects including Debian, Slackware, CrunchBang, and others. In addition to Linux, Jason has experience supporting proprietary Unix operating systems including AIX, HP-UX, and Solaris.\\r\\n\\r\\nHe enjoys teaching others how to use and exploit the power of the Linux operating system. He is also the author of the books \\\u0022Linux for Beginners\\\u0022 and \\\u0022Command Line Kung Fu.\\\u0022\u0022,\u0022address\u0022:\u0022Al Wakrah ,27904 Hilpert Knoll\u0022,\u0022country_id\u0022:18,\u0022province_id\u0022:46,\u0022city_id\u0022:49,\u0022district_id\u0022:55,\u0022location\u0022:[\u002240.7161108229911\u0022,\u0022-74.0115263531368\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:\u0022USD\u0022,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:\u0022light\u0022,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/1015\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\\\/store\\\/1015\\\/certificate_validation.jpg\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1624817207,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(40.7161108229911 -74.0115263531368)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00224.75\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/robert-ransdell\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:30,\u0022creator_id\u0022:1015,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:250,\u0022group_meeting\u0022:1,\u0022online_group_min_student\u0022:20,\u0022online_group_max_student\u0022:200,\u0022online_group_amount\u0022:50,\u0022in_person_group_min_student\u0022:5,\u0022in_person_group_max_student\u0022:30,\u0022in_person_group_amount\u0022:150,\u0022enable_meeting_packages\u0022:1,\u0022disabled\u0022:0,\u0022created_at\u0022:1625938321,\u0022meeting_times_count\u0022:20,\u0022meeting_times\u0022:[{\u0022id\u0022:93,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938350},{\u0022id\u0022:94,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002205:00PM-06:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938383},{\u0022id\u0022:95,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002206:30PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938416},{\u0022id\u0022:96,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:45AM-10:15AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938436},{\u0022id\u0022:97,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002211:00AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938462},{\u0022id\u0022:98,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938497},{\u0022id\u0022:99,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938517},{\u0022id\u0022:100,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938585},{\u0022id\u0022:101,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002204:50PM-05:50PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938619},{\u0022id\u0022:102,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938647},{\u0022id\u0022:103,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:30PM-09:45PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938681},{\u0022id\u0022:104,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:00PM-10:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938700},{\u0022id\u0022:105,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002206:00PM-08:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938755},{\u0022id\u0022:106,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:15AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625938776},{\u0022id\u0022:168,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:\u0022School Management Workshop.\u0022,\u0022created_at\u0022:1646352499},{\u0022id\u0022:169,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352560},{\u0022id\u0022:170,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022online\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002204:30PM-05:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1646352585},{\u0022id\u0022:171,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022online\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352619},{\u0022id\u0022:172,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352638},{\u0022id\u0022:173,\u0022meeting_id\u0022:30,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002212:15PM-01:45PM\u0022,\u0022description\u0022:\u0022Risk Management Workshop.\u0022,\u0022created_at\u0022:1646352676}]},\u0022occupations\u0022:[{\u0022id\u0022:1010,\u0022user_id\u0022:1015,\u0022category_id\u0022:609},{\u0022id\u0022:1011,\u0022user_id\u0022:1015,\u0022category_id\u0022:606},{\u0022id\u0022:1012,\u0022user_id\u0022:1015,\u0022category_id\u0022:607}]},{\u0022id\u0022:934,\u0022username\u0022:\u0022linda-anderson\u0022,\u0022full_name\u0022:\u0022Linda Anderson\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:4,\u0022mobile\u0022:\u0022+12025550143\u0022,\u0022email\u0022:\u0022Lindaanderson_92@gmail.com\u0022,\u0022bio\u0022:\u0022IT Technician at IBM\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/934\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/934\\\/2.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/934\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022I am a programmer with over 12 years\u0027 experience gained in a range of industries, the last 16 with IBM.\\r\\n\\r\\nI am now self employed developing apps for Android; programming in a range of languages including Java, Javascript and Python; and helping the next generation of programmers gain the skills that I have acquired over the years.\\r\\n\\r\\nThe first program I sold controlled stock movement in a warehouse, and ran on a CP\\\/M computer - both the program and operating system lived in the 64 kb (yes, kilobytes) that was all CP\\\/M systems had in those days.\\r\\n\\r\\nI have gained experience in a wide range of industries including Utilities, Retail, Insurance and the Motor Manufacturing industry. My clients and employers have included Northumbrian Water, Arcadia, Royal Sun Alliance, Nissan and Jaguar Landrover. I also worked for Sunderland University for 3 years preparing and delivering training courses in computing.\\r\\n\\r\\nTimes have changed, the challenges are very different to what they were, but programming remains fun!\\r\\n\\r\\nWhen not at my computer, I am often riding my motorbike through the wonderful countryside of the UK and Europe.\u0022,\u0022address\u0022:\u0022OX7 3NH, England, Oxfordshire, Ascott-under-Wychwood\u0022,\u0022country_id\u0022:19,\u0022province_id\u0022:59,\u0022city_id\u0022:60,\u0022district_id\u0022:63,\u0022location\u0022:[\u002212.0933742840385\u0022,\u002215.0818819044672\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/934\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1612680476,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(12.0933742840385 15.0818819044672)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00224.63\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/linda-anderson\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:31,\u0022creator_id\u0022:934,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:1,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939199,\u0022meeting_times_count\u0022:26,\u0022meeting_times\u0022:[{\u0022id\u0022:140,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:40AM-09:40AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942014},{\u0022id\u0022:141,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942028},{\u0022id\u0022:142,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942048},{\u0022id\u0022:143,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002206:45PM-07:45PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942079},{\u0022id\u0022:144,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942101},{\u0022id\u0022:145,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:00PM-10:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942137},{\u0022id\u0022:146,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942159},{\u0022id\u0022:147,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:00AM-11:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942173},{\u0022id\u0022:148,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002206:00PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942191},{\u0022id\u0022:149,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942210},{\u0022id\u0022:150,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942229},{\u0022id\u0022:151,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002209:45AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942247},{\u0022id\u0022:152,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002210:30AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942266},{\u0022id\u0022:153,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942311},{\u0022id\u0022:154,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022sunday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942351},{\u0022id\u0022:155,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:15AM-09:15AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942379},{\u0022id\u0022:156,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942395},{\u0022id\u0022:157,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942414},{\u0022id\u0022:158,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002207:30AM-08:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942446},{\u0022id\u0022:159,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:45AM-09:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942461},{\u0022id\u0022:160,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002210:00AM-11:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942474},{\u0022id\u0022:161,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002205:30PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942499},{\u0022id\u0022:162,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002209:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942521},{\u0022id\u0022:163,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022friday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942564},{\u0022id\u0022:164,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002208:00PM-09:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625942840},{\u0022id\u0022:165,\u0022meeting_id\u0022:31,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002206:00PM-07:00PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625943005}]},\u0022occupations\u0022:[{\u0022id\u0022:1039,\u0022user_id\u0022:934,\u0022category_id\u0022:525},{\u0022id\u0022:1040,\u0022user_id\u0022:934,\u0022category_id\u0022:606},{\u0022id\u0022:1041,\u0022user_id\u0022:934,\u0022category_id\u0022:607},{\u0022id\u0022:1042,\u0022user_id\u0022:934,\u0022category_id\u0022:608}]},{\u0022id\u0022:929,\u0022username\u0022:\u0022kate-williams\u0022,\u0022full_name\u0022:\u0022Kate Williams\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:868,\u0022mobile\u0022:\u0022+12025550148\u0022,\u0022email\u0022:\u0022kate.williams.dev@yahoo.com\u0022,\u0022bio\u0022:\u0022Computer Engineer at Oracle\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/929\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:\u0022{\\\u0022color\\\u0022:\\\u0022FFFFFF\\\u0022,\\\u0022background\\\u0022:\\\u00228e24aa\\\u0022}\u0022,\u0022cover_img\u0022:\u0022\\\/store\\\/929\\\/15.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/929\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022\\\u0022Short courses for busy managers\\\u0022\\r\\n\\r\\nHi there, my name is Kate Williams and I\u0027ve been managing projects and virtual teams for the past 10+ years.\\r\\n\\r\\nI\u0027m currently a Director at Cisco Systems,* where I lead Project and Program Management teams on delivering complex projects for Cisco\u0027s customers.\\r\\n\\r\\nPreviously, I was a manager at Ernst \u0026 Young, where I analyzed failing projects at Fortune 500 companies, and recommended solutions to fix them.  \\r\\n\\r\\nI was also a research assistant at Harvard University, where I studied issues related to virtual teams. \\r\\n\\r\\nI\u0027m an Amazon bestselling author of 4 books about team management (including \\\u0022Influencing Virtual Teams,\\\u0022 \\\u0022Don\u0027t Reply All,\\\u0022 \\\u0022Project Kickoff,\\\u0022 and \\\u0022Effective Delegation of Authority\\\u0022), and I hold the PMP, CSM and ITIL certifications.\\r\\n\\r\\nMost managers don\u0027t have a lot of time to watch lengthy courses (that are usually full of fluff). So I focus on creating short courses that help busy managers become more effective leaders, without wasting their time.\\r\\n\\r\\nI have published courses about Writing Better Emails, Delegating Effectively, Leading Virtual Meetings, and Managing and Influencing Virtual Teams.\u0022,\u0022address\u0022:null,\u0022country_id\u0022:17,\u0022province_id\u0022:27,\u0022city_id\u0022:29,\u0022district_id\u0022:36,\u0022location\u0022:[\u002228.5561791651924\u0022,\u002277.2149246071805\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1605463391,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:1622030241,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(28.5561791651924 77.2149246071805)\u0022,\u0022price\u0022:200,\u0022rate\u0022:\u00223.42\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/kate-williams\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:32,\u0022creator_id\u0022:929,\u0022amount\u0022:200,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:500,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939298,\u0022meeting_times_count\u0022:5,\u0022meeting_times\u0022:[{\u0022id\u0022:107,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002209:00AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939319},{\u0022id\u0022:108,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:00AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939339},{\u0022id\u0022:109,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939358},{\u0022id\u0022:110,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002206:00PM-07:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939384},{\u0022id\u0022:167,\u0022meeting_id\u0022:32,\u0022meeting_type\u0022:\u0022in_person\u0022,\u0022day_label\u0022:\u0022saturday\u0022,\u0022time\u0022:\u002206:30PM-08:30PM\u0022,\u0022description\u0022:\u0022School Management Workshop\u0022,\u0022created_at\u0022:1646352258}]},\u0022occupations\u0022:[{\u0022id\u0022:1027,\u0022user_id\u0022:929,\u0022category_id\u0022:604},{\u0022id\u0022:1028,\u0022user_id\u0022:929,\u0022category_id\u0022:525},{\u0022id\u0022:1029,\u0022user_id\u0022:929,\u0022category_id\u0022:609},{\u0022id\u0022:1030,\u0022user_id\u0022:929,\u0022category_id\u0022:610},{\u0022id\u0022:1031,\u0022user_id\u0022:929,\u0022category_id\u0022:611}]},{\u0022id\u0022:870,\u0022username\u0022:\u0022jessica-wray\u0022,\u0022full_name\u0022:\u0022Jessica Wray\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:863,\u0022mobile\u0022:\u0022+12025550188\u0022,\u0022email\u0022:\u0022marques.torp@hotmail.com\u0022,\u0022bio\u0022:\u0022Network Technician at Cisco\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/870\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/870\\\/16.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/870\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022Hi,\\r\\n\\r\\nI\\u2019m a certified coach and author. Over the years I\u0027ve worked with and coached 100,000 students from all over the world.\\r\\nMy expertise includes science-based personal development, health \u0026 fitness advice in the following areas:\\r\\n- Self Improvement\\r\\n- Life Coaching\\r\\n- Stress Management\\r\\n- Muscle Growth \u0026 Fat Loss\\r\\n- Healthy Living \u0026 Meal Planning\\r\\n- Gym Workouts \u0026 Bodybuilding\\r\\n\\r\\nPersonal Development doesn\u0027t have to be difficult!\\r\\nWhat you need are the right strategies and a few simple - but crucial - tips on how to get started and stay motivated. That\u0027s what I teach in my courses, on my blog and in my books.\u0022,\u0022address\u0022:null,\u0022country_id\u0022:16,\u0022province_id\u0022:22,\u0022city_id\u0022:23,\u0022district_id\u0022:26,\u0022location\u0022:[\u002248.8525914381802\u0022,\u00222.39911493026148\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:\u0022USD\u0022,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.8525914381802 2.39911493026148)\u0022,\u0022price\u0022:100,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/jessica-wray\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:33,\u0022creator_id\u0022:870,\u0022amount\u0022:100,\u0022discount\u0022:null,\u0022in_person\u0022:1,\u0022in_person_amount\u0022:200,\u0022group_meeting\u0022:1,\u0022online_group_min_student\u0022:20,\u0022online_group_max_student\u0022:100,\u0022online_group_amount\u0022:80,\u0022in_person_group_min_student\u0022:5,\u0022in_person_group_max_student\u0022:30,\u0022in_person_group_amount\u0022:150,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1625939436,\u0022meeting_times_count\u0022:6,\u0022meeting_times\u0022:[{\u0022id\u0022:111,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002208:00AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939462},{\u0022id\u0022:112,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:30AM-09:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939477},{\u0022id\u0022:113,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939493},{\u0022id\u0022:114,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-09:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939508},{\u0022id\u0022:115,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939527},{\u0022id\u0022:116,\u0022meeting_id\u0022:33,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939551}]},\u0022occupations\u0022:[{\u0022id\u0022:1032,\u0022user_id\u0022:870,\u0022category_id\u0022:523},{\u0022id\u0022:1033,\u0022user_id\u0022:870,\u0022category_id\u0022:604}]},{\u0022id\u0022:867,\u0022username\u0022:\u0022light-moon\u0022,\u0022full_name\u0022:\u0022Light Moon\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550151\u0022,\u0022email\u0022:\u0022organization@demo.com\u0022,\u0022bio\u0022:\u0022Building Better Professionals\u0022,\u0022logged_count\u0022:1,\u0022verified\u0022:1,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/867\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/867\\\/18.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022The Light Moon Academy was created by Tim Buchalka, a software developer with 35 years experience, who is also an instructor on Udemy, with over 1.22M+ students in his courses on Java, Python, Android, C#  and the Spring framework. \\r\\n\\r\\nThe Academy\\u2019s goal in the next three years, is to teach one million people to learn how to program.\\r\\n\\r\\nApart from Tim\\u2019s own courses, which are all available here, we are working with the very best teachers, creating courses to teach the essential skills required by developers, at all levels.\\r\\n\\r\\nOne other important philosophy is that our courses are taught by real professionals; software developers with real and substantial experience in the industry, who are also great teachers.  All our instructors are experienced, software developers!\\r\\n\\r\\nOur team is busy creating new courses right now.\\r\\n\\r\\nWhether you are a beginner, looking to learn how to program for the very first time, or to brush up on your existing skills, or to learn new languages and frameworks, the Academy has you covered.\u0022,\u0022address\u0022:\u0022Massachusetts, West Roxbury, 3979 Smith Street\u0022,\u0022country_id\u0022:16,\u0022province_id\u0022:21,\u0022city_id\u0022:67,\u0022district_id\u0022:68,\u0022location\u0022:[\u002248.1133483367843\u0022,\u0022-1.70754716561707\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/867\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(48.1133483367843 -1.70754716561707)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/light-moon\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:36,\u0022creator_id\u0022:867,\u0022amount\u0022:null,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:0,\u0022created_at\u0022:1751711380,\u0022meeting_times_count\u0022:0,\u0022meeting_times\u0022:[]},\u0022occupations\u0022:[{\u0022id\u0022:1016,\u0022user_id\u0022:867,\u0022category_id\u0022:520},{\u0022id\u0022:1017,\u0022user_id\u0022:867,\u0022category_id\u0022:525},{\u0022id\u0022:1018,\u0022user_id\u0022:867,\u0022category_id\u0022:611},{\u0022id\u0022:1019,\u0022user_id\u0022:867,\u0022category_id\u0022:606},{\u0022id\u0022:1020,\u0022user_id\u0022:867,\u0022category_id\u0022:607},{\u0022id\u0022:1021,\u0022user_id\u0022:867,\u0022category_id\u0022:608}]},{\u0022id\u0022:3,\u0022username\u0022:\u0022james-kong\u0022,\u0022full_name\u0022:\u0022James Kong\u0022,\u0022role_name\u0022:\u0022teacher\u0022,\u0022enable_public_chat\u0022:1,\u0022organ_id\u0022:864,\u0022mobile\u0022:\u0022+12085141324\u0022,\u0022email\u0022:\u0022Jameskong2021@gmail.com\u0022,\u0022bio\u0022:\u0022Master Certified Coach\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:1,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/3\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/3\\\/17.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:\u0022\\\/store\\\/3\\\/setting\\\/profile_secondary_image.png\u0022,\u0022headline\u0022:null,\u0022about\u0022:\u0022James Kong is a sound and communication expert. His vision is for a world that listens consciously and speaks powerfully.\\r\\n\\r\\nJulian is author of the books How to be Heard: Secrets for Powerful Speaking and Listening and Sound Business. \\r\\n\\r\\nHis five TED talks about sound and communication have been watched over 90 million times and his latest talk, How to speak so that people want to listen, is the sixth most watched TED talk of all time. \\r\\n\\r\\nJames is a media commentator on speaking and listening skills, and has been featured by the likes of TIME Magazine, The Economist, The BBC, and The Times. \\r\\n\\r\\nJames\u0027s company, The Sound Agency, works with major brands worldwide to improve the way they sound. Their pioneering methods have improved customer happiness, raised sales, and even lowered crime rates, and their work has made headlines internationally.\u0022,\u0022address\u0022:\u0022638153, Tamil Nadu, Modakkurichi, Elumathur\u0022,\u0022country_id\u0022:20,\u0022province_id\u0022:33,\u0022city_id\u0022:34,\u0022district_id\u0022:42,\u0022location\u0022:[\u002224.643516369262\u0022,\u002246.6575362831465\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/3\\\/passport.jpg\u0022,\u0022certificate\u0022:\u0022\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:1,\u0022offline_message\u0022:\u0022I will not be available for 2 weeks until  end of January due to a business trip.\u0022,\u0022created_at\u0022:1597826952,\u0022updated_at\u0022:1597826952,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:1,\u0022userLocation\u0022:\u0022POINT(24.643516369262 46.6575362831465)\u0022,\u0022price\u0022:50,\u0022rate\u0022:\u00223.88\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/james-kong\\\/profile\u0022,\u0022meeting\u0022:{\u0022id\u0022:34,\u0022creator_id\u0022:3,\u0022amount\u0022:50,\u0022discount\u0022:null,\u0022in_person\u0022:0,\u0022in_person_amount\u0022:null,\u0022group_meeting\u0022:0,\u0022online_group_min_student\u0022:null,\u0022online_group_max_student\u0022:null,\u0022online_group_amount\u0022:null,\u0022in_person_group_min_student\u0022:null,\u0022in_person_group_max_student\u0022:null,\u0022in_person_group_amount\u0022:null,\u0022enable_meeting_packages\u0022:0,\u0022disabled\u0022:1,\u0022created_at\u0022:1625939607,\u0022meeting_times_count\u0022:7,\u0022meeting_times\u0022:[{\u0022id\u0022:117,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939631},{\u0022id\u0022:118,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022tuesday\u0022,\u0022time\u0022:\u002209:30AM-10:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939646},{\u0022id\u0022:119,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022monday\u0022,\u0022time\u0022:\u002210:45AM-11:45AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939660},{\u0022id\u0022:120,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002208:00AM-10:00AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939678},{\u0022id\u0022:121,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002210:30AM-11:30AM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939700},{\u0022id\u0022:122,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022wednesday\u0022,\u0022time\u0022:\u002205:00PM-06:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939744},{\u0022id\u0022:123,\u0022meeting_id\u0022:34,\u0022meeting_type\u0022:\u0022all\u0022,\u0022day_label\u0022:\u0022thursday\u0022,\u0022time\u0022:\u002208:00PM-09:30PM\u0022,\u0022description\u0022:null,\u0022created_at\u0022:1625939763}]},\u0022occupations\u0022:[{\u0022id\u0022:1034,\u0022user_id\u0022:3,\u0022category_id\u0022:602},{\u0022id\u0022:1035,\u0022user_id\u0022:3,\u0022category_id\u0022:525},{\u0022id\u0022:1036,\u0022user_id\u0022:3,\u0022category_id\u0022:609},{\u0022id\u0022:1037,\u0022user_id\u0022:3,\u0022category_id\u0022:611},{\u0022id\u0022:1038,\u0022user_id\u0022:3,\u0022category_id\u0022:606}]},{\u0022id\u0022:864,\u0022username\u0022:\u0022affogato-media\u0022,\u0022full_name\u0022:\u0022Affogato Media\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550131\u0022,\u0022email\u0022:\u0022affogato@yahoo.com\u0022,\u0022bio\u0022:\u0022Learn Creative Skills\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/864\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/864\\\/20.jpg\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Learn creative skills, from absolute beginner to advanced mastery. \\r\\n\\r\\nVideo School exists to help you succeed in life. Each course has been hand-tailored to teach a specific skill from photography and video to art, design and business.\\r\\n\\r\\nWhether you\\u2019re trying to learn a new skill from scratch, or want to refresh your memory on something you\\u2019ve learned in the past, you\\u2019ve come to the right place.\\r\\n\\r\\nEducation makes the world a better place. Make your world better with new skills!\\r\\n\\r\\nOur courses can be watched 24\\\/7 wherever you are. Most are fully downloadable so you can take them with you.\\r\\n\\r\\nAll courses have a 30-day money-back guarantee so that you can check it out, make sure it\\u2019s the right course for you, and get a refund if it\\u2019s not!\u0022,\u0022address\u0022:null,\u0022country_id\u0022:19,\u0022province_id\u0022:61,\u0022city_id\u0022:62,\u0022district_id\u0022:65,\u0022location\u0022:[\u00228.57440130671175\u0022,\u002216.0714316236417\u0022],\u0022level_of_training\u0022:[\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(8.57440130671175 16.0714316236417)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/affogato-media\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1055,\u0022user_id\u0022:864,\u0022category_id\u0022:520},{\u0022id\u0022:1056,\u0022user_id\u0022:864,\u0022category_id\u0022:601},{\u0022id\u0022:1057,\u0022user_id\u0022:864,\u0022category_id\u0022:602},{\u0022id\u0022:1058,\u0022user_id\u0022:864,\u0022category_id\u0022:603}]},{\u0022id\u0022:863,\u0022username\u0022:\u0022owosso\u0022,\u0022full_name\u0022:\u0022Owosso\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550198\u0022,\u0022email\u0022:\u0022owosso@info.com\u0022,\u0022bio\u0022:\u0022Chemical Engineering Institute\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/863\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/863\\\/2.png\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Dear students,\\r\\n\\r\\nWR Training is a group of professional engineers from various disciplines (chemical, petrochemical, mechanical, electrical\\u2026) providing academic and industrial online courses.\\r\\n\\r\\nWhether you\\u2019re trying to learn and discover a new scientific or engineering topic from scratch, or want to refresh your memory on something you\\u2019ve learnt in the past, you\\u2019ve come to the right place.\\r\\n\\r\\nWR Training exists to help you succeed in your academic and professional life. Our goal is to spread the knowledge and promote science.\\r\\n\\r\\nThe courses, you are about to enroll in, were undertaken to give you a clear view of scientific and engineering topics through detailed examples using hands on demo and provide numerous problems with their solutions. You can also use these courses as a review for taking exams or as a vehicle for self-instruction.\\r\\n\\r\\nOur training methodology was designed to enable individual self paced e-learning.\\r\\n\\r\\nEach course has been undertaken to teach a specific skill.\\r\\n\\r\\nOur courses can be watched 24\\\/7 wherever you are. You can also view them on mobile devices with the Udemy mobile app.\\r\\n\\r\\nWe are active online instructors and we will be here for you every step of the way. If you have questions about the course content, you can always post your questions or send us a private message. It will be our pleasure to provide assistance and answer your questions.\\r\\n\\r\\nSo with no further ado, go ahead, select the course suitable for you, click the enroll button and we\u0027ll see you in the first section !\\r\\n\\r\\nWR Training\\r\\n\\r\\nSpread the wings of your knowledge\u0022,\u0022address\u0022:null,\u0022country_id\u0022:17,\u0022province_id\u0022:28,\u0022city_id\u0022:30,\u0022district_id\u0022:37,\u0022location\u0022:[\u002218.967571186446\u0022,\u002272.8258094243416\u0022],\u0022level_of_training\u0022:[\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022online\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:null,\u0022certificate\u0022:null,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(18.967571186446 72.8258094243416)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00225.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/owosso\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1050,\u0022user_id\u0022:863,\u0022category_id\u0022:601},{\u0022id\u0022:1051,\u0022user_id\u0022:863,\u0022category_id\u0022:602},{\u0022id\u0022:1052,\u0022user_id\u0022:863,\u0022category_id\u0022:603},{\u0022id\u0022:1053,\u0022user_id\u0022:863,\u0022category_id\u0022:609},{\u0022id\u0022:1054,\u0022user_id\u0022:863,\u0022category_id\u0022:611}]},{\u0022id\u0022:859,\u0022username\u0022:\u0022cactuscat-clothing\u0022,\u0022full_name\u0022:\u0022Cactuscat Clothing\u0022,\u0022role_name\u0022:\u0022organization\u0022,\u0022enable_public_chat\u0022:0,\u0022organ_id\u0022:null,\u0022mobile\u0022:\u0022+12025550132\u0022,\u0022email\u0022:\u0022cactuscat@hotmail.com\u0022,\u0022bio\u0022:\u0022Programming Training Institute\u0022,\u0022logged_count\u0022:0,\u0022verified\u0022:0,\u0022financial_approval\u0022:0,\u0022installment_approval\u0022:0,\u0022enable_installments\u0022:1,\u0022disable_cashback\u0022:0,\u0022enable_registration_bonus\u0022:0,\u0022registration_bonus_amount\u0022:null,\u0022avatar\u0022:\u0022\\\/store\\\/859\\\/setting\\\/avatar.jpg\u0022,\u0022avatar_settings\u0022:null,\u0022cover_img\u0022:\u0022\\\/store\\\/859\\\/8.png\u0022,\u0022profile_video\u0022:null,\u0022profile_secondary_image\u0022:null,\u0022headline\u0022:null,\u0022about\u0022:\u0022Eduonix creates and distributes high quality technology training content. Our team of  industry professionals have been training manpower for more than a decade. We aim to teach technology the way it is used in industry and professional world.  We have professional team of trainers for technologies ranging from Mobility, Web to Enterprise and Database and Server Administration.\u0022,\u0022address\u0022:\u0022\u0022,\u0022country_id\u0022:20,\u0022province_id\u0022:31,\u0022city_id\u0022:32,\u0022district_id\u0022:40,\u0022location\u0022:[\u002224.4817783459103\u0022,\u002239.5948390276255\u0022],\u0022level_of_training\u0022:[\u0022beginner\u0022,\u0022middle\u0022,\u0022expert\u0022],\u0022meeting_type\u0022:\u0022all\u0022,\u0022status\u0022:\u0022active\u0022,\u0022access_content\u0022:1,\u0022enable_ai_content\u0022:0,\u0022language\u0022:\u0022EN\u0022,\u0022currency\u0022:null,\u0022timezone\u0022:\u0022America\\\/New_York\u0022,\u0022theme_color_mode\u0022:null,\u0022newsletter\u0022:0,\u0022public_message\u0022:0,\u0022enable_profile_statistics\u0022:0,\u0022auto_renew_subscription\u0022:0,\u0022identity_scan\u0022:\u0022\\\/store\\\/859\\\/certificate.jpg\u0022,\u0022certificate\u0022:\u0022\\\/store\\\/859\\\/certificate.jpg\u0022,\u0022affiliate\u0022:1,\u0022can_create_store\u0022:0,\u0022ban\u0022:0,\u0022ban_start_at\u0022:null,\u0022ban_end_at\u0022:null,\u0022offline\u0022:0,\u0022offline_message\u0022:null,\u0022created_at\u0022:1604509713,\u0022updated_at\u0022:null,\u0022deleted_at\u0022:null,\u0022meetingCounts\u0022:0,\u0022userLocation\u0022:\u0022POINT(24.4817783459103 39.5948390276255)\u0022,\u0022price\u0022:0,\u0022rate\u0022:\u00220.00\u0022,\u0022profileUrl\u0022:\u0022https:\\\/\\\/www.geic.in\\\/users\\\/cactuscat-clothing\\\/profile\u0022,\u0022meeting\u0022:null,\u0022occupations\u0022:[{\u0022id\u0022:1067,\u0022user_id\u0022:859,\u0022category_id\u0022:520},{\u0022id\u0022:1068,\u0022user_id\u0022:859,\u0022category_id\u0022:601},{\u0022id\u0022:1069,\u0022user_id\u0022:859,\u0022category_id\u0022:604},{\u0022id\u0022:1070,\u0022user_id\u0022:859,\u0022category_id\u0022:611}]}]");
 
         var starIcon = `<svg width="14" height="14" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -2488,14 +2488,14 @@ My expertise includes science-based personal development, health &amp; fitness a
 
 <script>
 
-    
-    
+
+
 </script>
 
 <script src="assets/design_1/js/parts/general.min.js"></script>
 
 </body>
 
-<!-- Mirrored from lms.rocket-soft.org/instructor-finder by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:24:59 GMT -->
+<!-- Mirrored from www.geic.in/instructor-finder by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:24:59 GMT -->
 </html>
 

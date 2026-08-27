@@ -1,4 +1,4 @@
-@include('mirror.partials.header')
+@include('mirror.partials.header', ['siteCms' => $cms])
 
 <style>
     html { scroll-behavior: smooth; }
@@ -358,33 +358,30 @@
             <div class="row h-100 flex-column flex-lg-row">
                 <div class="col-12 col-lg-5 two-columns-hero-section__content">
                     <div class="d-inline-flex align-items-center gap-8 p-8 pr-16 rounded-32 border-2 border-dark">
-                        <span class="font-14 text-primary font-weight-bold">Since 1992</span>
-                        <span class="font-14 text-dark">Built on trust. Driven by student success.</span>
+                        <span class="font-14 text-primary font-weight-bold">{{ $cms['hero_eyebrow'] ?? 'Since 1992' }}</span>
+                        <span class="font-14 text-dark">{{ $cms['hero_trust_line'] ?? 'Built on trust. Driven by student success.' }}</span>
                     </div>
 
-                    <h1 class="d-inline-flex flex-column font-64 mt-24">
-                        <span class="text-dark">Shape Your Ambition</span>
-                        <span class="mt-4 text-primary">Into International Success</span>
-                    </h1>
+                    <h1 class="d-inline-flex flex-column font-64 mt-24"><span class="text-dark">{{ $cms['hero_title'] ?? 'Shape Your Ambition Into International Success' }}</span></h1>
 
                     <div class="mt-16 font-16 text-gray-500">
-                        At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.
+                        {{ $cms['hero_copy'] ?? 'At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.' }}
                     </div>
 
                     <div class="d-flex align-items-lg-center flex-column flex-lg-row mt-32 gap-16">
-                        <a href="#contact" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="Book Free Counselling">
-                            <span class="btn-flip-effect__text text-white">Book Free Counselling</span>
+                        <a href="{{ $cms['hero_primary_cta_url'] ?? '#contact' }}" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}">
+                            <span class="btn-flip-effect__text text-white">{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}</span>
                         </a>
-                        <a href="destinations" class="btn-flip-effect btn-flip-effect__text-dark btn btn-xlg gap-8" data-text="Explore Destinations">
-                            <span class="btn-flip-effect__text text-dark">Explore Destinations</span>
+                        <a href="{{ $cms['hero_secondary_cta_url'] ?? '/destinations' }}" class="btn-flip-effect btn-flip-effect__text-dark btn btn-xlg gap-8" data-text="{{ $cms['hero_secondary_cta_label'] ?? 'Explore Destinations' }}">
+                            <span class="btn-flip-effect__text text-dark">{{ $cms['hero_secondary_cta_label'] ?? 'Explore Destinations' }}</span>
                         </a>
                     </div>
 
                     <div class="d-inline-flex align-items-center gap-12 mt-40 mt-lg-64 p-12 rounded-32 bg-gray-400-20 backdrop-filter-blur-2">
                         <span class="d-flex-center size-40 rounded-circle bg-primary text-white font-weight-bold">TG</span>
                         <div>
-                            <div class="font-14 text-dark font-weight-bold">70,250+ students placed worldwide</div>
-                            <div class="font-12 text-gray-500 mt-2">Across leading universities in 10+ countries</div>
+                            <div class="font-14 text-dark font-weight-bold">{{ $cms['hero_proof_title'] ?? '70,250+ students placed worldwide' }}</div>
+                            <div class="font-12 text-gray-500 mt-2">{{ $cms['hero_proof_copy'] ?? 'Across leading universities in 10+ countries' }}</div>
                         </div>
                     </div>
                 </div>
@@ -393,7 +390,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="two-columns-hero-section__images-side position-relative d-flex justify-content-end w-100 h-100 px-lg-24">
                         <div class="d-flex-center two-columns-hero-section__main-img">
-                            <img src="store/landing_builder/landing_13/371/hero_image_j5t.png" alt="Students preparing to study abroad" class="img-cover">
+                            <img src="{{ asset($cms['hero_image'] ?? 'store/landing_builder/landing_13/371/hero_image_j5t.png') }}" alt="Students preparing to study abroad" class="img-cover">
                         </div>
                         <div class="d-flex-center two-columns-hero-section__spinning-img">
                             <img src="assets/transglobe/geic-revolver.svg?v=20260825b" alt="Global education" class="img-cover">
@@ -444,15 +441,15 @@
     <section id="how-it-works" class="tg-section">
         <div class="container">
             <div class="text-center mx-auto" style="max-width: 760px">
-                <div class="tg-eyebrow">How it works</div>
-                <h2 class="tg-title mt-12">Four Simple Steps to Study Abroad</h2>
-                <p class="tg-copy mt-16">From your first conversation to the day you board your flight, Trans Globe Indore makes the process clear, personal and manageable.</p>
+                <div class="tg-eyebrow">{{ $cms['journey_eyebrow'] ?? 'How it works' }}</div>
+                <h2 class="tg-title mt-12">{{ $cms['journey_title'] ?? 'Four Simple Steps to Study Abroad' }}</h2>
+                <p class="tg-copy mt-16">{{ $cms['journey_copy'] ?? 'From your first conversation to the day you board your flight, Trans Globe Indore makes the process clear, personal and manageable.' }}</p>
             </div>
             <div class="row mt-32 tg-mobile-slider" data-slider-name="Your journey">
-                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">01</span><h3 class="font-20 text-dark mt-20">Tell Us About Yourself</h3><p class="tg-copy mt-12">Share your academic background, interests, preferred countries and career goals. This first conversation helps us understand where you want to go.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">02</span><h3 class="font-20 text-dark mt-20">Meet a Specialist</h3><p class="tg-copy mt-12">Work with a country-and-course specialist to shortlist universities, explore scholarships and build a plan that suits your profile and budget.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">03</span><h3 class="font-20 text-dark mt-20">Apply With Confidence</h3><p class="tg-copy mt-12">We help with your SOP, recommendations, transcripts, documents and application forms so every submission is complete and compelling.</p></div></div>
-                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">04</span><h3 class="font-20 text-dark mt-20">Get Your Visa &amp; Go</h3><p class="tg-copy mt-12">Our visa team prepares your documents, finances and interview answers so you can travel knowing everything is in order.</p></div></div>
+                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">01</span><h3 class="font-20 text-dark mt-20">{{ $cms['journey_step_one_title'] ?? 'Tell Us About Yourself' }}</h3><p class="tg-copy mt-12">{{ $cms['journey_step_one_copy'] ?? 'Share your academic background, interests, preferred countries and career goals. This first conversation helps us understand where you want to go.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">02</span><h3 class="font-20 text-dark mt-20">{{ $cms['journey_step_two_title'] ?? 'Meet a Specialist' }}</h3><p class="tg-copy mt-12">{{ $cms['journey_step_two_copy'] ?? 'Work with a country-and-course specialist to shortlist universities, explore scholarships and build a plan that suits your profile and budget.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">03</span><h3 class="font-20 text-dark mt-20">{{ $cms['journey_step_three_title'] ?? 'Apply With Confidence' }}</h3><p class="tg-copy mt-12">{{ $cms['journey_step_three_copy'] ?? 'We help with your SOP, recommendations, transcripts, documents and application forms so every submission is complete and compelling.' }}</p></div></div>
+                <div class="col-12 col-md-6 col-lg-3 mt-24"><div class="tg-card"><span class="tg-step">04</span><h3 class="font-20 text-dark mt-20">{{ $cms['journey_step_four_title'] ?? 'Get Your Visa & Go' }}</h3><p class="tg-copy mt-12">{{ $cms['journey_step_four_copy'] ?? 'Our visa team prepares your documents, finances and interview answers so you can travel knowing everything is in order.' }}</p></div></div>
             </div>
         </div>
     </section>
@@ -461,11 +458,11 @@
         <div class="container">
             <div class="row align-items-end">
                 <div class="col-12 col-lg-7">
-                    <div class="tg-eyebrow">Our services</div>
-                    <h2 class="tg-title mt-12">Everything You Need, Under One Roof</h2>
-                    <p class="tg-copy mt-16">Trans Globe Indore supports your complete journey—from your first exam and university application to your arrival in a new country.</p>
+                    <div class="tg-eyebrow">{{ $cms['services_eyebrow'] ?? 'Our services' }}</div>
+                    <h2 class="tg-title mt-12">{{ $cms['services_title'] ?? 'Everything You Need, Under One Roof' }}</h2>
+                    <p class="tg-copy mt-16">{{ $cms['services_copy'] ?? 'Trans Globe Indore supports your complete journey—from your first exam and university application to your arrival in a new country.' }}</p>
                 </div>
-                <div class="col-12 col-lg-5 mt-20 mt-lg-0 text-lg-right"><a href="#contact" class="btn btn-primary btn-lg text-white">Discuss Your Study Plan</a></div>
+                <div class="col-12 col-lg-5 mt-20 mt-lg-0 text-lg-right"><a href="{{ $cms['services_cta_url'] ?? '#contact' }}" class="btn btn-primary btn-lg text-white">{{ $cms['services_cta_label'] ?? 'Discuss Your Study Plan' }}</a></div>
             </div>
 
             <div class="row mt-24 tg-mobile-slider" data-slider-name="Services">
@@ -482,9 +479,9 @@
     <section id="destinations" class="tg-section">
         <div class="container">
             <div class="text-center mx-auto" style="max-width: 780px">
-                <div class="tg-eyebrow">Where will you thrive?</div>
-                <h2 class="tg-title mt-12">Explore the World’s Best Study Destinations</h2>
-                <p class="tg-copy mt-16">From research-led universities to affordable public education and strong post-study pathways, discover the destination that best fits your future.</p>
+                <div class="tg-eyebrow">{{ $cms['destinations_eyebrow'] ?? 'Where will you thrive?' }}</div>
+                <h2 class="tg-title mt-12">{{ $cms['destinations_title'] ?? 'Explore the World’s Best Study Destinations' }}</h2>
+                <p class="tg-copy mt-16">{{ $cms['destinations_copy'] ?? 'From research-led universities to affordable public education and strong post-study pathways, discover the destination that best fits your future.' }}</p>
             </div>
             <div class="row mt-24 tg-mobile-slider" data-slider-name="Destinations">
                 @foreach ([
@@ -832,17 +829,17 @@
             <div class="tg-contact-card">
                 <div class="row align-items-center position-relative z-index-2">
                     <div class="col-12 col-lg-8">
-                        <div class="tg-contact-pill">Free, no-pressure guidance</div>
-                        <h2 class="font-44 text-white mt-20">Your Journey Starts With One Conversation</h2>
-                        <p class="font-16 text-white opacity-70 mt-16">You do not need to have everything figured out. Tell us where you are today, and we will explain your options honestly and help you take the next step.</p>
+                        <div class="tg-contact-pill">{{ $cms['contact_eyebrow'] ?? 'Free, no-pressure guidance' }}</div>
+                        <h2 class="font-44 text-white mt-20">{{ $cms['contact_title'] ?? 'Your Journey Starts With One Conversation' }}</h2>
+                        <p class="font-16 text-white opacity-70 mt-16">{{ $cms['contact_copy'] ?? 'You do not need to have everything figured out. Tell us where you are today, and we will explain your options honestly and help you take the next step.' }}</p>
                         <div class="d-flex flex-wrap gap-12 mt-28">
-                            <a href="tel:+919826666886" class="tg-contact-pill">+91 98266 66886</a>
-                            <a href="mailto:info@geic.in" class="tg-contact-pill">info@geic.in</a>
+                            <a href="tel:{{ preg_replace('/[^0-9+]/', '', $cms['contact_phone'] ?? '+91 98266 66886') }}" class="tg-contact-pill">{{ $cms['contact_phone'] ?? '+91 98266 66886' }}</a>
+                            <a href="mailto:{{ $cms['contact_email'] ?? 'info@geic.in' }}" class="tg-contact-pill">{{ $cms['contact_email'] ?? 'info@geic.in' }}</a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 mt-28 mt-lg-0 text-lg-right">
-                        <a href="tel:+919826666886" class="btn btn-primary btn-xlg text-white">Speak to Our Indore Counsellor</a>
-                        <p class="font-13 text-white opacity-70 mt-12">Office No. 503, THE VIEW Tower 1, Yeshwant Niwas Rd, Lad Colony, Indore, Madhya Pradesh 452001</p>
+                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $cms['contact_phone'] ?? '+91 98266 66886') }}" class="btn btn-primary btn-xlg text-white">{{ $cms['contact_button_label'] ?? 'Speak to Our Indore Counsellor' }}</a>
+                        <p class="font-13 text-white opacity-70 mt-12">{{ $cms['contact_address'] ?? 'Office No. 503, THE VIEW Tower 1, Yeshwant Niwas Rd, Lad Colony, Indore, Madhya Pradesh 452001' }}</p>
                     </div>
                 </div>
             </div>
@@ -931,4 +928,4 @@
     });
 </script>
 
-@include('mirror.partials.footer')
+@include('mirror.partials.footer', ['siteCms' => $cms])
