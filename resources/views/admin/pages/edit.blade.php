@@ -1,10 +1,14 @@
 @extends('admin.layout')
 
 @section('title', 'Edit '.$page['name'].' | Trans Globe Indore LMS')
+@section('crumb', 'Edit page')
+@section('backUrl', route('admin.pages.index'))
+@section('backLabel', 'Back to pages')
 
 @push('styles')
     <style>
-        .cms-workflow{display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:start;gap:18px}.cms-editor{padding:0;overflow:hidden}.cms-editor__top{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 22px;border-bottom:1px solid var(--admin-line)}.cms-editor__top h2{margin:0;color:var(--admin-ink);font-size:15px;letter-spacing:-.035em}.cms-editor__top p{margin:3px 0 0;color:#91a0b9;font-size:11px}.cms-state{display:inline-flex;min-height:29px;align-items:center;gap:7px;padding:0 10px;border-radius:99px;background:var(--admin-primary-soft);color:var(--admin-primary-dark);font-size:10px;font-weight:800;white-space:nowrap}.cms-state:before{width:7px;height:7px;border-radius:50%;background:currentColor;content:''}.cms-state--published{background:#ecfdf3;color:#16734d}.cms-state--unpublished{background:#f3f5f8;color:#758198}.cms-stepper{display:flex;gap:7px;overflow-x:auto;padding:14px 22px;border-bottom:1px solid var(--admin-line);scrollbar-width:thin}.cms-stepper__item{display:grid;min-width:126px;gap:2px;padding:10px 12px;border:1px solid #e4eaf3;border-radius:11px;background:#fff;color:#71809b;text-align:left;white-space:nowrap}.cms-stepper__item small{font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.cms-stepper__item strong{font-size:11px}.cms-stepper__item:hover{border-color:#f5b7bd;color:var(--admin-primary-dark)}.cms-stepper__item[aria-selected=true]{border-color:var(--admin-primary);background:var(--admin-primary);color:#fff;box-shadow:0 7px 16px rgba(229,36,46,.18)}.cms-stepper__item:focus-visible,.cms-next:focus-visible,.cms-previous:focus-visible{outline:3px solid rgba(229,36,46,.28);outline-offset:2px}.cms-stepper__item[aria-selected=true] small{opacity:.76}.cms-step-panel{display:grid;gap:16px;padding:22px}.cms-step-panel[hidden]{display:none}.cms-section{display:grid;gap:15px;margin:0;padding:20px;border:1px solid #e8edf5;border-radius:14px;background:#fbfcff}.cms-section legend{padding:0 8px;color:var(--admin-primary);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.cms-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 22px;border-top:1px solid var(--admin-line);background:#fbfcff}.cms-actions__left,.cms-actions__right{display:flex;flex-wrap:wrap;gap:9px}.cms-button{display:inline-flex;min-height:39px;align-items:center;justify-content:center;gap:7px;padding:0 13px;border:1px solid #dbe3ef;border-radius:9px;background:#fff;color:#4d5e7d;font-size:11px;font-weight:800}.cms-button:hover:not(:disabled){border-color:#facbd0;background:var(--admin-primary-soft);color:var(--admin-primary-dark)}.cms-button:disabled{cursor:not-allowed;opacity:.42}.cms-button--publish{border-color:var(--admin-primary);background:var(--admin-primary);color:#fff}.cms-button--publish:hover{background:var(--admin-primary-dark);box-shadow:0 7px 14px rgba(229,36,46,.18)}.cms-button--danger{border-color:#f4c8cc;color:#bd2632}.cms-inspector{display:grid;gap:15px;padding:20px}.cms-inspector h2{margin:0;font-size:14px;letter-spacing:-.035em}.cms-inspector p{margin:5px 0 0;color:#8f9db5;font-size:11px}.cms-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cms-metric{padding:12px;border-radius:12px;background:var(--admin-primary-soft)}.cms-metric strong{display:block;color:var(--admin-primary-dark);font-size:18px;letter-spacing:-.06em}.cms-metric span{display:block;margin-top:2px;color:#a65561;font-size:9px;font-weight:800;line-height:1.3;text-transform:uppercase}.cms-media-list{display:grid;gap:10px}.cms-media{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;padding:9px;border:1px solid var(--admin-line);border-radius:12px;background:#fff}.cms-media img{width:70px;height:58px;border-radius:8px;object-fit:cover;background:#f0f3f8}.cms-media__details{min-width:0}.cms-media__details strong,.cms-media__details span,.cms-media__details code{display:block}.cms-media__details strong{overflow:hidden;color:var(--admin-ink);font-size:10px;text-overflow:ellipsis;white-space:nowrap}.cms-media__details span{margin-top:2px;color:#8696b0;font-size:9px}.cms-media__details code{overflow:hidden;margin-top:5px;color:#a05b65;font-size:8px;text-overflow:ellipsis;white-space:nowrap}.cms-media__badge{display:inline-flex;margin-top:5px;padding:2px 5px;border-radius:99px;background:#f3f5f8;color:#6e7d96;font-size:8px;font-weight:800}.cms-divider{height:1px;background:var(--admin-line)}.cms-publication{padding:12px;border-radius:12px;background:#f8fafc}.cms-publication strong{display:block;color:#40516e;font-size:11px}.cms-publication span{display:block;margin-top:3px;color:#95a3ba;font-size:10px}.cms-unpublish-form{margin:0}@media(max-width:1050px){.cms-workflow{grid-template-columns:1fr}.cms-media-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.cms-editor__top,.cms-actions{align-items:flex-start;flex-direction:column}.cms-stepper{padding:12px 14px}.cms-step-panel{padding:14px}.cms-section{padding:15px}.cms-actions__left,.cms-actions__right{width:100%}.cms-actions__right .cms-button{flex:1}.cms-media-list{grid-template-columns:1fr}}
+        .cms-workflow{display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:start;gap:18px}.cms-editor{padding:0;overflow:hidden}.cms-editor__top{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 22px;border-bottom:1px solid var(--admin-line)}.cms-editor__top h2{margin:0;color:var(--admin-ink);font-size:15px;letter-spacing:-.035em}.cms-editor__top p{margin:3px 0 0;color:#91a0b9;font-size:11px}.cms-state{display:inline-flex;min-height:29px;align-items:center;gap:7px;padding:0 10px;border-radius:99px;background:var(--admin-primary-soft);color:var(--admin-primary-dark);font-size:10px;font-weight:800;white-space:nowrap}.cms-state:before{width:7px;height:7px;border-radius:50%;background:currentColor;content:''}.cms-state--published{background:#ecfdf3;color:#16734d}.cms-state--unpublished{background:#f3f5f8;color:#758198}.cms-stepper{display:flex;align-items:center;overflow-x:auto;padding:18px 22px;border-bottom:1px solid var(--admin-line);background:#fbfcff;scrollbar-width:none}.cms-stepper::-webkit-scrollbar{display:none}.cms-stepper__item{display:flex;min-width:44px;align-items:center;gap:9px;flex:0 0 auto;padding:0;border:0;background:transparent;color:#91a0b8;text-align:left;white-space:nowrap;cursor:pointer}.cms-stepper__marker{display:grid;width:44px;height:44px;place-items:center;flex:0 0 44px;border:1px solid #e3e9f2;border-radius:50%;background:#f6f8fc;color:#9aa8bc;font-size:10px;font-weight:900;transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}.cms-stepper__label{display:grid;width:0;flex:0 0 auto;overflow:hidden;gap:1px;opacity:0;transition:width .22s ease,opacity .16s ease}.cms-stepper__label small{color:#9ba8bb;font-size:9px;font-weight:700;letter-spacing:.02em}.cms-stepper__label strong{max-width:150px;overflow:hidden;color:#1f2f4d;font-size:11px;line-height:1.25;text-overflow:ellipsis}.cms-stepper__rail{width:18px;height:1px;flex:0 0 18px;margin:0 6px;background:#e2e8f1}.cms-stepper__item:hover .cms-stepper__marker{border-color:#f2aeb5;color:var(--admin-primary);transform:translateY(-1px)}.cms-stepper__item[aria-selected=true] .cms-stepper__marker{border-color:var(--admin-primary);background:var(--admin-primary);color:#fff;box-shadow:0 8px 18px rgba(229,36,46,.2)}.cms-stepper__item[aria-selected=true] .cms-stepper__label{width:160px;opacity:1}.cms-stepper__item[data-state=complete] .cms-stepper__marker{border-color:#f5c4c9;background:#fff1f2;color:var(--admin-primary)}.cms-stepper__item[data-state=complete]+.cms-stepper__rail{background:#f2b7bd}.cms-stepper__item:focus-visible,.cms-next:focus-visible,.cms-previous:focus-visible{outline:3px solid rgba(229,36,46,.28);outline-offset:3px}.cms-step-panel{display:grid;gap:16px;padding:22px}.cms-step-panel[hidden]{display:none}.cms-section{display:grid;gap:15px;margin:0;padding:20px;border:1px solid #e8edf5;border-radius:14px;background:#fbfcff}.cms-section legend{padding:0 8px;color:var(--admin-primary);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.cms-image-control{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:12px}.cms-image-control img{width:112px;height:82px;border:1px solid #e2e8f1;border-radius:11px;background:#eef2f7;object-fit:cover}.cms-image-control__inputs{display:grid;gap:8px}.cms-file{padding:8px;border:1px dashed #ccd6e5;border-radius:9px;background:#fff;font-size:10px}.cms-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 22px;border-top:1px solid var(--admin-line);background:#fbfcff}.cms-actions__left,.cms-actions__right{display:flex;flex-wrap:wrap;gap:9px}.cms-button{display:inline-flex;min-height:39px;align-items:center;justify-content:center;gap:7px;padding:0 13px;border:1px solid #dbe3ef;border-radius:9px;background:#fff;color:#4d5e7d;font-size:11px;font-weight:800}.cms-button:hover:not(:disabled){border-color:#facbd0;background:var(--admin-primary-soft);color:var(--admin-primary-dark)}.cms-button:disabled{cursor:not-allowed;opacity:.42}.cms-button--publish{border-color:var(--admin-primary);background:var(--admin-primary);color:#fff}.cms-button--publish:hover{background:var(--admin-primary-dark);box-shadow:0 7px 14px rgba(229,36,46,.18)}.cms-button--danger{border-color:#f4c8cc;color:#bd2632}.cms-inspector{display:grid;gap:15px;padding:20px}.cms-inspector h2{margin:0;font-size:14px;letter-spacing:-.035em}.cms-inspector p{margin:5px 0 0;color:#8f9db5;font-size:11px}.cms-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cms-metric{padding:12px;border-radius:12px;background:var(--admin-primary-soft)}.cms-metric strong{display:block;color:var(--admin-primary-dark);font-size:18px;letter-spacing:-.06em}.cms-metric span{display:block;margin-top:2px;color:#a65561;font-size:9px;font-weight:800;line-height:1.3;text-transform:uppercase}.cms-media-list{display:grid;gap:10px}.cms-media{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;padding:9px;border:1px solid var(--admin-line);border-radius:12px;background:#fff}.cms-media img{width:70px;height:58px;border-radius:8px;object-fit:cover;background:#f0f3f8}.cms-media__details{min-width:0}.cms-media__details strong,.cms-media__details span,.cms-media__details code{display:block}.cms-media__details strong{overflow:hidden;color:var(--admin-ink);font-size:10px;text-overflow:ellipsis;white-space:nowrap}.cms-media__details span{margin-top:2px;color:#8696b0;font-size:9px}.cms-media__details code{overflow:hidden;margin-top:5px;color:#a05b65;font-size:8px;text-overflow:ellipsis;white-space:nowrap}.cms-media__badge{display:inline-flex;margin-top:5px;padding:2px 5px;border-radius:99px;background:#f3f5f8;color:#6e7d96;font-size:8px;font-weight:800}.cms-divider{height:1px;background:var(--admin-line)}.cms-publication{padding:12px;border-radius:12px;background:#f8fafc}.cms-publication strong{display:block;color:#40516e;font-size:11px}.cms-publication span{display:block;margin-top:3px;color:#95a3ba;font-size:10px}.cms-unpublish-form{margin:0}@media(max-width:1050px){.cms-workflow{grid-template-columns:1fr}.cms-media-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.cms-editor__top,.cms-actions{align-items:flex-start;flex-direction:column}.cms-stepper{padding:14px}.cms-stepper__marker{width:40px;height:40px;flex-basis:40px}.cms-stepper__rail{width:12px;flex-basis:12px;margin:0 4px}.cms-stepper__item[aria-selected=true] .cms-stepper__label{width:135px}.cms-step-panel{padding:14px}.cms-section{padding:15px}.cms-actions__left,.cms-actions__right{width:100%}.cms-actions__right .cms-button{flex:1}.cms-media-list{grid-template-columns:1fr}.cms-image-control{grid-template-columns:1fr}.cms-image-control img{width:100%;height:150px}}
+        .cms-media-field{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px;padding:14px;border:1px solid #e3e9f2;border-radius:15px;background:#fff}.cms-media-field__preview{position:relative;min-height:150px;overflow:hidden;border-radius:12px;background:#eef2f7}.cms-media-field__preview img{width:100%;height:100%;min-height:150px;object-fit:cover}.cms-media-field__preview span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:99px;background:rgba(14,33,69,.82);color:#fff;font-size:8px;font-weight:800;backdrop-filter:blur(6px)}.cms-media-field__main{display:grid;gap:9px;min-width:0}.cms-dropzone{display:grid;min-height:96px;place-items:center;padding:13px;border:1.5px dashed #cbd6e7;border-radius:12px;background:#f8faff;color:#8291aa;text-align:center;cursor:pointer;transition:border-color .18s ease,background-color .18s ease,box-shadow .18s ease}.cms-dropzone:hover,.cms-dropzone.is-dragging{border-color:var(--admin-primary);background:#fff3f4;box-shadow:0 0 0 3px rgba(229,36,46,.07)}.cms-dropzone:focus-visible{outline:3px solid rgba(229,36,46,.25);outline-offset:2px}.cms-dropzone svg{width:25px;height:25px;margin-bottom:5px;fill:none;stroke:var(--admin-primary);stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8}.cms-dropzone strong{display:block;color:#34445f;font-size:11px}.cms-dropzone strong span{color:var(--admin-primary);text-decoration:underline}.cms-dropzone small{display:block;margin-top:3px;font-size:9px}.cms-file-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}.cms-media-field__foot{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#91a0b7;font-size:9px}.cms-library-button{min-height:34px;padding:0 11px;border:1px solid #dce4ef;border-radius:8px;background:#fff;color:#435574;font-size:9px;font-weight:800;cursor:pointer}.cms-library-button:hover{border-color:#f3b6bd;background:#fff1f2;color:var(--admin-primary-dark)}.cms-media-dialog{width:min(820px,calc(100% - 28px));max-height:min(720px,calc(100vh - 30px));padding:0;border:0;border-radius:18px;background:#fff;box-shadow:0 28px 90px rgba(14,33,69,.28)}.cms-media-dialog::backdrop{background:rgba(14,33,69,.62);backdrop-filter:blur(4px)}.cms-media-dialog__head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 20px;border-bottom:1px solid #e8edf4;background:#fff}.cms-media-dialog__head h2{margin:0;color:#1e2e4a;font-size:17px}.cms-media-dialog__head p{margin:3px 0 0;color:#8b99b0;font-size:10px}.cms-media-dialog__close{display:grid;width:38px;height:38px;place-items:center;border:1px solid #e0e7f1;border-radius:50%;background:#fff;color:#52627e;font-size:20px;cursor:pointer}.cms-library-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;overflow-y:auto;padding:18px 20px 22px}.cms-library-choice{overflow:hidden;padding:0;border:1px solid #e3e9f2;border-radius:12px;background:#fff;text-align:left;cursor:pointer}.cms-library-choice:hover,.cms-library-choice:focus-visible{border-color:var(--admin-primary);box-shadow:0 7px 18px rgba(229,36,46,.1);outline:0}.cms-library-choice img{display:block;width:100%;height:105px;background:#eef2f7;object-fit:cover}.cms-library-choice span{display:block;overflow:hidden;padding:8px;color:#41516e;font-size:9px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}.cms-library-empty{grid-column:1/-1;padding:35px;text-align:center;color:#8492a9}.cms-library-empty strong{display:block;color:#34445f}.cms-library-empty a{display:inline-flex;margin-top:10px}@media(max-width:720px){.cms-media-field{grid-template-columns:1fr}.cms-media-field__preview{min-height:180px}.cms-media-field__preview img{height:180px}.cms-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     </style>
 @endpush
 
@@ -30,7 +34,7 @@
     @if(session('status'))<div class="notice" role="status">{{ session('status') }}</div>@endif
 
     <section class="cms-workflow">
-        <form class="panel cms-editor" method="post" action="{{ route('admin.pages.update', $page['key']) }}" data-cms-wizard data-initial-step="{{ $initialStep }}">
+        <form class="panel cms-editor" method="post" action="{{ route('admin.pages.update', $page['key']) }}" enctype="multipart/form-data" data-cms-wizard data-initial-step="{{ $initialStep }}">
             @csrf @method('PUT')
             <div class="cms-editor__top">
                 <div><h2>Guided content workflow</h2><p>Edit one section at a time, then save a draft or publish it live.</p></div>
@@ -40,8 +44,10 @@
             <nav class="cms-stepper" aria-label="{{ $page['name'] }} editing steps" role="tablist">
                 @foreach($steps as $section => $fields)
                     <button class="cms-stepper__item" type="button" role="tab" id="cms-step-{{ $loop->index }}" aria-controls="cms-panel-{{ $loop->index }}" aria-selected="{{ $loop->index === $initialStep ? 'true' : 'false' }}" data-wizard-step="{{ $loop->index }}">
-                        <small>Step {{ $loop->iteration }} of {{ $steps->count() }}</small><strong>{{ $section }}</strong>
+                        <span class="cms-stepper__marker" aria-hidden="true">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                        <span class="cms-stepper__label"><small>Step {{ $loop->iteration }} of {{ $steps->count() }}</small><strong>{{ $section }}</strong></span>
                     </button>
+                    @unless($loop->last)<span class="cms-stepper__rail" aria-hidden="true"></span>@endunless
                 @endforeach
             </nav>
 
@@ -52,12 +58,26 @@
                         @foreach($fields as $field)
                             <div class="field">
                                 <label for="content-{{ $field['key'] }}">{{ $field['label'] }}</label>
+                                @php($fieldValue = old('content.'.$field['key'], $values[$field['key']] ?? $field['default']))
                                 @if($field['type'] === 'textarea')
                                     <textarea class="input" id="content-{{ $field['key'] }}" name="content[{{ $field['key'] }}]" maxlength="12000">{{ old('content.'.$field['key'], $values[$field['key']] ?? $field['default']) }}</textarea>
+                                @elseif($field['type'] === 'image')
+                                    @php($previewUrl = str_starts_with($fieldValue, 'http://') || str_starts_with($fieldValue, 'https://') ? $fieldValue : asset($fieldValue))
+                                    <div class="cms-media-field" data-media-field="{{ $field['key'] }}">
+                                        <div class="cms-media-field__preview"><img src="{{ $previewUrl }}" alt="{{ $field['label'] }} preview" loading="lazy" data-image-preview="{{ $field['key'] }}"><span>Current image</span></div>
+                                        <div class="cms-media-field__main">
+                                            <input class="input" id="content-{{ $field['key'] }}" name="content[{{ $field['key'] }}]" value="{{ $fieldValue }}" maxlength="12000" inputmode="url" data-image-path="{{ $field['key'] }}">
+                                            <div class="cms-dropzone" role="button" tabindex="0" aria-label="Drag and drop or browse to replace {{ $field['label'] }}" data-dropzone="{{ $field['key'] }}">
+                                                <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18H6a4 4 0 0 1-.7-7.94A7 7 0 0 1 18.8 9.2 4.5 4.5 0 0 1 18.5 18H17"/><path d="m9 12 3-3 3 3M12 9v9"/></svg><strong>Drag &amp; drop or <span>browse</span></strong><small>JPG, PNG, WebP or GIF · maximum 6 MB</small></div>
+                                            </div>
+                                            <input class="cms-file-hidden" type="file" name="content_images[{{ $field['key'] }}]" accept="image/jpeg,image/png,image/webp,image/gif" aria-label="Upload replacement for {{ $field['label'] }}" data-image-upload="{{ $field['key'] }}">
+                                            <div class="cms-media-field__foot"><span data-file-status="{{ $field['key'] }}">No new file selected</span><button class="cms-library-button" type="button" data-open-media-library="{{ $field['key'] }}">Choose from library</button></div>
+                                        </div>
+                                    </div>
                                 @else
                                     <input class="input" id="content-{{ $field['key'] }}" name="content[{{ $field['key'] }}]" value="{{ old('content.'.$field['key'], $values[$field['key']] ?? $field['default']) }}" maxlength="12000" @if($field['type'] === 'image') inputmode="url" @endif>
                                 @endif
-                                @if($field['type'] === 'image')<small>This is shown in the Media usage panel. Use a Media Library path or an absolute image URL.</small>@endif
+                                @if($field['type'] === 'image')<small>Choose an existing library image, upload a new one, or paste an absolute image URL.</small>@endif
                                 @error('content.'.$field['key'])<small style="color:#c81420">{{ $message }}</small>@enderror
                             </div>
                         @endforeach
@@ -107,6 +127,17 @@
             @endif
         </aside>
     </section>
+
+    <dialog class="cms-media-dialog" data-media-dialog aria-labelledby="cms-media-library-title">
+        <div class="cms-media-dialog__head"><div><h2 id="cms-media-library-title">Choose from media library</h2><p>Select an uploaded image for the current page field.</p></div><button class="cms-media-dialog__close" type="button" aria-label="Close media library" data-close-media-library>×</button></div>
+        <div class="cms-library-grid">
+            @forelse($libraryAssets as $asset)
+                <button class="cms-library-choice" type="button" data-media-choice="{{ $asset->path }}" data-media-alt="{{ $asset->alt_text }}"><img src="{{ asset($asset->path) }}" alt="{{ $asset->alt_text ?: '' }}" loading="lazy"><span title="{{ $asset->original_name }}">{{ $asset->original_name }}</span></button>
+            @empty
+                <div class="cms-library-empty"><strong>Your media library is empty.</strong><span>Upload an image first, then it will appear here.</span><a class="button" href="{{ route('admin.media.index') }}">Open media library</a></div>
+            @endforelse
+        </div>
+    </dialog>
 @endsection
 
 @push('scripts')
@@ -123,7 +154,12 @@
 
             function showStep(step) {
                 activeStep = Math.max(0, Math.min(step, steps.length - 1));
-                steps.forEach((item, index) => item.setAttribute('aria-selected', String(index === activeStep)));
+                steps.forEach((item, index) => {
+                    const isActive = index === activeStep;
+                    item.setAttribute('aria-selected', String(isActive));
+                    item.setAttribute('tabindex', isActive ? '0' : '-1');
+                    item.dataset.state = isActive ? 'current' : (index < activeStep ? 'complete' : 'upcoming');
+                });
                 panels.forEach((panel, index) => panel.hidden = index !== activeStep);
                 previous.disabled = activeStep === 0;
                 next.disabled = activeStep === steps.length - 1;
@@ -131,8 +167,76 @@
             }
 
             steps.forEach((step, index) => step.addEventListener('click', () => showStep(index)));
+            steps.forEach((step) => step.addEventListener('keydown', (event) => {
+                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+                event.preventDefault();
+                const target = event.key === 'Home' ? 0 : event.key === 'End' ? steps.length - 1 : activeStep + (event.key === 'ArrowRight' ? 1 : -1);
+                showStep(target);
+                steps[activeStep].focus();
+            }));
             previous.addEventListener('click', () => showStep(activeStep - 1));
             next.addEventListener('click', () => showStep(activeStep + 1));
+            const mediaDialog = document.querySelector('[data-media-dialog]');
+            let activeMediaField = null;
+
+            function updateFilePreview(input) {
+                const key = input.dataset.imageUpload;
+                const file = input.files?.[0];
+                const preview = wizard.querySelector(`[data-image-preview="${key}"]`);
+                const status = wizard.querySelector(`[data-file-status="${key}"]`);
+                if (!file || !preview) return;
+                preview.src = URL.createObjectURL(file);
+                if (status) status.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB`;
+            }
+
+            wizard.querySelectorAll('[data-image-upload]').forEach((input) => {
+                const key = input.dataset.imageUpload;
+                const dropzone = wizard.querySelector(`[data-dropzone="${key}"]`);
+                input.addEventListener('change', () => updateFilePreview(input));
+                if (!dropzone) return;
+                dropzone.addEventListener('click', () => input.click());
+                dropzone.addEventListener('keydown', (event) => {
+                    if (!['Enter', ' '].includes(event.key)) return;
+                    event.preventDefault();
+                    input.click();
+                });
+                ['dragenter', 'dragover'].forEach((name) => dropzone.addEventListener(name, (event) => {
+                    event.preventDefault();
+                    dropzone.classList.add('is-dragging');
+                }));
+                ['dragleave', 'drop'].forEach((name) => dropzone.addEventListener(name, (event) => {
+                    event.preventDefault();
+                    dropzone.classList.remove('is-dragging');
+                }));
+                dropzone.addEventListener('drop', (event) => {
+                    if (!event.dataTransfer?.files?.length) return;
+                    input.files = event.dataTransfer.files;
+                    updateFilePreview(input);
+                });
+            });
+
+            wizard.querySelectorAll('[data-image-path]').forEach((input) => input.addEventListener('change', () => {
+                const preview = wizard.querySelector(`[data-image-preview="${input.dataset.imagePath}"]`);
+                if (preview && input.value) preview.src = input.value.startsWith('http') ? input.value : `/${input.value.replace(/^\//, '')}`;
+            }));
+
+            wizard.querySelectorAll('[data-open-media-library]').forEach((button) => button.addEventListener('click', () => {
+                activeMediaField = button.dataset.openMediaLibrary;
+                mediaDialog?.showModal();
+            }));
+            document.querySelector('[data-close-media-library]')?.addEventListener('click', () => mediaDialog?.close());
+            document.querySelectorAll('[data-media-choice]').forEach((choice) => choice.addEventListener('click', () => {
+                if (!activeMediaField) return;
+                const pathInput = wizard.querySelector(`[data-image-path="${activeMediaField}"]`);
+                const uploadInput = wizard.querySelector(`[data-image-upload="${activeMediaField}"]`);
+                const preview = wizard.querySelector(`[data-image-preview="${activeMediaField}"]`);
+                const status = wizard.querySelector(`[data-file-status="${activeMediaField}"]`);
+                if (pathInput) pathInput.value = choice.dataset.mediaChoice;
+                if (uploadInput) uploadInput.value = '';
+                if (preview) preview.src = choice.querySelector('img')?.src || '';
+                if (status) status.textContent = 'Selected from media library';
+                mediaDialog?.close();
+            }));
             showStep(activeStep);
         })();
     </script>

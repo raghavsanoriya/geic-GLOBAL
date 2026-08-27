@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CmsPage;
+use App\Models\CmsPageState;
 use App\Models\SiteContent;
 use App\Support\DestinationCatalog;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Schema;
 
 class MirrorPageController extends Controller
 {
@@ -44,7 +48,28 @@ class MirrorPageController extends Controller
             abort(404);
         }
 
-        if (preg_match('#^destinations/([^/]+)$#', $page, $matches) && $matches[1] !== 'australia') {
+        $customPage = null;
+
+        try {
+            if (Schema::hasTable('cms_pages')) {
+                $customPage = CmsPage::query()->where('path', $page)->first();
+            }
+        } catch (QueryException) {
+            // Public fixed pages must remain available during setup or migration.
+        }
+
+        if ($customPage) {
+            $pageState = CmsPageState::query()->where('page_key', $customPage->page_key)->first();
+            abort_unless($pageState?->status === 'published', 404);
+
+            return view('mirror.dynamic', [
+                'mirrorPage' => $page,
+                'customPage' => $customPage,
+                'cms' => SiteContent::publicValuesForPage($customPage->page_key),
+            ]);
+        }
+
+        if (preg_match('#^destinations/([^/]+)$#', $page, $matches)) {
             $destination = DestinationCatalog::find($matches[1]);
 
             abort_unless($destination, 404);
