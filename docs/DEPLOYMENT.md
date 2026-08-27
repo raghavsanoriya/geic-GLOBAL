@@ -5,7 +5,7 @@ This repository uses GitHub Actions, two protected environments, and atomic Lara
 ## Release flow
 
 1. Develop changes on a feature branch and merge them into `develop`.
-2. GitHub Actions validates Composer/PHP and builds frontend assets in parallel, then combines both results into the required `Test and build` gate.
+2. GitHub Actions runs the required `Test and build` PHP checks and the required `Frontend verification` asset checks in parallel. Production and staging deploy only after both pass.
 3. The same successful workflow deploys the exact `develop` commit automatically to `https://staging.geic.in`.
 4. Review and test staging, then open a pull request from `develop` to `main`.
 5. After the required checks pass and the pull request is merged, the same single workflow verifies `main` once and deploys it automatically to `https://www.geic.in`.
@@ -26,7 +26,7 @@ Define these variables in both environments:
 - `APP_URL`: environment URL without a trailing slash
 - `CPANEL_REPOSITORY_ROOT`: absolute cPanel-managed repository path
 
-Protect `main`: require a pull request and the `Test and build` status check, and block force pushes and branch deletion.
+Protect `main`: require a pull request plus the `Test and build` and `Frontend verification` status checks, and block force pushes and branch deletion.
 
 ## cPanel configuration
 

@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  php:
-    name: PHP verification
+  test:
+    name: Test and build
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -90,30 +90,9 @@ jobs:
             exit 1
           fi
 
-  test:
-    name: Test and build
-    needs: [php, frontend]
-    if: always()
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-
-    steps:
-      - name: Require every verification lane
-        env:
-          PHP_RESULT: ${{ needs.php.result }}
-          FRONTEND_RESULT: ${{ needs.frontend.result }}
-        run: |
-          if [[ "$PHP_RESULT" != "success" || "$FRONTEND_RESULT" != "success" ]]; then
-            echo "PHP verification: $PHP_RESULT" >&2
-            echo "Frontend verification: $FRONTEND_RESULT" >&2
-            exit 1
-          fi
-
-          echo "PHP and frontend verification passed."
-
   deploy:
     name: Release after verification
-    needs: test
+    needs: [test, frontend]
     if: github.event_name == 'push'
     uses: ./.github/workflows/release.yml
     with:
