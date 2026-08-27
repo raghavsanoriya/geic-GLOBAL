@@ -23,7 +23,6 @@ jobs:
     timeout-minutes: 10
     environment:
       name: ${{ inputs.target }}
-      url: ${{ vars.APP_URL }}
     concurrency:
       group: cpanel-${{ inputs.target }}
       cancel-in-progress: false
