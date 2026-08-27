@@ -140,6 +140,23 @@ cd "$release_dir"
 
 "$php_bin" artisan migrate --force
 "$php_bin" artisan admin:bootstrap --no-interaction
+
+# Keep the production lead store synchronized with the historical WordPress
+# submissions. The command upserts by the source submission identifier, so it
+# is safe to run again during every production release without creating
+# duplicate enquiries. Staging stays isolated from production customer data.
+if [[ "$branch_name" == "main" ]]; then
+    wordpress_config="/home2/geicic3c/public_html/wp-config.php"
+
+    if [[ -f "$wordpress_config" ]]; then
+        "$php_bin" artisan legacy:import-wordpress-leads \
+            --wp-config="$wordpress_config" \
+            --no-interaction
+    else
+        echo "WordPress configuration not found at $wordpress_config; legacy lead import skipped." >&2
+    fi
+fi
+
 "$php_bin" artisan optimize:clear
 "$php_bin" artisan storage:link
 "$php_bin" artisan config:cache
