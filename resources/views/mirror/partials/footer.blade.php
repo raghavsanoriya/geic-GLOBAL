@@ -107,6 +107,9 @@
                                                                                 <a href="{{ url('/services') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Our Services</span>
                                         </a>
+                                                                                <a href="{{ url('/events') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                            <span class="">Events</span>
+                                        </a>
                                                                                                                                                 <a href="{{ url('/scholarships') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Scholarships</span>
                                         </a>
