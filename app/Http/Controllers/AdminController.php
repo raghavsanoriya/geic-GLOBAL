@@ -89,6 +89,32 @@ class AdminController extends Controller
                 ->limit(5)
                 ->get()
             : collect();
+        $analyticsSince = DB::table('site_events')->min('created_at');
+        $pageViews = DB::table('site_events')->where('event_type', 'page_view')->count();
+        $uniqueVisitors = DB::table('site_events')->where('event_type', 'page_view')->whereNotNull('visitor_hash')->distinct()->count('visitor_hash');
+        $ctaClicks = DB::table('site_events')->whereIn('event_type', ['cta_click', 'outbound_click'])->count();
+        $trackedConversions = DB::table('site_events')->where('event_type', 'form_submit')->count();
+        $topPages = DB::table('site_events')
+            ->where('event_type', 'page_view')
+            ->select('path', DB::raw('count(*) as total'))
+            ->groupBy('path')
+            ->orderByDesc('total')
+            ->limit(5)
+            ->get();
+        $topCampaigns = DB::table('site_events')
+            ->whereNotNull('utm_campaign')
+            ->select('utm_campaign', DB::raw('count(*) as total'))
+            ->groupBy('utm_campaign')
+            ->orderByDesc('total')
+            ->limit(5)
+            ->get();
+        $leadSources = $canViewEnquiries
+            ? DB::table('counselling_enquiries')
+                ->select('source', DB::raw('count(*) as total'))
+                ->groupBy('source')
+                ->orderByDesc('total')
+                ->get()
+            : collect();
 
         return view('admin.dashboard', [
             'enquiries' => $query->paginate(15)->withQueryString(),
@@ -102,6 +128,15 @@ class AdminController extends Controller
                 ? DB::table('counselling_enquiries')->distinct()->orderBy('destination')->pluck('destination')
                 : collect(),
             'canViewEnquiries' => $canViewEnquiries,
+            'analyticsSince' => $analyticsSince,
+            'pageViews' => $pageViews,
+            'uniqueVisitors' => $uniqueVisitors,
+            'ctaClicks' => $ctaClicks,
+            'trackedConversions' => $trackedConversions,
+            'conversionRate' => $pageViews > 0 ? round(($trackedConversions / $pageViews) * 100, 1) : 0,
+            'topPages' => $topPages,
+            'topCampaigns' => $topCampaigns,
+            'leadSources' => $leadSources,
         ]);
     }
 
@@ -111,7 +146,7 @@ class AdminController extends Controller
 
         return response()->streamDownload(function () use ($enquiries): void {
             $stream = fopen('php://output', 'w');
-            fputcsv($stream, ['Received', 'Student', 'Email', 'Phone', 'Destination', 'City', 'Study level', 'Intake', 'Course', 'English test', 'Message', 'Source page']);
+            fputcsv($stream, ['Received', 'Student', 'Email', 'Phone', 'Destination', 'City', 'Study level', 'Intake', 'Course', 'English test', 'Message', 'Source', 'Source form', 'Source page', 'UTM source', 'UTM medium', 'UTM campaign']);
 
             foreach ($enquiries as $enquiry) {
                 fputcsv($stream, [
@@ -126,7 +161,12 @@ class AdminController extends Controller
                     $enquiry->preferred_course,
                     $enquiry->english_test,
                     $enquiry->message,
+                    $enquiry->source,
+                    $enquiry->source_form,
                     $enquiry->source_page,
+                    $enquiry->utm_source,
+                    $enquiry->utm_medium,
+                    $enquiry->utm_campaign,
                 ]);
             }
 
@@ -146,6 +186,7 @@ class AdminController extends Controller
             'today' => DB::table('counselling_enquiries')->whereDate('created_at', today())->count(),
             'week' => DB::table('counselling_enquiries')->where('created_at', '>=', now()->subDays(6)->startOfDay())->count(),
             'destinationOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('destination')->pluck('destination'),
+            'sourceOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('source')->pluck('source'),
         ]);
     }
 
@@ -157,6 +198,7 @@ class AdminController extends Controller
             'matchingCount' => $this->filteredEnquiries($request)->count(),
             'total' => DB::table('counselling_enquiries')->count(),
             'destinationOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('destination')->pluck('destination'),
+            'sourceOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('source')->pluck('source'),
         ]);
     }
 
@@ -449,6 +491,7 @@ class AdminController extends Controller
                 });
             })
             ->when($request->filled('destination'), fn ($query) => $query->where('destination', $request->string('destination')->toString()))
+            ->when($request->filled('source'), fn ($query) => $query->where('source', $request->string('source')->toString()))
             ->orderByDesc('created_at');
     }
 
