@@ -69,6 +69,7 @@ if [[ -e "$release_dir" ]]; then
 fi
 
 mkdir "$release_dir"
+chmod 0755 "$release_dir"
 tar \
     --exclude=.git \
     --exclude=.env \
@@ -187,6 +188,7 @@ if [[ "$health_ok" != true ]]; then
 
         echo "Restored previous release: $previous_target" >&2
     else
+        rm -f -- "$current_link"
         echo "No previous release was available for rollback." >&2
     fi
 
