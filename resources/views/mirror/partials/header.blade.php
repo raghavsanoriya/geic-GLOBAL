@@ -1,3 +1,4 @@
+@php($siteCms = $siteCms ?? [])
 <!DOCTYPE html>
 <html lang="en">
 
@@ -454,11 +455,11 @@
 
                             <div class="d-flex align-items-center">
                                             <a href="{{ url('/#why-trans-globe') }}" class="d-flex align-items-center text-white opacity-75">
-                                            <span class="">About GEIC Indore</span>
+                                            <span class="">{{ $siteCms['header_about_label'] ?? 'About GEIC Indore' }}</span>
                                         </a>
 
                                                                             <a href="{{ url('/contact') }}" class="d-flex align-items-center text-white opacity-75 ml-32">
-                                            <span class="">Contact</span>
+                                            <span class="">{{ $siteCms['header_contact_label'] ?? 'Contact' }}</span>
                                         </a>
                                                                                                 </div>
 
@@ -697,11 +698,11 @@
 
                 <div class="col-12 col-lg-6 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="{{ url('/') }}" class="text-dark">Home</a>
-                                                            <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
-                                                            <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">Services</a>
-                                                            <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">Scholarships</a>
-                                                            <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">Test Prep</a>
+                                                            <a href="{{ url('/') }}" class="text-dark">{{ $siteCms['header_nav_home'] ?? 'Home' }}</a>
+                                                            <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_destinations'] ?? 'Destinations' }}</a>
+                                                            <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_services'] ?? 'Services' }}</a>
+                                                            <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
+                                                            <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
                                                     </div>
                                     </div>
 
@@ -712,7 +713,7 @@
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
 </svg>
-                            <span class="btn-flip-effect__text text-white">Speak to a Counsellor</span>
+                            <span class="btn-flip-effect__text text-white">{{ $siteCms['header_cta_label'] ?? 'Speak to a Counsellor' }}</span>
                         </a>
                                     </div>
 
@@ -722,6 +723,4 @@
 </div>
     </div>
         </div>
-
-
 

@@ -7,11 +7,62 @@ class CmsPageCatalog
     public static function all(): array
     {
         $pages = [
-            self::page('home', 'Home page', 'The main GEIC / Trans Globe landing page', [
-                self::field('hero_eyebrow', 'Hero eyebrow', 'Since 1992 · Built on trust'),
-                self::field('hero_title', 'Hero title', 'Shape Your Ambition Into International Success'),
-                self::field('hero_copy', 'Hero description', 'At Trans Globe Indore, managed by GEIC, every student and every dream matters.' , 'textarea'),
-                self::field('hero_image', 'Hero image URL', 'store/landing_builder/landing_13/371/hero_image_j5t.png', 'image'),
+            self::page('home', 'Home page', 'Manage the header, hero, main content, conversion CTA and footer of the landing page.', [
+                self::field('header_about_label', 'About link label', 'About GEIC Indore', 'text', 'Header & navigation'),
+                self::field('header_contact_label', 'Contact link label', 'Contact', 'text', 'Header & navigation'),
+                self::field('header_cta_label', 'Header button label', 'Speak to a Counsellor', 'text', 'Header & navigation'),
+                self::field('header_nav_home', 'Home navigation label', 'Home', 'text', 'Header & navigation'),
+                self::field('header_nav_destinations', 'Destinations navigation label', 'Destinations', 'text', 'Header & navigation'),
+                self::field('header_nav_services', 'Services navigation label', 'Services', 'text', 'Header & navigation'),
+                self::field('header_nav_scholarships', 'Scholarships navigation label', 'Scholarships', 'text', 'Header & navigation'),
+                self::field('header_nav_tests', 'Test-prep navigation label', 'Test Prep', 'text', 'Header & navigation'),
+                self::field('hero_eyebrow', 'Hero eyebrow', 'Since 1992', 'text', 'Hero'),
+                self::field('hero_trust_line', 'Hero trust line', 'Built on trust. Driven by student success.', 'text', 'Hero'),
+                self::field('hero_title', 'Hero title', 'Shape Your Ambition Into International Success', 'text', 'Hero'),
+                self::field('hero_copy', 'Hero description', 'At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.', 'textarea', 'Hero'),
+                self::field('hero_image', 'Hero image URL', 'store/landing_builder/landing_13/371/hero_image_j5t.png', 'image', 'Hero'),
+                self::field('hero_primary_cta_label', 'Primary button label', 'Book Free Counselling', 'text', 'Hero CTA'),
+                self::field('hero_primary_cta_url', 'Primary button link', '#contact', 'text', 'Hero CTA'),
+                self::field('hero_secondary_cta_label', 'Secondary button label', 'Explore Destinations', 'text', 'Hero CTA'),
+                self::field('hero_secondary_cta_url', 'Secondary button link', '/destinations', 'text', 'Hero CTA'),
+                self::field('hero_proof_title', 'Trust badge headline', '70,250+ students placed worldwide', 'text', 'Hero CTA'),
+                self::field('hero_proof_copy', 'Trust badge description', 'Across leading universities in 10+ countries', 'text', 'Hero CTA'),
+                self::field('journey_eyebrow', 'Section eyebrow', 'How it works', 'text', 'Journey section'),
+                self::field('journey_title', 'Section title', 'Four Simple Steps to Study Abroad', 'text', 'Journey section'),
+                self::field('journey_copy', 'Section description', 'From your first conversation to the day you board your flight, Trans Globe Indore makes the process clear, personal and manageable.', 'textarea', 'Journey section'),
+                self::field('journey_step_one_title', 'Step 1 title', 'Tell Us About Yourself', 'text', 'Journey section'),
+                self::field('journey_step_one_copy', 'Step 1 description', 'Share your academic background, interests, preferred countries and career goals. This first conversation helps us understand where you want to go.', 'textarea', 'Journey section'),
+                self::field('journey_step_two_title', 'Step 2 title', 'Meet a Specialist', 'text', 'Journey section'),
+                self::field('journey_step_two_copy', 'Step 2 description', 'Work with a country-and-course specialist to shortlist universities, explore scholarships and build a plan that suits your profile and budget.', 'textarea', 'Journey section'),
+                self::field('journey_step_three_title', 'Step 3 title', 'Apply With Confidence', 'text', 'Journey section'),
+                self::field('journey_step_three_copy', 'Step 3 description', 'We help with your SOP, recommendations, transcripts, documents and application forms so every submission is complete and compelling.', 'textarea', 'Journey section'),
+                self::field('journey_step_four_title', 'Step 4 title', 'Get Your Visa & Go', 'text', 'Journey section'),
+                self::field('journey_step_four_copy', 'Step 4 description', 'Our visa team prepares your documents, finances and interview answers so you can travel knowing everything is in order.', 'textarea', 'Journey section'),
+                self::field('services_eyebrow', 'Section eyebrow', 'Our services', 'text', 'Services section'),
+                self::field('services_title', 'Section title', 'Everything You Need, Under One Roof', 'text', 'Services section'),
+                self::field('services_copy', 'Section description', 'Trans Globe Indore supports your complete journey—from your first exam and university application to your arrival in a new country.', 'textarea', 'Services section'),
+                self::field('services_cta_label', 'Section button label', 'Discuss Your Study Plan', 'text', 'Services section'),
+                self::field('services_cta_url', 'Section button link', '#contact', 'text', 'Services section'),
+                self::field('destinations_eyebrow', 'Section eyebrow', 'Where will you thrive?', 'text', 'Destinations section'),
+                self::field('destinations_title', 'Section title', 'Explore the World’s Best Study Destinations', 'text', 'Destinations section'),
+                self::field('destinations_copy', 'Section description', 'From research-led universities to affordable public education and strong post-study pathways, discover the destination that best fits your future.', 'textarea', 'Destinations section'),
+                self::field('contact_eyebrow', 'CTA badge', 'Free, no-pressure guidance', 'text', 'Conversion CTA'),
+                self::field('contact_title', 'CTA title', 'Your Journey Starts With One Conversation', 'text', 'Conversion CTA'),
+                self::field('contact_copy', 'CTA description', 'You do not need to have everything figured out. Tell us where you are today, and we will explain your options honestly and help you take the next step.', 'textarea', 'Conversion CTA'),
+                self::field('contact_button_label', 'CTA button label', 'Speak to Our Indore Counsellor', 'text', 'Conversion CTA'),
+                self::field('contact_phone', 'Phone number', '+91 98266 66886', 'text', 'Conversion CTA'),
+                self::field('contact_email', 'Email address', 'info@geic.in', 'text', 'Conversion CTA'),
+                self::field('contact_address', 'Office address', 'Office No. 503, THE VIEW Tower 1, Yeshwant Niwas Rd, above Jade Blue Showroom, Nehru Park 2, Lad Colony, Indore, Madhya Pradesh 452001', 'textarea', 'Conversion CTA'),
+                self::field('footer_newsletter_title', 'Newsletter title', 'Stay in the Study-Abroad Loop', 'text', 'Footer'),
+                self::field('footer_newsletter_copy', 'Newsletter description', 'Get visa updates, scholarship alerts and honest study-abroad advice in your inbox.', 'textarea', 'Footer'),
+                self::field('footer_newsletter_button', 'Newsletter button label', 'Join', 'text', 'Footer'),
+                self::field('footer_badge', 'Footer badge text', 'Your journey with Trans Globe Indore starts here', 'text', 'Footer'),
+                self::field('footer_title', 'Footer title', 'Start With GEIC Indore', 'text', 'Footer'),
+                self::field('footer_cta_label', 'Footer button label', 'Book Free Counselling', 'text', 'Footer'),
+                self::field('footer_cta_url', 'Footer button link', '/contact#enquiry', 'text', 'Footer'),
+                self::field('footer_contact_heading', 'Contact column heading', 'Contact Us', 'text', 'Footer'),
+                self::field('footer_hours', 'Office hours', 'Mon to Sat: 10:00 AM–6:30 PM', 'text', 'Footer'),
+                self::field('footer_copyright', 'Footer copyright', '© 2026 Trans Globe Indore, managed by GEIC. Your trusted partner for global education.', 'textarea', 'Footer'),
             ]),
             self::page('destinations', 'Destinations', 'Country listing and destination discovery page', [
                 self::field('hero_title', 'Hero title', 'Find the country that fits your ambition'),
@@ -64,6 +115,7 @@ class CmsPageCatalog
                 return $page;
             }
         }
+
         return null;
     }
 
@@ -81,8 +133,8 @@ class CmsPageCatalog
         ]);
     }
 
-    private static function field(string $key, string $label, string $default, string $type = 'text'): array
+    private static function field(string $key, string $label, string $default, string $type = 'text', string $section = 'Hero'): array
     {
-        return compact('key', 'label', 'default', 'type');
+        return compact('key', 'label', 'default', 'type', 'section');
     }
 }

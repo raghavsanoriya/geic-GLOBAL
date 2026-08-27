@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use App\Models\SiteContent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -79,11 +78,22 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Manage website content');
 
         $this->actingAs($admin)
+            ->get('/admin/pages/home')
+            ->assertOk()
+            ->assertSee('Header & navigation')
+            ->assertSee('Conversion CTA')
+            ->assertSee('Footer copyright');
+
+        $this->actingAs($admin)
             ->put('/admin/pages/home', ['content' => [
                 'hero_eyebrow' => 'Trusted since 1992',
                 'hero_title' => 'A practical international future',
                 'hero_copy' => 'Content managed from the GEIC dashboard.',
                 'hero_image' => 'assets/transglobe/services/services-team.avif',
+                'header_nav_services' => 'Support services',
+                'hero_primary_cta_label' => 'Start my study plan',
+                'journey_step_two_title' => 'Build your shortlist',
+                'footer_cta_label' => 'Plan with our team',
             ]])
             ->assertRedirect('/admin/pages/home');
 
@@ -92,9 +102,18 @@ class AdminDashboardTest extends TestCase
             'field_key' => 'hero_title',
             'value' => 'A practical international future',
         ]);
+        $this->assertDatabaseHas('site_contents', [
+            'page_key' => 'home',
+            'field_key' => 'footer_cta_label',
+            'value' => 'Plan with our team',
+        ]);
 
         $this->get('/')
             ->assertOk()
-            ->assertSee('A practical international future');
+            ->assertSee('A practical international future')
+            ->assertSee('Support services')
+            ->assertSee('Start my study plan')
+            ->assertSee('Build your shortlist')
+            ->assertSee('Plan with our team');
     }
 }
