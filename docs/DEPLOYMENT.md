@@ -5,7 +5,7 @@ This repository uses GitHub Actions, two protected environments, and atomic Lara
 ## Release flow
 
 1. Develop changes on a feature branch and merge them into `develop`.
-2. GitHub Actions validates Composer, builds assets, checks formatting, and runs the test suite once.
+2. GitHub Actions validates Composer/PHP and builds frontend assets in parallel, then combines both results into the required `Test and build` gate.
 3. The same successful workflow deploys the exact `develop` commit automatically to `https://staging.geic.in`.
 4. Review and test staging, then open a pull request from `develop` to `main`.
 5. After the required checks pass and the pull request is merged, the same single workflow verifies `main` once and deploys it automatically to `https://www.geic.in`.
@@ -65,4 +65,6 @@ The deployment is idempotent for an already-active commit. It prepares a release
 
 Production dependencies are cached by the combined `composer.json` and `composer.lock` hash. An unchanged dependency set is restored locally on cPanel instead of being downloaded again. The historical WordPress importer runs in incremental mode during production releases, so already-imported leads are not read and rewritten on every deployment.
 
-Node and npm are pinned by `.node-version` and `package.json`. This keeps Vite output identical locally and in CI and prevents cross-version asset hash failures. Older branch runs are cancelled before deployment; only the newest verified commit for each environment can activate.
+Node and npm are pinned by `.node-version` and `package.json`. This keeps Vite output identical locally and in CI and prevents cross-version asset hash failures. Pull-request runs are superseded when newer commits arrive, while branch deployments are serialized so remote cPanel activations never overlap.
+
+Public route smoke tests use four bounded workers after the expected release SHA becomes active. This keeps broad route coverage without paying for each network round trip sequentially.
