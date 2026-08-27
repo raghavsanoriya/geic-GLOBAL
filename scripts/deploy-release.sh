@@ -139,6 +139,7 @@ cd "$release_dir"
     --optimize-autoloader
 
 "$php_bin" artisan migrate --force
+"$php_bin" artisan admin:bootstrap --no-interaction
 "$php_bin" artisan optimize:clear
 "$php_bin" artisan storage:link
 "$php_bin" artisan config:cache
