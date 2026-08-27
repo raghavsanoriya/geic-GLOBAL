@@ -11,7 +11,9 @@ permissions:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Cancelling a PR build is safe. Once a branch push starts a remote cPanel
+  # release, let it finish so a second deployment cannot overlap it.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   test:
@@ -31,10 +33,17 @@ jobs:
           coverage: none
           tools: composer:v2
 
+      - name: Cache Composer downloads
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/composer/files
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
+
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version-file: '.node-version'
           cache: npm
 
       - name: Validate Composer files
@@ -71,3 +80,14 @@ jobs:
 
       - name: Run application tests
         run: php artisan test --compact
+
+  deploy:
+    name: Release after verification
+    needs: test
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/release.yml
+    with:
+      target: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
+      source_branch: ${{ github.ref_name }}
+      expected_sha: ${{ github.sha }}
+    secrets: inherit
