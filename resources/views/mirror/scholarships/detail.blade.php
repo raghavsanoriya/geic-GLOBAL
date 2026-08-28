@@ -1,9 +1,11 @@
 @include('mirror.partials.header')
 @include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/scholarships'), 'mobileBackLabel' => 'Back to scholarships'])
-@php($detailUrl = url()->current())
-@php($scholarshipDestination = \App\Support\DestinationCatalog::find($scholarship['slug']))
-@php($scholarshipMedia = $scholarshipDestination['gallery'] ?? [['src' => $scholarship['image'], 'alt' => $scholarship['image_alt'], 'label' => 'Scholarship planning'], ['src' => 'assets/transglobe/services/services-team.avif', 'alt' => 'Counsellors planning a study-abroad route', 'label' => 'Expert guidance'], ['src' => 'assets/transglobe/services/services-campus.avif', 'alt' => 'International university campus', 'label' => 'Your future campus']])
-@php($scholarshipUniversities = $scholarshipDestination['universities'] ?? \App\Support\DetailPageAssets::universityNetwork())
+@php
+    $detailUrl = url()->current();
+    $scholarshipDestination = \App\Support\DestinationCatalog::find($scholarship['slug']);
+    $scholarshipMedia = $scholarshipDestination['gallery'] ?? [['src' => $scholarship['image'], 'alt' => $scholarship['image_alt'], 'label' => 'Scholarship planning'], ['src' => 'assets/transglobe/services/services-team.avif', 'alt' => 'Counsellors planning a study-abroad route', 'label' => 'Expert guidance'], ['src' => 'assets/transglobe/services/services-campus.avif', 'alt' => 'International university campus', 'label' => 'Your future campus']];
+    $scholarshipUniversities = $scholarshipDestination['universities'] ?? \App\Support\DetailPageAssets::universityNetwork();
+@endphp
 @php
     $awards = [];
     foreach (range(1, 4) as $n) { if (!empty($cms["award_{$n}_title"] ?? null)) { $awards[] = [$cms["award_{$n}_title"], $cms["award_{$n}_copy"] ?? '']; } }
