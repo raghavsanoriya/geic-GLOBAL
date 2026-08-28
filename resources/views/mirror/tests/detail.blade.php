@@ -1,8 +1,10 @@
 @include('mirror.partials.header')
 @include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/tests'), 'mobileBackLabel' => 'Back to test prep'])
-@php($detailUrl = url()->current())
-@php($testMedia = \App\Support\DetailPageAssets::testGallery($test))
-@php($testUniversities = \App\Support\DetailPageAssets::universityNetwork())
+@php
+    $detailUrl = url()->current();
+    $testMedia = \App\Support\DetailPageAssets::testGallery($test);
+    $testUniversities = \App\Support\DetailPageAssets::universityNetwork();
+@endphp
 @php
     $modules = [];
     foreach ($test['modules'] as $i => $module) { $n = $i + 1; $modules[] = [$cms["module_{$n}_title"] ?? $module[0], $cms["module_{$n}_copy"] ?? $module[1]]; }
