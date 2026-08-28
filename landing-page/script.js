@@ -104,6 +104,73 @@ if (heroSlides.length && heroSlideButtons.length) {
   startHeroSlider();
 }
 
+const universityMarquee = document.querySelector("[data-university-marquee]");
+const universityMarqueeToggle = document.querySelector("[data-marquee-toggle]");
+
+if (universityMarquee) {
+  const track = universityMarquee.querySelector("[data-university-track]");
+  const group = universityMarquee.querySelector("[data-university-group]");
+  const toggleLabel = universityMarqueeToggle?.querySelector("[data-marquee-toggle-label]");
+  const toggleIcon = universityMarqueeToggle?.querySelector("[data-marquee-toggle-icon]");
+  let clonedGroup;
+
+  universityMarquee.querySelectorAll("img").forEach((image) => {
+    image.loading = "eager";
+  });
+
+  const ensureMarqueeClone = () => {
+    if (!track || !group || clonedGroup) return;
+
+    clonedGroup = group.cloneNode(true);
+    clonedGroup.classList.add("university-partners-group-clone");
+    clonedGroup.setAttribute("aria-hidden", "true");
+    clonedGroup.querySelectorAll("img").forEach((image) => {
+      image.alt = "";
+    });
+    track.appendChild(clonedGroup);
+  };
+
+  const removeMarqueeClone = () => {
+    clonedGroup?.remove();
+    clonedGroup = undefined;
+  };
+
+  const setMarqueePaused = (paused) => {
+    universityMarquee.classList.toggle("is-paused", paused);
+    universityMarqueeToggle?.setAttribute("aria-pressed", String(paused));
+
+    if (toggleLabel) toggleLabel.textContent = paused ? "Resume logos" : "Pause logos";
+    if (toggleIcon) {
+      toggleIcon.setAttribute("d", paused ? "M6 4l10 6-10 6z" : "M6 4h3v12H6zM11 4h3v12h-3z");
+    }
+  };
+
+  const syncMarqueeMotionPreference = () => {
+    if (reducedMotion.matches) {
+      removeMarqueeClone();
+      setMarqueePaused(true);
+      if (universityMarqueeToggle) universityMarqueeToggle.hidden = true;
+      return;
+    }
+
+    ensureMarqueeClone();
+    setMarqueePaused(false);
+    if (universityMarqueeToggle) universityMarqueeToggle.hidden = false;
+  };
+
+  universityMarqueeToggle?.addEventListener("click", () => {
+    setMarqueePaused(!universityMarquee.classList.contains("is-paused"));
+  });
+
+  syncMarqueeMotionPreference();
+
+  if (typeof reducedMotion.addEventListener === "function") {
+    reducedMotion.addEventListener("change", syncMarqueeMotionPreference);
+  } else {
+    reducedMotion.addListener(syncMarqueeMotionPreference);
+  }
+}
+
 if (bottomNavLinks.length && "IntersectionObserver" in window) {
   const bottomNavSections = [...bottomNavLinks]
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -224,7 +291,7 @@ if (profileForm && formStatus) {
     formStatus.classList.remove("is-visible");
 
     try {
-      const response = await fetch("/landing/form-handler.php", {
+      const response = await fetch(profileForm.dataset.endpoint || "/landing/form-handler.php", {
         method: "POST",
         headers: {
           Accept: "application/json",

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CmsPage;
+use App\Models\CmsPageState;
 use App\Support\DestinationCatalog;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -16,6 +18,23 @@ class CounsellingEnquiryController extends Controller
      * Store the standalone campaign landing-page profile request.
      */
     public function storeLanding(Request $request): JsonResponse
+    {
+        return $this->storePromotional($request, '/landing');
+    }
+
+    public function storePromotion(Request $request, string $promotion): JsonResponse
+    {
+        $page = CmsPage::query()
+            ->where('group', 'promotions')
+            ->where('slug', $promotion)
+            ->firstOrFail();
+        $state = CmsPageState::query()->where('page_key', $page->page_key)->first();
+        abort_unless($state?->status === 'published', 404);
+
+        return $this->storePromotional($request, '/'.$page->path);
+    }
+
+    private function storePromotional(Request $request, string $sourcePage): JsonResponse
     {
         if ($request->filled('website')) {
             return response()->json([
@@ -46,13 +65,13 @@ class CounsellingEnquiryController extends Controller
             'preferred_course' => null,
             'english_test' => 'Not sure yet',
             'message' => 'Academic score: '.$data['score'],
-            'source_page' => '/landing',
+            'source_page' => $sourcePage,
             ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        $this->recordConversion($request, '/landing', $data['country']);
+        $this->recordConversion($request, $sourcePage, $data['country']);
 
         return response()->json([
             'success' => true,
