@@ -376,7 +376,7 @@ class CmsPageCatalog
             $pages[] = self::scholarshipDetail($item);
         }
         foreach (TestPrepCatalog::all() as $item) {
-            $pages[] = self::detail('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $item['title'], $item['summary'], $item['image']);
+            $pages[] = self::testDetail($item);
         }
 
         $pages[] = self::promotionPage(
@@ -627,6 +627,55 @@ class CmsPageCatalog
         $fields[] = self::field('cta_label', 'CTA button label', 'Book my free scholarship counselling', 'text', 'Call to action');
 
         return self::page('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', $fields);
+    }
+
+    private static function testDetail(array $item): array
+    {
+        $fields = self::detail('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('hero_eyebrow', 'Hero eyebrow', $item['eyebrow'], 'text', 'Hero');
+        $fields[] = self::field('hero_primary_cta', 'Hero primary button', 'Plan my preparation', 'text', 'Hero');
+        $fields[] = self::field('hero_secondary_cta', 'Hero secondary button', 'See the test format', 'text', 'Hero');
+        $fields[] = self::field('overview_kicker', 'Overview eyebrow', 'Know your exam', 'text', 'Overview');
+        $fields[] = self::field('overview_title', 'Overview title', 'Understand the format before you start your preparation.', 'text', 'Overview');
+        $fields[] = self::field('overview_copy', 'Overview content', $item['overview'], 'textarea', 'Overview');
+        $fields[] = self::field('facts_note', 'Exam facts note', $item['facts_note'], 'textarea', 'Overview');
+        $fields[] = self::field('overview_cta', 'Overview button label', 'See how we help', 'text', 'Overview');
+        $fields[] = self::field('gallery_eyebrow', 'Gallery eyebrow', 'Preparation in focus', 'text', 'Gallery');
+        $fields[] = self::field('gallery_title', 'Gallery title', 'Turn practice into a confident application milestone.', 'text', 'Gallery');
+        $fields[] = self::field('gallery_copy', 'Gallery description', 'Your test result matters most when it is planned around your course, university requirements and chosen intake.', 'textarea', 'Gallery');
+        $fields[] = self::field('modules_kicker', 'Format eyebrow', 'Test format', 'text', 'Test format');
+        $fields[] = self::field('modules_title', 'Format title', 'The areas you will prepare for.', 'text', 'Test format');
+        $fields[] = self::field('modules_copy', 'Format description', 'Every test is different. Knowing the sections first helps you create a study plan that spends time where it will matter most.', 'textarea', 'Test format');
+        foreach ($item['modules'] as $index => [$title, $copy]) {
+            $n = $index + 1;
+            $fields[] = self::field("module_{$n}_title", "Test area {$n} title", $title, 'text', 'Test format');
+            $fields[] = self::field("module_{$n}_copy", "Test area {$n} description", $copy, 'textarea', 'Test format');
+        }
+        $fields[] = self::field('support_kicker', 'Preparation eyebrow', 'Your preparation path', 'text', 'Preparation');
+        $fields[] = self::field('support_title', 'Preparation title', 'Build the score plan around your actual application.', 'text', 'Preparation');
+        $fields[] = self::field('support_copy', 'Preparation description', 'Your test strategy should work with your university shortlist, document schedule and planned intake — not sit separately from them.', 'textarea', 'Preparation');
+        foreach ($item['support'] as $index => [$title, $copy]) {
+            $n = $index + 1;
+            $fields[] = self::field("support_{$n}_title", "Preparation step {$n} title", $title, 'text', 'Preparation');
+            $fields[] = self::field("support_{$n}_copy", "Preparation step {$n} description", $copy, 'textarea', 'Preparation');
+        }
+        $fields[] = self::field('universities_kicker', 'Universities eyebrow', 'University network', 'text', 'Universities');
+        $fields[] = self::field('universities_title', 'Universities title', 'Plan for the institutions on your shortlist.', 'text', 'Universities');
+        $fields[] = self::field('universities_copy', 'Universities description', 'We help you verify the current test and score expectations for each university before you book or submit your result.', 'textarea', 'Universities');
+        $fields[] = self::field('faq_kicker', 'FAQ eyebrow', 'Common questions', 'text', 'FAQs');
+        $fields[] = self::field('faq_title', 'FAQ title', 'Answers before you book.', 'text', 'FAQs');
+        $fields[] = self::field('faq_copy', 'FAQ description', 'Requirements vary by university and programme. A counselling conversation can help you verify your test choice before you begin.', 'textarea', 'FAQs');
+        foreach ($item['faqs'] as $index => [$question, $answer]) {
+            $n = $index + 1;
+            $fields[] = self::field("faq_{$n}_question", "FAQ {$n} question", $question, 'text', 'FAQs');
+            $fields[] = self::field("faq_{$n}_answer", "FAQ {$n} answer", $answer, 'textarea', 'FAQs');
+        }
+        $fields[] = self::field('cta_kicker', 'CTA eyebrow', 'Start with the right plan', 'text', 'Call to action');
+        $fields[] = self::field('cta_title', 'CTA heading', 'Get clear on your '.$item['title'].' preparation and application timeline.', 'text', 'Call to action');
+        $fields[] = self::field('cta_copy', 'CTA description', 'Tell us where you want to study, what you plan to study and your target intake. We’ll help you decide the most practical next step.', 'textarea', 'Call to action');
+        $fields[] = self::field('cta_label', 'CTA button label', 'Book free counselling', 'text', 'Call to action');
+
+        return self::page('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $fields);
     }
 
     private static function destinationFields(array $item): array
