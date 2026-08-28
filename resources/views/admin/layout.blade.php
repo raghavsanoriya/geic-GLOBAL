@@ -280,11 +280,12 @@
         }
         let panel;
         button.addEventListener('click', () => {
-            if (!panel) { panel = document.createElement('div'); panel.className = 'notification-panel'; panel.style.position = 'fixed'; panel.style.top = '72px'; panel.style.right = '28px'; panel.innerHTML = '<div class="notification-panel__head">Recent enquiries</div>' + (leads.length ? leads.map(lead => `<a class="notification-item" href="/admin/enquiries?q=${encodeURIComponent(lead.email || '')}"><strong>${lead.full_name || 'New enquiry'}</strong><small>${lead.destination || 'Destination not specified'} · ${lead.source_page || 'Path not captured'}</small></a>`).join('') : '<div class="notification-empty">No enquiries yet.</div>'); document.body.appendChild(panel); }
+            if (!panel) { panel = document.createElement('div'); panel.className = 'notification-panel'; panel.style.position = 'fixed'; panel.style.top = '72px'; panel.style.right = '28px'; panel.hidden = true; panel.innerHTML = '<div class="notification-panel__head">Recent enquiries</div>' + (leads.length ? leads.map(lead => `<a class="notification-item" href="/admin/enquiries?q=${encodeURIComponent(lead.email || '')}"><strong>${lead.full_name || 'New enquiry'}</strong><small>${lead.destination || 'Destination not specified'} · ${lead.source_page || 'Path not captured'}</small></a>`).join('') : '<div class="notification-empty">No enquiries yet.</div>'); document.body.appendChild(panel); }
             panel.hidden = !panel.hidden;
             button.setAttribute('aria-expanded', String(!panel.hidden));
         });
         document.addEventListener('click', event => { if (panel && !panel.hidden && !panel.contains(event.target) && event.target !== button) panel.hidden = true; });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && panel && !panel.hidden) { panel.hidden = true; button.setAttribute('aria-expanded', 'false'); button.focus(); } });
     })();
     </script>
     @endcan
