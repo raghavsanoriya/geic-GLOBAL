@@ -716,7 +716,7 @@ class CmsPageCatalog
             self::field('hero_title', 'Hero title', 'Study in '.$name),
             self::field('hero_copy', 'Hero description', $item['tagline'], 'textarea'),
             self::field('hero_image', 'Hero image URL', $item['hero'], 'image'),
-            self::field('thumbnail_image', 'Listing thumbnail image', $item['card'], 'image', 'Page thumbnail'),
+            self::field('thumbnail_image', 'Listing thumbnail image', $item['hero'], 'image', 'Page thumbnail'),
             self::field('hero_image_alt', 'Hero image alt text', 'Study in '.$name),
             self::field('hero_image_position', 'Hero image position', $item['hero_position']),
             self::field('flag_image', 'Country flag image URL', 'assets/transglobe/destinations/flags/'.$item['flag'], 'image'),
