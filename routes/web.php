@@ -6,11 +6,16 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\MirrorPageController;
 use App\Http\Controllers\SiteAnalyticsController;
+use App\Http\Controllers\StudyAssistantController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/site-events', [SiteAnalyticsController::class, 'store'])
     ->middleware('throttle:90,1')
     ->name('site-events.store');
+
+Route::post('/study-assistant/chat', [StudyAssistantController::class, 'chat'])
+    ->middleware('throttle:30,1')
+    ->name('study-assistant.chat');
 
 Route::post('/destinations/australia/enquire', [CounsellingEnquiryController::class, 'storeAustralia'])
     ->middleware('throttle:10,1')
@@ -45,6 +50,15 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
         Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
         Route::middleware('can:content.manage')->group(function (): void {
+            Route::get('/blogs', [AdminController::class, 'blogs'])->name('blogs.index');
+            Route::get('/blogs/create', [AdminController::class, 'blogsCreate'])->name('blogs.create');
+            Route::post('/blogs', [AdminController::class, 'blogsStore'])->name('blogs.store');
+            Route::get('/blogs/{blog}/edit', [AdminController::class, 'blogsEdit'])->name('blogs.edit');
+            Route::put('/blogs/{blog}', [AdminController::class, 'blogsUpdate'])->name('blogs.update');
+            Route::post('/blogs/{blog}/publish', [AdminController::class, 'blogsPublish'])->name('blogs.publish');
+            Route::post('/blogs/{blog}/unpublish', [AdminController::class, 'blogsUnpublish'])->name('blogs.unpublish');
+            Route::delete('/blogs/{blog}', [AdminController::class, 'blogsDestroy'])->name('blogs.destroy');
+
             Route::get('/forms', [AdminController::class, 'forms'])->name('forms.index');
             Route::get('/forms/create', [AdminController::class, 'formsCreate'])->name('forms.create');
             Route::post('/forms', [AdminController::class, 'formsStore'])->name('forms.store');
@@ -69,6 +83,8 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
             Route::get('/media', [AdminController::class, 'media'])->name('media.index');
             Route::post('/media', [AdminController::class, 'storeMedia'])->middleware('throttle:12,1')->name('media.store');
             Route::post('/media/folders', [AdminController::class, 'createMediaFolder'])->name('media.folders.store');
+            Route::patch('/media/folders/{folder}', [AdminController::class, 'renameMediaFolder'])->where('folder', '[^/]+')->name('media.folders.update');
+            Route::delete('/media/folders/{folder}', [AdminController::class, 'deleteMediaFolder'])->where('folder', '[^/]+')->name('media.folders.destroy');
         });
 
         Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');

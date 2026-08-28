@@ -131,6 +131,60 @@
     .tg-contact-card { background: var(--secondary); background-image: url('store/themes/footers/2/footer_background_7gn.png'); border-radius: 32px; padding: 56px; color: #fff; overflow: hidden; }
     .tg-contact-pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 10px 16px; color: #fff; }
     .tg-mobile-app-bar, .tg-mobile-discovery, .tg-mobile-bottom-nav, .tg-mobile-drawer, .tg-mobile-drawer-backdrop { display: none; }
+
+    /* Keep the original hero layout while allowing the highlighted word to
+       rotate. Use the Trans Globe red for the homepage emphasis. */
+    .home-page .tg-hero-rotating-word,
+    .home-page .tg-hero-accent { color: #E31E24 !important; }
+    .home-page .tg-hero-rotating-word {
+        display: inline-block;
+        min-width: 4.8ch;
+        transition: opacity .22s ease, transform .22s ease;
+    }
+    .home-page .tg-hero-rotating-word.is-changing { opacity: 0; transform: translateY(.18em); }
+    .home-page .two-columns-hero-section .text-primary { color: #E31E24 !important; }
+    .home-page .two-columns-hero-section .btn-primary { background-color: #E31E24; border-color: #E31E24; }
+    .home-page .two-columns-hero-section .btn-primary:hover { background-color: #b8171b; border-color: #b8171b; }
+    .home-page .two-columns-hero-section .bg-primary { background-color: #E31E24 !important; }
+    /* The shared flip button offsets its hover label for icon buttons. The
+       hero CTA has no icon, so keep both label states on the exact same
+       horizontal centre line. */
+    .home-page .two-columns-hero-section .btn-flip-effect {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .home-page .two-columns-hero-section .btn-flip-effect::after {
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+    .home-page .two-columns-hero-section .btn-flip-effect:hover::after {
+        transform: translate(-50%, -50%);
+    }
+    .home-page .two-columns-hero-section .container { overflow: visible; }
+    .home-page .two-columns-hero-section .row { margin-right: 0; margin-left: 0; }
+    .home-page .two-columns-hero-section .col-lg-1 { display: none; }
+    .home-page .two-columns-hero-section__content { padding-top: 96px; padding-right: 18px; }
+    .home-page .two-columns-hero-section h1 { max-width: 560px; font-size: clamp(42px, 3.8vw, 58px) !important; line-height: 1.06; letter-spacing: -.035em; }
+    .home-page .two-columns-hero-section__images-side { padding-top: 64px; }
+    /* Keep the desktop statistics panel inside the page container. The shared
+       component uses negative side margins for full-bleed layouts, which
+       causes the homepage to overflow and crop at both viewport edges. */
+    @media (min-width: 992px) {
+        .home-page .statistics-section {
+            width: 100%;
+            max-width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .home-page .statistics-section__mask { inset: 16px; }
+        .home-page .statistics-section__contents { box-sizing: border-box; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .home-page .tg-hero-rotating-word { transition: none; }
+    }
     @media (max-width: 991px) {
         .tg-section { padding: 64px 0; }
         .tg-title { font-size: 32px; }
@@ -171,7 +225,7 @@
         .tg-mobile-discovery__search { display: flex; align-items: center; min-width: 0; min-height: 48px; flex: 1; gap: 11px; padding: 0 14px; border-radius: 16px; background: #f6f8fb; color: #6f7f96; font-size: 14px; }
         .tg-mobile-discovery__search span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .tg-mobile-discovery svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-        .tg-mobile-discovery__filter { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border-radius: 15px; background: #F3951E; color: #fff; box-shadow: 0 8px 18px rgba(243,149,30,.28); }
+        .tg-mobile-discovery__filter { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border-radius: 15px; background: #E31E24; color: #fff; box-shadow: 0 8px 18px rgba(227,30,36,.28); }
 
         .tg-mobile-drawer-backdrop { position: fixed; z-index: 1003; inset: 0; display: block; visibility: hidden; background: rgba(5,17,39,.48); opacity: 0; transition: opacity .22s ease, visibility 0s linear .22s; }
         .tg-mobile-drawer { position: fixed; z-index: 1004; top: 0; right: 0; bottom: 0; display: flex; width: min(88vw, 360px); padding: 20px 18px calc(24px + env(safe-area-inset-bottom)); flex-direction: column; background: #fff; box-shadow: -22px 0 60px rgba(5,17,39,.22); transform: translate3d(105%,0,0); transition: transform .3s cubic-bezier(.2,0,0,1); }
@@ -191,20 +245,21 @@
         .tg-mobile-drawer__cta { display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: auto; border-radius: 16px; background: #E31E24; color: #fff; font-weight: 700; box-shadow: 0 10px 24px rgba(227,30,36,.22); }
 
         .tg-mobile-bottom-nav { position: fixed; z-index: 1001; left: 10px; right: 10px; bottom: calc(8px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); min-height: 72px; padding: 7px 6px 6px; border: 1px solid rgba(14,33,69,.1); border-radius: 24px; background: rgba(255,255,255,.96); box-shadow: 0 15px 42px rgba(5,17,39,.18); backdrop-filter: blur(18px); }
-        .tg-mobile-bottom-nav a { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 58px; flex-direction: column; gap: 4px; border-radius: 17px; color: #7e8b9d; }
+        .tg-mobile-bottom-nav a, .tg-mobile-bottom-nav button { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 58px; flex-direction: column; gap: 4px; border: 0; border-radius: 17px; background: transparent; color: #7e8b9d; font: inherit; appearance: none; cursor: pointer; }
         .tg-mobile-bottom-nav svg { width: 22px; height: 22px; fill: currentColor; transition: transform .18s cubic-bezier(.2,0,0,1); }
         .tg-mobile-bottom-nav span { font-size: 10px; font-weight: 700; }
-        .tg-mobile-bottom-nav a::before { content: ''; position: absolute; top: 3px; left: 50%; width: 18px; height: 3px; border-radius: 4px; background: #F3951E; opacity: 0; transform: translateX(-50%) scaleX(.3); transition: opacity .18s ease, transform .22s cubic-bezier(.2,0,0,1); }
-        .tg-mobile-bottom-nav a.is-active { color: #E31E24; background: rgba(227,30,36,.07); }
-        .tg-mobile-bottom-nav a.is-active::before { opacity: 1; transform: translateX(-50%) scaleX(1); }
-        .tg-mobile-bottom-nav a.is-active svg { transform: translateY(-2px); }
+        .tg-mobile-bottom-nav a::before, .tg-mobile-bottom-nav button::before { content: ''; position: absolute; top: 3px; left: 50%; width: 18px; height: 3px; border-radius: 4px; background: #F3951E; opacity: 0; transform: translateX(-50%) scaleX(.3); transition: opacity .18s ease, transform .22s cubic-bezier(.2,0,0,1); }
+        .tg-mobile-bottom-nav a.is-active, .tg-mobile-bottom-nav button.is-active { color: #E31E24; background: rgba(227,30,36,.07); }
+        .tg-mobile-bottom-nav a.is-active::before, .tg-mobile-bottom-nav button.is-active::before { opacity: 1; transform: translateX(-50%) scaleX(1); }
+        .tg-mobile-bottom-nav a.is-active svg, .tg-mobile-bottom-nav button.is-active svg { transform: translateY(-2px); }
         .tg-mobile-bottom-nav__action { color: #fff !important; background: #E31E24 !important; }
         .tg-mobile-bottom-nav__action::before { background: #F3951E !important; }
+        .tg-mobile-bottom-nav button:focus-visible, .tg-mobile-bottom-nav a:focus-visible { outline: 3px solid rgba(243,149,30,.55); outline-offset: 2px; }
 
         .home-page .two-columns-hero-section { min-height: auto; height: auto; margin: 0 10px 14px; padding: 18px 0 22px; overflow: hidden; border-radius: 30px; background-color: #fff; background-size: cover; box-shadow: 0 14px 36px rgba(14,33,69,.08); }
-        .home-page .two-columns-hero-section__content { padding-top: 4px; padding-bottom: 10px; }
+        .home-page .two-columns-hero-section__content { padding-top: 4px; padding-right: 12px; padding-bottom: 10px; }
         .home-page .two-columns-hero-section__content > div:first-child { max-width: 100%; padding-right: 12px !important; white-space: normal; }
-        .home-page .two-columns-hero-section h1 { font-size: 37px !important; line-height: 1.06; letter-spacing: -.025em; }
+        .home-page .two-columns-hero-section h1 { max-width: 100%; font-size: 34px !important; line-height: 1.08; letter-spacing: -.028em; }
         .home-page .two-columns-hero-section .btn { width: 100%; min-height: 52px; }
         .home-page .two-columns-hero-section__images-side { min-height: 330px; margin-top: 8px; transform: scale(.92); transform-origin: center top; }
 
@@ -230,6 +285,34 @@
         .statistics-section .tg-stat-icon svg { width: 23px; height: 23px; }
         .statistics-section h4 { font-size: 23px !important; }
         .statistics-section p { font-size: 14px !important; }
+        /* Keep all four highlight metrics visible on phones in a compact 2x2 grid. */
+        .statistics-section .tg-mobile-slider {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            overflow: visible;
+        }
+        .statistics-section .tg-mobile-slider > [class*="col-"] {
+            width: auto;
+            max-width: none;
+            flex: none;
+            flex-basis: auto;
+        }
+        .statistics-section .statistic-col:nth-child(n+3) { margin-top: 0; }
+        .statistics-section .tg-stat-wrap {
+            min-height: 112px;
+            padding: 14px 12px;
+            gap: 10px;
+        }
+        .statistics-section .tg-stat-wrap > div { min-width: 0; }
+        .statistics-section .tg-stat-icon {
+            width: 44px;
+            height: 44px;
+            flex-basis: 44px;
+        }
+        .statistics-section .tg-stat-icon svg { width: 20px; height: 20px; }
+        .statistics-section h4 { font-size: 19px !important; line-height: 1.05; }
+        .statistics-section p { font-size: 11px !important; line-height: 1.25; }
         .tg-mobile-slider > [class*="col-"] > .tg-card,
         .tg-mobile-slider > [class*="col-"] > .tg-destination,
         .tg-mobile-slider > [class*="col-"] > .tg-work-country { height: 100%; }
@@ -314,45 +397,53 @@
             <button type="button" class="tg-mobile-drawer__close" data-mobile-menu-close aria-label="Close navigation menu">×</button>
         </div>
         <nav class="tg-mobile-drawer__nav">
-            <a href="destinations"><span>Study destinations</span><small>Compare countries</small></a>
+            <a href="/"><span>Home</span><small>Return to the GEIC homepage</small></a>
+            <a href="/destinations"><span>Study destinations</span><small>Compare countries</small></a>
+            <a href="/services"><span>Services</span><small>Guidance from application to arrival</small></a>
+            <a href="/events"><span>Events</span><small>Upcoming information sessions</small></a>
+            <a href="/scholarships"><span>Scholarships</span><small>Funding guidance</small></a>
+            <a href="/tests"><span>Test preparation</span><small>IELTS, PTE and more</small></a>
             <a href="#work-visas"><span>Work visa pathways</span><small>Explore skilled routes</small></a>
             <a href="#universities"><span>Partner universities</span><small>800+ global institutions</small></a>
-            <a href="#scholarships"><span>Scholarships</span><small>Funding guidance</small></a>
-            <a href="#test-prep"><span>Test preparation</span><small>IELTS, PTE and more</small></a>
             <a href="#why-trans-globe"><span>Why choose us</span><small>Experience and results</small></a>
             <a href="#faq"><span>FAQs</span><small>Common questions answered</small></a>
+            <a href="{{ url('/contact#enquiry') }}"><span>Contact us</span><small>Send your counselling enquiry</small></a>
         </nav>
-        <a href="#contact" class="tg-mobile-drawer__cta">Book free counselling</a>
+        <a href="{{ url('/contact#enquiry') }}" class="tg-mobile-drawer__cta">Book free counselling</a>
     </aside>
 
     <section class="tg-mobile-discovery" aria-label="Quick actions">
-        <a href="destinations" class="tg-mobile-discovery__search">
+        <a href="/destinations" class="tg-mobile-discovery__search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
             <span>Search countries and study options</span>
         </a>
-        <a href="#contact" class="tg-mobile-discovery__filter" aria-label="Open free counselling section">
+        <a href="{{ url('/contact#enquiry') }}" class="tg-mobile-discovery__filter" aria-label="Open the counselling enquiry form">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>
         </a>
     </section>
 
     <nav class="tg-mobile-bottom-nav" aria-label="Primary mobile navigation">
-        <a href="#home" class="is-active" data-mobile-nav="home" aria-current="page">
+        <a href="/" class="is-active" data-mobile-nav="home" aria-current="page">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3V10.5Z"/></svg><span>Home</span>
         </a>
-        <a href="#destinations" data-mobile-nav="destinations">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 1 0-14 0c0 6.8 7 13 7 13Zm0-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg><span>Explore</span>
+        <a href="/destinations" data-mobile-nav="destinations">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 1 0-14 0c0 6.8 7 13 7 13Zm0-10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg><span>Destinations</span>
         </a>
-        <a href="#services" data-mobile-nav="services">
+        <a href="/services" data-mobile-nav="services">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/></svg><span>Services</span>
         </a>
-        <a href="#reviews" data-mobile-nav="reviews">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8l5.8.8-4.2 4.1 1 5.8-5.4-2.8-5.4 2.8 1-5.8-4.2-4.1L9.2 8 12 2.8Z"/></svg><span>Reviews</span>
-        </a>
-        <a href="#contact" class="tg-mobile-bottom-nav__action" data-mobile-nav="contact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z"/></svg><span>Consult</span>
+        <button type="button" data-mobile-nav="more" aria-controls="tgMobileDrawer" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg><span>More</span>
+        </button>
+        <a href="{{ url('/contact#enquiry') }}" class="tg-mobile-bottom-nav__action" data-mobile-nav="contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6V3Zm9 0v4h4M9 12h6M9 16h6M9 8h2"/></svg><span>Apply</span>
         </a>
     </nav>
 
+    @php
+        $heroTitle = $cms['hero_title'] ?? 'Shape Your Ambition Into International Success';
+        $heroAccent = trim((string) ($cms['hero_title_accent'] ?? ''));
+    @endphp
     <div class="two-columns-hero-section" style="background-image: url(store/landing_builder/landing_1/1/hero_background_xfq.svg)">
         <div class="container h-100">
             <div class="row h-100 flex-column flex-lg-row">
@@ -362,14 +453,22 @@
                         <span class="font-14 text-dark">{{ $cms['hero_trust_line'] ?? 'Built on trust. Driven by student success.' }}</span>
                     </div>
 
-                    <h1 class="d-inline-flex flex-column font-64 mt-24"><span class="text-dark">{{ $cms['hero_title'] ?? 'Shape Your Ambition Into International Success' }}</span></h1>
+                    <h1 class="d-inline-flex flex-column font-64 mt-24" aria-label="{{ $heroTitle }}">
+                        @if(!$heroAccent && $heroTitle === 'Shape Your Ambition Into International Success')
+                            <span class="text-dark">Shape Your <span class="tg-hero-rotating-word" data-hero-rotating data-hero-words="Ambition|Career|Future">Ambition</span> Into International Success</span>
+                        @elseif($heroAccent)
+                            <span class="text-dark">{{ $heroTitle }}</span><span class="tg-hero-accent">{{ $heroAccent }}</span>
+                        @else
+                            <span class="text-dark">{{ $heroTitle }}</span>
+                        @endif
+                    </h1>
 
                     <div class="mt-16 font-16 text-gray-500">
                         {{ $cms['hero_copy'] ?? 'At Trans Globe Indore, managed by GEIC, every student and every dream matters. From choosing the right course to securing your visa, our specialists guide you through every step of studying abroad.' }}
                     </div>
 
                     <div class="d-flex align-items-lg-center flex-column flex-lg-row mt-32 gap-16">
-                        <a href="{{ $cms['hero_primary_cta_url'] ?? '#contact' }}" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}">
+                        <a href="{{ $cms['hero_primary_cta_url'] ?? url('/contact#enquiry') }}" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}">
                             <span class="btn-flip-effect__text text-white">{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}</span>
                         </a>
                         <a href="{{ $cms['hero_secondary_cta_url'] ?? '/destinations' }}" class="btn-flip-effect btn-flip-effect__text-dark btn btn-xlg gap-8" data-text="{{ $cms['hero_secondary_cta_label'] ?? 'Explore Destinations' }}">
@@ -462,7 +561,7 @@
                     <h2 class="tg-title mt-12">{{ $cms['services_title'] ?? 'Everything You Need, Under One Roof' }}</h2>
                     <p class="tg-copy mt-16">{{ $cms['services_copy'] ?? 'Trans Globe Indore supports your complete journey—from your first exam and university application to your arrival in a new country.' }}</p>
                 </div>
-                <div class="col-12 col-lg-5 mt-20 mt-lg-0 text-lg-right"><a href="{{ $cms['services_cta_url'] ?? '#contact' }}" class="btn btn-primary btn-lg text-white">{{ $cms['services_cta_label'] ?? 'Discuss Your Study Plan' }}</a></div>
+                <div class="col-12 col-lg-5 mt-20 mt-lg-0 text-lg-right"><a href="{{ $cms['services_cta_url'] ?? url('/contact#enquiry') }}" class="btn btn-primary btn-lg text-white">{{ $cms['services_cta_label'] ?? 'Discuss Your Study Plan' }}</a></div>
             </div>
 
             <div class="row mt-24 tg-mobile-slider" data-slider-name="Services">
@@ -524,7 +623,7 @@
                             <span class="tg-contact-pill mb-20">{{ $cms['work_visa_badge'] ?? 'Work visa pathways' }}</span>
                             <h2>{{ $cms['work_visa_title'] ?? 'Build Your Career Abroad' }}</h2>
                             <p class="mt-16">{{ $cms['work_visa_copy'] ?? 'Explore skilled-work opportunities with practical guidance on eligibility, documentation and the right pathway for your profile.' }}</p>
-                            <a href="{{ $cms['work_visa_cta_url'] ?? '#contact' }}" class="tg-work-visa-link mt-22">{{ $cms['work_visa_cta_label'] ?? 'Free Profile Assessment' }} <span aria-hidden="true">→</span></a>
+                            <a href="{{ $cms['work_visa_cta_url'] ?? url('/contact#enquiry') }}" class="tg-work-visa-link mt-22">{{ $cms['work_visa_cta_label'] ?? 'Free Profile Assessment' }} <span aria-hidden="true">→</span></a>
                             <span class="tg-work-visa-art" aria-hidden="true">
                                 <svg viewBox="0 0 128 128" fill="currentColor"><path d="M71 9 54 44 16 53l-7 11 40 5-10 21-15 4-6 10 24 1 14 18 6-10-4-15 14-18 22 34 12-5-13-38 30-25 1-13-40 8L71 9Z"/></svg>
                             </span>
@@ -547,7 +646,7 @@
                                     <div class="tg-work-country__pathway">{{ $pathway }}</div>
                                     <p class="tg-work-country__copy">{{ $description }}</p>
                                 </div>
-                                <a href="#contact" class="tg-work-country__footer">
+                                <a href="{{ url('/contact#enquiry') }}" class="tg-work-country__footer">
                                     <span>Explore pathway →</span>
                                     <span>Expert guidance</span>
                                 </a>
@@ -596,7 +695,7 @@
         </div>
 
         <div class="container text-center mt-40">
-            <a href="{{ $cms['universities_cta_url'] ?? '#contact' }}" class="btn btn-primary btn-lg text-white">{{ $cms['universities_cta_label'] ?? 'View All Universities' }} <span aria-hidden="true">→</span></a>
+            <a href="{{ $cms['universities_cta_url'] ?? url('/contact#enquiry') }}" class="btn btn-primary btn-lg text-white">{{ $cms['universities_cta_label'] ?? 'View All Universities' }} <span aria-hidden="true">→</span></a>
         </div>
     </section>
 
@@ -664,43 +763,11 @@
 
     <section id="blogs" class="tg-section tg-blog-section" aria-labelledby="blog-section-title">
         @php
-            $recentBlogs = [
-                [
-                    'title' => 'Is It Still Safe to Study Abroad in 2026?',
-                    'category' => 'Student Guidance',
-                    'excerpt' => 'A calm, factual guide for Indian students and parents navigating travel concerns, visa scrutiny and changing global conditions.',
-                    'image' => 'assets/transglobe/destinations/australia/campus-students.jpg',
-                    'url' => 'https://transglobeedu.com/blog/is-it-safe-to-study-abroad-2026-indian-students',
-                ],
-                [
-                    'title' => 'What University Admissions Officers Look For',
-                    'category' => 'Admissions',
-                    'excerpt' => 'Understand what matters beyond grades, from a strong SOP to a well-rounded global profile.',
-                    'image' => 'assets/transglobe/destinations/europe-card.jpg',
-                    'url' => 'https://transglobeedu.com/blog/university-admissions-guide-for-international-students-2025',
-                ],
-                [
-                    'title' => 'Common Study Visa Mistakes and How to Avoid Them',
-                    'category' => 'Student Visa',
-                    'excerpt' => 'Learn how weak SOPs, inconsistent finances and incomplete documents can affect a visa application.',
-                    'image' => 'store/1/default_images/blogs/blog2.jpg',
-                    'url' => 'https://transglobeedu.com/blog/student-visa-mistakes-2025',
-                ],
-                [
-                    'title' => 'USA vs UK vs Canada: Which Visa Process Is Easiest?',
-                    'category' => 'Visa Comparison',
-                    'excerpt' => 'Compare student visa requirements, timelines and practical considerations for three popular destinations.',
-                    'image' => 'store/1/default_images/blogs/blog4.jpg',
-                    'url' => 'https://transglobeedu.com/blog/student-visa-2025-usa-vs-uk-vs-canada',
-                ],
-                [
-                    'title' => 'Choose the Best Study Destination for Your Career Goals',
-                    'category' => 'Career Planning',
-                    'excerpt' => 'Match your country choice with your budget, career direction and post-study opportunities.',
-                    'image' => 'assets/transglobe/destinations/dubai-card.jpg',
-                    'url' => 'https://transglobeedu.com/blog/best-study-abroad-destination-career-goals',
-                ],
-            ];
+            $recentBlogs = \App\Support\BlogCatalog::featured();
+            $blogCtaUrl = $cms['blog_cta_url'] ?? null;
+            if (!$blogCtaUrl || str_contains($blogCtaUrl, 'transglobeedu.com/blog')) {
+                $blogCtaUrl = url('/blog');
+            }
         @endphp
 
         <div class="container">
@@ -710,7 +777,7 @@
                     <h2 id="blog-section-title" class="tg-title mt-12">{{ $cms['blog_title'] ?? 'Fresh Study-Abroad Insights, Without the Jargon' }}</h2>
                     <p class="tg-copy mt-16">{{ $cms['blog_copy'] ?? 'Recent guidance from Trans Globe on university admissions, student visas and choosing the right destination for your future.' }}</p>
                 </div>
-                <a href="{{ $cms['blog_cta_url'] ?? 'https://transglobeedu.com/blogs' }}" target="_blank" rel="noopener noreferrer" class="tg-blog-all">
+                <a href="{{ $blogCtaUrl }}" class="tg-blog-all">
                     {{ $cms['blog_cta_label'] ?? 'Explore all articles' }} <span aria-hidden="true">→</span>
                 </a>
             </header>
@@ -718,7 +785,7 @@
             <div class="tg-blog-grid" aria-label="Recent Trans Globe articles">
                 @foreach ($recentBlogs as $index => $blog)
                     <article class="tg-blog-card blog-section__post-card {{ $index === 0 ? 'tg-blog-card--featured' : '' }}">
-                        <a href="{{ $blog['url'] }}" target="_blank" rel="noopener noreferrer" class="tg-blog-card__link" aria-label="Read {{ $blog['title'] }} on Trans Globe">
+                        <a href="{{ url('/blog/'.$blog['slug']) }}" class="tg-blog-card__link" aria-label="Read {{ $blog['title'] }} on Trans Globe">
                             <img src="{{ $blog['image'] }}" alt="{{ $blog['title'] }}" class="tg-blog-card__image blog-section__post-card-img" width="1200" height="800" loading="lazy" decoding="async">
                             <span class="tg-blog-card__overlay" aria-hidden="true"></span>
                             <span class="tg-blog-card__content">
@@ -819,7 +886,7 @@
         </div>
     </section>
 
-    <section id="contact" class="tg-section">
+    <section id="contact" class="tg-section" style="scroll-margin-top:120px">
         <div class="container">
             <div class="tg-contact-card">
                 <div class="row align-items-center position-relative z-index-2">
@@ -833,7 +900,10 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 mt-28 mt-lg-0 text-lg-right">
-                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $cms['contact_phone'] ?? '+91 98266 66886') }}" class="btn btn-primary btn-xlg text-white">{{ $cms['contact_button_label'] ?? 'Speak to Our Indore Counsellor' }}</a>
+                        <div class="d-flex flex-wrap justify-content-lg-end gap-12">
+                            <a href="{{ url('/contact#enquiry') }}" class="btn btn-primary btn-xlg text-white">{{ $cms['contact_button_label'] ?? 'Speak to Our Indore Counsellor' }}</a>
+                            <a href="tel:{{ preg_replace('/[^0-9+]/', '', $cms['contact_phone'] ?? '+91 98266 66886') }}" class="tg-contact-pill">Call office</a>
+                        </div>
                         <p class="font-13 text-white opacity-70 mt-12">{{ $cms['contact_address'] ?? 'Office No. 503, THE VIEW Tower 1, Yeshwant Niwas Rd, Lad Colony, Indore, Madhya Pradesh 452001' }}</p>
                     </div>
                 </div>
@@ -844,19 +914,38 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const rotatingWord = document.querySelector('[data-hero-rotating]');
+        if (rotatingWord) {
+            const words = (rotatingWord.dataset.heroWords || '').split('|').map(function (word) { return word.trim(); }).filter(Boolean);
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (words.length > 1 && !reducedMotion) {
+                let wordIndex = 0;
+                window.setInterval(function () {
+                    rotatingWord.classList.add('is-changing');
+                    window.setTimeout(function () {
+                        wordIndex = (wordIndex + 1) % words.length;
+                        rotatingWord.textContent = words[wordIndex];
+                        rotatingWord.classList.remove('is-changing');
+                    }, 220);
+                }, 2600);
+            }
+        }
+
         const mobileQuery = window.matchMedia('(max-width: 767px)');
         if (!mobileQuery.matches) return;
 
         const body = document.body;
         const menuButton = document.querySelector('.tg-mobile-menu-button');
+        const moreButton = document.querySelector('.tg-mobile-bottom-nav [data-mobile-nav="more"]');
         const drawer = document.getElementById('tgMobileDrawer');
         const menuClosers = document.querySelectorAll('[data-mobile-menu-close], .tg-mobile-drawer a');
         let lastFocused = null;
 
-        function openMenu() {
-            lastFocused = document.activeElement;
+        function openMenu(trigger) {
+            lastFocused = trigger || document.activeElement;
             body.classList.add('tg-mobile-menu-open');
             menuButton.setAttribute('aria-expanded', 'true');
+            moreButton?.setAttribute('aria-expanded', 'true');
             drawer.setAttribute('aria-hidden', 'false');
             window.setTimeout(function () { drawer.querySelector('a')?.focus(); }, 180);
         }
@@ -864,13 +953,18 @@
         function closeMenu() {
             body.classList.remove('tg-mobile-menu-open');
             menuButton.setAttribute('aria-expanded', 'false');
+            moreButton?.setAttribute('aria-expanded', 'false');
             drawer.setAttribute('aria-hidden', 'true');
             lastFocused?.focus();
         }
 
         menuButton.addEventListener('click', function () {
             if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
-            else openMenu();
+            else openMenu(menuButton);
+        });
+        moreButton?.addEventListener('click', function () {
+            if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
+            else openMenu(moreButton);
         });
         menuClosers.forEach(function (item) { item.addEventListener('click', closeMenu); });
         document.addEventListener('keydown', function (event) {
@@ -888,7 +982,7 @@
             });
         });
 
-        const bottomLinks = Array.from(document.querySelectorAll('.tg-mobile-bottom-nav a[data-mobile-nav]'));
+        const bottomLinks = Array.from(document.querySelectorAll('.tg-mobile-bottom-nav [data-mobile-nav]'));
         const trackedSections = [
             ['home', document.querySelector('.two-columns-hero-section')],
             ['services', document.getElementById('services')],

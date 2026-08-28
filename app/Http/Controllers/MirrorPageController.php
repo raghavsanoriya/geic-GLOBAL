@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Models\SiteContent;
+use App\Support\BlogCatalog;
 use App\Support\CmsPageCatalog;
 use App\Support\DestinationCatalog;
 use App\Support\EventCatalog;
 use App\Support\PromotionPageRenderer;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
+use App\Support\StudyToolsCatalog;
 use App\Support\TestPrepCatalog;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\QueryException;
@@ -97,6 +99,40 @@ class MirrorPageController extends Controller
 
         if (str_contains($page, '..') || ! preg_match('/^[\pL\pN\-_. +&!]+(?:\/[\pL\pN\-_. +&!]+)*$/u', $page)) {
             abort(404);
+        }
+
+        if ($page === 'blog') {
+            return view('mirror.blog.list', [
+                'mirrorPage' => 'blog',
+                'posts' => BlogCatalog::all(),
+                'cms' => SiteContent::publicValuesForPage('blog'),
+            ]);
+        }
+
+        if (preg_match('#^blog/([A-Za-z0-9\-]+)$#', $page, $matches)) {
+            $post = BlogCatalog::find($matches[1]);
+
+            abort_unless($post, 404);
+
+            return view('mirror.blog.detail', [
+                'mirrorPage' => 'blog/'.$post['slug'],
+                'post' => $post,
+                'relatedPosts' => array_values(array_filter(
+                    BlogCatalog::all(),
+                    fn (array $related): bool => $related['slug'] !== $post['slug']
+                )),
+                'cms' => SiteContent::publicValuesForPage('blog.'.$post['slug']),
+            ]);
+        }
+
+        // Public planning tools have stable, SEO-friendly URLs and share the
+        // same header/footer as the rest of the mirror pages.
+        if ($tool = StudyToolsCatalog::find($page)) {
+            return view('mirror.tools.show', [
+                'mirrorPage' => $page,
+                'tool' => $tool,
+                'cms' => SiteContent::publicValuesForPage($tool['cms_key']),
+            ]);
         }
 
         $customPage = null;

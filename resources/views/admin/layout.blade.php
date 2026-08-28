@@ -221,6 +221,7 @@
         @media(max-width:760px){
             :root{--admin-sidebar:258px}
             .admin-sidebar{width:min(278px,86vw)}
+            .admin-sidebar__collapse{display:none!important}
             .admin-topbar{min-height:62px;padding:0 14px}
             .admin-content{padding:20px 14px 34px}
             .page-head h1{font-size:20px}
@@ -228,6 +229,52 @@
             .filters{grid-template-columns:1fr;padding:14px}
             .button,.cms-button{min-height:46px}
         }
+        /* Forms workspace */
+        .admin-page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px}
+        .admin-page-head h1{margin:6px 0 0;color:var(--admin-ink);font-size:28px;letter-spacing:-.055em;line-height:1.1}
+        .admin-page-head p{margin:8px 0 0;color:var(--admin-muted);font-size:13px}
+        .admin-kicker{display:block;color:var(--admin-primary);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+        .admin-button{display:inline-flex;min-height:42px;align-items:center;justify-content:center;gap:8px;padding:0 16px;border:1px solid var(--admin-line);border-radius:var(--admin-radius-button);background:#fff;color:#52627e;font-size:12px;font-weight:700;line-height:1;white-space:nowrap;transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease}
+        .admin-button:hover{border-color:var(--admin-hover);background:var(--admin-hover);color:var(--admin-ink);box-shadow:none}
+        .admin-button--primary{border-color:var(--admin-primary);background:var(--admin-primary);color:#fff}
+        .admin-button--primary:hover{border-color:var(--admin-primary-dark);background:var(--admin-primary-dark);color:#fff}
+        .admin-button--danger{border-color:#f1c8cc;background:#fff;color:var(--admin-primary-dark)}
+        .admin-button--danger:hover{border-color:#f1aeb5;background:var(--admin-primary-soft);color:var(--admin-primary-dark)}
+        .admin-alert{margin-bottom:18px;padding:13px 16px;border:1px solid #bfead8;border-radius:12px;background:#f0fdf7;color:#187654;font-size:12px;font-weight:700}
+        .admin-filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:20px;padding:16px 20px;border:1px solid var(--admin-line);border-radius:var(--admin-radius-card);background:#fff}
+        .admin-filter-bar select{min-width:180px;min-height:42px;padding:0 13px;border:1px solid var(--admin-line);border-radius:var(--admin-radius-control);background:#fff;color:var(--admin-ink);font-size:12px;outline:none}
+        .admin-filter-bar select:focus{border-color:var(--admin-primary);box-shadow:0 0 0 3px rgba(227,30,36,.11)}
+        .admin-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+        .admin-card{display:flex;min-width:0;flex-direction:column;padding:22px;border:1px solid var(--admin-line);border-radius:var(--admin-radius-card);background:#fff;box-shadow:none}
+        .admin-card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+        .admin-card h2{margin:0;color:var(--admin-ink);font-size:17px;letter-spacing:-.035em;line-height:1.25}
+        .admin-card p{margin:8px 0 0;color:var(--admin-muted);font-size:12px;line-height:1.55}
+        .admin-card small{display:block;margin-top:14px;color:#9aa7ba;font-size:10px}
+        .admin-card__actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
+        .admin-card__actions form{margin:0}
+        .admin-badge{display:inline-flex;min-height:25px;align-items:center;padding:0 9px;border-radius:99px;font-size:10px;font-weight:800;line-height:1}
+        .admin-badge--draft{background:#fff8e9;color:#a86b00}
+        .admin-badge--published{background:#e9fbf7;color:#147b65}
+        .admin-form{display:grid;gap:20px}
+        .admin-form>label,.admin-form__grid label{display:grid;gap:7px;color:var(--admin-ink);font-size:12px;font-weight:700}
+        .admin-form input,.admin-form select,.admin-form textarea{width:100%;min-height:42px;padding:0 13px;border:1px solid var(--admin-line);border-radius:var(--admin-radius-control);background:#fff;color:var(--admin-ink);font-size:12px;outline:none}
+        .admin-form textarea{min-height:100px;padding:12px 13px;resize:vertical}
+        .admin-form input:focus,.admin-form select:focus,.admin-form textarea:focus{border-color:var(--admin-primary);box-shadow:0 0 0 3px rgba(227,30,36,.11)}
+        .admin-form__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+        .admin-form__section{display:grid;gap:16px;padding:20px;border:1px solid var(--admin-line);border-radius:16px;background:#fafcff}
+        .admin-form__section>.admin-card__top{align-items:center}
+        .admin-form__section .admin-card__top h2{font-size:15px}
+        .form-builder__row{display:grid;grid-template-columns:minmax(130px,1fr) minmax(130px,1fr) 130px minmax(130px,1fr) auto auto;align-items:center;gap:9px;padding:12px;border:1px solid var(--admin-line);border-radius:12px;background:#fff}
+        .form-builder__row+ .form-builder__row{margin-top:9px}
+        .form-builder__row label{display:flex;align-items:center;gap:6px;color:var(--admin-muted);font-size:11px;font-weight:600;white-space:nowrap}
+        .form-builder__row label input[type=checkbox]{width:16px;min-height:16px;padding:0;accent-color:var(--admin-primary)}
+        /* Keep native selects keyboard/touch friendly while giving every
+           dashboard dropdown the same inset chevron position. */
+        .admin-shell select{-webkit-appearance:none;appearance:none;padding-right:46px!important;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%2352627e' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");background-position:right 14px center;background-repeat:no-repeat;background-size:16px 16px}
+        .admin-shell select:focus{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23e31e24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E")}
+        .admin-shell select::-ms-expand{display:none}
+        @media(max-width:1050px){.admin-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.form-builder__row{grid-template-columns:repeat(2,minmax(0,1fr))}.form-builder__row .admin-button{justify-self:start}}
+        @media(max-width:760px){.admin-page-head{display:block}.admin-page-head .admin-button{margin-top:16px}.admin-card-grid{grid-template-columns:1fr}.admin-filter-bar{align-items:stretch;flex-direction:column}.admin-filter-bar select,.admin-filter-bar .admin-button{width:100%}.admin-form__grid{grid-template-columns:1fr}.form-builder__row{grid-template-columns:1fr}.form-builder__row .admin-button{width:100%}.admin-card__actions{align-items:stretch}.admin-card__actions form,.admin-card__actions .admin-button{width:100%}}
         @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
     </style>
 </head>
@@ -244,6 +291,7 @@
             <nav class="admin-nav">
                 <a href="{{ route('admin.dashboard') }}" title="Dashboard" @if(request()->routeIs('admin.dashboard')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="admin-nav__label">Dashboard</span></a>
                 @can('content.manage')<a href="{{ route('admin.pages.index') }}" title="Website content" @if(request()->routeIs('admin.pages.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="admin-nav__label">Website content</span></a>@endcan
+                @can('content.manage')<a href="{{ route('admin.blogs.index') }}" title="Blog posts" @if(request()->routeIs('admin.blogs.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="admin-nav__label">Blog posts</span></a>@endcan
                 @can('media.manage')<a href="{{ route('admin.media.index') }}" title="Media library" @if(request()->routeIs('admin.media.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 5-5 3 3 2-2 5 4"/></svg><span class="admin-nav__label">Media library</span></a>@endcan
             </nav>
             @can('content.manage')<span class="admin-sidebar__section">Lead capture</span><nav class="admin-nav"><a href="{{ route('admin.forms.index') }}" title="Forms" @if(request()->routeIs('admin.forms.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="admin-nav__label">Forms</span></a></nav>@endcan

@@ -23,6 +23,15 @@
                 #appFooterArea .theme-footer-1__bottom-section-divider {
                     margin-top: 0;
                 }
+                /* Hidden cart UI is positioned outside the viewport until it
+                   is opened. Keep it from creating a mobile page scrollbar. */
+                html {
+                    overflow-x: clip !important;
+                    overflow-y: auto !important;
+                }
+                body {
+                    overflow: visible !important;
+                }
             </style>
             <div class="theme-footer-1 position-relative has-newsletter">
         <div class="theme-footer-1__section position-relative">
@@ -115,6 +124,15 @@
                                         </a>
                                                                                 <a href="{{ url('/tests') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Test Preparation</span>
+                                        </a>
+                                                                                <a href="{{ url('/compare-destinations') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                            <span class="">Compare Destinations</span>
+                                        </a>
+                                                                                <a href="{{ url('/emi-calculator') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                            <span class="">EMI Calculator</span>
+                                        </a>
+                                                                                <a href="{{ url('/education-loans') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                            <span class="">Education Loans</span>
                                         </a>
                                                                                                                                                 <a href="{{ url('/#why-trans-globe') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Why Trans Globe Indore</span>
@@ -257,6 +275,8 @@
 <div class="cart-drawer-mask"></div>
 
 </div>
+
+@include('mirror.partials.study-assistant')
 
 <!-- Template JS File -->
 <script>

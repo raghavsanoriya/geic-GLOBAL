@@ -1,4 +1,6 @@
-@php($siteCms = $siteCms ?? [])
+@php
+    $siteCms = $siteCms ?? [];
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,12 +17,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-@php($isAboutPage = ($mirrorPage ?? '') === 'pages/about')
-@php($isTermsPage = ($mirrorPage ?? '') === 'pages/terms')
+@php
+    $isAboutPage = ($mirrorPage ?? '') === 'pages/about';
+    $isTermsPage = ($mirrorPage ?? '') === 'pages/terms';
+    $isBlogPage = ($mirrorPage ?? '') === 'blog';
+    $isBlogDetailPage = str_starts_with(($mirrorPage ?? ''), 'blog/');
+@endphp
 
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="{{ $isTermsPage ? 'Read the terms and conditions for using the Trans Globe Indore website and study-abroad counselling services managed by GEIC.' : ($isAboutPage ? 'Meet Trans Globe Indore, managed by GEIC. Learn about our mission, counselling approach and complete support for students planning an international education.' : (isset($event) ? $event['summary'] : (isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'events' ? 'Explore university visits, admission days and study-abroad events with Trans Globe Indore.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.'))))))) }}">
+@php
+    $pageDescription = 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.';
+    if ($isTermsPage) {
+        $pageDescription = 'Read the terms and conditions for using the Trans Globe Indore website and study-abroad counselling services managed by GEIC.';
+    } elseif ($isAboutPage) {
+        $pageDescription = 'Meet Trans Globe Indore, managed by GEIC. Learn about our mission, counselling approach and complete support for students planning an international education.';
+    } elseif (isset($event)) {
+        $pageDescription = $event['summary'];
+    } elseif (isset($test)) {
+        $pageDescription = $test['summary'];
+    } elseif (isset($service)) {
+        $pageDescription = $service['summary'];
+    } elseif (isset($destination)) {
+        $pageDescription = 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.';
+    } elseif (($mirrorPage ?? '') === 'events') {
+        $pageDescription = 'Explore university visits, admission days and study-abroad events with Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'destinations') {
+        $pageDescription = 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.';
+    } elseif (isset($post)) {
+        $pageDescription = $post['excerpt'];
+    } elseif ($isBlogPage) {
+        $pageDescription = 'Practical study-abroad guidance, visa tips and destination insights from Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'compare-destinations') {
+        $pageDescription = 'Compare study-abroad destinations by indicative yearly costs, tuition, living expenses and career-fit factors with Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'emi-calculator') {
+        $pageDescription = 'Estimate your education-loan EMI, total interest and repayment before you plan your international education budget.';
+    } elseif (($mirrorPage ?? '') === 'education-loans') {
+        $pageDescription = 'Understand education-loan lender types, eligibility, documents, collateral and the application process for study abroad.';
+    }
+@endphp
+    <meta name="description" content="{{ $pageDescription }}">
     <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
     <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
 
@@ -51,14 +87,60 @@
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
-<meta property='og:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
-<meta name='twitter:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
+@php
+    $socialImage = '/store/1/geic-icon.png';
+    if (isset($post['image'])) {
+        $socialImage = $post['image'];
+    } elseif (isset($event['image'])) {
+        $socialImage = $event['image'];
+    } elseif (isset($test['image'])) {
+        $socialImage = $test['image'];
+    } elseif (isset($service['image'])) {
+        $socialImage = $service['image'];
+    } elseif (isset($destination['hero'])) {
+        $socialImage = $destination['hero'];
+    }
+@endphp
+<meta property='og:image' content='{{ asset($socialImage) }}'>
+<meta name='twitter:image' content='{{ asset($socialImage) }}'>
 <meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>{{ $isTermsPage ? 'Terms & Conditions | Trans Globe Indore – GEIC' : ($isAboutPage ? 'About Trans Globe Indore | GEIC' : (isset($event) ? $event['title'].' | Trans Globe Indore Events' : (isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'events' ? 'Study Abroad Events | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC')))))))) }}</title>
+    @php
+        $pageTitle = 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC';
+        if ($isTermsPage) {
+            $pageTitle = 'Terms & Conditions | Trans Globe Indore – GEIC';
+        } elseif ($isAboutPage) {
+            $pageTitle = 'About Trans Globe Indore | GEIC';
+        } elseif (isset($post)) {
+            $pageTitle = $post['title'].' | Trans Globe Indore Journal';
+        } elseif (isset($event)) {
+            $pageTitle = $event['title'].' | Trans Globe Indore Events';
+        } elseif (isset($test)) {
+            $pageTitle = $test['title'].' Preparation | Trans Globe Indore – GEIC';
+        } elseif (isset($service)) {
+            $pageTitle = $service['title'].' | Trans Globe Indore – GEIC';
+        } elseif (isset($destination)) {
+            $pageTitle = 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC';
+        } elseif ($isBlogPage) {
+            $pageTitle = 'Study Abroad Blog | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'events') {
+            $pageTitle = 'Study Abroad Events | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'tests') {
+            $pageTitle = 'Test Preparation | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'destinations') {
+            $pageTitle = 'Study Abroad Destinations | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'compare-destinations') {
+            $pageTitle = 'Compare Study Abroad Destinations | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'emi-calculator') {
+            $pageTitle = 'Education Loan EMI Calculator | Trans Globe Indore – GEIC';
+        } elseif (($mirrorPage ?? '') === 'education-loans') {
+            $pageTitle = 'Education Loans for Study Abroad | Trans Globe Indore – GEIC';
+        }
+    @endphp
+    <title>{{ $pageTitle }}</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
@@ -248,6 +330,19 @@
         padding-right: 52px;
     }
 
+    .tg-language-mark {
+        display: inline-grid;
+        width: 20px;
+        height: 20px;
+        place-items: center;
+        border-radius: 5px;
+        background: rgba(255,255,255,.2);
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: .02em;
+    }
+
     .theme-header-1__top-navbar-search .search-icon {
         width: 32px;
         height: 32px;
@@ -287,7 +382,7 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }} {{ in_array(($mirrorPage ?? ''), ['compare-destinations', 'emi-calculator', 'education-loans'], true) ? 'planning-tool-page' : '' }} {{ $isBlogPage ? 'blog-page' : '' }} {{ $isBlogDetailPage ? 'blog-detail-page' : '' }}">
 
 <div id="app">
 
@@ -304,7 +399,7 @@
                 <div class="d-flex align-items-center gap-24">
 
                                             <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <a href="tel:+919826666886" class="text-white">+91 98266 66886</a>
@@ -312,7 +407,7 @@
 
 
                                             <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                            <a href="mailto:info@geic.in" class="text-white">info@geic.in</a>
@@ -355,7 +450,7 @@
 
                                     <div class="d-flex align-items-center gap-8">
                     <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                        <img src="vendor/blade-country-flags/4x3-us.svg" class="img-fluid" width="16px" height="16px" alt="English flag"/>
+                        <span class="tg-language-mark" aria-hidden="true">EN</span>
                     </div>
                     <span class="js-lang-title text-white opacity-75 d-none d-md-flex">English</span>
                     <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -370,7 +465,7 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="EN" data-title="English">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-us.svg" class="img-cover" alt="English flag"/>
+                        <span class="tg-language-mark" aria-hidden="true">EN</span>
                     </div>
                     <span class="ml-8 font-14">English</span>
                 </div>
@@ -378,7 +473,7 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="AR" data-title="Arabic">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-sa.svg" class="img-cover" alt="Arabic flag"/>
+                        <span class="tg-language-mark" aria-hidden="true">AR</span>
                     </div>
                     <span class="ml-8 font-14">Arabic</span>
                 </div>
@@ -386,7 +481,7 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="ES" data-title="Spanish">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="vendor/blade-country-flags/4x3-es.svg" class="img-cover" alt="Spanish flag"/>
+                        <span class="tg-language-mark" aria-hidden="true">ES</span>
                     </div>
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
@@ -707,6 +802,7 @@
                                                             <a href="{{ url('/events') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'events') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_events'] ?? 'Events' }}</a>
                                                             <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
                                                             <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
+                                                            <a href="{{ url('/contact#enquiry') }}" class="{{ ($mirrorPage ?? '') === 'contact' ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_contact_label'] ?? 'Contact' }}</a>
                                                     </div>
                                     </div>
 

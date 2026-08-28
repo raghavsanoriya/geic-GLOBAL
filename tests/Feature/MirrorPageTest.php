@@ -79,6 +79,48 @@ class MirrorPageTest extends TestCase
         }
     }
 
+    public function test_planning_tools_are_available_and_linked_from_the_footer(): void
+    {
+        $this->get('/compare-destinations')
+            ->assertOk()
+            ->assertSee('Compare destinations before you choose your next chapter.', false)
+            ->assertSee('Yearly total', false)
+            ->assertSee('Australia', false);
+
+        $this->get('/emi-calculator')
+            ->assertOk()
+            ->assertSee('data-emi-principal', false)
+            ->assertSee('Indicative monthly EMI', false);
+
+        $this->get('/education-loans')
+            ->assertOk()
+            ->assertSee('No collateral confusion', false)
+            ->assertSee('Sanction and disbursal', false);
+
+        $this->get('/')
+            ->assertSee('/compare-destinations', false)
+            ->assertSee('/emi-calculator', false)
+            ->assertSee('/education-loans', false);
+    }
+
+    public function test_blog_listing_and_article_pages_are_available(): void
+    {
+        $this->get('/blog')
+            ->assertOk()
+            ->assertSee('Clearer answers for your global future.', false)
+            ->assertSee('Explore the latest articles', false)
+            ->assertSee('/blog/is-it-safe-to-study-abroad-2026-indian-students', false)
+            ->assertSee('Search articles', false);
+
+        $this->get('/blog/is-it-safe-to-study-abroad-2026-indian-students')
+            ->assertOk()
+            ->assertSee('Is It Still Safe to Study Abroad in 2026?', false)
+            ->assertSee('Look beyond headlines', false)
+            ->assertSee('Book free counselling', false);
+
+        $this->get('/blog/not-a-real-article')->assertNotFound();
+    }
+
     public function test_terms_page_uses_the_shared_trans_globe_layout(): void
     {
         $this->get('/pages/terms')

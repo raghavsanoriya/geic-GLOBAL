@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'study_assistant' => [
+        'api_key' => env('STUDY_ASSISTANT_API_KEY', env('GROQ_API_KEY')),
+        'endpoint' => env('STUDY_ASSISTANT_ENDPOINT', 'https://api.groq.com/openai/v1/chat/completions'),
+        'model' => env('STUDY_ASSISTANT_MODEL', 'llama-3.3-70b-versatile'),
+        'timeout' => env('STUDY_ASSISTANT_TIMEOUT', 20),
+    ],
+
 ];

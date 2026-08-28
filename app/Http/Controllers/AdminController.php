@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use App\Models\CmsForm;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
@@ -9,6 +10,7 @@ use App\Models\MediaAsset;
 use App\Models\MediaFolder;
 use App\Models\SiteContent;
 use App\Models\User;
+use App\Support\BlogCatalog;
 use App\Support\CmsPageCatalog;
 use App\Support\DestinationCatalog;
 use App\Support\EventCatalog;
@@ -34,19 +36,184 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AdminController extends Controller
 {
+    public function blogs(Request $request): View
+    {
+        BlogCatalog::seedDefaults();
+        $query = BlogPost::query();
+        $search = trim($request->string('q')->toString());
+        if ($search !== '') {
+            $query->where(function ($builder) use ($search): void {
+                $builder->where('title', 'like', '%'.$search.'%')
+                    ->orWhere('category', 'like', '%'.$search.'%')
+                    ->orWhere('excerpt', 'like', '%'.$search.'%')
+                    ->orWhere('slug', 'like', '%'.$search.'%');
+            });
+        }
+        if ($request->filled('status')) {
+            $query->where('status', $request->string('status')->toString());
+        }
+        if ($request->filled('category')) {
+            $query->where('category', $request->string('category')->toString());
+        }
+        match ($request->string('sort')->toString()) {
+            'oldest' => $query->orderBy('created_at'),
+            'title' => $query->orderBy('title'),
+            default => $query->orderByDesc('created_at'),
+        };
+
+        $posts = $query->get();
+        $categories = BlogPost::query()->select('category')->distinct()->orderBy('category')->pluck('category');
+
+        return view('admin.blogs.index', compact('posts', 'categories'));
+    }
+
+    public function blogsCreate(): View
+    {
+        return view('admin.blogs.form', [
+            'post' => new BlogPost([
+                'category' => 'Student guidance',
+                'author' => 'Trans Globe Indore team',
+                'read_time' => '5 min read',
+                'sections' => [['title' => '', 'copy' => '']],
+                'tags' => [''],
+            ]),
+            'mode' => 'create',
+        ]);
+    }
+
+    public function blogsStore(Request $request): RedirectResponse
+    {
+        $data = $this->validateBlogPost($request);
+        $data['status'] = 'draft';
+        $data['published_at'] = null;
+        BlogPost::create($data);
+
+        return redirect()->route('admin.blogs.index')->with('status', 'Blog post created as a draft.');
+    }
+
+    public function blogsEdit(BlogPost $blog): View
+    {
+        return view('admin.blogs.form', ['post' => $blog, 'mode' => 'edit']);
+    }
+
+    public function blogsUpdate(Request $request, BlogPost $blog): RedirectResponse
+    {
+        $data = $this->validateBlogPost($request, $blog);
+        $blog->update($data);
+
+        return redirect()->route('admin.blogs.index')->with('status', 'Blog post updated.');
+    }
+
+    public function blogsPublish(BlogPost $blog): RedirectResponse
+    {
+        $blog->update(['status' => 'published', 'published_at' => $blog->published_at ?: now()]);
+
+        return back()->with('status', 'Blog post published.');
+    }
+
+    public function blogsUnpublish(BlogPost $blog): RedirectResponse
+    {
+        $blog->update(['status' => 'draft', 'published_at' => null]);
+
+        return back()->with('status', 'Blog post moved to draft.');
+    }
+
+    public function blogsDestroy(BlogPost $blog): RedirectResponse
+    {
+        $blog->delete();
+
+        return back()->with('status', 'Blog post deleted.');
+    }
+
+    private function validateBlogPost(Request $request, ?BlogPost $post = null): array
+    {
+        $data = $request->validate([
+            'title' => ['required', 'string', 'max:220'],
+            'slug' => ['nullable', 'string', 'max:180', Rule::unique('blog_posts', 'slug')->ignore($post?->id)],
+            'category' => ['required', 'string', 'max:100'],
+            'excerpt' => ['required', 'string', 'max:1000'],
+            'image' => ['nullable', 'string', 'max:500'],
+            'published_at' => ['nullable', 'date'],
+            'read_time' => ['required', 'string', 'max:40'],
+            'author' => ['required', 'string', 'max:160'],
+            'intro' => ['required', 'string'],
+            'sections' => ['nullable', 'array'],
+            'sections.*.title' => ['nullable', 'string', 'max:180'],
+            'sections.*.copy' => ['nullable', 'string'],
+            'tags' => ['nullable', 'array'],
+            'tags.*' => ['nullable', 'string', 'max:60'],
+            'is_featured' => ['nullable', 'boolean'],
+        ]);
+        $slug = $data['slug'] ?? '';
+        $data['slug'] = Str::slug($slug !== '' ? $slug : $data['title']);
+        $data['sections'] = collect($data['sections'] ?? [])
+            ->filter(fn (array $section): bool => trim((string) ($section['title'] ?? '')) !== '' || trim((string) ($section['copy'] ?? '')) !== '')
+            ->map(fn (array $section): array => ['title' => trim((string) ($section['title'] ?? '')), 'copy' => trim((string) ($section['copy'] ?? ''))])
+            ->values()->all();
+        $data['tags'] = collect($data['tags'] ?? [])->map(fn ($tag): string => trim((string) $tag))->filter()->values()->all();
+        $data['is_featured'] = $request->boolean('is_featured');
+
+        return $data;
+    }
+
     public function forms(Request $request): View
     {
         $this->ensureDetailPageForms();
-        $query = CmsForm::query()->orderBy('destination')->orderBy('name');
-        if ($request->filled('destination')) {
-            $query->where('destination', $request->string('destination'));
+        $query = CmsForm::query();
+        $search = trim($request->string('q')->toString());
+        if ($search !== '') {
+            $query->where(function ($builder) use ($search): void {
+                $builder->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('destination', 'like', '%'.$search.'%')
+                    ->orWhere('page_key', 'like', '%'.$search.'%')
+                    ->orWhere('description', 'like', '%'.$search.'%');
+            });
+        }
+        if ($request->filled('group')) {
+            $group = $request->string('group')->toString();
+            $query->where(function ($builder) use ($group): void {
+                $builder->where('destination', $group)
+                    ->orWhere('page_key', 'like', match ($group) {
+                        'destinations' => 'destination.%',
+                        'services' => 'service.%',
+                        'events' => 'event.%',
+                        'scholarships' => 'scholarship.%',
+                        'tests' => 'test.%',
+                        'promotions' => 'promotion.%',
+                        default => '%',
+                    });
+            });
         }
         if ($request->filled('status')) {
-            $query->where('status', $request->string('status'));
+            $query->where('status', $request->string('status')->toString());
         }
+        $sort = $request->string('sort')->toString() ?: 'group';
+        match ($sort) {
+            'name_desc' => $query->orderByDesc('name'),
+            'newest' => $query->orderByDesc('created_at'),
+            'oldest' => $query->orderBy('created_at'),
+            default => $query->orderBy('destination')->orderBy('name'),
+        };
         $forms = $query->get();
+        $catalogPages = collect(CmsPageCatalog::all())->keyBy('key');
+        $groups = collect(CmsPageCatalog::groups());
+        $forms->each(function (CmsForm $form) use ($catalogPages, $groups): void {
+            $groupKey = CmsPageCatalog::groupFor((string) $form->page_key);
+            $group = $groups->get($groupKey, ['label' => 'Other pages', 'description' => 'Additional enquiry forms']);
+            $catalogPage = $catalogPages->get($form->page_key);
+            $thumbnail = $this->formThumbnail((string) $form->page_key, $catalogPage);
+            $form->setAttribute('form_group', $groupKey);
+            $form->setAttribute('form_group_label', $group['label']);
+            $form->setAttribute('form_group_description', $group['description']);
+            $form->setAttribute('thumbnail_url', Str::startsWith($thumbnail, ['/', 'http://', 'https://']) ? $thumbnail : asset($thumbnail));
+            $form->setAttribute('public_path', $this->formPublicPath((string) $form->page_key));
+        });
+        $groupedForms = $forms->groupBy('form_group');
+        $formGroups = $groups->map(function (array $group, string $key) use ($groupedForms): array {
+            return [...$group, 'key' => $key, 'forms' => $groupedForms->get($key, collect())];
+        })->filter(fn (array $group): bool => $group['forms']->isNotEmpty());
 
-        return view('admin.forms.index', ['forms' => $forms, 'destinations' => CmsForm::query()->whereNotNull('destination')->distinct()->orderBy('destination')->pluck('destination')]);
+        return view('admin.forms.index', compact('formGroups', 'groups', 'sort'));
     }
 
     private function ensureDetailPageForms(): void
@@ -55,19 +222,103 @@ class AdminController extends Controller
         $pages = [];
         foreach (DestinationCatalog::slugs() as $slug) {
             $item = DestinationCatalog::find($slug);
-            $pages[] = ['destination' => $item['name'] ?? ucfirst($slug), 'page_key' => 'destination.'.$slug, 'name' => ($item['name'] ?? ucfirst($slug)).' enquiry'];
+            $pages[] = ['group' => 'destinations', 'destination' => $item['name'] ?? ucfirst($slug), 'page_key' => 'destination.'.$slug, 'name' => ($item['name'] ?? ucfirst($slug)).' enquiry'];
         }
-        foreach ([ServiceCatalog::all(), EventCatalog::all(), ScholarshipCatalog::all(), TestPrepCatalog::all()] as $catalog) {
+        foreach ([
+            'services' => ServiceCatalog::all(),
+            'events' => EventCatalog::all(),
+            'scholarships' => ScholarshipCatalog::all(),
+            'tests' => TestPrepCatalog::all(),
+        ] as $group => $catalog) {
             foreach ($catalog as $item) {
                 $slug = $item['slug'] ?? $item['id'] ?? Str::slug($item['name'] ?? $item['title'] ?? 'page');
                 $label = $item['name'] ?? $item['title'] ?? ucfirst($slug);
-                $type = str_contains($label, 'test') ? 'test' : (str_contains($label, 'scholar') ? 'scholarship' : (str_contains($label, 'event') ? 'event' : 'service'));
-                $pages[] = ['destination' => ucfirst($type), 'page_key' => $type.'.'.$slug, 'name' => $label.' enquiry'];
+                $type = match ($group) {
+                    'services' => 'service',
+                    'events' => 'event',
+                    'scholarships' => 'scholarship',
+                    default => 'test',
+                };
+                $pages[] = ['group' => $group, 'destination' => $group, 'page_key' => $type.'.'.$slug, 'name' => $label.' enquiry'];
+            }
+        }
+        foreach (CmsPageCatalog::all() as $page) {
+            if (CmsPageCatalog::groupFor($page['key']) === 'promotions') {
+                $pages[] = ['group' => 'promotions', 'destination' => 'promotions', 'page_key' => $page['key'], 'name' => $page['name'].' enquiry'];
             }
         }
         foreach ($pages as $page) {
-            CmsForm::firstOrCreate(['slug' => Str::slug($page['page_key'].'-form')], [...$page, 'fields' => $defaults, 'description' => 'Default enquiry form for this detail page', 'status' => 'draft']);
+            $existing = CmsForm::query()->where('page_key', $page['page_key'])->first();
+            if (! $existing) {
+                $legacyType = Str::before($page['page_key'], '.');
+                $legacyKey = $legacyType === 'destination'
+                    ? null
+                    : 'service.'.Str::after($page['page_key'], '.');
+                $existing = $legacyKey ? CmsForm::query()->where('page_key', $legacyKey)->first() : null;
+            }
+            if (! $existing) {
+                $existing = CmsForm::query()->whereNull('page_key')->where('name', $page['name'])->first();
+            }
+            if ($existing) {
+                $existing->update([
+                    'slug' => Str::slug($page['page_key'].'-form'),
+                    'destination' => $page['destination'],
+                    'page_key' => $page['page_key'],
+                ]);
+
+                continue;
+            }
+            CmsForm::create([...$page, 'slug' => Str::slug($page['page_key'].'-form'), 'fields' => $defaults, 'description' => 'Default enquiry form for this detail page', 'status' => 'draft']);
         }
+
+        // Older builds inferred page type from the display name, which left
+        // test forms under the service namespace. Remove those generated
+        // duplicates after the canonical test forms have been repaired.
+        foreach (TestPrepCatalog::all() as $item) {
+            $slug = $item['slug'];
+            $canonical = CmsForm::query()->where('page_key', 'test.'.$slug)->first();
+            if ($canonical) {
+                CmsForm::query()->where('page_key', 'service.'.$slug)->delete();
+            }
+        }
+    }
+
+    private function formThumbnail(string $pageKey, ?array $catalogPage = null): string
+    {
+        $group = CmsPageCatalog::groupFor($pageKey);
+        $slug = Str::after($pageKey, '.');
+        $thumbnail = match ($group) {
+            'destinations' => DestinationCatalog::find($slug)['hero'] ?? null,
+            'services' => ServiceCatalog::find($slug)['image'] ?? null,
+            'events' => EventCatalog::find($slug)['image'] ?? null,
+            'scholarships' => ScholarshipCatalog::find($slug)['image'] ?? null,
+            'tests' => TestPrepCatalog::find($slug)['image'] ?? null,
+            default => null,
+        };
+        if ($thumbnail) {
+            return $thumbnail;
+        }
+
+        $imageField = collect($catalogPage['fields'] ?? [])
+            ->first(fn (array $field): bool => ($field['type'] ?? null) === 'image' && ! empty($field['default']));
+
+        return $imageField['default'] ?? '/store/1/geic-icon.png';
+    }
+
+    private function formPublicPath(string $pageKey): ?string
+    {
+        $group = CmsPageCatalog::groupFor($pageKey);
+        $slug = Str::after($pageKey, '.');
+
+        return match ($group) {
+            'destinations' => '/destinations/'.$slug,
+            'services' => '/services/'.$slug,
+            'events' => '/events/'.$slug,
+            'scholarships' => '/scholarships/'.$slug,
+            'tests' => '/tests/'.$slug,
+            'promotions' => $pageKey === 'promotion.landing' ? '/landing' : '/promotions/'.$slug,
+            default => null,
+        };
     }
 
     public function formsCreate(): View
@@ -694,6 +945,11 @@ class AdminController extends Controller
         $search = request()->string('q')->toString();
         $folder = request()->string('folder')->toString();
         $sort = request()->string('sort')->toString() ?: 'newest';
+        $view = request()->string('view')->toString() ?: 'large';
+        $allowedViews = ['xlarge', 'large', 'medium', 'small', 'list', 'details', 'tiles', 'content'];
+        if (! in_array($view, $allowedViews, true)) {
+            $view = 'large';
+        }
         $query = MediaAsset::query()
             ->when($search, fn ($q) => $q->where(function ($inner) use ($search) {
                 $inner->where('original_name', 'like', "%{$search}%")->orWhere('path', 'like', "%{$search}%")->orWhere('alt_text', 'like', "%{$search}%");
@@ -713,9 +969,32 @@ class AdminController extends Controller
             report($exception);
         }
 
+        $folderNames = collect($folders)->merge(['General'])->filter()->unique()->sort()->values();
+        $folderCards = $folderNames->map(function (string $name): array {
+            $assets = MediaAsset::query()->where(function ($query) use ($name): void {
+                if ($name === 'General') {
+                    $query->whereNull('folder')->orWhere('folder', '')->orWhere('folder', 'General');
+
+                    return;
+                }
+
+                $query->where('folder', $name);
+            });
+            $preview = (clone $assets)->latest()->first();
+
+            return [
+                'name' => $name,
+                'count' => (clone $assets)->count(),
+                'preview' => $preview?->path,
+                'updated' => $preview?->updated_at,
+            ];
+        })->values();
+
         return view('admin.media.index', [
             'assets' => $query->orderBy($column, $direction)->paginate(18)->withQueryString(),
-            'folders' => $folders,
+            'folders' => $folderNames,
+            'folderCards' => $folderCards,
+            'view' => $view,
         ]);
     }
 
@@ -748,6 +1027,74 @@ class AdminController extends Controller
         }
 
         return redirect()->route('admin.media.index', ['folder' => $name])->with('status', "Folder '{$name}' is ready. Select it before uploading images.");
+    }
+
+    public function deleteMediaFolder(string $folder): RedirectResponse
+    {
+        $name = trim($folder);
+
+        if ($name === '' || strcasecmp($name, 'General') === 0) {
+            return redirect()->route('admin.media.index')->withErrors(['folder' => 'The General folder cannot be deleted.']);
+        }
+
+        // Preserve uploaded assets when a folder is removed by moving them to
+        // the protected General folder instead of deleting files from storage.
+        MediaAsset::query()->where('folder', $name)->update(['folder' => 'General']);
+
+        try {
+            if (Schema::hasTable('media_folders')) {
+                MediaFolder::query()->where('name', $name)->delete();
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        return redirect()->route('admin.media.index')->with('status', "Folder '{$name}' was deleted. Any images were moved to General.");
+    }
+
+    public function renameMediaFolder(Request $request, string $folder): RedirectResponse
+    {
+        $currentName = trim($folder);
+        $newName = trim($request->validate([
+            'folder' => [
+                'required',
+                'string',
+                'max:100',
+                function (string $attribute, mixed $value, Closure $fail): void {
+                    if (str_contains($value, '/') || str_contains($value, '\\')) {
+                        $fail('Folder names cannot contain slashes.');
+                    }
+                },
+            ],
+        ])['folder']);
+
+        if ($currentName === '' || strcasecmp($currentName, 'General') === 0 || strcasecmp($newName, 'General') === 0) {
+            return redirect()->route('admin.media.index')->withErrors(['folder' => 'The General folder cannot be renamed.']);
+        }
+
+        if (strcasecmp($currentName, $newName) !== 0 && MediaAsset::query()->where('folder', $newName)->exists()) {
+            return redirect()->route('admin.media.index')->withErrors(['folder' => "A folder named '{$newName}' already exists."]);
+        }
+
+        try {
+            if (Schema::hasTable('media_folders') && MediaFolder::query()->where('name', $newName)->where('name', '!=', $currentName)->exists()) {
+                return redirect()->route('admin.media.index')->withErrors(['folder' => "A folder named '{$newName}' already exists."]);
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        MediaAsset::query()->where('folder', $currentName)->update(['folder' => $newName]);
+
+        try {
+            if (Schema::hasTable('media_folders')) {
+                MediaFolder::query()->where('name', $currentName)->update(['name' => $newName]);
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        return redirect()->route('admin.media.index', ['folder' => $newName])->with('status', "Folder '{$currentName}' was renamed to '{$newName}'.");
     }
 
     public function storeMedia(Request $request): RedirectResponse

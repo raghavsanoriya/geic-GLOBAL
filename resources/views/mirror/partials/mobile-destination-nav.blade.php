@@ -21,7 +21,10 @@ body.destination-page,
         body.scholarships-page,
         body.scholarship-detail-page,
         body.tests-page,
-        body.test-detail-page { padding-top: 72px; padding-bottom: calc(92px + env(safe-area-inset-bottom)); background: #f3f6f9; }
+        body.test-detail-page,
+        body.planning-tool-page,
+        body.blog-page,
+        body.blog-detail-page { padding-top: 72px; padding-bottom: calc(92px + env(safe-area-inset-bottom)); background: #f3f6f9; }
 body.contact-page #appHeaderArea,
 body.terms-page #appHeaderArea,
 body.destination-page #appHeaderArea,
@@ -33,7 +36,10 @@ body.destination-page #appHeaderArea,
         body.scholarships-page #appHeaderArea,
         body.scholarship-detail-page #appHeaderArea,
         body.tests-page #appHeaderArea,
-        body.test-detail-page #appHeaderArea { display: none !important; }
+        body.test-detail-page #appHeaderArea,
+        body.planning-tool-page #appHeaderArea,
+        body.blog-page #appHeaderArea,
+        body.blog-detail-page #appHeaderArea { display: none !important; }
         body.tg-page-menu-open { overflow: hidden; }
 
         .tg-page-mobile-bar { position: fixed; z-index: 1100; top: 0; right: 0; left: 0; display: grid; grid-template-columns: 48px minmax(0,1fr) 48px; align-items: center; gap: 8px; min-height: 72px; padding: 10px 14px; border-bottom: 1px solid rgba(14,33,69,.08); background: rgba(255,255,255,.97); box-shadow: 0 8px 24px rgba(14,33,69,.08); backdrop-filter: blur(18px); }
@@ -120,6 +126,7 @@ body.destination-page #appHeaderArea,
         <a href="{{ url('/events') }}">Events</a>
         <a href="{{ url('/scholarships') }}">Scholarships</a>
         <a href="{{ url('/tests') }}">Test preparation</a>
+        <a href="{{ url('/blog') }}">Blog</a>
         <a href="{{ url('/#work-visas') }}">Work visa pathways</a>
     </nav>
     <a href="{{ url('/contact#enquiry') }}" class="tg-page-mobile-drawer__cta">Book free counselling</a>
