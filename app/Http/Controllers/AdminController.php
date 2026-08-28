@@ -718,8 +718,15 @@ class AdminController extends Controller
 
         // Older cPanel releases may not have run the folder migration yet.
         // The media asset folder column still supports the workflow safely.
-        if (Schema::hasTable('media_folders')) {
-            MediaFolder::firstOrCreate(['name' => $name]);
+        try {
+            if (Schema::hasTable('media_folders')) {
+                MediaFolder::firstOrCreate(['name' => $name]);
+            }
+        } catch (\Throwable $exception) {
+            // Keep the media workflow usable if a cPanel database migration is
+            // temporarily unavailable; the selected folder is still carried
+            // into the upload form and can be persisted with the asset record.
+            report($exception);
         }
 
         return redirect()->route('admin.media.index', ['folder' => $name])->with('status', "Folder '{$name}' is ready. Select it before uploading images.");
