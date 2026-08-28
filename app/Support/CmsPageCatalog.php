@@ -542,6 +542,7 @@ class CmsPageCatalog
     {
         $fields = self::detail('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $item['title'], $item['summary'], $item['image'])['fields'];
         $fields[] = self::field('hero_eyebrow', 'Hero badge', $item['status'], 'text', 'Hero');
+        $fields[] = self::field('hero_cta_label', 'Hero button label', $item['status'] === 'Upcoming' ? 'Register my interest' : 'Plan my next event', 'text', 'Hero');
         $fields[] = self::field('status', 'Event status', $item['status'], 'text', 'Event facts');
         $fields[] = self::field('date', 'Event date', $item['date'], 'text', 'Event facts');
         $fields[] = self::field('time', 'Event time', $item['time'], 'text', 'Event facts');
