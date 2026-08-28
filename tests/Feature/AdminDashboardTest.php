@@ -355,4 +355,137 @@ class AdminDashboardTest extends TestCase
             ->assertOk()
             ->assertDontSee('Published before unpublishing');
     }
+
+    public function test_administrator_can_manage_and_duplicate_promotional_pages(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->get('/admin/pages?group=promotions')
+            ->assertOk()
+            ->assertSee('Promotional pages')
+            ->assertSee('Study Abroad Guidance')
+            ->assertSee('Duplicate');
+
+        $this->actingAs($admin)
+            ->post('/admin/pages/promotion.landing/duplicate')
+            ->assertRedirect('/admin/pages/promotion.landing-copy');
+
+        $this->assertDatabaseHas('cms_pages', [
+            'page_key' => 'promotion.landing-copy',
+            'group' => 'promotions',
+            'path' => 'promotions/landing-copy',
+        ]);
+        $this->assertDatabaseHas('cms_page_states', [
+            'page_key' => 'promotion.landing-copy',
+            'status' => 'draft',
+        ]);
+
+        $this->get('/promotions/landing-copy')->assertNotFound();
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/promotion.landing-copy', [
+                'content' => [
+                    'hero_title' => 'A campaign created in Laravel',
+                    'hero_copy' => 'An independently managed promotional campaign for future students.',
+                ],
+                'intent' => 'publish',
+            ])
+            ->assertRedirect('/admin/pages/promotion.landing-copy');
+
+        $this->get('/promotions/landing-copy')
+            ->assertOk()
+            ->assertSee('A campaign created in Laravel')
+            ->assertSee('/promotions/landing-copy/form-handler.php', false)
+            ->assertSee('href="/landing/styles.css?v=', false)
+            ->assertSee('data-university-marquee', false)
+            ->assertSee('data-marquee-toggle', false)
+            ->assertSee('/landing/assets/universities/monash-university.png', false);
+    }
+
+    public function test_new_promotional_page_is_seeded_with_the_complete_editable_schema(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'promo-admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->post('/admin/pages', [
+                'name' => 'Summer campaign',
+                'slug' => 'summer-campaign',
+                'group' => 'promotions',
+                'description' => 'Seasonal promotional campaign',
+                'hero_title' => 'Plan your next chapter',
+                'hero_copy' => 'Profile-first guidance for ambitious students.',
+                'hero_image' => 'assets/custom/summer.webp',
+            ])
+            ->assertRedirect('/admin/pages/promotion.summer-campaign');
+
+        $this->assertDatabaseHas('site_contents', [
+            'page_key' => 'promotion.summer-campaign',
+            'field_key' => 'faq_one_question',
+        ]);
+        $this->assertDatabaseHas('site_contents', [
+            'page_key' => 'promotion.summer-campaign',
+            'field_key' => 'form_button',
+            'value' => 'Get my free profile evaluation',
+        ]);
+    }
+
+    public function test_new_content_pages_in_each_group_use_the_group_editable_schema(): void
+    {
+        $admin = User::create([
+            'name' => 'Content admin',
+            'email' => 'content-groups@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $groups = [
+            'services' => ['slug' => 'career-guidance', 'field' => 'hero_image'],
+            'events' => ['slug' => 'indore-open-day', 'field' => 'archive_title'],
+            'scholarships' => ['slug' => 'future-leaders', 'field' => 'hero_image'],
+            'tests' => ['slug' => 'ielts-prep', 'field' => 'hero_image'],
+        ];
+
+        $prefixes = [
+            'services' => 'service',
+            'events' => 'event',
+            'scholarships' => 'scholarship',
+            'tests' => 'test',
+        ];
+
+        foreach ($groups as $group => $definition) {
+            $pageKey = $prefixes[$group].'.'.$definition['slug'];
+
+            $this->actingAs($admin)
+                ->post('/admin/pages', [
+                    'name' => ucfirst($group).' page',
+                    'slug' => $definition['slug'],
+                    'group' => $group,
+                    'description' => 'A fully editable '.$group.' page.',
+                    'hero_title' => 'Start your '.$group.' journey',
+                    'hero_copy' => 'Guidance tailored for Trans Globe Indore students.',
+                    'hero_image' => 'assets/custom/'.$definition['slug'].'.webp',
+                ])
+                ->assertRedirect('/admin/pages/'.$pageKey);
+
+            $this->assertDatabaseHas('cms_pages', [
+                'page_key' => $pageKey,
+                'group' => $group,
+            ]);
+            $this->assertDatabaseHas('site_contents', [
+                'page_key' => $pageKey,
+                'field_key' => $definition['field'],
+            ]);
+        }
+    }
 }

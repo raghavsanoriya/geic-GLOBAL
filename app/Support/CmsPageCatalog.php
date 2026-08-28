@@ -317,6 +317,11 @@ class CmsPageCatalog
                 self::field('hero_title', 'Hero title', 'Every expert step for your global future.'),
                 self::field('hero_copy', 'Hero description', 'From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.', 'textarea'),
                 self::field('hero_image', 'Primary hero image URL', 'assets/transglobe/services/services-team.avif', 'image'),
+                self::field('content_title', 'Content section title', 'How we can help', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Explore practical support tailored to your goals.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to take the next step?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Speak with our team for clear, personal guidance.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Speak to a Counsellor', 'text', 'Call to action'),
             ]),
             self::page('events', 'Events', 'University visits, admission days and study-abroad events', [
                 self::field('hero_title', 'Hero title', 'Meet universities. Find your next move.'),
@@ -324,16 +329,31 @@ class CmsPageCatalog
                 self::field('hero_image', 'Hero image URL', 'assets/transglobe/events/meet-eu-business-school-2026.jpg', 'image'),
                 self::field('archive_title', 'Archive section title', 'Event highlights from Indore and beyond'),
                 self::field('archive_copy', 'Archive section description', 'Explore recent university visits, admission days and expos from the Trans Globe network.', 'textarea'),
+                self::field('content_title', 'Content section title', 'Make your next move', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Meet specialists and university representatives at an upcoming event.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to join us?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Register your interest and our team will share the details.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Register interest', 'text', 'Call to action'),
             ]),
             self::page('scholarships', 'Scholarships', 'Scholarship listing and funding guidance', [
                 self::field('hero_title', 'Hero title', 'Fund your future, without the guesswork.'),
                 self::field('hero_copy', 'Hero description', 'Studying abroad does not have to feel out of reach. Discover scholarship opportunities that match your profile, then apply with a clear, well-prepared plan.', 'textarea'),
                 self::field('hero_image', 'Hero image URL', 'assets/transglobe/destinations/australia-detail-hero.jpg', 'image'),
+                self::field('content_title', 'Content section title', 'Find funding that fits', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Discover awards and bursaries that match your profile and study plan.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to explore your options?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Let our counsellors help you build a realistic funding plan.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Discuss scholarships', 'text', 'Call to action'),
             ]),
             self::page('tests', 'Test preparation', 'IELTS, PTE, TOEFL and other test-prep overview', [
                 self::field('hero_title', 'Hero title', 'Prepare with purpose. Test with confidence.'),
                 self::field('hero_copy', 'Hero description', 'Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.', 'textarea'),
                 self::field('hero_image', 'Hero image URL', 'assets/services/university-admissions.jpg', 'image'),
+                self::field('content_title', 'Content section title', 'Prepare with purpose', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Build the skills, strategy and confidence needed for your target score.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to start preparing?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Speak with our test-preparation team about your target and timeline.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Plan my preparation', 'text', 'Call to action'),
             ]),
             self::page('contact', 'Contact', 'Contact information and enquiry page', [
                 self::field('hero_title', 'Hero title', 'Let’s make your next step clear.'),
@@ -359,6 +379,12 @@ class CmsPageCatalog
             $pages[] = self::detail('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $item['title'], $item['summary'], $item['image']);
         }
 
+        $pages[] = self::promotionPage(
+            'promotion.landing',
+            'Study Abroad Guidance',
+            'The primary promotional campaign page at /landing.'
+        );
+
         try {
             if (Schema::hasTable('cms_pages')) {
                 foreach (CmsPage::query()->orderBy('group')->orderBy('name')->get() as $customPage) {
@@ -383,11 +409,41 @@ class CmsPageCatalog
         return null;
     }
 
+    /**
+     * Return the first canonical page definition for a CMS group.
+     *
+     * Custom pages use the same editable structure as the group's baseline
+     * page, so new slugs can be created without falling back to a tiny hero
+     * only schema.
+     */
+    public static function firstForGroup(string $group): ?array
+    {
+        // Prefer the group's baseline definition when it exists.  Some
+        // groups also contain dotted detail definitions (for example
+        // `event.*`); those are intentionally secondary because custom
+        // slugs should inherit the complete group-level schema.
+        $baseline = self::find($group);
+
+        if ($baseline) {
+            return $baseline;
+        }
+
+        foreach (self::all() as $page) {
+            if (self::groupFor($page['key']) === $group && ! str_contains($page['key'], '.')) {
+                return $page;
+            }
+        }
+
+        return collect(self::all())
+            ->first(fn (array $page): bool => self::groupFor($page['key']) === $group);
+    }
+
     /** @return array<string, array{label: string, description: string}> */
     public static function groups(): array
     {
         return [
             'landing' => ['label' => 'Landing pages', 'description' => 'Main website pages and conversion journeys'],
+            'promotions' => ['label' => 'Promotional pages', 'description' => 'Reusable campaign pages with the Trans Globe promotional design'],
             'destinations' => ['label' => 'Destinations', 'description' => 'Country-specific study destination pages'],
             'services' => ['label' => 'Services', 'description' => 'Individual counselling and student-support services'],
             'events' => ['label' => 'Events', 'description' => 'University visits, admission days and study-abroad expos'],
@@ -404,6 +460,7 @@ class CmsPageCatalog
             str_starts_with($pageKey, 'event.') => 'events',
             str_starts_with($pageKey, 'scholarship.') => 'scholarships',
             str_starts_with($pageKey, 'test.') => 'tests',
+            str_starts_with($pageKey, 'promotion.') => 'promotions',
             default => 'landing',
         };
     }
@@ -619,6 +676,10 @@ class CmsPageCatalog
 
     private static function customPage(CmsPage $page): array
     {
+        if ($page->group === 'promotions') {
+            return self::promotionPage($page->page_key, $page->name, $page->description ?: 'Promotional campaign page');
+        }
+
         return self::page($page->page_key, $page->name, $page->description ?: 'Custom website page', [
             self::field('hero_title', 'Hero title', $page->name),
             self::field('hero_copy', 'Hero description', $page->description ?: 'Add a clear introduction for this page.', 'textarea'),
@@ -628,6 +689,103 @@ class CmsPageCatalog
             self::field('cta_title', 'Call-to-action heading', 'Ready to take the next step?', 'text', 'Call to action'),
             self::field('cta_copy', 'Call-to-action text', 'Speak with our Indore counselling team for clear, personal guidance.', 'textarea', 'Call to action'),
             self::field('cta_label', 'Button label', 'Speak to a Counsellor', 'text', 'Call to action'),
+        ]);
+    }
+
+    private static function promotionPage(string $key, string $name, string $description): array
+    {
+        return self::page($key, $name, $description, [
+            self::field('meta_title', 'Browser title', 'Trans Globe | Study Abroad with the Right Guidance', 'text', 'Page identity'),
+            self::field('meta_description', 'Search description', 'Study abroad guidance for university selection, applications, visas, and pre-departure planning across leading global destinations.', 'textarea', 'Page identity'),
+            self::field('logo_image', 'Header and footer logo', '/landing/assets/tg-logo.svg', 'image', 'Header & navigation'),
+            self::field('utility_text', 'Top service line', 'University admissions · visas · pre-departure', 'text', 'Header & navigation'),
+            self::field('header_cta', 'Header button label', 'Free profile review', 'text', 'Header & navigation'),
+            self::field('hero_eyebrow', 'Hero eyebrow', 'Admissions · Visas · Pre-departure', 'text', 'Hero'),
+            self::field('hero_title', 'Hero title', 'The right guidance for', 'text', 'Hero'),
+            self::field('hero_title_accent', 'Hero highlighted title', 'your global journey.', 'text', 'Hero'),
+            self::field('hero_copy', 'Hero description', 'Find the right university, destination, and career pathway with end-to-end guidance for Germany, the UK, Ireland, Italy, Spain, Australia, and beyond.', 'textarea', 'Hero'),
+            self::field('hero_image', 'Hero image', '/landing/assets/hero-campus.webp', 'image', 'Hero'),
+            self::field('hero_image_alt', 'Hero image alt text', 'International students walking together through a university campus', 'text', 'Hero'),
+            self::field('hero_cta', 'Hero button label', 'Book free profile evaluation', 'text', 'Hero'),
+            self::field('destinations_eyebrow', 'Destinations eyebrow', 'Explore your options', 'text', 'Destinations'),
+            self::field('destinations_title', 'Destinations title', 'Where do you want to study?', 'text', 'Destinations'),
+            self::field('destinations_copy', 'Destinations description', 'Compare destinations with your academic profile, budget, career goals, and post-study plans in mind. Choose a country to begin your free evaluation.', 'textarea', 'Destinations'),
+            self::field('university_network_eyebrow', 'University network eyebrow', 'Global university network', 'text', 'University network'),
+            self::field('university_network_title', 'University network title', 'Study with leading universities worldwide.', 'text', 'University network'),
+            self::field('university_network_copy', 'University network description', 'Explore globally respected institutions across Australia, the UK, Europe, Canada, New Zealand, Dubai and beyond.', 'textarea', 'University network'),
+            self::field('why_eyebrow', 'Benefits eyebrow', 'Why students choose us', 'text', 'Why choose us'),
+            self::field('why_title', 'Benefits title', 'Clear advice for a decision that shapes your future.', 'text', 'Why choose us'),
+            self::field('why_copy', 'Benefits description', 'Studying abroad is not one decision—it is a chain of important ones. We help you move through each stage with clarity, context, and a plan built around your profile.', 'textarea', 'Why choose us'),
+            self::field('why_cta', 'Benefits button label', 'Talk to a counsellor', 'text', 'Why choose us'),
+            self::field('benefit_one_title', 'Benefit 1 title', 'University & course guidance', 'text', 'Why choose us'),
+            self::field('benefit_one_copy', 'Benefit 1 description', 'Build a shortlist around your academics, interests, budget, and long-term career goals.', 'textarea', 'Why choose us'),
+            self::field('benefit_two_title', 'Benefit 2 title', 'Complete application support', 'text', 'Why choose us'),
+            self::field('benefit_two_copy', 'Benefit 2 description', 'Move from profile review to documentation and university applications with a clear checklist.', 'textarea', 'Why choose us'),
+            self::field('benefit_three_title', 'Benefit 3 title', 'Multiple study destinations', 'text', 'Why choose us'),
+            self::field('benefit_three_copy', 'Benefit 3 description', 'Explore opportunities across Europe, the UK, Australia, the UAE, and other leading destinations.', 'textarea', 'Why choose us'),
+            self::field('benefit_four_title', 'Benefit 4 title', 'Visa & documentation guidance', 'text', 'Why choose us'),
+            self::field('benefit_four_copy', 'Benefit 4 description', 'Understand the steps, documents, and timelines involved in your destination’s visa process.', 'textarea', 'Why choose us'),
+            self::field('benefit_five_title', 'Benefit 5 title', 'Pre-departure preparation', 'text', 'Why choose us'),
+            self::field('benefit_five_copy', 'Benefit 5 description', 'Plan accommodation, insurance, travel, and destination-specific financial requirements.', 'textarea', 'Why choose us'),
+            self::field('benefit_six_title', 'Benefit 6 title', 'Dedicated counsellor support', 'text', 'Why choose us'),
+            self::field('benefit_six_copy', 'Benefit 6 description', 'Have one dependable point of contact throughout your study-abroad journey.', 'textarea', 'Why choose us'),
+            self::field('journey_eyebrow', 'Journey eyebrow', 'Your application roadmap', 'text', 'Journey'),
+            self::field('journey_title', 'Journey title', 'A complex process, made clear.', 'text', 'Journey'),
+            self::field('journey_copy', 'Journey description', 'Every destination is different. Your plan should be too. We organise the moving parts into four clear stages.', 'textarea', 'Journey'),
+            self::field('journey_one_title', 'Journey step 1 title', 'Evaluate', 'text', 'Journey'),
+            self::field('journey_one_copy', 'Journey step 1 description', 'Review academics, goals, budget, experience, and eligibility.', 'textarea', 'Journey'),
+            self::field('journey_two_title', 'Journey step 2 title', 'Shortlist', 'text', 'Journey'),
+            self::field('journey_two_copy', 'Journey step 2 description', 'Compare countries, courses, universities, and realistic pathways.', 'textarea', 'Journey'),
+            self::field('journey_three_title', 'Journey step 3 title', 'Apply', 'text', 'Journey'),
+            self::field('journey_three_copy', 'Journey step 3 description', 'Prepare documents, submit applications, and manage offer decisions.', 'textarea', 'Journey'),
+            self::field('journey_four_title', 'Journey step 4 title', 'Prepare', 'text', 'Journey'),
+            self::field('journey_four_copy', 'Journey step 4 description', 'Plan finances, visa documentation, travel, and pre-departure steps.', 'textarea', 'Journey'),
+            self::field('reviews_eyebrow', 'Reviews eyebrow', 'Google reviews', 'text', 'Reviews'),
+            self::field('reviews_title', 'Reviews title', 'Real guidance, in our students’ own words.', 'text', 'Reviews'),
+            self::field('reviews_copy', 'Reviews description', 'A selection of recent public reviews for Trans Globe Education Consultants, Indore. Use the arrows to read all ten.', 'textarea', 'Reviews'),
+            self::field('team_eyebrow', 'Team eyebrow', 'Professional people', 'text', 'Team'),
+            self::field('team_title', 'Team title', 'Meet our expert education consultants.', 'text', 'Team'),
+            self::field('team_one_name', 'Team member 1 name', 'Johar Ali', 'text', 'Team'),
+            self::field('team_one_role', 'Team member 1 role', 'Leadership team', 'text', 'Team'),
+            self::field('team_one_image', 'Team member 1 image', '/landing/assets/johar-ali.webp', 'image', 'Team'),
+            self::field('team_two_name', 'Team member 2 name', 'Ali', 'text', 'Team'),
+            self::field('team_two_role', 'Team member 2 role', 'Student counsellor', 'text', 'Team'),
+            self::field('team_two_image', 'Team member 2 image', '/landing/assets/ali.webp', 'image', 'Team'),
+            self::field('team_three_name', 'Team member 3 name', 'Husain', 'text', 'Team'),
+            self::field('team_three_role', 'Team member 3 role', 'Student counsellor', 'text', 'Team'),
+            self::field('team_three_image', 'Team member 3 image', '/landing/assets/husain.webp', 'image', 'Team'),
+            self::field('form_eyebrow', 'Form eyebrow', 'Free profile evaluation', 'text', 'Lead form'),
+            self::field('form_title', 'Form title', 'Start with your profile. Build the right plan.', 'text', 'Lead form'),
+            self::field('form_copy', 'Form description', 'Tell us where you are today. We’ll use your academics, preferences, and goals to help identify suitable countries, universities, and courses.', 'textarea', 'Lead form'),
+            self::field('form_proof_one', 'Form proof point 1', 'No obligation', 'text', 'Lead form'),
+            self::field('form_proof_two', 'Form proof point 2', 'Profile-based guidance', 'text', 'Lead form'),
+            self::field('form_proof_three', 'Form proof point 3', 'Your information stays private', 'text', 'Lead form'),
+            self::field('form_button', 'Form button label', 'Get my free profile evaluation', 'text', 'Lead form'),
+            self::field('faq_eyebrow', 'FAQ eyebrow', 'Professional study abroad FAQs', 'text', 'FAQs'),
+            self::field('faq_title', 'FAQ title', 'Questions are part of the process.', 'text', 'FAQs'),
+            self::field('faq_copy', 'FAQ description', 'Here are clear answers to the questions students ask before they begin.', 'textarea', 'FAQs'),
+            self::field('faq_one_question', 'FAQ 1 question', 'How do I determine which country and university suit my goals?', 'text', 'FAQs'),
+            self::field('faq_one_answer', 'FAQ 1 answer', 'The right destination depends on your academic profile, preferred course, budget, career objectives, language proficiency, post-study opportunities, and eligibility. A profile-based assessment helps shortlist suitable universities and countries.', 'textarea', 'FAQs'),
+            self::field('faq_two_question', 'FAQ 2 question', 'Can I study abroad with a less competitive academic profile?', 'text', 'FAQs'),
+            self::field('faq_two_answer', 'FAQ 2 answer', 'Yes. Requirements vary by university, course, and country. Suitable pathways may consider academics, work experience, entrance tests, language scores, and other relevant factors.', 'textarea', 'FAQs'),
+            self::field('faq_three_question', 'FAQ 3 question', 'What is the complete university application process?', 'text', 'FAQs'),
+            self::field('faq_three_answer', 'FAQ 3 answer', 'It generally includes profile evaluation, course and university selection, eligibility checks, document preparation, applications, offer acceptance, financial planning, and visa processing.', 'textarea', 'FAQs'),
+            self::field('faq_four_question', 'FAQ 4 question', 'How much financial planning is required?', 'text', 'FAQs'),
+            self::field('faq_four_answer', 'FAQ 4 answer', 'Plan for tuition, living expenses, accommodation, insurance, travel, visa costs, and other fees. Depending on eligibility, scholarships, grants, or education loans may be available.', 'textarea', 'FAQs'),
+            self::field('faq_five_question', 'FAQ 5 question', 'Can I apply to multiple countries or universities?', 'text', 'FAQs'),
+            self::field('faq_five_answer', 'FAQ 5 answer', 'Yes. A balanced strategy can include ambitious, target, and safer options, provided each application meets the institution’s specific requirements and deadlines.', 'textarea', 'FAQs'),
+            self::field('cta_eyebrow', 'Final CTA eyebrow', 'Your next chapter', 'text', 'Final CTA'),
+            self::field('cta_title', 'Final CTA title', 'Your international education journey starts here.', 'text', 'Final CTA'),
+            self::field('cta_copy', 'Final CTA description', 'Begin with a conversation. Leave with a clearer view of what is possible for your profile.', 'textarea', 'Final CTA'),
+            self::field('cta_button', 'Final CTA button label', 'Book free counselling', 'text', 'Final CTA'),
+            self::field('cta_whatsapp', 'WhatsApp button label', 'Chat on WhatsApp', 'text', 'Final CTA'),
+            self::field('counsellor_one', 'Counsellor 1 contact', 'Counsellor 01 · +91 XXXX XXX XXX', 'text', 'Final CTA'),
+            self::field('counsellor_two', 'Counsellor 2 contact', 'Counsellor 02 · +91 XXXX XXX XXX', 'text', 'Final CTA'),
+            self::field('footer_copy', 'Footer introduction', 'Thoughtful guidance for students planning an international education.', 'textarea', 'Footer'),
+            self::field('footer_address', 'Footer address', 'Office No. 503, The View Tower 1, Yeshwant Niwas Rd, above Jade Blue Showroom, Nehru Park 2, Lad Colony, Indore, Madhya Pradesh 452001', 'textarea', 'Footer'),
+            self::field('footer_email', 'Footer email', 'info@geic.in', 'text', 'Footer'),
+            self::field('footer_phone', 'Footer phone', '+91 98266 66886', 'text', 'Footer'),
+            self::field('footer_copyright', 'Footer copyright', 'Trans Globe. All rights reserved.', 'text', 'Footer'),
         ]);
     }
 

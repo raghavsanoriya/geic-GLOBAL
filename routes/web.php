@@ -38,12 +38,17 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
         Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::get('/enquiries', [AdminController::class, 'enquiries'])->middleware('can:enquiries.view')->name('enquiries.index');
         Route::get('/enquiries/export', [AdminController::class, 'leadExport'])->middleware('can:enquiries.export')->name('enquiries.export');
+        Route::get('/ads', [AdminController::class, 'ads'])->middleware('can:ads.view')->name('ads.index');
+        Route::post('/ads/accounts', [AdminController::class, 'storeAdAccount'])->middleware('can:ads.manage')->name('ads.accounts.store');
+        Route::post('/ads/campaigns', [AdminController::class, 'storeAdCampaign'])->middleware('can:ads.manage')->name('ads.campaigns.store');
+        Route::post('/ads/performance', [AdminController::class, 'storeAdPerformance'])->middleware('can:ads.manage')->name('ads.performance.store');
         Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
         Route::middleware('can:content.manage')->group(function (): void {
             Route::get('/pages', [AdminController::class, 'pages'])->name('pages.index');
             Route::get('/pages/create', [AdminController::class, 'createPage'])->name('pages.create');
             Route::post('/pages', [AdminController::class, 'storePage'])->name('pages.store');
+            Route::post('/pages/{pageKey}/duplicate', [AdminController::class, 'duplicatePage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.duplicate');
             Route::get('/pages/{pageKey}', [AdminController::class, 'editPage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.edit');
             Route::put('/pages/{pageKey}', [AdminController::class, 'updatePage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.update');
             Route::delete('/pages/{pageKey}/published', [AdminController::class, 'unpublishPage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.unpublish');
@@ -52,6 +57,7 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
         Route::middleware('can:media.manage')->group(function (): void {
             Route::get('/media', [AdminController::class, 'media'])->name('media.index');
             Route::post('/media', [AdminController::class, 'storeMedia'])->middleware('throttle:12,1')->name('media.store');
+            Route::post('/media/folders', [AdminController::class, 'createMediaFolder'])->name('media.folders.store');
         });
 
         Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
@@ -75,6 +81,10 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
 Route::post('/landing/form-handler.php', [CounsellingEnquiryController::class, 'storeLanding'])
     ->middleware('throttle:10,1')
     ->name('landing.enquire');
+Route::post('/promotions/{promotion}/form-handler.php', [CounsellingEnquiryController::class, 'storePromotion'])
+    ->where('promotion', '[a-z0-9-]+')
+    ->middleware('throttle:10,1')
+    ->name('promotions.enquire');
 Route::get('/landing', [MirrorPageController::class, 'landing'])->name('landing');
 Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
     ->where('asset', '.*')

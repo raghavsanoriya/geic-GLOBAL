@@ -18,6 +18,14 @@ class AdminAccess
                 'label' => 'Export student enquiries',
                 'description' => 'Download enquiry records as a CSV file.',
             ],
+            'ads.view' => [
+                'label' => 'View advertising performance',
+                'description' => 'Monitor ad accounts, campaign spend, leads, and lead quality.',
+            ],
+            'ads.manage' => [
+                'label' => 'Manage advertising workspace',
+                'description' => 'Add ad accounts, campaigns, and daily performance data.',
+            ],
             'content.manage' => [
                 'label' => 'Manage website content',
                 'description' => 'Create pages, edit page sections, and publish or unpublish content.',
@@ -47,7 +55,7 @@ class AdminAccess
             'administrator' => [
                 'label' => 'Administrator',
                 'description' => 'Manage enquiries, website content, and media without controlling team access.',
-                'permissions' => ['enquiries.view', 'enquiries.export', 'content.manage', 'media.manage'],
+                'permissions' => ['enquiries.view', 'enquiries.export', 'ads.view', 'ads.manage', 'content.manage', 'media.manage'],
             ],
             'content_editor' => [
                 'label' => 'Content editor',
