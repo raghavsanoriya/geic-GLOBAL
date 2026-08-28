@@ -224,7 +224,7 @@ if (profileForm && formStatus) {
     formStatus.classList.remove("is-visible");
 
     try {
-      const response = await fetch("form-handler.php", {
+      const response = await fetch("/landing/form-handler.php", {
         method: "POST",
         headers: {
           Accept: "application/json",

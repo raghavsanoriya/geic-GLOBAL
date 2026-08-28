@@ -49,7 +49,9 @@ class MirrorPageTest extends TestCase
         $this->get('/landing')
             ->assertOk()
             ->assertSee('Study Abroad with the Right Guidance', false)
-            ->assertSee('styles.css', false);
+            ->assertSee('href="/landing/styles.css"', false)
+            ->assertSee('src="/landing/script.js"', false)
+            ->assertSee('src="/landing/assets/tg-logo.svg"', false);
 
         $this->get('/landing/styles.css')
             ->assertOk()
