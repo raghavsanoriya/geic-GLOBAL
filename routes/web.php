@@ -45,6 +45,17 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
         Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
         Route::middleware('can:content.manage')->group(function (): void {
+            Route::get('/forms', [AdminController::class, 'forms'])->name('forms.index');
+            Route::get('/forms/create', [AdminController::class, 'formsCreate'])->name('forms.create');
+            Route::post('/forms', [AdminController::class, 'formsStore'])->name('forms.store');
+            Route::get('/forms/{form}/edit', [AdminController::class, 'formsEdit'])->name('forms.edit');
+            Route::put('/forms/{form}', [AdminController::class, 'formsUpdate'])->name('forms.update');
+            Route::post('/forms/{form}/publish', [AdminController::class, 'formsPublish'])->name('forms.publish');
+            Route::post('/forms/{form}/unpublish', [AdminController::class, 'formsUnpublish'])->name('forms.unpublish');
+            Route::delete('/forms/{form}', [AdminController::class, 'formsDestroy'])->name('forms.destroy');
+        });
+
+        Route::middleware('can:content.manage')->group(function (): void {
             Route::get('/pages', [AdminController::class, 'pages'])->name('pages.index');
             Route::get('/pages/create', [AdminController::class, 'createPage'])->name('pages.create');
             Route::post('/pages', [AdminController::class, 'storePage'])->name('pages.store');
