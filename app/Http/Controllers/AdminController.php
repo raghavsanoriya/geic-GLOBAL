@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CmsForm;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
-use App\Models\CmsForm;
 use App\Models\MediaAsset;
 use App\Models\MediaFolder;
 use App\Models\SiteContent;
 use App\Models\User;
 use App\Support\CmsPageCatalog;
 use App\Support\DestinationCatalog;
-use App\Support\ServiceCatalog;
 use App\Support\EventCatalog;
 use App\Support\ScholarshipCatalog;
+use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
@@ -37,9 +37,14 @@ class AdminController extends Controller
     {
         $this->ensureDetailPageForms();
         $query = CmsForm::query()->orderBy('destination')->orderBy('name');
-        if ($request->filled('destination')) $query->where('destination', $request->string('destination'));
-        if ($request->filled('status')) $query->where('status', $request->string('status'));
+        if ($request->filled('destination')) {
+            $query->where('destination', $request->string('destination'));
+        }
+        if ($request->filled('status')) {
+            $query->where('status', $request->string('status'));
+        }
         $forms = $query->get();
+
         return view('admin.forms.index', ['forms' => $forms, 'destinations' => CmsForm::query()->whereNotNull('destination')->distinct()->orderBy('destination')->pluck('destination')]);
     }
 
@@ -47,14 +52,21 @@ class AdminController extends Controller
     {
         $defaults = $this->defaultFormFields();
         $pages = [];
-        foreach (DestinationCatalog::slugs() as $slug) { $item = DestinationCatalog::find($slug); $pages[] = ['destination' => $item['name'] ?? ucfirst($slug), 'page_key' => 'destination.'.$slug, 'name' => ($item['name'] ?? ucfirst($slug)).' enquiry']; }
-        foreach ([ServiceCatalog::all(), EventCatalog::all(), ScholarshipCatalog::all(), TestPrepCatalog::all()] as $catalog) foreach ($catalog as $item) {
-            $slug = $item['slug'] ?? $item['id'] ?? \Illuminate\Support\Str::slug($item['name'] ?? $item['title'] ?? 'page');
-            $label = $item['name'] ?? $item['title'] ?? ucfirst($slug);
-            $type = str_contains($label, 'test') ? 'test' : (str_contains($label, 'scholar') ? 'scholarship' : (str_contains($label, 'event') ? 'event' : 'service'));
-            $pages[] = ['destination' => ucfirst($type), 'page_key' => $type.'.'.$slug, 'name' => $label.' enquiry'];
+        foreach (DestinationCatalog::slugs() as $slug) {
+            $item = DestinationCatalog::find($slug);
+            $pages[] = ['destination' => $item['name'] ?? ucfirst($slug), 'page_key' => 'destination.'.$slug, 'name' => ($item['name'] ?? ucfirst($slug)).' enquiry'];
         }
-        foreach ($pages as $page) CmsForm::firstOrCreate(['slug' => Str::slug($page['page_key'].'-form')], [...$page, 'fields' => $defaults, 'description' => 'Default enquiry form for this detail page', 'status' => 'draft']);
+        foreach ([ServiceCatalog::all(), EventCatalog::all(), ScholarshipCatalog::all(), TestPrepCatalog::all()] as $catalog) {
+            foreach ($catalog as $item) {
+                $slug = $item['slug'] ?? $item['id'] ?? Str::slug($item['name'] ?? $item['title'] ?? 'page');
+                $label = $item['name'] ?? $item['title'] ?? ucfirst($slug);
+                $type = str_contains($label, 'test') ? 'test' : (str_contains($label, 'scholar') ? 'scholarship' : (str_contains($label, 'event') ? 'event' : 'service'));
+                $pages[] = ['destination' => ucfirst($type), 'page_key' => $type.'.'.$slug, 'name' => $label.' enquiry'];
+            }
+        }
+        foreach ($pages as $page) {
+            CmsForm::firstOrCreate(['slug' => Str::slug($page['page_key'].'-form')], [...$page, 'fields' => $defaults, 'description' => 'Default enquiry form for this detail page', 'status' => 'draft']);
+        }
     }
 
     public function formsCreate(): View
@@ -68,52 +80,66 @@ class AdminController extends Controller
         $data['slug'] = Str::slug($data['slug'] ?: $data['name']);
         $data['status'] = 'draft';
         CmsForm::create($data);
+
         return redirect()->route('admin.forms.index')->with('status', 'Form created as a draft.');
     }
 
-    public function formsEdit(CmsForm $form): View { return view('admin.forms.form', ['form' => $form, 'mode' => 'edit']); }
+    public function formsEdit(CmsForm $form): View
+    {
+        return view('admin.forms.form', ['form' => $form, 'mode' => 'edit']);
+    }
 
     public function formsUpdate(Request $request, CmsForm $form): RedirectResponse
     {
         $data = $this->validateForm($request);
         $data['slug'] = Str::slug($data['slug'] ?: $data['name']);
         $form->update($data);
+
         return redirect()->route('admin.forms.index')->with('status', 'Form updated.');
     }
 
     public function formsPublish(CmsForm $form): RedirectResponse
     {
         $form->update(['status' => 'published', 'published_at' => now()]);
+
         return back()->with('status', 'Form published.');
     }
 
     public function formsUnpublish(CmsForm $form): RedirectResponse
     {
         $form->update(['status' => 'draft', 'published_at' => null]);
+
         return back()->with('status', 'Form moved to draft.');
     }
 
-    public function formsDestroy(CmsForm $form): RedirectResponse { $form->delete(); return back()->with('status', 'Form deleted.'); }
+    public function formsDestroy(CmsForm $form): RedirectResponse
+    {
+        $form->delete();
+
+        return back()->with('status', 'Form deleted.');
+    }
 
     private function validateForm(Request $request): array
     {
         $data = $request->validate([
-            'name' => ['required','string','max:120'], 'slug' => ['nullable','string','max:120'],
-            'destination' => ['nullable','string','max:120'], 'page_key' => ['nullable','string','max:180'],
-            'description' => ['nullable','string','max:1000'], 'fields' => ['required','array','min:1'],
-            'fields.*.label' => ['required','string','max:100'], 'fields.*.key' => ['required','alpha_dash','max:80'],
-            'fields.*.type' => ['required', Rule::in(['text','email','tel','number','select','textarea','date'])],
-            'fields.*.placeholder' => ['nullable','string','max:160'], 'fields.*.options' => ['nullable','string','max:1000'],
-            'fields.*.required' => ['nullable','boolean'],
+            'name' => ['required', 'string', 'max:120'], 'slug' => ['nullable', 'string', 'max:120'],
+            'destination' => ['nullable', 'string', 'max:120'], 'page_key' => ['nullable', 'string', 'max:180'],
+            'description' => ['nullable', 'string', 'max:1000'], 'fields' => ['required', 'array', 'min:1'],
+            'fields.*.label' => ['required', 'string', 'max:100'], 'fields.*.key' => ['required', 'alpha_dash', 'max:80'],
+            'fields.*.type' => ['required', Rule::in(['text', 'email', 'tel', 'number', 'select', 'textarea', 'date'])],
+            'fields.*.placeholder' => ['nullable', 'string', 'max:160'], 'fields.*.options' => ['nullable', 'string', 'max:1000'],
+            'fields.*.required' => ['nullable', 'boolean'],
         ]);
-        $data['fields'] = array_values(array_map(fn ($field) => [...$field, 'required' => !empty($field['required'])], $data['fields']));
+        $data['fields'] = array_values(array_map(fn ($field) => [...$field, 'required' => ! empty($field['required'])], $data['fields']));
+
         return $data;
     }
 
     private function defaultFormFields(): array
     {
-        return [['label'=>'Full name','key'=>'full_name','type'=>'text','required'=>true,'placeholder'=>'Your name'],['label'=>'Phone number','key'=>'phone','type'=>'tel','required'=>true,'placeholder'=>'+91 00000 00000'],['label'=>'Email address','key'=>'email','type'=>'email','required'=>true,'placeholder'=>'you@example.com']];
+        return [['label' => 'Full name', 'key' => 'full_name', 'type' => 'text', 'required' => true, 'placeholder' => 'Your name'], ['label' => 'Phone number', 'key' => 'phone', 'type' => 'tel', 'required' => true, 'placeholder' => '+91 00000 00000'], ['label' => 'Email address', 'key' => 'email', 'type' => 'email', 'required' => true, 'placeholder' => 'you@example.com']];
     }
+
     public function loginForm(): View|RedirectResponse
     {
         return Auth::check()
