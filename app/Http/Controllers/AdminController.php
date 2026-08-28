@@ -674,9 +674,14 @@ class AdminController extends Controller
         $sortMap = ['name' => ['original_name', 'asc'], 'oldest' => ['created_at', 'asc'], 'size' => ['size', 'desc'], 'newest' => ['created_at', 'desc']];
         [$column, $direction] = $sortMap[$sort] ?? $sortMap['newest'];
 
+        $folders = MediaAsset::query()->select('folder')->whereNotNull('folder')->distinct()->pluck('folder');
+        if (Schema::hasTable('media_folders')) {
+            $folders = MediaFolder::query()->orderBy('name')->pluck('name')->merge($folders)->unique()->values();
+        }
+
         return view('admin.media.index', [
             'assets' => $query->orderBy($column, $direction)->paginate(18)->withQueryString(),
-            'folders' => MediaFolder::query()->orderBy('name')->pluck('name')->merge(MediaAsset::query()->select('folder')->distinct()->pluck('folder'))->unique()->values(),
+            'folders' => $folders,
         ]);
     }
 
@@ -684,7 +689,11 @@ class AdminController extends Controller
     {
         $name = trim($request->validate(['folder' => ['required', 'string', 'max:100', 'regex:/^[^\\\/]+$/']])['folder']);
 
-        MediaFolder::firstOrCreate(['name' => $name]);
+        // Older cPanel releases may not have run the folder migration yet.
+        // The media asset folder column still supports the workflow safely.
+        if (Schema::hasTable('media_folders')) {
+            MediaFolder::firstOrCreate(['name' => $name]);
+        }
 
         return redirect()->route('admin.media.index', ['folder' => $name])->with('status', "Folder '{$name}' is ready. Select it before uploading images.");
     }
