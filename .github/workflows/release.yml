@@ -116,6 +116,8 @@ jobs:
           printf '%s\n' \
             /up \
             / \
+            /landing \
+            /landing/styles.css \
             /pages/about \
             /pages/terms \
             /events \

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\DestinationCatalog;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,54 @@ use Illuminate\Validation\Rule;
 
 class CounsellingEnquiryController extends Controller
 {
+    /**
+     * Store the standalone campaign landing-page profile request.
+     */
+    public function storeLanding(Request $request): JsonResponse
+    {
+        if ($request->filled('website')) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you. Your enquiry has been received.',
+            ]);
+        }
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:120'],
+            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'email' => ['required', 'email:rfc', 'max:160'],
+            'qualification' => ['required', 'string', 'max:100'],
+            'passing_year' => ['required', 'integer', 'between:1990,2035'],
+            'score' => ['required', 'string', 'max:30'],
+            'country' => ['required', 'string', 'max:100'],
+            'website' => ['nullable', 'max:0'],
+        ]);
+
+        DB::table('counselling_enquiries')->insert([
+            'destination' => $data['country'],
+            'full_name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'city' => 'Not provided',
+            'study_level' => $data['qualification'],
+            'preferred_intake' => 'Passing year: '.$data['passing_year'],
+            'preferred_course' => null,
+            'english_test' => 'Not sure yet',
+            'message' => 'Academic score: '.$data['score'],
+            'source_page' => '/landing',
+            ...$this->trackingAttributes($request),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->recordConversion($request, '/landing', $data['country']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you. Your profile evaluation request has been received.',
+        ], 201);
+    }
+
     /**
      * Store a study-abroad counselling enquiry from a destination page.
      */

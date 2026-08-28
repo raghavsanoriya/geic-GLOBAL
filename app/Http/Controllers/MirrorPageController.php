@@ -13,10 +13,60 @@ use App\Support\TestPrepCatalog;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Schema;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class MirrorPageController extends Controller
 {
+    /**
+     * Serve the standalone campaign landing page from its committed source.
+     */
+    public function landing(): Response
+    {
+        $html = str_replace(
+            '</head>',
+            '<meta name="csrf-token" content="'.e(csrf_token()).'" />'.PHP_EOL.'  </head>',
+            file_get_contents(base_path('landing-page/index.html'))
+        );
+
+        return response(
+            $html,
+            200,
+            ['Content-Type' => 'text/html; charset=UTF-8']
+        );
+    }
+
+    /**
+     * Serve landing-page assets without duplicating them inside public/.
+     */
+    public function landingAsset(string $asset): BinaryFileResponse
+    {
+        $landingRoot = realpath(base_path('landing-page'));
+        $assetPath = realpath(base_path('landing-page/'.str_replace('\\', '/', $asset)));
+        $contentTypes = [
+            'css' => 'text/css; charset=UTF-8',
+            'js' => 'application/javascript; charset=UTF-8',
+            'svg' => 'image/svg+xml',
+            'webp' => 'image/webp',
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+        ];
+        $extension = strtolower(pathinfo($asset, PATHINFO_EXTENSION));
+
+        abort_unless(
+            $landingRoot !== false
+            && $assetPath !== false
+            && is_file($assetPath)
+            && str_starts_with($assetPath, $landingRoot.DIRECTORY_SEPARATOR)
+            && isset($contentTypes[$extension]),
+            404
+        );
+
+        return response()->file($assetPath, ['Content-Type' => $contentTypes[$extension]]);
+    }
+
     /**
      * Render a page converted from the downloaded Trans Globe Indore LMS HTML mirror.
      */

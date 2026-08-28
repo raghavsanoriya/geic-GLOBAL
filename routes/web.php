@@ -72,6 +72,14 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
     });
 });
 
+Route::post('/landing/form-handler.php', [CounsellingEnquiryController::class, 'storeLanding'])
+    ->middleware('throttle:10,1')
+    ->name('landing.enquire');
+Route::get('/landing', [MirrorPageController::class, 'landing'])->name('landing');
+Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
+    ->where('asset', '.*')
+    ->name('landing.asset');
+
 Route::get('/{page?}', [MirrorPageController::class, 'show'])
     ->where('page', '.*')
     ->name('mirror.page');

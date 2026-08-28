@@ -226,7 +226,10 @@ if (profileForm && formStatus) {
     try {
       const response = await fetch("form-handler.php", {
         method: "POST",
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json",
+          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')?.content || "",
+        },
         body: new FormData(profileForm),
       });
       const result = await response.json().catch(() => ({}));

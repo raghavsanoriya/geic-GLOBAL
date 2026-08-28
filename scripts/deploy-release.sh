@@ -222,8 +222,12 @@ release_activated=true
 
 if [[ "$branch_name" == "develop" ]]; then
     "$release_dir/scripts/install-staging-bridge.sh" "$release_dir"
-elif [[ "$branch_name" == "main" && ! -L "/home2/geicic3c/public_html/_geic_release" ]]; then
-    "$release_dir/scripts/install-production-bridge.sh"
+elif [[ "$branch_name" == "main" ]]; then
+    if [[ -L "/home2/geicic3c/public_html/_geic_release" ]]; then
+        "$release_dir/scripts/install-production-bridge.sh" --refresh
+    else
+        "$release_dir/scripts/install-production-bridge.sh"
+    fi
 fi
 
 app_url="$("$php_bin" -r '
@@ -239,7 +243,7 @@ if [[ ! "$app_url" =~ ^https?:// ]]; then
 else
     health_ok=true
 
-    for path in /up / /destinations /destinations/australia /assets/design_1/css/app.min.css; do
+    for path in /up / /landing /landing/styles.css /destinations /destinations/australia /assets/design_1/css/app.min.css; do
         if ! curl --fail --silent --show-error --max-time 20 --output /dev/null "$app_url$path"; then
             echo "Health check failed: $app_url$path" >&2
             health_ok=false

@@ -44,6 +44,25 @@ class MirrorPageTest extends TestCase
             ->assertSee('Shape Your Ambition', false);
     }
 
+    public function test_standalone_landing_page_and_assets_are_available(): void
+    {
+        $this->get('/landing')
+            ->assertOk()
+            ->assertSee('Study Abroad with the Right Guidance', false)
+            ->assertSee('styles.css', false);
+
+        $this->get('/landing/styles.css')
+            ->assertOk()
+            ->assertHeader('content-type', 'text/css; charset=UTF-8');
+
+        $this->get('/landing/assets/tg-logo.svg')
+            ->assertOk()
+            ->assertHeader('content-type', 'image/svg+xml');
+
+        $this->get('/landing/form-handler.php')->assertNotFound();
+        $this->get('/landing/../.env')->assertNotFound();
+    }
+
     public function test_destination_pages_are_available(): void
     {
         foreach (['australia', 'new-zealand', 'uk', 'ireland', 'germany', 'europe', 'usa', 'canada', 'singapore', 'dubai', 'malaysia', 'switzerland'] as $destination) {
