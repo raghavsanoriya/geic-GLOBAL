@@ -373,7 +373,7 @@ class CmsPageCatalog
             $pages[] = self::eventDetail($item);
         }
         foreach (ScholarshipCatalog::all() as $item) {
-            $pages[] = self::detail('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', 'Find your '.$item['name'].' funding path.', $item['tagline'], $item['image']);
+            $pages[] = self::scholarshipDetail($item);
         }
         foreach (TestPrepCatalog::all() as $item) {
             $pages[] = self::detail('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $item['title'], $item['summary'], $item['image']);
@@ -578,6 +578,55 @@ class CmsPageCatalog
         $fields[] = self::field('cta_label', 'CTA button label', 'Send my enquiry', 'text', 'Call to action');
 
         return self::page('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $fields);
+    }
+
+    private static function scholarshipDetail(array $item): array
+    {
+        $fields = self::detail('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', 'Find your '.$item['name'].' funding path.', $item['tagline'], $item['image'])['fields'];
+        $fields[] = self::field('hero_eyebrow', 'Hero badge', 'Scholarships in '.$item['name'], 'text', 'Hero');
+        $fields[] = self::field('hero_primary_cta', 'Hero primary button', 'Talk to a scholarship expert', 'text', 'Hero');
+        $fields[] = self::field('hero_secondary_cta', 'Hero secondary button', 'Explore opportunities', 'text', 'Hero');
+        $fields[] = self::field('overview_kicker', 'Overview eyebrow', 'Scholarships in '.$item['name'], 'text', 'Overview');
+        $fields[] = self::field('overview_title', 'Overview title', 'Make a more affordable international education plan.', 'text', 'Overview');
+        $fields[] = self::field('overview_copy', 'Overview content', $item['intro'], 'textarea', 'Overview');
+        $fields[] = self::field('overview_copy_two', 'Overview follow-up', 'Scholarships are competitive and conditions can change, so we focus on well-matched opportunities and a strong, timely application.', 'textarea', 'Overview');
+        $fields[] = self::field('overview_cta', 'Overview button label', 'See scholarship opportunities', 'text', 'Overview');
+        $fields[] = self::field('gallery_eyebrow', 'Gallery eyebrow', $item['name'].' in focus', 'text', 'Gallery');
+        $fields[] = self::field('gallery_title', 'Gallery title', 'See the study environment behind your funding plan.', 'text', 'Gallery');
+        $fields[] = self::field('gallery_copy', 'Gallery description', 'Scholarship applications are strongest when the award, university and course all fit the destination you are choosing.', 'textarea', 'Gallery');
+        $fields[] = self::field('opportunities_kicker', 'Opportunities eyebrow', 'Funding opportunities', 'text', 'Opportunities');
+        $fields[] = self::field('opportunities_title', 'Opportunities title', 'Scholarship routes to explore in '.$item['name'].'.', 'text', 'Opportunities');
+        $fields[] = self::field('opportunities_copy', 'Opportunities description', 'These are examples to help you understand the funding landscape. Eligibility, value and availability must always be checked for your course and intake.', 'textarea', 'Opportunities');
+        foreach (array_slice($item['awards'], 0, 4) as $index => [$title, $copy]) {
+            $n = $index + 1;
+            $fields[] = self::field("award_{$n}_title", "Opportunity {$n} title", $title, 'text', 'Opportunities');
+            $fields[] = self::field("award_{$n}_copy", "Opportunity {$n} description", $copy, 'textarea', 'Opportunities');
+        }
+        $fields[] = self::field('process_kicker', 'Process eyebrow', 'How we help', 'text', 'Process');
+        $fields[] = self::field('process_title', 'Process title', 'A better way to approach scholarship applications.', 'text', 'Process');
+        $fields[] = self::field('process_copy', 'Process description', 'We keep the process specific to you—from your current profile to the evidence and deadline behind each application.', 'textarea', 'Process');
+        foreach (array_slice($item['steps'], 0, 3) as $index => [$title, $copy]) {
+            $n = $index + 1;
+            $fields[] = self::field("process_{$n}_title", "Process step {$n} title", $title, 'text', 'Process');
+            $fields[] = self::field("process_{$n}_copy", "Process step {$n} description", $copy, 'textarea', 'Process');
+        }
+        $fields[] = self::field('universities_kicker', 'Universities eyebrow', 'University network', 'text', 'Universities');
+        $fields[] = self::field('universities_title', 'Universities title', 'Explore institutions in '.$item['name'].'.', 'text', 'Universities');
+        $fields[] = self::field('universities_copy', 'Universities description', 'Country-specific university options from the Trans Globe destination network, where scholarships and entry conditions can be checked against your profile.', 'textarea', 'Universities');
+        $fields[] = self::field('faq_kicker', 'FAQ eyebrow', 'Frequently asked questions', 'text', 'FAQs');
+        $fields[] = self::field('faq_title', 'FAQ title', 'Answers before you apply.', 'text', 'FAQs');
+        $fields[] = self::field('faq_copy', 'FAQ description', 'A scholarship conversation can help you prioritise your applications and avoid missing crucial deadlines.', 'textarea', 'FAQs');
+        foreach (array_slice($item['faqs'], 0, 3) as $index => [$question, $answer]) {
+            $n = $index + 1;
+            $fields[] = self::field("faq_{$n}_question", "FAQ {$n} question", $question, 'text', 'FAQs');
+            $fields[] = self::field("faq_{$n}_answer", "FAQ {$n} answer", $answer, 'textarea', 'FAQs');
+        }
+        $fields[] = self::field('cta_kicker', 'CTA eyebrow', 'Start with your profile', 'text', 'Call to action');
+        $fields[] = self::field('cta_title', 'CTA heading', 'Let’s find the scholarships your plan could unlock.', 'text', 'Call to action');
+        $fields[] = self::field('cta_copy', 'CTA description', 'Share your academic profile, course preference and destination ideas. Our team will help you take the most practical next step.', 'textarea', 'Call to action');
+        $fields[] = self::field('cta_label', 'CTA button label', 'Book my free scholarship counselling', 'text', 'Call to action');
+
+        return self::page('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', $fields);
     }
 
     private static function destinationFields(array $item): array
