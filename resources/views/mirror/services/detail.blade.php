@@ -1,8 +1,10 @@
 @include('mirror.partials.header')
 @include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/services'), 'mobileBackLabel' => 'Back to services'])
-@php($detailUrl = url()->current())
-@php($serviceMedia = \App\Support\DetailPageAssets::serviceGallery($service))
-@php($serviceUniversities = \App\Support\DetailPageAssets::universityNetwork())
+@php
+    $detailUrl = url()->current();
+    $serviceMedia = \App\Support\DetailPageAssets::serviceGallery($service);
+    $serviceUniversities = \App\Support\DetailPageAssets::universityNetwork();
+@endphp
 
 <style>
     :root { --sd-navy: #0e2145; --sd-red: #e31e24; --sd-soft: #f4f7fb; --sd-ink: #15294d; --sd-muted: #64748b; --sd-line: #dfe7f0; }
