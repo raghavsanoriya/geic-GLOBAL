@@ -1,22 +1,26 @@
+@php($siteCms = $siteCms ?? [])
 <!DOCTYPE html>
 <html lang="en">
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:07:48 GMT -->
+<!-- Mirrored from www.geic.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:07:48 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
     <base href="/">
 <!-- CSRF Token -->
-<meta name="csrf-token" content="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+@php($isAboutPage = ($mirrorPage ?? '') === 'pages/about')
+@php($isTermsPage = ($mirrorPage ?? '') === 'pages/terms')
+
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="{{ isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia with Trans Globe Indore. Explore universities, admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.')))) }}">
+    <meta name="description" content="{{ $isTermsPage ? 'Read the terms and conditions for using the Trans Globe Indore website and study-abroad counselling services managed by GEIC.' : ($isAboutPage ? 'Meet Trans Globe Indore, managed by GEIC. Learn about our mission, counselling approach and complete support for students planning an international education.' : (isset($event) ? $event['summary'] : (isset($test) ? $test['summary'] : (isset($service) ? $service['summary'] : (isset($destination) ? 'Study in '.$destination['name'].' with Trans Globe Indore. Explore admission requirements, costs, intakes, careers and student visa guidance.' : (($mirrorPage ?? '') === 'events' ? 'Explore university visits, admission days and study-abroad events with Trans Globe Indore.' : (($mirrorPage ?? '') === 'destinations' ? 'Explore leading study abroad destinations with Trans Globe Indore. Compare Australia, Canada, the UK, USA, Germany and more with expert GEIC guidance.' : 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.'))))))) }}">
     <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
     <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
 
@@ -41,79 +45,79 @@
 <link rel="home" href="{{ url('/') }}">
 
 <!-- Open Graph -->
-<meta property='og:title' content='Home'>
+<meta property='og:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
 <meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='Home'>
+<meta name='twitter:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
-<meta property='og:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
-<meta name='twitter:image' content='{{ isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png')) }}'>
+<meta property='og:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
+<meta name='twitter:image' content='{{ isset($event) ? asset($event['image']) : (isset($test) ? asset($test['image']) : (isset($service) ? asset($service['image']) : (isset($destination) ? asset($destination['hero']) : '/store/1/geic-icon.png'))) }}'>
 <meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>{{ isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations/australia' ? 'Study in Australia | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC'))))) }}</title>
+    <title>{{ $isTermsPage ? 'Terms & Conditions | Trans Globe Indore – GEIC' : ($isAboutPage ? 'About Trans Globe Indore | GEIC' : (isset($event) ? $event['title'].' | Trans Globe Indore Events' : (isset($test) ? $test['title'].' Preparation | Trans Globe Indore – GEIC' : (isset($service) ? $service['title'].' | Trans Globe Indore – GEIC' : (isset($destination) ? 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'events' ? 'Study Abroad Events | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'tests' ? 'Test Preparation | Trans Globe Indore – GEIC' : (($mirrorPage ?? '') === 'destinations' ? 'Study Abroad Destinations | Trans Globe Indore – GEIC' : 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC')))))))) }}</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="assets/design_1/css/app.min.css">
 
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
-        
+
+
     <link rel="stylesheet" href="assets/default/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/vendors/plyr.io/plyr.min.css">
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="assets/design_1/landing_builder/front.min.css">
         <link rel="stylesheet" href="assets/design_1/landing_builder/components/two_columns_hero.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/statistics.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/features_4x.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/featured_courses.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/trending_categories.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/best_selling_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/best_rated_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/course_bundles.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/links_and_titles_slider_1_row.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/upcoming_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/discounted_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/free_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/store_products.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/subscription_plans.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_2_images_check_items_text.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_2_images_text.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/cta_card_8_columns.min.css">
-        
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/single_video_section.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_4_images_text.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/instructors.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/organizations.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/meeting_booking_list.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/jobs_board.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/sliding_testimonials_2_rows.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/blog.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/css/parts/course_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/course_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/bundle_cards/grid_card_1.min.css">
@@ -124,9 +128,9 @@
                 <link rel="stylesheet" href="assets/design_1/css/parts/instructors_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/organizations_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/job_cards/grid_card_1.min.css">
-        
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
@@ -262,7 +266,7 @@
     }
 
     /* On detail pages, section tabs are the one persistent navigation layer. */
-    @if(isset($mirrorPage) && (str_starts_with($mirrorPage, 'destinations/') || str_starts_with($mirrorPage, 'services/') || str_starts_with($mirrorPage, 'scholarships/') || str_starts_with($mirrorPage, 'tests/')))
+    @if(isset($mirrorPage) && (str_starts_with($mirrorPage, 'destinations/') || str_starts_with($mirrorPage, 'services/') || str_starts_with($mirrorPage, 'events/') || str_starts_with($mirrorPage, 'scholarships/') || str_starts_with($mirrorPage, 'tests/')))
     #themeHeaderSticky.sticky {
         position: relative !important;
         top: -42px !important;
@@ -283,38 +287,38 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }}">
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <a href="tel:+919826666886" class="text-white">+91 98266 66886</a>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                            <a href="mailto:info@geic.in" class="text-white">info@geic.in</a>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -322,13 +326,13 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-7">
                         <form action="#destinations" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search destinations, services and scholarships..." aria-label="Search">
@@ -340,12 +344,12 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-5 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -387,13 +391,13 @@
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -438,11 +442,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -453,12 +457,12 @@
                                                             </div>
 
                             <div class="d-flex align-items-center">
-                                            <a href="{{ url('/#why-trans-globe') }}" class="d-flex align-items-center text-white opacity-75">
-                                            <span class="">About GEIC Indore</span>
+                                            <a href="{{ url('/pages/about') }}" class="d-flex align-items-center text-white opacity-75">
+                                            <span class="">{{ $siteCms['header_about_label'] ?? 'About GEIC Indore' }}</span>
                                         </a>
-                                    
+
                                                                             <a href="{{ url('/contact') }}" class="d-flex align-items-center text-white opacity-75 ml-32">
-                                            <span class="">Contact</span>
+                                            <span class="">{{ $siteCms['header_contact_label'] ?? 'Contact' }}</span>
                                         </a>
                                                                                                 </div>
 
@@ -469,22 +473,22 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-8 col-lg-3">
                     <a href="{{ url('/') }}" class="theme-header-1__logo text-left d-block">
                         <img src="assets/transglobe/trans-globe-logo.png" class="tg-header-brand-logo" alt="Trans Globe Indore managed by Global Education and Immigration Consultants">
                     </a>
                 </div>
 
-                
+
                 <div class="d-none">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -500,7 +504,7 @@
                     <a href="categories/Development" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+
                             <span class="">Development</span>
                         </div>
 
@@ -513,7 +517,7 @@
                                     <a href="categories/Development/Web-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
@@ -522,7 +526,7 @@
                                     <a href="categories/Development/Mobile-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
@@ -531,7 +535,7 @@
                                     <a href="categories/Development/Game-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -542,7 +546,7 @@
                     <a href="categories/Business" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+
                             <span class="">Business</span>
                         </div>
 
@@ -555,7 +559,7 @@
                                     <a href="categories/Business/Management" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
@@ -564,7 +568,7 @@
                                     <a href="categories/Business/Communications" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
@@ -573,7 +577,7 @@
                                     <a href="categories/Business/Business-Strategy" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -584,7 +588,7 @@
                     <a href="categories/Marketing" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -595,7 +599,7 @@
                     <a href="categories/Lifestyles" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -608,7 +612,7 @@
                                     <a href="categories/Lifestyles/Lifestyle" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
@@ -617,7 +621,7 @@
                                     <a href="categories/Lifestyles/Beauty-and-Makeup" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -628,7 +632,7 @@
                     <a href="categories/Health-and-Fitness" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -639,7 +643,7 @@
                     <a href="categories/Academics" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+
                             <span class="">Academics</span>
                         </div>
 
@@ -652,7 +656,7 @@
                                     <a href="categories/Academics/Math" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
@@ -661,7 +665,7 @@
                                     <a href="categories/Academics/Science" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
@@ -670,7 +674,7 @@
                                     <a href="categories/Academics/Language" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -681,7 +685,7 @@
                     <a href="categories/Design" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+
                             <span class="">Design</span>
                         </div>
 
@@ -694,25 +698,26 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-12 col-lg-6 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="{{ url('/') }}" class="text-dark">Home</a>
-                                                            <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">Destinations</a>
-                                                            <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">Services</a>
-                                                            <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">Scholarships</a>
-                                                            <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">Test Prep</a>
+                                                            <a href="{{ url('/') }}" class="text-dark">{{ $siteCms['header_nav_home'] ?? 'Home' }}</a>
+                                                            <a href="{{ url('/destinations') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'destinations') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_destinations'] ?? 'Destinations' }}</a>
+                                                            <a href="{{ url('/services') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'services') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_services'] ?? 'Services' }}</a>
+                                                            <a href="{{ url('/events') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'events') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_events'] ?? 'Events' }}</a>
+                                                            <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
+                                                            <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-4 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
                                             <a href="{{ url('/contact#enquiry') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Speak to a Counsellor">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
-                            <span class="btn-flip-effect__text text-white">Speak to a Counsellor</span>
+</svg>
+                            <span class="btn-flip-effect__text text-white">{{ $siteCms['header_cta_label'] ?? 'Speak to a Counsellor' }}</span>
                         </a>
                                     </div>
 
@@ -722,6 +727,3 @@
 </div>
     </div>
         </div>
-    
-    
-    

@@ -1,969 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-
-<!-- Mirrored from lms.rocket-soft.org/pages/about by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:38:08 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-<!-- CSRF Token -->
-<meta name="csrf-token" content="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-<meta name='robots' content="index, follow, all">
-
-    <meta name="description" content="Rocket LMS is an online course marketplace with a pile of features that helps you to run your online education business easily.">
-    <meta property="og:description" content="Rocket LMS is an online course marketplace with a pile of features that helps you to run your online education business easily.">
-    <meta name='twitter:description' content='Rocket LMS is an online course marketplace with a pile of features that helps you to run your online education business easily.'>
-
-<link rel='shortcut icon' type='image/x-icon' href="/store/1/geic-icon.png">
-<link rel="manifest" href="../mix-manifest7b30.json?v=4">
-<meta name="theme-color" content="#FFF">
-<!-- Windows Phone -->
-<meta name="msapplication-starturl" content="/">
-<meta name="msapplication-TileColor" content="#FFF">
-<meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
-<!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
-<link rel="apple-touch-icon" href="/store/1/geic-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<!-- Android -->
-<link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
-<meta name="mobile-web-app-capable" content="yes">
-<!-- Other -->
-<meta name="layoutmode" content="fitscreen/standard">
-<link rel="home" href="../index.html">
-
-<!-- Open Graph -->
-<meta property='og:title' content='About Rocket LMS'>
-<meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='About Rocket LMS'>
-
-
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
-<meta property='og:image' content='/store/1/geic-icon.png'>
-<meta name='twitter:image' content='/store/1/geic-icon.png'>
-<meta property='og:locale' content='../en_US.html'>
-<meta property='og:type' content='website'>
-
-
-
-    <title>About Rocket LMS | Rocket LMS</title>
-
-    <!-- General CSS File -->
-    <link rel="stylesheet" href="../assets/default/vendors/simplebar/simplebar.css">
-    <link rel="stylesheet" href="../assets/design_1/css/app.min.css">
-
-    
-            <link rel="stylesheet" href="../assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
-            <link rel="stylesheet" href="../assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
-        <link rel="stylesheet" href="../assets/design_1/css/parts/other_pages.min.css">
-    
-    <style>
-        
-
-        @font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: 400;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Gilroy-Regular.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: bold;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Gilroy-Bold.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'main-font-family';
-                      font-style: normal;
-                      font-weight: 500;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Gilroy-Medium.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: 400;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Tajawal-Regular.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: bold;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Tajawal-Bold.woff2) format('woff2');
-                    }@font-face {
-                      font-family: 'rtl-font-family';
-                      font-style: normal;
-                      font-weight: 500;
-                      font-display: swap;
-                      src: url(../store/1/fonts/Tajawal-Medium.woff2) format('woff2');
-                    }
-
-        :root{
---primary:#E31E24;
---primary-hover:#0064e5;
---primary-border:#E31E24;
---primary-hover-border:#0064e5;
---primary-btn-color:#ffffff;
---primary-btn-hover-color:#ffffff;
---primary-saturated:#67a9ff;
---secondary:#0e2145;
---secondary-hover:#0c1d3e;
---secondary-border:#0e2145;
---secondary-hover-border:#0c1d3e;
---secondary-btn-color:#ffffff;
---secondary-btn-hover-color:#ffffff;
---accent:#fe6257;
---accent-hover:#e4584e;
---accent-border:#fe6257;
---accent-hover-border:#e4584e;
---accent-btn-color:#ffffff;
---accent-btn-hover-color:#ffffff;
---success:#3fcd82;
---success-hover:#38b875;
---success-border:#3fcd82;
---success-hover-border:#38b875;
---success-btn-color:#ffffff;
---success-btn-hover-color:#ffffff;
---info:#67a9ff;
---info-hover:#5c98e5;
---info-border:#67a9ff;
---info-hover-border:#5c98e5;
---info-btn-color:#ffffff;
---info-btn-hover-color:#ffffff;
---warning:#ffa200;
---warning-hover:#e59100;
---warning-border:#ffa200;
---warning-hover-border:#e59100;
---warning-btn-color:#ffffff;
---warning-btn-hover-color:#ffffff;
---danger:#f63c3c;
---danger-hover:#dd3636;
---danger-border:#f63c3c;
---danger-hover-border:#dd3636;
---danger-btn-color:#ffffff;
---danger-btn-hover-color:#ffffff;
---dark:#121f3e;
---black:#000000;
---white:#ffffff;
---white-hover:#e5e5e5;
---white-border:#ffffff;
---white-hover-border:#e5e5e5;
---white-btn-color:#ffffff;
---white-btn-hover-color:#ffffff;
---gray-100:#fafcff;
---gray-200:#f0f4f9;
---gray-300:#e9edf3;
---gray-400:#cdd5e2;
---gray-500:#97a7bf;
---gray:#f5f8f9;
---section-bg:#eaf0f3;
-}
-
-    </style>
-
-</head>
-
-<body class="bg-gray  light-mode">
-
-<div id="app">
-
-    
-            <div id="appHeaderArea">
-            <div id="themeHeaderVacuum"></div>
-    <div class="theme-header-1">
-        
-                    <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
-    <div class="container">
-        <div class="row align-items-center">
-
-            <div class="col-12 col-lg-4">
-                <div class="d-flex align-items-center gap-24">
-                    
-                                            <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
-</svg>                            <span class="text-white">+1 (323) 555-9876</span>
-                        </div>
-                    
-                    
-                                            <div class="d-flex align-items-center gap-8 opacity-75">
-                            <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
-                        </div>
-                    
-                    
-                                            <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
-                            <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
-</svg>                            <svg width="16px" height="16px" class="light-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
-</svg>                        </div>
-                    
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-8 mt-12 mt-lg-0">
-                <div class="row">
-                    
-                    <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
-                            <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
-
-                            <button type="submit" class="btn-transparent d-flex-center search-icon">
-                                <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 20a9 9 0 100-18 9 9 0 000 18zM18.93 20.69c.53 1.6 1.74 1.76 2.67.36.85-1.28.29-2.33-1.25-2.33-1.14-.01-1.78.88-1.42 1.97z"/>
-</svg>                            </button>
-                        </form>
-                    </div>
-                                         <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
-                        <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
-                            <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
-                                <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
-        <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-        <input type="hidden" name="locale" value="en">
-
-                                    <div class="d-flex align-items-center gap-8">
-                    <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                        <img src="../vendor/blade-country-flags/4x3-us.svg" class="img-fluid" width="16px" height="16px" alt="English flag"/>
-                    </div>
-                    <span class="js-lang-title text-white opacity-75 d-none d-md-flex">English</span>
-                    <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 8.95l-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/>
-</svg>                </div>
-                                                                </form>
-
-    <div class="header-1-dropdown-menu py-8 mx-w-200">
-
-        <div class="py-8 px-16 font-12 text-gray-500">Select a Language</div>
-
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="EN" data-title="English">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="../vendor/blade-country-flags/4x3-us.svg" class="img-cover" alt="English flag"/>
-                    </div>
-                    <span class="ml-8 font-14">English</span>
-                </div>
-            </div>
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="AR" data-title="Arabic">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="../vendor/blade-country-flags/4x3-sa.svg" class="img-cover" alt="Arabic flag"/>
-                    </div>
-                    <span class="ml-8 font-14">Arabic</span>
-                </div>
-            </div>
-                    <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="ES" data-title="Spanish">
-                <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
-                    <div class="header-1-dropdown-menu__flag">
-                        <img src="../vendor/blade-country-flags/4x3-es.svg" class="img-cover" alt="Spanish flag"/>
-                    </div>
-                    <span class="ml-8 font-14">Spanish</span>
-                </div>
-            </div>
-        
-    </div>
-</div>
-
-                                
-                                <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
-            <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
-            <input type="hidden" name="currency" value="USD">
-
-                                                <div class="d-flex align-items-center gap-8">
-                        <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                            <span class="font-12 text-white opacity-75">$</span>
-                        </div>
-                        <span class="js-lang-title text-white opacity-75 d-none d-md-flex">USD</span>
-                        <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M19.92 8.95l-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/>
-</svg>                    </div>
-                                                                                            </form>
-
-        <div class="header-1-dropdown-menu py-8">
-
-            <div class="py-8 px-16 font-12 text-gray-500">Select a Currency</div>
-
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="USD" data-title="USD">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">United States Dollar</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            $
-                        </div>
-                    </div>
-                </div>
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="EUR" data-title="EUR">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">Euro Member Countries</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            €
-                        </div>
-                    </div>
-                </div>
-                            <div class="js-currency-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="INR" data-title="INR">
-                    <div class=" d-flex align-items-center justify-content-between w-100 px-16 py-8 bg-transparent">
-                        <span class="text-gray-500 text-dark">India Rupee</span>
-
-                        <div class="header-1-dropdown-menu__item-sign-box position-relative d-flex-center rounded-8">
-                            ₹
-                        </div>
-                    </div>
-                </div>
-            
-        </div>
-    </div>
-
-                                
-                                                                    <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
-                                        <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
-  <path stroke-width="1.5" d="M2 7.85c0-1.85.99-2 2.22-2h15.56c1.23 0 2.22.15 2.22 2 0 2.15-.99 2-2.22 2H4.22C2.99 9.85 2 10 2 7.85z"/>
-  <path stroke-linecap="round" stroke-width="1.5" d="M9.76 14v3.55M14.36 14v3.55M3.5 10l1.41 8.64C5.23 20.58 6 22 8.86 22h6.03c3.11 0 3.57-1.36 3.93-3.24L20.5 10"/>
-</svg>                                        <span class="js-cart-counter theme-header-1__top-navbar-cart-counter d-inline-flex-center font-12 text-white d-none">0</span>
-                                    </div>
-                                                            </div>
-
-                            <div class="d-flex align-items-center">
-                                                                                                            <a href="../login.html" class="d-flex align-items-center text-white opacity-75">
-                                            <span class="">Login</span>
-                                        </a>
-                                    
-                                                                            <a href="../register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
-                                            <span class="">Register</span>
-                                        </a>
-                                                                                                </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        
-        
-        <div id="themeHeaderSticky" class="theme-header-1__main">
-    <div class="container h-100 position-relative">
-        <div class="theme-header-1__main-mask"></div>
-
-        <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
-            <div class="row align-items-center h-100">
-                
-                <div class="col-6 col-lg-2">
-                    <a href="../index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="../store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="../store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
-                                            </a>
-                </div>
-
-                
-                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
-                    <div class="theme-header-1__dropdown position-relative">
-    <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
-        <svg width="16px" height="16px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M5 10h2c2 0 3-1 3-3V5c0-2-1-3-3-3H5C3 2 2 3 2 5v2c0 2 1 3 3 3zM17 10h2c2 0 3-1 3-3V5c0-2-1-3-3-3h-2c-2 0-3 1-3 3v2c0 2 1 3 3 3zM17 22h2c2 0 3-1 3-3v-2c0-2-1-3-3-3h-2c-2 0-3 1-3 3v2c0 2 1 3 3 3zM5 22h2c2 0 3-1 3-3v-2c0-2-1-3-3-3H5c-2 0-3 1-3 3v2c0 2 1 3 3 3z"/>
-</svg>        <span class="text-gray-500">Categories</span>
-    </div>
-
-    <div class="header-1-dropdown-menu auth-user-info-dropdown-menu py-12">
-
-        <ul class="theme-header-1__categories">
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
-                            <span class="">Development</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="../categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
-                                            <span class="">Web Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
-                                            <span class="">Mobile Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
-                                            <span class="">Game Development</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
-                            <span class="">Business</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="../categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
-                                            <span class="">Management</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
-                                            <span class="">Communications</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
-                                            <span class="">Business Strategy</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
-                            <span class="">Marketing</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
-                            <span class="">Lifestyle</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="../categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
-                                            <span class="">Lifestyle</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
-                                            <span class="">Beauty &amp; Makeup</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
-                            <span class="">Health &amp; Fitness</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
-                            <span class="">Academics</span>
-                        </div>
-
-                                                    <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                                            </a>
-
-                                            <ul class="header-1-dropdown-menu__sub-menu py-12">
-                                                            <li class="">
-                                    <a href="../categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
-                                            <span class="">Math</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
-                                            <span class="">Science</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="../categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
-                                        <div class="d-flex align-items-center w-100">
-                                                                                            <img src="../store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
-                                            <span class="">Language</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                                    </ul>
-                                    </li>
-                            <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="../categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
-                        <div class="d-flex align-items-center">
-                                                            <img src="../store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
-                            <span class="">Design</span>
-                        </div>
-
-                                            </a>
-
-                                    </li>
-                    </ul>
-
-    </div>
-</div>
-                </div>
-
-                
-                <div class="col-6 col-lg-5 mt-12 mt-lg-0">
-                                            <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="../index.html" class="text-dark">Home</a>
-                                                            <a href="../classes8676.html?sort=newest" class="text-dark">Courses</a>
-                                                            <a href="../instructor-finder.html" class="text-dark">Instructors</a>
-                                                            <a href="../products.html" class="text-dark">Store</a>
-                                                            <a href="../forums.html" class="text-dark">Forums</a>
-                                                            <a href="../events.html" class="text-dark">Events</a>
-                                                            <a href="../jobs.html" class="text-dark">Jobs</a>
-                                                    </div>
-                                    </div>
-
-                
-                <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
-                                            <a href="../login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
-                                                            <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
-  <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
-                            <span class="btn-flip-effect__text text-white">Start Learning</span>
-                        </a>
-                                    </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-        </div>
-    
-    
-        <main class="pb-56">
-        <section class="pages-hero position-relative">
-            <div class="pages-hero__mask"></div>
-            <img src="#" class="img-cover" alt="About Rocket LMS cover"/>
-        </section>
-
-
-        <div class="container">
-            
-            <div class="pages-header position-relative">
-    <div class="pages-header__mask"></div>
-    <div class="position-relative d-flex align-items-start bg-white rounded-32 z-index-2">
-        <div class="d-flex flex-column p-32">
-
-                            <div class="d-flex-center size-64 rounded-12 bg-gray-400-30">
-                    <svg width="32px" height="32px" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M21.66 10.44l-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23z" opacity=".4"/>
-  <path d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27zM17.49 10.51c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 01.37-1.45l4.85 1.23a.748.748 0 01-.18 1.47z"/>
-  <path d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 01.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56z"/>
-</svg>                </div>
-            
-
-            <div class="d-flex align-items-center mt-16 text-gray-500">
-                <a href="../index.html" class="text-gray-500">Rocket LMS</a>
-                <svg width="16px" height="16px" class="mx-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"/>
-</svg>                <span class="">About Rocket LMS</span>
-            </div>
-
-
-            <h1 class="font-24 font-weight-bold mt-12">About Rocket LMS</h1>
-            <div class="font-12 text-gray-500 mt-8"></div>
-        </div>
-
-            </div>
-</div>
-
-
-            
-            <div class="pages-content bg-white p-16 rounded-32 mt-28">
-                <div><b>Rocket LMS</b> is an online course marketplace with a pile of features that helps you to run your online education business easily. This platform helps instructors and students get in touch together and share knowledge.</div><div><br></div><div>Teachers will be able to create unlimited video courses, live classes, text courses, projects, quizzes, files, etc and students will be able to use the educational material and increase their skill level.</div><div><br></div><div>Rocket LMS is based on real business needs, cultural differences, advanced user researches so it covers your business requirements efficiently.</div><div style="text-align: center; "><img src="../store/1/default_images/about.png" style="width: 1110px;"><br></div><div><br></div><div><b>WHY CHOOSE Rocket LMS?</b></div><div><br></div><div>- Comprehensive solution for online education businesses</div><div>- Based on real business needs</div><div>- Multiple content types (Video courses, Live classes, text courses)</div><div>- Youtube, Vimeo, and AWS integration</div><div>- Google calendar integration</div><div>- Online 1 to 1 meetings support</div><div>- Single &amp; multiple instructors</div><div>- Organizational education system</div><div>- Subscribe system</div><div>- Various payment gateways for worldwide</div><div>- Offline payment</div><div>- Multilanguage</div><div>- Fully responsive</div><div>- Fully customizable</div><div>- RTL support</div>
-            </div>
-        </div>
-    </main>
-
-
-            <div id="appFooterArea">
-            <div class="theme-footer-1 position-relative has-newsletter">
-        <div class="theme-footer-1__section position-relative">
-            <div class="theme-footer-1__section-bg-wrapper light-only" style="background-color: var(--secondary); background-image: url(../store/themes/footers/2/footer_background_7gn.png); "></div>
-            <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(../store/themes/footers/2/footer_background_7gn.png); "></div>
-
-
-            
-                            <div class="theme-footer-1__newsletter">
-    <div class="container position-relative">
-        <div class="theme-footer-1__newsletter-mask"></div>
-
-        <div class="position-relative z-index-2 bg-white p-16 rounded-24">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6">
-                    <div class="">
-                        <div class="d-flex align-items-center gap-4">
-                                                            <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
-                                                            <div class="theme-footer-1__newsletter-emoji">
-                                    <img src="../store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
-                                </div>
-                                                    </div>
-
-                                                    <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6 mt-16 mt-lg-0 d-flex justify-content-end">
-                    <div class="js-newsletter-form newsletter-form d-flex align-items-center justify-content-between p-12 rounded-12 border-gray-200">
-                        <div class="form-group mb-0 flex-1">
-                            <div class="d-flex align-items-center gap-8 px-12 flex-1">
-                                <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                                <input type="email" name="newsletter_email" class="js-ajax-newsletter_email flex-1" placeholder="Enter your email address here">
-                            </div>
-
-                            <div class="invalid-feedback d-block position-absolute position-bottom-0"></div>
-                        </div>
-
-                        <button type="button" class="js-submit-newsletter-btn btn btn-primary btn-lg text-white">Join</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            <div class="position-relative z-index-2">
-
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-12 col-lg-5">
-                                                            <div class="d-inline-flex-center gap-8 border-2 border-white rounded-32 bg-white-10 text-white px-16 py-12">
-                                                                            <div class="size-24">
-                                            <img src="../store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
-                                        </div>
-                                    
-                                                                            <span class="">Let’s get started now!</span>
-                                                                    </div>
-
-                                                                    <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
-                                                                    <a href="../classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
-                                                                                    <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
-  <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
-                                        <span class="btn-flip-effect__text">Enroll on Courses</span>
-                                    </a>
-                                                                                    </div>
-
-                        <div class="col-6 col-lg-2 mt-32 mt-lg-0">
-                                                            <h4 class="font-16 text-white">Additional Links</h4>
-                            
-                                                                                                                                        <a href="../login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
-                                            <span class="">Login</span>
-                                        </a>
-                                                                                                                                                <a href="../register.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Register</span>
-                                        </a>
-                                                                                                                                                <a href="../contact.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Contact</span>
-                                        </a>
-                                                                                                                                                <a href="../certificate_validation.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Certificate Validation</span>
-                                        </a>
-                                                                                                                                                <a href="../login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Become Instructor</span>
-                                        </a>
-                                                                                                                                                <a href="about.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">About</span>
-                                        </a>
-                                                                                                                                                <a href="terms.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Terms and Policies</span>
-                                        </a>
-                                                                                                                                                                                            </div>
-
-                        <div class="col-6 col-lg-2 mt-32 mt-lg-0">
-                                                            <h4 class="font-16 text-white">Popular Categories</h4>
-                            
-                                                                                                                                        <a href="../categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
-                                            <span class="">Development</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Business.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Business</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Marketing.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Marketing</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Lifestyles.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Lifestyle</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Health-and-Fitness.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Health</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Academics.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Academics</span>
-                                        </a>
-                                                                                                                                                <a href="../categories/Design.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">Design</span>
-                                        </a>
-                                                                                                                                                                                            </div>
-
-                        <div class="col-12 col-lg-3 mt-32 mt-lg-0">
-                                                                                                <h4 class="font-16 text-white">Contact US</h4>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-20">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-width="1.5" d="M12 13.43a3.12 3.12 0 100-6.24 3.12 3.12 0 000 6.24z"/>
-  <path stroke-width="1.5" d="M3.62 8.49c1.97-8.66 14.8-8.65 16.76.01 1.15 5.08-2.01 9.38-4.78 12.04a5.193 5.193 0 01-7.21 0c-2.76-2.66-5.92-6.97-4.77-12.05z"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 6v10c0 4-1 5-5 5H6c-4 0-5-1-5-5V6c0-4 1-5 5-5h6c4 0 5 1 5 5zM11 4.5H7"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 18.1A1.55 1.55 0 109 15a1.55 1.55 0 000 3.1z"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
-                                    </div>
-                                
-                                                                    <div class="d-flex align-items-start gap-8 mt-16">
-                                        <div class="size-24">
-                                            <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
-                                    </div>
-                                                                                    </div>
-
-
-                    </div>
-                </div>
-
-                <div class="theme-footer-1__bottom-section-divider"></div>
-
-                <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
-                    <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
-                                                                                                                                        <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
-                                            <img src="../store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://web.whatsapp.com/" target="_blank" rel="nofollow" title="Whatsapp" class="d-flex-center size-24">
-                                            <img src="../store/1/default_images/social/whatsapp.svg" alt="Whatsapp" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://twitter.com/" target="_blank" rel="nofollow" title="Messenger" class="d-flex-center size-24">
-                                            <img src="../store/1/default_images/social/messenger.svg" alt="Messenger" class="img-cover">
-                                        </a>
-                                                                                                                                                                                                            <a href="https://www.facebook.com/" target="_blank" rel="nofollow" title="Facebook" class="d-flex-center size-24">
-                                            <img src="../store/1/default_images/social/facebook.svg" alt="Facebook" class="img-cover">
-                                        </a>
-                                                                                                                                            </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
-    
-    
-    
-    
-    <div class="cart-drawer no-footer bg-white py-16">
-    <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
-        <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
-            <svg width="25px" height="25px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/>
-</svg>        </button>
-
-        <span class="font-14 font-weight-bold ml-8">Cart</span>
-    </div>
-
-    <div class="cart-drawer__body pb-32" data-simplebar >
-
-    </div>
-
-    <div class="cart-drawer__footer pt-16 border-top-gray-bg d-none px-16">
-        <div class="d-flex align-items-center justify-content-between">
-            <span class="text-gray-500">Subtotal</span>
-            <span class="js-side-cart-subtotal text-dark font-weight-bold"></span>
-        </div>
-
-        <div class="mt-12">
-            <a href="../login.html" class="btn btn-outline-primary btn-block">View Cart</a>
-        </div>
-    </div>
-</div>
-<div class="cart-drawer-mask"></div>
-
-</div>
-
-<!-- Template JS File -->
-<script>
-    var siteDomain = '../index.html';
-    var deleteAlertTitle = 'Are you sure?';
-    var deleteAlertHint = 'This action cannot be undone!';
-    var deleteAlertConfirm = 'Delete';
-    var deleteAlertCancel = 'Cancel';
-    var deleteAlertSuccess = 'Success';
-    var deleteAlertFail = 'Failed';
-    var deleteAlertFailHint = 'Failed to delete item!';
-    var deleteAlertSuccessHint = 'Item deleted successfully.';
-    var forbiddenRequestToastTitleLang = 'Forbidden Request';
-    var forbiddenRequestToastMsgLang = 'You do not have access to this content.';
-    var priceInvalidHintLang = 'Invalid price. Only numbers and decimals are accepted.';
-    var clearLang = 'clear';
-    var requestSuccessLang = 'Request completed successfully!';
-    var saveSuccessLang = 'Item added successfully.';
-    var requestFailedLang = 'Request Failed';
-    var oopsLang = 'Oops...';
-    var somethingWentWrongLang = 'Something went wrong...';
-    var loadingDataPleaseWaitLang = 'Loading data. Please wait...';
-    var deleteRequestLang = 'Content Deletion Request';
-    var deleteRequestTitleLang = 'Are you sure to delete content?';
-    var deleteRequestDescriptionLang = 'If you wish to remove your content, please provide a clear and detailed explanation.';
-    var requestDetailsLang = 'Request Details';
-    var sendRequestLang = 'Submit Request';
-    var closeLang = 'Close';
-    var generatedContentLang = 'Generated Content';
-    var copyLang = 'Copy';
-    var doneLang = 'Completed';
-    var jsCurrentCurrency = '$';
-    var defaultLocale = 'en';
-    var appLocale = 'en';
-    var dangerCloseIcon = `<svg width="24" height="24" class="icons text-danger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12M12 18V6"/>
-</svg>`;
-    var directSendIcon = `<svg width="24" height="24" class="icons text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9V2l-2 2M12 2l2 2M1.98 13h4.41c.38 0 .72.21.89.55l1.17 2.34A2 2 0 0010.24 17h3.53a2 2 0 001.79-1.11l1.17-2.34a1 1 0 01.89-.55h4.36"/>
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 5.13c-3.54.52-5 2.6-5 6.87v3c0 5 2 7 7 7h6c5 0 7-2 7-7v-3c0-4.27-1.46-6.35-5-6.87"/>
-</svg>`;
-    var closeIcon = `<svg width="25px" height="25px" class="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12M12 18V6"/>
-</svg>`;
-    var bulDangerIcon = `<svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  <path d="M21.76 15.92L15.36 4.4C14.5 2.85 13.31 2 12 2s-2.5.85-3.36 2.4l-6.4 11.52c-.81 1.47-.9 2.88-.25 3.99.65 1.11 1.93 1.72 3.61 1.72h12.8c1.68 0 2.96-.61 3.61-1.72.65-1.11.56-2.53-.25-3.99z" opacity=".4"/>
-  <path d="M12 14.75c-.41 0-.75-.34-.75-.75V9c0-.41.34-.75.75-.75s.75.34.75.75v5c0 .41-.34.75-.75.75zM12 18c-.06 0-.13-.01-.2-.02a.636.636 0 01-.18-.06.757.757 0 01-.18-.09l-.15-.12c-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71l.15-.12c.06-.04.12-.07.18-.09.06-.03.12-.05.18-.06.13-.03.27-.03.39 0 .07.01.13.03.19.06.06.02.12.05.18.09l.15.12c.18.19.29.45.29.71 0 .26-.11.52-.29.71l-.15.12c-.06.04-.12.07-.18.09-.06.03-.12.05-.19.06-.06.01-.13.02-.19.02z"/>
-</svg>`;
-    var defaultAvatarPath = "../store/1/default_images/default_profile.jpg";
-    var themeColorsMode = {"light":{"primary":"#E31E24","primary_saturated":"#67a9ff","secondary":"#0e2145","accent":"#fe6257","success":"#3fcd82","info":"#67a9ff","warning":"#ffa200","danger":"#f63c3c","dark":"#121f3e","black":"#000000","white":"#ffffff","gray_100":"#fafcff","gray_200":"#f0f4f9","gray_300":"#e9edf3","gray_400":"#cdd5e2","gray_500":"#97a7bf","gray":"#f5f8f9","section_bg":"#eaf0f3"},"dark":{"primary":"#3e93ff","primary_saturated":"#8dbeff","secondary":"#2658b7","accent":"#ff8077","success":"#5ade98","info":"#8dbeff","warning":"#ffb32d","danger":"#fe6363","dark":"#aab8c5","black":"#e1eaf6","white":"#1e1f26","gray_100":"#272832","gray_200":"#30313e","gray_300":"#3e404e","gray_400":"#5d5f72","gray_500":"#8391a2","gray":"#17181e","section_bg":"#2d323a"}};
-</script>
-
-
-<script type="text/javascript" src="../assets/design_1/js/app.min.js"></script>
-<script type="text/javascript" src="../assets/default/vendors/simplebar/simplebar.min.js"></script>
-<script defer src="../assets/design_1/js/parts/content_delete.min.js"></script>
-
-
-
-
-
-
+@include('mirror.partials.header', ['siteCms' => $cms])
+@include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/'), 'mobileBackLabel' => 'Back to home'])
+
+<style>
+    @font-face { font-family:'Plus Jakarta Sans'; font-style:normal; font-weight:700 800; font-display:swap; src:url('{{ asset('assets/fonts/plus-jakarta-sans-latin.woff2') }}') format('woff2'); }
+    :root { --ab-navy:#0e2145; --ab-red:#e31e24; --ab-orange:#f3951e; --ab-ink:#15294d; --ab-muted:#64748b; --ab-soft:#f4f7fb; --ab-line:#dfe7f0; }
+    .ab-page { overflow:clip; background:#fff; color:var(--ab-ink); }
+    .ab-wrap { width:min(1280px,calc(100% - 48px)); margin-inline:auto; }
+    .ab-section { padding:92px 0; scroll-margin-top:96px; }
+    .ab-kicker { display:inline-flex; align-items:center; gap:11px; color:var(--ab-red); font-size:12px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    .ab-kicker::before { width:29px; height:2px; background:currentColor; content:''; }
+    .ab-title { max-width:760px; margin:15px 0 0; color:var(--ab-navy); font-size:clamp(34px,4vw,52px); line-height:1.07; font-weight:800; letter-spacing:-.048em; text-wrap:balance; }
+    .ab-title em { color:var(--ab-red); font-style:normal; }
+    .ab-lead { max-width:680px; margin:18px 0 0; color:var(--ab-muted); font-size:16px; line-height:1.75; }
+    .ab-page :is(a,button,summary):focus-visible { outline:3px solid rgba(243,149,30,.48); outline-offset:3px; }
+    .ab-link { display:inline-flex; align-items:center; gap:9px; color:var(--ab-navy); font-size:14px; font-weight:800; transition:color .2s ease,gap .2s ease; }
+    .ab-link:hover { gap:13px; color:var(--ab-orange); }
+    .ab-hero { padding:126px 0 0; background:var(--ab-soft); }
+    .ab-hero__shell { position:relative; display:grid; overflow:hidden; min-height:560px; grid-template-columns:1.08fr .92fr; align-items:center; gap:48px; padding:66px; border-radius:36px; background:var(--ab-navy); box-shadow:0 28px 70px rgba(14,33,69,.2); }
+    .ab-hero__shell::before { position:absolute; inset:0; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px); background-size:48px 48px; mask-image:linear-gradient(90deg,#000,transparent 90%); content:''; }
+    .ab-hero__ring { position:absolute; top:-235px; right:-120px; width:610px; height:610px; border:82px solid rgba(227,30,36,.42); border-radius:50%; }
+    .ab-hero__copy { position:relative; z-index:1; min-width:0; }
+    .ab-crumbs { display:flex; flex-wrap:wrap; gap:8px; color:rgba(255,255,255,.62); font-size:13px; }
+    .ab-crumbs a { color:#fff; font-weight:700; }
+    .ab-hero .ab-kicker { margin-top:34px; color:#ff7379; }
+    .ab-hero h1 { max-width:720px; margin:17px 0 0; color:#fff; font-size:clamp(44px,5.15vw,68px); line-height:1.01; font-weight:800; letter-spacing:-.058em; text-wrap:balance; }
+    .ab-hero__lead { max-width:640px; margin:20px 0 0; color:rgba(255,255,255,.8); font-size:17px; line-height:1.7; }
+    .ab-hero__actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:29px; }
+    .ab-button-secondary { display:inline-flex; min-height:52px; align-items:center; justify-content:center; gap:9px; padding:0 21px; border:1px solid rgba(255,255,255,.32); border-radius:14px; color:#fff!important; font-size:14px; font-weight:800; transition:border-color .2s ease,background .2s ease,transform .2s ease; }
+    .ab-button-secondary:hover { border-color:var(--ab-orange); background:var(--ab-orange); transform:translateY(-2px); }
+    .ab-hero__visual { position:relative; z-index:1; min-width:0; }
+    .ab-hero__image { position:relative; overflow:hidden; min-height:430px; border:1px solid rgba(255,255,255,.18); border-radius:27px; background:#20375e; box-shadow:0 24px 54px rgba(4,15,36,.34); }
+    .ab-hero__image::after { position:absolute; inset:0; background:linear-gradient(150deg,rgba(14,33,69,.08),transparent 44%,rgba(227,30,36,.2)); content:''; }
+    .ab-hero__image img { display:block; width:100%; height:430px; object-fit:cover; }
+    .ab-hero__badge { position:absolute; z-index:2; right:-18px; bottom:28px; display:flex; width:min(285px,82%); align-items:center; gap:13px; padding:17px; border:1px solid rgba(255,255,255,.74); border-radius:18px; background:rgba(255,255,255,.94); box-shadow:0 18px 40px rgba(4,15,36,.2); backdrop-filter:blur(12px); }
+    .ab-hero__badge-icon { display:grid; width:43px; height:43px; flex:0 0 43px; place-items:center; border-radius:13px; background:#eaf8f2; color:#20a36b; }
+    .ab-hero__badge-icon svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
+    .ab-hero__badge strong { display:block; color:var(--ab-navy); font-size:14px; }
+    .ab-hero__badge span { display:block; margin-top:3px; color:var(--ab-muted); font-size:12px; line-height:1.4; }
+    .ab-page-header { position:relative; z-index:3; margin:-1px 34px 0; padding:26px 29px; border:1px solid var(--ab-line); border-radius:0 0 25px 25px; background:#fff; box-shadow:0 18px 42px rgba(14,33,69,.08); }
+    .ab-page-header__inner { display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .ab-page-header__identity { display:flex; align-items:center; gap:15px; }
+    .ab-page-header__icon { display:grid; width:54px; height:54px; flex:0 0 54px; place-items:center; border-radius:16px; background:#fdebed; color:var(--ab-red); }
+    .ab-page-header__icon svg { width:28px; height:28px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8; }
+    .ab-page-header h2 { margin:0; color:var(--ab-navy); font-size:20px; font-weight:800; }
+    .ab-page-header p { max-width:650px; margin:4px 0 0; color:var(--ab-muted); font-size:13px; line-height:1.55; }
+    .ab-story { display:grid; grid-template-columns:.92fr 1.08fr; align-items:center; gap:72px; }
+    .ab-story__media { position:relative; min-height:550px; }
+    .ab-story__main { position:absolute; inset:0 70px 58px 0; overflow:hidden; border-radius:30px; background:#dce5ef; box-shadow:0 22px 52px rgba(14,33,69,.14); }
+    .ab-story__main img,.ab-story__aside img { display:block; width:100%; height:100%; object-fit:cover; }
+    .ab-story__main img { object-position:center top; }
+    .ab-story__aside { position:absolute; right:0; bottom:0; width:47%; overflow:hidden; aspect-ratio:1 / 1.1; border:9px solid #fff; border-radius:25px; background:#dce5ef; box-shadow:0 18px 40px rgba(14,33,69,.18); }
+    .ab-story__seal { position:absolute; top:28px; right:27px; display:grid; width:105px; height:105px; place-items:center; border-radius:50%; background:var(--ab-red); color:#fff; text-align:center; box-shadow:0 16px 32px rgba(227,30,36,.28); }
+    .ab-story__seal strong { display:block; font-size:24px; line-height:1; }
+    .ab-story__seal span { display:block; margin-top:4px; font-size:10px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+    .ab-story__copy p { margin:18px 0 0; color:var(--ab-muted); font-size:16px; line-height:1.78; }
+    .ab-story__copy .ab-link { margin-top:25px; }
+    .ab-purpose { background:var(--ab-soft); }
+    .ab-purpose__head,.ab-services__head { display:flex; align-items:end; justify-content:space-between; gap:40px; }
+    .ab-purpose__grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:20px; margin-top:42px; }
+    .ab-purpose-card { position:relative; overflow:hidden; min-height:290px; grid-column:span 4; padding:31px; border:1px solid var(--ab-line); border-radius:26px; background:#fff; box-shadow:0 14px 36px rgba(14,33,69,.06); }
+    .ab-purpose-card--mission { grid-column:span 5; background:var(--ab-navy); }
+    .ab-purpose-card--promise { grid-column:span 3; background:var(--ab-red); }
+    .ab-purpose-card::after { position:absolute; right:-74px; bottom:-82px; width:210px; height:210px; border:38px solid rgba(227,30,36,.05); border-radius:50%; content:''; }
+    .ab-purpose-card--mission::after,.ab-purpose-card--promise::after { border-color:rgba(255,255,255,.06); }
+    .ab-purpose-card__number { position:relative; z-index:1; display:grid; width:48px; height:48px; place-items:center; border-radius:15px; background:#fdebed; color:var(--ab-red); font-size:13px; font-weight:800; }
+    .ab-purpose-card--mission .ab-purpose-card__number,.ab-purpose-card--promise .ab-purpose-card__number { background:rgba(255,255,255,.14); color:#fff; }
+    .ab-purpose-card h3 { position:relative; z-index:1; margin:37px 0 0; color:var(--ab-navy); font-size:25px; font-weight:800; }
+    .ab-purpose-card p { position:relative; z-index:1; margin:13px 0 0; color:var(--ab-muted); font-size:14px; line-height:1.72; }
+    .ab-purpose-card--mission h3,.ab-purpose-card--mission p,.ab-purpose-card--promise h3,.ab-purpose-card--promise p { color:#fff; }
+    .ab-purpose-card--mission p,.ab-purpose-card--promise p { color:rgba(255,255,255,.76); }
+    .ab-team { background:#fff; }
+    .ab-team__head { display:flex; align-items:end; justify-content:space-between; gap:40px; }
+    .ab-team__head-copy { max-width:620px; }
+    .ab-team__controls { display:flex; align-items:center; gap:9px; flex:0 0 auto; }
+    .ab-team__control { display:inline-grid; width:46px; height:46px; place-items:center; border:1px solid var(--ab-line); border-radius:50%; background:#fff; color:var(--ab-navy); cursor:pointer; transition:border-color .16s ease,background-color .16s ease,color .16s ease; }
+    .ab-team__control:hover,.ab-team__control:focus-visible { border-color:var(--ab-orange); background:var(--ab-orange); color:#fff; outline:0; }
+    .ab-team__control svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
+    .ab-team__viewport { overflow-x:auto; margin-top:42px; scroll-behavior:smooth; scroll-snap-type:x mandatory; scrollbar-width:none; overscroll-behavior-inline:contain; }
+    .ab-team__viewport::-webkit-scrollbar { display:none; }
+    .ab-team__grid { display:flex; gap:22px; width:max-content; margin:0; }
+    .ab-team-card { position:relative; width:calc((min(1280px,100vw - 48px) - 44px) / 3); min-width:0; flex:0 0 calc((min(1280px,100vw - 48px) - 44px) / 3); overflow:hidden; border:1px solid var(--ab-line); border-radius:27px; background:#fff; box-shadow:0 15px 40px rgba(14,33,69,.07); scroll-snap-align:start; transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+    .ab-team-card:hover { border-color:rgba(243,149,30,.58); box-shadow:0 24px 52px rgba(14,33,69,.14); transform:translateY(-5px); }
+    .ab-team-card__media { position:relative; overflow:hidden; aspect-ratio:4 / 4.35; margin:11px 11px 0; border-radius:20px; background:#edf1f5; }
+    .ab-team-card__media::after { position:absolute; inset:auto 0 0; height:34%; background:linear-gradient(180deg,transparent,rgba(14,33,69,.2)); content:''; }
+    .ab-team-card__media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .35s ease; }
+    .ab-team-card:hover .ab-team-card__media img { transform:scale(1.025); }
+    .ab-team-card__role { position:absolute; z-index:1; right:16px; bottom:16px; left:16px; display:flex; align-items:center; gap:8px; color:#fff; font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .ab-team-card__role::before { width:9px; height:9px; flex:0 0 9px; border:3px solid rgba(255,255,255,.5); border-radius:50%; background:var(--ab-red); content:''; }
+    .ab-team-card__body { padding:23px 25px 27px; }
+    .ab-team-card h3 { margin:0; color:var(--ab-navy); font-size:24px; line-height:1.2; font-weight:800; }
+    .ab-team-card p { margin:10px 0 0; color:var(--ab-muted); font-size:14px; line-height:1.68; }
+    .ab-gallery { overflow:hidden; background:var(--ab-navy); }
+    .ab-gallery__head { display:flex; align-items:end; justify-content:space-between; gap:40px; }
+    .ab-gallery .ab-kicker { color:#ff7379; }
+    .ab-gallery .ab-title { color:#fff; }
+    .ab-gallery .ab-lead { color:rgba(255,255,255,.68); }
+    .ab-gallery__viewport { overflow-x:auto; margin:42px calc((100vw - min(1280px,100vw - 48px)) / -2) 0; padding:0 max(24px,calc((100vw - 1280px) / 2)) 14px; scroll-snap-type:x proximity; scrollbar-width:none; }
+    .ab-gallery__viewport::-webkit-scrollbar { display:none; }
+    .ab-gallery__grid { display:grid; width:max-content; grid-auto-flow:column; grid-auto-columns:310px; grid-template-rows:repeat(2,215px); gap:14px; }
+    .ab-gallery-card { position:relative; overflow:hidden; border:1px solid rgba(255,255,255,.13); border-radius:22px; background:#20375e; scroll-snap-align:start; }
+    .ab-gallery-card--tall { grid-row:span 2; }
+    .ab-gallery-card img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .ab-gallery-card::after { position:absolute; inset:0; opacity:0; background:linear-gradient(180deg,transparent 55%,rgba(7,24,52,.55)); content:''; transition:opacity .25s ease; }
+    .ab-gallery-card:hover img { transform:scale(1.035); }
+    .ab-gallery-card:hover::after { opacity:1; }
+    .ab-gallery__hint { display:flex; align-items:center; gap:9px; margin-top:20px; color:rgba(255,255,255,.62); font-size:12px; font-weight:700; }
+    .ab-gallery__hint::before { width:38px; height:1px; background:rgba(255,255,255,.35); content:''; }
+    .ab-services__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; margin-top:42px; }
+    .ab-service { position:relative; min-height:280px; overflow:hidden; padding:29px; border:1px solid var(--ab-line); border-radius:24px; background:#fff; box-shadow:0 12px 34px rgba(14,33,69,.055); transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+    .ab-service:hover { border-color:rgba(243,149,30,.55); box-shadow:0 20px 44px rgba(14,33,69,.11); transform:translateY(-4px); }
+    .ab-service__icon { display:grid; width:50px; height:50px; place-items:center; border-radius:15px; background:#fdebed; color:var(--ab-red); }
+    .ab-service__icon svg { width:25px; height:25px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8; }
+    .ab-service h3 { margin:42px 0 0; color:var(--ab-navy); font-size:20px; line-height:1.3; font-weight:800; }
+    .ab-service p { margin:11px 0 0; color:var(--ab-muted); font-size:14px; line-height:1.68; }
+    .ab-service__arrow { position:absolute; right:24px; bottom:23px; color:#cbd5e1; font-size:21px; transition:color .2s ease,transform .2s ease; }
+    .ab-service:hover .ab-service__arrow { color:var(--ab-orange); transform:translateX(3px); }
+    .ab-proof { position:relative; overflow:hidden; background:var(--ab-navy); }
+    .ab-proof::before,.ab-proof::after { position:absolute; border:70px solid rgba(255,255,255,.035); border-radius:50%; content:''; }
+    .ab-proof::before { top:-190px; left:-190px; width:440px; height:440px; }
+    .ab-proof::after { right:-210px; bottom:-240px; width:520px; height:520px; }
+    .ab-proof__layout { position:relative; z-index:1; display:grid; grid-template-columns:.75fr 1.25fr; align-items:center; gap:70px; }
+    .ab-proof .ab-kicker { color:#ff7379; }
+    .ab-proof .ab-title { color:#fff; }
+    .ab-proof .ab-lead { color:rgba(255,255,255,.7); }
+    .ab-proof__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .ab-stat { min-height:178px; padding:25px; border:1px solid rgba(255,255,255,.14); border-radius:22px; background:rgba(255,255,255,.075); box-shadow:inset 0 1px 0 rgba(255,255,255,.07); }
+    .ab-stat strong { display:block; color:#fff; font-size:36px; line-height:1; font-weight:800; letter-spacing:-.035em; }
+    .ab-stat span { display:block; max-width:170px; margin-top:12px; color:rgba(255,255,255,.68); font-size:13px; line-height:1.5; }
+    .ab-stat:nth-child(2) { background:var(--ab-red); }
+    .ab-process { background:var(--ab-soft); }
+    .ab-process__head { text-align:center; }
+    .ab-process__head .ab-title,.ab-process__head .ab-lead { margin-right:auto; margin-left:auto; }
+    .ab-process__track { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:47px; }
+    .ab-process__track::before { position:absolute; top:31px; right:10%; left:10%; border-top:2px dashed #cfd9e5; content:''; }
+    .ab-process-card { position:relative; z-index:1; padding:0 12px; text-align:center; }
+    .ab-process-card__step { display:grid; width:64px; height:64px; margin-inline:auto; place-items:center; border:8px solid var(--ab-soft); border-radius:50%; background:var(--ab-red); color:#fff; font-size:13px; font-weight:800; box-shadow:0 0 0 1px #efc5c7; }
+    .ab-process-card h3 { margin:21px 0 0; color:var(--ab-navy); font-size:18px; font-weight:800; }
+    .ab-process-card p { margin:9px 0 0; color:var(--ab-muted); font-size:13px; line-height:1.65; }
+    .ab-faq-cta { display:grid; grid-template-columns:1.05fr .95fr; align-items:start; gap:46px; }
+    .ab-faq-list { display:grid; gap:12px; margin-top:32px; }
+    .ab-faq { overflow:hidden; border:1px solid var(--ab-line); border-radius:18px; background:#fff; }
+    .ab-faq summary { display:flex; min-height:72px; align-items:center; justify-content:space-between; gap:18px; padding:18px 21px; color:var(--ab-navy); font-size:15px; font-weight:800; cursor:pointer; list-style:none; }
+    .ab-faq summary::-webkit-details-marker { display:none; }
+    .ab-faq summary::after { display:grid; width:32px; height:32px; flex:0 0 32px; place-items:center; border-radius:10px; background:#fdebed; color:var(--ab-red); content:'+'; font-size:21px; }
+    .ab-faq[open] summary::after { content:'−'; }
+    .ab-faq p { margin:0; padding:0 21px 21px; color:var(--ab-muted); font-size:14px; line-height:1.7; }
+    .ab-cta { position:relative; display:flex; min-height:520px; overflow:hidden; align-items:flex-end; padding:34px; border-radius:30px; background:var(--ab-navy); box-shadow:0 24px 55px rgba(14,33,69,.18); }
+    .ab-cta__image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; transition:transform .35s ease; }
+    .ab-cta::after { position:absolute; inset:0; background:linear-gradient(180deg,rgba(7,24,52,.05) 12%,rgba(7,24,52,.3) 46%,rgba(7,24,52,.96) 100%); content:''; }
+    .ab-cta:hover .ab-cta__image { transform:scale(1.035); }
+    .ab-cta__content { position:relative; z-index:1; width:100%; padding-top:150px; }
+    .ab-cta .ab-kicker { color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+    .ab-cta h2 { max-width:520px; margin:14px 0 0; color:#fff; font-size:clamp(31px,3.4vw,46px); line-height:1.08; font-weight:800; letter-spacing:-.045em; text-wrap:balance; }
+    .ab-cta p { max-width:520px; margin:15px 0 0; color:rgba(255,255,255,.82); font-size:15px; line-height:1.68; }
+    .ab-cta .btn { margin-top:24px; background:#fff!important; color:var(--ab-navy)!important; }
+    .ab-cta .btn:hover { background:var(--ab-orange)!important; color:#fff!important; }
+    .ab-page h1,.ab-page h2,.ab-page h3,.ab-page h4,.ab-page h5,.ab-page h6 { font-family:'Plus Jakarta Sans','main-font-family',sans-serif; letter-spacing:0; }
+    @media (max-width:991px) { .ab-hero { padding-top:106px; } .ab-hero__shell { min-height:500px; gap:31px; padding:47px; } .ab-story { gap:45px; } .ab-story__media { min-height:480px; } .ab-purpose__grid { grid-template-columns:1fr; } .ab-purpose-card,.ab-purpose-card--mission,.ab-purpose-card--promise { min-height:250px; grid-column:auto; } .ab-team-card { width:calc((100vw - 70px) / 2); flex-basis:calc((100vw - 70px) / 2); } .ab-gallery__head { align-items:flex-start; flex-direction:column; gap:16px; } .ab-services__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .ab-proof__layout { grid-template-columns:1fr; gap:44px; } .ab-faq-cta { grid-template-columns:1fr; } }
+    @media (max-width:767px) {
+        .about-page #appHeaderArea { display:none; }
+        .ab-page { padding-bottom:calc(82px + env(safe-area-inset-bottom)); } .ab-wrap { width:min(100% - 28px,620px); } .ab-section { padding:62px 0; } .ab-hero { padding-top:82px; } .ab-hero__shell { grid-template-columns:1fr; gap:29px; min-height:0; padding:30px 23px; border-radius:26px; } .ab-hero__ring { top:-110px; right:-138px; width:390px; height:390px; border-width:54px; } .ab-hero h1 { font-size:41px; } .ab-hero__lead { font-size:15px; } .ab-hero__actions { display:grid; grid-template-columns:1fr; } .ab-hero__actions .btn,.ab-button-secondary { width:100%; } .ab-hero__image,.ab-hero__image img { min-height:290px; height:290px; } .ab-hero__badge { right:13px; bottom:14px; left:13px; width:auto; } .ab-page-header { margin:0 10px; padding:20px; border-radius:0 0 21px 21px; } .ab-page-header__inner { align-items:flex-start; flex-direction:column; gap:17px; } .ab-page-header__identity { align-items:flex-start; } .ab-title { font-size:34px; } .ab-lead { font-size:15px; } .ab-story { grid-template-columns:1fr; gap:39px; } .ab-story__media { min-height:410px; } .ab-story__main { inset:0 46px 50px 0; border-radius:24px; } .ab-story__seal { top:17px; right:10px; width:88px; height:88px; } .ab-story__seal strong { font-size:20px; } .ab-purpose__head,.ab-services__head { align-items:flex-start; flex-direction:column; gap:16px; } .ab-purpose__grid { gap:14px; margin-top:30px; } .ab-purpose-card { min-height:250px; padding:25px; border-radius:22px; }
+        .ab-kicker { max-width:100%; flex-wrap:wrap; line-height:1.5; }
+        .ab-team__head { align-items:flex-start; flex-direction:column; gap:16px; } .ab-team__controls { align-self:flex-end; } .ab-team__viewport { margin-right:-14px; margin-left:-14px; padding:0 14px 9px; } .ab-team__grid,.ab-services__grid,.ab-proof__grid,.ab-process__track { display:flex; gap:14px; } .ab-services__grid,.ab-proof__grid,.ab-process__track { overflow-x:auto; margin-right:-14px; margin-left:-14px; padding:0 14px 9px; scroll-snap-type:x mandatory; scrollbar-width:none; } .ab-services__grid::-webkit-scrollbar,.ab-proof__grid::-webkit-scrollbar,.ab-process__track::-webkit-scrollbar { display:none; } .ab-team-card,.ab-team-card:first-child { width:82vw; min-width:0; flex:0 0 82vw; grid-column:auto; scroll-snap-align:start; } .ab-team-card:first-child .ab-team-card__media,.ab-team-card__media { aspect-ratio:4 / 4.35; } .ab-gallery__viewport { margin-right:-14px; margin-left:-14px; padding-right:14px; padding-left:14px; scroll-snap-type:x mandatory; } .ab-gallery__grid { display:flex; gap:14px; } .ab-gallery-card,.ab-gallery-card--tall { width:82vw; height:300px; flex:0 0 82vw; grid-row:auto; } .ab-service { min-height:286px; flex:0 0 84%; padding:25px; scroll-snap-align:start; } .ab-stat { min-height:165px; flex:0 0 76%; scroll-snap-align:start; } .ab-process__track::before { display:none; } .ab-process-card { flex:0 0 79%; padding:24px; border:1px solid var(--ab-line); border-radius:21px; background:#fff; text-align:left; scroll-snap-align:start; } .ab-process-card__step { margin:0; border-color:#fff; } .ab-cta { min-height:480px; padding:25px; border-radius:24px; } .ab-cta__content { padding-top:125px; }
+    }
+    @media (prefers-reduced-motion:reduce) { .ab-page *,.ab-page *::before,.ab-page *::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+</style>
+
+<main class="ab-page">
+    <section class="ab-hero"><div class="ab-wrap"><div class="ab-hero__shell"><div class="ab-hero__ring" aria-hidden="true"></div><div class="ab-hero__copy"><nav class="ab-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><span>About us</span></nav><span class="ab-kicker">{{ $cms['hero_eyebrow'] ?? 'Global Education. Personal Guidance.' }}</span><h1>{{ $cms['hero_title'] ?? 'A trusted Indore team for your international education journey.' }}</h1><p class="ab-hero__lead">{{ $cms['hero_copy'] ?? 'Trans Globe Indore, managed by Global Education and Immigration Consultants, turns complex study-abroad decisions into a clear, supported plan built around your goals.' }}</p><div class="ab-hero__actions"><a href="{{ url($cms['hero_primary_cta_url'] ?? '/contact#enquiry') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}"><span class="btn-flip-effect__text text-white">{{ $cms['hero_primary_cta_label'] ?? 'Book Free Counselling' }}</span></a><a href="{{ url($cms['hero_secondary_cta_url'] ?? '/services') }}" class="ab-button-secondary">{{ $cms['hero_secondary_cta_label'] ?? 'Explore Our Services' }} <span aria-hidden="true">→</span></a></div></div><div class="ab-hero__visual"><figure class="ab-hero__image"><img src="{{ asset($cms['hero_image'] ?? 'assets/transglobe/services/services-team.avif') }}" alt="{{ $cms['hero_image_alt'] ?? 'GEIC Indore education counsellors supporting international students' }}" width="768" height="768" fetchpriority="high"></figure><div class="ab-hero__badge"><span class="ab-hero__badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span><span><strong>Profile-first counselling</strong><span>Advice shaped around your goals, not a fixed shortlist</span></span></div></div></div><div class="ab-page-header"><div class="ab-page-header__inner"><div class="ab-page-header__identity"><span class="ab-page-header__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><h2>{{ $cms['page_header_title'] ?? 'About Trans Globe Indore' }}</h2><p>{{ $cms['page_header_copy'] ?? 'Education choices are personal. Our role is to make every option, requirement and next step easier to understand.' }}</p></span></div><a class="ab-link" href="#our-story">Read our story <span aria-hidden="true">↓</span></a></div></div></div></section>
+
+    <section class="ab-section" id="our-story"><div class="ab-wrap ab-story"><div class="ab-story__media"><figure class="ab-story__main"><img src="{{ asset($cms['story_image'] ?? 'assets/transglobe/about/international-business-award-2023.jpeg') }}" alt="{{ $cms['story_image_alt'] ?? 'Trans Globe Indore representatives receiving the 2023 International Business Award for Best Abroad Education Consultant in Central India' }}" width="1200" height="1200" loading="lazy"></figure><figure class="ab-story__aside"><img src="{{ asset('assets/transglobe/destinations/australia/campus-students.jpg') }}" alt="International students learning together on campus" width="1200" height="800" loading="lazy"></figure><div class="ab-story__seal"><span><strong>1992</strong><span>Guiding students since</span></span></div></div><div class="ab-story__copy"><span class="ab-kicker">{{ $cms['story_eyebrow'] ?? 'Welcome to Global Education' }}</span><h2 class="ab-title">{{ $cms['story_title'] ?? 'Big ambitions deserve informed decisions.' }}</h2><p>{{ $cms['story_copy'] ?? 'Choosing education in India or overseas is a major life decision. Our counsellors bring together accurate information, thoughtful profile assessment and practical support so students and families can move forward with confidence.' }}</p><p>{{ $cms['story_copy_2'] ?? 'For us, studying abroad is more than earning a degree. It is a chance to broaden perspective, develop independence and build skills and experiences that can change the direction of a life.' }}</p><a class="ab-link" href="{{ url('/services') }}">See how we support students <span aria-hidden="true">→</span></a></div></div></section>
+
+    <section class="ab-section ab-purpose"><div class="ab-wrap"><div class="ab-purpose__head"><div><span class="ab-kicker">Our foundation</span><h2 class="ab-title">Knowledge, clarity and <em>student-first guidance.</em></h2></div><p class="ab-lead">Our work connects accurate destination knowledge with a personal understanding of the student behind every application.</p></div><div class="ab-purpose__grid">@foreach([['01',$cms['who_title'] ?? 'Who we are',$cms['who_copy'] ?? 'We are experienced study-abroad education consultants who help students understand universities, programs, admission requirements, scholarships, visas and the cultural realities of studying in another country.',''],['02',$cms['mission_title'] ?? 'Our mission',$cms['mission_copy'] ?? 'Our mission is to make studying abroad simpler, more transparent and less stressful—from choosing a university and preparing applications to test planning, visa documentation and departure.','ab-purpose-card--mission'],['03',$cms['promise_title'] ?? 'Our promise',$cms['promise_copy'] ?? 'We listen before we recommend. Every plan is shaped by the student’s academic profile, career direction, finances, preferred destination and readiness—not by a one-size-fits-all shortlist.','ab-purpose-card--promise']] as [$number,$title,$copy,$class])<article class="ab-purpose-card {{ $class }}"><span class="ab-purpose-card__number">{{ $number }}</span><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>@endforeach</div></div></section>
+
+    <section class="ab-section ab-team" id="our-team"><div class="ab-wrap"><div class="ab-team__head"><div class="ab-team__head-copy"><span class="ab-kicker">{{ $cms['team_eyebrow'] ?? 'Professional people' }}</span><h2 class="ab-title">{{ $cms['team_title'] ?? 'Meet our expert education consultants.' }}</h2><p class="ab-lead">{{ $cms['team_copy'] ?? 'Meet the people who bring experience, careful listening and practical study-abroad guidance to every student conversation.' }}</p></div><div class="ab-team__controls" aria-label="Team slider controls"><button class="ab-team__control" type="button" data-team-previous aria-label="Show previous team member"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><button class="ab-team__control" type="button" data-team-pause aria-label="Pause team slider" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button><button class="ab-team__control" type="button" data-team-next aria-label="Show next team member"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div></div>@php
+        $aboutTeam = [[$cms['team_one_name'] ?? 'Johar Ali',$cms['team_one_role'] ?? 'Leadership team',$cms['team_one_bio'] ?? '',$cms['team_one_image'] ?? 'assets/transglobe/about/johar-ali.webp',$cms['team_one_image_alt'] ?? 'Johar Ali from the Trans Globe Indore leadership team'],[$cms['team_two_name'] ?? 'Ali',$cms['team_two_role'] ?? 'Student counsellor',$cms['team_two_bio'] ?? '',$cms['team_two_image'] ?? 'assets/transglobe/about/ali.webp',$cms['team_two_image_alt'] ?? 'Ali, student counsellor at Trans Globe Indore'],[$cms['team_three_name'] ?? 'Husain',$cms['team_three_role'] ?? 'Student counsellor',$cms['team_three_bio'] ?? '',$cms['team_three_image'] ?? 'assets/transglobe/about/husain.webp',$cms['team_three_image_alt'] ?? 'Husain, student counsellor at Trans Globe Indore']];
+        $aboutTeamLoop = array_merge($aboutTeam, $aboutTeam);
+    @endphp<div class="ab-team__viewport" data-team-slider aria-label="Our education consultants"><div class="ab-team__grid">@foreach($aboutTeamLoop as [$name,$role,$bio,$image,$alt])<article class="ab-team-card" @if($loop->iteration > count($aboutTeam)) aria-hidden="true" @endif><figure class="ab-team-card__media"><img src="{{ asset($image) }}" alt="{{ $loop->iteration > count($aboutTeam) ? '' : $alt }}" width="1122" height="1402" loading="lazy"><span class="ab-team-card__role">{{ $role }}</span></figure><div class="ab-team-card__body"><h3>{{ $name }}</h3>@if(filled($bio))<p>{{ $bio }}</p>@endif</div></article>@endforeach</div></div></div></section>
+
+    @php
+        $galleryDefaults = [
+            ['assets/transglobe/about/gallery/counselling-event-01.jpg', 'Students receiving one-to-one education guidance at a Trans Globe Indore counselling event'],
+            ['assets/transglobe/about/gallery/counselling-event-02.jpg', 'A family speaking with an international university representative at an education event'],
+            ['assets/transglobe/about/gallery/counselling-event-03.jpg', 'Students comparing international study options with university representatives'],
+            ['assets/transglobe/about/gallery/counselling-event-04.jpg', 'Students and families discussing overseas university pathways'],
+            ['assets/transglobe/about/gallery/counselling-event-05.jpg', 'Trans Globe Indore event registration and student support desk'],
+            ['assets/transglobe/about/gallery/counselling-event-06.jpg', 'A Trans Globe Indore counsellor reviewing IELTS preparation with a student'],
+            ['assets/transglobe/about/gallery/counselling-event-07.jpg', 'University of Suffolk representative counselling prospective students'],
+            ['assets/transglobe/about/gallery/counselling-event-08.jpg', 'International education adviser meeting a prospective student'],
+            ['assets/transglobe/about/gallery/counselling-event-09.jpg', 'University representatives explaining study options at the Trans Globe Indore event'],
+            ['assets/transglobe/about/gallery/counselling-event-10.jpg', 'Students checking in at a Trans Globe Indore education fair'],
+            ['assets/transglobe/about/gallery/counselling-event-11.jpg', 'A student discussing application information with an education adviser'],
+            ['assets/transglobe/about/gallery/counselling-event-12.jpg', 'A family exploring international study opportunities with a university representative'],
+            ['assets/transglobe/about/gallery/counselling-event-13.jpg', 'Students and families attending individual international education meetings'],
+            ['assets/transglobe/about/gallery/counselling-event-14.jpg', 'GBS Malta representative discussing courses with prospective students'],
+            ['assets/transglobe/about/gallery/counselling-event-15.jpg', 'Trans Globe Indore counsellors guiding students during an education event'],
+            ['assets/transglobe/about/gallery/award-event-01.jpg', 'Trans Globe Indore representatives at the International Business Awards'],
+            ['assets/transglobe/about/gallery/award-event-02.jpg', 'Trans Globe Indore representative greeting a guest at the International Business Awards'],
+            ['assets/transglobe/about/gallery/award-event-03.jpg', 'Trans Globe Indore representatives on the International Business Awards red carpet'],
+            ['assets/transglobe/about/gallery/award-event-04.jpg', 'Trans Globe Indore receiving the 2023 International Business Award for Best Abroad Education Consultant in Central India'],
+        ];
+        $aboutGallery = collect($galleryDefaults)->map(function (array $item, int $index) use ($cms): array {
+            $number = str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT);
+
+            return [
+                $cms['gallery_image_'.$number] ?? $item[0],
+                $cms['gallery_alt_'.$number] ?? $item[1],
+            ];
+        });
+    @endphp
+    <section class="ab-section ab-gallery" id="gallery"><div class="ab-wrap"><div class="ab-gallery__head"><div><span class="ab-kicker">{{ $cms['gallery_eyebrow'] ?? 'Guidance in action' }}</span><h2 class="ab-title">{{ $cms['gallery_title'] ?? 'Real conversations. Practical next steps.' }}</h2></div><p class="ab-lead">{{ $cms['gallery_copy'] ?? 'A closer look at Trans Globe Indore counsellors, students and international university representatives connecting through personal guidance and education events.' }}</p></div><div class="ab-gallery__viewport" aria-label="Trans Globe Indore event photo gallery"><div class="ab-gallery__grid">@foreach($aboutGallery as [$image,$alt])<figure class="ab-gallery-card {{ in_array($loop->iteration, [1, 6, 11, 16], true) ? 'ab-gallery-card--tall' : '' }}"><img src="{{ asset($image) }}" alt="{{ $alt }}" width="1200" height="900" loading="lazy" decoding="async"></figure>@endforeach</div></div><p class="ab-gallery__hint">Scroll to explore the gallery</p></div></section>
+
+    <section class="ab-section" id="what-we-do"><div class="ab-wrap"><div class="ab-services__head"><div><span class="ab-kicker">{{ $cms['services_eyebrow'] ?? 'What we do' }}</span><h2 class="ab-title">{{ $cms['services_title'] ?? 'One connected team for every important step.' }}</h2></div><p class="ab-lead">{{ $cms['services_copy'] ?? 'From the first question to arrival overseas, our specialists coordinate the details that make a strong international education plan possible.' }}</p></div>@php
+        $aboutServices = [[$cms['service_one_title'] ?? 'University & program selection',$cms['service_one_copy'] ?? 'Compare suitable institutions and courses against your academic background, career goals, budget and preferred student experience.','<path d="M3 10.5 12 5l9 5.5-9 5.5-9-5.5Z"/><path d="M7 13v4.5c2.9 2 7.1 2 10 0V13M21 10.5V16"/>'],[$cms['service_two_title'] ?? 'Applications & documentation',$cms['service_two_copy'] ?? 'Prepare complete applications, supporting documents, statements and timelines with detailed checks before submission.','<path d="M6 3h9l3 3v15H6V3Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>'],[$cms['service_three_title'] ?? 'Test preparation',$cms['service_three_copy'] ?? 'Build a practical score plan for IELTS, PTE, TOEFL, GRE, GMAT or SAT with focused training and realistic practice.','<path d="M4 5h16v14H4V5Z"/><path d="M8 9h8M8 13h5M8 17h3"/>'],[$cms['service_four_title'] ?? 'Scholarships & funding',$cms['service_four_copy'] ?? 'Identify relevant awards, understand eligibility and present your academic and financial information clearly.','<circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/>'],[$cms['service_five_title'] ?? 'Visa & immigration support',$cms['service_five_copy'] ?? 'Organise evidence, financial documents, forms and interview preparation for a consistent student-visa application.','<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7.5 18c1.3-2.4 7.7-2.4 9 0"/>'],[$cms['service_six_title'] ?? 'Pre-departure & ongoing support',$cms['service_six_copy'] ?? 'Prepare for travel, accommodation, banking, arrival and the practical realities of beginning student life abroad.','<path d="m3 11 18-7-7 18-3-8-8-3Z"/><path d="m11 14 4-4"/>']];
+    @endphp<div class="ab-services__grid">@foreach($aboutServices as [$title,$copy,$icon])<article class="ab-service"><span class="ab-service__icon" aria-hidden="true"><svg viewBox="0 0 24 24">{!! $icon !!}</svg></span><h3>{{ $title }}</h3><p>{{ $copy }}</p><span class="ab-service__arrow" aria-hidden="true">→</span></article>@endforeach</div></div></section>
+
+    <section class="ab-section ab-proof"><div class="ab-wrap ab-proof__layout"><div><span class="ab-kicker">{{ $cms['proof_eyebrow'] ?? 'Experience you can measure' }}</span><h2 class="ab-title">{{ $cms['proof_title'] ?? 'A global network, grounded in Indore.' }}</h2><p class="ab-lead">{{ $cms['proof_copy'] ?? 'Students receive local, accessible support backed by the reach and experience of the wider Trans Globe network.' }}</p></div><div class="ab-proof__grid">@foreach([[$cms['proof_students_value'] ?? '70,250+',$cms['proof_students_label'] ?? 'students placed worldwide'],[$cms['proof_universities_value'] ?? '800+',$cms['proof_universities_label'] ?? 'partner universities'],[$cms['proof_visas_value'] ?? '98.7%',$cms['proof_visas_label'] ?? 'reported visa success rate'],[$cms['proof_years_value'] ?? '32+ yrs',$cms['proof_years_label'] ?? 'of international education expertise']] as [$value,$label])<article class="ab-stat"><strong>{{ $value }}</strong><span>{{ $label }}</span></article>@endforeach</div></div></section>
+
+    <section class="ab-section ab-process"><div class="ab-wrap"><div class="ab-process__head"><span class="ab-kicker">{{ $cms['process_eyebrow'] ?? 'How we work' }}</span><h2 class="ab-title">{{ $cms['process_title'] ?? 'Clear guidance, connected from start to finish.' }}</h2><p class="ab-lead">One plan, shared across the specialists supporting your admission, funding, visa and departure.</p></div><div class="ab-process__track">@foreach([['01',$cms['process_one_title'] ?? 'Listen & assess',$cms['process_one_copy'] ?? 'We understand your profile, ambitions, concerns and non-negotiables before suggesting a direction.'],['02',$cms['process_two_title'] ?? 'Compare & plan',$cms['process_two_copy'] ?? 'Together we compare destinations, universities, courses, costs, scholarships and timelines.'],['03',$cms['process_three_title'] ?? 'Prepare & apply',$cms['process_three_copy'] ?? 'Our specialists coordinate applications, supporting documents, test plans and visa preparation.'],['04',$cms['process_four_title'] ?? 'Depart with confidence',$cms['process_four_copy'] ?? 'You receive practical pre-departure guidance and support for a confident transition into student life.']] as [$step,$title,$copy])<article class="ab-process-card"><span class="ab-process-card__step">{{ $step }}</span><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>@endforeach</div></div></section>
+
+    <section class="ab-section"><div class="ab-wrap ab-faq-cta"><div><span class="ab-kicker">{{ $cms['faq_eyebrow'] ?? 'Questions students ask' }}</span><h2 class="ab-title">{{ $cms['faq_title'] ?? 'What to know before choosing a consultant.' }}</h2><div class="ab-faq-list">@foreach([[$cms['faq_one_question'] ?? 'How much do study-abroad consultants charge?',$cms['faq_one_answer'] ?? 'Fees vary with the services and destination. Trans Globe Indore offers a free initial counselling conversation so you can understand your options and exactly what support is included before making a commitment.'],[$cms['faq_two_question'] ?? 'Can I work with GEIC if I am not in Indore?',$cms['faq_two_answer'] ?? 'Yes. Our online counselling process gives students outside Indore access to the same profile review, document support and destination specialists as an in-office appointment.'],[$cms['faq_three_question'] ?? 'Why is a study-abroad consultant useful?',$cms['faq_three_answer'] ?? 'A good consultant connects admissions, scholarships, tests, visas and practical preparation into one plan. That reduces missed requirements and helps you make decisions using current, destination-specific information.']] as $index => [$question,$answer])<details class="ab-faq" @if($index === 0) open @endif><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>@endforeach</div></div><aside class="ab-cta"><img class="ab-cta__image" src="{{ asset($cms['cta_image'] ?? 'assets/transglobe/about/student-guidance-session-2023.jpg') }}" alt="{{ $cms['cta_image_alt'] ?? 'A Trans Globe Indore counsellor speaking with a student during a guidance session' }}" width="900" height="1200" loading="lazy"><div class="ab-cta__content"><span class="ab-kicker">{{ $cms['cta_eyebrow'] ?? 'Start your journey' }}</span><h2>{{ $cms['cta_title'] ?? 'A powerful collaboration for a prosperous tomorrow.' }}</h2><p>{{ $cms['cta_copy'] ?? 'Bring us your questions, your goals and your current profile. We will help you understand the strongest next step.' }}</p><a href="{{ url($cms['cta_url'] ?? '/contact#enquiry') }}" class="btn-flip-effect btn btn-lg gap-8" data-text="{{ $cms['cta_label'] ?? 'Speak to Our Indore Counsellor' }}"><span class="btn-flip-effect__text">{{ $cms['cta_label'] ?? 'Speak to Our Indore Counsellor' }}</span></a></div></aside></div></section>
+</main>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('[data-team-slider]');
+    const previous = document.querySelector('[data-team-previous]');
+    const next = document.querySelector('[data-team-next]');
+    const pause = document.querySelector('[data-team-pause]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    
-    
+    if (!slider || !previous || !next || !pause) return;
+
+    const cards = Array.from(slider.querySelectorAll('.ab-team-card'));
+    const uniqueCount = cards.length / 2;
+    let timer = null;
+    let userPaused = reducedMotion.matches;
+    let interactionPaused = false;
+
+    function stepWidth() {
+        if (cards.length < 2) return slider.clientWidth;
+
+        return cards[1].offsetLeft - cards[0].offsetLeft;
+    }
+
+    function loopBoundary() {
+        return cards[uniqueCount]?.offsetLeft ?? slider.scrollWidth / 2;
+    }
+
+    function normalizeLoop() {
+        const boundary = loopBoundary();
+        if (slider.scrollLeft >= boundary - 2) slider.scrollLeft -= boundary;
+    }
+
+    function move(direction) {
+        const boundary = loopBoundary();
+        if (direction < 0 && slider.scrollLeft <= 2) slider.scrollLeft = boundary;
+        normalizeLoop();
+        slider.scrollBy({ left: stepWidth() * direction, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+        window.setTimeout(normalizeLoop, 650);
+    }
+
+    function stopTimer() {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+    }
+
+    function startTimer() {
+        stopTimer();
+        if (userPaused || interactionPaused || reducedMotion.matches || document.hidden) return;
+        timer = window.setInterval(function () { move(1); }, 3800);
+    }
+
+    function updatePauseControl() {
+        pause.setAttribute('aria-pressed', String(userPaused));
+        pause.setAttribute('aria-label', userPaused ? 'Play team slider' : 'Pause team slider');
+        pause.innerHTML = userPaused
+            ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"/></svg>'
+            : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>';
+    }
+
+    previous.addEventListener('click', function () { move(-1); startTimer(); });
+    next.addEventListener('click', function () { move(1); startTimer(); });
+    pause.addEventListener('click', function () {
+        userPaused = !userPaused;
+        updatePauseControl();
+        startTimer();
+    });
+    slider.addEventListener('pointerenter', function () { interactionPaused = true; startTimer(); });
+    slider.addEventListener('pointerleave', function () { interactionPaused = false; startTimer(); });
+    slider.addEventListener('focusin', function () { interactionPaused = true; startTimer(); });
+    slider.addEventListener('focusout', function () { interactionPaused = false; startTimer(); });
+    slider.addEventListener('pointerdown', function () { interactionPaused = true; startTimer(); }, { passive: true });
+    slider.addEventListener('pointerup', function () { interactionPaused = false; startTimer(); }, { passive: true });
+    document.addEventListener('visibilitychange', startTimer);
+    reducedMotion.addEventListener('change', function (event) {
+        if (event.matches) userPaused = true;
+        updatePauseControl();
+        startTimer();
+    });
+
+    updatePauseControl();
+    startTimer();
+});
 </script>
 
-<script src="../assets/design_1/js/parts/general.min.js"></script>
-
-</body>
-
-<!-- Mirrored from lms.rocket-soft.org/pages/about by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:38:09 GMT -->
-</html>
-
+@include('mirror.partials.footer', ['siteCms' => $cms])

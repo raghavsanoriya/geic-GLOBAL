@@ -157,14 +157,14 @@
     <section class="sd-hero" id="overview">
         <div class="sd-wrap">
             <div class="sd-hero__shell">
-                <img class="sd-hero__image" src="{{ asset($service['image']) }}" alt="{{ $service['image_alt'] }}" fetchpriority="high" width="1366" height="685">
+                <img class="sd-hero__image" src="{{ asset($cms['hero_image'] ?? $service['image']) }}" alt="{{ $service['image_alt'] }}" fetchpriority="high" width="1366" height="685">
                 <div class="sd-hero__overlay"></div>
                 <span class="sd-hero__number" aria-label="Service {{ $service['number'] }}">{{ $service['number'] }}</span>
                 <div class="sd-hero__content">
                     <nav class="sd-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/services') }}">Services</a><span>/</span><span>{{ $service['title'] }}</span></nav>
                     <span class="sd-hero__eyebrow">{{ $service['eyebrow'] }}</span>
-                    <h1>{{ $service['title'] }}</h1>
-                    <p class="sd-hero__lead">{{ $service['summary'] }}</p>
+                    <h1>{{ $cms['hero_title'] ?? $service['title'] }}</h1>
+                    <p class="sd-hero__lead">{{ $cms['hero_copy'] ?? $service['summary'] }}</p>
                     <div class="sd-hero__actions"><a href="{{ url('/#contact') }}" class="sd-button">Book free counselling <span aria-hidden="true">→</span></a><a href="{{ $detailUrl }}#process" class="sd-button sd-button--outline">See how it works</a></div>
                 </div>
                 @include('mirror.partials.hero-enquiry', ['formId' => 'service-hero', 'sourceContext' => 'Service — '.$service['title'], 'returnTo' => '/services/'.$service['slug'].'#overview'])

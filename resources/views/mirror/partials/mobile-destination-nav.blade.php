@@ -10,20 +10,26 @@
     .tg-page-mobile-bottom { display: none; }
 
     @media (max-width: 767px), (max-width: 991px) and (max-height: 500px) {
-        body.contact-page,
-        body.destination-page,
+body.contact-page,
+body.terms-page,
+body.destination-page,
         body.country-detail-page,
         body.services-page,
         body.service-detail-page,
+        body.events-page,
+        body.event-detail-page,
         body.scholarships-page,
         body.scholarship-detail-page,
         body.tests-page,
         body.test-detail-page { padding-top: 72px; padding-bottom: calc(92px + env(safe-area-inset-bottom)); background: #f3f6f9; }
-        body.contact-page #appHeaderArea,
-        body.destination-page #appHeaderArea,
+body.contact-page #appHeaderArea,
+body.terms-page #appHeaderArea,
+body.destination-page #appHeaderArea,
         body.country-detail-page #appHeaderArea,
         body.services-page #appHeaderArea,
         body.service-detail-page #appHeaderArea,
+        body.events-page #appHeaderArea,
+        body.event-detail-page #appHeaderArea,
         body.scholarships-page #appHeaderArea,
         body.scholarship-detail-page #appHeaderArea,
         body.tests-page #appHeaderArea,
@@ -111,6 +117,7 @@
         <a href="{{ url('/') }}">Home</a>
         <a href="{{ url('/destinations') }}">Study destinations</a>
         <a href="{{ url('/services') }}">Our services</a>
+        <a href="{{ url('/events') }}">Events</a>
         <a href="{{ url('/scholarships') }}">Scholarships</a>
         <a href="{{ url('/tests') }}">Test preparation</a>
         <a href="{{ url('/#work-visas') }}">Work visa pathways</a>

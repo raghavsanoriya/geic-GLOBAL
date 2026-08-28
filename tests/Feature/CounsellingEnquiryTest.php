@@ -38,4 +38,28 @@ class CounsellingEnquiryTest extends TestCase
             'source_page' => '/contact',
         ]);
     }
+
+    public function test_landing_page_profile_request_is_stored(): void
+    {
+        $this->postJson('/landing/form-handler.php', [
+            'name' => 'Landing Student',
+            'phone' => '+91 98765 43210',
+            'email' => 'landing@example.com',
+            'qualification' => 'Bachelor’s degree',
+            'passing_year' => 2026,
+            'score' => '8.1 CGPA',
+            'country' => 'Germany',
+        ])->assertCreated()->assertJson(['success' => true]);
+
+        $this->assertDatabaseHas('counselling_enquiries', [
+            'destination' => 'Germany',
+            'email' => 'landing@example.com',
+            'source_page' => '/landing',
+        ]);
+
+        $this->assertDatabaseHas('site_events', [
+            'event_type' => 'form_submit',
+            'path' => '/landing',
+        ]);
+    }
 }

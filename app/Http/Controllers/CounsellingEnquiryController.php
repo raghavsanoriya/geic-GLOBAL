@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CmsPage;
+use App\Models\CmsPageState;
 use App\Support\DestinationCatalog;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +14,71 @@ use Illuminate\Validation\Rule;
 
 class CounsellingEnquiryController extends Controller
 {
+    /**
+     * Store the standalone campaign landing-page profile request.
+     */
+    public function storeLanding(Request $request): JsonResponse
+    {
+        return $this->storePromotional($request, '/landing');
+    }
+
+    public function storePromotion(Request $request, string $promotion): JsonResponse
+    {
+        $page = CmsPage::query()
+            ->where('group', 'promotions')
+            ->where('slug', $promotion)
+            ->firstOrFail();
+        $state = CmsPageState::query()->where('page_key', $page->page_key)->first();
+        abort_unless($state?->status === 'published', 404);
+
+        return $this->storePromotional($request, '/'.$page->path);
+    }
+
+    private function storePromotional(Request $request, string $sourcePage): JsonResponse
+    {
+        if ($request->filled('website')) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you. Your enquiry has been received.',
+            ]);
+        }
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:120'],
+            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'email' => ['required', 'email:rfc', 'max:160'],
+            'qualification' => ['required', 'string', 'max:100'],
+            'passing_year' => ['required', 'integer', 'between:1990,2035'],
+            'score' => ['required', 'string', 'max:30'],
+            'country' => ['required', 'string', 'max:100'],
+            'website' => ['nullable', 'max:0'],
+        ]);
+
+        DB::table('counselling_enquiries')->insert([
+            'destination' => $data['country'],
+            'full_name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'city' => 'Not provided',
+            'study_level' => $data['qualification'],
+            'preferred_intake' => 'Passing year: '.$data['passing_year'],
+            'preferred_course' => null,
+            'english_test' => 'Not sure yet',
+            'message' => 'Academic score: '.$data['score'],
+            'source_page' => $sourcePage,
+            ...$this->trackingAttributes($request),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->recordConversion($request, $sourcePage, $data['country']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you. Your profile evaluation request has been received.',
+        ], 201);
+    }
+
     /**
      * Store a study-abroad counselling enquiry from a destination page.
      */
@@ -77,9 +145,12 @@ class CounsellingEnquiryController extends Controller
             'english_test' => 'Not sure yet',
             'message' => 'Submitted through the detail-page hero form.',
             'source_page' => strtok($returnUrl, '#'),
+            ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        $this->recordConversion($request, strtok($returnUrl, '#'), $data['source_context']);
 
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
@@ -131,11 +202,50 @@ class CounsellingEnquiryController extends Controller
             'english_test' => $data['english_test'],
             'message' => $data['message'] ?? null,
             'source_page' => $slug === 'contact' ? '/contact' : "/destinations/{$slug}",
+            ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
+        $this->recordConversion($request, $slug === 'contact' ? '/contact' : "/destinations/{$slug}", $destinationName);
+
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+    }
+
+    /** @return array{source: string, utm_source: ?string, utm_medium: ?string, utm_campaign: ?string} */
+    private function trackingAttributes(Request $request): array
+    {
+        return [
+            'source' => 'website',
+            'utm_source' => $this->limited($request->input('utm_source'), 120),
+            'utm_medium' => $this->limited($request->input('utm_medium'), 120),
+            'utm_campaign' => $this->limited($request->input('utm_campaign'), 180),
+        ];
+    }
+
+    private function recordConversion(Request $request, string $path, string $label): void
+    {
+        DB::table('site_events')->insert([
+            'event_type' => 'form_submit',
+            'path' => $path,
+            'label' => $label,
+            'target' => null,
+            'referrer_domain' => null,
+            'utm_source' => $this->limited($request->input('utm_source'), 120),
+            'utm_medium' => $this->limited($request->input('utm_medium'), 120),
+            'utm_campaign' => $this->limited($request->input('utm_campaign'), 180),
+            'visitor_hash' => hash_hmac('sha256', $request->ip().'|'.mb_substr((string) $request->userAgent(), 0, 180), (string) config('app.key')),
+            'session_hash' => filled($request->input('analytics_session_id'))
+                ? hash_hmac('sha256', (string) $request->input('analytics_session_id'), (string) config('app.key'))
+                : null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    private function limited(mixed $value, int $length): ?string
+    {
+        return is_string($value) && trim($value) !== '' ? mb_substr(trim($value), 0, $length) : null;
     }
 }

@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/users/admin/profile by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:47 GMT -->
+<!-- Mirrored from www.geic.in/users/admin/profile by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:47 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -17,24 +17,24 @@
 
 
 <link rel='shortcut icon' type='image/x-icon' href="/store/1/geic-icon.png">
-<link rel="manifest" href="https://lms.rocket-soft.org/mix-manifest.json?v=4">
+<link rel="manifest" href="https://www.geic.in/mix-manifest.json?v=4">
 <meta name="theme-color" content="#FFF">
 <!-- Windows Phone -->
 <meta name="msapplication-starturl" content="/">
 <meta name="msapplication-TileColor" content="#FFF">
-<meta name="msapplication-TileImage" content="https://lms.rocket-soft.org/ms-icon-144x144.png">
+<meta name="msapplication-TileImage" content="https://www.geic.in/ms-icon-144x144.png">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
-<link rel="home" href="https://lms.rocket-soft.org/">
+<link rel="home" href="https://www.geic.in/">
 
 <!-- Open Graph -->
 <meta property='og:title' content='Admin Profile'>
@@ -42,68 +42,68 @@
 <meta name='twitter:title' content='Admin Profile'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
 <meta property='og:image' content='/store/1/geic-icon.png'>
 <meta name='twitter:image' content='/store/1/geic-icon.png'>
-<meta property='og:locale' content='https://lms.rocket-soft.org/en_US'>
+<meta property='og:locale' content='https://www.geic.in/en_US'>
 <meta property='og:type' content='website'>
 
 
 
-    <title>Admin Profile | Rocket LMS</title>
+    <title>Admin Profile | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
-    <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/default/vendors/simplebar/simplebar.css">
-    <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/app.min.css">
+    <link rel="stylesheet" href="https://www.geic.in/assets/default/vendors/simplebar/simplebar.css">
+    <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/app.min.css">
 
-    
-            <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
-            <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
-        <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/parts/profile.min.css">
-            <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/parts/product_cards/grid_card_1.min.css">
-                <link rel="stylesheet" href="https://lms.rocket-soft.org/assets/design_1/css/parts/post_cards/grid_card_1.min.css">
-        
+
+            <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/parts/theme/headers/header_1.min.css">
+
+            <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/parts/theme/footers/footer_1.min.css">
+
+        <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/parts/profile.min.css">
+            <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/parts/product_cards/grid_card_1.min.css">
+                <link rel="stylesheet" href="https://www.geic.in/assets/design_1/css/parts/post_cards/grid_card_1.min.css">
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
                       font-style: normal;
                       font-weight: 400;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Gilroy-Regular.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Gilroy-Regular.woff2) format('woff2');
                     }@font-face {
                       font-family: 'main-font-family';
                       font-style: normal;
                       font-weight: bold;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Gilroy-Bold.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Gilroy-Bold.woff2) format('woff2');
                     }@font-face {
                       font-family: 'main-font-family';
                       font-style: normal;
                       font-weight: 500;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Gilroy-Medium.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Gilroy-Medium.woff2) format('woff2');
                     }@font-face {
                       font-family: 'rtl-font-family';
                       font-style: normal;
                       font-weight: 400;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Tajawal-Regular.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Tajawal-Regular.woff2) format('woff2');
                     }@font-face {
                       font-family: 'rtl-font-family';
                       font-style: normal;
                       font-weight: bold;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Tajawal-Bold.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Tajawal-Bold.woff2) format('woff2');
                     }@font-face {
                       font-family: 'rtl-font-family';
                       font-style: normal;
                       font-weight: 500;
                       font-display: swap;
-                      src: url(https://lms.rocket-soft.org/store/1/fonts/Tajawal-Medium.woff2) format('woff2');
+                      src: url(https://www.geic.in/store/1/fonts/Tajawal-Medium.woff2) format('woff2');
                     }
 
         :root{
@@ -175,34 +175,34 @@
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <span class="text-white">+1 (323) 555-9876</span>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -210,15 +210,15 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -228,18 +228,18 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
                                     <div class="d-flex align-items-center gap-8">
                     <div class="size-32 d-flex-center bg-white-10 rounded-8">
-                        <img src="https://lms.rocket-soft.org/vendor/blade-country-flags/4x3-us.svg" class="img-fluid" width="16px" height="16px" alt="English flag"/>
+                        <img src="https://www.geic.in/vendor/blade-country-flags/4x3-us.svg" class="img-fluid" width="16px" height="16px" alt="English flag"/>
                     </div>
                     <span class="js-lang-title text-white opacity-75 d-none d-md-flex">English</span>
                     <svg width="16px" height="16px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -254,7 +254,7 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer active" data-value="EN" data-title="English">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="https://lms.rocket-soft.org/vendor/blade-country-flags/4x3-us.svg" class="img-cover" alt="English flag"/>
+                        <img src="https://www.geic.in/vendor/blade-country-flags/4x3-us.svg" class="img-cover" alt="English flag"/>
                     </div>
                     <span class="ml-8 font-14">English</span>
                 </div>
@@ -262,7 +262,7 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="AR" data-title="Arabic">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="https://lms.rocket-soft.org/vendor/blade-country-flags/4x3-sa.svg" class="img-cover" alt="Arabic flag"/>
+                        <img src="https://www.geic.in/vendor/blade-country-flags/4x3-sa.svg" class="img-cover" alt="Arabic flag"/>
                     </div>
                     <span class="ml-8 font-14">Arabic</span>
                 </div>
@@ -270,18 +270,18 @@
                     <div class="js-language-dropdown-item header-1-dropdown-menu__item cursor-pointer " data-value="ES" data-title="Spanish">
                 <div class=" d-flex align-items-center w-100 px-16 py-8 text-dark bg-transparent">
                     <div class="header-1-dropdown-menu__flag">
-                        <img src="https://lms.rocket-soft.org/vendor/blade-country-flags/4x3-es.svg" class="img-cover" alt="Spanish flag"/>
+                        <img src="https://www.geic.in/vendor/blade-country-flags/4x3-es.svg" class="img-cover" alt="Spanish flag"/>
                     </div>
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -326,11 +326,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -341,11 +341,11 @@
                                                             </div>
 
                             <div class="d-flex align-items-center">
-                                                                                                            <a href="https://lms.rocket-soft.org/login" class="d-flex align-items-center text-white opacity-75">
+                                                                                                            <a href="https://www.geic.in/login" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">Login</span>
                                         </a>
-                                    
-                                                                            <a href="https://lms.rocket-soft.org/register" class="d-flex align-items-center text-white opacity-75 ml-32">
+
+                                                                            <a href="https://www.geic.in/register" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Register</span>
                                         </a>
                                                                                                 </div>
@@ -357,24 +357,24 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-6 col-lg-2">
-                    <a href="https://lms.rocket-soft.org/" class="theme-header-1__logo text-left d-block">
-                                                    <img src="https://lms.rocket-soft.org/store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="https://lms.rocket-soft.org/store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                    <a href="https://www.geic.in/" class="theme-header-1__logo text-left d-block">
+                                                    <img src="https://www.geic.in/store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
+
+                                                    <img src="https://www.geic.in/store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -387,10 +387,10 @@
 
         <ul class="theme-header-1__categories">
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Development" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="https://www.geic.in/categories/Development" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
+
                             <span class="">Development</span>
                         </div>
 
@@ -400,28 +400,28 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Development/Web-Development" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Development/Web-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Development/Mobile-Development" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Development/Mobile-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Development/Game-Development" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Development/Game-Development" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -429,10 +429,10 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Business" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="https://www.geic.in/categories/Business" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
+
                             <span class="">Business</span>
                         </div>
 
@@ -442,28 +442,28 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Business/Management" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Business/Management" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Business/Communications" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Business/Communications" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Business/Business-Strategy" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Business/Business-Strategy" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -471,10 +471,10 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Marketing" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="https://www.geic.in/categories/Marketing" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -482,10 +482,10 @@
 
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Lifestyles" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="https://www.geic.in/categories/Lifestyles" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -495,19 +495,19 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Lifestyles/Lifestyle" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Lifestyles/Lifestyle" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Lifestyles/Beauty-and-Makeup" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Lifestyles/Beauty-and-Makeup" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -515,10 +515,10 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Health-and-Fitness" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="https://www.geic.in/categories/Health-and-Fitness" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -526,10 +526,10 @@
 
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Academics" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
+                    <a href="https://www.geic.in/categories/Academics" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
+
                             <span class="">Academics</span>
                         </div>
 
@@ -539,28 +539,28 @@
 
                                             <ul class="header-1-dropdown-menu__sub-menu py-12">
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Academics/Math" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Academics/Math" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Academics/Science" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Academics/Science" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="https://lms.rocket-soft.org/categories/Academics/Language" class="d-flex align-items-center w-100 px-16 py-8">
+                                    <a href="https://www.geic.in/categories/Academics/Language" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
-                                                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+                                                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -568,10 +568,10 @@
                                                     </ul>
                                     </li>
                             <li class="header-1-dropdown-menu__item position-relative">
-                    <a href="https://lms.rocket-soft.org/categories/Design" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
+                    <a href="https://www.geic.in/categories/Design" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
-                                                            <img src="https://lms.rocket-soft.org/store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+                                                            <img src="https://www.geic.in/store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
+
                             <span class="">Design</span>
                         </div>
 
@@ -584,26 +584,26 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-5 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
-                                                            <a href="https://lms.rocket-soft.org/" class="text-dark">Home</a>
-                                                            <a href="https://lms.rocket-soft.org/classes?sort=newest" class="text-dark">Courses</a>
-                                                            <a href="https://lms.rocket-soft.org/instructor-finder" class="text-dark">Instructors</a>
-                                                            <a href="https://lms.rocket-soft.org/products" class="text-dark">Store</a>
-                                                            <a href="https://lms.rocket-soft.org/forums" class="text-dark">Forums</a>
-                                                            <a href="https://lms.rocket-soft.org/events" class="text-dark">Events</a>
-                                                            <a href="https://lms.rocket-soft.org/jobs" class="text-dark">Jobs</a>
+                                                            <a href="https://www.geic.in/" class="text-dark">Home</a>
+                                                            <a href="https://www.geic.in/classes?sort=newest" class="text-dark">Courses</a>
+                                                            <a href="https://www.geic.in/instructor-finder" class="text-dark">Instructors</a>
+                                                            <a href="https://www.geic.in/products" class="text-dark">Store</a>
+                                                            <a href="https://www.geic.in/forums" class="text-dark">Forums</a>
+                                                            <a href="https://www.geic.in/events" class="text-dark">Events</a>
+                                                            <a href="https://www.geic.in/jobs" class="text-dark">Jobs</a>
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
-                                            <a href="https://lms.rocket-soft.org/login" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
+                                            <a href="https://www.geic.in/login" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Start Learning</span>
                         </a>
                                     </div>
@@ -614,10 +614,10 @@
 </div>
     </div>
         </div>
-    
-    
+
+
         <div class="profile-cover-card">
-        <img src="https://lms.rocket-soft.org/store/1/themes/general/user_profile_background.jpg" class="img-cover" alt=""/>
+        <img src="https://www.geic.in/store/1/themes/general/user_profile_background.jpg" class="img-cover" alt=""/>
     </div>
 
     <div class="profile-container">
@@ -629,7 +629,7 @@
     <div class="d-flex-center flex-column text-center px-16">
 
         <div class="profile-avatar-card size-80 rounded-circle mt-32">
-            <img src="https://lms.rocket-soft.org/store/1/default_images/admin-avatar.jpg" alt="Admin" class="img-cover rounded-circle">
+            <img src="https://www.geic.in/store/1/default_images/admin-avatar.jpg" alt="Admin" class="img-cover rounded-circle">
 
                             <div class="profile-avatar-card__verified-badge d-flex-center rounded-circle size-16 p-2 bg-primary" data-tippy-content="Verified">
                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-white">
@@ -640,7 +640,7 @@
 
         <h4 class="mt-16 font-16 font-weight-bold">Admin</h4>
 
-        
+
         <div class="profile-followers-card position-relative d-flex align-items-center justify-content-around mt-16 w-100">
             <div class="flex-1 text-center">
                 <span class="js-user-profile-followers-count d-block font-14 font-weight-bold">0</span>
@@ -660,9 +660,9 @@
 
                     </div>
 
-        
-        
-        
+
+
+
     </div>
 
 
@@ -670,7 +670,7 @@
 
         <div class="text-center text-gray-500 mb-8">Member Since Aug 2020</div>
 
-        
+
     </div>
 
 </div>
@@ -694,7 +694,7 @@
 </svg>                                    <span class="ml-4">Courses</span>
                                 </div>
 
-                                
+
                                                                     <div class="navbar-item d-flex-center pb-12 cursor-pointer font-12 font-weight-bold " data-tab-toggle data-tab-href="#productsTab">
                                         <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.17 7.44L12 12.55l8.77-5.08M12 21.61v-9.07"/>
@@ -702,7 +702,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 13.24V9.58L7.51 4.1"/>
 </svg>                                        <span class="ml-4">Products</span>
                                     </div>
-                                
+
                                 <div class="navbar-item d-flex-center pb-12 cursor-pointer font-12 font-weight-bold " data-tab-toggle data-tab-href="#articlesTab">
                                     <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.66 10.44l-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23z"/>
@@ -737,7 +737,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.995 13.7h.01M8.294 13.7h.01M8.294 16.7h.01"/>
 </svg>                                        <span class="ml-4">Events</span>
                                     </div>
-                                
+
                                                                     <div class="navbar-item d-flex-center pb-12 cursor-pointer font-12 font-weight-bold " data-tab-toggle data-tab-href="#jobsTab">
                                         <svg width="16px" height="16px" class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8 22h8c4.02 0 4.74-1.61 4.95-3.57l.75-8C21.97 7.99 21.27 6 17 6H7c-4.27 0-4.97 1.99-4.7 4.43l.75 8C3.26 20.39 3.98 22 8 22zM8 6v-.8C8 3.43 8 2 11.2 2h1.6C16 2 16 3.43 16 5.2V6"/>
@@ -789,17 +789,17 @@
 
 
 <div class="row">
-    
-    
-    
-    
+
+
+
+
     </div>
                                 </div>
 
                                 <div class="custom-tabs-content px-16 " id="coursesTab">
                                     <div class="no-result default-no-result d-flex-center flex-column bg-white rounded-16 py-120 px-32 mt-20 text-center mt-0">
     <div class="no-result-logo ">
-        <img src="https://lms.rocket-soft.org/assets/design_1/img/no-result/profile_courses.svg" alt="This instructor has no published courses." class="img-cover">
+        <img src="https://www.geic.in/assets/design_1/img/no-result/profile_courses.svg" alt="This instructor has no published courses." class="img-cover">
     </div>
 
     <h3 class="font-16 font-weight-bold mt-16">This instructor has no published courses.</h3>
@@ -808,33 +808,33 @@
     </div>
                                 </div>
 
-                                
+
                                 <div class="custom-tabs-content px-16 " id="productsTab">
                                     <div id="profileProductsRow" class="row">
         <div class="col-12 col-lg-6 mt-16">
-        <a href="https://lms.rocket-soft.org/products/ui-ux-playbook" class="text-decoration-none d-block">
+        <a href="https://www.geic.in/products/ui-ux-playbook" class="text-decoration-none d-block">
     <div class="product-card position-relative">
         <div class="product-card__mask"></div>
 
         <div class="position-relative d-flex p-12 rounded-16 bg-white z-index-2">
             <div class="product-card__image rounded-16">
-                <img src="https://lms.rocket-soft.org/store/1/default_images/store/products/book1.jpg" class="img-cover rounded-16" alt="Practical UI/UX Playbook E-book">
+                <img src="https://www.geic.in/store/1/default_images/store/products/book1.jpg" class="img-cover rounded-16" alt="Practical UI/UX Playbook E-book">
             </div>
 
             <div class="product-card__content ml-12 flex-1 d-flex flex-column">
                 <h3 class="product-card__title font-weight-bold font-16 text-dark">Practical UI/UX Playbook E-book</h3>
 
                 <div class="d-flex align-items-center my-16" onclick="event.stopPropagation()">
-                    <a href="https://lms.rocket-soft.org/users/admin/profile" target="_blank" class="size-32 rounded-circle" onclick="event.stopPropagation()">
-                        <img src="https://lms.rocket-soft.org/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
+                    <a href="https://www.geic.in/users/admin/profile" target="_blank" class="size-32 rounded-circle" onclick="event.stopPropagation()">
+                        <img src="https://www.geic.in/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
                     </a>
 
                     <div class="d-flex flex-column ml-4">
-                        <a href="https://lms.rocket-soft.org/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark" onclick="event.stopPropagation()">Admin</a>
+                        <a href="https://www.geic.in/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark" onclick="event.stopPropagation()">Admin</a>
 
                                                     <div class="d-inline-flex align-items-center gap-4 mt-2 font-14 text-gray-500">
                                 <span class="">in</span>
-                                <a href="https://lms.rocket-soft.org/products?category_id=3" target="_blank" class="font-14 text-gray-500 text-ellipsis" onclick="event.stopPropagation()">E-books</a>
+                                <a href="https://www.geic.in/products?category_id=3" target="_blank" class="font-14 text-gray-500 text-ellipsis" onclick="event.stopPropagation()">E-books</a>
                             </div>
                                             </div>
                 </div>
@@ -842,7 +842,7 @@
                 <div class="mt-auto d-flex align-items-center justify-content-between">
 
                     <div class="">
-                        <a href="https://lms.rocket-soft.org/products/ui-ux-playbook" class="text-decoration-none">
+                        <a href="https://www.geic.in/products/ui-ux-playbook" class="text-decoration-none">
                             <div class="stars-card d-flex align-items-center ">
                     <span class="stars-card__item active">
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -864,15 +864,15 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
                     </div>
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
-                            <a href="https://lms.rocket-soft.org/products/ui-ux-playbook" class="text-decoration-none text-primary">
-                                                                    
+                            <a href="https://www.geic.in/products/ui-ux-playbook" class="text-decoration-none text-primary">
+
                                                                             <span class="">$20</span>
                                                                                                 </a>
                         </div>
@@ -883,29 +883,29 @@
 </a>
     </div>
     <div class="col-12 col-lg-6 mt-16">
-        <a href="https://lms.rocket-soft.org/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none d-block">
+        <a href="https://www.geic.in/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none d-block">
     <div class="product-card position-relative">
         <div class="product-card__mask"></div>
 
         <div class="position-relative d-flex p-12 rounded-16 bg-white z-index-2">
             <div class="product-card__image rounded-16">
-                <img src="https://lms.rocket-soft.org/store/1/default_images/store/products/uxbook.jpg" class="img-cover rounded-16" alt="How to Do a Website UX Audit E-book">
+                <img src="https://www.geic.in/store/1/default_images/store/products/uxbook.jpg" class="img-cover rounded-16" alt="How to Do a Website UX Audit E-book">
             </div>
 
             <div class="product-card__content ml-12 flex-1 d-flex flex-column">
                 <h3 class="product-card__title font-weight-bold font-16 text-dark">How to Do a Website UX Audit E-book</h3>
 
                 <div class="d-flex align-items-center my-16" onclick="event.stopPropagation()">
-                    <a href="https://lms.rocket-soft.org/users/admin/profile" target="_blank" class="size-32 rounded-circle" onclick="event.stopPropagation()">
-                        <img src="https://lms.rocket-soft.org/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
+                    <a href="https://www.geic.in/users/admin/profile" target="_blank" class="size-32 rounded-circle" onclick="event.stopPropagation()">
+                        <img src="https://www.geic.in/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
                     </a>
 
                     <div class="d-flex flex-column ml-4">
-                        <a href="https://lms.rocket-soft.org/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark" onclick="event.stopPropagation()">Admin</a>
+                        <a href="https://www.geic.in/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark" onclick="event.stopPropagation()">Admin</a>
 
                                                     <div class="d-inline-flex align-items-center gap-4 mt-2 font-14 text-gray-500">
                                 <span class="">in</span>
-                                <a href="https://lms.rocket-soft.org/products?category_id=3" target="_blank" class="font-14 text-gray-500 text-ellipsis" onclick="event.stopPropagation()">E-books</a>
+                                <a href="https://www.geic.in/products?category_id=3" target="_blank" class="font-14 text-gray-500 text-ellipsis" onclick="event.stopPropagation()">E-books</a>
                             </div>
                                             </div>
                 </div>
@@ -913,13 +913,13 @@
                 <div class="mt-auto d-flex align-items-center justify-content-between">
 
                     <div class="">
-                        <a href="https://lms.rocket-soft.org/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none">
+                        <a href="https://www.geic.in/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none">
                                                     </a>
                     </div>
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
-                            <a href="https://lms.rocket-soft.org/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none text-primary">
-                                                                    
+                            <a href="https://www.geic.in/products/How-to-Do-a-Website-UX-audit-ebook" class="text-decoration-none text-primary">
+
                                                                             <span class="">$20</span>
                                                                                                 </a>
                         </div>
@@ -931,7 +931,7 @@
     </div>
     </div>
 
-    
+
                                 </div>
 
                                 <div class="custom-tabs-content px-16 " id="articlesTab">
@@ -939,9 +939,9 @@
         <div class="col-12 col-md-6 col-lg-4 mt-16">
         <div class="post-card position-relative">
 
-    <a href="https://lms.rocket-soft.org/blog/3-Laws-to-Become-a-Straight-A-Student">
+    <a href="https://www.geic.in/blog/3-Laws-to-Become-a-Straight-A-Student">
         <div class="post-card__image position-relative w-100 rounded-16 bg-gray-100">
-            <img src="https://lms.rocket-soft.org/store/1/default_images/blogs/blog1.jpg" class="img-cover rounded-16" alt="How to Start Freelancing with No Experience or Clients Today">
+            <img src="https://www.geic.in/store/1/default_images/blogs/blog1.jpg" class="img-cover rounded-16" alt="How to Start Freelancing with No Experience or Clients Today">
 
 
                     </div>
@@ -952,17 +952,17 @@
 
         <div class="post-card__body d-flex flex-column position-relative bg-white rounded-16 border-gray-200 z-index-2">
             <div class="p-12 mb-16">
-                <a href="https://lms.rocket-soft.org/blog/3-Laws-to-Become-a-Straight-A-Student">
+                <a href="https://www.geic.in/blog/3-Laws-to-Become-a-Straight-A-Student">
                     <h3 class="post-card__title font-16 font-weight-bold text-dark">How to Start Freelancing with No Experience or Clients Today</h3>
                 </a>
 
                 <div class="d-flex align-items-center mt-16">
                     <div class="size-32 rounded-circle">
-                        <img src="https://lms.rocket-soft.org/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
+                        <img src="https://www.geic.in/store/1/default_images/admin-avatar.jpg" class="img-cover rounded-circle" alt="Admin">
                     </div>
 
                     <div class="ml-4">
-                        <a href="https://lms.rocket-soft.org/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark">Admin</a>
+                        <a href="https://www.geic.in/users/admin/profile" target="_blank" class="font-14 font-weight-bold text-dark">Admin</a>
                         <p class="mt-2 font-14 text-gray-500 text-ellipsis">Senior software developer</p>
                     </div>
                 </div>
@@ -978,7 +978,7 @@
 
                 <div class="d-flex align-items-center gap-12">
 
-                    
+
                     <div class="d-flex align-items-center">
                         <svg width="16px" heigh="16px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.5 19H8c-4 0-6-1-6-6V8c0-4 2-6 6-6h8c4 0 6 2 6 6v5c0 4-2 6-6 6h-.5c-.31 0-.61.15-.8.4l-1.5 2c-.66.88-1.74.88-2.4 0l-1.5-2c-.16-.22-.53-.4-.8-.4z"/>
@@ -995,13 +995,13 @@
     </div>
     </div>
 
-    
+
                                 </div>
 
                                 <div class="custom-tabs-content px-16 " id="forumTab">
                                     <div class="no-result default-no-result d-flex-center flex-column bg-white rounded-16 py-120 px-32 mt-20 text-center mt-0">
     <div class="no-result-logo ">
-        <img src="https://lms.rocket-soft.org/assets/design_1/img/no-result/profile_forum.svg" alt="This user has no topics." class="img-cover">
+        <img src="https://www.geic.in/assets/design_1/img/no-result/profile_forum.svg" alt="This user has no topics." class="img-cover">
     </div>
 
     <h3 class="font-16 font-weight-bold mt-16">This user has no topics.</h3>
@@ -1017,7 +1017,7 @@
 
                 <div class="position-relative d-flex-center flex-column text-center bg-white rounded-16 border-gray-200 p-16 pt-32 z-index-2 h-100 w-100">
                     <div class="d-flex-center size-64 rounded-16 bg-gray-100">
-                        <img src="https://lms.rocket-soft.org/store/1/default_images/badges/registration3.svg" class="img-fluid" alt="Faithful User">
+                        <img src="https://www.geic.in/store/1/default_images/badges/registration3.svg" class="img-fluid" alt="Faithful User">
                     </div>
 
                     <div class="mt-12 font-14 font-weight-bold ">Faithful User</div>
@@ -1032,7 +1032,7 @@
                                 <div class="custom-tabs-content px-16 " id="reserveMeetingTab">
                                     <div class="no-result default-no-result d-flex-center flex-column bg-white rounded-16 py-120 px-32 mt-20 text-center mt-0">
     <div class="no-result-logo ">
-        <img src="https://lms.rocket-soft.org/assets/design_1/img/no-result/profile_meeting.svg" alt="This user has no meetings." class="img-cover">
+        <img src="https://www.geic.in/assets/design_1/img/no-result/profile_meeting.svg" alt="This user has no meetings." class="img-cover">
     </div>
 
     <h3 class="font-16 font-weight-bold mt-16">This user has no meetings.</h3>
@@ -1045,7 +1045,7 @@
                                                                     <div class="custom-tabs-content px-16 " id="eventsTab">
                                         <div class="no-result default-no-result d-flex-center flex-column bg-white rounded-16 py-120 px-32 mt-20 text-center mt-0">
     <div class="no-result-logo ">
-        <img src="https://lms.rocket-soft.org/assets/design_1/img/no-result/profile_events.svg" alt="update.user_profile_not_have_events" class="img-cover">
+        <img src="https://www.geic.in/assets/design_1/img/no-result/profile_events.svg" alt="update.user_profile_not_have_events" class="img-cover">
     </div>
 
     <h3 class="font-16 font-weight-bold mt-16">update.user_profile_not_have_events</h3>
@@ -1054,11 +1054,11 @@
     </div>
 
                                     </div>
-                                
+
                                                                     <div class="custom-tabs-content px-16 " id="jobsTab">
                                         <div class="no-result default-no-result d-flex-center flex-column bg-white rounded-16 py-120 px-32 mt-20 text-center mt-0">
     <div class="no-result-logo ">
-        <img src="https://lms.rocket-soft.org/assets/design_1/img/no-result/profile_jobs.svg" alt="This user has not posted any jobs." class="img-cover">
+        <img src="https://www.geic.in/assets/design_1/img/no-result/profile_jobs.svg" alt="This user has not posted any jobs." class="img-cover">
     </div>
 
     <h3 class="font-16 font-weight-bold mt-16">This user has not posted any jobs.</h3>
@@ -1067,7 +1067,7 @@
     </div>
 
                                     </div>
-                                
+
                             </div>
 
                         </div>
@@ -1081,11 +1081,11 @@
             <div id="appFooterArea">
             <div class="theme-footer-1 position-relative has-newsletter">
         <div class="theme-footer-1__section position-relative">
-            <div class="theme-footer-1__section-bg-wrapper light-only" style="background-color: var(--secondary); background-image: url(https://lms.rocket-soft.org/store/themes/footers/2/footer_background_7gn.png); "></div>
-            <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(https://lms.rocket-soft.org/store/themes/footers/2/footer_background_7gn.png); "></div>
+            <div class="theme-footer-1__section-bg-wrapper light-only" style="background-color: var(--secondary); background-image: url(https://www.geic.in/store/themes/footers/2/footer_background_7gn.png); "></div>
+            <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(https://www.geic.in/store/themes/footers/2/footer_background_7gn.png); "></div>
 
 
-            
+
                             <div class="theme-footer-1__newsletter">
     <div class="container position-relative">
         <div class="theme-footer-1__newsletter-mask"></div>
@@ -1096,14 +1096,14 @@
                     <div class="">
                         <div class="d-flex align-items-center gap-4">
                                                             <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
+
                                                             <div class="theme-footer-1__newsletter-emoji">
-                                    <img src="https://lms.rocket-soft.org/store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
+                                    <img src="https://www.geic.in/store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
                                 </div>
                                                     </div>
 
                                                     <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
+
                     </div>
                 </div>
 
@@ -1127,7 +1127,7 @@
         </div>
     </div>
 </div>
-            
+
             <div class="position-relative z-index-2">
 
                 <div class="container position-relative">
@@ -1135,78 +1135,78 @@
                         <div class="col-12 col-lg-5">
                                                             <div class="d-inline-flex-center gap-8 border-2 border-white rounded-32 bg-white-10 text-white px-16 py-12">
                                                                             <div class="size-24">
-                                            <img src="https://lms.rocket-soft.org/store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
+                                            <img src="https://www.geic.in/store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
                                         </div>
-                                    
+
                                                                             <span class="">Let’s get started now!</span>
                                                                     </div>
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
-                                                                    <a href="https://lms.rocket-soft.org/classes" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
+
+                                                                    <a href="https://www.geic.in/classes" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text">Enroll on Courses</span>
                                     </a>
                                                                                     </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Additional Links</h4>
-                            
-                                                                                                                                        <a href="https://lms.rocket-soft.org/login" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
+
+                                                                                                                                        <a href="https://www.geic.in/login" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Login</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/register" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/register" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Register</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/contact" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/contact" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Contact</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/certificate_validation" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/certificate_validation" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Certificate Validation</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/become-instructor" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/become-instructor" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Become Instructor</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/pages/about" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/pages/about" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">About</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/pages/terms" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/pages/terms" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Terms and Policies</span>
                                         </a>
                                                                                                                                                                                             </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Popular Categories</h4>
-                            
-                                                                                                                                        <a href="https://lms.rocket-soft.org/categories/Development" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
+
+                                                                                                                                        <a href="https://www.geic.in/categories/Development" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Development</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Business" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Business" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Business</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Marketing" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Marketing" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Marketing</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Lifestyles" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Lifestyles" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Lifestyle</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Health-and-Fitness" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Health-and-Fitness" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Health</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Academics" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Academics" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Academics</span>
                                         </a>
-                                                                                                                                                <a href="https://lms.rocket-soft.org/categories/Design" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
+                                                                                                                                                <a href="https://www.geic.in/categories/Design" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Design</span>
                                         </a>
                                                                                                                                                                                             </div>
 
                         <div class="col-12 col-lg-3 mt-32 mt-lg-0">
                                                                                                 <h4 class="font-16 text-white">Contact US</h4>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-20">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1215,7 +1215,7 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1224,7 +1224,7 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
@@ -1233,14 +1233,14 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -1251,21 +1251,21 @@
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
+
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
+
                                                                                                                                         <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
-                                            <img src="https://lms.rocket-soft.org/store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
+                                            <img src="https://www.geic.in/store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
                                         </a>
                                                                                                                                                                                                             <a href="https://web.whatsapp.com/" target="_blank" rel="nofollow" title="Whatsapp" class="d-flex-center size-24">
-                                            <img src="https://lms.rocket-soft.org/store/1/default_images/social/whatsapp.svg" alt="Whatsapp" class="img-cover">
+                                            <img src="https://www.geic.in/store/1/default_images/social/whatsapp.svg" alt="Whatsapp" class="img-cover">
                                         </a>
                                                                                                                                                                                                             <a href="https://twitter.com/" target="_blank" rel="nofollow" title="Messenger" class="d-flex-center size-24">
-                                            <img src="https://lms.rocket-soft.org/store/1/default_images/social/messenger.svg" alt="Messenger" class="img-cover">
+                                            <img src="https://www.geic.in/store/1/default_images/social/messenger.svg" alt="Messenger" class="img-cover">
                                         </a>
                                                                                                                                                                                                             <a href="https://www.facebook.com/" target="_blank" rel="nofollow" title="Facebook" class="d-flex-center size-24">
-                                            <img src="https://lms.rocket-soft.org/store/1/default_images/social/facebook.svg" alt="Facebook" class="img-cover">
+                                            <img src="https://www.geic.in/store/1/default_images/social/facebook.svg" alt="Facebook" class="img-cover">
                                         </a>
                                                                                                                                             </div>
 
@@ -1274,10 +1274,10 @@
         </div>
     </div>
         </div>
-    
-    
-    
-    
+
+
+
+
     <div class="cart-drawer no-footer bg-white py-16">
     <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
         <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
@@ -1299,7 +1299,7 @@
         </div>
 
         <div class="mt-12">
-            <a href="https://lms.rocket-soft.org/cart" class="btn btn-outline-primary btn-block">View Cart</a>
+            <a href="https://www.geic.in/cart" class="btn btn-outline-primary btn-block">View Cart</a>
         </div>
     </div>
 </div>
@@ -1309,7 +1309,7 @@
 
 <!-- Template JS File -->
 <script>
-    var siteDomain = 'https://lms.rocket-soft.org/';
+    var siteDomain = 'https://www.geic.in/';
     var deleteAlertTitle = 'Are you sure?';
     var deleteAlertHint = 'This action cannot be undone!';
     var deleteAlertConfirm = 'Delete';
@@ -1354,14 +1354,14 @@
   <path d="M21.76 15.92L15.36 4.4C14.5 2.85 13.31 2 12 2s-2.5.85-3.36 2.4l-6.4 11.52c-.81 1.47-.9 2.88-.25 3.99.65 1.11 1.93 1.72 3.61 1.72h12.8c1.68 0 2.96-.61 3.61-1.72.65-1.11.56-2.53-.25-3.99z" opacity=".4"/>
   <path d="M12 14.75c-.41 0-.75-.34-.75-.75V9c0-.41.34-.75.75-.75s.75.34.75.75v5c0 .41-.34.75-.75.75zM12 18c-.06 0-.13-.01-.2-.02a.636.636 0 01-.18-.06.757.757 0 01-.18-.09l-.15-.12c-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71l.15-.12c.06-.04.12-.07.18-.09.06-.03.12-.05.18-.06.13-.03.27-.03.39 0 .07.01.13.03.19.06.06.02.12.05.18.09l.15.12c.18.19.29.45.29.71 0 .26-.11.52-.29.71l-.15.12c-.06.04-.12.07-.18.09-.06.03-.12.05-.19.06-.06.01-.13.02-.19.02z"/>
 </svg>`;
-    var defaultAvatarPath = "https://lms.rocket-soft.org/store/1/default_images/default_profile.jpg";
+    var defaultAvatarPath = "https://www.geic.in/store/1/default_images/default_profile.jpg";
     var themeColorsMode = {"light":{"primary":"#E31E24","primary_saturated":"#67a9ff","secondary":"#0e2145","accent":"#fe6257","success":"#3fcd82","info":"#67a9ff","warning":"#ffa200","danger":"#f63c3c","dark":"#121f3e","black":"#000000","white":"#ffffff","gray_100":"#fafcff","gray_200":"#f0f4f9","gray_300":"#e9edf3","gray_400":"#cdd5e2","gray_500":"#97a7bf","gray":"#f5f8f9","section_bg":"#eaf0f3"},"dark":{"primary":"#3e93ff","primary_saturated":"#8dbeff","secondary":"#2658b7","accent":"#ff8077","success":"#5ade98","info":"#8dbeff","warning":"#ffb32d","danger":"#fe6363","dark":"#aab8c5","black":"#e1eaf6","white":"#1e1f26","gray_100":"#272832","gray_200":"#30313e","gray_300":"#3e404e","gray_400":"#5d5f72","gray_500":"#8391a2","gray":"#17181e","section_bg":"#2d323a"}};
 </script>
 
 
-<script type="text/javascript" src="https://lms.rocket-soft.org/assets/design_1/js/app.min.js"></script>
-<script type="text/javascript" src="https://lms.rocket-soft.org/assets/default/vendors/simplebar/simplebar.min.js"></script>
-<script defer src="https://lms.rocket-soft.org/assets/design_1/js/parts/content_delete.min.js"></script>
+<script type="text/javascript" src="https://www.geic.in/assets/design_1/js/app.min.js"></script>
+<script type="text/javascript" src="https://www.geic.in/assets/default/vendors/simplebar/simplebar.min.js"></script>
+<script defer src="https://www.geic.in/assets/design_1/js/parts/content_delete.min.js"></script>
 
 
 
@@ -1376,20 +1376,20 @@
     </script>
 
 
-    <script src="https://lms.rocket-soft.org/assets/design_1/js/parts/profile.min.js"></script>
+    <script src="https://www.geic.in/assets/design_1/js/parts/profile.min.js"></script>
 
-    
+
 
 <script>
 
-    
-    
+
+
 </script>
 
-<script src="https://lms.rocket-soft.org/assets/design_1/js/parts/general.min.js"></script>
+<script src="https://www.geic.in/assets/design_1/js/parts/general.min.js"></script>
 
 </body>
 
-<!-- Mirrored from lms.rocket-soft.org/users/admin/profile by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:47 GMT -->
+<!-- Mirrored from www.geic.in/users/admin/profile by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:35:47 GMT -->
 </html>
 

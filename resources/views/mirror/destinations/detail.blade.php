@@ -3,8 +3,31 @@
 
 @php
     $slug = $destination['slug'];
-    $name = $destination['name'];
+    $name = $cms['destination_name'] ?? $destination['name'];
     $detailUrl = url()->current();
+    $mediaUrl = fn (string $path): string => str_starts_with($path, 'http://') || str_starts_with($path, 'https://') ? $path : asset($path);
+    $destination['hero'] = $cms['hero_image'] ?? $destination['hero'];
+    $destination['hero_position'] = $cms['hero_image_position'] ?? $destination['hero_position'];
+    $destination['tagline'] = $cms['hero_copy'] ?? $destination['tagline'];
+    $destination['overview'] = $cms['overview_copy'] ?? $destination['overview'];
+    $destination['overview_2'] = $cms['overview_copy_2'] ?? $destination['overview_2'];
+    $destination['card'] = $cms['overview_image'] ?? $destination['card'];
+    $destination['facts_intro'] = $cms['facts_intro'] ?? $destination['facts_intro'];
+    $destination['visa_title'] = $cms['visa_title'] ?? $destination['visa_title'];
+    $destination['visa_copy'] = $cms['visa_copy'] ?? $destination['visa_copy'];
+    $destination['support_image']['src'] = $cms['support_image'] ?? $destination['support_image']['src'];
+    $destination['support_image']['alt'] = $cms['support_image_alt'] ?? $destination['support_image']['alt'];
+    foreach ($destination['stats'] as $index => &$stat) { $number = $index + 1; $stat = [$cms["stat_{$number}_value"] ?? $stat[0], $cms["stat_{$number}_label"] ?? $stat[1]]; } unset($stat);
+    foreach ($destination['benefits'] as $index => &$benefit) { $number = $index + 1; $benefit = [$cms["benefit_{$number}_title"] ?? $benefit[0], $cms["benefit_{$number}_copy"] ?? $benefit[1]]; } unset($benefit);
+    foreach ($destination['gallery'] as $index => &$image) { $number = $index + 1; $image['src'] = $cms["gallery_{$number}_image"] ?? $image['src']; $image['alt'] = $cms["gallery_{$number}_alt"] ?? $image['alt']; $image['label'] = $cms["gallery_{$number}_label"] ?? $image['label']; } unset($image);
+    foreach ($destination['facts'] as $index => &$fact) { $number = $index + 1; $fact = [$cms["fact_{$number}_label"] ?? $fact[0], $cms["fact_{$number}_value"] ?? $fact[1]]; } unset($fact);
+    foreach ($destination['journey'] as $index => &$step) { $number = $index + 1; $step = [$cms["journey_{$number}_stage"] ?? $step[0], $cms["journey_{$number}_title"] ?? $step[1], $cms["journey_{$number}_copy"] ?? $step[2]]; } unset($step);
+    foreach ($destination['requirements'] as $index => &$requirement) { $number = $index + 1; $requirement = $cms["requirement_{$number}"] ?? $requirement; } unset($requirement);
+    foreach ($destination['costs'] as $index => &$cost) { $number = $index + 1; $cost = [$cms["cost_{$number}_label"] ?? $cost[0], $cms["cost_{$number}_value"] ?? $cost[1]]; } unset($cost);
+    foreach ($destination['careers'] as $index => &$career) { $number = $index + 1; $career = $cms["career_{$number}"] ?? $career; } unset($career);
+    foreach ($destination['intakes'] as $index => &$intake) { $number = $index + 1; $intake = [$cms["intake_{$number}_title"] ?? $intake[0], $cms["intake_{$number}_copy"] ?? $intake[1]]; } unset($intake);
+    foreach ($destination['universities'] as $index => &$university) { $number = $index + 1; $university['name'] = $cms["university_{$number}_name"] ?? $university['name']; $university['logo'] = $cms["university_{$number}_logo"] ?? $university['logo']; } unset($university);
+    foreach ($destination['faqs'] as $index => &$faq) { $number = $index + 1; $faq = [$cms["faq_{$number}_question"] ?? $faq[0], $cms["faq_{$number}_answer"] ?? $faq[1]]; } unset($faq);
 @endphp
 
 <style>
@@ -267,14 +290,14 @@
     <section class="cd-hero" id="overview">
         <div class="cd-container">
             <div class="cd-hero__shell" style="--hero-position:{{ $destination['hero_position'] }}">
-                <img class="cd-hero__image" src="{{ asset($destination['hero']) }}" alt="Study in {{ $name }}" fetchpriority="high" width="1920" height="1200">
+                <img class="cd-hero__image" src="{{ $mediaUrl($destination['hero']) }}" alt="{{ $cms['hero_image_alt'] ?? 'Study in '.$name }}" fetchpriority="high" width="1920" height="1200">
                 <div class="cd-hero__overlay"></div>
                 <div class="cd-hero__content">
                     <nav class="cd-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/destinations') }}">Destinations</a><span>/</span><span>{{ $name }}</span></nav>
-                    <div class="cd-label"><img src="{{ asset('assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $name }} flag"><span>Expert guidance from GEIC Indore</span></div>
-                    <h1>Study in <span>{{ $name }}</span></h1>
-                    <p class="cd-hero__copy">{{ $destination['tagline'] }}</p>
-                    <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">Book free counselling</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">See the complete journey</a></div>
+                    <div class="cd-label"><img src="{{ $mediaUrl($cms['flag_image'] ?? 'assets/transglobe/destinations/flags/'.$destination['flag']) }}" alt="{{ $cms['flag_alt'] ?? $name.' flag' }}"><span>{{ $cms['hero_label'] ?? 'Expert guidance from GEIC Indore' }}</span></div>
+                    <h1>{{ $cms['hero_title'] ?? 'Study in '.$name }}</h1>
+                    <p class="cd-hero__copy">{{ $cms['hero_copy'] ?? $destination['tagline'] }}</p>
+                    <div class="cd-actions"><a class="cd-button" href="{{ $detailUrl }}#contact">{{ $cms['hero_primary_cta_label'] ?? 'Book free counselling' }}</a><a class="cd-button cd-button--ghost" href="{{ $detailUrl }}#journey">{{ $cms['hero_secondary_cta_label'] ?? 'See the complete journey' }}</a></div>
                 </div>
                 @include('mirror.partials.hero-enquiry', ['formId' => 'destination-hero', 'sourceContext' => 'Study in '.$name, 'returnTo' => '/destinations/'.$slug.'#overview'])
             </div>
@@ -290,59 +313,59 @@
 
     <section class="cd-section">
         <div class="cd-container cd-overview">
-            <div class="cd-overview__copy"><div class="cd-kicker">Study in {{ $name }}</div><h2 class="cd-heading">A closer look at your study destination</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="{{ $detailUrl }}#requirements" style="margin-top:26px">Check requirements</a></div>
+            <div class="cd-overview__copy"><div class="cd-kicker">{{ $cms['overview_kicker'] ?? 'Study in '.$name }}</div><h2 class="cd-heading">{{ $cms['overview_title'] ?? 'A closer look at your study destination' }}</h2><p>{{ $destination['overview'] }}</p><p>{{ $destination['overview_2'] }}</p><a class="cd-button" href="{{ $detailUrl }}#requirements" style="margin-top:26px">{{ $cms['overview_cta_label'] ?? 'Check requirements' }}</a></div>
             <div class="cd-visual" aria-label="{{ $name }} destination gallery">
-                <div class="cd-visual__main"><img src="{{ asset($destination['gallery'][0]['src']) }}" alt="{{ $destination['gallery'][0]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
-                <div class="cd-visual__mini"><img src="{{ asset($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
-                <div class="cd-visual__card"><img src="{{ asset($destination['gallery'][2]['src']) }}" alt="{{ $destination['gallery'][2]['alt'] }}" loading="lazy" width="1600" height="1100"><span class="cd-visual__badge">Explore {{ $name }}</span></div>
+                <div class="cd-visual__main"><img src="{{ $mediaUrl($destination['gallery'][0]['src']) }}" alt="{{ $destination['gallery'][0]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
+                <div class="cd-visual__mini"><img src="{{ $mediaUrl($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div>
+                <div class="cd-visual__card"><img src="{{ $mediaUrl($destination['gallery'][2]['src']) }}" alt="{{ $destination['gallery'][2]['alt'] }}" loading="lazy" width="1600" height="1100"><span class="cd-visual__badge">{{ $cms['overview_image_badge'] ?? 'Explore '.$name }}</span></div>
             </div>
         </div>
     </section>
 
     <section class="cd-section cd-section--soft" id="why">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Why {{ $name }}</div><h2 class="cd-heading">What makes {{ $name }} stand out</h2><p class="cd-lead">Academic quality, practical learning and an international student experience designed for ambitious careers.</p></div>
+        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">{{ $cms['benefits_kicker'] ?? 'Why '.$name }}</div><h2 class="cd-heading">{{ $cms['benefits_title'] ?? 'What makes '.$name.' stand out' }}</h2><p class="cd-lead">{{ $cms['benefits_lead'] ?? 'Academic quality, practical learning and an international student experience designed for ambitious careers.' }}</p></div>
             <div class="cd-benefits">
                 @foreach($destination['benefits'] as [$title,$copy])
                     <article class="cd-benefit"><div class="cd-benefit__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 13 5 5L20 7"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></div><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>
                 @endforeach
             </div>
-            <div class="cd-center" style="margin-top:62px"><div class="cd-kicker">Beyond the classroom</div><h2 class="cd-heading">Student life in {{ $name }}</h2></div>
+            <div class="cd-center" style="margin-top:62px"><div class="cd-kicker">{{ $cms['gallery_kicker'] ?? 'Beyond the classroom' }}</div><h2 class="cd-heading">{{ $cms['gallery_title'] ?? 'Student life in '.$name }}</h2><p class="cd-lead">{{ $cms['gallery_lead'] ?? '' }}</p></div>
             <div class="cd-life-gallery">
-                @foreach($destination['gallery'] as $image)<figure class="cd-life-card"><img src="{{ asset($image['src']) }}" alt="{{ $image['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>{{ $image['label'] }}</figcaption></figure>@endforeach
+                @foreach($destination['gallery'] as $image)<figure class="cd-life-card"><img src="{{ $mediaUrl($image['src']) }}" alt="{{ $image['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>{{ $image['label'] }}</figcaption></figure>@endforeach
             </div>
-            <div class="cd-facts"><div class="cd-fact-image"><img src="{{ asset($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div><div class="cd-fact-panel"><div class="cd-fact-panel__intro"><h3>{{ $name }} at a glance</h3><p>{{ $destination['facts_intro'] }}</p></div>@foreach($destination['facts'] as [$label,$value])<div class="cd-fact"><span>{{ $label }}</span><strong>{{ $value }}</strong></div>@endforeach</div></div>
+            <div class="cd-facts"><div class="cd-fact-image"><img src="{{ $mediaUrl($destination['gallery'][1]['src']) }}" alt="{{ $destination['gallery'][1]['alt'] }}" loading="lazy" width="1600" height="1100"></div><div class="cd-fact-panel"><div class="cd-fact-panel__intro"><h3>{{ $cms['facts_title'] ?? $name.' at a glance' }}</h3><p>{{ $destination['facts_intro'] }}</p></div>@foreach($destination['facts'] as [$label,$value])<div class="cd-fact"><span>{{ $label }}</span><strong>{{ $value }}</strong></div>@endforeach</div></div>
         </div>
     </section>
 
     <section class="cd-journey" id="journey">
-        <div class="cd-container"><div class="cd-journey__intro"><div class="cd-journey__intro-copy"><div class="cd-kicker">The complete journey</div><h2 class="cd-heading">One connected path from counselling to {{ $name }}</h2><p class="cd-lead">Follow one clear route through every milestone, document and decision, with Trans Globe Indore supporting you all the way.</p></div><div class="cd-journey__count" aria-label="Eight guided milestones"><strong>{{ count($destination['journey']) }}</strong><span>Guided milestones</span></div></div>
+        <div class="cd-container"><div class="cd-journey__intro"><div class="cd-journey__intro-copy"><div class="cd-kicker">{{ $cms['journey_kicker'] ?? 'The complete journey' }}</div><h2 class="cd-heading">{{ $cms['journey_title'] ?? 'One connected path from counselling to '.$name }}</h2><p class="cd-lead">{{ $cms['journey_lead'] ?? 'Follow one clear route through every milestone, document and decision, with Trans Globe Indore supporting you all the way.' }}</p></div><div class="cd-journey__count" aria-label="{{ count($destination['journey']) }} guided milestones"><strong>{{ count($destination['journey']) }}</strong><span>{{ $cms['journey_count_label'] ?? 'Guided milestones' }}</span></div></div>
             <div class="cd-journey-grid">@foreach($destination['journey'] as $index => [$stage,$title,$copy])<article class="cd-step"><div class="cd-step__top"><span class="cd-step__number">{{ str_pad($index+1,2,'0',STR_PAD_LEFT) }}</span><span class="cd-step__stage">{{ $stage }}</span></div><h3>{{ $title }}</h3><p>{{ $copy }}</p><span class="cd-step__connector" aria-hidden="true"></span></article>@endforeach</div>
-            <div class="cd-journey-outcome"><span class="cd-journey-outcome__icon" aria-hidden="true">✓</span><div class="cd-journey-outcome__copy"><small>Destination reached</small><strong>Arrive informed, prepared and ready for student life in {{ $name }}.</strong></div><a href="{{ $detailUrl }}#contact">Start my journey →</a></div>
+            <div class="cd-journey-outcome"><span class="cd-journey-outcome__icon" aria-hidden="true">✓</span><div class="cd-journey-outcome__copy"><small>{{ $cms['journey_outcome_label'] ?? 'Destination reached' }}</small><strong>{{ $cms['journey_outcome_copy'] ?? 'Arrive informed, prepared and ready for student life in '.$name.'.' }}</strong></div><a href="{{ $detailUrl }}#contact">{{ $cms['journey_outcome_cta_label'] ?? 'Start my journey' }} →</a></div>
         </div>
     </section>
 
     <section class="cd-section cd-section--soft" id="requirements">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Admission and visa</div><h2 class="cd-heading">Prepare the right documents with confidence</h2><p class="cd-lead">Exact requirements vary by program and institution; we help you build a complete, well-organised application.</p></div>
-            <div class="cd-requirements"><article class="cd-panel"><h3>Typical admission documents</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">Student visa</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.</div><a class="cd-button" href="{{ $detailUrl }}#contact" style="margin-top:24px">Discuss my eligibility</a></article></div>
+        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">{{ $cms['requirements_kicker'] ?? 'Admission and visa' }}</div><h2 class="cd-heading">{{ $cms['requirements_title'] ?? 'Prepare the right documents with confidence' }}</h2><p class="cd-lead">{{ $cms['requirements_lead'] ?? 'Exact requirements vary by program and institution; we help you build a complete, well-organised application.' }}</p></div>
+            <div class="cd-requirements"><article class="cd-panel"><h3>{{ $cms['requirements_list_title'] ?? 'Typical admission documents' }}</h3><ul class="cd-checks">@foreach($destination['requirements'] as $item)<li><span class="cd-check">✓</span><span>{{ $item }}</span></li>@endforeach</ul></article><article class="cd-panel cd-visa"><div class="cd-kicker" style="color:#ffb45a">{{ $cms['visa_kicker'] ?? 'Student visa' }}</div><h3>{{ $destination['visa_title'] }}</h3><p>{{ $destination['visa_copy'] }}</p><div class="cd-note">{{ $cms['visa_note'] ?? 'Visa rules, work rights and financial thresholds can change. Confirm current requirements with the relevant government authority before applying.' }}</div><a class="cd-button" href="{{ $detailUrl }}#contact" style="margin-top:24px">{{ $cms['requirements_cta_label'] ?? 'Discuss my eligibility' }}</a></article></div>
         </div>
     </section>
 
     <section class="cd-section" id="budget">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Plan your budget</div><h2 class="cd-heading">Indicative study and living costs</h2><p class="cd-lead">Use these source-page estimates as a planning starting point. Actual costs vary by institution, city, lifestyle and exchange rate.</p></div>
-            <div class="cd-costs">@foreach($destination['costs'] as [$label,$value])<article class="cd-cost"><span>{{ $label }}</span><strong>{{ $value }}</strong><small>Indicative estimate; confirm before applying.</small></article>@endforeach</div>
+        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">{{ $cms['costs_kicker'] ?? 'Plan your budget' }}</div><h2 class="cd-heading">{{ $cms['costs_title'] ?? 'Indicative study and living costs' }}</h2><p class="cd-lead">{{ $cms['costs_lead'] ?? 'Use these estimates as a planning starting point. Actual costs vary by institution, city, lifestyle and exchange rate.' }}</p></div>
+            <div class="cd-costs">@foreach($destination['costs'] as [$label,$value])<article class="cd-cost"><span>{{ $label }}</span><strong>{{ $value }}</strong><small>{{ $cms['costs_note'] ?? 'Indicative estimate; confirm before applying.' }}</small></article>@endforeach</div>
         </div>
     </section>
 
     <section class="cd-section cd-section--soft" id="careers">
-        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">Future ready</div><h2 class="cd-heading">Build your course and intake shortlist</h2></div><div class="cd-career-intakes"><article class="cd-panel"><h3>Popular career-focused fields</h3><div class="cd-careers">@foreach($destination['careers'] as $career)<span>{{ $career }}</span>@endforeach</div></article><article class="cd-panel"><h3>Common intakes</h3><div class="cd-intakes">@foreach($destination['intakes'] as [$intake,$copy])<div class="cd-intake"><strong>{{ $intake }}</strong><span>{{ $copy }}</span></div>@endforeach</div></article><figure class="cd-career-media"><img src="{{ asset($destination['support_image']['src']) }}" alt="{{ $destination['support_image']['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>Build experience, networks and career confidence in {{ $name }}.</figcaption></figure></div></div>
+        <div class="cd-container"><div class="cd-center"><div class="cd-kicker">{{ $cms['careers_kicker'] ?? 'Future ready' }}</div><h2 class="cd-heading">{{ $cms['careers_title'] ?? 'Build your course and intake shortlist' }}</h2></div><div class="cd-career-intakes"><article class="cd-panel"><h3>{{ $cms['careers_list_title'] ?? 'Popular career-focused fields' }}</h3><div class="cd-careers">@foreach($destination['careers'] as $career)<span>{{ $career }}</span>@endforeach</div></article><article class="cd-panel"><h3>{{ $cms['intakes_title'] ?? 'Common intakes' }}</h3><div class="cd-intakes">@foreach($destination['intakes'] as [$intake,$copy])<div class="cd-intake"><strong>{{ $intake }}</strong><span>{{ $copy }}</span></div>@endforeach</div></article><figure class="cd-career-media"><img src="{{ $mediaUrl($destination['support_image']['src']) }}" alt="{{ $destination['support_image']['alt'] }}" loading="lazy" width="1600" height="1100"><figcaption>{{ $cms['support_image_caption'] ?? 'Build experience, networks and career confidence in '.$name.'.' }}</figcaption></figure></div></div>
     </section>
 
-    <section class="cd-section" id="universities"><div class="cd-container"><div class="cd-center"><div class="cd-kicker">University network</div><h2 class="cd-heading">Explore institutions in {{ $name }}</h2><p class="cd-lead">Country-specific university options sourced from the Trans Globe destination network.</p></div><x-university-network :universities="$destination['universities']" :country="$name" :slug="$slug" /></div></section>
+    <section class="cd-section" id="universities"><div class="cd-container"><div class="cd-center"><div class="cd-kicker">{{ $cms['universities_kicker'] ?? 'University network' }}</div><h2 class="cd-heading">{{ $cms['universities_title'] ?? 'Explore institutions in '.$name }}</h2><p class="cd-lead">{{ $cms['universities_lead'] ?? 'Country-specific university options sourced from the Trans Globe destination network.' }}</p></div><x-university-network :universities="$destination['universities']" :country="$name" :slug="$slug" /></div></section>
 
-    <section class="cd-section cd-section--soft" id="faqs"><div class="cd-narrow"><div class="cd-center"><div class="cd-kicker">Questions, answered</div><h2 class="cd-heading">Study in {{ $name }} FAQs</h2></div><div class="cd-faq">@foreach($destination['faqs'] as $index => [$question,$answer])<details @if($index===0) open @endif><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>@endforeach</div></div></section>
+    <section class="cd-section cd-section--soft" id="faqs"><div class="cd-narrow"><div class="cd-center"><div class="cd-kicker">{{ $cms['faq_kicker'] ?? 'Questions, answered' }}</div><h2 class="cd-heading">{{ $cms['faq_title'] ?? 'Study in '.$name.' FAQs' }}</h2></div><div class="cd-faq">@foreach($destination['faqs'] as $index => [$question,$answer])<details @if($index===0) open @endif><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>@endforeach</div></div></section>
 
     <section class="cd-section cd-section--soft" id="contact">
-        <div class="cd-container"><div class="cd-contact"><div class="cd-contact__intro"><div class="cd-kicker" style="color:#ffb45a">Free counselling</div><h2>Build your {{ $name }} shortlist with GEIC Indore</h2><p>Share your profile, course interests and preferred intake. Our destination specialist will help you understand realistic institution, budget and visa options.</p><div class="cd-contact__meta"><a href="tel:+919826666886">+91 98266 66886</a><a href="mailto:info@geic.in">info@geic.in</a><span>503, THE VIEW Tower 1, Yeshwant Niwas Rd, Indore 452001</span></div></div>
+        <div class="cd-container"><div class="cd-contact"><div class="cd-contact__intro"><div class="cd-kicker" style="color:#ffb45a">{{ $cms['cta_kicker'] ?? 'Free counselling' }}</div><h2>{{ $cms['cta_title'] ?? 'Build your '.$name.' shortlist with GEIC Indore' }}</h2><p>{{ $cms['cta_copy'] ?? 'Share your profile, course interests and preferred intake. Our destination specialist will help you understand realistic institution, budget and visa options.' }}</p><div class="cd-contact__meta"><a href="tel:{{ $cms['contact_phone_link'] ?? '+919826666886' }}">{{ $cms['contact_phone_label'] ?? '+91 98266 66886' }}</a><a href="mailto:{{ $cms['contact_email'] ?? 'info@geic.in' }}">{{ $cms['contact_email'] ?? 'info@geic.in' }}</a><span>{{ $cms['contact_address'] ?? '503, THE VIEW Tower 1, Yeshwant Niwas Rd, Indore 452001' }}</span></div></div>
                 <form class="cd-form" action="{{ route('destinations.enquire',['destination'=>$slug]) }}" method="post">@csrf
                     @if(session('enquiry_success'))<div class="cd-alert" role="status">{{ session('enquiry_success') }}</div>@endif
                     @if($errors->any())<div class="cd-alert cd-alert--error" id="form-errors" role="alert" tabindex="-1"><strong>Please check the highlighted fields.</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
@@ -358,9 +381,9 @@
                         <div class="cd-field cd-field--full"><label for="message">Anything else we should know?</label><textarea id="message" name="message">{{ old('message') }}</textarea>@error('message')<span class="cd-error">{{ $message }}</span>@enderror</div>
                         <div class="cd-field cd-field--full"><label class="cd-consent"><input type="checkbox" name="consent" value="1" @checked(old('consent')) required><span>I agree that GEIC Indore may contact me about my study-abroad enquiry.</span></label>@error('consent')<span class="cd-error">{{ $message }}</span>@enderror</div>
                         <div class="cd-honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-                        <div class="cd-field cd-field--full"><button class="cd-button" type="submit">Request my free counselling call</button></div>
+                        <div class="cd-field cd-field--full"><button class="cd-button" type="submit">{{ $cms['cta_label'] ?? 'Request my free counselling call' }}</button></div>
                     </div>
-                    <p class="cd-disclaimer">The figures on this page are indicative and based on the supplied destination source. University, visa and work-right rules can change; our counsellors will help you verify current official requirements.</p>
+                    <p class="cd-disclaimer">{{ $cms['form_disclaimer'] ?? 'The figures on this page are indicative. University, visa and work-right rules can change; our counsellors will help you verify current official requirements.' }}</p>
                 </form>
             </div></div>
     </section>

@@ -3,6 +3,7 @@
 @php
     $networkId = 'university-network-'.$slug;
     $hasMore = count($universities) > 8;
+    $mediaUrl = fn (string $path): string => str_starts_with($path, 'http://') || str_starts_with($path, 'https://') ? $path : asset($path);
 @endphp
 
 @once
@@ -34,7 +35,7 @@
         @foreach($universities as $index => $university)
             <article class="university-network__card" @if($index >= 8) hidden @endif>
                 <div class="university-network__logo">
-                    <img src="{{ asset($university['logo']) }}" alt="{{ $university['name'] }} logo" width="360" height="160" loading="lazy" decoding="async">
+                    <img src="{{ $mediaUrl($university['logo']) }}" alt="{{ $university['name'] }} logo" width="360" height="160" loading="lazy" decoding="async">
                 </div>
                 <h3>{{ $university['name'] }}</h3>
             </article>

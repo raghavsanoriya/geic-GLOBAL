@@ -3,7 +3,7 @@
 
 
 
-<!-- Mirrored from lms.rocket-soft.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:07:48 GMT -->
+<!-- Mirrored from www.geic.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:07:48 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -27,13 +27,13 @@
 <meta name="msapplication-TileColor" content="#FFF">
 <meta name="msapplication-TileImage" content="ms-icon-144x144.html">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-title" content="Rocket LMS">
+<meta name="apple-mobile-web-app-title" content="Trans Globe Indore LMS">
 <link rel="apple-touch-icon" href="/store/1/geic-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Android -->
 <link rel='icon' href='/store/1/geic-icon.png'>
-<meta name="application-name" content="Rocket LMS">
+<meta name="application-name" content="Trans Globe Indore LMS">
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Other -->
 <meta name="layoutmode" content="fitscreen/standard">
@@ -45,7 +45,7 @@
 <meta name='twitter:title' content='Home'>
 
 
-<meta property='og:site_name' content='https://lms.rocket-soft.org/Rocket LMS'>
+<meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
 <meta property='og:image' content='/store/1/geic-icon.png'>
 <meta name='twitter:image' content='/store/1/geic-icon.png'>
 <meta property='og:locale' content='en_US.html'>
@@ -53,66 +53,66 @@
 
 
 
-    <title>Home | Rocket LMS</title>
+    <title>Home | Trans Globe Indore LMS</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="assets/design_1/css/app.min.css">
 
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/headers/header_1.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/css/parts/theme/footers/footer_1.min.css">
-    
-        
+
+
     <link rel="stylesheet" href="assets/default/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/vendors/plyr.io/plyr.min.css">
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="assets/design_1/landing_builder/front.min.css">
         <link rel="stylesheet" href="assets/design_1/landing_builder/components/two_columns_hero.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/statistics.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/features_4x.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/featured_courses.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/trending_categories.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/best_selling_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/best_rated_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/course_bundles.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/links_and_titles_slider_1_row.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/upcoming_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/discounted_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/free_courses.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/store_products.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/subscription_plans.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_2_images_check_items_text.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_2_images_text.min.css">
-    
+
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/cta_card_8_columns.min.css">
-        
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/single_video_section.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/hybrid_information_section_4_images_text.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/instructors.min.css">
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/organizations.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/meeting_booking_list.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/jobs_board.min.css">
-    
+
             <link rel="stylesheet" href="assets/design_1/landing_builder/components/sliding_testimonials_2_rows.min.css">
                 <link rel="stylesheet" href="assets/design_1/landing_builder/components/blog.min.css">
-        
+
                 <link rel="stylesheet" href="assets/design_1/css/parts/course_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/course_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/bundle_cards/grid_card_1.min.css">
@@ -123,9 +123,9 @@
                 <link rel="stylesheet" href="assets/design_1/css/parts/instructors_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/organizations_cards/grid_card_1.min.css">
                 <link rel="stylesheet" href="assets/design_1/css/parts/job_cards/grid_card_1.min.css">
-        
+
     <style>
-        
+
 
         @font-face {
                       font-family: 'main-font-family';
@@ -234,34 +234,34 @@
 
 <div id="app">
 
-    
+
             <div id="appHeaderArea">
             <div id="themeHeaderVacuum"></div>
     <div class="theme-header-1">
-        
+
                     <div class="theme-header-1__top-navbar bg-primary pb-54 pt-12">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center gap-24">
-                    
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-miterlimit="10" stroke-width="1.5" d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 01-3.28-2.8 28.414 28.414 0 01-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.5 9c0-.6-.47-1.52-1.17-2.27-.64-.69-1.49-1.23-2.33-1.23M22 9c0-3.87-3.13-7-7-7"/>
 </svg>                            <span class="text-white">+1 (323) 555-9876</span>
                         </div>
-                    
-                    
+
+
                                             <div class="d-flex align-items-center gap-8 opacity-75">
                             <svg width="16px" height="16x" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
-</svg>                            <span class="text-white">mail@rocket-soft.org</span>
+</svg>                            <span class="text-white">info@geic.in</span>
                         </div>
-                    
-                    
+
+
                                             <div class="js-theme-color-toggle theme-color-toggle light-mode d-flex-center size-16 opacity-75">
                             <svg width="16px" height="16px" class="dark-icon icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.03 12.42c.36 5.15 4.73 9.34 9.96 9.57 3.69.16 6.99-1.56 8.97-4.27.82-1.11.38-1.85-.99-1.6-.67.12-1.36.17-2.08.14C13 16.06 9 11.97 8.98 7.14c-.01-1.3.26-2.53.75-3.65.54-1.24-.11-1.83-1.36-1.3C4.41 3.86 1.7 7.85 2.03 12.42z"/>
@@ -269,15 +269,15 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.14 19.14l-.13-.13m0-14.02l.13-.13-.13.13zM4.86 19.14l.13-.13-.13.13zM12 2.08V2v.08zM12 22v-.08.08zM2.08 12H2h.08zM22 12h-.08.08zM4.99 4.99l-.13-.13.13.13z"/>
 </svg>                        </div>
-                    
+
                 </div>
             </div>
 
             <div class="col-12 col-lg-8 mt-12 mt-lg-0">
                 <div class="row">
-                    
+
                     <div class="col-12 col-lg-4">
-                        <form action="https://lms.rocket-soft.org/search" method="get" class="theme-header-1__top-navbar-search position-relative">
+                        <form action="https://www.geic.in/search" method="get" class="theme-header-1__top-navbar-search position-relative">
                             <input class="form-control bg-transparent opacity-75" type="text" name="search" placeholder="Search..." aria-label="Search">
 
                             <button type="submit" class="btn-transparent d-flex-center search-icon">
@@ -287,12 +287,12 @@
                         </form>
                     </div>
                                          <div class="col-12 col-lg-8 mt-12 mt-lg-8">
-                         
+
                         <div class="d-flex align-items-center justify-content-between gap-12 gap-lg-24">
                             <div class="d-flex align-items-center gap-12 gap-lg-24">
-                                
+
                                 <div class="js-language-select theme-header-1__dropdown position-relative">
-    <form action="https://lms.rocket-soft.org/locale" method="post">
+    <form action="https://www.geic.in/locale" method="post">
         <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
         <input type="hidden" name="locale" value="en">
 
@@ -334,13 +334,13 @@
                     <span class="ml-8 font-14">Spanish</span>
                 </div>
             </div>
-        
+
     </div>
 </div>
 
-                                
+
                                 <div class="js-currency-select theme-header-1__dropdown position-relative">
-        <form action="https://lms.rocket-soft.org/set-currency" method="post">
+        <form action="https://www.geic.in/set-currency" method="post">
             <input type="hidden" name="_token" value="KkDAnXKdDFkgpTFwX3uTuPHuAseZywMbZmqb7QZE">
             <input type="hidden" name="currency" value="USD">
 
@@ -385,11 +385,11 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
-                                
+
                                                                     <div class="js-view-cart-drawer position-relative d-flex-center size-32 bg-white-10 rounded-8 cursor-pointer">
                                         <svg width="20px" height="20px" class="icons text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M8.81 2L5.19 5.63M15.19 2l3.62 3.63"/>
@@ -403,7 +403,7 @@
                                                                                                             <a href="login.html" class="d-flex align-items-center text-white opacity-75">
                                             <span class="">Login</span>
                                         </a>
-                                    
+
                                                                             <a href="register.html" class="d-flex align-items-center text-white opacity-75 ml-32">
                                             <span class="">Register</span>
                                         </a>
@@ -416,24 +416,24 @@
         </div>
     </div>
 </div>
-        
-        
+
+
         <div id="themeHeaderSticky" class="theme-header-1__main">
     <div class="container h-100 position-relative">
         <div class="theme-header-1__main-mask"></div>
 
         <div class="position-relative z-index-2 bg-white rounded-24 w-100 h-100 p-16">
             <div class="row align-items-center h-100">
-                
+
                 <div class="col-6 col-lg-2">
                     <a href="index.html" class="theme-header-1__logo text-left d-block">
-                                                    <img src="store/1/default_images/logo.svg" class="img-fluid light-only" alt="Rocket LMS">
-                        
-                                                    <img src="store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Rocket LMS">
+                                                    <img src="store/1/default_images/logo.svg" class="img-fluid light-only" alt="Trans Globe Indore LMS">
+
+                                                    <img src="store/1/default_images/logo-dark.svg" class="img-fluid dark-only" alt="Trans Globe Indore LMS">
                                             </a>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
                     <div class="theme-header-1__dropdown position-relative">
     <div class="d-inline-flex align-items-center gap-8 p-16 rounded-12 bg-gray-100">
@@ -449,7 +449,7 @@
                     <a href="categories/Development.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/code.png" class="cat-dropdown-menu-icon mr-8" alt="Development icon">
-                            
+
                             <span class="">Development</span>
                         </div>
 
@@ -462,7 +462,7 @@
                                     <a href="categories/Development/Web-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/layout.png" class="cat-dropdown-menu-icon mr-8" alt="Web Development icon">
-                                            
+
                                             <span class="">Web Development</span>
                                         </div>
                                     </a>
@@ -471,7 +471,7 @@
                                     <a href="categories/Development/Mobile-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/smartphone.png" class="cat-dropdown-menu-icon mr-8" alt="Mobile Development icon">
-                                            
+
                                             <span class="">Mobile Development</span>
                                         </div>
                                     </a>
@@ -480,7 +480,7 @@
                                     <a href="categories/Development/Game-Development.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/codesandbox.png" class="cat-dropdown-menu-icon mr-8" alt="Game Development icon">
-                                            
+
                                             <span class="">Game Development</span>
                                         </div>
                                     </a>
@@ -491,7 +491,7 @@
                     <a href="categories/Business.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/anchor.png" class="cat-dropdown-menu-icon mr-8" alt="Business icon">
-                            
+
                             <span class="">Business</span>
                         </div>
 
@@ -504,7 +504,7 @@
                                     <a href="categories/Business/Management.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/users.png" class="cat-dropdown-menu-icon mr-8" alt="Management icon">
-                                            
+
                                             <span class="">Management</span>
                                         </div>
                                     </a>
@@ -513,7 +513,7 @@
                                     <a href="categories/Business/Communications.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/share-2.png" class="cat-dropdown-menu-icon mr-8" alt="Communications icon">
-                                            
+
                                             <span class="">Communications</span>
                                         </div>
                                     </a>
@@ -522,7 +522,7 @@
                                     <a href="categories/Business/Business-Strategy.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/target.png" class="cat-dropdown-menu-icon mr-8" alt="Business Strategy icon">
-                                            
+
                                             <span class="">Business Strategy</span>
                                         </div>
                                     </a>
@@ -533,7 +533,7 @@
                     <a href="categories/Marketing.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/pie-chart.png" class="cat-dropdown-menu-icon mr-8" alt="Marketing icon">
-                            
+
                             <span class="">Marketing</span>
                         </div>
 
@@ -544,7 +544,7 @@
                     <a href="categories/Lifestyles.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/umbrella.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                            
+
                             <span class="">Lifestyle</span>
                         </div>
 
@@ -557,7 +557,7 @@
                                     <a href="categories/Lifestyles/Lifestyle.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/sun.png" class="cat-dropdown-menu-icon mr-8" alt="Lifestyle icon">
-                                            
+
                                             <span class="">Lifestyle</span>
                                         </div>
                                     </a>
@@ -566,7 +566,7 @@
                                     <a href="categories/Lifestyles/Beauty-and-Makeup.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/droplet.png" class="cat-dropdown-menu-icon mr-8" alt="Beauty &amp; Makeup icon">
-                                            
+
                                             <span class="">Beauty &amp; Makeup</span>
                                         </div>
                                     </a>
@@ -577,7 +577,7 @@
                     <a href="categories/Health-and-Fitness.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/heart.png" class="cat-dropdown-menu-icon mr-8" alt="Health &amp; Fitness icon">
-                            
+
                             <span class="">Health &amp; Fitness</span>
                         </div>
 
@@ -588,7 +588,7 @@
                     <a href="categories/Academics.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  js-has-subcategory">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/briefcase.png" class="cat-dropdown-menu-icon mr-8" alt="Academics icon">
-                            
+
                             <span class="">Academics</span>
                         </div>
 
@@ -601,7 +601,7 @@
                                     <a href="categories/Academics/Math.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/divide-square.png" class="cat-dropdown-menu-icon mr-8" alt="Math icon">
-                                            
+
                                             <span class="">Math</span>
                                         </div>
                                     </a>
@@ -610,7 +610,7 @@
                                     <a href="categories/Academics/Science.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/zap.png" class="cat-dropdown-menu-icon mr-8" alt="Science icon">
-                                            
+
                                             <span class="">Science</span>
                                         </div>
                                     </a>
@@ -619,7 +619,7 @@
                                     <a href="categories/Academics/Language.html" class="d-flex align-items-center w-100 px-16 py-8">
                                         <div class="d-flex align-items-center w-100">
                                                                                             <img src="store/1/default_images/categories_icons/sub_categories/globe.png" class="cat-dropdown-menu-icon mr-8" alt="Language icon">
-                                            
+
                                             <span class="">Language</span>
                                         </div>
                                     </a>
@@ -630,7 +630,7 @@
                     <a href="categories/Design.html" class="d-flex align-items-center justify-content-between w-100 px-16 py-8  ">
                         <div class="d-flex align-items-center">
                                                             <img src="store/1/default_images/categories_icons/feather.png" class="cat-dropdown-menu-icon mr-8" alt="Design icon">
-                            
+
                             <span class="">Design</span>
                         </div>
 
@@ -643,7 +643,7 @@
 </div>
                 </div>
 
-                
+
                 <div class="col-6 col-lg-5 mt-12 mt-lg-0">
                                             <div class="d-flex align-items-center gap-16 gap-lg-32">
                                                             <a href="index.html" class="text-dark">Home</a>
@@ -656,13 +656,13 @@
                                                     </div>
                                     </div>
 
-                
+
                 <div class="col-6 col-lg-3 mt-12 mt-lg-0 d-flex align-items-center justify-content-end">
                                             <a href="login.html" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Start Learning">
                                                             <svg width="20px" height="20px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Start Learning</span>
                         </a>
                                     </div>
@@ -673,36 +673,36 @@
 </div>
     </div>
         </div>
-    
-    
-    
+
+
+
                         <div class="two-columns-hero-section "  style="background-image: url(store/landing_builder/landing_1/1/hero_background_xfq.svg)" >
         <div class="container h-100">
             <div class="row h-100 flex-column-reverse flex-lg-row">
                 <div class="col-12 col-lg-5 two-columns-hero-section__content">
-                    
+
                                             <a href="How-To-Teach-Your-Kid-Anything-Easily-3.html" target="_blank" class="">
                             <div class="d-inline-flex align-items-center gap-8 p-8 pr-16 rounded-32 border-2 border-dark">
                                                                     <div class="d-flex-center gap-4 p-6 pr-10 rounded-16 bg-primary">
                                                                                     <svg width="20px" height="20px" class="icons text-white two-columns-hero-section__upper-cta-badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M17.91 10.72h-3.09v-7.2c0-1.68-.91-2.02-2.02-.76l-.8.91-6.77 7.7c-.93 1.05-.54 1.91.86 1.91h3.09v7.2c0 1.68.91 2.02 2.02.76l.8-.91 6.77-7.7c.93-1.05.54-1.91-.86-1.91z"/>
-</svg>                                        
+</svg>
                                         <span class="font-14 text-white">New</span>
                                     </div>
-                                
+
                                                                     <span class="font-14 text-dark">AI Learning Features Updated!</span>
-                                
+
                                 <svg width="16px" height="16px" class="icons text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/>
 </svg>                            </div>
                         </a>
-                    
-                    
+
+
                                             <h1 class="d-inline-flex flex-column font-64 mt-24">
                             <div class="d-inline-flex align-items-center gap-12 font-64">
                                                                     <span class="text-dark">Start</span>
-                                
-                                                                                                            
+
+
                                         <div
                                             class="js-two-columns-hero-highlight-words-card text-primary"
                                             data-type-speed="50"
@@ -715,28 +715,28 @@
                                                     </h1>
 
                                                     <div class="mt-16 font-16 text-gray-500">Join thousands of learners advancing their skills through expert-led courses. Connect with top instructors, learn anytime, and unlock new career opportunities on one platform.</div>
-                        
+
                                                     <div class="d-flex align-items-lg-center flex-column flex-lg-row mt-32 gap-16">
-                                
+
                                                                     <a href="classes.html" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M22 7.81v8.38c0 3.64-2.17 5.81-5.81 5.81H7.81C4.17 22 2 19.83 2 16.19V7.81c0-.51.04-1 .13-1.45C2.64 3.61 4.67 2.01 7.77 2h8.46c3.1.01 5.13 1.61 5.64 4.36.09.45.13.94.13 1.45z" opacity=".4"/>
   <path d="M22 7.81v.05H2v-.05c0-.51.04-1 .13-1.45h5.64V2h1.5v4.36h5.46V2h1.5v4.36h5.64c.09.45.13.94.13 1.45zM14.44 12.72l-2.08-1.2c-.77-.44-1.51-.5-2.09-.17-.58.33-.9 1.01-.9 1.89v2.4c0 .88.32 1.56.9 1.89.25.14.53.21.82.21.4 0 .83-.13 1.27-.38l2.08-1.2c.77-.44 1.19-1.06 1.19-1.73 0-.67-.43-1.26-1.19-1.71z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text text-white">Enroll on Courses</span>
                                     </a>
-                                
-                                
+
+
                                                                     <a href="instructor-finder.html" class="btn-flip-effect btn-flip-effect__text-dark btn btn-xlg gap-8" data-text="Book a Meeting">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M13 3.25H7C3.58 3.25 2.25 4.58 2.25 8v8c0 2.3 1.25 4.75 4.75 4.75h6c3.42 0 4.75-1.33 4.75-4.75V8c0-3.42-1.33-4.75-4.75-4.75z" opacity=".4"/>
   <path d="M11.5 11.38a1.88 1.88 0 100-3.76 1.88 1.88 0 000 3.76zM21.65 6.17c-.41-.21-1.27-.45-2.44.37l-1.48 1.04c.01.14.02.27.02.42v8c0 .15-.02.28-.02.42l1.48 1.04c.62.44 1.16.58 1.59.58.37 0 .66-.1.85-.2.41-.21 1.1-.78 1.1-2.21V8.38c0-1.43-.69-2-1.1-2.21z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text text-dark">Book a Meeting</span>
                                     </a>
                                                             </div>
-                                            
-                    
+
+
                                             <a href="login.html" class="">
                             <div class="d-inline-flex align-items-center gap-8 mt-40 mt-lg-80 p-12 rounded-32 bg-gray-400-20 backdrop-filter-blur-2">
                                                                     <div class="d-flex align-items-center overlay-avatars overlay-avatars-20">
@@ -756,7 +756,7 @@
                                                 <img src="store/landing_builder/landing_1/1/5bLDZ_Group_2046.png" alt="avatar" class="img-cover rounded-circle">
                                             </div>
                                                                             </div>
-                                
+
                                 <div class="">
                                     <div class="d-flex align-items-center">
                                                                                     <svg width="16px" height="16px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -785,11 +785,11 @@
                                                             <div class="d-flex-center two-columns-hero-section__main-img">
                                                                             <img src="store/landing_builder/landing_13/371/hero_image_j5t.png" alt="hero" class="img-cover">
                                                                     </div>
-                            
+
                                                             <div class="d-flex-center two-columns-hero-section__spinning-img">
                                     <img src="store/landing_builder/landing_13/371/revolverimage_RIy.svg" alt="spinning_image" class="img-cover">
                                 </div>
-                            
+
                                                             <div class="d-flex-center two-columns-hero-section__overlay-img">
                                     <img src="store/landing_builder/landing_13/371/hero_overlay_UGc.png" alt="overlay_image" class="img-cover">
                                 </div>
@@ -804,7 +804,7 @@
 
             <div class="statistics-section__contents position-relative z-index-2" style="background-color: var(--secondary); background-image: url(store/landing_builder/landing_13/372/statistics_bg_T0k.png); ">
                 <div class="row ">
-                                                                                                        
+
                                 <div class="statistic-col col-6 col-lg-3 ">
                                     <div class="d-flex align-items-center gap-12">
                                                                                     <div class="statistics-section__icon-1 d-flex-center size-72 rounded-circle">
@@ -812,14 +812,14 @@
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
   <path d="M20.5 12.3l-.15.09a17.037 17.037 0 01-5.79 2.08c-.08.96-.5 2.06-2.69 2.06s-2.61-1.09-2.69-2.04c-1.91-.3-3.79-.93-5.5-1.88-.15-.08-.3-.16-.44-.25-.36-.2-.7-.42-1.03-.64-.02-.01-.04-.03-.05-.04l.61 6.51c.21 1.99 1.03 4.04 5.43 4.04h7.62c4.4 0 5.22-2.05 5.43-4.05l.63-6.78a.12.12 0 01-.05.05c-.43.31-.87.6-1.33.85z" opacity=".4"/>
 </svg>                                            </div>
-                                        
+
                                         <div class="">
                                                                                             <h4 class="js-statistic-value-counterup statistics-section__counter-value font-24 text-white" data-from="0" data-to="257" data-speed="1000">0</h4>
                                                                                         <p class="font-16 text-white mt-4">Skillful Instructors</p>
                                         </div>
                                     </div>
                                 </div>
-                                                                                                                
+
                                 <div class="statistic-col col-6 col-lg-3 ">
                                     <div class="d-flex align-items-center gap-12">
                                                                                     <div class="statistics-section__icon-2 d-flex-center size-72 rounded-circle">
@@ -827,14 +827,14 @@
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
 </svg>                                            </div>
-                                        
+
                                         <div class="">
                                                                                             <h4 class="js-statistic-value-counterup statistics-section__counter-value font-24 text-white" data-from="0" data-to="508" data-speed="1000">0</h4>
                                                                                         <p class="font-16 text-white mt-4">Happy Students</p>
                                         </div>
                                     </div>
                                 </div>
-                                                                                                                
+
                                 <div class="statistic-col col-6 col-lg-3 ">
                                     <div class="d-flex align-items-center gap-12">
                                                                                     <div class="statistics-section__icon-3 d-flex-center size-72 rounded-circle">
@@ -842,14 +842,14 @@
   <path d="M22 7.81v8.38c0 3.64-2.17 5.81-5.81 5.81H7.81C4.17 22 2 19.83 2 16.19V7.81c0-.51.04-1 .13-1.45C2.64 3.61 4.67 2.01 7.77 2h8.46c3.1.01 5.13 1.61 5.64 4.36.09.45.13.94.13 1.45z" opacity=".4"/>
   <path d="M22 7.81v.05H2v-.05c0-.51.04-1 .13-1.45h5.64V2h1.5v4.36h5.46V2h1.5v4.36h5.64c.09.45.13.94.13 1.45zM14.44 12.72l-2.08-1.2c-.77-.44-1.51-.5-2.09-.17-.58.33-.9 1.01-.9 1.89v2.4c0 .88.32 1.56.9 1.89.25.14.53.21.82.21.4 0 .83-.13 1.27-.38l2.08-1.2c.77-.44 1.19-1.06 1.19-1.73 0-.67-.43-1.26-1.19-1.71z"/>
 </svg>                                            </div>
-                                        
+
                                         <div class="">
                                                                                             <h4 class="js-statistic-value-counterup statistics-section__counter-value font-24 text-white" data-from="0" data-to="29" data-speed="1000">0</h4>
                                                                                         <p class="font-16 text-white mt-4">Professional Courses</p>
                                         </div>
                                     </div>
                                 </div>
-                                                                                                                
+
                                 <div class="statistic-col col-6 col-lg-3 ">
                                     <div class="d-flex align-items-center gap-12">
                                                                                     <div class="statistics-section__icon-4 d-flex-center size-72 rounded-circle">
@@ -859,7 +859,7 @@
   <path d="M22 15.05v4.45a2.5 2.5 0 01-2.5 2.5h-7V10.42l.47.1 4.04.9.48.11 2.04.46c.49.1.94.27 1.33.52 0 .01.01.01.01.01.1.07.2.15.29.24.46.46.76 1.13.83 2.11 0 .06.01.12.01.18z" opacity=".6"/>
   <path d="M12.5 10.42v6c.46.61 1.18 1 2 1 1.39 0 2.51-1.12 2.51-2.5v-3.49l-4.04-.9-.47-.11zM21.99 14.87c-.07-.98-.37-1.65-.83-2.11-.09-.09-.19-.17-.29-.24 0 0-.01 0-.01-.01-.39-.25-.84-.42-1.33-.52l-2.04-.46-.48-.11v3.5a2.5 2.5 0 002.5 2.5A2.5 2.5 0 0022 15.06v-.01c0-.06-.01-.12-.01-.18z"/>
 </svg>                                            </div>
-                                        
+
                                         <div class="">
                                                                                             <h4 class="js-statistic-value-counterup statistics-section__counter-value font-24 text-white" data-from="0" data-to="6" data-speed="1000">0</h4>
                                                                                         <p class="font-16 text-white mt-4">Official Organizations</p>
@@ -880,12 +880,12 @@
         <div class="row h-100">
             <div class="col-12 col-lg-4 d-flex justify-content-center align-items-start flex-column">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Features</div>
-                
+
                                     <h2 class="mt-12 font-32 text-dark">Master New Skills Using Advanced Learning Features</h2>
-                
+
                                     <p class="mt-20 font-16 text-gray-500">Access modern tools, interactive content, and expert resources to master new skills and stay competitive.</p>
-                
-                
+
+
                                                             <div class="d-flex align-items-center gap-4 mt-24">
                             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
     <path d="M3 7.48222L6.17305 11L13 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -910,14 +910,14 @@
 </svg>
                             <span class="font-14 text-gray-500">Self-Paced Progression</span>
                         </div>
-                                    
-                
+
+
                                     <a href="blog/How-To-Teach-Your-Kid-Anything-Easily-2.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-24" data-text="Learn More">
                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.66 10.44l-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23z" opacity=".4"/>
   <path d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27zM17.49 10.51c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 01.37-1.45l4.85 1.23a.748.748 0 01-.18 1.47z"/>
   <path d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 01.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56z"/>
-</svg>                        
+</svg>
                         <span class="btn-flip-effect__text">Learn More</span>
                     </a>
                             </div>
@@ -926,11 +926,11 @@
 
             <div class="col-12 col-lg-6 mt-32 mt-lg-0">
                 <div class="row">
-                                            
+
                                                                                     <div class="col-12 col-md-6 features-4x-section__card-item-1">
 
                                                                             <a href="login.html">
-                                            
+
 
                                             <div class="features-4x-section__card-item position-relative">
                                                 <div class="features-4x-section__card-item-mask"></div>
@@ -948,12 +948,12 @@
                                             </div>
 
                                                                                     </a>
-                                    
+
                                 </div>
                                                                                                                 <div class="col-12 col-md-6 features-4x-section__card-item-2">
 
                                                                             <a href="certificate_validation.html">
-                                            
+
 
                                             <div class="features-4x-section__card-item position-relative">
                                                 <div class="features-4x-section__card-item-mask"></div>
@@ -971,12 +971,12 @@
                                             </div>
 
                                                                                     </a>
-                                    
+
                                 </div>
                                                                                                                 <div class="col-12 col-md-6 features-4x-section__card-item-3">
 
                                                                             <a href="blog/Better-Relationship-Between-You-and-Your-Student-s-Parent.html">
-                                            
+
 
                                             <div class="features-4x-section__card-item position-relative">
                                                 <div class="features-4x-section__card-item-mask"></div>
@@ -994,12 +994,12 @@
                                             </div>
 
                                                                                     </a>
-                                    
+
                                 </div>
                                                                                                                 <div class="col-12 col-md-6 features-4x-section__card-item-4">
 
                                                                             <a href="contact.html">
-                                            
+
 
                                             <div class="features-4x-section__card-item position-relative">
                                                 <div class="features-4x-section__card-item-mask"></div>
@@ -1017,7 +1017,7 @@
                                             </div>
 
                                                                                     </a>
-                                    
+
                                 </div>
                                                                                                                                             </div>
             </div>
@@ -1028,13 +1028,13 @@
         </div>
                         <div class="featured-courses-section position-relative">
 
-        
+
         <div class="container">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Featured</div>
-                
+
                                     <h2 class="mt-8 font-32 text-dark">Featured Courses</h2>
-                
+
                                     <p class="mt-16 font-16 text-gray-500">Explore our top-rated courses, handpicked to boost your skills and accelerate your learning journey</p>
                             </div>
 
@@ -1049,7 +1049,7 @@
                                         <div class="featured-courses-section__item-card position-relative rounded-32 bg-gray-100">
             <a href="course/Health-And-Fitness-Masterclass.html" class="text-decoration-none d-block">
                                     <img src="store/landing_builder/landing_1/3/workout_G7j.jpg" alt="cover" class="img-cover rounded-32">
-                
+
                             </a>
 
             <div class="featured-courses-section__item-card-course-box d-flex flex-column bg-white rounded-16 p-16 text-left">
@@ -1078,7 +1078,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
 
                 <div class="d-flex align-items-center gap-8 mt-16">
@@ -1161,7 +1161,7 @@
                                         <div class="featured-courses-section__item-card position-relative rounded-32 bg-gray-100">
             <a href="course/Become-a-Product-Manager.html" class="text-decoration-none d-block">
                                     <img src="store/landing_builder/landing_1/3/product_aF5.jpg" alt="cover" class="img-cover rounded-32">
-                
+
                             </a>
 
             <div class="featured-courses-section__item-card-course-box d-flex flex-column bg-white rounded-16 p-16 text-left">
@@ -1190,7 +1190,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
 
                 <div class="d-flex align-items-center gap-8 mt-16">
@@ -1284,17 +1284,17 @@
                             <div class="trending-categories-section__floating-background d-flex-center">
                     <img src="store/landing_builder/landing_1/4/trending_floating_M8H.svg" alt="floating_background" class="">
                 </div>
-            
+
 
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Trending</div>
-                
+
                                     <h2 class="mt-8 font-32 text-dark">Trending Categories</h2>
                             </div>
 
-            
+
                             <div class="row">
-                                                                        
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Business/Management.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1311,7 +1311,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Business/Business-Strategy.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1328,7 +1328,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Lifestyles/Lifestyle.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1345,7 +1345,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Health-and-Fitness.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1362,7 +1362,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Academics/Science.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1379,7 +1379,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Design.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1396,7 +1396,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Development/Web-Development.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1413,7 +1413,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                                                                                                            
+
                                                             <div class="col-6 col-md-4 col-lg-3 mt-24">
                                     <a href="categories/Marketing.html" target="_blank">
                                         <div class="trending-categories-section__item-card position-relative">
@@ -1442,14 +1442,14 @@
                                     <div class="best-selling-courses-section__floating-icon d-flex-center">
                         <img src="store/landing_builder/landing_13/375/best_selling_overlay_fIs.png" alt="icon">
                     </div>
-                
+
 
                 <div class="row h-100">
                     <div class="col-12 col-md-6 col-lg-3 position-relative h-100 pt-0 pt-lg-48">
                                                                                     <h2 class="font-32 text-white mr-8">Bestsellers Chosen by Our Students</h2>
-                            
+
                                                             <p class="mt-20 text-white opacity-70 mr-8 font-16">Explore our top-selling courses, chosen by thousands of learners who’ve enrolled and benefited. These bestsellers reflect what’s most in-demand and valuable across our platform.</p>
-                            
+
                             <a href="classes043d.html?sort=bestsellers" target="_blank" class="btn-flip-effect btn-flip-effect__no-side d-inline-flex align-items-center font-16 gap-8 font-weight-bold text-white mt-16" data-text="View More">
                                 <span class="btn-flip-effect__text">View More</span>
                                 <svg width="24px" height="24px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1457,7 +1457,7 @@
 </svg>                            </a>
                                             </div>
 
-                    
+
                     <div class="col-12 col-md-6 col-lg-3 mt-24 ">
         <a href="course/New-Learning-Page.html" class="text-decoration-none d-block">
     <div class="course-grid-card-1 position-relative">
@@ -1493,7 +1493,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -1566,7 +1566,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
 
@@ -1645,7 +1645,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -1696,14 +1696,14 @@
                                     <div class="best-rated-courses-section__floating-icon d-flex-center">
                         <img src="store/landing_builder/landing_13/379/best_rated_overlay_5IF.png" alt="icon">
                     </div>
-                
+
 
                 <div class="row h-100">
                     <div class="col-12 col-md-6 col-lg-3 position-relative h-100 pt-0 pt-lg-48">
                                                                                     <h2 class="font-32 text-white mr-8">Top Rated by Our Students</h2>
-                            
+
                                                             <p class="mt-20 text-white opacity-70 font-16 mr-8">Discover the most highly rated courses, trusted by learners for quality content, expert instruction, and outstanding learning experiences across a wide range of topics.</p>
-                            
+
                             <a href="classes517a.html?sort=best_rates" target="_blank" class="btn-flip-effect btn-flip-effect__no-side d-inline-flex font-16 align-items-center gap-8 font-weight-bold text-white mt-16" data-text="View More">
                                 <span class="btn-flip-effect__text">View More</span>
                                 <svg width="24px" height="24px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1711,7 +1711,7 @@
 </svg>                            </a>
                                             </div>
 
-                    
+
                     <div class="col-12 col-md-6 col-lg-3 mt-24">
         <a href="course/Installment-feature.html" class="text-decoration-none d-block">
     <div class="course-grid-card-1 position-relative">
@@ -1747,7 +1747,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -1820,7 +1820,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -1893,7 +1893,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -1941,41 +1941,41 @@
                         <div class="course-bundles-section position-relative"  style="background-image: url(store/landing_builder/landing_13/386/bundles_bg_tSe.svg)" >
             <div class="container position-relative h-100">
 
-                
+
                 <div class="row h-100">
                     <div class="col-12 col-lg-4 position-relative h-100 pt-40">
                                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Bundles</div>
-                        
+
                                                     <h2 class="mt-8 font-32 text-dark">Course Bundles For Maximum Savings</h2>
-                        
+
                                                     <p class="mt-20 font-16 text-gray-500">Unlock more value with curated course bundles, combining top-rated courses at unbeatable prices. Expand your skills affordably and get maximum learning without stretching your budget.</p>
-                        
-                        
+
+
                                                     <div class="mt-32">
                                                                     <div class="course-bundles-section__statistics-title d-flex align-items-center gap-8">
                                         <span class="line"></span>
                                         <span class="font-24 font-weight-bold text-dark">2K+</span>
                                     </div>
-                                
+
                                                                     <div class="mt-8 font-16 text-gray-500">Students Chose Our Bundles</div>
                                                             </div>
-                        
-                        
+
+
                                                     <a href="bundles.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-24" data-text="Explore Bundles">
                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.04 7.19L12 12.42 2.96 7.19c.4-.74.98-1.39 1.63-1.75l5.34-2.96c1.14-.64 3-.64 4.14 0l5.34 2.96c.65.36 1.23 1.01 1.63 1.75z" opacity=".4"/>
   <path d="M12 12.42V22c-.75 0-1.5-.16-2.07-.48l-5.34-2.96c-1.21-.67-2.2-2.35-2.2-3.73V9.17c0-.64.22-1.34.57-1.98L12 12.42z" opacity=".6"/>
   <path d="M21.61 9.17v5.66c0 1.38-.99 3.06-2.2 3.73l-5.34 2.96c-.57.32-1.32.48-2.07.48v-9.58l9.04-5.23c.35.64.57 1.34.57 1.98z"/>
-</svg>                                
+</svg>
                                 <span class="btn-flip-effect__text">Explore Bundles</span>
                             </a>
-                        
+
                                                     <div class="course-bundles-section__floating-icon-2">
                                 <img src="store/landing_builder/landing_13/386/bundles_overlay_Tg5.png" alt="floating_icon_2">
                             </div>
                                             </div>
 
-                    
+
                     <div class="col-12 col-lg-8">
                         <div class="row">
                             <div class="col-12 col-lg-6 mt-24">
@@ -2061,7 +2061,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-12">(1)</span>
             </div>
                 </a>
@@ -2135,7 +2135,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-12">(1)</span>
             </div>
                 </a>
@@ -2209,7 +2209,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-12">(1)</span>
             </div>
                 </a>
@@ -2389,10 +2389,10 @@
   <path d="M20.97 8H3.03l1.76-3.96C5.26 3 6 2.15 7.7 2.15h8.6c1.7 0 2.44.85 2.91 1.89L20.97 8z" opacity=".4"/>
 </svg>                        </div>
                                     </div>
-                                        
+
     </div>
 </div>
-        
+
     </div>
                     <div class="position-relative d-flex" style="height: 80px">
 
@@ -2402,9 +2402,9 @@
 
                 <div class="d-flex-center flex-column text-center">
                                             <div class="d-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Upcoming</div>
-                    
+
                                             <h2 class="mt-8 font-32 text-dark">Explore Upcoming Courses</h2>
-                    
+
                                             <p class="mt-16 font-16 text-gray-500">Stay ahead with fresh courses launching soon, designed to expand your skills and knowledge further</p>
                                     </div>
 
@@ -2422,7 +2422,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.995 13.7h.01M8.294 13.7h.01M8.294 16.7h.01"/>
 </svg>                    <span class="font-14 text-success ml-4">20 Apr 2025 21:00</span>
                 </div>
-            
+
                 <h3 class="upcoming-course-card__title font-16 font-weight-bold text-white">Laravel Advanced Programming</h3>
         </div>
     </div>
@@ -2479,7 +2479,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.995 13.7h.01M8.294 13.7h.01M8.294 16.7h.01"/>
 </svg>                    <span class="font-14 text-success ml-4">15 Mar 2023 00:00</span>
                 </div>
-            
+
                 <h3 class="upcoming-course-card__title font-16 font-weight-bold text-white">Web Design for Beginners</h3>
         </div>
     </div>
@@ -2536,7 +2536,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.995 13.7h.01M8.294 13.7h.01M8.294 16.7h.01"/>
 </svg>                    <span class="font-14 text-success ml-4">20 Jan 2024 16:00</span>
                 </div>
-            
+
                 <h3 class="upcoming-course-card__title font-16 font-weight-bold text-white">Digital Photography</h3>
         </div>
     </div>
@@ -2593,7 +2593,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.995 13.7h.01M8.294 13.7h.01M8.294 16.7h.01"/>
 </svg>                    <span class="font-14 text-success ml-4">15 Feb 2024 10:00</span>
                 </div>
-            
+
                 <h3 class="upcoming-course-card__title font-16 font-weight-bold text-white">Python for Beginners</h3>
         </div>
     </div>
@@ -2645,11 +2645,11 @@
   <path d="M16.75 3.56V2c0-.41-.34-.75-.75-.75s-.75.34-.75.75v1.5h-6.5V2c0-.41-.34-.75-.75-.75s-.75.34-.75.75v1.56c-2.7.25-4.01 1.86-4.21 4.25-.02.29.22.53.5.53h16.92c.29 0 .53-.25.5-.53-.2-2.39-1.51-4-4.21-4.25z"/>
   <path d="M20 9.84c.55 0 1 .45 1 1V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5v-6.16c0-.55.45-1 1-1h16z" opacity=".4"/>
   <path d="M8.5 15c-.13 0-.26-.03-.38-.08s-.23-.12-.33-.21c-.09-.1-.16-.21-.21-.33A.995.995 0 017.5 14c0-.13.03-.26.08-.38s.12-.23.21-.33c.1-.09.21-.16.33-.21a1 1 0 01.76 0c.12.05.23.12.33.21.09.1.16.21.21.33.05.12.08.25.08.38s-.03.26-.08.38-.12.23-.21.33c-.1.09-.21.16-.33.21-.12.05-.25.08-.38.08zM12 15c-.13 0-.26-.03-.38-.08s-.23-.12-.33-.21c-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.1-.09.21-.16.33-.21.24-.11.52-.11.76 0 .12.05.23.12.33.21.18.19.29.45.29.71 0 .26-.11.52-.29.71-.1.09-.21.16-.33.21-.12.05-.25.08-.38.08zM8.5 18.5c-.13 0-.26-.03-.38-.08s-.23-.12-.33-.21c-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.1-.09.21-.16.33-.21a1 1 0 01.76 0c.12.05.23.12.33.21.18.19.29.45.29.71 0 .26-.11.52-.29.71-.1.09-.21.16-.33.21-.12.05-.25.08-.38.08z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text">View More</span>
                         </a>
                     </div>
-                
+
             </div>
         </div>
                         <div class="position-relative d-flex" style="height: 40px">
@@ -2660,9 +2660,9 @@
 
                 <div class="">
                                                                         <h2 class="font-32 text-white">Discounted Courses</h2>
-                        
+
                                                     <p class="mt-12 font-16 text-white opacity-70">Save more now with top courses at discounts</p>
-                        
+
                                                     <div class="discounted-courses-section__floating-icon d-flex-center">
                                 <img src="store/landing_builder/landing_13/391/discounted_overlay_aol.png" alt="icon">
                             </div>
@@ -2710,7 +2710,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -2790,7 +2790,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -2831,23 +2831,23 @@
     </div>
                 </div>
 
-                                    
+
                                             <div class="d-flex-center flex-column text-center mt-32">
                                                             <a href="classes8d05.html?discount=on" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mb-16" data-text="View More">
                                                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" opacity=".4"/>
   <path d="M15 16c-.56 0-1.01-.45-1.01-1s.45-1 1-1 1 .45 1 1-.44 1-.99 1zM9.01 10C8.45 10 8 9.55 8 9s.45-1 1-1 1 .45 1 1-.44 1-.99 1zM9 15.75c-.19 0-.38-.07-.53-.22a.755.755 0 010-1.06l6-6c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-6 6c-.15.15-.34.22-.53.22z"/>
-</svg>                                    
+</svg>
                                     <span class="btn-flip-effect__text">View More</span>
                                 </a>
-                            
+
                             <div class="d-flex align-items-center gap-4 text-white">
                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M10.75 2.45c.69-.59 1.82-.59 2.52 0l1.58 1.36c.3.26.86.47 1.26.47h1.7c1.06 0 1.93.87 1.93 1.93v1.7c0 .39.21.96.47 1.26l1.36 1.58c.59.69.59 1.82 0 2.52l-1.36 1.58c-.26.3-.47.86-.47 1.26v1.7c0 1.06-.87 1.93-1.93 1.93h-1.7c-.39 0-.96.21-1.26.47l-1.58 1.36c-.69.59-1.82.59-2.52 0l-1.58-1.36c-.3-.26-.86-.47-1.26-.47H6.18c-1.06 0-1.93-.87-1.93-1.93V16.1c0-.39-.21-.95-.46-1.25l-1.35-1.59c-.58-.69-.58-1.81 0-2.5l1.35-1.59c.25-.3.46-.86.46-1.25V6.2c0-1.06.87-1.93 1.93-1.93h1.73c.39 0 .96-.21 1.26-.47l1.58-1.35z" opacity=".4"/>
   <path d="M10.79 15.17a.75.75 0 01-.53-.22l-2.42-2.42a.754.754 0 010-1.06c.29-.29.77-.29 1.06 0l1.89 1.89 4.3-4.3c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-4.83 4.83a.75.75 0 01-.53.22z"/>
-</svg>                                
+</svg>
                                                                     <span class="font-weight-bold font-16 opacity-70">Over $240K Saved</span>
-                                
+
                                                                     <span class="opacity-70 font-16">With Exclusive Course Discounts</span>
                                                             </div>
 
@@ -2861,7 +2861,7 @@
             <div class="container py-40 py-lg-80">
                 <div class="d-flex-center flex-column text-center">
                                                                         <h2 class="font-32 text-white">Free Courses</h2>
-                        
+
                                                     <p class="mt-12 font-16 text-white opacity-70">Access top-quality free courses anytime, expand your skills, and learn without spending a single dollar</p>
                                                             </div>
 
@@ -2901,7 +2901,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -2974,7 +2974,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(3)</span>
             </div>
 
@@ -3047,7 +3047,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -3120,7 +3120,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
 
@@ -3160,15 +3160,15 @@
     </div>
                 </div>
 
-                                    
+
                                             <div class="row justify-content-center mt-48 mt-lg-64">
                             <div class="col-12 col-md-8 col-lg-6">
                                 <div class="d-flex align-items-start justify-content-between gap-40 gap-lg-80">
                                     <div class="">
                                                                                     <h3 class="font-24 text-white">Need skills but budget constraints?</h3>
-                                        
+
                                                                                     <p class="text-white font-16 opacity-70 mt-8">Explore top free courses now and keep advancing your career path with practical, valuable new skills</p>
-                                        
+
                                                                                     <a href="classes944f.html?free=on" class="font-16 btn-flip-effect btn-flip-effect__right-0 d-inline-flex align-items-center mt-12 font-weight-bold text-white" data-text="Explore Free Courses">
                                                 <svg width="24px" height="24px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/>
@@ -3191,9 +3191,9 @@
             <div class="container position-relative h-100">
                 <div class="d-flex-center flex-column text-center">
                                             <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Store</div>
-                    
+
                                             <h2 class="mt-8 font-32 text-dark">Store Products</h2>
-                    
+
                                             <p class="mt-16 font-16 text-gray-500">Discover a variety of physical and virtual educational products designed to enhance your learning experience</p>
                                     </div>
 
@@ -3236,7 +3236,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/How-to-Do-a-Website-UX-audit-ebook.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$20</span>
                                                                                                 </a>
                         </div>
@@ -3299,7 +3299,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
@@ -3307,7 +3307,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/chat-gpt-ui-ux.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$5</span>
                                                                                                 </a>
                         </div>
@@ -3370,7 +3370,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
@@ -3378,7 +3378,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/ui-ux-playbook.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$20</span>
                                                                                                 </a>
                         </div>
@@ -3441,7 +3441,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
@@ -3449,7 +3449,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/Painting-tools.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$25</span>
                                                                                                 </a>
                         </div>
@@ -3512,7 +3512,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
@@ -3520,7 +3520,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/Advanced-microscope.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$290</span>
                                                                                                 </a>
                         </div>
@@ -3583,7 +3583,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
                     <span class="ml-4 text-gray-500 font-14">(1)</span>
             </div>
                         </a>
@@ -3591,7 +3591,7 @@
 
                                             <div class="d-flex align-items-center font-16 font-weight-bold text-primary">
                             <a href="products/Business-Software.html" class="text-decoration-none text-primary">
-                                                                    
+
                                                                             <span class="">$75</span>
                                                                                                 </a>
                         </div>
@@ -3603,17 +3603,17 @@
     </div>
                 </div>
 
-                
+
                                     <div class="d-flex-center mt-32">
                         <a href="products.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="Explore Store">
                                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M19.24 5.58h-.4L15.46 2.2a.706.706 0 00-.99 0c-.27.27-.27.71 0 .99l2.39 2.39H7.14l2.39-2.39c.27-.27.27-.71 0-.99a.706.706 0 00-.99 0L5.17 5.58h-.4c-.9 0-2.77 0-2.77 2.56 0 .97.2 1.61.62 2.03.24.25.53.38.84.45.29.07.6.08.9.08h15.28c.31 0 .6-.02.88-.08.84-.2 1.48-.8 1.48-2.48 0-2.56-1.87-2.56-2.76-2.56z" opacity=".4"/>
   <path d="M19.65 10.7H4.36c-.3 0-.61-.01-.9-.08l1.26 7.68C5 20.02 5.75 22 9.08 22h5.61c3.37 0 3.97-1.69 4.33-3.58l1.51-7.8c-.28.06-.58.08-.88.08zm-9.04 6.46c0 .39-.31.7-.7.7-.39 0-.7-.31-.7-.7v-3.3c0-.39.31-.7.7-.7.39 0 .7.31.7.7v3.3zm4.28 0c0 .39-.31.7-.7.7-.39 0-.7-.31-.7-.7v-3.3c0-.39.31-.7.7-.7.39 0 .7.31.7.7v3.3z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text">Explore Store</span>
                         </a>
                     </div>
-                
+
             </div>
         </div>
                         <div class="subscription-plans-section position-relative">
@@ -3621,10 +3621,10 @@
             <div class="row h-100">
                 <div class="col-12 col-lg-3 pt-64">
                                             <h2 class="mt-16 font-32 text-dark">Subscription Plans For You</h2>
-                    
+
                                             <p class="mt-20 font-16 text-gray-500">Discover flexible subscription plans that unlock unlimited access to courses, resources, and exclusive educational content. Choose yours today!</p>
-                    
-                    
+
+
                                                                         <div class="d-flex align-items-center gap-4 mt-24">
                                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
     <path d="M3 7.48222L6.17305 11L13 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3643,25 +3643,25 @@
 </svg>
                                 <span class="font-14 text-gray-500">Regular content updates</span>
                             </div>
-                                            
-                    
+
+
                                             <a href="login.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-24" data-text="Become VIP Member">
                                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18 20.5h-1v-.25c0-1.1-.9-2-2-2h-2.25v-2.29c-.25.03-.5.04-.75.04s-.5-.01-.75-.04v2.29H9c-1.1 0-2 .9-2 2v.25H6c-.41 0-.75.34-.75.75s.34.75.75.75h12c.41 0 .75-.34.75-.75s-.34-.75-.75-.75zM5.52 11.64c-.66-.25-1.24-.66-1.7-1.12-.93-1.03-1.54-2.26-1.54-3.7 0-1.44 1.13-2.57 2.57-2.57h.56C5.15 4.78 5 5.37 5 6v3c0 .94.18 1.83.52 2.64zM21.72 6.82c0 1.44-.61 2.67-1.54 3.7-.46.46-1.04.87-1.7 1.12.34-.81.52-1.7.52-2.64V6c0-.63-.15-1.22-.41-1.75h.56c1.44 0 2.57 1.13 2.57 2.57z" opacity=".4"/>
   <path d="M15 2H9C6.79 2 5 3.79 5 6v3c0 3.87 3.13 7 7 7s7-3.13 7-7V6c0-2.21-1.79-4-4-4zm-.16 6.45l-.62.76c-.1.11-.17.33-.16.48l.06.98c.04.6-.39.91-.95.69l-.91-.36a.92.92 0 00-.52 0l-.91.36c-.56.22-.99-.09-.95-.69l.06-.98a.751.751 0 00-.16-.48l-.62-.76c-.39-.46-.22-.97.36-1.12l.95-.24c.15-.04.33-.18.41-.31l.53-.82c.33-.51.85-.51 1.18 0l.53.82c.08.13.26.27.41.31l.95.24c.58.15.75.66.36 1.12z"/>
   <path d="M14.84 8.45l-.62.76c-.1.11-.17.33-.16.48l.06.98c.04.6-.39.91-.95.69l-.91-.36a.92.92 0 00-.52 0l-.91.36c-.56.22-.99-.09-.95-.69l.06-.98a.751.751 0 00-.16-.48l-.62-.76c-.39-.46-.22-.97.36-1.12l.95-.24c.15-.04.33-.18.41-.31l.53-.82c.33-.51.85-.51 1.18 0l.53.82c.08.13.26.27.41.31l.95.24c.58.15.75.66.36 1.12z" opacity=".4"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text">Become VIP Member</span>
                         </a>
-                    
-                    
+
+
                                             <div class="subscription-plans-section__floating-image d-flex-center">
                             <img src="store/landing_builder/landing_13/396/subscribe_ZlE.png" alt="floating_image" class="">
                         </div>
                                     </div>
 
                 <div class="col-12 col-lg-9">
-                    
+
                                                                         <div class="row">
                                                                     <div class="col-12 col-md-6 col-lg-4 mt-32 mt-lg-0">
                                         <div class="subscription-plan-card position-relative">
@@ -3669,8 +3669,8 @@
 
     <div class="position-relative z-index-2 d-flex flex-column bg-white rounded-24 p-16 pt-32 w-100 h-100">
 
-        
-        
+
+
         <div class="d-flex-center size-100 bg-gray-100 rounded-circle mx-auto">
             <div class="d-flex-center size-68 rounded-circle">
                 <img src="store/1/default_images/subscribe_packages/subscribe_icon_1.svg" alt="Starter Access" class="img-cover rounded-circle">
@@ -3685,7 +3685,7 @@
                                     </div>
 
                     <div class="mt-16 p-12 rounded-16 bg-gray-100 font-14 text-gray-500">Perfect for beginners, offering essential tools and resources to kickstart your learning journey effectively</div>
-        
+
         <ul class="my-16">
             <li class="d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
@@ -3700,13 +3700,13 @@
 </svg>
                 <div class="ml-4 font-16 text-gray-500">
                                             100
-                    
+
                     <span class="ml-4">Subscriptions</span>
                 </div>
             </li>
         </ul>
 
-        
+
 
         <div class="d-flex align-items-center gap-8 w-100">
             <a href="subscribes/3/details.html" target="_blank" class="btn btn-primary btn-lg flex-1 btn-block">Purchase</a>
@@ -3722,14 +3722,14 @@
 
     <div class="position-relative z-index-2 d-flex flex-column bg-white rounded-24 p-16 pt-32 w-100 h-100">
 
-        
+
                     <div class="subscription-plan-card__popular-badge d-inline-flex-center gap-4 p-4 pr-8 rounded-32 bg-primary fon12 text-white">
                 <svg width="20px" height="20px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M10.75 2.45c.69-.59 1.82-.59 2.52 0l1.58 1.36c.3.26.86.47 1.26.47h1.7c1.06 0 1.93.87 1.93 1.93v1.7c0 .39.21.96.47 1.26l1.36 1.58c.59.69.59 1.82 0 2.52l-1.36 1.58c-.26.3-.47.86-.47 1.26v1.7c0 1.06-.87 1.93-1.93 1.93h-1.7c-.39 0-.96.21-1.26.47l-1.58 1.36c-.69.59-1.82.59-2.52 0l-1.58-1.36c-.3-.26-.86-.47-1.26-.47H6.18c-1.06 0-1.93-.87-1.93-1.93V16.1c0-.39-.21-.95-.46-1.25l-1.35-1.59c-.58-.69-.58-1.81 0-2.5l1.35-1.59c.25-.3.46-.86.46-1.25V6.2c0-1.06.87-1.93 1.93-1.93h1.73c.39 0 .96-.21 1.26-.47l1.58-1.35z" opacity=".4"/>
   <path d="M10.79 15.17a.75.75 0 01-.53-.22l-2.42-2.42a.754.754 0 010-1.06c.29-.29.77-.29 1.06 0l1.89 1.89 4.3-4.3c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-4.83 4.83a.75.75 0 01-.53.22z"/>
 </svg>                <span class="font-12">Popular</span>
             </div>
-        
+
         <div class="d-flex-center size-100 bg-gray-100 rounded-circle mx-auto">
             <div class="d-flex-center size-68 rounded-circle">
                 <img src="store/1/default_images/subscribe_packages/subscribe_icon_2.svg" alt="Pro Plus" class="img-cover rounded-circle">
@@ -3744,7 +3744,7 @@
                                     </div>
 
                     <div class="mt-16 p-12 rounded-16 bg-gray-100 font-14 text-gray-500">Designed for serious learners, providing advanced features, in-depth content, and exclusive resources</div>
-        
+
         <ul class="my-16">
             <li class="d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
@@ -3759,13 +3759,13 @@
 </svg>
                 <div class="ml-4 font-16 text-gray-500">
                                             1000
-                    
+
                     <span class="ml-4">Subscriptions</span>
                 </div>
             </li>
         </ul>
 
-        
+
 
         <div class="d-flex align-items-center gap-8 w-100">
             <a href="subscribes/4/details.html" target="_blank" class="btn btn-primary btn-lg flex-1 btn-block">Purchase</a>
@@ -3781,8 +3781,8 @@
 
     <div class="position-relative z-index-2 d-flex flex-column bg-white rounded-24 p-16 pt-32 w-100 h-100">
 
-        
-        
+
+
         <div class="d-flex-center size-100 bg-gray-100 rounded-circle mx-auto">
             <div class="d-flex-center size-68 rounded-circle">
                 <img src="store/1/default_images/subscribe_packages/subscribe_icon_3.svg" alt="Elite Mastery" class="img-cover rounded-circle">
@@ -3797,7 +3797,7 @@
                                     </div>
 
                     <div class="mt-16 p-12 rounded-16 bg-gray-100 font-14 text-gray-500">Exclusive access for experts, offering premium content, personalized support, and top-tier resources for mastery</div>
-        
+
         <ul class="my-16">
             <li class="d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
@@ -3812,13 +3812,13 @@
 </svg>
                 <div class="ml-4 font-16 text-gray-500">
                                             400
-                    
+
                     <span class="ml-4">Subscriptions</span>
                 </div>
             </li>
         </ul>
 
-        
+
 
         <div class="d-flex align-items-center gap-8 w-100">
             <a href="subscribes/5/details.html" target="_blank" class="btn btn-primary btn-lg flex-1 btn-block">Purchase</a>
@@ -3842,7 +3842,7 @@
                 <div class="col-12 col-lg-6 h-100 px-24 px-lg-48">
                     <div class="hybrid-information-section-2-images-check-items-text-section__main-image position-relative rounded-32">
                                                                                     <img src="store/landing_builder/landing_13/397/become_instructor_XlB.png" alt="main_image" class="img-cover rounded-32">
-                            
+
                                                             <div class="hybrid-information-section-2-images-check-items-text-section__overlay-image">
                                     <img src="store/landing_builder/landing_13/397/become_instructor_overlay_Xa4.png" alt="overlay_image" class="img-cover rounded-16">
                                 </div>
@@ -3854,12 +3854,12 @@
                 <div class="col-12 col-lg-5 mt-32 mt-lg-0">
                     <div class="d-flex justify-content-center align-items-start flex-column h-100">
                                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Become Instructor</div>
-                        
+
                                                     <h2 class="mt-12 font-32 text-dark">Start Sharing Skills, Build Courses, Earn Revenue</h2>
-                        
+
                                                     <p class="mt-20 font-16 text-gray-500">Join our platform, share your expertise, reach thousands of learners, and earn income effortlessly online today.</p>
-                        
-                        
+
+
                                                                                     <div class="d-flex align-items-center gap-4 mt-24">
                                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none" width="16px" height="16px" class="icons text-success">
     <path d="M3 7.48222L6.17305 11L13 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3884,13 +3884,13 @@
 </svg>
                                     <span class="font-14 text-gray-500">Build Personal Brand</span>
                                 </div>
-                                                    
-                        
+
+
                                                     <a href="login.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-24" data-text="Become Instructor">
                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                
+</svg>
                                 <span class="btn-flip-effect__text">Become Instructor</span>
                             </a>
                                             </div>
@@ -3909,41 +3909,41 @@
                 <div class="col-12 col-lg-5">
                     <div class="d-flex justify-content-center align-items-start flex-column h-100">
                                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Tutor Finder</div>
-                        
+
                                                     <h2 class="mt-12 font-32 text-dark">Search, Filter, Book Your Ideal Instructor Easily</h2>
-                        
+
                                                     <p class="mt-20 font-16 text-gray-500">Quickly find and book the perfect instructor using advanced filters and flexible booking options to match your learning goals.</p>
-                        
-                        
+
+
                                                     <a href="instructor-finder/wizard.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-24" data-text="Tutor Finder">
                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M11.5 21a9.5 9.5 0 100-19 9.5 9.5 0 000 19z" opacity=".4"/>
   <path d="M21.3 22c-.18 0-.36-.07-.49-.2l-1.86-1.86a.706.706 0 010-.99c.27-.27.71-.27.99 0l1.86 1.86c.27.27.27.71 0 .99-.14.13-.32.2-.5.2z"/>
-</svg>                                
+</svg>
                                 <span class="btn-flip-effect__text">Tutor Finder</span>
                             </a>
-                        
-                        
+
+
                         <div class="d-flex align-items-center mt-60 gap-54">
                                                             <div class="hybrid-information-section-2-images-text-section__statistic-item">
                                                                             <div class="d-flex align-items-center gap-8">
                                             <span class="line"></span>
                                             <span class="font-24 font-weight-bold">25K</span>
                                         </div>
-                                    
+
                                                                             <h4 class="mt-12 font-16 text-dark">Instructors</h4>
-                                    
+
                                                                             <p class="mt-4 font-14 text-gray-500">Are available in 250 fields</p>
                                                                     </div>
-                            
+
                                                             <div class="hybrid-information-section-2-images-text-section__statistic-item">
                                                                             <div class="d-flex align-items-center gap-8">
                                             <span class="line"></span>
                                             <span class="font-24 font-weight-bold">5K+</span>
                                         </div>
-                                    
+
                                                                             <h4 class="mt-12 font-16 text-dark">Meetings Conducted</h4>
-                                    
+
                                                                             <p class="mt-4 font-14 text-gray-500">Directly on the platform</p>
                                                                     </div>
                                                     </div>
@@ -3953,11 +3953,11 @@
 
                 <div class="col-lg-1"></div>
 
-                
+
                 <div class="col-12 col-lg-6 h-100 mt-32 mt-lg-0 px-24 px-lg-48">
                     <div class="hybrid-information-section-2-images-text-section__main-image position-relative rounded-32">
                                                                                     <img src="store/landing_builder/landing_13/400/tutor_finder_nbl.png" alt="main_image" class="img-cover rounded-32">
-                            
+
                                                             <div class="hybrid-information-section-2-images-text-section__overlay-image">
                                     <img src="store/landing_builder/landing_13/400/tutor_finder_overlay_Faj.png" alt="overlay_image" class="img-cover rounded-16">
                                 </div>
@@ -3983,39 +3983,39 @@
                             <div class="position-relative z-index-2 d-flex-center flex-column text-center bg-white px-24 py-48 p-lg-48 mt-48 rounded-32 w-100 h-100">
 
                                                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Forums</div>
-                                
+
                                                                     <h2 class="mt-12 font-32 text-dark">Share Ideas, Gain Knowledge, Build Community</h2>
-                                
+
                                                                     <p class="mt-16 font-16 text-gray-500">Join our interactive community forum to connect with fellow learners, ask questions, share experiences, and exchange ideas on various topics. Engage in meaningful discussions, get valuable insights from peers and experts, and expand your knowledge beyond courses. Build connections and grow your learning network in a supportive environment.</p>
-                                
+
                                                                     <div class="d-flex-center w-100 mt-20 mt-lg-32 px-16 px-lg-32">
                                         <img src="store/landing_builder/landing_13/401/forum_VPt.png" alt="users image" class="img-fluid">
                                     </div>
-                                
+
                                 <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-16 mt-24 mt-lg-40">
-                                    
+
                                                                             <a href="forums.html" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white" data-text="Explore Forums">
                                                                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M17.98 10.79v4c0 .26-.01.51-.04.75-.23 2.7-1.82 4.04-4.75 4.04h-.4c-.25 0-.49.12-.64.32l-1.2 1.6c-.53.71-1.39.71-1.92 0l-1.2-1.6a.924.924 0 00-.64-.32h-.4C3.6 19.58 2 18.79 2 14.79v-4c0-2.93 1.35-4.52 4.04-4.75.24-.03.49-.04.75-.04h6.4c3.19 0 4.79 1.6 4.79 4.79z" opacity=".4"/>
   <path d="M9.99 14c-.56 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.44 1-1 1zM13.49 14c-.56 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM6.5 14c-.56 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
   <path d="M21.98 6.79v4c0 2.94-1.35 4.52-4.04 4.75.03-.24.04-.49.04-.75v-4c0-3.19-1.6-4.79-4.79-4.79h-6.4c-.26 0-.51.01-.75.04C6.27 3.35 7.86 2 10.79 2h6.4c3.19 0 4.79 1.6 4.79 4.79z"/>
-</svg>                                            
+</svg>
                                             <span class="btn-flip-effect__text">Explore Forums</span>
                                         </a>
-                                    
-                                    
+
+
                                                                             <a href="login.html" class="btn-flip-effect btn-flip-effect__text-dark btn btn-xlg gap-8" data-text="Create a Topic">
                                                                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" opacity=".4"/>
   <path d="M16 11.25h-3.25V8c0-.41-.34-.75-.75-.75s-.75.34-.75.75v3.25H8c-.41 0-.75.34-.75.75s.34.75.75.75h3.25V16c0 .41.34.75.75.75s.75-.34.75-.75v-3.25H16c.41 0 .75-.34.75-.75s-.34-.75-.75-.75z"/>
-</svg>                                            
+</svg>
                                             <span class="btn-flip-effect__text text-dark">Create a Topic</span>
                                         </a>
                                                                     </div>
                             </div>
                         </div>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
             </div>
         </div>
                         <div class="position-relative d-flex" style="height: 80px">
@@ -4025,9 +4025,9 @@
         <div class="position-relative z-index-2  pt-80">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Live Classes</div>
-                
+
                                     <h2 class="mt-16 font-32 text-dark">Experience Interactive High Quality Live Classes</h2>
-                
+
                                     <p class="mt-20 font-16 text-gray-500">Join our interactive high quality live classes to experience real-time learning, collaboration, and immediate instructor feedback today.</p>
                             </div>
 
@@ -4036,12 +4036,12 @@
                                                     <video class="img-cover rounded-32" data-value-1="1" data-value-2="1.1" autoplay="autoplay" loop="loop" muted="" playsinline="" oncontextmenu="return false" preload="auto">
                                 <source src="store/landing_builder/landing_13/405/student_learning_vcF.mp4" type="video/mp4"/>
                             </video>
-                        
+
                         <div class="single-video-section__center-box d-flex-center">
                                                             <div class="single-video-section__revolver-icon d-flex-center">
                                     <img src="store/landing_builder/landing_13/405/video_revolver_6GK.svg" alt="revolver_icon" class="">
                                 </div>
-                            
+
                                                             <div class="single-video-section__play-button d-flex-center size-80 bg-primary">
                                     <svg width="32px" height="32px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M17.49 9.6L5.6 16.77c-.7.42-1.6-.08-1.6-.9v-8c0-3.49 3.77-5.67 6.8-3.93l4.59 2.64 2.09 1.2c.69.41.7 1.41.01 1.82zM18.089 15.46l-4.05 2.34-4.04 2.33c-1.45.83-3.09.66-4.28-.18-.58-.4-.51-1.29.1-1.65l12.71-7.62c.6-.36 1.39-.02 1.5.67.25 1.55-.39 3.22-1.94 4.11z"/>
@@ -4049,12 +4049,12 @@
                                                     </div>
                     </div>
 
-                    
+
                                             <div class="single-video-section__back-image d-flex-center">
                             <img src="store/landing_builder/landing_13/405/video_bg_4iE.svg" alt="back_image" class="">
                         </div>
-                    
-                    
+
+
                                             <div class="single-video-section__badge d-inline-flex-center">Enjoy Live Classes!</div>
                                     </div>
                     </div>
@@ -4069,43 +4069,43 @@
                 <div class="col-12 col-lg-5">
                     <div class="d-flex justify-content-center align-items-start flex-column h-100">
                                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Reward Points</div>
-                        
+
                                                     <h2 class="mt-12 font-32 text-dark">Earn Reward Points For Every Learning Activity</h2>
-                        
+
                                                     <p class="mt-20 font-16 text-gray-500">Stay motivated and get rewarded as you learn. Earn points for quizzes, assignments, course completions, and engagement, then redeem them for exciting benefits.</p>
-                        
-                        
+
+
                                                     <a href="reward-courses.html" target="_blank" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-20" data-text="Explore Rewards">
                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M19.97 10v8c0 3-1 4-4 4h-8c-3 0-4-1-4-4v-8h16z" opacity=".4"/>
   <path d="M21.5 7v1c0 1.1-.53 2-2 2h-15c-1.53 0-2-.9-2-2V7c0-1.1.47-2 2-2h15c1.47 0 2 .9 2 2z"/>
   <path d="M11.64 5H6.12a.936.936 0 01.03-1.3l1.42-1.42a.96.96 0 011.35 0L11.64 5zM17.87 5h-5.52l2.72-2.72a.96.96 0 011.35 0l1.42 1.42c.36.36.37.93.03 1.3z" opacity=".4"/>
   <path d="M8.94 10v5.14c0 .8.88 1.27 1.55.84l.94-.62a1 1 0 011.1 0l.89.6a.997.997 0 001.55-.83V10H8.94z" opacity=".6"/>
-</svg>                                
+</svg>
                                 <span class="btn-flip-effect__text">Explore Rewards</span>
                             </a>
-                        
-                        
+
+
                         <div class="d-flex align-items-center mt-60 gap-54">
                                                             <div class="hybrid-information-section-4-images-text-section__statistic-item">
                                                                             <div class="d-flex align-items-center gap-8">
                                             <span class="line"></span>
                                             <span class="font-24 font-weight-bold">300K+</span>
                                         </div>
-                                    
+
                                                                             <h4 class="mt-12 font-16 text-dark">Points Collected</h4>
-                                    
+
                                                                             <p class="mt-4 font-14 text-gray-500">By platform users</p>
                                                                     </div>
-                            
+
                                                             <div class="hybrid-information-section-4-images-text-section__statistic-item">
                                                                             <div class="d-flex align-items-center gap-8">
                                             <span class="line"></span>
                                             <span class="font-24 font-weight-bold">180+</span>
                                         </div>
-                                    
+
                                                                             <h4 class="mt-12 font-16 text-dark">Rewards Available</h4>
-                                    
+
                                                                             <p class="mt-4 font-14 text-gray-500">To get them for free</p>
                                                                     </div>
                                                     </div>
@@ -4115,21 +4115,21 @@
 
                 <div class="col-lg-1"></div>
 
-                
+
                 <div class="col-12 col-lg-6 h-100 position-relative mt-32 mt-lg-0 px-24 px-lg-48">
                     <div class="hybrid-information-section-4-images-text-section__main-image position-relative rounded-32">
-                        
+
                                                             <img src="store/landing_builder/landing_13/404/reward_points_VqB.png" alt="main_image" class="img-cover rounded-32">
-                            
+
                                                             <div class="hybrid-information-section-4-images-text-section__overlay-image-1">
                                     <img src="store/landing_builder/landing_13/404/points_overlay_1_Eyv.png" alt="overlay_image_1" class="img-cover">
                                 </div>
-                            
+
                                                             <div class="hybrid-information-section-4-images-text-section__overlay-image-2">
                                     <img src="store/landing_builder/landing_13/404/points_overlay_2_sCJ.png" alt="overlay_image_2" class="img-cover">
                                 </div>
-                            
-                                                    
+
+
                     </div>
                 </div>
 
@@ -4141,14 +4141,14 @@
         <div class="container">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Instructors</div>
-                
+
                                     <h2 class="mt-12 font-32 text-dark">Expert Instructors</h2>
-                
+
                                     <p class="mt-16 font-16 text-gray-500">Learn from experienced instructors dedicated to delivering practical knowledge, guidance, and real-world expertise</p>
                             </div>
 
-            
-            
+
+
                             <div class="d-grid grid-columns-auto grid-lg-columns-3 gap-32 mt-40">
                     <div class="">
         <div class="instructor-card position-relative">
@@ -4160,7 +4160,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/3/setting/avatar.jpg" alt="James Kong" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4177,7 +4177,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/james-kong/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4197,7 +4197,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/870/setting/avatar.jpg" alt="Jessica Wray" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4219,7 +4219,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/jessica-wray/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4239,7 +4239,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/923/setting/avatar.jpg" alt="John Powe" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4261,7 +4261,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/john-powe/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4281,7 +4281,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/929/setting/avatar.jpg" alt="Kate Williams" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4298,7 +4298,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/kate-williams/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4318,7 +4318,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/934/setting/avatar.jpg" alt="Linda Anderson" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4335,7 +4335,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/linda-anderson/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4355,7 +4355,7 @@
                 <div class="position-relative size-64 rounded-circle bg-gray-100">
                     <img src="store/1015/setting/avatar.jpg" alt="Robert Ransdell" class="img-cover rounded-circle">
 
-                    
+
                     <div class="instructor-card__rate d-flex-center gap-4 text-center bg-white p-4 pr-8 rounded-32">
                         <svg width="14px" height="14px" class="icons text-warning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
@@ -4377,7 +4377,7 @@
         </a>
 
         <div class="d-flex flex-column gap-24 py-20 pl-24 pr-8">
-            
+
             <a href="users/robert-ransdell/profile.html" target="_blank" class="" data-tippy-content="View Profile">
                 <svg width="24px" height="24px" class="icons text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 2C9.38 2 7.25 4.13 7.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 004.58-4.74C16.75 4.13 14.62 2 12 2z" opacity=".4"/>
@@ -4388,8 +4388,8 @@
 </div>
     </div>
                 </div>
-            
-            
+
+
             <div class="d-flex-center flex-column text-lg-center mt-48">
                                     <div class="d-flex align-items-lg-center gap-4">
                                                     <div class="d-flex-center size-24">
@@ -4397,22 +4397,22 @@
   <path d="M10.75 2.45c.69-.59 1.82-.59 2.52 0l1.58 1.36c.3.26.86.47 1.26.47h1.7c1.06 0 1.93.87 1.93 1.93v1.7c0 .39.21.96.47 1.26l1.36 1.58c.59.69.59 1.82 0 2.52l-1.36 1.58c-.26.3-.47.86-.47 1.26v1.7c0 1.06-.87 1.93-1.93 1.93h-1.7c-.39 0-.96.21-1.26.47l-1.58 1.36c-.69.59-1.82.59-2.52 0l-1.58-1.36c-.3-.26-.86-.47-1.26-.47H6.18c-1.06 0-1.93-.87-1.93-1.93V16.1c0-.39-.21-.95-.46-1.25l-1.35-1.59c-.58-.69-.58-1.81 0-2.5l1.35-1.59c.25-.3.46-.86.46-1.25V6.2c0-1.06.87-1.93 1.93-1.93h1.73c.39 0 .96-.21 1.26-.47l1.58-1.35z" opacity=".4"/>
   <path d="M10.79 15.17a.75.75 0 01-.53-.22l-2.42-2.42a.754.754 0 010-1.06c.29-.29.77-.29 1.06 0l1.89 1.89 4.3-4.3c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-4.83 4.83a.75.75 0 01-.53.22z"/>
 </svg>                            </div>
-                        
+
                         <div class="d-flex flex-column font-16 flex-lg-row align-items-lg-center gap-4">
                                                             <h5 class="font-14">400+ skilled instructors</h5>
-                            
+
                                                             <div class="font-16">available to assist you every step of the way</div>
                                                     </div>
                     </div>
 
                                             <div class="font-16 text-gray-500 mt-16">Quickly find your ideal instructor with our intuitive Instructor Finder feature</div>
-                                    
-                
+
+
                                     <a href="instructors.html" class="btn-flip-effect btn btn-primary btn-xlg gap-8 mt-24 text-white" data-text="All Instructors">
                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                        
+</svg>
                         <span class="btn-flip-effect__text text-white">All Instructors</span>
                     </a>
                             </div>
@@ -4422,15 +4422,15 @@
         <div class="container">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Organizations</div>
-                
+
                                     <h2 class="font-32 text-dark mt-16">Official Organizations</h2>
-                
+
                                     <p class="mt-16 font-16 text-gray-500">Partner with trusted educational organizations delivering structured, high-quality courses and programs for formal, career-focused learning pathways.</p>
                             </div>
         </div>
 
-        
-        
+
+
                     <div class="swiper-container js-make-swiper organizations-swiper-rtl pt-48 px-24"
                  data-item="organizations-swiper-rtl"
                  data-autoplay="true"
@@ -4475,7 +4475,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                 </div>
             </div>
@@ -4604,7 +4604,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
                 </div>
             </div>
@@ -4680,7 +4680,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
                 </div>
             </div>
@@ -4761,7 +4761,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
                 </div>
             </div>
@@ -4858,18 +4858,18 @@
     </div>
                 </div>
             </div>
-        
-        
+
+
                     <div class="container d-flex-center mt-24">
                 <a href="organizations.html" class="btn-flip-effect btn btn-primary text-white btn-xlg gap-8" data-text="Explore Organizations">
                                             <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
   <path d="M20.5 12.3l-.15.09a17.037 17.037 0 01-5.79 2.08c-.08.96-.5 2.06-2.69 2.06s-2.61-1.09-2.69-2.04c-1.91-.3-3.79-.93-5.5-1.88-.15-.08-.3-.16-.44-.25-.36-.2-.7-.42-1.03-.64-.02-.01-.04-.03-.05-.04l.61 6.51c.21 1.99 1.03 4.04 5.43 4.04h7.62c4.4 0 5.22-2.05 5.43-4.05l.63-6.78a.12.12 0 01-.05.05c-.43.31-.87.6-1.33.85z" opacity=".4"/>
-</svg>                    
+</svg>
                     <span class="btn-flip-effect__text text-white">Explore Organizations</span>
                 </a>
             </div>
-        
+
     </div>
                     <div class="position-relative d-flex" style="height: 40px">
 
@@ -4878,14 +4878,14 @@
         <div class="container">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-white bg-white-20 font-12 text-white">Meeting Booking</div>
-                
+
                                     <h2 class="mt-16 font-32 text-white">Book Sessions With Trusted Mentors</h2>
-                
+
                                     <p class="mt-20 font-16 text-white opacity-70">Unlock tailored learning by booking sessions with verified mentors for personal guidance, support, and faster growth</p>
                             </div>
 
-            
-            
+
+
                             <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
                         <div class="meeting-booking-list-section__table-container w-100">
@@ -4903,7 +4903,7 @@
                                 </thead>
 
                                 <tbody>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -4933,30 +4933,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">6.5</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $100
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/jessica-wray/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -4965,7 +4965,7 @@
 </svg>                                            </a>
                                         </td>
                                     </tr>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -4995,30 +4995,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">13</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026 09:00PM-10:00PM</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $90
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/john-powe/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -5027,7 +5027,7 @@
 </svg>                                            </a>
                                         </td>
                                     </tr>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -5057,30 +5057,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">8.5</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026 06:00PM-07:30PM</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $200
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/kate-williams/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -5089,7 +5089,7 @@
 </svg>                                            </a>
                                         </td>
                                     </tr>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -5119,30 +5119,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">27.5</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026 06:00PM-07:00PM</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $100
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/linda-anderson/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -5151,7 +5151,7 @@
 </svg>                                            </a>
                                         </td>
                                     </tr>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -5181,30 +5181,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">24</td>
 
-                                        
+
                                         <td class="text-center">2</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $100
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/robert-ransdell/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -5213,7 +5213,7 @@
 </svg>                                            </a>
                                         </td>
                                     </tr>
-                                                                    
+
                                     <tr>
                                         <td class="text-left">
                                             <div class="d-flex align-items-center">
@@ -5243,30 +5243,30 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        
+
                                         <td class="text-center">18</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">0</td>
 
-                                        
+
                                         <td class="text-center">24 Aug 2026</td>
 
-                                        
+
                                         <td class="text-center">
                                                                                             From $60
                                                                                     </td>
 
-                                        
+
                                         <td class="text-right">
                                             <a href="users/ricardo-dave/profilec0cc.html?tab=appointments" target="_blank" class="btn-flip-effect btn-flip-effect__left-side btn btn-lg btn-primary gap-4 text-white" data-text="Book">
                                                 <span class="btn-flip-effect__text">Book</span>
@@ -5280,9 +5280,9 @@
                         </div>
                     </div>
                 </div>
-            
 
-            
+
+
                             <div class="row justify-content-center mt-54">
                     <div class="col-12 col-lg-8 d-flex-center">
                         <div class="d-flex align-items-center gap-64">
@@ -5290,7 +5290,7 @@
                                 <h3 class="font-24 text-white">Need help to find your ideal instructor?</h3>
 
                                                                     <p class="mt-8 text-white font-16 opacity-70">Use Tutor Finder to easily search and book the ideal instructor by expertise, availability, and teaching style</p>
-                                
+
                                                                     <a href="instructor-finder.html" class="btn-flip-effect btn-flip-effect__right-0 d-inline-flex align-items-center gap-4 font-16 font-weight-bold text-white mt-12" data-text="Instructor Finder">
                                         <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/>
@@ -5304,7 +5304,7 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
@@ -5315,13 +5315,13 @@
         <div class="p-24 px-lg-48">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Job Board</div>
-                
+
                                     <h2 class="mt-12 font-32 text-dark">Learn Skills And Get Hired</h2>
-                
+
                                     <p class="mt-16 text-gray-500">Develop in-demand skills through learning programs and discover career opportunities from top employers</p>
                             </div>
 
-            
+
                             <div class="row">
                     <div class="col-12 col-md-6 col-lg-3 mt-24">
         <div class="job-grid-card-1 position-relative h-100">
@@ -5329,7 +5329,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
@@ -5337,7 +5337,7 @@
 </svg>
                     <span class="">Permanent</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon28.svg" alt="Backend Engineer" class="img-fluid">
             </div>
@@ -5352,10 +5352,10 @@
             <span class="">Software Development &amp; Engineering</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Backend Engineer.</div>
 
-        
+
         <a href="users/robert-ransdell/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/1015/setting/avatar.jpg" alt="Robert Ransdell" class="img-cover rounded-circle">
@@ -5384,24 +5384,24 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$5,000-$8,000</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                                            
+
                         <span class="">Riyadh,</span>
-                    
+
                     <span class="">Hybrid</span>
                 </div>
             </div>
@@ -5423,7 +5423,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M22 6v2.42C22 10 21 11 19.42 11H16V4.01c0-1.11.91-2.02 2.02-2.01 1.09.01 2.09.45 2.81 1.17C21.55 3.9 22 4.9 22 6z"/>
@@ -5432,7 +5432,7 @@
 </svg>
                     <span class="">Contract</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon29.svg" alt="UI/UX Designer" class="img-fluid">
             </div>
@@ -5447,10 +5447,10 @@
             <span class="">Design &amp; Creative</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled UI/UX Designer.</div>
 
-        
+
         <a href="users/linda-anderson/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/934/setting/avatar.jpg" alt="Linda Anderson" class="img-cover rounded-circle">
@@ -5479,24 +5479,24 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$4,500</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                                            
+
                         <span class="">San Francisco,</span>
-                    
+
                     <span class="">Remote</span>
                 </div>
             </div>
@@ -5518,7 +5518,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
@@ -5526,7 +5526,7 @@
 </svg>
                     <span class="">Permanent</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon19.svg" alt="Data Scientist" class="img-fluid">
             </div>
@@ -5541,10 +5541,10 @@
             <span class="">Data Science &amp; Analytics</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Data Scientist.</div>
 
-        
+
         <a href="users/kate-williams/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/929/setting/avatar.jpg" alt="Kate Williams" class="img-cover rounded-circle">
@@ -5573,24 +5573,24 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$7,000-$10,000</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                                            
+
                         <span class="">New Delhi,</span>
-                    
+
                     <span class="">On-site</span>
                 </div>
             </div>
@@ -5607,7 +5607,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
@@ -5615,7 +5615,7 @@
 </svg>
                     <span class="">Permanent</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon26.svg" alt="Marketing Manager" class="img-fluid">
             </div>
@@ -5630,10 +5630,10 @@
             <span class="">Digital Marketing &amp; Growth</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Marketing Manager.</div>
 
-        
+
         <a href="users/john-powe/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/923/setting/avatar.jpg" alt="John Powe" class="img-cover rounded-circle">
@@ -5662,24 +5662,24 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$6,000-$8,500</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                                            
+
                         <span class="">Moundou,</span>
-                    
+
                     <span class="">Hybrid</span>
                 </div>
             </div>
@@ -5701,7 +5701,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
@@ -5709,7 +5709,7 @@
 </svg>
                     <span class="">Permanent</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon25.svg" alt="Product Manager" class="img-fluid">
             </div>
@@ -5724,10 +5724,10 @@
             <span class="">Business &amp; Management</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Product Manager.</div>
 
-        
+
         <a href="users/james-kong/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/3/setting/avatar.jpg" alt="James Kong" class="img-cover rounded-circle">
@@ -5756,18 +5756,18 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <span class="font-weight-bold text-dark">Negotiable</span>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                    
+
                     <span class="">Remote</span>
                 </div>
             </div>
@@ -5789,7 +5789,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" opacity=".4"/>
@@ -5797,7 +5797,7 @@
 </svg>
                     <span class="">Commission-based</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon24.svg" alt="Sales Representative" class="img-fluid">
             </div>
@@ -5812,10 +5812,10 @@
             <span class="">Business &amp; Management</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Sales Representative.</div>
 
-        
+
         <a href="users/jessica-wray/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/870/setting/avatar.jpg" alt="Jessica Wray" class="img-cover rounded-circle">
@@ -5844,24 +5844,24 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$2,500</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                                            
+
                         <span class="">Medina,</span>
-                    
+
                     <span class="">On-site</span>
                 </div>
             </div>
@@ -5883,7 +5883,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
@@ -5891,7 +5891,7 @@
 </svg>
                     <span class="">Permanent</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon23.svg" alt="HR Specialist" class="img-fluid">
             </div>
@@ -5906,10 +5906,10 @@
             <span class="">Business &amp; Management</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled HR Specialist.</div>
 
-        
+
         <a href="users/affogato-media/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/864/setting/avatar.jpg" alt="Affogato Media" class="img-cover rounded-circle">
@@ -5938,22 +5938,22 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$3,500-$5,000</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                    
+
                     <span class="">Hybrid</span>
                 </div>
             </div>
@@ -5975,7 +5975,7 @@
 
     <div class="position-relative d-flex flex-column z-index-3 bg-white p-16 rounded-16 w-100 h-100">
         <div class="d-flex align-items-center justify-content-between">
-            
+
                             <div class="d-flex-center gap-4 py-8 px-12 rounded-16 bg-gray-100 font-12 text-gray-500">
                     <svg height="16" width="16" class="text-gray-500 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M11.13 15.88c-.25 0-.5-.13-.64-.36-.21-.35-.1-.82.26-1.03l.89-.53v-1.08c0-.41.34-.75.75-.75s.75.34.75.75v1.5c0 .26-.14.51-.36.64l-1.25.75c-.14.07-.27.11-.4.11z"/>
@@ -5984,7 +5984,7 @@
 </svg>
                     <span class="">Temporary</span>
                 </div>
-            
+
             <div class="d-flex-center size-64">
                 <img src="store/1/default_images/courses/icons/course_icon3.svg" alt="Content Writer" class="img-fluid">
             </div>
@@ -5999,10 +5999,10 @@
             <span class="">Digital Marketing &amp; Growth</span>
         </div>
 
-        
+
         <div class="mt-16 text-gray-500">We are looking for a skilled Content Writer.</div>
 
-        
+
         <a href="users/linda-anderson/profile.html" class="d-flex align-items-center my-16 text-dark">
             <div class="size-40 bg-gray-100 rounded-circle">
                 <img src="store/934/setting/avatar.jpg" alt="Linda Anderson" class="img-cover rounded-circle">
@@ -6031,22 +6031,22 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-        
+
             </div>
             </div>
         </a>
 
-        
+
         <div class="d-flex align-items-center justify-content-between pt-16 mt-auto border-top-gray-100">
             <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center font-weight-bold text-dark">
                                                             <span class="">$2,000-$3,500</span>
-                            
+
                             <span class="">/Month</span>
                         </div>
-                                    
+
                 <div class="d-flex align-items-center gap-4 font-12 text-gray-500">
-                    
+
                     <span class="">Remote</span>
                 </div>
             </div>
@@ -6063,26 +6063,26 @@
 
     </div>
                 </div>
-            
+
             <div class="d-flex-center flex-column text-lg-center mt-48">
-                
+
                                     <div class="d-flex align-items-lg-center gap-4">
                                                     <div class="d-flex-center size-24">
                                 <svg width="24px" height="24px" class="icons text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M21.09 6.98c-.85-.94-2.27-1.41-4.33-1.41h-.24v-.04c0-1.68 0-3.76-3.76-3.76h-1.52c-3.76 0-3.76 2.09-3.76 3.76v.05h-.24c-2.07 0-3.48.47-4.33 1.41-.99 1.1-.96 2.58-.86 3.59l.01.07.1 1.05c.01.01.03.03.05.04.33.22.67.44 1.03.64.14.09.29.17.44.25 1.71.94 3.59 1.57 5.5 1.88.09.94.5 2.04 2.69 2.04s2.62-1.09 2.69-2.06c2.04-.33 4.01-1.04 5.79-2.08.06-.03.1-.06.15-.09.46-.26.89-.54 1.31-.85a.12.12 0 00.05-.05l.04-.36.05-.47c.01-.06.01-.11.02-.18.08-1.01.06-2.39-.88-3.43zm-8 6.85c0 1.06 0 1.22-1.23 1.22s-1.23-.19-1.23-1.21v-1.26h2.46v1.25zM8.91 5.57v-.04c0-1.7 0-2.33 2.33-2.33h1.52c2.33 0 2.33.64 2.33 2.33v.05H8.91v-.01z"/>
   <path d="M20.5 12.3l-.15.09a17.037 17.037 0 01-5.79 2.08c-.08.96-.5 2.06-2.69 2.06s-2.61-1.09-2.69-2.04c-1.91-.3-3.79-.93-5.5-1.88-.15-.08-.3-.16-.44-.25-.36-.2-.7-.42-1.03-.64-.02-.01-.04-.03-.05-.04l.61 6.51c.21 1.99 1.03 4.04 5.43 4.04h7.62c4.4 0 5.22-2.05 5.43-4.05l.63-6.78a.12.12 0 01-.05.05c-.43.31-.87.6-1.33.85z" opacity=".4"/>
 </svg>                            </div>
-                        
+
                         <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-4">
                                                             <h5 class="font-14">240 trained students</h5>
-                            
+
                                                             <div class="">successfully employed across multiple fields</div>
                                                     </div>
                     </div>
 
                                             <div class="text-gray-500 mt-16">Many students secured successful careers across multiple industries through skills-focused learning programs.</div>
-                                    
-                
+
+
                                     <div class="d-flex-center flex-wrap gap-16 mt-16">
                                                                                     <a href="jobs/backend-engineer.html" target="_blank" class="font-weight-bold text-gray-500">Backend Developer</a>
 
@@ -6094,30 +6094,30 @@
 
                                                                     <div class="jobs-board-section__circle-dot-separator"></div>
                                                                                                                                                             </div>
-                
-                
+
+
                                     <a href="jobs.html" class="btn-flip-effect btn btn-primary btn-xlg gap-8 text-white mt-28" data-text="Explore All Jobs">
                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M11 20.01a9.01 9.01 0 100-18.02 9.01 9.01 0 000 18.02z" opacity=".4"/>
   <path d="M14 10.25H8c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h6c.41 0 .75.34.75.75s-.34.75-.75.75zM11 13.25H8c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75zM21.99 18.95c-.33-.61-1.03-.95-1.97-.95-.71 0-1.32.29-1.68.79-.36.5-.44 1.17-.22 1.84.43 1.3 1.18 1.59 1.59 1.64.06.01.12.01.19.01.44 0 1.12-.19 1.78-1.18.53-.77.63-1.54.31-2.15z"/>
-</svg>                        
+</svg>
                         <span class="btn-flip-effect__text">Explore All Jobs</span>
                     </a>
                             </div>
 
-        </div> 
+        </div>
 
 
-        
+
                     <div class="jobs-board-section__floating-image">
                 <img src="store/landing_builder/landing_13/506/jobhero_briefcase_C6Z.png" alt="Floating Image">
             </div>
-        
-        
+
+
                     <div class="jobs-board-section__bottom-image">
                 <img src="store/landing_builder/landing_13/506/jobs_bottom_image_WdJ.png" alt="Bottom Image" class="img-cover">
             </div>
-        
+
     </section>
                     <div class="position-relative d-flex" style="height: 80px">
 
@@ -6126,15 +6126,15 @@
         <div class="container">
             <div class="d-flex-center flex-column text-center">
                                     <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Testimonials</div>
-                
+
                                     <h2 class="mt-16 font-32 text-dark">Student Reviews and Shared Experiences</h2>
-                
+
                                     <p class="mt-20 font-16 text-gray-500">Discover honest student reviews and inspiring stories about learning experiences and success with our platform</p>
                             </div>
         </div>
 
 
-        
+
                     <div class="testimonials-scroll-wrapper position-relative w-100 overflow-hidden">
                 <div class="testimonials-scroll-animation scroll-right-left mt-40">
                                                                         <div class="sliding-testimonial-card position-relative">
@@ -6174,7 +6174,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6216,7 +6216,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6258,7 +6258,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6300,7 +6300,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6342,7 +6342,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6384,7 +6384,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6426,7 +6426,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6468,7 +6468,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6510,7 +6510,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6552,7 +6552,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6594,7 +6594,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6636,7 +6636,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6678,7 +6678,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6720,7 +6720,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6762,7 +6762,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6804,7 +6804,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6846,7 +6846,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6888,7 +6888,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6930,7 +6930,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -6972,7 +6972,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7017,7 +7017,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7059,7 +7059,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7101,7 +7101,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7143,7 +7143,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7185,7 +7185,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7227,7 +7227,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7269,7 +7269,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7311,7 +7311,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7353,7 +7353,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7395,7 +7395,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7437,7 +7437,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7479,7 +7479,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7521,7 +7521,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7563,7 +7563,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7605,7 +7605,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7647,7 +7647,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7689,7 +7689,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7731,7 +7731,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7773,7 +7773,7 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
@@ -7815,20 +7815,20 @@
                 <svg width="14px" height="14px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M5.74 16c.11-.49-.09-1.19-.44-1.54l-2.43-2.43c-.76-.76-1.06-1.57-.84-2.27.23-.7.94-1.18 2-1.36l3.12-.52c.45-.08 1-.48 1.21-.89l1.72-3.45C10.58 2.55 11.26 2 12 2s1.42.55 1.92 1.54l1.72 3.45c.13.26.4.51.69.68L5.56 18.44c-.14.14-.38.01-.34-.19L5.74 16zM18.7 14.462c-.36.36-.56 1.05-.44 1.54l.69 3.01c.29 1.25.11 2.19-.51 2.64a1.5 1.5 0 01-.9.27c-.51 0-1.11-.19-1.77-.58l-2.93-1.74c-.46-.27-1.22-.27-1.68 0l-2.93 1.74c-1.11.65-2.06.76-2.67.31-.23-.17-.4-.4-.51-.7l12.16-12.16c.46-.46 1.11-.67 1.74-.56l1.01.17c1.06.18 1.77.66 2 1.36.22.7-.08 1.51-.84 2.27l-2.42 2.43z"/>
 </svg>            </span>
-                
+
             </div>
         </div>
     </div>
 </div>
                                                             </div>
             </div>
-        
+
                     <div class="container">
                 <div class="d-flex align-items-center mt-40 ">
                                             <div class="sliding-testimonials-2-rows-section__cta-floating-img d-flex-center">
                             <img src="store/landing_builder/landing_13/411/testimonials_ksP.png" alt="floating_image" class="img-fluid" width="160px" height="160px">
                         </div>
-                    
+
                     <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-16 p-12 rounded-32 bg-white">
                         <div class="d-flex-center p-8 rounded-16 bg-warning">
                                                             <svg width="16px" height="16px" class="icons text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -7845,7 +7845,7 @@
 
                         <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-4">
                                                             <h4 class="font-16 text-dark">Over 2,500 happy students</h4>
-                            
+
                                                             <div class="font-16 text-gray-500">have shared their experiences with our courses</div>
                                                     </div>
                     </div>
@@ -7857,14 +7857,14 @@
             <div class="container">
                 <div class="d-flex-center flex-column text-center">
                                             <div class="d-inline-flex-center py-8 px-16 rounded-8 border-primary bg-primary-20 font-12 text-primary">Read More</div>
-                    
+
                                             <h2 class="mt-12 font-32 text-dark">Blog and Articles</h2>
-                    
+
                                             <p class="mt-16 font-16 text-gray-500">Stay informed with expert-written articles, tips, and insights to support your learning journey daily</p>
                                     </div>
 
-                
-                
+
+
                 <div class="row mt-4">
                     <div class="col-12 col-lg-6 mt-24">
                         <a href="blog/How-To-Teach-Your-Kid-Anything-Easily-3.html" class="text-decoration-none d-block">
@@ -8039,7 +8039,7 @@
                     </div>
                 </div>
 
-                
+
                                     <div class="d-flex-center flex-column text-center mt-24">
 
                         <a href="blog.html" class="btn-flip-effect btn btn-primary btn-xlg text-white gap-8" data-text="Blog Posts">
@@ -8047,18 +8047,18 @@
   <path d="M21.66 10.44l-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23z" opacity=".4"/>
   <path d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27zM17.49 10.51c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 01.37-1.45l4.85 1.23a.748.748 0 01-.18 1.47z"/>
   <path d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 01.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56z"/>
-</svg>                            
+</svg>
                             <span class="btn-flip-effect__text text-white">Blog Posts</span>
                         </a>
 
                     </div>
-                
+
             </div>
         </div>
                         <div class="position-relative d-flex" style="height: 40px">
 
         </div>
-                
+
 
             <div id="appFooterArea">
             <div class="theme-footer-1 position-relative has-newsletter">
@@ -8067,7 +8067,7 @@
             <div class="theme-footer-1__section-bg-wrapper dark-only" style="background-color: var(--secondary); background-image: url(store/themes/footers/2/footer_background_7gn.png); "></div>
 
 
-            
+
                             <div class="theme-footer-1__newsletter">
     <div class="container position-relative">
         <div class="theme-footer-1__newsletter-mask"></div>
@@ -8078,14 +8078,14 @@
                     <div class="">
                         <div class="d-flex align-items-center gap-4">
                                                             <h4 class="font-20">Subscribe to Our Newsletter</h4>
-                            
+
                                                             <div class="theme-footer-1__newsletter-emoji">
                                     <img src="store/themes/footers/2/happy_emoji_zoa.svg" alt="emoji" class="img-fluid" width="20px" height="20px">
                                 </div>
                                                     </div>
 
                                                     <div class="mt-8 font-14 text-gray-500">Receive expert insights, course updates, and learning resources directly in your inbox and get notified</div>
-                        
+
                     </div>
                 </div>
 
@@ -8109,7 +8109,7 @@
         </div>
     </div>
 </div>
-            
+
             <div class="position-relative z-index-2">
 
                 <div class="container position-relative">
@@ -8119,24 +8119,24 @@
                                                                             <div class="size-24">
                                             <img src="store/themes/footers/2/power_emoji_42t.svg" alt="footer cta btn icon" class="img-fluid" width="24px" height="24px">
                                         </div>
-                                    
+
                                                                             <span class="">Let’s get started now!</span>
                                                                     </div>
 
                                                                     <h3 class="mt-16 font-44 text-white mr-0 mr-lg-48">Take the First Step Towards Mastery!</h3>
-                                
+
                                                                     <a href="classes.html" class="btn-flip-effect btn btn-xlg btn-primary gap-8 mt-32" data-text="Enroll on Courses">
                                                                                     <svg width="24px" height="24px" class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
   <path d="M18.38 12.84v4.93c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0L7.8 20.8c-1.2-.4-2.18-1.76-2.18-3.03l.01-4.93 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88z" opacity=".4"/>
   <path d="M19.98 6.46l-5.99-3.93c-1.08-.71-2.86-.71-3.94 0L4.03 6.46c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9V15c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
-</svg>                                        
+</svg>
                                         <span class="btn-flip-effect__text">Enroll on Courses</span>
                                     </a>
                                                                                     </div>
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Additional Links</h4>
-                            
+
                                                                                                                                         <a href="login.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Login</span>
                                         </a>
@@ -8162,7 +8162,7 @@
 
                         <div class="col-6 col-lg-2 mt-32 mt-lg-0">
                                                             <h4 class="font-16 text-white">Popular Categories</h4>
-                            
+
                                                                                                                                         <a href="categories/Development.html" target="_blank" class="d-block font-16 text-white opacity-70 mt-16">
                                             <span class="">Development</span>
                                         </a>
@@ -8188,7 +8188,7 @@
 
                         <div class="col-12 col-lg-3 mt-32 mt-lg-0">
                                                                                                 <h4 class="font-16 text-white">Contact US</h4>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-20">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -8197,7 +8197,7 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">1234 Sunset Blvd, Suite 567 Los Angeles, CA 90026 United States</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -8206,7 +8206,7 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (323) 555-9876</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke="currentColor" aria-hidden="true">
@@ -8215,14 +8215,14 @@
 </svg>                                        </div>
                                         <span class="font-16 text-white opacity-70">+1 (213) 555-4321</span>
                                     </div>
-                                
+
                                                                     <div class="d-flex align-items-start gap-8 mt-16">
                                         <div class="size-24">
                                             <svg width="24px" height="24px" class="text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M17 9l-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
 </svg>                                        </div>
-                                        <span class="font-16 text-white opacity-70">mail@lms.rocket-soft.org</span>
+                                        <span class="font-16 text-white opacity-70">info@geic.in</span>
                                     </div>
                                                                                     </div>
 
@@ -8233,10 +8233,10 @@
                 <div class="theme-footer-1__bottom-section-divider"></div>
 
                 <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between py-24 px-16 gap-16">
-                                            <div class="font-14 text-white opacity-70">© 2025 Rocket Soft. All Rights Reserved. Empowering Learning Worldwide.</div>
-                    
+                                            <div class="font-14 text-white opacity-70">© 2025 Trans Globe Indore. All Rights Reserved. Empowering Learning Worldwide.</div>
+
                     <div class="d-flex align-items-center justify-content-center gap-16 gap-lg-24">
-                                                    
+
                                                                                                                                         <a href="https://www.instagram.com/" target="_blank" rel="nofollow" title="Instagram" class="d-flex-center size-24">
                                             <img src="store/1/default_images/social/instagram.svg" alt="Instagram" class="img-cover">
                                         </a>
@@ -8256,10 +8256,10 @@
         </div>
     </div>
         </div>
-    
-    
-    
-    
+
+
+
+
     <div class="cart-drawer no-footer bg-white py-16">
     <div class="d-flex align-items-center pb-16 border-bottom-gray-bg px-16">
         <button type="button" class="js-cart-drawer-close d-flex btn-transparent">
@@ -8359,12 +8359,12 @@
                                             <script src="assets/vendors/counterup/jquery.counterup.min.js"></script>
 
     <script src="assets/design_1/landing_builder/js/components/statistics.min.js"></script>
-    
+
     <script src="assets/default/vendors/swiper/swiper-bundle.min.js"></script>
     <script src="assets/design_1/js/parts/swiper_slider.min.js"></script>
     <script type="text/javascript" src="assets/default/vendors/simplebar/simplebar.min.js"></script>
 
-    
+
     <script src="assets/vendors/typed/typedjs.js"></script>
 
     <script src="assets/vendors/plyr.io/plyr.min.js"></script>
@@ -8376,14 +8376,14 @@
 
 <script>
 
-    
-    
+
+
 </script>
 
 <script src="assets/design_1/js/parts/general.min.js"></script>
 
 </body>
 
-<!-- Mirrored from lms.rocket-soft.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:21:50 GMT -->
+<!-- Mirrored from www.geic.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:21:50 GMT -->
 </html>
 

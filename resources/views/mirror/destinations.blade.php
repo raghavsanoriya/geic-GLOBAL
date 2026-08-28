@@ -176,8 +176,8 @@
                     <div class="col-12 col-lg-7 pr-lg-48">
                         <div class="tg-dest-hero__content">
                             <div class="tg-dest-eyebrow">Study destinations</div>
-                            <h1>Find the country that fits <span>your ambition</span></h1>
-                            <p class="tg-dest-hero__copy">Compare leading study destinations, understand what makes each one different and choose your next step with guidance from Trans Globe Indore.</p>
+                            <h1>{{ $cms['hero_title'] ?? 'Find the country that fits your ambition' }}</h1>
+                            <p class="tg-dest-hero__copy">{{ $cms['hero_copy'] ?? 'Compare leading study destinations, understand what makes each one different and choose your next step with guidance from Trans Globe Indore.' }}</p>
                             <div class="tg-dest-hero__actions">
                                 <a href="#explore-destinations" class="btn btn-primary btn-xlg text-white">Explore countries</a>
                                 <a href="{{ url('/#contact') }}" class="tg-dest-secondary-btn">Book free counselling</a>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="tg-dest-hero__mosaic" aria-hidden="true">
-                            <div class="tg-dest-hero__tile"><img src="assets/transglobe/destinations/australia.jpg" alt=""><span>Australia</span></div>
+                            <div class="tg-dest-hero__tile"><img src="{{ asset($cms['hero_image'] ?? 'assets/transglobe/destinations/australia.jpg') }}" alt=""><span>Australia</span></div>
                             <div class="tg-dest-hero__tile"><img src="assets/transglobe/destinations/germany.webp" alt=""><span>Germany</span></div>
                             <div class="tg-dest-hero__tile"><img src="assets/transglobe/destinations/canada.jpg" alt=""><span>Canada</span></div>
                         </div>

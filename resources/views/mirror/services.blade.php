@@ -229,8 +229,8 @@
                     <div class="col-12 col-lg-7">
                         <div class="tg-services-hero__copy">
                             <div class="tg-services-eyebrow">Trans Globe Indore services</div>
-                            <h1>Every expert step for your <span>global future.</span></h1>
-                            <p class="tg-services-hero__lead">From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.</p>
+                            <h1>{{ $cms['hero_title'] ?? 'Every expert step for your global future.' }}</h1>
+                            <p class="tg-services-hero__lead">{{ $cms['hero_copy'] ?? 'From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.' }}</p>
                             <div class="tg-services-hero__actions">
                                 <a href="{{ url('/#contact') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Book Free Counselling"><span class="btn-flip-effect__text text-white">Book Free Counselling</span></a>
                                 <a href="#services-grid" class="tg-services-hero__secondary">Explore every service</a>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="tg-services-hero__visual" aria-label="Students supported at every step of their overseas education journey">
-                            <div class="tg-services-hero__picture tg-services-hero__picture--large"><img src="{{ asset('assets/transglobe/services/services-team.avif') }}" alt="Trans Globe student support team" width="768" height="768"><span>Profile-first guidance</span></div>
+                            <div class="tg-services-hero__picture tg-services-hero__picture--large"><img src="{{ asset($cms['hero_image'] ?? 'assets/transglobe/services/services-team.avif') }}" alt="Trans Globe student support team" width="768" height="768"><span>Profile-first guidance</span></div>
                             <div class="tg-services-hero__picture"><img src="{{ asset('assets/transglobe/services/services-hero.avif') }}" alt="International education journey" width="1366" height="685"><span>One connected plan</span></div>
                             <div class="tg-services-hero__stamp"><span class="tg-services-hero__stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>10 services</b><small>One trusted team</small></span></div>
                         </div>
