@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Models\MediaAsset;
+use App\Models\MediaFolder;
 use App\Models\SiteContent;
 use App\Models\User;
 use App\Support\CmsPageCatalog;
@@ -588,13 +589,15 @@ class AdminController extends Controller
 
         return view('admin.media.index', [
             'assets' => $query->orderBy($column, $direction)->paginate(18)->withQueryString(),
-            'folders' => MediaAsset::query()->select('folder')->distinct()->orderBy('folder')->pluck('folder'),
+            'folders' => MediaFolder::query()->orderBy('name')->pluck('name')->merge(MediaAsset::query()->select('folder')->distinct()->pluck('folder'))->unique()->values(),
         ]);
     }
 
     public function createMediaFolder(Request $request): RedirectResponse
     {
         $name = trim($request->validate(['folder' => ['required', 'string', 'max:100', 'regex:/^[^\\\/]+$/']])['folder']);
+
+        MediaFolder::firstOrCreate(['name' => $name]);
 
         return redirect()->route('admin.media.index', ['folder' => $name])->with('status', "Folder '{$name}' is ready. Select it before uploading images.");
     }
