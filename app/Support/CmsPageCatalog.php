@@ -367,7 +367,7 @@ class CmsPageCatalog
             $pages[] = self::page('destination.'.$slug, 'Destination · '.$item['name'], 'Complete destination details, visuals, requirements, costs, careers, universities and FAQs.', self::destinationFields($item));
         }
         foreach (ServiceCatalog::all() as $item) {
-            $pages[] = self::detail('service.'.$item['slug'], 'Service · '.$item['title'], 'Service details page', $item['title'], $item['summary'], $item['image']);
+            $pages[] = self::serviceDetail($item);
         }
         foreach (EventCatalog::all() as $item) {
             $pages[] = self::detail('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $item['title'], $item['summary'], $item['image']);
@@ -504,6 +504,38 @@ class CmsPageCatalog
             self::field('hero_copy', 'Hero description', $copy, 'textarea'),
             self::field('hero_image', 'Hero image URL', $image, 'image'),
         ]);
+    }
+
+    private static function serviceDetail(array $item): array
+    {
+        $fields = self::detail('service.'.$item['slug'], 'Service · '.$item['title'], 'Service details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('overview_title', 'Overview title', 'A specialist service with your whole journey in mind.');
+        $fields[] = self::field('overview_copy', 'Overview content', $item['overview'], 'textarea', 'Overview');
+        $fields[] = self::field('overview_copy_two', 'Overview follow-up', 'Our team keeps the advice practical, the process easy to follow and your next decision clear.', 'textarea', 'Overview');
+        $fields[] = self::field('process_title', 'Process section title', 'Move forward with a plan, not a guessing game.', 'text', 'Process');
+        $fields[] = self::field('process_copy', 'Process section description', 'The exact details differ by student and destination, but every service begins by understanding your profile and ends with a confident next step.', 'textarea', 'Process');
+        foreach (array_slice($item['process'], 0, 3) as $index => [$title, $copy]) {
+            $n = $index + 1;
+            $fields[] = self::field("process_{$n}_title", "Process step {$n} title", $title, 'text', 'Process');
+            $fields[] = self::field("process_{$n}_copy", "Process step {$n} description", $copy, 'textarea', 'Process');
+        }
+        $fields[] = self::field('results_title', 'Outcomes section title', 'Practical help at the point it matters most.', 'text', 'Outcomes');
+        $fields[] = self::field('results_copy', 'Outcomes section description', 'Focused support, clear information and a well-prepared next stage for your overseas education plan.', 'textarea', 'Outcomes');
+        foreach (array_slice($item['results'], 0, 6) as $index => $result) {
+            $fields[] = self::field('result_'.($index + 1), 'Outcome '.($index + 1), $result, 'text', 'Outcomes');
+        }
+        $fields[] = self::field('faq_title', 'FAQ section title', 'Answers before you begin.', 'text', 'FAQs');
+        $fields[] = self::field('faq_copy', 'FAQ section description', 'Still deciding? A free counselling conversation is the easiest way to discuss your profile and next steps.', 'textarea', 'FAQs');
+        foreach (array_slice($item['faqs'], 0, 3) as $index => [$question, $answer]) {
+            $n = $index + 1;
+            $fields[] = self::field("faq_{$n}_question", "FAQ {$n} question", $question, 'text', 'FAQs');
+            $fields[] = self::field("faq_{$n}_answer", "FAQ {$n} answer", $answer, 'textarea', 'FAQs');
+        }
+        $fields[] = self::field('cta_title', 'CTA heading', 'Let’s make your '.$item['title'].' plan feel clear.', 'text', 'Call to action');
+        $fields[] = self::field('cta_copy', 'CTA description', 'Tell us your current stage, destination ideas and preferred intake. We’ll help you decide the most practical next step.', 'textarea', 'Call to action');
+        $fields[] = self::field('cta_label', 'CTA button label', 'Book my free counselling session', 'text', 'Call to action');
+
+        return self::page('service.'.$item['slug'], 'Service · '.$item['title'], 'Service details page', $fields);
     }
 
     private static function destinationFields(array $item): array
