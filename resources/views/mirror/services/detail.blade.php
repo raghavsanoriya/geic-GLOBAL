@@ -162,7 +162,7 @@
                 <span class="sd-hero__number" aria-label="Service {{ $service['number'] }}">{{ $service['number'] }}</span>
                 <div class="sd-hero__content">
                     <nav class="sd-crumbs" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/services') }}">Services</a><span>/</span><span>{{ $service['title'] }}</span></nav>
-                    <span class="sd-hero__eyebrow">{{ $service['eyebrow'] }}</span>
+                    <span class="sd-hero__eyebrow">{{ $cms['hero_eyebrow'] ?? $service['eyebrow'] }}</span>
                     <h1>{{ $cms['hero_title'] ?? $service['title'] }}</h1>
                     <p class="sd-hero__lead">{{ $cms['hero_copy'] ?? $service['summary'] }}</p>
                     <div class="sd-hero__actions"><a href="{{ url('/#contact') }}" class="sd-button">Book free counselling <span aria-hidden="true">→</span></a><a href="{{ $detailUrl }}#process" class="sd-button sd-button--outline">See how it works</a></div>
@@ -181,7 +181,7 @@
 
     <section class="sd-section" id="overview">
         <div class="sd-wrap sd-overview">
-            <div class="sd-overview__copy"><div class="sd-kicker">{{ $service['eyebrow'] }}</div><h2 class="sd-title">A specialist service with your whole journey in mind.</h2><p>{{ $service['overview'] }}</p><p>Our team keeps the advice practical, the process easy to follow and your next decision clear.</p><a href="{{ $detailUrl }}#process" class="sd-button" style="margin-top: 26px">See the process</a></div>
+            <div class="sd-overview__copy"><div class="sd-kicker">{{ $cms['overview_eyebrow'] ?? $service['eyebrow'] }}</div><h2 class="sd-title">{{ $cms['overview_title'] ?? 'A specialist service with your whole journey in mind.' }}</h2><p>{{ $cms['overview_copy'] ?? $service['overview'] }}</p><p>{{ $cms['overview_copy_two'] ?? 'Our team keeps the advice practical, the process easy to follow and your next decision clear.' }}</p><a href="{{ $detailUrl }}#process" class="sd-button" style="margin-top: 26px">{{ $cms['overview_cta_label'] ?? 'See the process' }}</a></div>
             <div class="sd-overview__image"><div class="sd-overview__image-main"><img src="{{ asset($service['image']) }}" alt="{{ $service['image_alt'] }}" loading="lazy" width="1366" height="685"></div><div class="sd-overview__flag"><strong>{{ $service['number'] }}</strong><span>of 10 integrated services for your global education journey</span></div></div>
         </div>
     </section>
@@ -189,19 +189,20 @@
     <x-detail-media-gallery :images="$serviceMedia" id="gallery" eyebrow="Your study journey" title="Guidance that connects every important decision." lead="A clearer path from your current profile to a university application that feels ready to submit." />
 
     <section class="sd-section sd-process-wrap" id="process">
-        <div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">A simple, supported process</div><h2 class="sd-title">Move forward with a plan, not a guessing game.</h2><p class="sd-lead">The exact details differ by student and destination, but every service begins by understanding your profile and ends with a confident next step.</p></div>
+        <div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">{{ $cms['process_eyebrow'] ?? 'A simple, supported process' }}</div><h2 class="sd-title">{{ $cms['process_title'] ?? 'Move forward with a plan, not a guessing game.' }}</h2><p class="sd-lead">{{ $cms['process_copy'] ?? 'The exact details differ by student and destination, but every service begins by understanding your profile and ends with a confident next step.' }}</p></div>
             <div class="sd-process">
-                @foreach($service['process'] as $index => [$title, $copy])
-                    <article class="sd-process__item"><span class="sd-process__number">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span><h3>{{ $title }}</h3><p>{{ $copy }}</p></article>
+                @foreach(array_slice($service['process'], 0, 3) as $index => [$title, $copy])
+                    @php($n = $index + 1)<article class="sd-process__item"><span class="sd-process__number">{{ str_pad($n, 2, '0', STR_PAD_LEFT) }}</span><h3>{{ $cms["process_{$n}_title"] ?? $title }}</h3><p>{{ $cms["process_{$n}_copy"] ?? $copy }}</p></article>
                 @endforeach
             </div>
         </div>
     </section>
 
     <section class="sd-section sd-section--soft" id="outcomes">
-        <div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">What you get</div><h2 class="sd-title">Practical help at the point it matters most.</h2><p class="sd-lead">Focused support, clear information and a well-prepared next stage for your overseas education plan.</p></div>
+        <div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">{{ $cms['results_eyebrow'] ?? 'What you get' }}</div><h2 class="sd-title">{{ $cms['results_title'] ?? 'Practical help at the point it matters most.' }}</h2><p class="sd-lead">{{ $cms['results_copy'] ?? 'Focused support, clear information and a well-prepared next stage for your overseas education plan.' }}</p></div>
             <div class="sd-results">
-                @foreach($service['results'] as $result)
+                @foreach(array_slice($service['results'], 0, 6) as $index => $result)
+                    @php($result = $cms['result_'.($index + 1)] ?? $result)
                     <article class="sd-result"><span class="sd-result__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.2 4.2L19 6.5"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></span><h3>{{ $result }}</h3><p>Guidance from a team that understands the next decision in your study-abroad journey.</p></article>
                 @endforeach
             </div>
@@ -211,17 +212,17 @@
     <section class="sd-section" id="universities"><div class="sd-wrap"><div class="sd-center"><div class="sd-kicker">University network</div><h2 class="sd-title">Institutions students often consider with this service.</h2><p class="sd-lead">A selection of recognised universities across the destinations we support. Your shortlist is always matched to your profile, course and intake.</p></div><x-university-network :universities="$serviceUniversities" country="Global" slug="service-{{ $service['slug'] }}" /></div></section>
 
     <section class="sd-section" id="faqs">
-        <div class="sd-wrap sd-faq-layout"><div class="sd-faq-intro"><div class="sd-kicker">Common questions</div><h2 class="sd-title">Answers before you begin.</h2><p class="sd-lead">Still deciding? A free counselling conversation is the easiest way to discuss your profile and next steps.</p><a href="{{ url('/#contact') }}" class="sd-button" style="margin-top: 25px">Talk to a counsellor</a></div>
+        <div class="sd-wrap sd-faq-layout"><div class="sd-faq-intro"><div class="sd-kicker">{{ $cms['faq_eyebrow'] ?? 'Common questions' }}</div><h2 class="sd-title">{{ $cms['faq_title'] ?? 'Answers before you begin.' }}</h2><p class="sd-lead">{{ $cms['faq_copy'] ?? 'Still deciding? A free counselling conversation is the easiest way to discuss your profile and next steps.' }}</p><a href="{{ url('/#contact') }}" class="sd-button" style="margin-top: 25px">{{ $cms['faq_cta_label'] ?? 'Talk to a counsellor' }}</a></div>
             <div class="sd-faq">
-                @foreach($service['faqs'] as [$question, $answer])
-                    <details><summary>{{ $question }}</summary><p>{{ $answer }}</p></details>
+                @foreach(array_slice($service['faqs'], 0, 3) as $index => [$question, $answer])
+                    @php($n = $index + 1)<details><summary>{{ $cms["faq_{$n}_question"] ?? $question }}</summary><p>{{ $cms["faq_{$n}_answer"] ?? $answer }}</p></details>
                 @endforeach
             </div>
         </div>
     </section>
 
     <section class="sd-section sd-section--soft" id="enquire">
-        <div class="sd-wrap"><div class="sd-cta"><div class="sd-cta__content"><div class="sd-kicker">Start with one conversation</div><h2>Let’s make your {{ strtolower($service['title']) }} plan feel clear.</h2><p>Tell us your current stage, destination ideas and preferred intake. We’ll help you decide the most practical next step.</p><a href="{{ url('/#contact') }}" class="sd-button">Book my free counselling session <span aria-hidden="true">→</span></a></div></div></div>
+        <div class="sd-wrap"><div class="sd-cta"><div class="sd-cta__content"><div class="sd-kicker">{{ $cms['cta_eyebrow'] ?? 'Start with one conversation' }}</div><h2>{{ $cms['cta_title'] ?? 'Let’s make your '.strtolower($service['title']).' plan feel clear.' }}</h2><p>{{ $cms['cta_copy'] ?? 'Tell us your current stage, destination ideas and preferred intake. We’ll help you decide the most practical next step.' }}</p><a href="{{ url('/#contact') }}" class="sd-button">{{ $cms['cta_label'] ?? 'Book my free counselling session' }} <span aria-hidden="true">→</span></a></div></div></div>
     </section>
 </main>
 
