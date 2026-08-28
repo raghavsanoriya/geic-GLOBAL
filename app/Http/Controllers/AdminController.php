@@ -17,6 +17,7 @@ use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
+use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -702,8 +703,14 @@ class AdminController extends Controller
         [$column, $direction] = $sortMap[$sort] ?? $sortMap['newest'];
 
         $folders = MediaAsset::query()->select('folder')->whereNotNull('folder')->distinct()->pluck('folder');
-        if (Schema::hasTable('media_folders')) {
-            $folders = MediaFolder::query()->orderBy('name')->pluck('name')->merge($folders)->unique()->values();
+        try {
+            if (Schema::hasTable('media_folders')) {
+                $folders = MediaFolder::query()->orderBy('name')->pluck('name')->merge($folders)->unique()->values();
+            }
+        } catch (\Throwable $exception) {
+            // Keep the media library available when an older cPanel release
+            // has an unavailable or partially migrated folder table.
+            report($exception);
         }
 
         return view('admin.media.index', [
@@ -714,7 +721,18 @@ class AdminController extends Controller
 
     public function createMediaFolder(Request $request): RedirectResponse
     {
-        $name = trim($request->validate(['folder' => ['required', 'string', 'max:100', 'regex:/^[^\\\/]+$/']])['folder']);
+        $name = trim($request->validate([
+            'folder' => [
+                'required',
+                'string',
+                'max:100',
+                function (string $attribute, mixed $value, Closure $fail): void {
+                    if (str_contains($value, '/') || str_contains($value, '\\')) {
+                        $fail('Folder names cannot contain slashes.');
+                    }
+                },
+            ],
+        ])['folder']);
 
         // Older cPanel releases may not have run the folder migration yet.
         // The media asset folder column still supports the workflow safely.
