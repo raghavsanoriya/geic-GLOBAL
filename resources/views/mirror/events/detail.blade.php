@@ -6,7 +6,21 @@
     $summary = $cms['hero_copy'] ?? $event['summary'];
     $image = $cms['hero_image'] ?? $event['image'];
     $overview = $cms['overview_copy'] ?? $event['overview'];
-    $isUpcoming = $event['status'] === 'Upcoming';
+    $status = $cms['status'] ?? $event['status'];
+    $date = $cms['date'] ?? $event['date'];
+    $time = $cms['time'] ?? $event['time'];
+    $destination = $cms['destination'] ?? $event['destination'];
+    $location = $cms['location'] ?? $event['location'];
+    $isUpcoming = $status === 'Upcoming';
+    $highlights = array_values(array_filter([$cms['highlight_1'] ?? null, $cms['highlight_2'] ?? null, $cms['highlight_3'] ?? null])) ?: $event['highlights'];
+    $steps = [];
+    foreach (range(1, 4) as $stepNumber) {
+        $steps[] = [$cms["journey_{$stepNumber}_title"] ?? ($event['steps'][$stepNumber - 1][0] ?? ''), $cms["journey_{$stepNumber}_copy"] ?? ($event['steps'][$stepNumber - 1][1] ?? '')];
+    }
+    $faqs = [];
+    foreach (range(1, 3) as $faqNumber) {
+        $faqs[] = [$cms["faq_{$faqNumber}_question"] ?? ($event['faqs'][$faqNumber - 1][0] ?? ''), $cms["faq_{$faqNumber}_answer"] ?? ($event['faqs'][$faqNumber - 1][1] ?? '')];
+    }
 @endphp
 
 <style>
@@ -23,19 +37,19 @@
 </style>
 
 <main class="ed-page">
-    <section class="ed-hero"><div class="ed-wrap"><div class="ed-hero__panel" style="background-image:url('{{ asset($image) }}')"><div class="ed-hero__content"><nav class="ed-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/events') }}">Events</a><span>/</span><span>{{ $event['destination'] }}</span></nav><span class="ed-pill">{{ $event['status'] }}</span><h1>{{ $title }}</h1><p>{{ $summary }}</p><a href="#enquire" class="ed-button">{{ $isUpcoming ? 'Register my interest' : 'Plan my next event' }} <span aria-hidden="true">→</span></a></div></div></div></section>
-    <section class="ed-facts"><div class="ed-wrap"><div class="ed-facts__grid"><div class="ed-fact"><small>Date</small><strong>{{ $event['date'] }}</strong></div><div class="ed-fact"><small>Time</small><strong>{{ $event['time'] }}</strong></div><div class="ed-fact"><small>Destination</small><strong>{{ $event['destination'] }}</strong></div><div class="ed-fact"><small>Guidance team</small><strong>{{ $event['location'] }}</strong></div></div></div></section>
+    <section class="ed-hero"><div class="ed-wrap"><div class="ed-hero__panel" style="background-image:url('{{ asset($image) }}')"><div class="ed-hero__content"><nav class="ed-breadcrumb" aria-label="Breadcrumb"><a href="{{ url('/') }}">Home</a><span>/</span><a href="{{ url('/events') }}">Events</a><span>/</span><span>{{ $destination }}</span></nav><span class="ed-pill">{{ $cms['hero_eyebrow'] ?? $status }}</span><h1>{{ $title }}</h1><p>{{ $summary }}</p><a href="#enquire" class="ed-button">{{ $isUpcoming ? 'Register my interest' : 'Plan my next event' }} <span aria-hidden="true">→</span></a></div></div></div></section>
+    <section class="ed-facts"><div class="ed-wrap"><div class="ed-facts__grid"><div class="ed-fact"><small>Date</small><strong>{{ $date }}</strong></div><div class="ed-fact"><small>Time</small><strong>{{ $time }}</strong></div><div class="ed-fact"><small>Destination</small><strong>{{ $destination }}</strong></div><div class="ed-fact"><small>Guidance team</small><strong>{{ $location }}</strong></div></div></div></section>
     <nav class="ed-tabs" aria-label="Event page sections"><div class="ed-wrap ed-tabs__inner"><a href="#overview">Overview</a><a href="#highlights">What you will explore</a><a href="#journey">How it works</a><a href="#faqs">FAQs</a><a href="#enquire">Enquire</a></div></nav>
 
-    <section class="ed-section" id="overview"><div class="ed-wrap"><div class="ed-overview"><div class="ed-overview__image"><img src="{{ asset($image) }}" alt="{{ $event['image_alt'] }}"><span class="ed-overview__stamp">{{ $event['date'] }}</span></div><div><span class="ed-kicker">About this event</span><h2 class="ed-title">A useful conversation before a big decision.</h2><p class="ed-lead">{{ $overview }}</p><p class="ed-lead">Contact our Indore team for the latest attendance mode, venue information and availability.</p></div></div></div></section>
+    <section class="ed-section" id="overview"><div class="ed-wrap"><div class="ed-overview"><div class="ed-overview__image"><img src="{{ asset($image) }}" alt="{{ $event['image_alt'] }}"><span class="ed-overview__stamp">{{ $date }}</span></div><div><span class="ed-kicker">{{ $cms['overview_kicker'] ?? 'About this event' }}</span><h2 class="ed-title">{{ $cms['overview_title'] ?? 'A useful conversation before a big decision.' }}</h2><p class="ed-lead">{{ $overview }}</p><p class="ed-lead">{{ $cms['overview_copy_two'] ?? 'Contact our Indore team for the latest attendance mode, venue information and availability.' }}</p></div></div></div></section>
 
-    <section class="ed-section ed-section--soft" id="highlights"><div class="ed-wrap"><span class="ed-kicker">What you will explore</span><h2 class="ed-title">Arrive with questions. Leave with direction.</h2><div class="ed-highlights">@foreach($event['highlights'] as $index => $highlight)<article class="ed-highlight"><span class="ed-highlight__number">0{{ $index + 1 }}</span><h3>{{ $highlight }}</h3></article>@endforeach</div></div></section>
+    <section class="ed-section ed-section--soft" id="highlights"><div class="ed-wrap"><span class="ed-kicker">{{ $cms['highlights_kicker'] ?? 'What you will explore' }}</span><h2 class="ed-title">{{ $cms['highlights_title'] ?? 'Arrive with questions. Leave with direction.' }}</h2><div class="ed-highlights">@foreach($highlights as $index => $highlight)<article class="ed-highlight"><span class="ed-highlight__number">0{{ $index + 1 }}</span><h3>{{ $highlight }}</h3></article>@endforeach</div></div></section>
 
-    <section class="ed-section ed-dark" id="journey"><div class="ed-wrap"><span class="ed-kicker">Your connected event journey</span><h2 class="ed-title">Four simple steps from interest to action.</h2><p class="ed-lead">The event is one part of your plan. Our Indore team helps connect the information to your profile and next application milestone.</p><div class="ed-flow">@foreach($event['steps'] as $index => $step)<article class="ed-step"><span class="ed-step__num">0{{ $index + 1 }}</span><h3>{{ $step[0] }}</h3><p>{{ $step[1] }}</p></article>@endforeach</div></div></section>
+    <section class="ed-section ed-dark" id="journey"><div class="ed-wrap"><span class="ed-kicker">{{ $cms['journey_kicker'] ?? 'Your connected event journey' }}</span><h2 class="ed-title">{{ $cms['journey_title'] ?? 'Four simple steps from interest to action.' }}</h2><p class="ed-lead">{{ $cms['journey_copy'] ?? 'The event is one part of your plan. Our Indore team helps connect the information to your profile and next application milestone.' }}</p><div class="ed-flow">@foreach($steps as $index => $step)<article class="ed-step"><span class="ed-step__num">0{{ $index + 1 }}</span><h3>{{ $step[0] }}</h3><p>{{ $step[1] }}</p></article>@endforeach</div></div></section>
 
-    <section class="ed-section" id="faqs"><div class="ed-wrap"><div style="text-align:center"><span class="ed-kicker" style="justify-content:center">Questions answered</span><h2 class="ed-title">Before you attend</h2></div><div class="ed-faq">@foreach($event['faqs'] as $faq)<details><summary>{{ $faq[0] }}</summary><p>{{ $faq[1] }}</p></details>@endforeach</div></div></section>
+    <section class="ed-section" id="faqs"><div class="ed-wrap"><div style="text-align:center"><span class="ed-kicker" style="justify-content:center">{{ $cms['faq_kicker'] ?? 'Questions answered' }}</span><h2 class="ed-title">{{ $cms['faq_title'] ?? 'Before you attend' }}</h2></div><div class="ed-faq">@foreach($faqs as $faq)<details><summary>{{ $faq[0] }}</summary><p>{{ $faq[1] }}</p></details>@endforeach</div></div></section>
 
-    <section class="ed-section ed-section--soft" id="enquire"><div class="ed-wrap"><div class="ed-cta"><div class="ed-cta__copy"><span class="ed-kicker">Speak to Trans Globe Indore</span><h2>{{ $isUpcoming ? 'Confirm your interest in this event.' : 'Be ready for the next university conversation.' }}</h2><p>Share your destination, study level and preferred intake. We will help you understand the right next step and confirm current event availability.</p><a class="ed-button" href="{{ url('/contact#enquiry') }}">Send my enquiry <span aria-hidden="true">→</span></a></div><div class="ed-cta__image"><img src="{{ asset($image) }}" alt="{{ $event['image_alt'] }}"></div></div></div></section>
+    <section class="ed-section ed-section--soft" id="enquire"><div class="ed-wrap"><div class="ed-cta"><div class="ed-cta__copy"><span class="ed-kicker">{{ $cms['cta_eyebrow'] ?? 'Speak to Trans Globe Indore' }}</span><h2>{{ $cms['cta_title'] ?? ($isUpcoming ? 'Confirm your interest in this event.' : 'Be ready for the next university conversation.') }}</h2><p>{{ $cms['cta_copy'] ?? 'Share your destination, study level and preferred intake. We will help you understand the right next step and confirm current event availability.' }}</p><a class="ed-button" href="{{ url('/contact#enquiry') }}">{{ $cms['cta_label'] ?? 'Send my enquiry' }} <span aria-hidden="true">→</span></a></div><div class="ed-cta__image"><img src="{{ asset($image) }}" alt="{{ $event['image_alt'] }}"></div></div></div></section>
 </main>
 
 @include('mirror.partials.footer')

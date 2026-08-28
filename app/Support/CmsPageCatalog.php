@@ -370,7 +370,7 @@ class CmsPageCatalog
             $pages[] = self::serviceDetail($item);
         }
         foreach (EventCatalog::all() as $item) {
-            $pages[] = self::detail('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $item['title'], $item['summary'], $item['image']);
+            $pages[] = self::eventDetail($item);
         }
         foreach (ScholarshipCatalog::all() as $item) {
             $pages[] = self::detail('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', 'Find your '.$item['name'].' funding path.', $item['tagline'], $item['image']);
@@ -536,6 +536,47 @@ class CmsPageCatalog
         $fields[] = self::field('cta_label', 'CTA button label', 'Book my free counselling session', 'text', 'Call to action');
 
         return self::page('service.'.$item['slug'], 'Service · '.$item['title'], 'Service details page', $fields);
+    }
+
+    private static function eventDetail(array $item): array
+    {
+        $fields = self::detail('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('hero_eyebrow', 'Hero badge', $item['status'], 'text', 'Hero');
+        $fields[] = self::field('status', 'Event status', $item['status'], 'text', 'Event facts');
+        $fields[] = self::field('date', 'Event date', $item['date'], 'text', 'Event facts');
+        $fields[] = self::field('time', 'Event time', $item['time'], 'text', 'Event facts');
+        $fields[] = self::field('destination', 'Event destination', $item['destination'], 'text', 'Event facts');
+        $fields[] = self::field('location', 'Event location', $item['location'], 'text', 'Event facts');
+        $fields[] = self::field('overview_kicker', 'Overview eyebrow', 'About this event', 'text', 'Overview');
+        $fields[] = self::field('overview_title', 'Overview title', 'A useful conversation before a big decision.', 'text', 'Overview');
+        $fields[] = self::field('overview_copy', 'Overview content', $item['overview'], 'textarea', 'Overview');
+        $fields[] = self::field('overview_copy_two', 'Overview follow-up', 'Contact our Indore team for the latest attendance mode, venue information and availability.', 'textarea', 'Overview');
+        $fields[] = self::field('highlights_kicker', 'Highlights eyebrow', 'What you will explore', 'text', 'Highlights');
+        $fields[] = self::field('highlights_title', 'Highlights title', 'Arrive with questions. Leave with direction.', 'text', 'Highlights');
+        foreach (array_slice($item['highlights'], 0, 3) as $index => $highlight) {
+            $fields[] = self::field('highlight_'.($index + 1), 'Highlight '.($index + 1), $highlight, 'text', 'Highlights');
+        }
+        $fields[] = self::field('journey_kicker', 'Journey eyebrow', 'Your connected event journey', 'text', 'Journey');
+        $fields[] = self::field('journey_title', 'Journey title', 'Four simple steps from interest to action.', 'text', 'Journey');
+        $fields[] = self::field('journey_copy', 'Journey description', 'The event is one part of your plan. Our Indore team helps connect the information to your profile and next application milestone.', 'textarea', 'Journey');
+        foreach (array_slice($item['steps'], 0, 4) as $index => [$stepTitle, $stepCopy]) {
+            $n = $index + 1;
+            $fields[] = self::field("journey_{$n}_title", "Journey step {$n} title", $stepTitle, 'text', 'Journey');
+            $fields[] = self::field("journey_{$n}_copy", "Journey step {$n} description", $stepCopy, 'textarea', 'Journey');
+        }
+        $fields[] = self::field('faq_kicker', 'FAQ eyebrow', 'Questions answered', 'text', 'FAQs');
+        $fields[] = self::field('faq_title', 'FAQ section title', 'Before you attend', 'text', 'FAQs');
+        foreach (array_slice($item['faqs'], 0, 3) as $index => [$question, $answer]) {
+            $n = $index + 1;
+            $fields[] = self::field("faq_{$n}_question", "FAQ {$n} question", $question, 'text', 'FAQs');
+            $fields[] = self::field("faq_{$n}_answer", "FAQ {$n} answer", $answer, 'textarea', 'FAQs');
+        }
+        $fields[] = self::field('cta_eyebrow', 'CTA eyebrow', 'Speak to Trans Globe Indore', 'text', 'Call to action');
+        $fields[] = self::field('cta_title', 'CTA heading', $item['status'] === 'Upcoming' ? 'Confirm your interest in this event.' : 'Be ready for the next university conversation.', 'text', 'Call to action');
+        $fields[] = self::field('cta_copy', 'CTA description', 'Share your destination, study level and preferred intake. We will help you understand the right next step and confirm current event availability.', 'textarea', 'Call to action');
+        $fields[] = self::field('cta_label', 'CTA button label', 'Send my enquiry', 'text', 'Call to action');
+
+        return self::page('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $fields);
     }
 
     private static function destinationFields(array $item): array
