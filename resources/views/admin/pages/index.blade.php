@@ -57,7 +57,7 @@
     <section class="grid content-pages" aria-label="{{ $selectedGroup['label'] }}">
         @foreach($pages as $page)
             @php($pageState = $states->get($page['key']))
-            @php($heroField = collect($page['fields'])->firstWhere('key', 'hero_image'))
+            @php($heroField = collect($page['fields'])->firstWhere('key', 'thumbnail_image') ?: collect($page['fields'])->firstWhere('key', 'hero_image'))
             @php($thumbnailPath = $heroImages->get($page['key']) ?: ($heroField['default'] ?? ''))
             @php($thumbnailUrl = str_starts_with($thumbnailPath, 'http://') || str_starts_with($thumbnailPath, 'https://') ? $thumbnailPath : asset(ltrim($thumbnailPath, '/')))
             <article class="content-card">

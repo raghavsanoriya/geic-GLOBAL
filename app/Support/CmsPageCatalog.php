@@ -509,6 +509,7 @@ class CmsPageCatalog
     private static function serviceDetail(array $item): array
     {
         $fields = self::detail('service.'.$item['slug'], 'Service · '.$item['title'], 'Service details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('thumbnail_image', 'Listing thumbnail image', $item['image'], 'image', 'Page thumbnail');
         $fields[] = self::field('overview_title', 'Overview title', 'A specialist service with your whole journey in mind.');
         $fields[] = self::field('overview_copy', 'Overview content', $item['overview'], 'textarea', 'Overview');
         $fields[] = self::field('overview_copy_two', 'Overview follow-up', 'Our team keeps the advice practical, the process easy to follow and your next decision clear.', 'textarea', 'Overview');
@@ -541,6 +542,7 @@ class CmsPageCatalog
     private static function eventDetail(array $item): array
     {
         $fields = self::detail('event.'.$item['slug'], 'Event · '.$item['title'], 'Event details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('thumbnail_image', 'Listing thumbnail image', $item['image'], 'image', 'Page thumbnail');
         $fields[] = self::field('hero_eyebrow', 'Hero badge', $item['status'], 'text', 'Hero');
         $fields[] = self::field('hero_cta_label', 'Hero button label', $item['status'] === 'Upcoming' ? 'Register my interest' : 'Plan my next event', 'text', 'Hero');
         $fields[] = self::field('status', 'Event status', $item['status'], 'text', 'Event facts');
@@ -583,6 +585,7 @@ class CmsPageCatalog
     private static function scholarshipDetail(array $item): array
     {
         $fields = self::detail('scholarship.'.$item['slug'], 'Scholarship · '.$item['name'], 'Scholarship details page', 'Find your '.$item['name'].' funding path.', $item['tagline'], $item['image'])['fields'];
+        $fields[] = self::field('thumbnail_image', 'Listing thumbnail image', $item['image'], 'image', 'Page thumbnail');
         $fields[] = self::field('hero_eyebrow', 'Hero badge', 'Scholarships in '.$item['name'], 'text', 'Hero');
         $fields[] = self::field('hero_primary_cta', 'Hero primary button', 'Talk to a scholarship expert', 'text', 'Hero');
         $fields[] = self::field('hero_secondary_cta', 'Hero secondary button', 'Explore opportunities', 'text', 'Hero');
@@ -632,6 +635,7 @@ class CmsPageCatalog
     private static function testDetail(array $item): array
     {
         $fields = self::detail('test.'.$item['slug'], 'Test · '.$item['title'], 'Test preparation details page', $item['title'], $item['summary'], $item['image'])['fields'];
+        $fields[] = self::field('thumbnail_image', 'Listing thumbnail image', $item['image'], 'image', 'Page thumbnail');
         $fields[] = self::field('hero_eyebrow', 'Hero eyebrow', $item['eyebrow'], 'text', 'Hero');
         $fields[] = self::field('hero_primary_cta', 'Hero primary button', 'Plan my preparation', 'text', 'Hero');
         $fields[] = self::field('hero_secondary_cta', 'Hero secondary button', 'See the test format', 'text', 'Hero');
@@ -712,6 +716,7 @@ class CmsPageCatalog
             self::field('hero_title', 'Hero title', 'Study in '.$name),
             self::field('hero_copy', 'Hero description', $item['tagline'], 'textarea'),
             self::field('hero_image', 'Hero image URL', $item['hero'], 'image'),
+            self::field('thumbnail_image', 'Listing thumbnail image', $item['card'], 'image', 'Page thumbnail'),
             self::field('hero_image_alt', 'Hero image alt text', 'Study in '.$name),
             self::field('hero_image_position', 'Hero image position', $item['hero_position']),
             self::field('flag_image', 'Country flag image URL', 'assets/transglobe/destinations/flags/'.$item['flag'], 'image'),

@@ -297,8 +297,9 @@ class AdminController extends Controller
             ->pluck('total', 'page_key');
 
         $heroImages = SiteContent::query()
-            ->where('field_key', 'hero_image')
+            ->whereIn('field_key', ['thumbnail_image', 'hero_image'])
             ->whereNotNull('value')
+            ->orderByRaw("case when field_key = 'thumbnail_image' then 0 else 1 end")
             ->pluck('value', 'page_key');
 
         return view('admin.pages.index', [
