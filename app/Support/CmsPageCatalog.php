@@ -317,6 +317,11 @@ class CmsPageCatalog
                 self::field('hero_title', 'Hero title', 'Every expert step for your global future.'),
                 self::field('hero_copy', 'Hero description', 'From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.', 'textarea'),
                 self::field('hero_image', 'Primary hero image URL', 'assets/transglobe/services/services-team.avif', 'image'),
+                self::field('content_title', 'Content section title', 'How we can help', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Explore practical support tailored to your goals.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to take the next step?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Speak with our team for clear, personal guidance.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Speak to a Counsellor', 'text', 'Call to action'),
             ]),
             self::page('events', 'Events', 'University visits, admission days and study-abroad events', [
                 self::field('hero_title', 'Hero title', 'Meet universities. Find your next move.'),
@@ -324,16 +329,31 @@ class CmsPageCatalog
                 self::field('hero_image', 'Hero image URL', 'assets/transglobe/events/meet-eu-business-school-2026.jpg', 'image'),
                 self::field('archive_title', 'Archive section title', 'Event highlights from Indore and beyond'),
                 self::field('archive_copy', 'Archive section description', 'Explore recent university visits, admission days and expos from the Trans Globe network.', 'textarea'),
+                self::field('content_title', 'Content section title', 'Make your next move', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Meet specialists and university representatives at an upcoming event.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to join us?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Register your interest and our team will share the details.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Register interest', 'text', 'Call to action'),
             ]),
             self::page('scholarships', 'Scholarships', 'Scholarship listing and funding guidance', [
                 self::field('hero_title', 'Hero title', 'Fund your future, without the guesswork.'),
                 self::field('hero_copy', 'Hero description', 'Studying abroad does not have to feel out of reach. Discover scholarship opportunities that match your profile, then apply with a clear, well-prepared plan.', 'textarea'),
                 self::field('hero_image', 'Hero image URL', 'assets/transglobe/destinations/australia-detail-hero.jpg', 'image'),
+                self::field('content_title', 'Content section title', 'Find funding that fits', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Discover awards and bursaries that match your profile and study plan.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to explore your options?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Let our counsellors help you build a realistic funding plan.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Discuss scholarships', 'text', 'Call to action'),
             ]),
             self::page('tests', 'Test preparation', 'IELTS, PTE, TOEFL and other test-prep overview', [
                 self::field('hero_title', 'Hero title', 'Prepare with purpose. Test with confidence.'),
                 self::field('hero_copy', 'Hero description', 'Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.', 'textarea'),
                 self::field('hero_image', 'Hero image URL', 'assets/services/university-admissions.jpg', 'image'),
+                self::field('content_title', 'Content section title', 'Prepare with purpose', 'text', 'Main content'),
+                self::field('content_copy', 'Content section content', 'Build the skills, strategy and confidence needed for your target score.', 'textarea', 'Main content'),
+                self::field('cta_title', 'Call-to-action heading', 'Ready to start preparing?', 'text', 'Call to action'),
+                self::field('cta_copy', 'Call-to-action text', 'Speak with our test-preparation team about your target and timeline.', 'textarea', 'Call to action'),
+                self::field('cta_label', 'Call-to-action button', 'Plan my preparation', 'text', 'Call to action'),
             ]),
             self::page('contact', 'Contact', 'Contact information and enquiry page', [
                 self::field('hero_title', 'Hero title', 'Let’s make your next step clear.'),
@@ -387,6 +407,35 @@ class CmsPageCatalog
         }
 
         return null;
+    }
+
+    /**
+     * Return the first canonical page definition for a CMS group.
+     *
+     * Custom pages use the same editable structure as the group's baseline
+     * page, so new slugs can be created without falling back to a tiny hero
+     * only schema.
+     */
+    public static function firstForGroup(string $group): ?array
+    {
+        // Prefer the group's baseline definition when it exists.  Some
+        // groups also contain dotted detail definitions (for example
+        // `event.*`); those are intentionally secondary because custom
+        // slugs should inherit the complete group-level schema.
+        $baseline = self::find($group);
+
+        if ($baseline) {
+            return $baseline;
+        }
+
+        foreach (self::all() as $page) {
+            if (self::groupFor($page['key']) === $group && ! str_contains($page['key'], '.')) {
+                return $page;
+            }
+        }
+
+        return collect(self::all())
+            ->first(fn (array $page): bool => self::groupFor($page['key']) === $group);
     }
 
     /** @return array<string, array{label: string, description: string}> */

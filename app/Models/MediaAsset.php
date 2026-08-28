@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class MediaAsset extends Model
 {
-    protected $fillable = ['path', 'original_name', 'alt_text', 'mime_type', 'size'];
+    protected $fillable = ['path', 'folder', 'original_name', 'alt_text', 'mime_type', 'size'];
 }

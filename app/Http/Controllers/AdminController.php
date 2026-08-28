@@ -140,6 +140,74 @@ class AdminController extends Controller
         ]);
     }
 
+    public function ads(Request $request): View
+    {
+        Gate::authorize('ads.view');
+
+        $from = Carbon::parse($request->input('from', now()->subDays(29)->toDateString()))->startOfDay();
+        $to = Carbon::parse($request->input('to', now()->toDateString()))->endOfDay();
+        $campaigns = DB::table('ad_campaigns as campaigns')
+            ->join('ad_accounts as accounts', 'accounts.id', '=', 'campaigns.ad_account_id')
+            ->leftJoin('ad_performance as performance', function ($join) use ($from, $to): void {
+                $join->on('performance.ad_campaign_id', '=', 'campaigns.id')
+                    ->whereBetween('performance.metric_date', [$from->toDateString(), $to->toDateString()]);
+            })
+            ->select('campaigns.*', 'accounts.name as account_name', 'accounts.provider',
+                DB::raw('COALESCE(SUM(performance.spend), 0) as spend'),
+                DB::raw('COALESCE(SUM(performance.impressions), 0) as impressions'),
+                DB::raw('COALESCE(SUM(performance.clicks), 0) as clicks'),
+                DB::raw('COALESCE(SUM(performance.leads), 0) as leads'),
+                DB::raw('COALESCE(SUM(performance.qualified_leads), 0) as qualified_leads'),
+                DB::raw('COALESCE(SUM(performance.conversions), 0) as conversions'))
+            ->when($request->filled('provider'), fn ($q) => $q->where('accounts.provider', $request->string('provider')))
+            ->when($request->filled('status'), fn ($q) => $q->where('campaigns.status', $request->string('status')))
+            ->when($request->filled('destination'), fn ($q) => $q->where('campaigns.destination', $request->string('destination')))
+            ->groupBy('campaigns.id', 'accounts.name', 'accounts.provider')
+            ->orderByDesc('spend')->get();
+        $totals = [
+            'spend' => $campaigns->sum('spend'), 'impressions' => $campaigns->sum('impressions'),
+            'clicks' => $campaigns->sum('clicks'), 'leads' => $campaigns->sum('leads'),
+            'qualified_leads' => $campaigns->sum('qualified_leads'), 'conversions' => $campaigns->sum('conversions'),
+        ];
+        $daily = DB::table('ad_performance')->whereBetween('metric_date', [$from->toDateString(), $to->toDateString()])
+            ->select('metric_date', DB::raw('SUM(spend) as spend'), DB::raw('SUM(leads) as leads'), DB::raw('SUM(qualified_leads) as qualified_leads'))
+            ->groupBy('metric_date')->orderBy('metric_date')->get();
+
+        return view('admin.ads.index', [
+            'accounts' => DB::table('ad_accounts')->latest()->get(), 'campaigns' => $campaigns, 'daily' => $daily,
+            'totals' => $totals, 'from' => $from->toDateString(), 'to' => $to->toDateString(),
+            'destinations' => DB::table('ad_campaigns')->whereNotNull('destination')->distinct()->orderBy('destination')->pluck('destination'),
+        ]);
+    }
+
+    public function storeAdAccount(Request $request): RedirectResponse
+    {
+        Gate::authorize('ads.manage');
+        $data = $request->validate(['provider' => ['required', 'string', 'max:40'], 'name' => ['required', 'string', 'max:120'], 'external_account_id' => ['nullable', 'string', 'max:120']]);
+        DB::table('ad_accounts')->insert([...$data, 'status' => 'not_connected', 'created_at' => now(), 'updated_at' => now()]);
+
+        return back()->with('status', 'Ad account added. Connect credentials to begin syncing.');
+    }
+
+    public function storeAdCampaign(Request $request): RedirectResponse
+    {
+        Gate::authorize('ads.manage');
+        $data = $request->validate(['ad_account_id' => ['required', 'integer', 'exists:ad_accounts,id'], 'name' => ['required', 'string', 'max:160'], 'objective' => ['nullable', 'string', 'max:60'], 'status' => ['required', 'string', 'max:30'], 'daily_budget' => ['nullable', 'numeric', 'min:0'], 'landing_page' => ['nullable', 'string', 'max:180'], 'destination' => ['nullable', 'string', 'max:80']]);
+        DB::table('ad_campaigns')->insert([...$data, 'created_at' => now(), 'updated_at' => now()]);
+
+        return back()->with('status', 'Campaign added to the workspace.');
+    }
+
+    public function storeAdPerformance(Request $request): RedirectResponse
+    {
+        Gate::authorize('ads.manage');
+        $data = $request->validate(['ad_campaign_id' => ['required', 'integer', 'exists:ad_campaigns,id'], 'metric_date' => ['required', 'date'], 'spend' => ['nullable', 'numeric', 'min:0'], 'impressions' => ['nullable', 'integer', 'min:0'], 'clicks' => ['nullable', 'integer', 'min:0'], 'leads' => ['nullable', 'integer', 'min:0'], 'qualified_leads' => ['nullable', 'integer', 'min:0'], 'conversions' => ['nullable', 'integer', 'min:0'], 'revenue' => ['nullable', 'numeric', 'min:0']]);
+        $data = array_merge(array_fill_keys(['spend', 'impressions', 'clicks', 'leads', 'qualified_leads', 'conversions', 'revenue'], 0), $data);
+        DB::table('ad_performance')->updateOrInsert(['ad_campaign_id' => $data['ad_campaign_id'], 'metric_date' => $data['metric_date']], [...$data, 'updated_at' => now(), 'created_at' => now()]);
+
+        return back()->with('status', 'Daily ad performance saved.');
+    }
+
     public function export(Request $request): StreamedResponse
     {
         $enquiries = $this->filteredEnquiries($request)->get();
@@ -187,6 +255,9 @@ class AdminController extends Controller
             'week' => DB::table('counselling_enquiries')->where('created_at', '>=', now()->subDays(6)->startOfDay())->count(),
             'destinationOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('destination')->pluck('destination'),
             'sourceOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('source')->pluck('source'),
+            'sourcePageOptions' => DB::table('counselling_enquiries')->whereNotNull('source_page')->distinct()->orderBy('source_page')->pluck('source_page'),
+            'formOptions' => DB::table('counselling_enquiries')->whereNotNull('source_form')->distinct()->orderBy('source_form')->pluck('source_form'),
+            'campaignOptions' => DB::table('counselling_enquiries')->whereNotNull('utm_campaign')->distinct()->orderBy('utm_campaign')->pluck('utm_campaign'),
         ]);
     }
 
@@ -199,6 +270,9 @@ class AdminController extends Controller
             'total' => DB::table('counselling_enquiries')->count(),
             'destinationOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('destination')->pluck('destination'),
             'sourceOptions' => DB::table('counselling_enquiries')->distinct()->orderBy('source')->pluck('source'),
+            'sourcePageOptions' => DB::table('counselling_enquiries')->whereNotNull('source_page')->distinct()->orderBy('source_page')->pluck('source_page'),
+            'formOptions' => DB::table('counselling_enquiries')->whereNotNull('source_form')->distinct()->orderBy('source_form')->pluck('source_form'),
+            'campaignOptions' => DB::table('counselling_enquiries')->whereNotNull('utm_campaign')->distinct()->orderBy('utm_campaign')->pluck('utm_campaign'),
         ]);
     }
 
@@ -283,7 +357,16 @@ class AdminController extends Controller
             return back()->withErrors(['slug' => 'A page already uses this URL. Choose a different page URL.'])->withInput();
         }
 
-        DB::transaction(function () use ($validated, $slug, $pageKey, $path): void {
+        // Custom pages inherit the complete schema of their group baseline.
+        // This keeps services, events, scholarships, tests and promotions fully
+        // editable instead of seeding only the three generic hero fields.
+        $catalog = match ($validated['group']) {
+            'promotions' => CmsPageCatalog::find('promotion.landing'),
+            'landing' => null,
+            default => CmsPageCatalog::firstForGroup($validated['group']),
+        };
+
+        DB::transaction(function () use ($validated, $slug, $pageKey, $path, $catalog): void {
             CmsPage::create([
                 'page_key' => $pageKey,
                 'group' => $validated['group'],
@@ -293,11 +376,24 @@ class AdminController extends Controller
                 'description' => filled($validated['description'] ?? null) ? trim($validated['description']) : null,
             ]);
 
-            $initialContent = [
-                'hero_title' => ['Hero title', 'text', $validated['hero_title']],
-                'hero_copy' => ['Hero description', 'textarea', $validated['hero_copy']],
-                'hero_image' => ['Hero image URL', 'image', $validated['hero_image'] ?: 'assets/services/expert-counselling.jpg'],
-            ];
+            // Seed every baseline field so the guided editor and public renderer
+            // have a real dynamic content baseline for the selected group.
+            $initialContent = $catalog
+                ? collect($catalog['fields'])->mapWithKeys(function (array $field) use ($validated): array {
+                    $value = match ($field['key']) {
+                        'hero_title' => $validated['hero_title'],
+                        'hero_copy' => $validated['hero_copy'],
+                        'hero_image' => $validated['hero_image'] ?: ($field['default'] ?: 'assets/services/expert-counselling.jpg'),
+                        default => $field['default'] ?? '',
+                    };
+
+                    return [$field['key'] => [$field['label'], $field['type'], $value]];
+                })->all()
+                : [
+                    'hero_title' => ['Hero title', 'text', $validated['hero_title']],
+                    'hero_copy' => ['Hero description', 'textarea', $validated['hero_copy']],
+                    'hero_image' => ['Hero image URL', 'image', $validated['hero_image'] ?: 'assets/services/expert-counselling.jpg'],
+                ];
 
             foreach ($initialContent as $fieldKey => [$label, $type, $value]) {
                 SiteContent::create([
@@ -361,7 +457,7 @@ class AdminController extends Controller
 
     public function editPage(string $pageKey): View
     {
-        $page = CmsPageCatalog::find($pageKey);
+        $page = $this->catalogForPage($pageKey);
         abort_unless($page, 404);
 
         $values = SiteContent::valuesForPage($pageKey);
@@ -378,7 +474,7 @@ class AdminController extends Controller
 
     public function updatePage(Request $request, string $pageKey): RedirectResponse
     {
-        $page = CmsPageCatalog::find($pageKey);
+        $page = $this->catalogForPage($pageKey);
         abort_unless($page, 404);
 
         $validated = $request->validate([
@@ -387,8 +483,19 @@ class AdminController extends Controller
             'content_images' => ['nullable', 'array'],
             'content_images.*' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,gif', 'max:6144'],
             'intent' => ['required', 'in:draft,publish'],
+            'custom_fields' => ['nullable', 'array'],
+            'custom_fields.*.key' => ['required', 'string', 'regex:/^[a-z][a-z0-9_\-]{1,79}$/'],
+            'custom_fields.*.label' => ['required', 'string', 'max:120'],
+            'custom_fields.*.type' => ['required', 'in:text,textarea,image'],
+            'custom_fields.*.section' => ['nullable', 'string', 'max:80'],
+            'remove_fields' => ['nullable', 'array'],
+            'remove_fields.*' => ['string', 'regex:/^[a-z][a-z0-9_\-]{1,79}$/'],
         ]);
         $fieldMap = collect($page['fields'])->keyBy('key');
+        foreach (collect($validated['custom_fields'] ?? [])->keyBy('key') as $key => $definition) {
+            $fieldMap->put($key, ['key' => $key, 'label' => trim($definition['label']), 'default' => '', 'type' => $definition['type'], 'section' => trim($definition['section'] ?? '') ?: 'Custom fields', 'custom' => true]);
+        }
+        $remove = collect($validated['remove_fields'] ?? []);
 
         foreach ($request->file('content_images', []) as $key => $file) {
             $field = $fieldMap->get($key);
@@ -408,12 +515,19 @@ class AdminController extends Controller
             $validated['content'][$key] = $path;
         }
 
-        DB::transaction(function () use ($validated, $fieldMap, $pageKey): void {
+        DB::transaction(function () use ($validated, $fieldMap, $pageKey, $remove): void {
             $pageState = $this->initialisePageState($pageKey);
+
+            if ($remove->isNotEmpty()) {
+                SiteContent::query()->where('page_key', $pageKey)->whereIn('field_key', $remove->all())->delete();
+            }
 
             foreach ($validated['content'] as $key => $value) {
                 $field = $fieldMap->get($key);
                 if (! $field) {
+                    continue;
+                }
+                if ($remove->contains($key)) {
                     continue;
                 }
 
@@ -448,7 +562,7 @@ class AdminController extends Controller
 
     public function unpublishPage(string $pageKey): RedirectResponse
     {
-        abort_unless(CmsPageCatalog::find($pageKey), 404);
+        abort_unless($this->catalogForPage($pageKey), 404);
 
         CmsPageState::query()->updateOrCreate(
             ['page_key' => $pageKey],
@@ -460,29 +574,54 @@ class AdminController extends Controller
 
     public function media(): View
     {
+        $search = request()->string('q')->toString();
+        $folder = request()->string('folder')->toString();
+        $sort = request()->string('sort')->toString() ?: 'newest';
+        $query = MediaAsset::query()
+            ->when($search, fn ($q) => $q->where(function ($inner) use ($search) {
+                $inner->where('original_name', 'like', "%{$search}%")->orWhere('path', 'like', "%{$search}%")->orWhere('alt_text', 'like', "%{$search}%");
+            }))
+            ->when($folder, fn ($q) => $q->where('folder', $folder));
+        $sortMap = ['name' => ['original_name', 'asc'], 'oldest' => ['created_at', 'asc'], 'size' => ['size', 'desc'], 'newest' => ['created_at', 'desc']];
+        [$column, $direction] = $sortMap[$sort] ?? $sortMap['newest'];
+
         return view('admin.media.index', [
-            'assets' => MediaAsset::query()->latest()->paginate(18),
+            'assets' => $query->orderBy($column, $direction)->paginate(18)->withQueryString(),
+            'folders' => MediaAsset::query()->select('folder')->distinct()->orderBy('folder')->pluck('folder'),
         ]);
+    }
+
+    public function createMediaFolder(Request $request): RedirectResponse
+    {
+        $name = trim($request->validate(['folder' => ['required', 'string', 'max:100', 'regex:/^[^\\\/]+$/']])['folder']);
+
+        return redirect()->route('admin.media.index', ['folder' => $name])->with('status', "Folder '{$name}' is ready. Select it before uploading images.");
     }
 
     public function storeMedia(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:6144'],
+            'images' => ['required', 'array', 'min:1', 'max:30'],
+            'images.*' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:6144'],
             'alt_text' => ['nullable', 'string', 'max:180'],
+            'folder' => ['nullable', 'string', 'max:100'],
         ]);
+        $assets = collect($validated['images'])->map(function ($file) use ($validated) {
+            $storedPath = $file->store('cms', 'public');
 
-        $file = $validated['image'];
-        $storedPath = $file->store('cms', 'public');
-        $asset = MediaAsset::create([
-            'path' => 'storage/'.$storedPath,
-            'original_name' => $file->getClientOriginalName(),
-            'alt_text' => $validated['alt_text'] ?: null,
-            'mime_type' => $file->getMimeType() ?: 'image/*',
-            'size' => $file->getSize(),
-        ]);
+            return MediaAsset::create([
+                'path' => 'storage/'.$storedPath,
+                'folder' => trim($validated['folder'] ?? '') ?: 'General',
+                'original_name' => $file->getClientOriginalName(),
+                'alt_text' => $validated['alt_text'] ?: null,
+                'mime_type' => $file->getMimeType() ?: 'image/*',
+                'size' => $file->getSize(),
+            ]);
+        });
 
-        return redirect()->route('admin.media.index')->with('status', 'Image uploaded. Copy its URL into any Hero image field.')->with('latestAsset', $asset->path);
+        return redirect()->route('admin.media.index')
+            ->with('status', $assets->count().' image'.($assets->count() === 1 ? '' : 's').' uploaded successfully. They are now available in every page editor.')
+            ->with('latestAsset', $assets->pluck('path')->implode(', '));
     }
 
     public function logout(Request $request): RedirectResponse
@@ -533,11 +672,19 @@ class AdminController extends Controller
                     $search->where('full_name', 'like', "%{$term}%")
                         ->orWhere('email', 'like', "%{$term}%")
                         ->orWhere('phone', 'like', "%{$term}%")
-                        ->orWhere('preferred_course', 'like', "%{$term}%");
+                        ->orWhere('preferred_course', 'like', "%{$term}%")
+                        ->orWhere('source_page', 'like', "%{$term}%")
+                        ->orWhere('source_form', 'like', "%{$term}%")
+                        ->orWhere('utm_campaign', 'like', "%{$term}%");
                 });
             })
             ->when($request->filled('destination'), fn ($query) => $query->where('destination', $request->string('destination')->toString()))
             ->when($request->filled('source'), fn ($query) => $query->where('source', $request->string('source')->toString()))
+            ->when($request->filled('source_page'), fn ($query) => $query->where('source_page', $request->string('source_page')->toString()))
+            ->when($request->filled('source_form'), fn ($query) => $query->where('source_form', $request->string('source_form')->toString()))
+            ->when($request->filled('utm_campaign'), fn ($query) => $query->where('utm_campaign', $request->string('utm_campaign')->toString()))
+            ->when($request->filled('from'), fn ($query) => $query->whereDate('created_at', '>=', $request->string('from')->toString()))
+            ->when($request->filled('to'), fn ($query) => $query->whereDate('created_at', '<=', $request->string('to')->toString()))
             ->orderByDesc('created_at');
     }
 
@@ -590,6 +737,51 @@ class AdminController extends Controller
                 : [],
             'hasDraftChanges' => (bool) $hasDraftChanges,
         ];
+    }
+
+    /**
+     * Resolve the editable schema for a catalogue page or a custom CMS page.
+     * Promotional pages share the canonical landing schema so custom slugs
+     * expose every section in the guided editor.
+     */
+    private function catalogForPage(string $pageKey): ?array
+    {
+        $customPage = CmsPage::query()->where('page_key', $pageKey)->first();
+        $catalog = null;
+
+        if ($customPage) {
+            $catalog = $customPage->group === 'promotions'
+                ? CmsPageCatalog::find('promotion.landing')
+                : CmsPageCatalog::firstForGroup($customPage->group);
+
+            if ($catalog) {
+                $catalog = [
+                    ...$catalog,
+                    'key' => $customPage->page_key,
+                    'name' => $customPage->name,
+                    'description' => $customPage->description ?: $catalog['description'],
+                ];
+            }
+        }
+
+        $catalog = $catalog ?? CmsPageCatalog::find($pageKey);
+        if (! $catalog) {
+            return null;
+        }
+
+        $known = collect($catalog['fields'])->pluck('key')->all();
+        $customFields = SiteContent::query()->where('page_key', $pageKey)
+            ->whereNotIn('field_key', $known)->get()
+            ->map(fn (SiteContent $item): array => [
+                'key' => $item->field_key,
+                'label' => $item->label ?: $item->field_key,
+                'default' => '',
+                'type' => in_array($item->type, ['textarea', 'image', 'text'], true) ? $item->type : 'text',
+                'section' => 'Custom fields',
+                'custom' => true,
+            ])->values()->all();
+
+        return $customFields ? [...$catalog, 'fields' => [...$catalog['fields'], ...$customFields]] : $catalog;
     }
 
     private function initialisePageState(string $pageKey): CmsPageState

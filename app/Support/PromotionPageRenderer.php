@@ -41,8 +41,21 @@ class PromotionPageRenderer
                     continue;
                 }
 
-                $pattern = preg_replace('/\s+/', '\\\\s+', preg_quote($default, '~'));
-                $html = preg_replace('~'.$pattern.'~u', e($value), $html) ?? $html;
+                // Image fields are stored as either a Media Library path
+                // (`assets/...`) or an already-public URL (`/landing/assets/...`).
+                // Match both forms so changing an image in the editor updates
+                // every occurrence in the promotional template.
+                $candidates = [$default];
+                if ($field['type'] === 'image') {
+                    $candidates[] = ltrim((string) $default, '/');
+                    $candidates[] = preg_replace('~^/?landing/assets/~', 'assets/', (string) $default);
+                }
+
+                $replacement = self::assetUrl((string) $value, $field['type'] === 'image');
+                foreach (array_unique(array_filter($candidates, 'is_string')) as $candidate) {
+                    $pattern = preg_replace('/\s+/', '\\\\s+', preg_quote($candidate, '~'));
+                    $html = preg_replace('~'.$pattern.'~u', e($replacement), $html) ?? $html;
+                }
             }
         }
 
@@ -63,5 +76,38 @@ class PromotionPageRenderer
         );
 
         return new HtmlString($html);
+    }
+
+    private static function assetUrl(string $value, bool $image): string
+    {
+        if (! $image || $value === '') {
+            return $value;
+        }
+
+        if (str_starts_with($value, 'http://') || str_starts_with($value, 'https://') || str_starts_with($value, '//')) {
+            return $value;
+        }
+
+        if (str_starts_with($value, '/landing/assets/')) {
+            return $value;
+        }
+
+        if (str_starts_with($value, 'landing/assets/')) {
+            return '/'.$value;
+        }
+
+        if (str_starts_with($value, 'assets/')) {
+            return '/landing/'.$value;
+        }
+
+        if (str_starts_with($value, '/storage/')) {
+            return $value;
+        }
+
+        if (str_starts_with($value, 'storage/')) {
+            return '/'.$value;
+        }
+
+        return $value;
     }
 }

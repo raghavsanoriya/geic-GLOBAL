@@ -76,9 +76,11 @@
         .admin-sidebar__collapse{left:calc(var(--admin-sidebar) - 26px);background:var(--admin-primary);box-shadow:0 6px 15px rgba(227,30,36,.22)}
         .admin-sidebar__collapse:hover,.admin-sidebar__collapse.is-dragging{background:var(--admin-hover);color:var(--admin-ink);box-shadow:0 11px 25px rgba(243,149,30,.26)}
         .admin-topbar{min-height:var(--admin-header);padding:0 30px;border-color:var(--admin-line);background:#fff;backdrop-filter:none}
+        .admin-sidebar__collapse{display:grid;place-items:center}
         .admin-crumb{color:var(--admin-ink);font-size:16px;font-weight:700}
         .admin-crumb small{color:var(--admin-muted);font-size:12px;font-weight:400}
         .menu-button,.topbar-icon{width:44px;height:44px;border-radius:10px;color:var(--admin-muted)}
+        .menu-button svg,.topbar-icon svg{display:block;margin:auto}
         .topbar-back{display:inline-grid;width:44px;height:44px;place-items:center;border:1px solid var(--admin-line);border-radius:10px;background:#fff;color:var(--admin-muted)}
         .topbar-back svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8}
         .topbar-back:hover{border-color:var(--admin-hover);background:var(--admin-hover);color:var(--admin-ink)}
@@ -87,6 +89,7 @@
         .topbar-site:hover{border-color:var(--admin-hover);background:var(--admin-hover);color:var(--admin-ink)}
         .sign-out{min-height:44px;padding:0 8px;color:var(--admin-muted);font-size:13px;font-weight:500}
         .sign-out:hover{color:#985600}
+        .topbar-notifications{position:relative}.topbar-icon{position:relative}.notification-dot{position:absolute;top:7px;right:7px;width:7px;height:7px;border:2px solid #fff;border-radius:50%;background:var(--admin-primary)}.notification-panel{position:absolute;top:52px;right:0;width:320px;padding:0;border:1px solid var(--admin-line);border-radius:14px;background:#fff;box-shadow:0 18px 45px rgba(27,42,75,.18)}.notification-panel[hidden]{display:none}.notification-panel__head{padding:14px 16px;border-bottom:1px solid var(--admin-line);color:var(--admin-ink);font-size:12px;font-weight:700}.notification-item{display:block;padding:11px 16px;border-bottom:1px solid #f0f3f7;color:#5c6c86;font-size:11px}.notification-item:hover{background:#fff7f7}.notification-item strong{display:block;color:var(--admin-ink);font-size:11px}.notification-item small{display:block;margin-top:2px;color:#94a1b6;font-size:9px}.notification-empty{padding:18px;color:#94a1b6;font-size:11px}
         .admin-content{padding:20px 32px 40px}
         .page-head{align-items:center;margin-bottom:20px}
         .eyebrow{color:var(--admin-primary);font-size:10px}
@@ -242,6 +245,7 @@
                 @can('content.manage')<a href="{{ route('admin.pages.index') }}" title="Website content" @if(request()->routeIs('admin.pages.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg><span class="admin-nav__label">Website content</span></a>@endcan
                 @can('media.manage')<a href="{{ route('admin.media.index') }}" title="Media library" @if(request()->routeIs('admin.media.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 5-5 3 3 2-2 5 4"/></svg><span class="admin-nav__label">Media library</span></a>@endcan
             </nav>
+            @can('ads.view')<span class="admin-sidebar__section">Advertising</span><nav class="admin-nav"><a href="{{ route('admin.ads.index') }}" title="Ads & attribution" @if(request()->routeIs('admin.ads.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg><span class="admin-nav__label">Ads &amp; attribution</span></a></nav>@endcan
             @canany(['enquiries.view', 'enquiries.export'])<span class="admin-sidebar__section">Lead management</span><nav class="admin-nav">@can('enquiries.view')<a href="{{ route('admin.enquiries.index') }}" title="Student enquiries" @if(request()->routeIs('admin.enquiries.index')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4V5Z"/><path d="M8 10h8M8 14h5"/></svg><span class="admin-nav__label">Student enquiries</span></a>@endcan @can('enquiries.export')<a href="{{ route('admin.enquiries.export') }}" title="Export leads" @if(request()->routeIs('admin.enquiries.export')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M5 20h14"/></svg><span class="admin-nav__label">Export leads</span></a>@endcan</nav>@endcanany
             <span class="admin-sidebar__section">Account</span>
             <nav class="admin-nav">
@@ -256,6 +260,33 @@
         <div class="admin-main"><header class="admin-topbar"><div class="topbar-left"><button class="menu-button" type="button" data-side-toggle aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>@hasSection('backUrl')<a class="topbar-back" href="@yield('backUrl')" aria-label="@yield('backLabel', 'Go back')" title="@yield('backLabel', 'Go back')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></a>@endif<span class="admin-crumb">@yield('crumb', 'Dashboard') <small>Trans Globe Indore LMS</small></span></div><div class="topbar-actions"><a class="topbar-site" href="{{ url('/') }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5H5V5h5"/></svg><span>View website</span></a><button class="topbar-icon" type="button" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button><form method="post" action="{{ route('admin.logout') }}">@csrf<button class="sign-out" type="submit">Sign out</button></form></div></header><main class="admin-content" id="admin-main-content" tabindex="-1">@yield('content')</main></div>
     </div>
     <script>(() => { const shell = document.querySelector('[data-admin-shell]'); const toggle = document.querySelector('[data-side-toggle]'); const collapse = document.querySelector('[data-sidebar-collapse]'); if (!shell) return; const storageKey = 'geic-admin-sidebar-collapsed'; const serverDefault = @json((bool) (auth()->user()->admin_preferences['sidebar_collapsed'] ?? false)); const setCollapsed = collapsed => { shell.classList.toggle('sidebar-collapsed', collapsed); if (collapse) { collapse.setAttribute('aria-expanded', String(!collapsed)); collapse.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar'); collapse.querySelector('span').textContent = collapsed ? 'Expand sidebar' : 'Collapse sidebar'; } }; const persistCollapsed = collapsed => { setCollapsed(collapsed); try { localStorage.setItem(storageKey, String(collapsed)); } catch (error) {} }; try { const saved = localStorage.getItem(storageKey); setCollapsed(saved === null ? serverDefault : saved === 'true'); } catch (error) { setCollapsed(serverDefault); } if (collapse) { let dragStartX = null; let dragged = false; collapse.addEventListener('pointerdown', event => { dragStartX = event.clientX; dragged = false; collapse.classList.add('is-dragging'); collapse.setPointerCapture?.(event.pointerId); }); collapse.addEventListener('pointermove', event => { if (dragStartX !== null && Math.abs(event.clientX - dragStartX) > 6) dragged = true; }); collapse.addEventListener('pointerup', event => { if (dragStartX === null) return; const distance = event.clientX - dragStartX; dragStartX = null; collapse.classList.remove('is-dragging'); if (Math.abs(distance) > 24) persistCollapsed(distance < 0); }); collapse.addEventListener('pointercancel', () => { dragStartX = null; dragged = false; collapse.classList.remove('is-dragging'); }); collapse.addEventListener('click', () => { if (dragged) { dragged = false; return; } persistCollapsed(!shell.classList.contains('sidebar-collapsed')); }); } if (toggle) toggle.addEventListener('click', () => { const open = shell.classList.toggle('nav-open'); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); }); })();</script>
+    @can('enquiries.view')
+    @php
+        $notificationLeads = \Illuminate\Support\Facades\DB::table('counselling_enquiries')
+            ->latest()->limit(5)->get();
+    @endphp
+    <script>
+    (() => {
+        const button = document.querySelector('[aria-label="Notifications"]');
+        if (!button) return;
+        const leads = @json($notificationLeads);
+        button.setAttribute('aria-expanded', 'false');
+        if (leads.length && !button.querySelector('.notification-dot')) {
+            const dot = document.createElement('span');
+            dot.className = 'notification-dot';
+            dot.setAttribute('aria-hidden', 'true');
+            button.appendChild(dot);
+        }
+        let panel;
+        button.addEventListener('click', () => {
+            if (!panel) { panel = document.createElement('div'); panel.className = 'notification-panel'; panel.style.position = 'fixed'; panel.style.top = '72px'; panel.style.right = '28px'; panel.innerHTML = '<div class="notification-panel__head">Recent enquiries</div>' + (leads.length ? leads.map(lead => `<a class="notification-item" href="/admin/enquiries?q=${encodeURIComponent(lead.email || '')}"><strong>${lead.full_name || 'New enquiry'}</strong><small>${lead.destination || 'Destination not specified'} · ${lead.source_page || 'Path not captured'}</small></a>`).join('') : '<div class="notification-empty">No enquiries yet.</div>'); document.body.appendChild(panel); }
+            panel.hidden = !panel.hidden;
+            button.setAttribute('aria-expanded', String(!panel.hidden));
+        });
+        document.addEventListener('click', event => { if (panel && !panel.hidden && !panel.contains(event.target) && event.target !== button) panel.hidden = true; });
+    })();
+    </script>
+    @endcan
     @stack('scripts')
 </body>
 </html>

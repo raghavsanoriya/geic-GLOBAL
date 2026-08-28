@@ -104,6 +104,16 @@ class MirrorPageController extends Controller
         try {
             if (Schema::hasTable('cms_pages')) {
                 $customPage = CmsPage::query()->where('path', $page)->first();
+
+                // Resolve custom pages by their canonical dotted key as a
+                // fallback. This keeps group pages working even when a
+                // server rewrite normalises the path before it reaches the
+                // controller.
+                if (! $customPage) {
+                    $customPage = CmsPage::query()
+                        ->where('page_key', str_replace('/', '.', $page))
+                        ->first();
+                }
             }
         } catch (QueryException) {
             // Public fixed pages must remain available during setup or migration.
@@ -114,7 +124,9 @@ class MirrorPageController extends Controller
             abort_unless($pageState?->status === 'published', 404);
 
             if ($customPage->group === 'promotions') {
-                $catalogPage = CmsPageCatalog::find($customPage->page_key);
+                // Custom promotional slugs use the complete landing schema.
+                $catalogPage = CmsPageCatalog::find($customPage->page_key)
+                    ?: CmsPageCatalog::find('promotion.landing');
 
                 return view('mirror.promotions.show', [
                     'promotionHtml' => PromotionPageRenderer::render(
@@ -129,6 +141,9 @@ class MirrorPageController extends Controller
                 'mirrorPage' => $page,
                 'customPage' => $customPage,
                 'cms' => SiteContent::publicValuesForPage($customPage->page_key),
+                'customFields' => SiteContent::query()->where('page_key', $customPage->page_key)
+                    ->whereNotIn('field_key', collect(CmsPageCatalog::firstForGroup($customPage->group)['fields'] ?? [])->pluck('key')->all())
+                    ->get(),
             ]);
         }
 

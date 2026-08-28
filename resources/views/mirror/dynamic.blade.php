@@ -25,6 +25,9 @@
         <article class="custom-page__content-card">
             <h2>{{ $cms['content_title'] ?? 'How we can help' }}</h2>
             <p>{!! nl2br(e($cms['content_copy'] ?? 'Add the key information visitors need to understand this page and confidently take their next step.')) !!}</p>
+            @if(!empty($customFields) && $customFields->isNotEmpty())
+                <div class="custom-page__dynamic-data"><h3>More information</h3>@foreach($customFields as $field)<div><strong>{{ $field->label }}</strong><p>{!! nl2br(e($cms[$field->field_key] ?? '')) !!}</p></div>@endforeach</div>
+            @endif
             <div class="custom-page__cta">
                 <div><h3>{{ $cms['cta_title'] ?? 'Ready to take the next step?' }}</h3><p>{{ $cms['cta_copy'] ?? 'Speak with our Indore counselling team for clear, personal guidance.' }}</p></div>
                 <a href="{{ url('/contact#enquiry') }}">{{ $cms['cta_label'] ?? 'Speak to a Counsellor' }}</a>
