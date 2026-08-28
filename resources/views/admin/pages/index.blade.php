@@ -27,6 +27,7 @@
         .content-card__body h2{margin:0;font-size:17px}
         .content-card__body p{display:-webkit-box;overflow:hidden;margin:8px 0 18px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
         .content-card__body .content-card__foot{align-items:flex-end}
+        .content-card__actions{display:flex;align-items:center;gap:8px}.content-card__actions form{margin:0}.button--duplicate{min-height:42px;padding:0 13px;border:1px solid var(--admin-line);background:#fff;color:var(--admin-ink);box-shadow:none}.button--duplicate:hover{border-color:var(--admin-accent);background:var(--admin-accent);color:#fff}
         @media(prefers-reduced-motion:reduce){.content-card__thumbnail img{transition:none}.content-card__thumbnail:hover img{transform:none}}
         @media(max-width:620px){.content-groups{margin-right:-14px;margin-left:-14px;padding-right:14px;padding-left:14px;border-right:0;border-left:0;border-radius:0}.content-group-summary{align-items:flex-start;flex-direction:column}.content-group-summary__actions{width:100%;justify-content:space-between}.content-group-summary__actions>span{white-space:normal}}
     </style>
@@ -62,11 +63,11 @@
             <article class="content-card">
                 <a class="content-card__thumbnail" href="{{ route('admin.pages.edit', $page['key']) }}" aria-label="Edit {{ $page['name'] }}">
                     @if($thumbnailPath)<img src="{{ $thumbnailUrl }}" alt="Preview of {{ $page['name'] }}" width="640" height="340" loading="lazy">@endif
-                    <span class="content-card__type content-card__type--overlay">{{ str_starts_with($page['key'], 'destination.') ? 'Destination' : (str_starts_with($page['key'], 'service.') ? 'Service' : (str_starts_with($page['key'], 'scholarship.') ? 'Scholarship' : (str_starts_with($page['key'], 'test.') ? 'Test prep' : 'Landing page'))) }}</span>
+                    <span class="content-card__type content-card__type--overlay">{{ str_starts_with($page['key'], 'promotion.') ? 'Promotional page' : (str_starts_with($page['key'], 'destination.') ? 'Destination' : (str_starts_with($page['key'], 'service.') ? 'Service' : (str_starts_with($page['key'], 'event.') ? 'Event' : (str_starts_with($page['key'], 'scholarship.') ? 'Scholarship' : (str_starts_with($page['key'], 'test.') ? 'Test prep' : 'Landing page'))))) }}</span>
                 </a>
                 <div class="content-card__body">
                     <h2>{{ $page['name'] }}</h2><p>{{ $page['description'] }}</p>
-                    <div class="content-card__foot"><span>{{ $saved[$page['key']] ?? 0 }} saved field{{ ($saved[$page['key']] ?? 0) === 1 ? '' : 's' }} · {{ $pageState?->status ? ucfirst($pageState->status) : 'Published baseline' }}</span><a class="button" href="{{ route('admin.pages.edit', $page['key']) }}">Edit page <span aria-hidden="true">→</span></a></div>
+                    <div class="content-card__foot"><span>{{ $saved[$page['key']] ?? 0 }} saved field{{ ($saved[$page['key']] ?? 0) === 1 ? '' : 's' }} · {{ $pageState?->status ? ucfirst($pageState->status) : 'Published baseline' }}</span><div class="content-card__actions"><a class="button" href="{{ route('admin.pages.edit', $page['key']) }}">Edit <span aria-hidden="true">→</span></a>@if(str_starts_with($page['key'], 'promotion.'))<form method="post" action="{{ route('admin.pages.duplicate', $page['key']) }}">@csrf<button class="button button--duplicate" type="submit" aria-label="Duplicate {{ $page['name'] }}">Duplicate</button></form>@endif</div></div>
                 </div>
             </article>
         @endforeach

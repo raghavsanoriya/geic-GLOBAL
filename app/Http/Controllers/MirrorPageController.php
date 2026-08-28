@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Models\SiteContent;
+use App\Support\CmsPageCatalog;
 use App\Support\DestinationCatalog;
 use App\Support\EventCatalog;
+use App\Support\PromotionPageRenderer;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -22,19 +23,18 @@ class MirrorPageController extends Controller
     /**
      * Serve the standalone campaign landing page from its committed source.
      */
-    public function landing(): Response
+    public function landing(): View
     {
-        $html = str_replace(
-            '</head>',
-            '<meta name="csrf-token" content="'.e(csrf_token()).'" />'.PHP_EOL.'  </head>',
-            file_get_contents(base_path('landing-page/index.html'))
-        );
+        $page = CmsPageCatalog::find('promotion.landing');
+        abort_unless($page, 404);
 
-        return response(
-            $html,
-            200,
-            ['Content-Type' => 'text/html; charset=UTF-8']
-        );
+        return view('mirror.promotions.show', [
+            'promotionHtml' => PromotionPageRenderer::render(
+                $page,
+                SiteContent::publicValuesForPage('promotion.landing'),
+                route('landing.enquire')
+            ),
+        ]);
     }
 
     /**
@@ -112,6 +112,18 @@ class MirrorPageController extends Controller
         if ($customPage) {
             $pageState = CmsPageState::query()->where('page_key', $customPage->page_key)->first();
             abort_unless($pageState?->status === 'published', 404);
+
+            if ($customPage->group === 'promotions') {
+                $catalogPage = CmsPageCatalog::find($customPage->page_key);
+
+                return view('mirror.promotions.show', [
+                    'promotionHtml' => PromotionPageRenderer::render(
+                        $catalogPage,
+                        SiteContent::publicValuesForPage($customPage->page_key),
+                        route('promotions.enquire', $customPage->slug)
+                    ),
+                ]);
+            }
 
             return view('mirror.dynamic', [
                 'mirrorPage' => $page,

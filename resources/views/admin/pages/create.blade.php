@@ -41,7 +41,7 @@
             const group = document.querySelector('[data-page-group]');
             const prefix = document.querySelector('[data-url-prefix]');
             if (!group || !prefix) return;
-            const prefixes = {landing: '/', destinations: '/destinations/', services: '/services/', scholarships: '/scholarships/', tests: '/tests/'};
+            const prefixes = {landing: '/', promotions: '/promotions/', destinations: '/destinations/', services: '/services/', events: '/events/', scholarships: '/scholarships/', tests: '/tests/'};
             const updatePrefix = () => { prefix.textContent = prefixes[group.value] || '/'; };
             group.addEventListener('change', updatePrefix);
             updatePrefix();

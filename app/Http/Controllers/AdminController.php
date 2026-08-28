@@ -270,8 +270,10 @@ class AdminController extends Controller
         $prefix = match ($validated['group']) {
             'destinations' => 'destination',
             'services' => 'service',
+            'events' => 'event',
             'scholarships' => 'scholarship',
             'tests' => 'test',
+            'promotions' => 'promotion',
             default => null,
         };
         $pageKey = $prefix ? $prefix.'.'.$slug : $slug;
@@ -311,6 +313,50 @@ class AdminController extends Controller
         });
 
         return redirect()->route('admin.pages.edit', $pageKey)->with('status', 'Page created as a draft. Review the content, then publish it when ready.');
+    }
+
+    public function duplicatePage(string $pageKey): RedirectResponse
+    {
+        $source = CmsPageCatalog::find($pageKey);
+        abort_unless($source && CmsPageCatalog::groupFor($pageKey) === 'promotions', 404);
+
+        $sourceRecord = CmsPage::query()->where('page_key', $pageKey)->first();
+        $baseSlug = Str::slug(($sourceRecord?->slug ?: Str::afterLast($pageKey, '.')).'-copy');
+        $slug = $baseSlug;
+        $suffix = 2;
+
+        while (CmsPage::query()->where('path', 'promotions/'.$slug)->exists() || CmsPageCatalog::find('promotion.'.$slug)) {
+            $slug = $baseSlug.'-'.$suffix++;
+        }
+
+        $newPageKey = 'promotion.'.$slug;
+        $savedValues = SiteContent::valuesForPage($pageKey);
+
+        DB::transaction(function () use ($source, $slug, $newPageKey, $savedValues): void {
+            CmsPage::create([
+                'page_key' => $newPageKey,
+                'group' => 'promotions',
+                'name' => $source['name'].' Copy',
+                'slug' => $slug,
+                'path' => 'promotions/'.$slug,
+                'description' => $source['description'],
+            ]);
+
+            foreach ($source['fields'] as $field) {
+                SiteContent::create([
+                    'page_key' => $newPageKey,
+                    'field_key' => $field['key'],
+                    'label' => $field['label'],
+                    'type' => $field['type'],
+                    'value' => $savedValues[$field['key']] ?? $field['default'],
+                ]);
+            }
+
+            CmsPageState::create(['page_key' => $newPageKey, 'status' => 'draft', 'drafted_at' => now()]);
+        });
+
+        return redirect()->route('admin.pages.edit', $newPageKey)
+            ->with('status', 'Promotional page duplicated as a private draft. Update its content and publish when ready.');
     }
 
     public function editPage(string $pageKey): View

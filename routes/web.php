@@ -44,6 +44,7 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
             Route::get('/pages', [AdminController::class, 'pages'])->name('pages.index');
             Route::get('/pages/create', [AdminController::class, 'createPage'])->name('pages.create');
             Route::post('/pages', [AdminController::class, 'storePage'])->name('pages.store');
+            Route::post('/pages/{pageKey}/duplicate', [AdminController::class, 'duplicatePage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.duplicate');
             Route::get('/pages/{pageKey}', [AdminController::class, 'editPage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.edit');
             Route::put('/pages/{pageKey}', [AdminController::class, 'updatePage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.update');
             Route::delete('/pages/{pageKey}/published', [AdminController::class, 'unpublishPage'])->where('pageKey', '[A-Za-z0-9._-]+')->name('pages.unpublish');
@@ -75,6 +76,10 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
 Route::post('/landing/form-handler.php', [CounsellingEnquiryController::class, 'storeLanding'])
     ->middleware('throttle:10,1')
     ->name('landing.enquire');
+Route::post('/promotions/{promotion}/form-handler.php', [CounsellingEnquiryController::class, 'storePromotion'])
+    ->where('promotion', '[a-z0-9-]+')
+    ->middleware('throttle:10,1')
+    ->name('promotions.enquire');
 Route::get('/landing', [MirrorPageController::class, 'landing'])->name('landing');
 Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
     ->where('asset', '.*')

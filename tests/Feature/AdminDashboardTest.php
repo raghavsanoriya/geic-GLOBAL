@@ -355,4 +355,56 @@ class AdminDashboardTest extends TestCase
             ->assertOk()
             ->assertDontSee('Published before unpublishing');
     }
+
+    public function test_administrator_can_manage_and_duplicate_promotional_pages(): void
+    {
+        $admin = User::create([
+            'name' => 'Trans Globe Indore Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('a-safe-password'),
+            'is_admin' => true,
+        ]);
+
+        $this->actingAs($admin)
+            ->get('/admin/pages?group=promotions')
+            ->assertOk()
+            ->assertSee('Promotional pages')
+            ->assertSee('Study Abroad Guidance')
+            ->assertSee('Duplicate');
+
+        $this->actingAs($admin)
+            ->post('/admin/pages/promotion.landing/duplicate')
+            ->assertRedirect('/admin/pages/promotion.landing-copy');
+
+        $this->assertDatabaseHas('cms_pages', [
+            'page_key' => 'promotion.landing-copy',
+            'group' => 'promotions',
+            'path' => 'promotions/landing-copy',
+        ]);
+        $this->assertDatabaseHas('cms_page_states', [
+            'page_key' => 'promotion.landing-copy',
+            'status' => 'draft',
+        ]);
+
+        $this->get('/promotions/landing-copy')->assertNotFound();
+
+        $this->actingAs($admin)
+            ->put('/admin/pages/promotion.landing-copy', [
+                'content' => [
+                    'hero_title' => 'A campaign created in Laravel',
+                    'hero_copy' => 'An independently managed promotional campaign for future students.',
+                ],
+                'intent' => 'publish',
+            ])
+            ->assertRedirect('/admin/pages/promotion.landing-copy');
+
+        $this->get('/promotions/landing-copy')
+            ->assertOk()
+            ->assertSee('A campaign created in Laravel')
+            ->assertSee('/promotions/landing-copy/form-handler.php', false)
+            ->assertSee('href="/landing/styles.css?v=', false)
+            ->assertSee('data-university-marquee', false)
+            ->assertSee('data-marquee-toggle', false)
+            ->assertSee('/landing/assets/universities/monash-university.png', false);
+    }
 }
