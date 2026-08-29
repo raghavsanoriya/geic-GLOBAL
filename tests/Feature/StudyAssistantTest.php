@@ -36,4 +36,17 @@ class StudyAssistantTest extends TestCase
 
         $this->assertStringContainsString('AUD 24K–40K', (string) $response->json('reply'));
     }
+
+    public function test_assistant_can_build_a_grounded_study_plan(): void
+    {
+        Config::set('services.study_assistant.api_key', null);
+
+        $response = $this->postJson(route('study-assistant.chat'), [
+            'message' => 'Build my study plan for Australia',
+        ])->assertOk();
+
+        $this->assertStringContainsString('study-abroad plan for Australia', (string) $response->json('reply'));
+        $this->assertStringContainsString('Profile:', (string) $response->json('reply'));
+        $this->assertStringContainsString('Shortlist:', (string) $response->json('reply'));
+    }
 }

@@ -79,7 +79,8 @@
         if (!launcher || !panel || !form || !input || !messages) return;
 
         const suggestionSets = {
-            default: ['Which country fits my profile?', 'How do scholarships work?', 'IELTS, PTE or TOEFL?'],
+            default: ['Build my study plan', 'Which country fits my profile?', 'How do scholarships work?'],
+            planning: ['Build my study plan', 'When should I start?', 'What documents do I need?'],
             destinations: ['What are the entry requirements?', 'Compare Australia and the UK', 'Which city is best for students?'],
             tests: ['What score should I target?', 'How long should I prepare?', 'Book test-prep counselling'],
             scholarships: ['Where can I find merit awards?', 'Do I qualify for a scholarship?', 'When should I apply?'],
@@ -107,6 +108,7 @@
             if (value.includes('scholarship') || value.includes('funding') || value.includes('award')) return 'scholarships';
             if (value.includes('visa') || value.includes('permit') || value.includes('financial evidence')) return 'visa';
             if (value.includes('cost') || value.includes('budget') || value.includes('fee') || value.includes('tuition')) return 'costs';
+            if (value.includes('plan') || value.includes('roadmap') || value.includes('timeline') || value.includes('start')) return 'planning';
             if (value.includes('counselling') || value.includes('sop') || value.includes('admission') || value.includes('application')) return 'services';
             if (value.includes('country') || value.includes('destination') || value.includes('australia') || value.includes('uk') || value.includes('canada') || value.includes('usa')) return 'destinations';
             return 'default';
@@ -139,6 +141,7 @@
         }
         function guidedReply(question) {
             const text = question.toLowerCase();
+            if (text.includes('study plan') || text.includes('plan my') || text.includes('roadmap')) return 'Let’s build your study-abroad plan. Start with your course, study level, academic results and target intake; compare destination, course and budget fit; prepare your test and documents; then confirm each university’s official requirements before applying. Share your destination, budget and intake for a tailored checklist.';
             if (text.includes('ielts') || text.includes('pte') || text.includes('toefl') || text.includes('test')) return 'The right English test depends on your destination, university and course. We can help you compare IELTS, PTE and TOEFL, set a target score and plan preparation around your intake. Which country and course are you targeting?';
             if (text.includes('scholarship') || text.includes('funding')) return 'Scholarships can be merit-based, course-specific or linked to a university and intake. Tell me your destination and study level, and I will suggest the best places to start looking.';
             if (text.includes('visa') || text.includes('permit')) return 'Visa evidence varies by destination and your personal circumstances. Which destination are you considering?';

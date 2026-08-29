@@ -166,6 +166,10 @@ PROMPT;
     {
         $lower = mb_strtolower($message.' '.collect($history)->where('role', 'user')->pluck('content')->implode(' '));
 
+        if (preg_match('/study plan|plan my|planning assistant|roadmap|step[- ]by[- ]step/', $lower)) {
+            return $this->studyPlanReply($lower);
+        }
+
         foreach (DestinationCatalog::slugs() as $slug) {
             $destination = DestinationCatalog::find($slug) ?? [];
             $name = mb_strtolower((string) ($destination['name'] ?? $slug));
@@ -238,6 +242,23 @@ PROMPT;
         }
 
         return 'I can help you explore destinations, courses, scholarships, English tests, admissions and visa preparation. Tell me your preferred country, study level and intended intake, or ask a specific question to get started.';
+    }
+
+    private function studyPlanReply(string $question): string
+    {
+        $destination = collect(DestinationCatalog::slugs())
+            ->map(fn (string $slug): array => DestinationCatalog::find($slug) ?? [])
+            ->first(function (array $item) use ($question): bool {
+                $name = mb_strtolower((string) ($item['name'] ?? ''));
+                $slug = mb_strtolower((string) ($item['slug'] ?? ''));
+
+                return ($name !== '' && str_contains($question, $name)) || ($slug !== '' && str_contains($question, str_replace('-', ' ', $slug)));
+            });
+        $destinationName = $destination['name'] ?? 'your preferred destination';
+        $intakes = collect($destination['intakes'] ?? [])->take(2)->map(fn (array $intake): string => $intake[0])->implode(' or ');
+        $intakeLine = $intakes !== '' ? " Common planning windows for {$destinationName} include {$intakes}." : '';
+
+        return "Let’s build your study-abroad plan for {$destinationName}.\n\n1. Profile: confirm your course level, academic results, English-test status and target intake.\n2. Shortlist: compare course fit, tuition, living costs, visa pathway and post-study options across ambitious, realistic and safer choices.\n3. Prepare: organise transcripts, passport, CV, statement of purpose, references and any portfolio; book the right test early.\n4. Apply: check each university’s official requirements and deadline, submit a complete application, then review the offer before visa preparation.{$intakeLine}\n\nShare your course, study level, budget and intended intake and I’ll turn this into a more specific checklist.";
     }
 
     private function destinationReply(array $destination, string $question): string
