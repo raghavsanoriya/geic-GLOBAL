@@ -140,6 +140,9 @@
                                                                                                                                                 <a href="{{ url('/#faq') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">FAQs</span>
                                         </a>
+                                                                                <a href="{{ url('/study-planner') }}" class="d-block font-16 text-white opacity-70 mt-12">
+                                            <span class="">Study Planner</span>
+                                        </a>
                                                                                                                                                 <a href="{{ url('/pages/terms') }}" target="_blank" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Terms and Policies</span>
                                         </a>
