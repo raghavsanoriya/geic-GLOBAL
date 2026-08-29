@@ -17,7 +17,7 @@
                     width: 100%;
                     background-color: #0e2145 !important;
                     /* Keep the divider spacing inside the dark footer surface. */
-                    padding-top: 42px;
+                    padding-top: 0;
                     margin-top: 0;
                 }
                 #appFooterArea .theme-footer-1__bottom-section-divider {
