@@ -101,6 +101,11 @@ class MirrorPageController extends Controller
             abort(404);
         }
 
+        // Internal agent experiments are not part of the public website.
+        if ($page === 'ai-agents') {
+            abort(404);
+        }
+
         if ($page === 'blog') {
             return view('mirror.blog.list', [
                 'mirrorPage' => 'blog',
