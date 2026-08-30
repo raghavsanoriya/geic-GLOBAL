@@ -256,7 +256,7 @@
         .tg-mobile-bottom-nav__action::before { background: #F3951E !important; }
         .tg-mobile-bottom-nav button:focus-visible, .tg-mobile-bottom-nav a:focus-visible { outline: 3px solid rgba(243,149,30,.55); outline-offset: 2px; }
 
-        .home-page .two-columns-hero-section { min-height: auto; height: auto; margin: 0 10px 14px; padding: 18px 0 22px; overflow: hidden; border-radius: 30px; background-color: #fff; background-size: cover; box-shadow: 0 14px 36px rgba(14,33,69,.08); }
+        .home-page .two-columns-hero-section { width: calc(100% - 20px); min-height: auto; height: auto; margin: 0 10px 14px; padding: 18px 0 22px; overflow: hidden; border-radius: 30px; background-color: #fff; background-size: cover; box-shadow: 0 14px 36px rgba(14,33,69,.08); }
         .home-page .two-columns-hero-section__content { padding-top: 4px; padding-right: 12px; padding-bottom: 10px; }
         .home-page .two-columns-hero-section__content > div:first-child { max-width: 100%; padding-right: 12px !important; white-space: normal; }
         .home-page .two-columns-hero-section h1 { max-width: 100%; font-size: 34px !important; line-height: 1.08; letter-spacing: -.028em; }
