@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AiAgentController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\MirrorPageController;
 use App\Http\Controllers\SiteAnalyticsController;
@@ -16,6 +17,10 @@ Route::post('/site-events', [SiteAnalyticsController::class, 'store'])
 Route::post('/study-assistant/chat', [StudyAssistantController::class, 'chat'])
     ->middleware('throttle:30,1')
     ->name('study-assistant.chat');
+
+Route::post('/ai-agents/run', [AiAgentController::class, 'run'])
+    ->middleware('throttle:20,1')
+    ->name('ai-agents.run');
 
 Route::post('/destinations/australia/enquire', [CounsellingEnquiryController::class, 'storeAustralia'])
     ->middleware('throttle:10,1')
