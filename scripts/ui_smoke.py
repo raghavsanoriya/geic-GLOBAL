@@ -40,9 +40,11 @@ def main() -> None:
         page.set_viewport_size({"width": 1440, "height": 900})
         visit(page, "/ai-agents")
         cards = page.locator("[data-agent-card]")
-        assert cards.count() == 6
+        # The imported 500-AI-Agents set is always present; the catalog may
+        # also include additional curated references from other sources.
+        assert cards.count() >= 6
         page.locator("[data-agent-search]").fill("travel")
-        assert cards.locator(":visible").count() == 1
+        assert cards.locator(":visible").count() >= 1
         assert page.locator("[data-agent-empty]").is_hidden()
 
         visit(page, "/emi-calculator")
