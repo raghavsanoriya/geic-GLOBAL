@@ -1,6 +1,6 @@
 # AUITestAgent-inspired interaction → verification flow for Expo Go.
 # Run after starting the app with: npx expo start --go
-appId: host.exp.Exponent
+appId: host.exp.exponent
 
 ---
 - launchApp

@@ -12,5 +12,5 @@ npx expo start --go
 maestro test e2e/maestro/expo-go-smoke.yaml
 ```
 
-`host.exp.Exponent` is Expo Go's Android package id. For a custom development
+`host.exp.exponent` is Expo Go's Android package id. For a custom development
 build, override `appId` with that build's application id.
