@@ -134,9 +134,6 @@
                                                                                 <a href="{{ url('/education-loans') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Education Loans</span>
                                         </a>
-                                                                                <a href="{{ url('/ai-agents') }}" class="d-block font-16 text-white opacity-70 mt-12">
-                                            <span class="">AI Agents</span>
-                                        </a>
                                                                                                                                                 <a href="{{ url('/#why-trans-globe') }}" class="d-block font-16 text-white opacity-70 mt-12">
                                             <span class="">Why Trans Globe Indore</span>
                                         </a>

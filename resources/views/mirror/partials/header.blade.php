@@ -813,7 +813,6 @@
                                                             <a href="{{ url('/events') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'events') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_events'] ?? 'Events' }}</a>
                                                             <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
                                                             <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
-                                                            <a href="{{ url('/ai-agents') }}" class="{{ $isAiAgentsPage ? 'text-primary font-weight-bold' : 'text-dark' }}">AI Agents</a>
                                                             <a href="{{ url('/contact#enquiry') }}" class="{{ ($mirrorPage ?? '') === 'contact' ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_contact_label'] ?? 'Contact' }}</a>
                                                     </div>
                                     </div>

@@ -126,7 +126,6 @@ body.destination-page #appHeaderArea,
         <a href="{{ url('/events') }}">Events</a>
         <a href="{{ url('/scholarships') }}">Scholarships</a>
         <a href="{{ url('/tests') }}">Test preparation</a>
-        <a href="{{ url('/ai-agents') }}">AI agents</a>
         <a href="{{ url('/blog') }}">Blog</a>
         <a href="{{ url('/#work-visas') }}">Work visa pathways</a>
     </nav>

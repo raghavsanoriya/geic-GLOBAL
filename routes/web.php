@@ -19,7 +19,7 @@ Route::post('/study-assistant/chat', [StudyAssistantController::class, 'chat'])
     ->name('study-assistant.chat');
 
 Route::post('/ai-agents/run', [AiAgentController::class, 'run'])
-    ->middleware('throttle:20,1')
+    ->middleware(['auth', 'admin', 'throttle:20,1'])
     ->name('ai-agents.run');
 
 Route::post('/destinations/australia/enquire', [CounsellingEnquiryController::class, 'storeAustralia'])
@@ -121,6 +121,11 @@ Route::get('/landing', [MirrorPageController::class, 'landing'])->name('landing'
 Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
     ->where('asset', '.*')
     ->name('landing.asset');
+
+// The agent workspace is an internal tool and is not part of the public site.
+Route::get('/ai-agents', [MirrorPageController::class, 'show'])
+    ->middleware(['auth', 'admin'])
+    ->name('ai-agents.private');
 
 Route::get('/{page?}', [MirrorPageController::class, 'show'])
     ->where('page', '.*')
