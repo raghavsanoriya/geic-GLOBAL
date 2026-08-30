@@ -162,7 +162,10 @@ jobs:
   deploy:
     name: Release after verification
     needs: [test, frontend, ui, mobile]
-    if: github.event_name == 'push'
+    # Production/staging releases must be started explicitly from the
+    # controlled workflow_dispatch workflow. Never deploy as a side effect of
+    # pushing to main or develop.
+    if: ${{ false }}
     uses: ./.github/workflows/release.yml
     with:
       target: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
