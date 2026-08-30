@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-e0YDSiAb.css",
+    "file": "assets/app-UNJSn0s2.css",
     "name": "app",
     "names": [
       "app.css"
@@ -24,6 +24,15 @@
   "resources/fonts/instrument-sans-600.woff2": {
     "file": "assets/instrument-sans-600-B7fBEWYG.woff2",
     "src": "resources/fonts/instrument-sans-600.woff2"
+  },
+  "resources/js/ai-agents.jsx": {
+    "file": "assets/ai-agents-DMhyLXzR.js",
+    "name": "ai-agents",
+    "src": "resources/js/ai-agents.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/ai-agents-BzSUHyH1.css"
+    ]
   },
   "resources/js/app.js": {
     "file": "assets/app-BvRk9kiK.js",

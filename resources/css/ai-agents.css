@@ -1,0 +1,96 @@
+.tg-vant-panel {
+    margin: 0 0 24px;
+    padding: 18px;
+    border: 1px solid #dfe7f0;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(14, 33, 69, .05);
+}
+
+.tg-vant-panel__header,
+.tg-vant-panel__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tg-vant-panel__header {
+    margin-bottom: 14px;
+}
+
+.tg-vant-panel__header h2 {
+    margin: 3px 0 0;
+    color: #0e2145;
+    font-size: 20px;
+    letter-spacing: -.03em;
+}
+
+.tg-vant-panel__eyebrow {
+    color: #e31e24;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.tg-vant-panel .rv-search {
+    --rv-search-background: #f4f7fb;
+    --rv-search-content-background: #f4f7fb;
+    --rv-search-input-height: 42px;
+}
+
+.tg-vant-panel__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 8px;
+}
+
+.tg-vant-panel__categories .rv-button {
+    min-height: 36px;
+}
+
+.tg-vant-panel__list {
+    overflow: hidden;
+    border: 1px solid #edf1f6;
+    border-radius: 12px;
+}
+
+.tg-vant-panel__list .rv-cell {
+    background: #fff;
+}
+
+.tg-vant-panel__list .rv-cell + .rv-cell {
+    border-top: 1px solid #edf1f6;
+}
+
+.tg-vant-panel__list .rv-cell.is-selected {
+    background: #fff5f5;
+}
+
+.tg-vant-panel__footer {
+    margin-top: 14px;
+    color: #667695;
+    font-size: 12px;
+}
+
+.tg-vant-panel__footer .rv-button {
+    min-height: 40px;
+}
+
+@media (max-width: 767px) {
+    .tg-vant-panel {
+        padding: 14px;
+        border-radius: 15px;
+    }
+
+    .tg-vant-panel__footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tg-vant-panel__footer .rv-button {
+        width: 100%;
+    }
+}

@@ -12,6 +12,8 @@
 <main class="tg-agents">
     <section class="tg-agents__hero"><div class="tg-agents__wrap"><span class="tg-agents__eyebrow">Curated for curious teams</span><h1>Useful AI agents for a clearer global education journey.</h1><p class="tg-agents__lead">Explore practical open-source patterns for researching destinations, planning travel, answering student questions and understanding important documents.</p><div class="tg-agents__meta"><span>{{ count($agents) }} curated projects</span><span>Open-source references</span><span>Built by the community</span></div></div></section>
     <section class="tg-agents__body"><div class="tg-agents__wrap"><div class="tg-agents__toolbar"><div><span class="tg-agents__eyebrow" style="color:#e31e24">Browse the collection</span><h2>Start with the problem you want to solve.</h2><p>These are discovery links, not services operated by Trans Globe. Review each project’s requirements, provider terms and license before using it.</p></div><label><span class="sr-only">Search AI agents</span><input class="tg-agents__search" type="search" placeholder="Search agents, tags or frameworks" data-agent-search></label></div>
+        <script type="application/json" id="ai-agents-catalog">@json($agents)</script>
+        <div id="ai-agents-vant"></div>
         <form class="tg-agent-workspace" data-agent-form><div class="tg-agent-workspace__fields"><label>Choose an agent<select name="agent">@foreach($agents as $agent)<option value="{{ $agent['slug'] }}">{{ $agent['title'] }}</option>@endforeach</select></label><label>Describe your request<textarea name="message" required maxlength="2000" placeholder="e.g. Compare Canada and Australia for a computer science master's."></textarea></label><button type="submit">Run agent</button></div><div class="tg-agent-workspace__reply" data-agent-reply aria-live="polite"></div></form>
         <div class="tg-agents__grid" data-agent-grid>
             @foreach($agents as $agent)
@@ -27,5 +29,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () { const input=document.querySelector('[data-agent-search]'), cards=[...document.querySelectorAll('[data-agent-card]')], empty=document.querySelector('[data-agent-empty]'); input?.addEventListener('input',function(){const q=this.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const ok=!q||c.dataset.agentSearchText.includes(q);c.hidden=!ok;if(ok)n++;});if(empty)empty.hidden=n!==0;}); const form=document.querySelector('[data-agent-form]'); form?.addEventListener('submit',async function(e){e.preventDefault();const reply=document.querySelector('[data-agent-reply]'),button=form.querySelector('button');button.disabled=true;reply.textContent='Thinking…';try{const r=await fetch('{{ route('ai-agents.run') }}',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','X-CSRF-TOKEN':document.querySelector('meta[name="csrf-token"]')?.content||''},body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))});const data=await r.json();if(!r.ok)throw new Error(data.message||'Unable to run this agent.');reply.textContent=data.reply||'No response returned.';}catch(err){reply.textContent=err.message||'Unable to run this agent.';}finally{button.disabled=false;}}); });
 </script>
+
+@vite('resources/js/ai-agents.jsx')
 
 @include('mirror.partials.footer', ['siteCms' => $cms ?? []])
