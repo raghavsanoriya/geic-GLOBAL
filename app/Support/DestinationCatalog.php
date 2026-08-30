@@ -42,6 +42,7 @@ class DestinationCatalog
         return array_merge([
             'slug' => $slug,
             'source' => "https://transglobeedu.com/study-destination/{$slug}",
+            'last_reviewed' => '30 August 2026',
             'hero' => "assets/transglobe/destinations/detail/{$slug}-hero.webp",
             'card' => "assets/transglobe/destinations/{$slug}.jpg",
             'hero_position' => 'center',

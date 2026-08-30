@@ -17,6 +17,8 @@
     .hero-enquiry button:hover { background:#c91820; transform:translateY(-1px); }
     .hero-enquiry__note { display:flex; align-items:center; gap:6px; margin:11px 0 0; color:rgba(255,255,255,.62); font-size:10px; line-height:1.35; }
     .hero-enquiry__note svg { width:13px; height:13px; flex:0 0 13px; fill:none; stroke:currentColor; stroke-width:2; }
+    .hero-enquiry__consent { display:flex; align-items:flex-start; gap:8px; margin-top:11px; color:rgba(255,255,255,.7); font-size:10px; line-height:1.4; }
+    .hero-enquiry__consent input { width:16px; height:16px; flex:0 0 16px; margin:0; accent-color:#ef2630; }
     .hero-enquiry__alert,.hero-enquiry__error { margin-top:9px; color:#fff; font-size:11px; line-height:1.4; }
     .hero-enquiry__alert { padding:9px 10px; border-radius:10px; background:rgba(53,180,109,.28); }
     .hero-enquiry__error { color:#ffd6d8; }
@@ -38,6 +40,8 @@
     <div class="hero-enquiry__field"><label for="{{ $heroFormId }}_name">Full name</label><input id="{{ $heroFormId }}_name" name="full_name" value="{{ old('full_name') }}" autocomplete="name" placeholder="Your name" required>@error('full_name')<span class="hero-enquiry__error">{{ $message }}</span>@enderror</div>
     <div class="hero-enquiry__field"><label for="{{ $heroFormId }}_phone">Phone number</label><input id="{{ $heroFormId }}_phone" name="phone" value="{{ old('phone') }}" inputmode="tel" autocomplete="tel" placeholder="+91 00000 00000" required>@error('phone')<span class="hero-enquiry__error">{{ $message }}</span>@enderror</div>
     <div class="hero-enquiry__field"><label for="{{ $heroFormId }}_email">Email address</label><input id="{{ $heroFormId }}_email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="you@example.com" required>@error('email')<span class="hero-enquiry__error">{{ $message }}</span>@enderror</div>
+    <label class="hero-enquiry__consent"><input type="checkbox" name="consent" value="1" @checked(old('consent')) required><span>I agree that GEIC Indore may contact me about this enquiry.</span></label>
+    @error('consent')<span class="hero-enquiry__error">{{ $message }}</span>@enderror
     <div class="hero-enquiry__honeypot" aria-hidden="true"><label for="{{ $heroFormId }}_website">Website</label><input id="{{ $heroFormId }}_website" name="website" tabindex="-1" autocomplete="off"></div>
     <button type="submit">Request a callback <span aria-hidden="true">→</span></button>
     <p class="hero-enquiry__note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Your details stay private and secure.</p>

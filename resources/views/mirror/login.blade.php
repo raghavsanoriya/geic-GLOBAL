@@ -15,9 +15,10 @@
 
 <meta name='robots' content="index, follow, all">
 
-    <meta name="description" content="Login Page Description">
-    <meta property="og:description" content="Login Page Description">
-    <meta name='twitter:description' content='Login Page Description'>
+    <meta name="description" content="Sign in to your Trans Globe Indore learning account and continue your study-abroad preparation.">
+    <link rel="canonical" href="{{ url('/login') }}">
+    <meta property="og:description" content="Sign in to your Trans Globe Indore learning account and continue your study-abroad preparation.">
+    <meta name='twitter:description' content='Sign in to your Trans Globe Indore learning account and continue your study-abroad preparation.'>
 
 <link rel='shortcut icon' type='image/x-icon' href="/store/1/geic-icon.png">
 <link rel="manifest" href="mix-manifest7b30.json?v=4">
@@ -40,9 +41,9 @@
 <link rel="home" href="index.html">
 
 <!-- Open Graph -->
-<meta property='og:title' content='Login'>
+<meta property='og:title' content='Log in | Trans Globe Indore'>
 <meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='Login'>
+<meta name='twitter:title' content='Log in | Trans Globe Indore'>
 
 
 <meta property='og:site_name' content='https://www.geic.in/Trans Globe Indore LMS'>
@@ -53,7 +54,7 @@
 
 
 
-    <title>Login | Trans Globe Indore LMS</title>
+    <title>Log in | Trans Globe Indore</title>
 
     <!-- General CSS File -->
     <link rel="stylesheet" href="assets/default/vendors/simplebar/simplebar.css">
@@ -68,6 +69,12 @@
     <link rel="stylesheet" href="assets/design_1/css/parts/auth/theme_1.min.css">
 
     <style>
+        @media (max-width: 767px) {
+            html, body { overflow-x: hidden !important; }
+            #appHeaderArea { display: none !important; }
+            .cart-drawer { display: none !important; }
+            .cart-drawer.show { display: block !important; }
+        }
 
 
         @font-face {
@@ -1309,4 +1316,3 @@
 
 <!-- Mirrored from www.geic.in/login by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Aug 2026 16:22:22 GMT -->
 </html>
-

@@ -70,6 +70,8 @@
     .cd-stat:last-child { border-right:0; }
     .cd-stat strong { display:block; color:var(--cd-navy); font-size:24px; line-height:1.2; }
     .cd-stat span { display:block; margin-top:6px; color:var(--cd-muted); font-size:13px; line-height:1.45; }
+    .cd-source-note { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:6px 14px; margin:14px 32px 0; color:#71819b; font-size:11px; line-height:1.5; text-align:center; }
+    .cd-source-note a { color:var(--cd-red); font-weight:800; }
 
     .cd-anchor { position:sticky; z-index:100; top:0; padding:12px 0; border-bottom:1px solid rgba(221,229,239,.9); background:rgba(244,247,251,.92); box-shadow:0 12px 28px rgba(14,33,69,.07); backdrop-filter:blur(16px); }
     .cd-anchor__inner { display:flex; gap:8px; overflow-x:auto; padding:8px; border:1px solid var(--cd-border); border-radius:18px; background:#fff; scrollbar-width:none; }
@@ -304,6 +306,7 @@
             <div class="cd-stats" aria-label="{{ $name }} study highlights">
                 @foreach($destination['stats'] as [$value,$label])<div class="cd-stat"><strong>{{ $value }}</strong><span>{{ $label }}</span></div>@endforeach
             </div>
+            <p class="cd-source-note"><span>Planning information last reviewed {{ $destination['last_reviewed'] ?? '30 August 2026' }}.</span><a href="{{ $destination['source'] }}" target="_blank" rel="nofollow noopener">View destination reference <span aria-hidden="true">↗</span></a></p>
         </div>
     </section>
 

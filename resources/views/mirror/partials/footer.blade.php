@@ -32,6 +32,13 @@
                 body {
                     overflow: visible !important;
                 }
+                @media (max-width: 767px) {
+                    /* The legacy cart drawer is closed by default. Removing it
+                       from layout prevents its off-canvas width from creating
+                       a second horizontal scrollbar on narrow pages. */
+                    .cart-drawer { display: none !important; }
+                    .cart-drawer.show { display: block !important; }
+                }
             </style>
             <div class="theme-footer-1 position-relative has-newsletter">
         <div class="theme-footer-1__section position-relative">

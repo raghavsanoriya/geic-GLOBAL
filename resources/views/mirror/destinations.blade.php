@@ -180,7 +180,7 @@
                             <p class="tg-dest-hero__copy">{{ $cms['hero_copy'] ?? 'Compare leading study destinations, understand what makes each one different and choose your next step with guidance from Trans Globe Indore.' }}</p>
                             <div class="tg-dest-hero__actions">
                                 <a href="#explore-destinations" class="btn btn-primary btn-xlg text-white">Explore countries</a>
-                                <a href="{{ url('/#contact') }}" class="tg-dest-secondary-btn">Book free counselling</a>
+                                <a href="{{ url('/contact#enquiry') }}" class="tg-dest-secondary-btn">Book free counselling</a>
                             </div>
                             <div class="tg-dest-proof" aria-label="Trans Globe experience">
                                 <div class="tg-dest-proof__item"><strong>98.7%</strong><span>Visa success rate</span></div>

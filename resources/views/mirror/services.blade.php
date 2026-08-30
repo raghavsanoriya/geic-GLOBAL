@@ -232,7 +232,7 @@
                             <h1>{{ $cms['hero_title'] ?? 'Every expert step for your global future.' }}</h1>
                             <p class="tg-services-hero__lead">{{ $cms['hero_copy'] ?? 'From your first shortlist to your first day abroad, get one joined-up team for every important decision, document and deadline.' }}</p>
                             <div class="tg-services-hero__actions">
-                                <a href="{{ url('/#contact') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Book Free Counselling"><span class="btn-flip-effect__text text-white">Book Free Counselling</span></a>
+                                <a href="{{ url('/contact#enquiry') }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="Book Free Counselling"><span class="btn-flip-effect__text text-white">Book Free Counselling</span></a>
                                 <a href="#services-grid" class="tg-services-hero__secondary">Explore every service</a>
                             </div>
                             <div class="tg-services-proof" aria-label="Trans Globe Indore service highlights">
@@ -303,7 +303,7 @@
                     <div class="tg-services-eyebrow">Start where you are</div>
                     <h2 id="services-cta-title">Your first conversation can change the whole journey.</h2>
                     <p>You do not need every answer today. Tell us where you are now, and our team will help you map the next practical step.</p>
-                    <a href="{{ url('/#contact') }}" class="tg-services-cta__button">Book my free counselling session</a>
+                    <a href="{{ url('/contact#enquiry') }}" class="tg-services-cta__button">Book my free counselling session</a>
                 </div>
             </section>
         </div>

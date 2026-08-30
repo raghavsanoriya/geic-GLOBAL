@@ -87,7 +87,7 @@
                     <span class="tp-kicker tp-hero__eyebrow">Test preparation</span>
                     <h1>{{ $cms['hero_title'] ?? 'Prepare with purpose. Test with confidence.' }}</h1>
                     <p>{{ $cms['hero_copy'] ?? 'Choose the right test for your destination, build the skills it measures and move into your university application with a score plan that makes sense.' }}</p>
-                    <div class="tp-hero__actions"><a href="#test-grid" class="tp-button">Explore test options <span aria-hidden="true">↓</span></a><a href="{{ url('/#contact') }}" class="tp-hero__alt">Talk to a counsellor</a></div>
+                    <div class="tp-hero__actions"><a href="#test-grid" class="tp-button">Explore test options <span aria-hidden="true">↓</span></a><a href="{{ url('/contact#enquiry') }}" class="tp-hero__alt">Talk to a counsellor</a></div>
                     <div class="tp-proof" aria-label="Test preparation highlights"><div class="tp-proof__item"><b>8</b><span>test-prep pathways</span></div><div class="tp-proof__item"><b>1:1</b><span>test and score planning</span></div><div class="tp-proof__item"><b>Mock-led</b><span>readiness and feedback</span></div></div>
                 </div>
             </div>
@@ -106,8 +106,8 @@
                     </a>
                 @endforeach
             </div>
-            <div class="tp-note"><span class="tp-note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 8v4M12 16h.01"/></svg></span><div><strong>Not sure which test your university needs?</strong><p>Requirements can differ by institution, course and intake. Speak to our team before you invest time in preparation or book an exam.</p></div><a href="{{ url('/#contact') }}">Get test guidance <span aria-hidden="true">→</span></a></div>
-            <div class="tp-cta"><div class="tp-cta__content"><span class="tp-kicker">Start with a score plan</span><h2>Turn your preferred university into a practical test-prep timeline.</h2><p>Tell us your destination, programme and planned intake. We’ll help you identify the test, score and preparation path that support your application.</p><a href="{{ url('/#contact') }}" class="tp-button">Book free counselling <span aria-hidden="true">→</span></a></div></div>
+            <div class="tp-note"><span class="tp-note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 8v4M12 16h.01"/></svg></span><div><strong>Not sure which test your university needs?</strong><p>Requirements can differ by institution, course and intake. Speak to our team before you invest time in preparation or book an exam.</p></div><a href="{{ url('/contact#enquiry') }}">Get test guidance <span aria-hidden="true">→</span></a></div>
+            <div class="tp-cta"><div class="tp-cta__content"><span class="tp-kicker">Start with a score plan</span><h2>Turn your preferred university into a practical test-prep timeline.</h2><p>Tell us your destination, programme and planned intake. We’ll help you identify the test, score and preparation path that support your application.</p><a href="{{ url('/contact#enquiry') }}" class="tp-button">Book free counselling <span aria-hidden="true">→</span></a></div></div>
         </div>
     </section>
 </main>

@@ -28,6 +28,58 @@
 <meta name='robots' content="index, follow, all">
 
 @php
+    $pageTitle = 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC';
+    if ($isTermsPage) {
+        $pageTitle = 'Terms & Conditions | Trans Globe Indore – GEIC';
+    } elseif ($isAboutPage) {
+        $pageTitle = 'About Trans Globe Indore | GEIC';
+    } elseif (isset($post)) {
+        $pageTitle = $post['title'].' | Trans Globe Indore Journal';
+    } elseif (isset($event)) {
+        $pageTitle = $event['title'].' | Trans Globe Indore Events';
+    } elseif (isset($test)) {
+        $pageTitle = $test['title'].' Preparation | Trans Globe Indore – GEIC';
+    } elseif (isset($service)) {
+        $pageTitle = $service['title'].' | Trans Globe Indore – GEIC';
+    } elseif (isset($destination)) {
+        $pageTitle = 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC';
+    } elseif ($isBlogPage) {
+        $pageTitle = 'Study Abroad Blog | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'destinations') {
+        $pageTitle = 'Study Abroad Destinations | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'services') {
+        $pageTitle = 'Study Abroad Services | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'events') {
+        $pageTitle = 'Study Abroad Events | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'scholarships') {
+        $pageTitle = 'Study Abroad Scholarships | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'tests') {
+        $pageTitle = 'Test Preparation | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'study-planner') {
+        $pageTitle = 'Study Abroad Planner | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'contact') {
+        $pageTitle = 'Contact Trans Globe Indore | GEIC';
+    } elseif (($mirrorPage ?? '') === 'compare-destinations') {
+        $pageTitle = 'Compare Study Abroad Destinations | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'emi-calculator') {
+        $pageTitle = 'Education Loan EMI Calculator | Trans Globe Indore – GEIC';
+    } elseif (($mirrorPage ?? '') === 'education-loans') {
+        $pageTitle = 'Education Loans for Study Abroad | Trans Globe Indore – GEIC';
+    } elseif ($isAiAgentsPage) {
+        $pageTitle = 'AI Agents for Study Abroad Planning | Trans Globe Indore – GEIC';
+    }
+    $canonicalUrl = url()->current();
+    $breadcrumbItems = [['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')]];
+    if (($mirrorPage ?? '') !== 'index' && request()->path() !== '/') {
+        $breadcrumbItems[] = ['@type' => 'ListItem', 'position' => 2, 'name' => $pageTitle, 'item' => $canonicalUrl];
+    }
+@endphp
+<link rel="canonical" href="{{ $canonicalUrl }}">
+@if(count($breadcrumbItems) > 1)
+<script type="application/ld+json">@json(['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $breadcrumbItems], JSON_UNESCAPED_SLASHES)</script>
+@endif
+
+@php
     $pageDescription = 'Trans Globe Indore, managed by GEIC, helps students study abroad with expert counselling, university admissions, scholarships, test preparation and visa assistance.';
     if ($isTermsPage) {
         $pageDescription = 'Read the terms and conditions for using the Trans Globe Indore website and study-abroad counselling services managed by GEIC.';
@@ -55,13 +107,23 @@
         $pageDescription = 'Estimate your education-loan EMI, total interest and repayment before you plan your international education budget.';
     } elseif (($mirrorPage ?? '') === 'education-loans') {
         $pageDescription = 'Understand education-loan lender types, eligibility, documents, collateral and the application process for study abroad.';
+    } elseif (($mirrorPage ?? '') === 'services') {
+        $pageDescription = 'Explore Trans Globe Indore services for counselling, university admissions, scholarships, test preparation, visas and departure support.';
+    } elseif (($mirrorPage ?? '') === 'scholarships') {
+        $pageDescription = 'Find study-abroad scholarship guidance for Australia, Canada, the UK, USA, Europe and other destinations with Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'tests') {
+        $pageDescription = 'Prepare for IELTS, PTE, TOEFL, GRE, GMAT, SAT and other study-abroad tests with practical guidance from Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'study-planner') {
+        $pageDescription = 'Build a practical study-abroad plan around your profile, destination, budget, course and intake with Trans Globe Indore.';
+    } elseif (($mirrorPage ?? '') === 'contact') {
+        $pageDescription = 'Contact Trans Globe Indore in Indore for study-abroad counselling, admissions, visa, funding and test-preparation guidance.';
     } elseif ($isAiAgentsPage) {
         $pageDescription = 'Explore curated open-source AI agents for travel planning, research, student support and PDF or RAG workflows.';
     }
 @endphp
     <meta name="description" content="{{ $pageDescription }}">
-    <meta property="og:description" content="Start your global education journey with Trans Globe Indore, managed by GEIC.">
-    <meta name='twitter:description' content='Study-abroad and visa guidance from Trans Globe Indore, managed by GEIC.'>
+    <meta property="og:description" content="{{ $pageDescription }}">
+    <meta name='twitter:description' content='{{ $pageDescription }}'>
 
 <link rel='shortcut icon' type='image/x-icon' href="/store/1/geic-icon.png">
 <link rel="manifest" href="mix-manifest7b30.json?v=4">
@@ -84,9 +146,9 @@
 <link rel="home" href="{{ url('/') }}">
 
 <!-- Open Graph -->
-<meta property='og:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
+<meta property='og:title' content='{{ $pageTitle }}'>
 <meta name='twitter:card' content='summary'>
-<meta name='twitter:title' content='{{ $isAboutPage ? 'About Trans Globe Indore | GEIC' : 'Home' }}'>
+<meta name='twitter:title' content='{{ $pageTitle }}'>
 
 
 <meta property='og:site_name' content='Trans Globe Indore | GEIC'>
@@ -109,42 +171,6 @@
 <meta property='og:locale' content='en_US'>
 <meta property='og:type' content='website'>
 
-
-
-    @php
-        $pageTitle = 'Study Abroad Consultants in Indore | Trans Globe Indore – GEIC';
-        if ($isTermsPage) {
-            $pageTitle = 'Terms & Conditions | Trans Globe Indore – GEIC';
-        } elseif ($isAboutPage) {
-            $pageTitle = 'About Trans Globe Indore | GEIC';
-        } elseif (isset($post)) {
-            $pageTitle = $post['title'].' | Trans Globe Indore Journal';
-        } elseif (isset($event)) {
-            $pageTitle = $event['title'].' | Trans Globe Indore Events';
-        } elseif (isset($test)) {
-            $pageTitle = $test['title'].' Preparation | Trans Globe Indore – GEIC';
-        } elseif (isset($service)) {
-            $pageTitle = $service['title'].' | Trans Globe Indore – GEIC';
-        } elseif (isset($destination)) {
-            $pageTitle = 'Study in '.$destination['name'].' | Trans Globe Indore – GEIC';
-        } elseif ($isBlogPage) {
-            $pageTitle = 'Study Abroad Blog | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'events') {
-            $pageTitle = 'Study Abroad Events | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'tests') {
-            $pageTitle = 'Test Preparation | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'destinations') {
-            $pageTitle = 'Study Abroad Destinations | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'compare-destinations') {
-            $pageTitle = 'Compare Study Abroad Destinations | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'emi-calculator') {
-            $pageTitle = 'Education Loan EMI Calculator | Trans Globe Indore – GEIC';
-        } elseif (($mirrorPage ?? '') === 'education-loans') {
-            $pageTitle = 'Education Loans for Study Abroad | Trans Globe Indore – GEIC';
-        } elseif ($isAiAgentsPage) {
-            $pageTitle = 'AI Agents for Study Abroad Planning | Trans Globe Indore – GEIC';
-        }
-    @endphp
     <title>{{ $pageTitle }}</title>
 
     <!-- General CSS File -->
@@ -327,6 +353,10 @@
        a phantom horizontal scrollbar on narrow screens. */
     html:has(body.home-page) { overflow-x: hidden; }
     body.home-page { overflow-x: clip; }
+    @media (max-width: 767px) {
+        html { overflow-x: hidden; }
+        body { overflow-x: clip; }
+    }
     .theme-header-1__top-navbar {
         background-color: #0e2145 !important;
     }
@@ -393,7 +423,7 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }} {{ in_array(($mirrorPage ?? ''), ['compare-destinations', 'emi-calculator', 'education-loans', 'ai-agents'], true) ? 'planning-tool-page' : '' }} {{ $isBlogPage ? 'blog-page' : '' }} {{ $isBlogDetailPage ? 'blog-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }} {{ in_array(($mirrorPage ?? ''), ['study-planner', 'compare-destinations', 'emi-calculator', 'education-loans', 'ai-agents'], true) ? 'planning-tool-page' : '' }} {{ $isBlogPage ? 'blog-page' : '' }} {{ $isBlogDetailPage ? 'blog-detail-page' : '' }}">
 
 <div id="app">
 

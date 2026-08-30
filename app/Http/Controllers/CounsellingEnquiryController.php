@@ -115,9 +115,11 @@ class CounsellingEnquiryController extends Controller
             'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
             'source_context' => ['required', 'string', 'max:120'],
             'return_to' => ['required', 'regex:~^/(?:destinations|services|scholarships|tests)/[a-z\-]+\#overview$~'],
+            'consent' => ['accepted'],
             'website' => ['nullable', 'max:0'],
         ], [
             'phone.regex' => 'Enter a valid phone number using digits and standard phone symbols.',
+            'consent.accepted' => 'Please allow our counsellor to contact you about this enquiry.',
         ]);
 
         $returnUrl = $request->string('return_to')->toString() ?: '/contact#enquiry';

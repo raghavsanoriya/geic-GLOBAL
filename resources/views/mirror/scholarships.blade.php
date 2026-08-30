@@ -81,7 +81,7 @@
             <div class="sp-hero__shell">
                 <img class="sp-hero__image" src="{{ asset($cms['hero_image'] ?? 'assets/transglobe/destinations/australia-detail-hero.jpg') }}" alt="Students exploring overseas education opportunities" fetchpriority="high" width="1600" height="900">
                 <div class="sp-hero__overlay"></div><div class="sp-hero__stamp"><strong>Up to 80%</strong><span>scholarship opportunity for eligible profiles</span></div>
-                <div class="sp-hero__content"><span class="sp-hero__pill">Trans Globe Indore scholarships</span><h1>{{ $cms['hero_title'] ?? 'Fund your future, without the guesswork.' }}</h1><p>{{ $cms['hero_copy'] ?? 'Studying abroad does not have to feel out of reach. Discover scholarship opportunities that match your profile, then apply with a clear, well-prepared plan.' }}</p><div class="sp-hero__actions"><a href="{{ url('/#contact') }}" class="sp-button">Get free scholarship counselling <span aria-hidden="true">→</span></a><a href="#destinations" class="sp-button sp-button--ghost">Explore destinations</a></div></div>
+                <div class="sp-hero__content"><span class="sp-hero__pill">Trans Globe Indore scholarships</span><h1>{{ $cms['hero_title'] ?? 'Fund your future, without the guesswork.' }}</h1><p>{{ $cms['hero_copy'] ?? 'Studying abroad does not have to feel out of reach. Discover scholarship opportunities that match your profile, then apply with a clear, well-prepared plan.' }}</p><div class="sp-hero__actions"><a href="{{ url('/contact#enquiry') }}" class="sp-button">Get free scholarship counselling <span aria-hidden="true">→</span></a><a href="#destinations" class="sp-button sp-button--ghost">Explore destinations</a></div></div>
             </div>
             <div class="sp-proof" aria-label="Trans Globe Indore scholarship highlights"><div class="sp-proof__item"><strong>70,250+</strong><span>students helped worldwide</span></div><div class="sp-proof__item"><strong>800+</strong><span>top-ranked university options</span></div><div class="sp-proof__item"><strong>98.3%</strong><span>acceptance rate</span></div><div class="sp-proof__item"><strong>9</strong><span>scholarship destinations to explore</span></div></div>
         </div>
@@ -96,7 +96,7 @@
                 </article>
             @endforeach
         </div>
-        <section class="sp-support"><div class="sp-support__inner"><div class="sp-kicker">Scholarship-ready profile</div><h2>The right funding opportunity starts with the right preparation.</h2><p>We help you match your academic strengths, destination and course plan to credible scholarship options—then prepare each application with care.</p><a href="{{ url('/#contact') }}" class="sp-button">Book my free counselling session <span aria-hidden="true">→</span></a></div></section>
+        <section class="sp-support"><div class="sp-support__inner"><div class="sp-kicker">Scholarship-ready profile</div><h2>The right funding opportunity starts with the right preparation.</h2><p>We help you match your academic strengths, destination and course plan to credible scholarship options—then prepare each application with care.</p><a href="{{ url('/contact#enquiry') }}" class="sp-button">Book my free counselling session <span aria-hidden="true">→</span></a></div></section>
     </div></section>
 </main>
 
