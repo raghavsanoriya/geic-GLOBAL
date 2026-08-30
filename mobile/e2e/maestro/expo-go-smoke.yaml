@@ -9,8 +9,9 @@ appId: host.exp.Exponent
 - tapOn: "Book a free counselling session"
 - assertVisible: "We will connect you with a counsellor"
 
-- tapOn: "Search tools and guidance"
+- tapOn: "Find your next study destination"
 - inputText: "EMI"
+- hideKeyboard
 - assertVisible: "EMI calculator"
 - tapOn: "EMI calculator"
 - assertVisible: "EMI calculator is ready to explore"
