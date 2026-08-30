@@ -136,9 +136,32 @@ jobs:
           name: ui-server-log
           path: storage/logs/ui-server.log
 
+  mobile:
+    name: Expo Go mobile verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - name: Install Expo dependencies
+        working-directory: mobile
+        run: npm ci
+      - name: Type-check Expo app
+        working-directory: mobile
+        run: npm run test:typecheck
+      - name: Verify Expo web bundle
+        working-directory: mobile
+        run: npx expo export --platform web --output-dir .expo-ci-export
+
   deploy:
     name: Release after verification
-    needs: [test, frontend, ui]
+    needs: [test, frontend, ui, mobile]
     if: github.event_name == 'push'
     uses: ./.github/workflows/release.yml
     with:

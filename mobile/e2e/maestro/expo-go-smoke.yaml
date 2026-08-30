@@ -1,0 +1,21 @@
+# AUITestAgent-inspired interaction → verification flow for Expo Go.
+# Run after starting the app with: npx expo start --go
+appId: host.exp.Exponent
+
+---
+- launchApp
+- assertVisible: "Your next chapter"
+- assertVisible: "Book free counselling"
+- tapOn: "Book a free counselling session"
+- assertVisible: "We will connect you with a counsellor"
+
+- tapOn: "Search tools and guidance"
+- inputText: "EMI"
+- assertVisible: "EMI calculator"
+- tapOn: "EMI calculator"
+- assertVisible: "EMI calculator is ready to explore"
+
+- tapOn: "Explore tab"
+- assertVisible: "Popular destinations"
+- tapOn: "Services tab"
+- assertVisible: "Smart tools for you"
