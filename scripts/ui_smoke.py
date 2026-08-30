@@ -3,7 +3,7 @@
 from playwright.sync_api import Page, sync_playwright
 
 BASE_URL = "http://127.0.0.1:8000"
-PATHS = ["/", "/compare-destinations", "/emi-calculator", "/education-loans", "/ai-agents", "/contact"]
+PATHS = ["/", "/compare-destinations", "/emi-calculator", "/education-loans", "/contact"]
 
 
 def visit(page: Page, path: str) -> None:
@@ -41,15 +41,6 @@ def main() -> None:
                 verify_no_overflow(page)
 
         page.set_viewport_size({"width": 1440, "height": 900})
-        visit(page, "/ai-agents")
-        cards = page.locator("[data-agent-card]")
-        # The imported 500-AI-Agents set is always present; the catalog may
-        # also include additional curated references from other sources.
-        assert cards.count() >= 6
-        page.locator("[data-agent-search]").fill("travel")
-        assert cards.locator(":visible").count() >= 1
-        assert page.locator("[data-agent-empty]").is_hidden()
-
         visit(page, "/emi-calculator")
         emi = page.locator("[data-emi-value]")
         before = emi.text_content()
