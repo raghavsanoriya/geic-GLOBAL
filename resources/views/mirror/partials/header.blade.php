@@ -22,6 +22,7 @@
     $isTermsPage = ($mirrorPage ?? '') === 'pages/terms';
     $isBlogPage = ($mirrorPage ?? '') === 'blog';
     $isBlogDetailPage = str_starts_with(($mirrorPage ?? ''), 'blog/');
+    $isAiAgentsPage = ($mirrorPage ?? '') === 'ai-agents';
 @endphp
 
 <meta name='robots' content="index, follow, all">
@@ -54,6 +55,8 @@
         $pageDescription = 'Estimate your education-loan EMI, total interest and repayment before you plan your international education budget.';
     } elseif (($mirrorPage ?? '') === 'education-loans') {
         $pageDescription = 'Understand education-loan lender types, eligibility, documents, collateral and the application process for study abroad.';
+    } elseif ($isAiAgentsPage) {
+        $pageDescription = 'Explore curated open-source AI agents for travel planning, research, student support and PDF or RAG workflows.';
     }
 @endphp
     <meta name="description" content="{{ $pageDescription }}">
@@ -138,6 +141,8 @@
             $pageTitle = 'Education Loan EMI Calculator | Trans Globe Indore – GEIC';
         } elseif (($mirrorPage ?? '') === 'education-loans') {
             $pageTitle = 'Education Loans for Study Abroad | Trans Globe Indore – GEIC';
+        } elseif ($isAiAgentsPage) {
+            $pageTitle = 'AI Agents for Study Abroad Planning | Trans Globe Indore – GEIC';
         }
     @endphp
     <title>{{ $pageTitle }}</title>
@@ -316,6 +321,12 @@
     </style>
 
 <style>
+    /* Translated destination/university rails should never widen the page. */
+    /* The off-canvas mobile drawer is intentionally positioned outside the
+       viewport while closed; clip it at the document root so it cannot create
+       a phantom horizontal scrollbar on narrow screens. */
+    html:has(body.home-page) { overflow-x: hidden; }
+    body.home-page { overflow-x: clip; }
     .theme-header-1__top-navbar {
         background-color: #0e2145 !important;
     }
@@ -382,7 +393,7 @@
 </style>
 </head>
 
-<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }} {{ in_array(($mirrorPage ?? ''), ['compare-destinations', 'emi-calculator', 'education-loans'], true) ? 'planning-tool-page' : '' }} {{ $isBlogPage ? 'blog-page' : '' }} {{ $isBlogDetailPage ? 'blog-detail-page' : '' }}">
+<body class="bg-gray light-mode {{ ($mirrorPage ?? '') === 'index' ? 'home-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/about' ? 'about-page' : '' }} {{ ($mirrorPage ?? '') === 'pages/terms' ? 'terms-page' : '' }} {{ ($mirrorPage ?? '') === 'contact' ? 'contact-page' : '' }} {{ ($mirrorPage ?? '') === 'destinations' ? 'destination-page' : '' }} {{ ($mirrorPage ?? '') === 'services' ? 'services-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'services/') ? 'service-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'events' ? 'events-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'events/') ? 'event-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'scholarships' ? 'scholarships-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'scholarships/') ? 'scholarship-detail-page' : '' }} {{ ($mirrorPage ?? '') === 'tests' ? 'tests-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'tests/') ? 'test-detail-page' : '' }} {{ str_starts_with(($mirrorPage ?? ''), 'destinations/') ? 'country-detail-page' : '' }} {{ in_array(($mirrorPage ?? ''), ['compare-destinations', 'emi-calculator', 'education-loans', 'ai-agents'], true) ? 'planning-tool-page' : '' }} {{ $isBlogPage ? 'blog-page' : '' }} {{ $isBlogDetailPage ? 'blog-detail-page' : '' }}">
 
 <div id="app">
 
@@ -802,6 +813,7 @@
                                                             <a href="{{ url('/events') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'events') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_events'] ?? 'Events' }}</a>
                                                             <a href="{{ url('/scholarships') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'scholarships') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_scholarships'] ?? 'Scholarships' }}</a>
                                                             <a href="{{ url('/tests') }}" class="{{ str_starts_with(($mirrorPage ?? ''), 'tests') ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_nav_tests'] ?? 'Test Prep' }}</a>
+                                                            <a href="{{ url('/ai-agents') }}" class="{{ $isAiAgentsPage ? 'text-primary font-weight-bold' : 'text-dark' }}">AI Agents</a>
                                                             <a href="{{ url('/contact#enquiry') }}" class="{{ ($mirrorPage ?? '') === 'contact' ? 'text-primary font-weight-bold' : 'text-dark' }}">{{ $siteCms['header_contact_label'] ?? 'Contact' }}</a>
                                                     </div>
                                     </div>

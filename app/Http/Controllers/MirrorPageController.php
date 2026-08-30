@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Models\SiteContent;
+use App\Support\AiAgentsCatalog;
 use App\Support\BlogCatalog;
 use App\Support\CmsPageCatalog;
 use App\Support\DestinationCatalog;
@@ -101,11 +102,6 @@ class MirrorPageController extends Controller
             abort(404);
         }
 
-        // Internal agent experiments are not part of the public website.
-        if ($page === 'ai-agents') {
-            abort(404);
-        }
-
         if ($page === 'blog') {
             return view('mirror.blog.list', [
                 'mirrorPage' => 'blog',
@@ -137,6 +133,15 @@ class MirrorPageController extends Controller
                 'mirrorPage' => $page,
                 'tool' => $tool,
                 'cms' => SiteContent::publicValuesForPage($tool['cms_key']),
+            ]);
+        }
+
+        if ($page === 'ai-agents') {
+            return view('mirror.ai-agents', [
+                'mirrorPage' => 'ai-agents',
+                'agents' => AiAgentsCatalog::all(),
+                'agentRepositoryUrl' => AiAgentsCatalog::repositoryUrl(),
+                'cms' => SiteContent::publicValuesForPage('ai-agents'),
             ]);
         }
 

@@ -103,6 +103,21 @@ class MirrorPageTest extends TestCase
             ->assertSee('/education-loans', false);
     }
 
+    public function test_ai_agents_catalog_page_is_available_and_linked_from_public_navigation(): void
+    {
+        $this->get('/ai-agents')
+            ->assertOk()
+            ->assertSee('AI Agents', false)
+            ->assertSee('Web Research Agent', false)
+            ->assertSee('PDF Q&amp;A Agent', false)
+            ->assertSee('Travel Planner Agent', false)
+            ->assertSee('Customer Support Agent', false)
+            ->assertSee('agents/500-ai-agents', false);
+
+        $this->get('/')
+            ->assertSee('/ai-agents', false);
+    }
+
     public function test_blog_listing_and_article_pages_are_available(): void
     {
         $this->get('/blog')

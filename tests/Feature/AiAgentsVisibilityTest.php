@@ -6,13 +6,17 @@ use Tests\TestCase;
 
 class AiAgentsVisibilityTest extends TestCase
 {
-    public function test_internal_ai_agents_page_is_not_publicly_reachable(): void
+    public function test_ai_agents_catalog_is_publicly_reachable(): void
     {
-        $this->get('/ai-agents')->assertNotFound();
+        $this->get('/ai-agents')
+            ->assertOk()
+            ->assertSee('AI Agents')
+            ->assertSee('Web Research Agent')
+            ->assertSee('Customer Support Agent');
 
         $this->get('/')
             ->assertOk()
-            ->assertDontSee('/ai-agents', false)
-            ->assertDontSee('>AI Agents<', false);
+            ->assertSee('/ai-agents', false)
+            ->assertSee('AI Agents', false);
     }
 }
