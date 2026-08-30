@@ -2,8 +2,9 @@
 
 The Maestro flow in `maestro/expo-go-smoke.yaml` applies AUITestAgent's
 interaction-then-verification pattern to the Expo Go app: every action is
-followed by a visible UI oracle. It checks the hero CTA feedback, smart-tool
-search and navigation tabs without calling a real provider or mutating data.
+followed by a visible UI oracle. It checks the hero CTA feedback, destination
+search, service action and counselling form without calling a real provider or
+mutating data.
 
 Run it against a development session:
 

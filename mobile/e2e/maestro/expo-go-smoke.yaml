@@ -4,19 +4,26 @@ appId: host.exp.exponent
 
 ---
 - launchApp
-- assertVisible: "Your next chapter"
+- assertVisible: "Shape your future"
 - assertVisible: "Book free counselling"
-- tapOn: "Book a free counselling session"
+- tapOn: "Book free counselling"
 - assertVisible: "We will connect you with a counsellor"
 
-- tapOn: "Find your next study destination"
-- inputText: "EMI"
-- hideKeyboard
-- assertVisible: "EMI calculator"
-- tapOn: "EMI calculator"
-- assertVisible: "EMI calculator is ready to explore"
-
 - tapOn: "Explore tab"
-- assertVisible: "Popular destinations"
+- assertVisible: "EXPLORE WITH PURPOSE"
+- tapOn: "Find your next study destination"
+- inputText: "Australia"
+- hideKeyboard
+- assertVisible: "Australia"
+- tapOn: "Explore Australia"
+- assertVisible: "Australia destination guide opened"
+
 - tapOn: "Services tab"
-- assertVisible: "Smart tools for you"
+- assertVisible: "Support for your"
+- tapOn: "Destination planning"
+- assertVisible: "Destination planning opened"
+
+- tapOn: "Apply tab"
+- assertVisible: "Your plan starts"
+- tapOn: "Submit counselling request"
+- assertVisible: "Please complete the three fields"
