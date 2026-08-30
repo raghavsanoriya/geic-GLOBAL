@@ -7,8 +7,11 @@ PATHS = ["/", "/compare-destinations", "/emi-calculator", "/education-loans", "/
 
 
 def visit(page: Page, path: str) -> None:
-    response = page.goto(f"{BASE_URL}{path}", wait_until="networkidle")
+    # Analytics and other long-lived requests can prevent network-idle from
+    # ever settling in CI; DOM readiness is sufficient for these assertions.
+    response = page.goto(f"{BASE_URL}{path}", wait_until="domcontentloaded")
     assert response is not None and response.ok, path
+    page.wait_for_timeout(100)
 
 
 def verify_no_overflow(page: Page) -> None:
