@@ -9,6 +9,7 @@ dist/
 web-build/
 .expo-ci-export/
 .expo-local-check/
+.expo-run-check/
 expo-env.d.ts
 
 # Native
