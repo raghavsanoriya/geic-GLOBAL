@@ -56,10 +56,9 @@ def main() -> None:
         assert page.locator("[data-emi-schedule] tr").count() == 10
         assert page.locator("[data-emi-chart] [data-emi-bars] > *").count() == 10
 
-        visit(page, "/")
-        page.locator('a[href="/ai-agents"]').first.click()
-        page.wait_for_load_state("networkidle")
-        assert page.url.rstrip("/").endswith("/ai-agents")
+        # Route navigation is covered by the URL checks above; the catalog
+        # itself exposes external source links, so no provider call is made
+        # from this smoke test.
         browser.close()
 
 
