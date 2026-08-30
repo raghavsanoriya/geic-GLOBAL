@@ -90,9 +90,55 @@ jobs:
             exit 1
           fi
 
+  ui:
+    name: UI functional verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+          tools: composer:v2
+      - name: Install PHP dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+      - name: Prepare test environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          touch database/database.sqlite
+          php artisan migrate --force
+      - name: Start Laravel server
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8000 > storage/logs/ui-server.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8000/ > /dev/null; then break; fi
+            sleep 1
+          done
+      - name: Set up Python browser runner
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip playwright
+          python -m playwright install --with-deps chromium
+      - name: Run UI interaction and verification smoke tests
+        run: python scripts/ui_smoke.py
+      - name: Upload UI server log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-server-log
+          path: storage/logs/ui-server.log
+
   deploy:
     name: Release after verification
-    needs: [test, frontend]
+    needs: [test, frontend, ui]
     if: github.event_name == 'push'
     uses: ./.github/workflows/release.yml
     with:
