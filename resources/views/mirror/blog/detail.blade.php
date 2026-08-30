@@ -1,6 +1,22 @@
 @include('mirror.partials.header')
 @include('mirror.partials.mobile-destination-nav', ['mobileBackHref' => url('/blog'), 'mobileBackLabel' => 'Back to blog'])
 
+@php
+    $articleSchema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Article',
+        'headline' => $post['title'],
+        'description' => $post['excerpt'],
+        'image' => [asset($cms['hero_image'] ?? $post['image'])],
+        'datePublished' => \Carbon\Carbon::parse($post['date'])->toIso8601String(),
+        'dateModified' => \Carbon\Carbon::parse($post['date'])->toIso8601String(),
+        'author' => ['@type' => 'Person', 'name' => $post['author']],
+        'publisher' => ['@type' => 'Organization', 'name' => 'Trans Globe Indore | GEIC', 'url' => url('/')],
+        'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => url('/blog/'.$post['slug'])],
+    ];
+@endphp
+<script type="application/ld+json">@json($articleSchema, JSON_UNESCAPED_SLASHES)</script>
+
 <style>
     .tg-article-page { overflow: clip; background: #f5f8fc; color: #15294d; }
     .tg-article-wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
