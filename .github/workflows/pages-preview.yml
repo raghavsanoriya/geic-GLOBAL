@@ -37,6 +37,8 @@ jobs:
           cp preview/preview.css site/preview.css
           cp preview/dashboard.html site/dashboard.html
           cp preview/dashboard.css site/dashboard.css
+          cp preview/admin-login.html site/admin-login.html
+          cp preview/admin-login.css site/admin-login.css
           cp preview/.nojekyll site/.nojekyll
           python - <<'PY'
           from pathlib import Path
