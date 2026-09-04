@@ -28,8 +28,11 @@ jobs:
         shell: bash
         run: |
           rm -rf site
-          mkdir -p site/website
-          cp -R landing-page/. site/website/
+          mkdir -p site/website site/landing-preview
+          cp -R landing-page/. site/landing-preview/
+          cp -R preview/full-site/. site/website/
+          cp -R public/assets site/website/assets
+          cp -R public/store site/website/store
           cp preview/index.html site/index.html
           cp preview/preview.css site/preview.css
           cp preview/dashboard.html site/dashboard.html
@@ -40,9 +43,40 @@ jobs:
 
           # The landing page is also used by Laravel at /landing. Rewrite its
           # asset URLs for the repository-relative GitHub Pages deployment.
-          for path in (Path('site/website/index.html'), Path('site/website/script.js'), Path('site/website/styles.css')):
+          for path in (Path('site/landing-preview/index.html'), Path('site/landing-preview/script.js'), Path('site/landing-preview/styles.css')):
               text = path.read_text(encoding='utf-8')
               text = text.replace('/landing/', './')
+              path.write_text(text, encoding='utf-8')
+
+          route_files = {
+              '/': 'index.html', '/destinations': 'destinations.html', '/services': 'services.html',
+              '/events': 'events.html', '/scholarships': 'scholarships.html', '/tests': 'tests.html',
+              '/contact': 'contact.html', '/compare-destinations': 'compare-destinations.html',
+              '/emi-calculator': 'emi-calculator.html', '/education-loans': 'education-loans.html',
+              '/study-planner': 'study-planner.html', '/ai-agents': 'ai-agents.html',
+              '/destinations/australia': 'destinations-australia.html', '/destinations/canada': 'destinations-canada.html',
+              '/destinations/dubai': 'destinations-dubai.html', '/destinations/europe': 'destinations-europe.html',
+              '/destinations/germany': 'destinations-germany.html', '/destinations/ireland': 'destinations-ireland.html',
+              '/destinations/malaysia': 'destinations-malaysia.html', '/destinations/new-zealand': 'destinations-new-zealand.html',
+              '/destinations/singapore': 'destinations-singapore.html', '/destinations/switzerland': 'destinations-switzerland.html',
+              '/destinations/uk': 'destinations-uk.html', '/destinations/usa': 'destinations-usa.html',
+              '/pages/about': 'pages-about.html', '/pages/terms': 'pages-terms.html',
+          }
+          app = Path('site/website')
+          for path in app.glob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('<base href="/">', '<base href="./">')
+              text = text.replace('http://127.0.0.1:8099', '.')
+              text = text.replace('https://127.0.0.1:8099', '.')
+              text = text.replace('href="/assets/', 'href="assets/')
+              text = text.replace('src="/assets/', 'src="assets/')
+              text = text.replace('href="/store/', 'href="store/')
+              text = text.replace('src="/store/', 'src="store/')
+              for route, filename in sorted(route_files.items(), key=lambda item: len(item[0]), reverse=True):
+                  text = text.replace(f'href="{route}"', f'href="{filename}"')
+                  text = text.replace(f'href="{route}#', f'href="{filename}#')
+                  text = text.replace(f'href=".{route}"', f'href="{filename}"')
+                  text = text.replace(f'href=".{route}#', f'href="{filename}#')
               path.write_text(text, encoding='utf-8')
 
           page = Path('site/website/index.html')
