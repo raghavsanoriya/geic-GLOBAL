@@ -16,8 +16,8 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/landing/styles.css?v=20260828-universities-2" />
-    <script src="/landing/script.js?v=20260828-universities-2" defer></script>
+    <link rel="stylesheet" href="/landing/styles.css?v=20260923-hero-form" />
+    <script src="/landing/script.js?v=20260923-hero-form" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -26,7 +26,7 @@
       <div class="shell utility-inner">
         <span>University admissions · visas · pre-departure</span>
         <div>
-          <a href="#profile-form">Ask a counsellor</a>
+          <a href="#quick-enquiry">Ask a counsellor</a>
           <a href="#faqs">FAQs</a>
         </div>
       </div>
@@ -46,7 +46,7 @@
           <a href="#faqs">FAQs</a>
         </nav>
 
-        <a class="button button-small button-dark header-cta" href="#profile-form">
+        <a class="button button-small button-dark header-cta" href="#quick-enquiry">
           Free profile review
           <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
         </a>
@@ -69,7 +69,7 @@
         <a href="#stories">Student stories</a>
         <a href="#team">Our team</a>
         <a href="#faqs">FAQs</a>
-        <a class="button button-primary" href="#profile-form">Free profile review</a>
+        <a class="button button-primary" href="#quick-enquiry">Free profile review</a>
       </nav>
     </header>
 
@@ -98,7 +98,7 @@
               Germany, the UK, Ireland, Italy, Spain, Australia, and beyond.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#profile-form">
+              <a class="button button-primary" href="#quick-enquiry">
                 Book free profile evaluation
                 <svg aria-hidden="true"><use href="#icon-arrow-right" /></svg>
               </a>
@@ -113,6 +113,108 @@
               <li><svg aria-hidden="true"><use href="#icon-check" /></svg> Multiple destinations</li>
             </ul>
           </div>
+
+            <form class="hero-quick-enquiry" id="quick-enquiry" data-quick-enquiry data-endpoint="/landing/form-handler.php" novalidate>
+            <div class="form-heading">
+              <span>01 / Your details</span>
+              <p>Fields marked <b>*</b> are required</p>
+            </div>
+
+            <div class="form-row form-row-two">
+              <label>
+                <span>Full name <b aria-hidden="true">*</b></span>
+                <input name="name" type="text" autocomplete="name" required placeholder="Your full name" />
+              </label>
+              <label>
+                <span>Mobile number <b aria-hidden="true">*</b></span>
+                <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000" />
+              </label>
+            </div>
+
+            <label>
+              <span>Email address <b aria-hidden="true">*</b></span>
+              <input name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </label>
+
+            <div class="form-row form-row-two">
+              <label>
+                <span>Current qualification <b aria-hidden="true">*</b></span>
+                <select name="qualification" required>
+                  <option value="">Select qualification</option>
+                  <option>Class 12 / Higher secondary</option>
+                  <option>Diploma</option>
+                  <option>Bachelor’s degree</option>
+                  <option>Master’s degree</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                <span>Passing year <b aria-hidden="true">*</b></span>
+                <input name="passing_year" type="number" min="1990" max="2035" inputmode="numeric" required placeholder="2026" />
+              </label>
+            </div>
+
+            <div class="form-row form-row-two">
+              <label>
+                <span>Percentage / CGPA <b aria-hidden="true">*</b></span>
+                <input name="score" type="text" inputmode="decimal" required placeholder="e.g. 78% or 8.1" />
+              </label>
+              <label>
+                <span>Preferred country <b aria-hidden="true">*</b></span>
+                <select name="country" required data-country-select>
+                  <option value="">Select a country</option>
+                  <optgroup label="Europe">
+                    <option>Austria</option>
+                    <option>Belgium</option>
+                    <option>Croatia</option>
+                    <option>Cyprus</option>
+                    <option>Czech Republic</option>
+                    <option>Denmark</option>
+                    <option>Estonia</option>
+                    <option>Finland</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>Greece</option>
+                    <option>Hungary</option>
+                    <option>Ireland</option>
+                    <option>Italy</option>
+                    <option>Latvia</option>
+                    <option>Lithuania</option>
+                    <option>Malta</option>
+                    <option>Netherlands</option>
+                    <option>Norway</option>
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                    <option>Spain</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                    <option>United Kingdom</option>
+                  </optgroup>
+                  <optgroup label="Middle East">
+                    <option>Dubai</option>
+                    <option>United Arab Emirates</option>
+                  </optgroup>
+                  <option>Australia</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="form-honeypot" aria-hidden="true">
+              <span>Website</span>
+              <input name="website" type="text" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <button class="button button-primary button-submit" type="submit">
+              <span>Get my free profile evaluation</span>
+              <svg aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+            </button>
+            <p class="privacy-note">
+              <svg aria-hidden="true"><use href="#icon-lock" /></svg>
+              Your information is secure and will only be used to contact you about your study-abroad enquiry.
+            </p>
+            <p class="form-status" role="status" aria-live="polite" data-quick-enquiry-status></p>
+          </form>
 
           <div class="hero-visual" data-reveal data-reveal-delay="1">
             <div class="hero-index" aria-hidden="true">
@@ -144,6 +246,8 @@
                 <path d="M40 63h36M63 49l14 14-14 14" />
               </svg>
             </div>
+
+
           </div>
         </div>
 
@@ -172,7 +276,7 @@
           </div>
 
           <div class="country-grid">
-            <a class="country-card country-card-featured" href="#profile-form" data-country="Germany" data-reveal>
+            <a class="country-card country-card-featured" href="#quick-enquiry" data-country="Germany" data-reveal>
               <span class="country-code">DE</span>
               <div>
                 <small>Europe</small>
@@ -180,47 +284,47 @@
               </div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="United Kingdom" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="United Kingdom" data-reveal>
               <span class="country-code">GB</span><div><small>Europe</small><img class="country-flag" src="https://flagcdn.com/gb.svg" width="96" height="64" alt="Flag of the United Kingdom" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Ireland" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Ireland" data-reveal>
               <span class="country-code">IE</span><div><small>Europe</small><img class="country-flag" src="https://flagcdn.com/ie.svg" width="96" height="64" alt="Flag of Ireland" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Italy" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Italy" data-reveal>
               <span class="country-code">IT</span><div><small>Europe</small><img class="country-flag" src="https://flagcdn.com/it.svg" width="96" height="64" alt="Flag of Italy" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Spain" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Spain" data-reveal>
               <span class="country-code">ES</span><div><small>Europe</small><img class="country-flag" src="https://flagcdn.com/es.svg" width="96" height="64" alt="Flag of Spain" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Australia" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Australia" data-reveal>
               <span class="country-code">AU</span><div><small>Oceania</small><img class="country-flag" src="https://flagcdn.com/au.svg" width="96" height="64" alt="Flag of Australia" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="France" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="France" data-reveal>
               <span class="country-code">FR</span><div><small>Europe</small><img class="country-flag" src="https://flagcdn.com/fr.svg" width="96" height="64" alt="Flag of France" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="United Arab Emirates" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="United Arab Emirates" data-reveal>
               <span class="country-code">AE</span><div><small>Middle East</small><img class="country-flag" src="https://flagcdn.com/ae.svg" width="96" height="64" alt="Flag of the United Arab Emirates" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Finland" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Finland" data-reveal>
               <span class="country-code">FI</span><div><small>Nordics</small><img class="country-flag" src="https://flagcdn.com/fi.svg" width="96" height="64" alt="Flag of Finland" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Latvia" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Latvia" data-reveal>
               <span class="country-code">LV</span><div><small>Baltics</small><img class="country-flag" src="https://flagcdn.com/lv.svg" width="96" height="64" alt="Flag of Latvia" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card" href="#profile-form" data-country="Lithuania" data-reveal>
+            <a class="country-card" href="#quick-enquiry" data-country="Lithuania" data-reveal>
               <span class="country-code">LT</span><div><small>Baltics</small><img class="country-flag" src="https://flagcdn.com/lt.svg" width="96" height="64" alt="Flag of Lithuania" loading="lazy" /></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
             </a>
-            <a class="country-card country-card-all" href="#profile-form" data-country="Other" data-reveal>
+            <a class="country-card country-card-all" href="#quick-enquiry" data-country="Other" data-reveal>
               <span class="country-code"><svg aria-hidden="true"><use href="#icon-globe" /></svg></span>
               <div><small>Not sure yet?</small><h3>Find my best fit</h3></div>
               <svg aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
@@ -295,7 +399,7 @@
               Studying abroad is not one decision—it is a chain of important ones. We help you move through each
               stage with clarity, context, and a plan built around your profile.
             </p>
-            <a class="text-link text-link-dark" href="#profile-form">
+            <a class="text-link text-link-dark" href="#quick-enquiry">
               Talk to a counsellor
               <svg aria-hidden="true"><use href="#icon-arrow-right" /></svg>
             </a>
@@ -503,17 +607,38 @@
                 <span>Preferred country <b aria-hidden="true">*</b></span>
                 <select name="country" required data-country-select>
                   <option value="">Select a country</option>
-                  <option>Germany</option>
-                  <option>United Kingdom</option>
-                  <option>Ireland</option>
-                  <option>Italy</option>
-                  <option>Spain</option>
+                  <optgroup label="Europe">
+                    <option>Austria</option>
+                    <option>Belgium</option>
+                    <option>Croatia</option>
+                    <option>Cyprus</option>
+                    <option>Czech Republic</option>
+                    <option>Denmark</option>
+                    <option>Estonia</option>
+                    <option>Finland</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>Greece</option>
+                    <option>Hungary</option>
+                    <option>Ireland</option>
+                    <option>Italy</option>
+                    <option>Latvia</option>
+                    <option>Lithuania</option>
+                    <option>Malta</option>
+                    <option>Netherlands</option>
+                    <option>Norway</option>
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                    <option>Spain</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                    <option>United Kingdom</option>
+                  </optgroup>
+                  <optgroup label="Middle East">
+                    <option>Dubai</option>
+                    <option>United Arab Emirates</option>
+                  </optgroup>
                   <option>Australia</option>
-                  <option>France</option>
-                  <option>United Arab Emirates</option>
-                  <option>Finland</option>
-                  <option>Latvia</option>
-                  <option>Lithuania</option>
                   <option>Other</option>
                 </select>
               </label>
@@ -543,7 +668,7 @@
             <p class="eyebrow"><span></span>Professional study abroad FAQs</p>
             <h2>Questions are part of the process.</h2>
             <p>Here are clear answers to the questions students ask before they begin.</p>
-            <a class="text-link text-link-dark" href="#profile-form">
+            <a class="text-link text-link-dark" href="#quick-enquiry">
               Ask about your profile
               <svg aria-hidden="true"><use href="#icon-arrow-right" /></svg>
             </a>
@@ -616,7 +741,7 @@
           <h2>Your international education journey starts here.</h2>
           <p>Begin with a conversation. Leave with a clearer view of what is possible for your profile.</p>
           <div class="final-actions">
-            <a class="button button-primary" href="#profile-form">
+            <a class="button button-primary" href="#quick-enquiry">
               Book free counselling
               <svg aria-hidden="true"><use href="#icon-arrow-right" /></svg>
             </a>
@@ -646,7 +771,7 @@
       <a href="#team" data-bottom-nav-link>
         <svg aria-hidden="true"><use href="#icon-users" /></svg><span>Team</span>
       </a>
-      <a class="bottom-nav-cta" href="#profile-form" data-bottom-nav-link>
+      <a class="bottom-nav-cta" href="#quick-enquiry" data-bottom-nav-link>
         <svg aria-hidden="true"><use href="#icon-file" /></svg><span>Apply</span>
       </a>
     </nav>
@@ -669,7 +794,7 @@
           <p class="footer-label">Support</p>
           <a href="#team">Our team</a>
           <a href="#faqs">FAQs</a>
-          <a href="#profile-form">Free evaluation</a>
+          <a href="#quick-enquiry">Free evaluation</a>
         </div>
         <div>
           <p class="footer-label">Contact</p>

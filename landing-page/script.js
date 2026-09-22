@@ -4,6 +4,8 @@ const mobileMenu = document.querySelector("[data-mobile-menu]");
 const profileForm = document.querySelector("[data-profile-form]");
 const countrySelect = document.querySelector("[data-country-select]");
 const formStatus = document.querySelector("[data-form-status]");
+const quickEnquiryForm = document.querySelector("[data-quick-enquiry]");
+const quickEnquiryStatus = document.querySelector("[data-quick-enquiry-status]");
 const toast = document.querySelector("[data-toast]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const heroSlides = document.querySelectorAll("[data-hero-slide-image]");
@@ -321,6 +323,49 @@ if (profileForm && formStatus) {
     if (!formStatus.classList.contains("is-visible")) return;
     formStatus.classList.remove("is-visible");
     formStatus.textContent = "";
+  });
+}
+
+if (quickEnquiryForm && quickEnquiryStatus) {
+  quickEnquiryForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!quickEnquiryForm.checkValidity()) {
+      quickEnquiryForm.reportValidity();
+      quickEnquiryStatus.textContent = "Please complete the required fields before continuing.";
+      quickEnquiryStatus.classList.add("is-visible");
+      return;
+    }
+
+    const submitButton = quickEnquiryForm.querySelector("button[type=\"submit\"]");
+    const submitLabel = submitButton?.querySelector("span");
+    if (submitButton) submitButton.disabled = true;
+    if (submitLabel) submitLabel.textContent = "Sending enquiry...";
+    quickEnquiryStatus.textContent = "";
+    quickEnquiryStatus.classList.remove("is-visible");
+
+    try {
+      const response = await fetch(quickEnquiryForm.dataset.endpoint, {
+        method: "POST",
+        headers: { Accept: "application/json", "X-CSRF-TOKEN": document.querySelector("meta[name=\"csrf-token\"]")?.content || "" },
+        body: new FormData(quickEnquiryForm),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success) throw new Error(result.message || "We could not send your enquiry. Please try again.");
+      quickEnquiryForm.reset();
+      quickEnquiryStatus.textContent = result.message || "Thank you. Your profile evaluation request has been received.";
+    } catch (error) {
+      quickEnquiryStatus.textContent = error.message || "We could not send your enquiry. Please try again.";
+    }
+
+    quickEnquiryStatus.classList.add("is-visible");
+    if (submitButton) submitButton.disabled = false;
+    if (submitLabel) submitLabel.textContent = "Get my free profile evaluation";
+  });
+
+  quickEnquiryForm.addEventListener("input", () => {
+    quickEnquiryStatus.classList.remove("is-visible");
+    quickEnquiryStatus.textContent = "";
   });
 }
 

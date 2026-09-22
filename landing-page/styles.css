@@ -3337,3 +3337,107 @@ body {
     display: none;
   }
 }
+
+/* Full profile form promoted into the landing-page hero. */
+.hero-quick-enquiry {
+  position: absolute;
+  z-index: 6;
+  top: 28px;
+  right: -42px;
+  display: grid;
+  width: min(590px, 49vw);
+  gap: 18px;
+  padding: clamp(26px, 3vw, 40px);
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 28px 70px rgba(7, 24, 38, 0.24);
+}
+.hero-quick-enquiry label { display: grid; gap: 8px; }
+.hero-quick-enquiry label > span { font-size: 13px; font-weight: 700; }
+.hero-quick-enquiry label b { color: var(--red-dark); }
+.hero-quick-enquiry input,
+.hero-quick-enquiry select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #cfd6d8;
+  border-radius: 10px;
+  outline: none;
+  background: var(--white);
+  color: var(--ink);
+}
+.hero-quick-enquiry input::placeholder { color: #8c979d; }
+.hero-quick-enquiry input:focus,
+.hero-quick-enquiry select:focus {
+  border-color: var(--navy-800);
+  box-shadow: 0 0 0 4px rgba(217, 43, 58, 0.16);
+}
+.hero-quick-enquiry input:user-invalid,
+.hero-quick-enquiry select:user-invalid { border-color: #b42318; }
+.hero-quick-enquiry .form-heading { margin-bottom: 0; }
+.hero-quick-enquiry .button-submit { margin-top: 0; }
+.hero-quick-enquiry .form-status.is-visible { margin-top: -6px; }
+@media (max-width: 1180px) {
+  .hero-quick-enquiry { right: -18px; width: min(540px, 48vw); padding: 28px; }
+}
+@media (max-width: 980px) {
+  .hero-quick-enquiry { position: relative; top: auto; right: auto; width: min(100%, 680px); margin: 24px 0 0; }
+}
+@media (max-width: 680px) {
+  .hero-quick-enquiry { gap: 16px; padding: 22px; border-radius: 14px; }
+}
+
+@media (min-width: 981px) { .hero { min-height: 920px; } }
+
+@media (min-width: 981px) {
+  .hero { min-height: 900px; overflow: visible; }
+  .hero-quick-enquiry {
+    top: 20px;
+    right: 0;
+    width: min(560px, calc(50vw - 24px));
+    gap: 12px;
+    padding: 24px;
+  }
+  .hero-quick-enquiry .form-heading { padding-bottom: 16px; }
+  .hero-quick-enquiry .form-row { gap: 12px; }
+  .hero-quick-enquiry input,
+  .hero-quick-enquiry select { min-height: 44px; }
+}
+
+@media (min-width: 981px) { .hero { min-height: 960px; overflow: hidden; } }
+
+@media (min-width: 981px) {
+  .hero-grid { min-height: 640px; }
+  .hero-quick-enquiry { top: 50%; transform: translateY(-50%); }
+}
+
+@media (min-width: 981px) {
+  .hero-copy { width: 48%; max-width: 620px; }
+}
+
+@media (min-width: 981px) { .hero-quick-enquiry { top: 42%; } }
+
+@media (min-width: 1181px) {
+  .hero-copy {
+    width: min(800px, calc(100% - 600px));
+    max-width: calc(100% - 600px);
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(3.6rem, 4.9vw, 5.35rem);
+  }
+
+  .hero h1 > span,
+  .hero h1 em {
+    white-space: normal;
+  }
+
+  .hero-quick-enquiry { top: 34%; }
+}
+
+/* The slide indicators must not cover the mobile enquiry form. */
+@media (max-width: 980px) {
+  .hero-slider-controls { display: none; }
+}
