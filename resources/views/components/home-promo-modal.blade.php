@@ -1,10 +1,9 @@
 @php
     $popupEnabled = ! in_array(strtolower(trim((string) ($cms['popup_enabled'] ?? '1'))), ['0', 'false', 'no', 'off'], true);
     $popupCtaUrl = $cms['popup_cta_url'] ?? '/contact#enquiry';
-    $popupEventDate = $cms['popup_event_date'] ?? 'Coming soon · 2026';
-    $popupEventLocation = $cms['popup_event_location'] ?? 'Europe & Dubai opportunities';
-    $popupEventFormat = $cms['popup_event_format'] ?? 'Admission summit · Free registration';
-    $popupEventHighlights = $cms['popup_event_highlights'] ?? 'Meet university representatives, explore courses and intakes, discover scholarship routes, and connect with admissions and visa experts.';
+    $popupEventDate = $cms['popup_event_date'] ?? '24 October 2026';
+    $popupEventLocation = $cms['popup_event_location'] ?? 'Hotel Sayaji, Indore';
+    $popupEventFormat = $cms['popup_event_format'] ?? '10:00 AM – 4:00 PM';
 @endphp
 
 @if($popupEnabled)
@@ -72,30 +71,29 @@
         <button class="tg-home-offer__backdrop" type="button" data-offer-close aria-label="Close counselling offer"></button>
         <section class="tg-home-offer__dialog" role="dialog" aria-modal="true" aria-labelledby="tg-home-offer-title" aria-describedby="tg-home-offer-copy" tabindex="-1">
             <div class="tg-home-offer__media">
-                <img src="{{ asset($cms['popup_image'] ?? 'assets/transglobe/events/global-uni-expo-2026.png') }}" alt="{{ $cms['popup_image_alt'] ?? 'Global Uni Expo 2026 Europe and Dubai Admission Summit coming soon poster' }}" width="1122" height="1402">
+                <img src="{{ asset($cms['popup_image'] ?? 'assets/transglobe/events/global-uni-expo-2026.png') }}" alt="{{ $cms['popup_image_alt'] ?? 'Global Uni Expo 2026 poster' }}" width="1122" height="1402">
             </div>
             <div class="tg-home-offer__content">
                 <button class="tg-home-offer__close" type="button" data-offer-close aria-label="Close popup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
-                <span class="tg-home-offer__eyebrow">{{ $cms['popup_eyebrow'] ?? 'Coming soon · 2026' }}</span>
-                <h2 id="tg-home-offer-title">{{ $cms['popup_title'] ?? 'Global Uni Expo 2026 — Europe & Dubai Admission Summit' }}</h2>
-                <p class="tg-home-offer__copy" id="tg-home-offer-copy">{{ $cms['popup_copy'] ?? 'A focused admission summit for students and parents who want a clearer route to Europe and Dubai. Meet university representatives, compare intakes and get practical next-step advice from our specialists.' }}</p>
+                <span class="tg-home-offer__eyebrow">{{ $cms['popup_eyebrow'] ?? 'Global Uni Expo · 2026' }}</span>
+                <h2 id="tg-home-offer-title">{{ $cms['popup_title'] ?? 'Global Uni Expo 2026' }}</h2>
+                <p class="tg-home-offer__copy" id="tg-home-offer-copy">{{ $cms['popup_copy'] ?? 'Join us at Global Uni Expo 2026 and meet representatives from leading international universities and education institutions — all under one roof.' }}</p>
                 <div class="tg-home-offer__event" aria-label="Global Uni Expo event details">
                     <div class="tg-home-offer__event-date">
                         <span class="tg-home-offer__event-date-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 13h3M8 17h5"/></svg></span>
                         <div>
                             <small>Event timing</small>
                             <strong>{{ $popupEventDate }}</strong>
-                            <span>We’ll announce the exact date and registration schedule soon.</span>
+                            <span>Save the date and plan your visit.</span>
                         </div>
                     </div>
                     <div class="tg-home-offer__event-facts">
-                        <div class="tg-home-offer__event-fact"><small>Focus</small><strong>{{ $popupEventLocation }}</strong></div>
-                        <div class="tg-home-offer__event-fact"><small>Entry</small><strong>{{ $popupEventFormat }}</strong></div>
+                        <div class="tg-home-offer__event-fact"><small>Venue</small><strong>{{ $popupEventLocation }}</strong></div>
+                        <div class="tg-home-offer__event-fact"><small>Time</small><strong>{{ $popupEventFormat }}</strong></div>
                     </div>
-                    <p class="tg-home-offer__event-highlights">{{ $popupEventHighlights }}</p>
                 </div>
                 <div class="tg-home-offer__actions">
-                    <a href="{{ str_starts_with($popupCtaUrl, 'http') ? $popupCtaUrl : url($popupCtaUrl) }}" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="{{ $cms['popup_cta_label'] ?? 'Register interest' }}"><span class="btn-flip-effect__text text-white">{{ $cms['popup_cta_label'] ?? 'Register interest' }}</span></a>
+                    <a href="https://geic.in/landing" class="btn-flip-effect btn btn-primary btn-lg gap-8 text-white" data-text="{{ $cms['popup_cta_label'] ?? 'Register interest' }}"><span class="btn-flip-effect__text text-white">{{ $cms['popup_cta_label'] ?? 'Register interest' }}</span></a>
                     <button class="tg-home-offer__later" type="button" data-offer-close>{{ $cms['popup_close_label'] ?? 'Maybe later' }}</button>
                 </div>
             </div>
