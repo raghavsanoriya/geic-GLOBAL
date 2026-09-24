@@ -122,6 +122,20 @@ Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
     ->where('asset', '.*')
     ->name('landing.asset');
 
+Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
+    $assets = [
+        '' => 'index.html',
+        'css/expo.css' => 'expo.css',
+        'js/expo.js' => 'expo.js',
+        'js/expo-config.js' => 'expo-config.js',
+    ];
+
+    $file = $assets[$asset ?? ''] ?? null;
+    abort_unless($file !== null, 404);
+
+    return response()->file(base_path("landing-page/{$file}"));
+})->where('asset', '.*')->name('uniexpo.indore');
+
 // The agent workspace is an internal tool and is not part of the public site.
 Route::get('/ai-agents', [MirrorPageController::class, 'show'])
     ->middleware(['auth', 'admin'])
