@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var endpoint = "https://script.google.com/macros/s/AKfycbyHn9J57MrkRPLzUF4WCPh8eogwPP4RrU6-tCo4z1p6LTrfLZuerDgW12x2TGeF8I7F/exec";
+  var endpoint = window.EXPO_CONFIG && window.EXPO_CONFIG.appsScriptUrl;
   var form = document.getElementById("registration-form");
   var status = document.getElementById("form-status");
   if (!form) return;
@@ -47,22 +47,33 @@
     var payload = Object.assign(values, { eventCity: "Indore", eventDate: "2026-10-24", submittedAt: new Date().toISOString() });
     form.classList.add("is-loading");
     button.disabled = true;
-    status.textContent = "Submitting your registration…";
-    status.className = "form-status";
-    var completed = false;
-    fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
-      .then(function () {
-        form.reset();
-        completed = true;
-        button.textContent = "REGISTRATION COMPLETED ✓";
-        status.textContent = "Done! Your registration for Global Uni Expo 2026 is complete.";
-        status.className = "form-status is-success";
-        showConfirmation();
-      })
-      .catch(function () {
+    button.textContent = "REGISTRATION RECEIVED ✓";
+    status.textContent = "Registration received. Saving your details…";
+    status.className = "form-status is-success";
+    showConfirmation();
+    window.setTimeout(function () {
+      if (!endpoint) {
         status.textContent = "We could not submit your registration. Please try again.";
         status.className = "form-status is-error";
-      })
-      .finally(function () { form.classList.remove("is-loading"); if (!completed) button.disabled = false; });
+        button.textContent = "REGISTER NOW";
+        button.disabled = false;
+        form.classList.remove("is-loading");
+        return;
+      }
+      fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+        .then(function () {
+          form.reset();
+          button.textContent = "REGISTRATION COMPLETED ✓";
+          status.textContent = "Done! Your registration for Global Uni Expo 2026 is complete.";
+          status.className = "form-status is-success";
+        })
+        .catch(function () {
+          status.textContent = "We could not submit your registration. Please try again.";
+          status.className = "form-status is-error";
+          button.textContent = "REGISTER NOW";
+          button.disabled = false;
+        })
+        .finally(function () { form.classList.remove("is-loading"); });
+    }, 0);
   });
 }());
