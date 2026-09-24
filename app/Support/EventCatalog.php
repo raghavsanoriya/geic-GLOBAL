@@ -81,13 +81,13 @@ class EventCatalog
             ),
             self::event(
                 slug: 'global-uni-expo-2023',
-                title: "Global UNIExpo 2023 – Gujarat's Biggest Study Abroad Event",
+                title: "Global Uni Expo 2023 – Gujarat's Biggest Study Abroad Event",
                 date: '19 February 2023',
                 time: 'Event archive',
                 destination: 'Multiple destinations',
                 image: 'assets/transglobe/events/global-uni-expo-2023.jpg',
                 summary: 'A landmark Trans Globe study-abroad expo connecting students with international education opportunities and expert advice.',
-                overview: 'Global UNIExpo brought a broad international education network together for students researching their future abroad. The event combined destination discovery, university conversations and practical counselling so attendees could leave with better questions and a clearer direction.',
+                overview: 'Global Uni Expo brought a broad international education network together for students researching their future abroad. The event combined destination discovery, university conversations and practical counselling so attendees could leave with better questions and a clearer direction.',
                 highlights: ['Discover global education options', 'Connect with university networks', 'Turn research into an action plan'],
             ),
         ];
