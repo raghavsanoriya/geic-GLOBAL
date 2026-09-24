@@ -67,7 +67,31 @@ class MirrorPageController extends Controller
             404
         );
 
-        return response()->file($assetPath, ['Content-Type' => $contentTypes[$extension]]);
+        $isNegotiableImage = in_array($extension, ['jpg', 'jpeg', 'png'], true);
+        $webpPath = $isNegotiableImage ? realpath($assetPath.'.webp') : false;
+
+        if (
+            $webpPath !== false
+            && is_file($webpPath)
+            && str_starts_with($webpPath, $landingRoot.DIRECTORY_SEPARATOR)
+            && str_contains((string) request()->header('Accept'), 'image/webp')
+        ) {
+            $assetPath = $webpPath;
+            $extension = 'webp';
+        }
+
+        $headers = [
+            'Content-Type' => $contentTypes[$extension],
+            'Cache-Control' => $isNegotiableImage || $extension === 'webp'
+                ? 'public, max-age=604800, stale-while-revalidate=86400'
+                : 'public, max-age=3600, must-revalidate',
+        ];
+
+        if ($isNegotiableImage) {
+            $headers['Vary'] = 'Accept';
+        }
+
+        return response()->file($assetPath, $headers);
     }
 
     /**

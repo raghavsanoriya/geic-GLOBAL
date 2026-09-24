@@ -130,7 +130,7 @@
     .tg-faq details p { margin-top: 14px; color: var(--gray-500); line-height: 1.7; }
     .tg-contact-card { background: var(--secondary); background-image: url('store/themes/footers/2/footer_background_7gn.png'); border-radius: 32px; padding: 56px; color: #fff; overflow: hidden; }
     .tg-contact-pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 10px 16px; color: #fff; }
-    .tg-mobile-app-bar, .tg-mobile-discovery, .tg-mobile-bottom-nav, .tg-mobile-drawer, .tg-mobile-drawer-backdrop { display: none; }
+    .tg-mobile-app-bar, .tg-mobile-discovery, .tg-mobile-bottom-nav, .tg-mobile-drawer, .tg-mobile-drawer-backdrop, .tg-mobile-more-sheet, .tg-mobile-more-backdrop { display: none; }
 
     /* Keep the original hero layout while allowing the highlighted word to
        rotate. Use the Trans Globe red for the homepage emphasis. */
@@ -228,6 +228,21 @@
         .tg-mobile-discovery__filter { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border-radius: 15px; background: #E31E24; color: #fff; box-shadow: 0 8px 18px rgba(227,30,36,.28); }
 
         .tg-mobile-drawer-backdrop { position: fixed; z-index: 1003; inset: 0; display: block; visibility: hidden; background: rgba(5,17,39,.48); opacity: 0; transition: opacity .22s ease, visibility 0s linear .22s; }
+        .tg-mobile-more-backdrop { position: fixed; z-index: 1003; inset: 0; display: block; visibility: hidden; background: rgba(5,17,39,.48); opacity: 0; transition: opacity .22s ease, visibility 0s linear .22s; }
+        .tg-mobile-more-sheet { position: fixed; z-index: 1004; right: 0; bottom: 0; left: 0; display: block; max-height: min(620px, calc(100dvh - 74px)); padding: 20px 16px calc(94px + env(safe-area-inset-bottom)); overflow-y: auto; border-radius: 28px 28px 0 0; background: #fff; box-shadow: 0 -18px 54px rgba(5,17,39,.24); transform: translate3d(0,105%,0); transition: transform .3s cubic-bezier(.2,0,0,1); }
+        .tg-mobile-more-open { overflow: hidden; }
+        .tg-mobile-more-open .tg-mobile-more-sheet { transform: translate3d(0,0,0); }
+        .tg-mobile-more-open .tg-mobile-more-backdrop { visibility: visible; opacity: 1; transition-delay: 0s; }
+        .tg-mobile-more-sheet__header { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid #e8edf3; }
+        .tg-mobile-more-sheet__header span, .tg-mobile-more-sheet__header strong { display: block; }
+        .tg-mobile-more-sheet__header span { color: #E31E24; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .tg-mobile-more-sheet__header strong { margin-top: 3px; color: #0e2145; font-size: 20px; }
+        .tg-mobile-more-sheet__close { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; flex: 0 0 46px; border: 1px solid #e7edf4; border-radius: 50%; background: #fff; color: #0e2145; font-size: 28px; font-weight: 300; }
+        .tg-mobile-more-sheet__nav { display: grid; gap: 8px; margin-top: 14px; }
+        .tg-mobile-more-sheet__nav a { display: block; min-height: 54px; padding: 10px 14px; border: 1px solid #e7edf4; border-radius: 16px; color: #0e2145; background: #f8fafc; }
+        .tg-mobile-more-sheet__nav span, .tg-mobile-more-sheet__nav small { display: block; }
+        .tg-mobile-more-sheet__nav span { font-size: 14px; font-weight: 700; }
+        .tg-mobile-more-sheet__nav small { margin-top: 2px; color: #7c8ca2; font-size: 11px; }
         .tg-mobile-drawer { position: fixed; z-index: 1004; top: 0; right: 0; bottom: 0; display: flex; width: min(88vw, 360px); padding: 20px 18px calc(24px + env(safe-area-inset-bottom)); flex-direction: column; background: #fff; box-shadow: -22px 0 60px rgba(5,17,39,.22); transform: translate3d(105%,0,0); transition: transform .3s cubic-bezier(.2,0,0,1); }
         .tg-mobile-menu-open { overflow: hidden; }
         .tg-mobile-menu-open .tg-mobile-drawer { transform: translate3d(0,0,0); }
@@ -412,6 +427,20 @@
         <a href="{{ url('/contact#enquiry') }}" class="tg-mobile-drawer__cta">Book free counselling</a>
     </aside>
 
+    <div class="tg-mobile-more-backdrop" data-mobile-more-close aria-hidden="true"></div>
+    <aside id="tgMobileMoreSheet" class="tg-mobile-more-sheet" role="dialog" aria-modal="true" aria-label="More study-abroad resources" aria-hidden="true">
+        <div class="tg-mobile-more-sheet__header">
+            <div><span>Explore more</span><strong>Study abroad resources</strong></div>
+            <button type="button" class="tg-mobile-more-sheet__close" data-mobile-more-close aria-label="Close more menu">×</button>
+        </div>
+        <nav class="tg-mobile-more-sheet__nav" aria-label="More study-abroad links">
+            <a href="/tests"><span>Test preparation</span><small>IELTS, PTE and more</small></a>
+            <a href="/events"><span>Events</span><small>Upcoming information sessions</small></a>
+            <a href="/blog"><span>Blog</span><small>Practical study-abroad guidance</small></a>
+            <a href="#reviews"><span>Student reviews</span><small>Hear from Trans Globe students</small></a>
+            <a href="/scholarships"><span>Scholarships</span><small>Funding guidance</small></a>
+        </nav>
+    </aside>
     <section class="tg-mobile-discovery" aria-label="Quick actions">
         <a href="/destinations" class="tg-mobile-discovery__search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
@@ -432,7 +461,7 @@
         <a href="/services" data-mobile-nav="services">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/></svg><span>Services</span>
         </a>
-        <button type="button" data-mobile-nav="more" aria-controls="tgMobileDrawer" aria-expanded="false">
+        <button type="button" data-mobile-nav="more" aria-controls="tgMobileMoreSheet" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg><span>More</span>
         </button>
         <a href="{{ url('/contact#enquiry') }}" class="tg-mobile-bottom-nav__action" data-mobile-nav="contact">
@@ -938,7 +967,9 @@
         const menuButton = document.querySelector('.tg-mobile-menu-button');
         const moreButton = document.querySelector('.tg-mobile-bottom-nav [data-mobile-nav="more"]');
         const drawer = document.getElementById('tgMobileDrawer');
+        const moreSheet = document.getElementById('tgMobileMoreSheet');
         const menuClosers = document.querySelectorAll('[data-mobile-menu-close], .tg-mobile-drawer a');
+        const moreClosers = document.querySelectorAll('[data-mobile-more-close], .tg-mobile-more-sheet a');
         let lastFocused = null;
 
         function openMenu(trigger) {
@@ -958,17 +989,34 @@
             lastFocused?.focus();
         }
 
+        function openMoreMenu(trigger) {
+            lastFocused = trigger || document.activeElement;
+            body.classList.add('tg-mobile-more-open');
+            moreButton?.setAttribute('aria-expanded', 'true');
+            moreSheet.setAttribute('aria-hidden', 'false');
+            window.setTimeout(function () { moreSheet.querySelector('a')?.focus(); }, 180);
+        }
+
+        function closeMoreMenu() {
+            body.classList.remove('tg-mobile-more-open');
+            moreButton?.setAttribute('aria-expanded', 'false');
+            moreSheet.setAttribute('aria-hidden', 'true');
+            lastFocused?.focus();
+        }
         menuButton.addEventListener('click', function () {
             if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
             else openMenu(menuButton);
         });
         moreButton?.addEventListener('click', function () {
-            if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
-            else openMenu(moreButton);
+            if (body.classList.contains('tg-mobile-more-open')) closeMoreMenu();
+            else openMoreMenu(moreButton);
         });
         menuClosers.forEach(function (item) { item.addEventListener('click', closeMenu); });
+        moreClosers.forEach(function (item) { item.addEventListener('click', closeMoreMenu); });
         document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && body.classList.contains('tg-mobile-menu-open')) closeMenu();
+            if (event.key !== 'Escape') return;
+            if (body.classList.contains('tg-mobile-more-open')) closeMoreMenu();
+            else if (body.classList.contains('tg-mobile-menu-open')) closeMenu();
         });
 
         document.querySelectorAll('.tg-mobile-read-more').forEach(function (button) {

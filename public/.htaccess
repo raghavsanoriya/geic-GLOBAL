@@ -5,6 +5,12 @@
 
     RewriteEngine On
 
+    # A generated sibling such as photo.jpg.webp is served only when the
+    # browser advertises WebP support; the original URL remains the fallback.
+    RewriteCond %{HTTP:Accept} image/webp [NC]
+    RewriteCond %{REQUEST_FILENAME}.webp -f
+    RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -23,3 +29,16 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(?:avif|gif|jpe?g|png|svg|webp)$">
+        Header set Cache-Control "public, max-age=604800, stale-while-revalidate=86400"
+        Header merge Vary Accept
+    </FilesMatch>
+
+    # Vite assets have content hashes in their filenames and can be immutable.
+    SetEnvIf Request_URI "^/build/assets/" vite_hashed_asset
+    Header set Cache-Control "public, max-age=31536000, immutable" env=vite_hashed_asset
+</IfModule>
+
+<IfModule mod_deflate.c>

@@ -11,6 +11,30 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const heroSlides = document.querySelectorAll("[data-hero-slide-image]");
 const heroSlideButtons = document.querySelectorAll("[data-hero-slide-button]");
 const bottomNavLinks = document.querySelectorAll("[data-bottom-nav-link]");
+const moreMenuToggle = document.querySelector("[data-more-menu-toggle]");
+const moreMenu = document.querySelector("[data-more-menu]");
+const moreMenuCloseButtons = document.querySelectorAll("[data-more-menu-close]");
+
+const setMoreMenuOpen = (isOpen) => {
+  if (!moreMenuToggle || !moreMenu) return;
+  moreMenu.hidden = !isOpen;
+  moreMenuToggle.setAttribute("aria-expanded", String(isOpen));
+  document.body.classList.toggle("more-menu-open", isOpen);
+  if (isOpen) moreMenu.querySelector("a")?.focus();
+  else moreMenuToggle.focus();
+};
+
+if (moreMenuToggle && moreMenu) {
+  moreMenuToggle.addEventListener("click", () => setMoreMenuOpen(moreMenu.hidden));
+  moreMenuCloseButtons.forEach((button) => button.addEventListener("click", () => setMoreMenuOpen(false)));
+  moreMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMoreMenuOpen(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !moreMenu.hidden) setMoreMenuOpen(false);
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 880 && !moreMenu.hidden) setMoreMenuOpen(false);
+  });
+}
 
 const closeMenu = () => {
   if (!menuButton || !mobileMenu) return;

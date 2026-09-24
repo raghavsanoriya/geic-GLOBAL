@@ -26,6 +26,20 @@ class StudyAssistantTest extends TestCase
             ->assertJsonPath('source', 'guided');
     }
 
+    public function test_mobile_api_returns_the_same_grounded_assistant_contract(): void
+    {
+        Config::set('services.study_assistant.api_key', null);
+
+        $this->postJson(route('api.mobile.study-assistant.chat'), [
+            'message' => 'Help me compare Australia and the UK.',
+            'history' => [
+                ['role' => 'user', 'content' => 'I want a postgraduate course.'],
+            ],
+        ])->assertOk()
+            ->assertJsonStructure(['reply', 'source'])
+            ->assertJsonPath('source', 'guided');
+    }
+
     public function test_guided_replies_use_catalogue_facts_for_destination_questions(): void
     {
         Config::set('services.study_assistant.api_key', null);

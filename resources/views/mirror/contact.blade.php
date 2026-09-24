@@ -76,6 +76,7 @@
     .ct-error { display:block; margin-top:6px; color:#c81820; font-size:12px; font-weight:700; }
     .ct-honeypot { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
     .ct-form-note { margin:14px 0 0; color:var(--ct-muted); font-size:12px; line-height:1.6; }
+    .ct-enquiry { scroll-margin-top:88px; }
 
     @media (max-width:991px) { .ct-hero { padding-top:106px; } .ct-hero__shell { grid-template-columns:minmax(0,1fr) minmax(280px,.75fr); gap:30px; padding:46px; } .ct-connect,.ct-form-layout { grid-template-columns:1fr; gap:42px; } .ct-form-intro { position:static; } .ct-map { min-height:420px; } .ct-map iframe,.ct-map__fallback { min-height:420px; height:420px; } }
     @media (max-width:767px) { .ct-page { padding-bottom:76px; } .ct-wrap { width:min(100% - 28px,620px); } .ct-section { padding:58px 0; } .ct-hero { padding-top:82px; } .ct-hero__shell { grid-template-columns:1fr; gap:28px; min-height:0; padding:29px 24px; border-radius:25px; } .ct-hero__orb { top:-102px; right:-125px; width:370px; height:370px; border-width:52px; } .ct-hero h1 { font-size:42px; } .ct-hero p { font-size:15px; line-height:1.65; } .ct-hero__actions { display:grid; grid-template-columns:1fr; } .ct-button,.ct-hero__call { width:100%; } .ct-hero__call { justify-content:center; } .ct-hero__visual { aspect-ratio:16 / 10; border-radius:20px; } .ct-quick { display:flex; overflow-x:auto; margin:0 10px; border-radius:0 0 21px 21px; scroll-snap-type:x mandatory; scrollbar-width:none; } .ct-quick::-webkit-scrollbar { display:none; } .ct-quick__item { flex:0 0 84%; padding:19px; border-right:1px solid var(--ct-line)!important; scroll-snap-align:start; } .ct-title { font-size:32px; } .ct-lead { font-size:15px; } .ct-contact-list { margin-top:24px; } .ct-map,.ct-map iframe,.ct-map__fallback { min-height:350px; height:350px; } .ct-form-card { padding:22px; border-radius:21px; } .ct-form-grid { grid-template-columns:1fr; gap:14px; } .ct-field--full { grid-column:auto; } }
@@ -147,6 +148,24 @@
             </form>
         </div>
     </section>
+    <script>
+        (function () {
+            function showEnquiry() {
+                if (window.location.hash !== '#enquiry') return;
+                document.getElementById('enquiry')?.scrollIntoView({ block: 'start', behavior: 'auto' });
+            }
+
+            function scheduleEnquiryScroll() {
+                showEnquiry();
+                window.requestAnimationFrame(showEnquiry);
+                window.setTimeout(showEnquiry, 80);
+            }
+
+            document.addEventListener('DOMContentLoaded', scheduleEnquiryScroll);
+            window.addEventListener('load', scheduleEnquiryScroll);
+            window.addEventListener('hashchange', scheduleEnquiryScroll);
+        }());
+    </script>
 </main>
 
 @include('mirror.partials.footer')

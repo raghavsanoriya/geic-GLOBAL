@@ -2,11 +2,12 @@
 @include('mirror.partials.mobile-destination-nav')
 
 @php
-    $currentEvent = collect($events)->firstWhere('status', 'Upcoming');
-    $pastEvents = collect($events)->where('status', 'Past event');
+    $eventCollection = collect($events);
+    $currentEvent = $eventCollection->firstWhere('status', 'Upcoming');
+    $pastEvents = $eventCollection->where('status', 'Past event');
     $heroTitle = $cms['hero_title'] ?? 'Meet universities. Find your next move.';
     $heroCopy = $cms['hero_copy'] ?? 'Discover Trans Globe events, university visits and admission days that turn study-abroad research into useful conversations and clear next steps.';
-    $heroImage = $cms['hero_image'] ?? $currentEvent['image'];
+    $heroImage = $cms['hero_image'] ?? $currentEvent['image'] ?? $eventCollection->first()['image'] ?? 'assets/services/expert-counselling.jpg';
 @endphp
 
 <style>
@@ -33,7 +34,7 @@
     <section class="ev-hero">
         <div class="ev-wrap">
             <div class="ev-hero__panel" style="background-image:url('{{ asset($heroImage) }}')">
-                <div class="ev-hero__content"><span class="ev-kicker">Events & updates</span><h1>{{ $heroTitle }}</h1><p>{{ $heroCopy }}</p><div class="ev-actions"><a class="ev-button" href="#upcoming">See upcoming event <span aria-hidden="true">↓</span></a><a class="ev-button ev-button--ghost" href="{{ url('/contact#enquiry') }}">Ask our Indore team</a></div></div>
+                <div class="ev-hero__content"><span class="ev-kicker">Events & updates</span><h1>{{ $heroTitle }}</h1><p>{{ $heroCopy }}</p><div class="ev-actions"><a class="ev-button" href="{{ $currentEvent ? '#upcoming' : '#archive' }}">{{ $currentEvent ? 'See upcoming event' : 'Explore event archive' }} <span aria-hidden="true">↓</span></a><a class="ev-button ev-button--ghost" href="{{ url('/contact#enquiry') }}">Ask our Indore team</a></div></div>
             </div>
         </div>
     </section>
@@ -42,7 +43,7 @@
     <section class="ev-current" id="upcoming"><div class="ev-wrap"><article class="ev-current__card"><div class="ev-current__image"><img src="{{ asset($currentEvent['image']) }}" alt="{{ $currentEvent['image_alt'] }}"></div><div class="ev-current__body"><span class="ev-pill">{{ $currentEvent['status'] }}</span><h2>{{ $currentEvent['title'] }}</h2><div class="ev-meta"><span>{{ $currentEvent['date'] }}</span><span>{{ $currentEvent['time'] }}</span><span>{{ $currentEvent['destination'] }}</span></div><p>{{ $currentEvent['summary'] }}</p><a class="ev-button" href="{{ url('/events/'.$currentEvent['slug']) }}">View event details <span aria-hidden="true">→</span></a></div></article></div></section>
     @endif
 
-    <section class="ev-section"><div class="ev-wrap"><div class="ev-head"><div><span class="ev-kicker">Event archive</span><h2>{{ $cms['archive_title'] ?? 'Event highlights from Indore and beyond' }}</h2></div><p>{{ $cms['archive_copy'] ?? 'Explore recent university visits, admission days and expos from the Trans Globe network.' }}</p></div><div class="ev-filter"><label class="sr-only" for="event-search">Search events</label><input id="event-search" type="search" placeholder="Search by event, country or university" data-event-search></div><div class="ev-grid" data-event-grid>
+    <section class="ev-section" id="archive"><div class="ev-wrap"><div class="ev-head"><div><span class="ev-kicker">Event archive</span><h2>{{ $cms['archive_title'] ?? 'Event highlights from Indore and beyond' }}</h2></div><p>{{ $cms['archive_copy'] ?? 'Explore recent university visits, admission days and expos from the Trans Globe network.' }}</p></div><div class="ev-filter"><label class="sr-only" for="event-search">Search events</label><input id="event-search" type="search" placeholder="Search by event, country or university" data-event-search></div><div class="ev-grid" data-event-grid>
         @foreach($pastEvents as $item)
             <article class="ev-card" data-event-card data-search="{{ strtolower($item['title'].' '.$item['destination']) }}"><div class="ev-card__media"><img src="{{ asset($item['image']) }}" alt="{{ $item['image_alt'] }}" loading="lazy"><span class="ev-card__badge">{{ $item['destination'] }}</span></div><div class="ev-card__body"><span class="ev-card__date">{{ $item['date'] }}</span><h3>{{ $item['title'] }}</h3><p>{{ $item['summary'] }}</p><a class="ev-card__link" href="{{ url('/events/'.$item['slug']) }}"><span>Explore event</span><span aria-hidden="true">→</span></a></div></article>
         @endforeach

@@ -55,11 +55,26 @@ class MirrorPageTest extends TestCase
 
         $this->get('/landing/styles.css')
             ->assertOk()
-            ->assertHeader('content-type', 'text/css; charset=UTF-8');
+            ->assertHeader('content-type', 'text/css; charset=UTF-8')
+            ->assertHeader('cache-control', 'max-age=3600, must-revalidate, public');
 
         $this->get('/landing/assets/tg-logo.svg')
             ->assertOk()
             ->assertHeader('content-type', 'image/svg+xml');
+
+        $this->get('/landing/assets/hero-campus-source.png')
+            ->assertOk()
+            ->assertHeader('content-type', 'image/png')
+            ->assertHeader('cache-control', 'max-age=604800, public, stale-while-revalidate=86400')
+            ->assertHeader('vary', 'Accept')
+            ->assertHeaderMissing('set-cookie');
+
+        $this->get('/landing/assets/hero-campus-source.png', ['Accept' => 'image/webp'])
+            ->assertOk()
+            ->assertHeader('content-type', 'image/webp')
+            ->assertHeader('cache-control', 'max-age=604800, public, stale-while-revalidate=86400')
+            ->assertHeader('vary', 'Accept')
+            ->assertHeaderMissing('set-cookie');
 
         $this->get('/landing/form-handler.php')->assertNotFound();
         $this->get('/landing/../.env')->assertNotFound();
@@ -154,7 +169,7 @@ class MirrorPageTest extends TestCase
         $this->get('/events/meet-eu-business-school-2026')
             ->assertSee('27 August 2026', false)
             ->assertSee('Four simple steps from interest to action.', false)
-            ->assertSee('Register my interest', false);
+            ->assertSee('Plan my next event', false);
 
         $this->get('/events/not-a-real-event')->assertNotFound();
     }

@@ -50,6 +50,7 @@ class AdminBootstrapCommandTest extends TestCase
         @unlink($credentialsFile);
 
         $exitCode = Artisan::call('admin:bootstrap', [
+            '--email' => 'existing-admin@geic.in',
             '--credentials-file' => $credentialsFile,
         ]);
 

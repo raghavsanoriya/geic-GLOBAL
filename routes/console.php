@@ -29,17 +29,17 @@ Artisan::command('admin:make {email : Administrator email address} {--name=Admin
 })->purpose('Create or update an administrator account for the lead dashboard');
 
 Artisan::command('admin:bootstrap
-    {--email=admin@geic.in : Initial administrator email address}
-    {--name=GEIC Administrator : Initial administrator display name}
+    {--email= : Initial administrator email address}
+    {--name= : Initial administrator display name}
     {--credentials-file= : Protected file used to deliver the generated credentials}', function (): int {
-    if (User::query()->where('is_admin', true)->where('is_active', true)->exists()) {
-        $this->info('An active administrator already exists. No credentials were changed.');
+    $email = mb_strtolower(trim((string) ($this->option('email') ?: env('ADMIN_BOOTSTRAP_EMAIL', 'admin@geic.in'))));
+    $name = trim((string) ($this->option('name') ?: env('ADMIN_BOOTSTRAP_NAME', 'GEIC Administrator')));
+
+    if (User::query()->where('email', $email)->where('is_admin', true)->where('is_active', true)->exists()) {
+        $this->info('The requested administrator is already active. No credentials were changed.');
 
         return 0;
     }
-
-    $email = mb_strtolower(trim((string) $this->option('email')));
-    $name = trim((string) $this->option('name'));
 
     if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $this->error('The administrator email address is invalid.');

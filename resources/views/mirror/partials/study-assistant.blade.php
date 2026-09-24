@@ -31,12 +31,10 @@
     .tg-assistant-send svg { width: 20px; height: 20px; }
     .tg-assistant-note { padding: 0 14px 10px; color: #71819a; background: #fff; font-size: 10px; line-height: 1.4; }
     .tg-assistant-visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
-    @media (max-width: 560px) {
-        .tg-assistant-launcher { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 58px; height: 58px; }
-        .tg-assistant-panel { right: 12px; bottom: 86px; width: calc(100vw - 24px); max-height: calc(100vh - 106px); border-radius: 18px; }
-        /* The homepage has a fixed 72px bottom navigation bar. Keep the assistant in its own safe zone above it. */
-        body.home-page .tg-assistant-launcher { bottom: calc(92px + env(safe-area-inset-bottom)); }
-        body.home-page .tg-assistant-panel { bottom: calc(158px + env(safe-area-inset-bottom)); max-height: calc(100vh - 178px - env(safe-area-inset-bottom)); }
+    @media (max-width: 767px), (max-width: 991px) and (max-height: 500px) {
+        /* All mobile pages use a fixed bottom navigation. Keep the assistant above its touch targets. */
+        .tg-assistant-launcher { right: 16px; bottom: calc(104px + env(safe-area-inset-bottom)); width: 58px; height: 58px; }
+        .tg-assistant-panel { right: 12px; bottom: calc(170px + env(safe-area-inset-bottom)); width: calc(100vw - 24px); max-height: calc(100vh - 190px - env(safe-area-inset-bottom)); border-radius: 18px; }
     }
     @media (prefers-reduced-motion: reduce) { .tg-assistant-launcher, .tg-assistant-panel { transition: none; } .tg-assistant-message--typing span { animation: none; } }
 </style>
