@@ -628,6 +628,30 @@ class AdminController extends Controller
         ]);
     }
 
+    /**
+     * Show the Global Uni Expo landing-page registrations in a focused admin view.
+     */
+    public function landingPageLeads(Request $request): View
+    {
+        Gate::authorize('enquiries.view');
+
+        $sourcePage = '/uniexpo-dubai-europe';
+        $baseQuery = DB::table('counselling_enquiries')->where('source_page', $sourcePage);
+        $enquiries = $this->filteredEnquiries($request)
+            ->where('source_page', $sourcePage)
+            ->paginate(20)
+            ->withQueryString();
+
+        return view('admin.enquiries.landing-page-leads', [
+            'enquiries' => $enquiries,
+            'total' => (clone $baseQuery)->count(),
+            'today' => (clone $baseQuery)->whereDate('created_at', today())->count(),
+            'week' => (clone $baseQuery)->where('created_at', '>=', now()->subDays(6)->startOfDay())->count(),
+            'destinationOptions' => (clone $baseQuery)->distinct()->orderBy('destination')->pluck('destination'),
+            'sourcePage' => $sourcePage,
+        ]);
+    }
+
     public function leadExport(Request $request): View
     {
         Gate::authorize('enquiries.export');

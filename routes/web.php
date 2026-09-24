@@ -57,6 +57,8 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
             Route::get('/enquiries', [AdminController::class, 'enquiries'])->middleware('can:enquiries.view')->name('enquiries.index');
             Route::get('/enquiries/export', [AdminController::class, 'leadExport'])->middleware('can:enquiries.export')->name('enquiries.export');
+            Route::get('/landing-page-leads', [AdminController::class, 'landingPageLeads'])->middleware('can:enquiries.view')->name('landing-leads');
+
             Route::get('/ads', [AdminController::class, 'ads'])->middleware('can:ads.view')->name('ads.index');
             Route::post('/ads/accounts', [AdminController::class, 'storeAdAccount'])->middleware('can:ads.manage')->name('ads.accounts.store');
             Route::post('/ads/campaigns', [AdminController::class, 'storeAdCampaign'])->middleware('can:ads.manage')->name('ads.campaigns.store');
@@ -127,6 +129,15 @@ Route::post('/promotions/{promotion}/form-handler.php', [CounsellingEnquiryContr
     ->where('promotion', '[a-z0-9-]+')
     ->middleware('throttle:10,1')
     ->name('promotions.enquire');
+Route::post('/uniexpo-dubai-europe/register', [CounsellingEnquiryController::class, 'storeExpo'])
+    ->withoutMiddleware([PreventRequestForgery::class])
+    ->middleware('throttle:10,1')
+    ->name('uniexpo.register');
+Route::post('/_geic_release/uniexpo-dubai-europe/register', [CounsellingEnquiryController::class, 'storeExpo'])
+    ->withoutMiddleware([PreventRequestForgery::class])
+    ->middleware('throttle:10,1')
+    ->name('uniexpo.release.register');
+
 Route::get('/landing', [MirrorPageController::class, 'landing'])->name('landing');
 Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
     ->where('asset', '.*')
@@ -161,6 +172,30 @@ Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
         'Content-Type' => $contentTypes[$file],
     ]);
 })->where('asset', '.*')->name('uniexpo.indore');
+
+
+Route::get('/_geic_release/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
+    $assets = [
+        '' => 'index.html',
+        'css/expo.css' => 'expo.css',
+        'js/expo.js' => 'expo.js',
+        'js/expo-config.js' => 'expo-config.js',
+    ];
+
+    $file = $assets[$asset ?? ''] ?? null;
+    abort_unless($file !== null, 404);
+
+    $contentTypes = [
+        'index.html' => 'text/html; charset=UTF-8',
+        'expo.css' => 'text/css; charset=UTF-8',
+        'expo.js' => 'application/javascript; charset=UTF-8',
+        'expo-config.js' => 'application/javascript; charset=UTF-8',
+    ];
+
+    return response()->file(base_path("uniexpo-page/{$file}"), [
+        'Content-Type' => $contentTypes[$file],
+    ]);
+})->where('asset', '.*')->name('uniexpo.release');
 
 // The agent workspace is an internal tool and is not part of the public site.
 Route::get('/ai-agents', [MirrorPageController::class, 'show'])
