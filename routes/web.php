@@ -173,7 +173,6 @@ Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
     ]);
 })->where('asset', '.*')->name('uniexpo.indore');
 
-
 Route::get('/_geic_release/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
     $assets = [
         '' => 'index.html',
