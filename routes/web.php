@@ -140,7 +140,7 @@ Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
         'expo-config.js' => 'application/javascript; charset=UTF-8',
     ];
 
-    return response()->file(base_path("landing-page/{$file}"), [
+    return response()->file(base_path("uniexpo-page/{$file}"), [
         'Content-Type' => $contentTypes[$file],
     ]);
 })->where('asset', '.*')->name('uniexpo.indore');
