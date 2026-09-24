@@ -12,7 +12,12 @@
   }
   function valid(values) {
     var mobile = String(values.mobile || "").replace(/\D/g, "");
-    var errors = { name: values.name && values.name.trim() ? "" : "Please enter your name.", email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email || "") ? "" : "Enter a valid email address.", mobile: /^\d{10}$/.test(mobile) ? "" : "Enter a valid 10-digit mobile number.", country: values.country ? "" : "Please select a study destination." };
+    var errors = {
+      name: values.name && values.name.trim() ? "" : "Please enter your name.",
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email || "") ? "" : "Enter a valid email address.",
+      mobile: /^\d{10}$/.test(mobile) ? "" : "Enter a valid 10-digit mobile number.",
+      country: values.country ? "" : "Please select a study destination."
+    };
     Object.keys(errors).forEach(function (field) { showError(field, errors[field]); });
     return !Object.keys(errors).some(function (field) { return errors[field]; });
   }
@@ -20,13 +25,30 @@
     event.preventDefault();
     if (form.classList.contains("is-loading")) return;
     var values = Object.fromEntries(new FormData(form).entries());
-    if (!valid(values)) { status.textContent = "Please correct the highlighted fields."; status.className = "form-status is-error"; return; }
+    if (!valid(values)) {
+      status.textContent = "Please correct the highlighted fields.";
+      status.className = "form-status is-error";
+      return;
+    }
     var button = form.querySelector("button[type=submit]");
     var payload = Object.assign(values, { eventCity: "Indore", eventDate: "2026-10-24", submittedAt: new Date().toISOString() });
-    form.classList.add("is-loading"); button.disabled = true; status.textContent = "Submitting your registration…"; status.className = "form-status";
+    form.classList.add("is-loading");
+    button.disabled = true;
+    status.textContent = "Submitting your registration…";
+    status.className = "form-status";
+    var completed = false;
     fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
-      .then(function () { form.reset(); status.textContent = "Thank you. Your spot at Global Uni Expo 2026 is reserved."; status.className = "form-status is-success"; })
-      .catch(function () { status.textContent = "We could not submit your registration. Please try again."; status.className = "form-status is-error"; })
-      .finally(function () { form.classList.remove("is-loading"); button.disabled = false; });
+      .then(function () {
+        form.reset();
+        completed = true;
+        button.textContent = "REGISTRATION COMPLETED ✓";
+        status.textContent = "Done! Your registration for Global Uni Expo 2026 is complete.";
+        status.className = "form-status is-success";
+      })
+      .catch(function () {
+        status.textContent = "We could not submit your registration. Please try again.";
+        status.className = "form-status is-error";
+      })
+      .finally(function () { form.classList.remove("is-loading"); if (!completed) button.disabled = false; });
   });
 }());
