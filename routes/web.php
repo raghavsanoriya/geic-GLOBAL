@@ -133,7 +133,16 @@ Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
     $file = $assets[$asset ?? ''] ?? null;
     abort_unless($file !== null, 404);
 
-    return response()->file(base_path("landing-page/{$file}"));
+    $contentTypes = [
+        'index.html' => 'text/html; charset=UTF-8',
+        'expo.css' => 'text/css; charset=UTF-8',
+        'expo.js' => 'application/javascript; charset=UTF-8',
+        'expo-config.js' => 'application/javascript; charset=UTF-8',
+    ];
+
+    return response()->file(base_path("landing-page/{$file}"), [
+        'Content-Type' => $contentTypes[$file],
+    ]);
 })->where('asset', '.*')->name('uniexpo.indore');
 
 // The agent workspace is an internal tool and is not part of the public site.
