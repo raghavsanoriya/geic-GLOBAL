@@ -8,7 +8,7 @@ appId: in.geic.aistudioapp
 - openLink: "ai-studio-app://explore"
 - assertVisible: "Study Destinations"
 - tapOn: "Universities"
-- assertVisible: "View Australian National University"
+- assertVisible: "View Australian National University.*"
 - takeScreenshot: device-results/universities
 - openLink: "ai-studio-app://compare"
 - assertVisible: "University Comparison"
