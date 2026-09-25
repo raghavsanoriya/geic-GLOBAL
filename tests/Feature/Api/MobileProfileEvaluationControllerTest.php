@@ -15,9 +15,16 @@ class MobileProfileEvaluationControllerTest extends TestCase
             'englishTest' => 'IELTS',
             'englishScore' => '7.0',
             'preferredIntake' => 'September 2027',
+            'fullName' => 'Preview Student',
+            'intendedCourse' => 'Data Science',
+            'workExperienceYears' => 1,
+            'originalStudyLevel' => 'Masters',
         ])->assertOk()
             ->assertJsonPath('matches.0.id', 'australia')
             ->assertJsonPath('matches.1.id', 'uk')
+            ->assertJsonPath('submittedProfile.fullName', 'Preview Student')
+            ->assertJsonPath('submittedProfile.intendedCourse', 'Data Science')
+            ->assertJsonPath('submittedProfile.originalStudyLevel', 'Masters')
             ->assertJsonStructure(['readinessScore', 'summary', 'matches', 'strengths', 'actionItems', 'disclaimer']);
     }
 

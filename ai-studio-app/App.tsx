@@ -1,0 +1,31 @@
+import React,{useEffect,useState,useMemo} from 'react';
+import {ActivityIndicator,Image,View} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {NavigationContainer,DefaultTheme} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {SafeAreaProvider,SafeAreaView} from 'react-native-safe-area-context';
+import {StatusBar} from 'expo-status-bar';
+import {useFonts,PlusJakartaSans_400Regular,PlusJakartaSans_700Bold,PlusJakartaSans_800ExtraBold} from '@expo-google-fonts/plus-jakarta-sans';
+import {createPreferences} from './src/native-state';
+import {catalog} from './src/native-api';
+import type {Catalog} from './src/native-core';
+import {AppContext,Button,ErrorNote,Icon,IconButton,T,colors,s,type Routes,type Tabs} from './src/native-ui';
+import {HomeScreen,ExploreScreen,MoreScreen,DirectoryScreen,DetailScreen,SavedScreen,SearchScreen,CompareScreen,VisaScreen,AboutScreen,ContactScreen,MenuScreen} from './src/native-screens';
+import {AdvisorScreen,BookingScreen,EvaluateScreen} from './src/native-forms';
+const Stack=createNativeStackNavigator<Routes>();
+const Tab=createBottomTabNavigator<Tabs>();
+function MainTabs(){return <Tab.Navigator screenOptions={({route})=>({headerShown:false,tabBarActiveTintColor:'#fff',tabBarInactiveTintColor:'#cbd5e1',tabBarStyle:{backgroundColor:colors.navy,borderTopWidth:0,paddingTop:8},tabBarLabelStyle:{fontFamily:'JakartaBold',fontSize:11,paddingBottom:4},tabBarIcon:({color,size})=><Icon name={({Home:'home-outline',Explore:'compass-outline',Advisor:'message-text-outline',Evaluate:'shield-check-outline',More:'view-grid-outline'})[route.name]} color={color} size={size}/>})}><Tab.Screen name="Home" component={HomeScreen}/><Tab.Screen name="Explore" component={ExploreScreen}/><Tab.Screen name="Advisor" component={AdvisorScreen} options={{title:'AI Advisor'}}/><Tab.Screen name="Evaluate" component={EvaluateScreen}/><Tab.Screen name="More" component={MoreScreen}/></Tab.Navigator>;}
+const storageKey='tranglobe-geic-native-v2';
+export default function App(){
+ const [fonts,fontError]=useFonts({Jakarta:PlusJakartaSans_400Regular,JakartaBold:PlusJakartaSans_700Bold,JakartaExtra:PlusJakartaSans_800ExtraBold});
+ const [data,setData]=useState<Catalog|null>(null),[refreshing,setRefreshing]=useState(false),[error,setError]=useState(''),[storageError,setStorageError]=useState('');
+ const [hydrated,setHydrated]=useState(false);
+ const [local,setLocal]=useState<{saved:string[];checks:string[];recent:string[]}>({saved:[],checks:[],recent:[]});
+ async function refresh(){setRefreshing(true);setError('');try{setData(await catalog());}catch(e){setError(e instanceof Error?e.message:'Unable to connect. Check your internet connection.');}finally{setRefreshing(false);}}
+ const preferences=useMemo(()=>createPreferences(AsyncStorage,setLocal,setStorageError),[]);
+ useEffect(()=>{void refresh();void preferences.load().finally(()=>setHydrated(true));},[preferences]);
+ function toggle(field:'saved'|'checks',id:string){void preferences.update(previous=>({...previous,[field]:previous[field].includes(id)?previous[field].filter(x=>x!==id):[...previous[field],id]}));}
+ const theme={...DefaultTheme,colors:{...DefaultTheme.colors,primary:colors.red,background:colors.canvas,text:colors.navy}};
+ return <SafeAreaProvider><StatusBar style="dark"/>{(!fonts&&!fontError)||!data||!hydrated?<SafeAreaView style={{flex:1,backgroundColor:colors.canvas,justifyContent:'center',padding:28,gap:20}}><Image source={require('./assets/brand-icon.png')} style={{width:96,height:96,alignSelf:'center',borderRadius:20}}/><T style={[s.heading,{textAlign:'center'}]}>Tranglobe-GEIC App</T>{refreshing||(!fonts&&!fontError)?<ActivityIndicator color={colors.red}/>:null}<ErrorNote message={error}/>{error&&<Button label="Retry connection" onPress={()=>void refresh()}/>}<T style={[s.muted,{textAlign:'center'}]}>Connecting securely to the GEIC catalogue</T></SafeAreaView>:<AppContext.Provider value={{data,...local,toggleSave:id=>toggle('saved',id),toggleCheck:id=>toggle('checks',id),remember:value=>{if(value.trim())void preferences.update(previous=>({...previous,recent:[value.trim(),...previous.recent.filter(x=>x!==value.trim())].slice(0,8)}));},clearRecent:()=>{void preferences.update(previous=>({...previous,recent:[]}));},refresh,refreshing,error,storageError}}><NavigationContainer<Routes> theme={theme} linking={{prefixes:['ai-studio-app://','tranglobe-geic://'],config:{screens:{Main:{screens:{Home:'home',Explore:'explore',Advisor:'advisor',Evaluate:'evaluate',More:'more'}},Search:'search',Compare:'compare',Contact:'contact',About:'about',Saved:'saved',Booking:'booking'}}}}><Stack.Navigator screenOptions={({navigation})=>({headerStyle:{backgroundColor:'#fff'},headerTitleStyle:{fontFamily:'JakartaBold',fontSize:16},headerTintColor:colors.navy,contentStyle:{backgroundColor:colors.canvas},headerBackVisible:false,headerLeft:()=>navigation.canGoBack()?<Button label="Back" secondary onPress={()=>navigation.goBack()}/>:null})}><Stack.Screen name="Main" component={MainTabs} options={({navigation})=>({title:'Tranglobe-GEIC App',headerLeft:()=> <Image source={require('./assets/brand-icon.png')} style={{width:34,height:34,marginRight:8}}/>,headerRight:()=> <IconButton name="calendar-check-outline" label="Book free counselling" onPress={()=>navigation.navigate('Booking')}/>})}/><Stack.Screen name="Directory" component={DirectoryScreen} options={{title:'Directory'}}/><Stack.Screen name="Detail" component={DetailScreen} options={{title:'Explore details'}}/><Stack.Screen name="Booking" component={BookingScreen} options={{title:'Counselling request',presentation:'modal'}}/><Stack.Screen name="Compare" component={CompareScreen} options={{title:'Compare Universities'}}/><Stack.Screen name="Visa" component={VisaScreen} options={{title:'Visa Roadmap'}}/><Stack.Screen name="About" component={AboutScreen}/><Stack.Screen name="Contact" component={ContactScreen}/><Stack.Screen name="Saved" component={SavedScreen}/><Stack.Screen name="Menu" component={MenuScreen}/><Stack.Screen name="Search" component={SearchScreen}/></Stack.Navigator></NavigationContainer></AppContext.Provider>}</SafeAreaProvider>;
+}

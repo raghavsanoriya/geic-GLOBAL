@@ -23,7 +23,7 @@ class MobileEnquiryController extends Controller
             'kind' => ['required', Rule::in(['counselling', 'event', 'service', 'expo'])],
             'fullName' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:160'],
-            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'phone' => ['required', 'string', 'max:24', 'regex:/^(?=(?:\D*\d){7,15}\D*$)[0-9+()\-\s]{7,24}$/'],
             'city' => ['nullable', 'string', 'max:100'],
             'destination' => ['nullable', 'string', 'max:80'],
             'studyLevel' => ['nullable', 'string', 'max:50'],
@@ -33,47 +33,60 @@ class MobileEnquiryController extends Controller
             'message' => ['nullable', 'string', 'max:1200'],
             'referenceId' => ['nullable', 'string', 'max:120'],
             'platform' => ['nullable', Rule::in(['android', 'ios', 'web'])],
+            'appointmentDate' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:today'],
+            'timeSlot' => ['nullable', 'string', 'max:40'],
+            'meetingMode' => ['nullable', 'string', 'max:80'],
+            'emailProvided' => ['nullable', 'boolean'],
             'consent' => ['accepted'],
             'website' => ['nullable', 'max:0'],
         ], [
+            'appointmentDate.after_or_equal' => 'Choose today or a future date for your counselling request.',
             'phone.regex' => 'Enter a valid phone number using digits and standard phone symbols.',
             'consent.accepted' => 'Please allow our counsellor to contact you about this enquiry.',
         ]);
 
         $sourcePage = '/mobile/'.$data['kind'];
-        $id = DB::table('counselling_enquiries')->insertGetId([
-            'destination' => $data['destination'] ?? 'General enquiry',
-            'full_name' => $data['fullName'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'city' => $data['city'] ?? 'Not provided',
-            'study_level' => $data['studyLevel'] ?? 'Not sure yet',
-            'preferred_intake' => $data['preferredIntake'] ?? 'Not sure yet',
-            'preferred_course' => $data['preferredCourse'] ?? null,
-            'english_test' => $data['englishTest'] ?? 'Not sure yet',
-            'message' => $data['message'] ?? null,
-            'source_page' => $sourcePage,
-            'source' => 'mobile',
-            'source_form' => $data['kind'],
-            'metadata' => json_encode([
-                'reference_id' => $data['referenceId'] ?? null,
-                'platform' => $data['platform'] ?? null,
-                'consent' => true,
-            ], JSON_THROW_ON_ERROR),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        $id = DB::transaction(function () use ($data, $sourcePage, $request): int {
+            $id = DB::table('counselling_enquiries')->insertGetId([
+                'destination' => $data['destination'] ?? 'General enquiry',
+                'full_name' => $data['fullName'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'city' => $data['city'] ?? 'Not provided',
+                'study_level' => $data['studyLevel'] ?? 'Not sure yet',
+                'preferred_intake' => $data['preferredIntake'] ?? 'Not sure yet',
+                'preferred_course' => $data['preferredCourse'] ?? null,
+                'english_test' => $data['englishTest'] ?? 'Not sure yet',
+                'message' => $data['message'] ?? null,
+                'source_page' => $sourcePage,
+                'source' => 'mobile',
+                'source_form' => $data['kind'],
+                'metadata' => json_encode([
+                    'reference_id' => $data['referenceId'] ?? null,
+                    'platform' => $data['platform'] ?? null,
+                    'appointment_date' => $data['appointmentDate'] ?? null,
+                    'time_slot' => $data['timeSlot'] ?? null,
+                    'meeting_mode' => $data['meetingMode'] ?? null,
+                    'email_provided' => $data['emailProvided'] ?? true,
+                    'consent' => true,
+                ], JSON_THROW_ON_ERROR),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
 
-        DB::table('site_events')->insert([
-            'event_type' => 'form_submit',
-            'path' => $sourcePage,
-            'label' => $data['referenceId'] ?? $data['kind'],
-            'target' => null,
-            'referrer_domain' => null,
-            'visitor_hash' => hash_hmac('sha256', $request->ip().'|'.mb_substr((string) $request->userAgent(), 0, 180), (string) config('app.key')),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+            DB::table('site_events')->insert([
+                'event_type' => 'form_submit',
+                'path' => $sourcePage,
+                'label' => $data['referenceId'] ?? $data['kind'],
+                'target' => null,
+                'referrer_domain' => null,
+                'visitor_hash' => hash_hmac('sha256', $request->ip().'|'.mb_substr((string) $request->userAgent(), 0, 180), (string) config('app.key')),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            return $id;
+        });
 
         return response()->json([
             'success' => true,

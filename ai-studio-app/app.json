@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Tranglobe-GEIC App",
+    "slug": "ai-studio-app",
+    "owner": "raghavsanoriya",
+    "version": "2.0.0",
+    "scheme": "ai-studio-app",
+    "orientation": "default",
+    "icon": "./assets/brand-icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "in.geic.aistudioapp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "icon": "./assets/brand-icon.png"
+    },
+    "android": {
+      "package": "in.geic.aistudioapp",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff",
+        "foregroundImage": "./assets/brand-adaptive.png",
+        "monochromeImage": "./assets/brand-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "icon": "./assets/brand-icon.png"
+    },
+    "web": {
+      "favicon": "./assets/brand-favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "85c43dd7-6546-4e09-a804-42c493f7e166"
+      }
+    }
+  }
+}
