@@ -1,0 +1,6 @@
+{
+  "name": "GEIC Global - Study Abroad App",
+  "description": "Elite mobile application for Trans Globe Indore & GEIC Global featuring 800+ university tie-ups, destination guides, AI study assistant, scholarship finder, and admission summit registration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

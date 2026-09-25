@@ -16,11 +16,15 @@ class MobileProfileEvaluationController extends Controller
         $data = $request->validate([
             'academicPercentage' => ['required', 'numeric', 'between:35,100'],
             'studyLevel' => ['required', Rule::in(['Undergraduate', 'Postgraduate', 'Diploma or pathway', 'Research'])],
-            'preferredDestinations' => ['required', 'array', 'between:1,3'],
+            'preferredDestinations' => ['required', 'array', 'between:1,12'],
             'preferredDestinations.*' => ['required', 'string', 'max:80'],
             'englishTest' => ['required', Rule::in(['IELTS', 'PTE', 'TOEFL', 'Duolingo', 'Planning to take a test', 'Not sure yet'])],
             'englishScore' => ['nullable', 'string', 'max:30'],
             'preferredIntake' => ['nullable', 'string', 'max:80'],
+            'fullName' => ['nullable', 'string', 'max:120'],
+            'intendedCourse' => ['nullable', 'string', 'max:160'],
+            'workExperienceYears' => ['nullable', 'numeric', 'between:0,50'],
+            'originalStudyLevel' => ['nullable', 'string', 'max:50'],
         ]);
 
         $destinations = collect($data['preferredDestinations'])
@@ -78,6 +82,12 @@ class MobileProfileEvaluationController extends Controller
                 'Review tuition, living costs and financial evidence with a GEIC counsellor.',
             ])),
             'disclaimer' => 'This is planning guidance, not an admission, scholarship or visa guarantee. Confirm current requirements with the institution and relevant authorities.',
+            'submittedProfile' => [
+                'fullName' => $data['fullName'] ?? null,
+                'intendedCourse' => $data['intendedCourse'] ?? null,
+                'workExperienceYears' => $data['workExperienceYears'] ?? null,
+                'originalStudyLevel' => $data['originalStudyLevel'] ?? null,
+            ],
         ]);
     }
 }
