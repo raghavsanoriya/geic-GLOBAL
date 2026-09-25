@@ -21,3 +21,30 @@ test('empty published collections remain valid without invented records',()=>ass
 for(const [name,patch] of Object.entries({missingAbout:{ABOUT_INFO:null},invalidExpo:{UPCOMING_EXPO:[]},invalidPartner:{UNIVERSITY_PARTNERS:[null]},invalidRecord:{GLOBAL_UNIVERSITIES:[null]},missingIdentity:{GEIC_SERVICES:[{name:'Example'}]},invalidRoadmap:{VISA_ROADMAP_DATA:{Australia:null}}})){
  test('malformed catalogue rejects '+name,()=>assert.throws(()=>validateCatalog({...validContract,...patch}),/not available/));
 }
+
+test('native evaluator accepts every published destination ID and preserves profile fields',async()=>{
+ const base=(process.env.TEST_API_ORIGIN || 'http://127.0.0.1:8085')+'/api/mobile/';
+ const body=await (await fetch(base+'catalog')).json();
+ const ids=validateCatalog(body.studio).STUDY_DESTINATIONS.map(d=>d.id);
+ const response=await fetch(base+'profile-evaluations',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({academicPercentage:76,studyLevel:'Postgraduate',preferredDestinations:ids,englishTest:'IELTS',englishScore:'7.0',intendedCourse:'Data Science',workExperienceYears:1})});
+ assert.equal(response.status,200);
+ const result=await response.json();
+ assert.deepEqual(result.matches.map((x:{id:string})=>x.id),ids);
+ assert.equal(result.submittedProfile.intendedCourse,'Data Science');
+ assert.ok(result.readinessScore>=35&&result.readinessScore<=100);
+ assert.match(result.disclaimer,/not an admission/);
+});
+test('live adviser returns a nonempty response with its actual source',async()=>{
+ const base=(process.env.TEST_API_ORIGIN || 'http://127.0.0.1:8085')+'/api/mobile/';
+ const response=await fetch(base+'study-assistant/chat',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({message:'Which English test should I take?',history:[]})});
+ assert.equal(response.status,200);const result=await response.json();
+ assert.ok(typeof result.reply==='string'&&result.reply.length>20);
+ assert.ok(['guided','assistant'].includes(result.source));
+});
+test('live API rejects an incomplete counselling request without accepting a lead',async()=>{
+ const base=(process.env.TEST_API_ORIGIN || 'http://127.0.0.1:8085')+'/api/mobile/';
+ const response=await fetch(base+'enquiries',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:'{}'});
+ assert.equal(response.status,422);const result=await response.json();
+ for(const field of ['kind','fullName','phone','email','consent'])assert.ok(result.errors[field]);
+ assert.equal(result.reference,undefined);
+});

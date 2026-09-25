@@ -1,0 +1,18 @@
+appId: in.geic.aistudioapp
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- tapOn: "Book free counselling"
+- assertVisible: "Book Free Counselling"
+- scrollUntilVisible:
+    element: "Send Counselling Request"
+    direction: DOWN
+- tapOn: "Send Counselling Request"
+- scrollUntilVisible:
+    element: "Enter your full name."
+    direction: UP
+- assertVisible: "Enter your full name."
+- takeScreenshot: device-results/booking-validation
