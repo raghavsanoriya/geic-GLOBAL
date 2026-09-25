@@ -1,0 +1,60 @@
+name: Native APK device verification
+on:
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: Expo APK artifact URL
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Download the release APK
+        env:
+          APK_URL: ${{ inputs.apk_url }}
+        run: |
+          python3 -c 'import os, urllib.parse; u=urllib.parse.urlparse(os.environ["APK_URL"]); assert u.scheme == "https" and u.hostname == "expo.dev" and u.path.startswith("/artifacts/eas/") and u.path.endswith(".apk"), "Expected an Expo APK artifact"'
+          curl --fail --location --retry 3 "$APK_URL" --output app.apk
+          sha256sum app.apk
+      - name: Install pinned Maestro test runner
+        run: |
+          curl --fail --location --retry 3 https://github.com/mobile-dev-inc/Maestro/releases/download/cli-2.10.0/maestro.zip --output maestro.zip
+          echo '29b675e10cc12080e445e9bfb2e2b4e4dfb9c0f2e30d5884120d258b5e1cd991  maestro.zip' | sha256sum --check
+          unzip -q maestro.zip -d "$RUNNER_TEMP/maestro-cli"
+          echo "$RUNNER_TEMP/maestro-cli/maestro/bin" >> "$GITHUB_PATH"
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install and exercise the native release
+        uses: reactivecircus/android-emulator-runner@v2.37.0
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          script: |
+            mkdir -p device-results
+            adb install app.apk
+            adb logcat -c
+            maestro test --format junit --output device-results/results.xml --debug-output device-results ai-studio-app/e2e/maestro
+            adb logcat -d > device-results/logcat.txt
+            adb shell dumpsys activity activities > device-results/activities.txt
+      - name: Upload device evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-device-results
+          path: device-results
+          retention-days: 14

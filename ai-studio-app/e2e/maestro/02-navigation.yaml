@@ -1,0 +1,36 @@
+appId: in.geic.aistudioapp
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- openLink: "ai-studio-app://explore"
+- assertVisible: "Study Destinations"
+- tapOn: "Universities"
+- assertVisible: "View Australian National University"
+- takeScreenshot: device-results/universities
+- openLink: "ai-studio-app://compare"
+- assertVisible: "University Comparison"
+- assertVisible: "University 1"
+- takeScreenshot: device-results/compare
+- openLink: "ai-studio-app://advisor"
+- assertVisible: "Trans Globe Study Advisor"
+- assertVisible: "Ask your study-abroad question"
+- takeScreenshot: device-results/advisor
+- openLink: "ai-studio-app://evaluate"
+- assertVisible: "Profile Evaluator & Visa Meter"
+- takeScreenshot: device-results/evaluator
+- openLink: "ai-studio-app://more"
+- assertVisible: "Explore Trans Globe"
+- tapOn: "Events"
+- assertVisible: "Events & Workshops"
+- tapOn: "Tests"
+- assertVisible: "Test Preparation"
+- tapOn: "Blogs"
+- assertVisible: "Study Abroad Guides & News"
+- takeScreenshot: device-results/more
+- openLink: "ai-studio-app://contact"
+- assertVisible: "Contact Trans Globe Indore"
+- assertVisible: "Call counsellor"
+- takeScreenshot: device-results/contact

@@ -1,0 +1,27 @@
+appId: in.geic.aistudioapp
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- takeScreenshot: device-results/home
+- tapOn: "Open navigation menu"
+- tapOn: "Study Destinations"
+- tapOn: "View Australia"
+- assertVisible: "Save to My Collection"
+- tapOn: "Save to My Collection"
+- assertVisible: "Remove from Saved"
+- takeScreenshot: device-results/destination
+- stopApp
+- launchApp
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- tapOn: "Open navigation menu"
+- scrollUntilVisible:
+    element: "My Saved Collection"
+    direction: DOWN
+- tapOn: "My Saved Collection"
+- assertVisible: "View Australia"
+- takeScreenshot: device-results/saved-after-restart
