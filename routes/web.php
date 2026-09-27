@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AiAgentController;
 use App\Http\Controllers\CounsellingEnquiryController;
+use App\Http\Controllers\ExpoTrackingController;
 use App\Http\Controllers\MirrorPageController;
 use App\Http\Controllers\SiteAnalyticsController;
 use App\Http\Controllers\StudyAssistantController;
@@ -63,6 +64,8 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::post('/ads/accounts', [AdminController::class, 'storeAdAccount'])->middleware('can:ads.manage')->name('ads.accounts.store');
             Route::post('/ads/campaigns', [AdminController::class, 'storeAdCampaign'])->middleware('can:ads.manage')->name('ads.campaigns.store');
             Route::post('/ads/performance', [AdminController::class, 'storeAdPerformance'])->middleware('can:ads.manage')->name('ads.performance.store');
+            Route::get('/expo-tracking', [ExpoTrackingController::class, 'edit'])->middleware('can:ads.manage')->name('expo-tracking.edit');
+            Route::put('/expo-tracking', [ExpoTrackingController::class, 'update'])->middleware('can:ads.manage')->name('expo-tracking.update');
             Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
             Route::middleware('can:content.manage')->group(function (): void {
@@ -149,6 +152,23 @@ Route::get('/landing/{asset}', [MirrorPageController::class, 'landingAsset'])
         PreventRequestForgery::class,
     ])
     ->name('landing.asset');
+
+Route::get('/uniexpo-dubai-europe/js/expo-config.js', [ExpoTrackingController::class, 'config'])
+    ->withoutMiddleware([
+        EncryptCookies::class,
+        AddQueuedCookiesToResponse::class,
+        StartSession::class,
+        ShareErrorsFromSession::class,
+        PreventRequestForgery::class,
+    ]);
+Route::get('/_geic_release/uniexpo-dubai-europe/js/expo-config.js', [ExpoTrackingController::class, 'config'])
+    ->withoutMiddleware([
+        EncryptCookies::class,
+        AddQueuedCookiesToResponse::class,
+        StartSession::class,
+        ShareErrorsFromSession::class,
+        PreventRequestForgery::class,
+    ]);
 
 Route::get('/uniexpo-dubai-europe/{asset?}', function (?string $asset = null) {
     $assets = [
