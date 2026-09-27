@@ -111,6 +111,30 @@ class AdminUserController extends Controller
         return back()->with('status', 'Access settings updated.');
     }
 
+    public function editPassword(User $user): View
+    {
+        Gate::authorize('users.manage');
+        abort_unless($user->is_admin, 404);
+
+        return view('admin.users.password', ['managedUser' => $user]);
+    }
+
+    public function updatePassword(Request $request, User $user): RedirectResponse
+    {
+        Gate::authorize('users.manage');
+        abort_unless($user->is_admin, 404);
+
+        $validated = $request->validate([
+            'password' => ['required', 'confirmed', Password::min(10)->mixedCase()->numbers()],
+        ]);
+
+        $user->forceFill(['password' => Hash::make($validated['password'])])->save();
+
+        return redirect()
+            ->route('admin.users.edit', $user)
+            ->with('status', 'Password reset. The team member can sign in with the new password now.');
+    }
+
     /**
      * @return array<string, mixed>
      */

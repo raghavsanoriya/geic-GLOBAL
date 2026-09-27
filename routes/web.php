@@ -118,6 +118,8 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
                 Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
                 Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
                 Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
+                Route::get('/users/{user}/password', [AdminUserController::class, 'editPassword'])->name('users.password.edit');
+                Route::put('/users/{user}/password', [AdminUserController::class, 'updatePassword'])->middleware('throttle:6,1')->name('users.password.update');
             });
 
             Route::post('/logout', [AdminController::class, 'logout'])->name('logout');

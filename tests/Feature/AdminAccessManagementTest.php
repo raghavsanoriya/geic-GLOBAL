@@ -135,6 +135,26 @@ class AdminAccessManagementTest extends TestCase
         ], $admin->admin_preferences);
     }
 
+    public function test_super_administrator_can_reset_a_team_password_without_sending_email(): void
+    {
+        $superAdmin = $this->admin();
+        $teamMember = $this->admin(['email' => 'team-member@example.com']);
+
+        $this->actingAs($superAdmin)
+            ->get('/admin/users/'.$teamMember->id.'/password')
+            ->assertOk()
+            ->assertSee('No email is sent.');
+
+        $this->actingAs($superAdmin)
+            ->put('/admin/users/'.$teamMember->id.'/password', [
+                'password' => 'UpdatedSecurePass123',
+                'password_confirmation' => 'UpdatedSecurePass123',
+            ])
+            ->assertRedirect('/admin/users/'.$teamMember->id.'/edit')
+            ->assertSessionHas('status', 'Password reset. The team member can sign in with the new password now.');
+
+        $this->assertTrue(Hash::check('UpdatedSecurePass123', $teamMember->fresh()->password));
+    }
     public function test_last_active_super_administrator_cannot_remove_their_own_access(): void
     {
         $superAdmin = $this->admin();
