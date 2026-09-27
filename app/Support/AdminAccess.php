@@ -67,6 +67,11 @@ class AdminAccess
                 'description' => 'Review and export student enquiries without changing website content.',
                 'permissions' => ['enquiries.view', 'enquiries.export'],
             ],
+            'ads_manager' => [
+                'label' => 'Ads manager',
+                'description' => 'Connect advertising tracking and review campaign performance without access to student enquiries or website content.',
+                'permissions' => ['ads.view', 'ads.manage'],
+            ],
             'custom' => [
                 'label' => 'Custom access',
                 'description' => 'Choose individual permissions for this team member.',
