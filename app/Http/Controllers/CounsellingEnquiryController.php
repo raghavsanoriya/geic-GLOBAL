@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
+use App\Rules\ValidEnquiryPhone;
 use App\Support\DestinationCatalog;
 use App\Support\RecordWebsiteEnquiry;
 use Illuminate\Http\JsonResponse;
@@ -78,7 +79,7 @@ class CounsellingEnquiryController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:160'],
-            'mobile' => ['required', 'string', 'regex:/^\\d{10}$/'],
+            'mobile' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
             'country' => ['required', 'string', 'max:100'],
             'interest' => ['nullable', 'string', 'max:120'],
             'website' => ['nullable', 'max:0'],
@@ -127,7 +128,7 @@ class CounsellingEnquiryController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
-            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'phone' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
             'email' => ['required', 'email:rfc', 'max:160'],
             'qualification' => ['required', 'string', 'max:100'],
             'passing_year' => ['required', 'integer', 'between:1990,2035'],
@@ -194,7 +195,7 @@ class CounsellingEnquiryController extends Controller
         $validator = Validator::make($request->all(), [
             'full_name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:160'],
-            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'phone' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
             'source_context' => ['required', 'string', 'max:120'],
             'return_to' => ['required', 'regex:~^/(?:destinations|services|scholarships|tests)/[a-z\-]+\#overview$~'],
             'consent' => ['accepted'],
@@ -252,7 +253,7 @@ class CounsellingEnquiryController extends Controller
         $validator = Validator::make($request->all(), [
             'full_name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:160'],
-            'phone' => ['required', 'string', 'max:24', 'regex:/^[0-9+()\-\s]{7,24}$/'],
+            'phone' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
             'city' => ['required', 'string', 'max:100'],
             'study_level' => ['required', Rule::in(['Undergraduate', 'Postgraduate', 'Diploma or pathway', 'Research', 'Not sure yet'])],
             'preferred_intake' => ['required', Rule::in(['Next available intake', 'February intake', 'July intake', 'October intake', 'Not sure yet'])],
