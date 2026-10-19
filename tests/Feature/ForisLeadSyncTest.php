@@ -148,6 +148,7 @@ class ForisLeadSyncTest extends TestCase
     {
         return [
             'duplicate queue' => [202, ['success' => true, 'status' => 'duplicate_queue', 'submission_id' => 7], 'duplicate_review', null],
+            'live Foris duplicate response' => [200, ['success' => true, 'message' => 'Thank you! Your inquiry has been received.', 'queued_review' => true, 'submission_id' => 54], 'duplicate_review', null],
             'rate limit' => [429, ['success' => false], 'pending', 60],
             'invalid key' => [401, ['success' => false], 'failed', null],
             'validation failure' => [422, ['success' => false], 'failed', null],
@@ -251,17 +252,16 @@ class ForisLeadSyncTest extends TestCase
         Http::assertSentCount(1);
     }
 
-    public function test_documented_body_authentication_can_be_enabled_only_server_side(): void
+    public function test_authentication_is_header_only_and_never_part_of_lead_data(): void
     {
         $this->enableForis();
-        config(['foris.api_key_in_body' => true]);
         Http::preventStrayRequests();
         Http::fake([self::ENDPOINT => Http::response(['success' => true, 'lead_id' => 902], 201)]);
         $this->record();
 
         app(ForisLeadSync::class)->deliver(1);
 
-        Http::assertSent(fn (Request $request): bool => $request['api_key'] === 'test-secret'
+        Http::assertSent(fn (Request $request): bool => ! isset($request['api_key'])
             && $request->hasHeader('X-API-KEY', 'test-secret')
             && ! str_contains($request['remark'], 'test-secret'));
         $this->assertDatabaseHas('foris_lead_deliveries', ['status' => 'delivered', 'remote_lead_id' => '902']);

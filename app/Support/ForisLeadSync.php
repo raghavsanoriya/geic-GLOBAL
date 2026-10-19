@@ -125,9 +125,6 @@ class ForisLeadSync
             return null;
         }
         $limiter->hit('foris-api', 60);
-        if (config('foris.api_key_in_body', false)) {
-            $payload['api_key'] = (string) config('foris.api_key');
-        }
 
         try {
             $response = Http::acceptJson()->asJson()->withoutRedirecting()
@@ -158,7 +155,8 @@ class ForisLeadSync
             'last_http_status' => $response->status(),
             'last_error' => null,
         ];
-        $queued = in_array($status, ['duplicate_queue', 'duplicate_review', 'queued', 'queued_for_review'], true)
+        $queued = ($body['queued_review'] ?? false) === true
+            || in_array($status, ['duplicate_queue', 'duplicate_review', 'queued', 'queued_for_review'], true)
             || (($body['success'] ?? false) === true && str_contains($message, 'duplicate') && str_contains($message, 'review'));
         if ($queued && in_array($response->status(), [200, 201, 202, 409], true)) {
             $this->finish($deliveryId, 'duplicate_review', $references + ['delivered_at' => now()]);
