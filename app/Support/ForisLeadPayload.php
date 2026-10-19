@@ -11,7 +11,7 @@ class ForisLeadPayload
     /** @return array<string, string> */
     public function make(stdClass $lead): array
     {
-        $phone = preg_replace('/\D/', '', (string) $lead->phone);
+        $phone = preg_replace('/\D/', '', EnquiryPhoneNumber::normalize($lead->phone) ?? (string) $lead->phone);
         if (strlen($phone) === 12 && str_starts_with($phone, '91')) {
             $phone = substr($phone, 2);
         }

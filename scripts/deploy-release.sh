@@ -207,6 +207,8 @@ if [[ "$branch_name" == "main" ]]; then
     fi
 fi
 
+"$php_bin" artisan crm:index-enquiry-contacts --no-interaction
+
 "$php_bin" artisan optimize:clear
 "$php_bin" artisan storage:link
 "$php_bin" artisan config:cache

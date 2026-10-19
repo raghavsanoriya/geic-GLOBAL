@@ -14,6 +14,10 @@ class AdminAccess
                 'label' => 'View student enquiries',
                 'description' => 'See enquiry totals, contact details, destinations, and study plans.',
             ],
+            'enquiries.review' => [
+                'label' => 'Review duplicate enquiries',
+                'description' => 'Confirm matching contacts or keep submissions separate without deleting leads.',
+            ],
             'enquiries.export' => [
                 'label' => 'Export student enquiries',
                 'description' => 'Download enquiry records as a CSV file.',
@@ -55,7 +59,7 @@ class AdminAccess
             'administrator' => [
                 'label' => 'Administrator',
                 'description' => 'Manage enquiries, website content, and media without controlling team access.',
-                'permissions' => ['enquiries.view', 'enquiries.export', 'ads.view', 'ads.manage', 'content.manage', 'media.manage'],
+                'permissions' => ['enquiries.view', 'enquiries.review', 'enquiries.export', 'ads.view', 'ads.manage', 'content.manage', 'media.manage'],
             ],
             'content_editor' => [
                 'label' => 'Content editor',

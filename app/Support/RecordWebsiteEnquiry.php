@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class RecordWebsiteEnquiry
 {
-    public function __construct(private ForisLeadSync $sync) {}
+    public function __construct(private ForisLeadSync $sync, private LeadDuplicateReview $duplicates) {}
 
     /** @param array<string, mixed> $attributes
      * @param  array<string, mixed>  $fields
@@ -26,6 +26,7 @@ class RecordWebsiteEnquiry
                 default => 'Destination counselling enquiry',
             };
             $id = DB::table('counselling_enquiries')->insertGetId($attributes);
+            $this->duplicates->capture($id);
             $this->sync->register($id);
 
             return $id;

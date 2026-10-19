@@ -7,6 +7,7 @@ use App\Http\Controllers\AiAgentController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\ExpoTrackingController;
 use App\Http\Controllers\ForisSyncController;
+use App\Http\Controllers\LeadDuplicateReviewController;
 use App\Http\Controllers\MirrorPageController;
 use App\Http\Controllers\SiteAnalyticsController;
 use App\Http\Controllers\StudyAssistantController;
@@ -61,6 +62,8 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
             Route::get('/enquiries', [AdminController::class, 'enquiries'])->middleware('can:enquiries.view')->name('enquiries.index');
             Route::get('/enquiries/export', [AdminController::class, 'leadExport'])->middleware('can:enquiries.export')->name('enquiries.export');
+            Route::get('/duplicate-review', [LeadDuplicateReviewController::class, 'index'])->middleware('can:enquiries.view')->name('duplicates.index');
+            Route::patch('/duplicate-review/{review}', [LeadDuplicateReviewController::class, 'update'])->whereNumber('review')->middleware('can:enquiries.review')->name('duplicates.update');
             Route::get('/landing-page-leads', [AdminController::class, 'landingPageLeads'])->middleware('can:enquiries.view')->name('landing-leads');
 
             Route::get('/ads', [AdminController::class, 'ads'])->middleware('can:ads.view')->name('ads.index');

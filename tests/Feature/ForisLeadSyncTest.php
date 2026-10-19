@@ -268,6 +268,26 @@ class ForisLeadSyncTest extends TestCase
         $this->assertStringNotContainsString('test-secret', DB::table('counselling_enquiries')->value('metadata'));
     }
 
+    #[DataProvider('indianDialPrefixes')]
+    public function test_normalizes_indian_dial_prefixes_before_forwarding(string $phone): void
+    {
+        $this->enableForis();
+        Http::preventStrayRequests();
+        Http::fake([self::ENDPOINT => Http::response(['success' => true, 'lead_id' => 903], 201)]);
+        $id = $this->record(['phone' => $phone]);
+
+        app(ForisLeadSync::class)->deliver(1);
+
+        Http::assertSent(fn (Request $request): bool => $request['contact_number'] === '9876543210' && $request['phonecode'] === '91');
+        $this->assertDatabaseHas('counselling_enquiries', ['id' => $id, 'phone' => $phone]);
+        $this->assertDatabaseHas('foris_lead_deliveries', ['status' => 'delivered']);
+    }
+
+    public static function indianDialPrefixes(): array
+    {
+        return ['trunk prefix' => ['09876543210'], 'international prefix' => ['00919876543210']];
+    }
+
     private function enableForis(): void
     {
         config(['foris.enabled' => true, 'foris.endpoint' => self::ENDPOINT, 'foris.api_key' => 'test-secret', 'foris.cache_store' => 'array']);
