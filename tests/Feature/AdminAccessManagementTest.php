@@ -155,6 +155,7 @@ class AdminAccessManagementTest extends TestCase
 
         $this->assertTrue(Hash::check('UpdatedSecurePass123', $teamMember->fresh()->password));
     }
+
     public function test_last_active_super_administrator_cannot_remove_their_own_access(): void
     {
         $superAdmin = $this->admin();
