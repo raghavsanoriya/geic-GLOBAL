@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AiAgentController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\ExpoTrackingController;
+use App\Http\Controllers\ForisSyncController;
 use App\Http\Controllers\MirrorPageController;
 use App\Http\Controllers\SiteAnalyticsController;
 use App\Http\Controllers\StudyAssistantController;
@@ -36,6 +37,8 @@ Route::post('/destinations/{destination}/enquire', [CounsellingEnquiryController
     ->where('destination', '[a-z\-]+')
     ->middleware('throttle:10,1')
     ->name('destinations.enquire');
+
+Route::post('/newsletters', [CounsellingEnquiryController::class, 'storeNewsletter'])->middleware('throttle:10,1')->name('newsletter.store');
 
 Route::post('/contact/enquire', [CounsellingEnquiryController::class, 'storeContact'])
     ->middleware('throttle:10,1')
@@ -106,6 +109,11 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
                 Route::delete('/media/folders/{folder}', [AdminController::class, 'deleteMediaFolder'])->where('folder', '[^/]+')->name('media.folders.destroy');
             });
 
+            Route::middleware('can:foris.manage')->group(function (): void {
+                Route::get('/integrations/foris', [ForisSyncController::class, 'index'])->name('foris.index');
+                Route::post('/integrations/foris/backfill', [ForisSyncController::class, 'backfill'])->middleware('throttle:3,1')->name('foris.backfill');
+                Route::post('/integrations/foris/{delivery}/retry', [ForisSyncController::class, 'retry'])->whereNumber('delivery')->middleware('throttle:10,1')->name('foris.retry');
+            });
             Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
             Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
             Route::put('/profile/password', [AdminProfileController::class, 'updatePassword'])->middleware('throttle:6,1')->name('profile.password');

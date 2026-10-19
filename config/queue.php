@@ -35,6 +35,14 @@ return [
             'driver' => 'sync',
         ],
 
+        'foris' => [
+            'driver' => 'database',
+            'connection' => null,
+            'table' => 'jobs',
+            'queue' => 'foris-live',
+            'retry_after' => 90,
+            'after_commit' => false,
+        ],
         'database' => [
             'driver' => 'database',
             'connection' => env('DB_QUEUE_CONNECTION'),
