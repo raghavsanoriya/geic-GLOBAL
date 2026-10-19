@@ -14,14 +14,15 @@ class ForisSync extends Command
 
     public function handle(ForisLeadSync $sync): int
     {
-        $lock = Cache::lock('foris-sync-worker', 75);
+        $cache = Cache::store(config('foris.cache_store', 'file'));
+        $lock = $cache->lock('foris-sync-worker', 75);
         if (! $lock->get()) {
             $this->info('The Foris worker is already running.');
 
             return self::SUCCESS;
         }
         try {
-            Cache::put('foris-worker-heartbeat', now()->toIso8601String(), now()->addDays(2));
+            $cache->put('foris-worker-heartbeat', now()->toIso8601String(), now()->addDays(2));
             if ($this->option('backfill') && $sync->configured()) {
                 $this->call('crm:foris-backfill', ['--limit' => 200]);
             }

@@ -33,7 +33,7 @@ class ForisSyncController extends Controller
             'counts' => DB::table('foris_lead_deliveries')->selectRaw('status, COUNT(*) as total')->groupBy('status')->pluck('total', 'status'),
             'statuses' => ForisLeadSync::STATUSES,
             'configured' => $sync->configured(),
-            'heartbeat' => Cache::get('foris-worker-heartbeat'),
+            'heartbeat' => Cache::store(config('foris.cache_store', 'file'))->get('foris-worker-heartbeat'),
             'remaining' => DB::table('counselling_enquiries as e')->leftJoin('foris_lead_deliveries as d', 'd.enquiry_id', '=', 'e.id')
                 ->whereIn('e.source', ['website', 'wordpress'])->whereNull('d.id')->count(),
         ]);

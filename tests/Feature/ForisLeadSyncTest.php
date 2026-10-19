@@ -9,6 +9,7 @@ use App\Support\ForisLeadSync;
 use App\Support\RecordWebsiteEnquiry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
@@ -233,9 +234,26 @@ class ForisLeadSyncTest extends TestCase
         $this->assertDatabaseHas('foris_lead_deliveries', ['id' => 1, 'status' => 'pending']);
     }
 
+    public function test_worker_delivers_serialized_jobs_without_database_cache_writes(): void
+    {
+        $this->enableForis();
+        config(['cache.default' => 'database']);
+        DB::statement("CREATE TRIGGER reject_crm_cache_upsert BEFORE INSERT ON cache BEGIN SELECT RAISE(ABORT, 'Legacy SQLite cache writes unavailable'); END");
+        Http::preventStrayRequests();
+        Http::fake([self::ENDPOINT => Http::response(['success' => true, 'lead_id' => 901], 201)]);
+        $id = $this->record();
+
+        $this->artisan('crm:foris-sync')->assertSuccessful();
+
+        $this->assertDatabaseHas('foris_lead_deliveries', ['enquiry_id' => $id, 'status' => 'delivered', 'remote_lead_id' => '901']);
+        $this->assertDatabaseCount('jobs', 0);
+        $this->assertNotNull(Cache::store('array')->get('foris-worker-heartbeat'));
+        Http::assertSentCount(1);
+    }
+
     private function enableForis(): void
     {
-        config(['foris.enabled' => true, 'foris.endpoint' => self::ENDPOINT, 'foris.api_key' => 'test-secret']);
+        config(['foris.enabled' => true, 'foris.endpoint' => self::ENDPOINT, 'foris.api_key' => 'test-secret', 'foris.cache_store' => 'array']);
     }
 
     private function record(array $overrides = [], array $fields = []): int
