@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::define('foris.manage', fn (User $user): bool => $user->is_admin && $user->is_active && $user->admin_role === 'super_admin');
         foreach (AdminAccess::permissionKeys() as $permission) {
             Gate::define($permission, fn (User $user): bool => $user->hasAdminPermission($permission));
         }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Support\DestinationCatalog;
+use App\Support\RecordWebsiteEnquiry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,9 +15,37 @@ use Illuminate\Validation\Rule;
 
 class CounsellingEnquiryController extends Controller
 {
+    public function __construct(private RecordWebsiteEnquiry $enquiries) {}
+
     /**
      * Store the standalone campaign landing-page profile request.
      */
+    public function storeNewsletter(Request $request): JsonResponse
+    {
+        $data = $request->validate(['newsletter_email' => ['required', 'email:rfc', 'max:160']]);
+        $path = parse_url((string) $request->headers->get('referer'), PHP_URL_PATH);
+        $path = is_string($path) && str_starts_with($path, '/') ? mb_substr($path, 0, 160) : '/';
+        $this->enquiries->store([
+            'destination' => 'Newsletter',
+            'full_name' => 'Email subscriber',
+            'email' => $data['newsletter_email'],
+            'phone' => 'Not provided',
+            'city' => 'Not provided',
+            'study_level' => 'Not provided',
+            'preferred_intake' => 'Not provided',
+            'preferred_course' => null,
+            'english_test' => 'Not provided',
+            'message' => 'Footer newsletter subscription.',
+            'source_page' => $path,
+            'source_form' => 'Website footer newsletter',
+            ...$this->trackingAttributes($request),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], $data);
+
+        return response()->json(['success' => true, 'code' => 200, 'title' => 'Thank you', 'msg' => 'Your newsletter request has been saved.']);
+    }
+
     public function storeLanding(Request $request): JsonResponse
     {
         return $this->storePromotional($request, '/landing');
@@ -58,8 +87,10 @@ class CounsellingEnquiryController extends Controller
         ]);
 
         $sourcePage = '/uniexpo-dubai-europe';
+        $data['event_date'] = '2026-10-24';
+        $data['event_city'] = 'Indore';
 
-        DB::table('counselling_enquiries')->insert([
+        $this->enquiries->store([
             'destination' => $data['country'],
             'full_name' => $data['name'],
             'email' => $data['email'],
@@ -75,7 +106,7 @@ class CounsellingEnquiryController extends Controller
             ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ], $data);
 
         $this->recordConversion($request, $sourcePage, 'Global Uni Expo 2026 - '.$data['country']);
 
@@ -105,7 +136,7 @@ class CounsellingEnquiryController extends Controller
             'website' => ['nullable', 'max:0'],
         ]);
 
-        DB::table('counselling_enquiries')->insert([
+        $this->enquiries->store([
             'destination' => $data['country'],
             'full_name' => $data['name'],
             'email' => $data['email'],
@@ -120,7 +151,7 @@ class CounsellingEnquiryController extends Controller
             ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ], $data);
 
         $this->recordConversion($request, $sourcePage, $data['country']);
 
@@ -186,7 +217,7 @@ class CounsellingEnquiryController extends Controller
 
         $data = $validator->validated();
 
-        DB::table('counselling_enquiries')->insert([
+        $this->enquiries->store([
             'destination' => $data['source_context'],
             'full_name' => $data['full_name'],
             'email' => $data['email'],
@@ -201,7 +232,7 @@ class CounsellingEnquiryController extends Controller
             ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ], $data);
 
         $this->recordConversion($request, strtok($returnUrl, '#'), $data['source_context']);
 
@@ -243,7 +274,7 @@ class CounsellingEnquiryController extends Controller
 
         $data = $validator->validated();
 
-        DB::table('counselling_enquiries')->insert([
+        $this->enquiries->store([
             'destination' => $destinationName,
             'full_name' => $data['full_name'],
             'email' => $data['email'],
@@ -258,7 +289,7 @@ class CounsellingEnquiryController extends Controller
             ...$this->trackingAttributes($request),
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ], $data);
 
         $this->recordConversion($request, $slug === 'contact' ? '/contact' : "/destinations/{$slug}", $destinationName);
 
