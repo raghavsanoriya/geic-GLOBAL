@@ -3,12 +3,13 @@
 namespace App\Support;
 
 use App\Jobs\SendLeadToForis;
+use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Queue;
-use Illuminate\Support\Facades\RateLimiter;
 use InvalidArgumentException;
 use Throwable;
 
@@ -101,8 +102,9 @@ class ForisLeadSync
             return 300;
         }
         $limit = max(1, min(60, (int) config('foris.rate_limit')));
-        if (RateLimiter::tooManyAttempts('foris-api', $limit)) {
-            return max(1, RateLimiter::availableIn('foris-api'));
+        $limiter = new RateLimiter(Cache::store(config('foris.cache_store', 'file')));
+        if ($limiter->tooManyAttempts('foris-api', $limit)) {
+            return max(1, $limiter->availableIn('foris-api'));
         }
         $lead = DB::table('counselling_enquiries')->find($delivery->enquiry_id);
         if (! $lead) {
@@ -122,7 +124,7 @@ class ForisLeadSync
         if (! $claimed) {
             return null;
         }
-        RateLimiter::hit('foris-api', 60);
+        $limiter->hit('foris-api', 60);
 
         try {
             $response = Http::acceptJson()->asJson()->withoutRedirecting()
