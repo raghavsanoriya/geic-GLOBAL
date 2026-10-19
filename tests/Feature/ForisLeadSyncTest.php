@@ -251,6 +251,23 @@ class ForisLeadSyncTest extends TestCase
         Http::assertSentCount(1);
     }
 
+    public function test_documented_body_authentication_can_be_enabled_only_server_side(): void
+    {
+        $this->enableForis();
+        config(['foris.api_key_in_body' => true]);
+        Http::preventStrayRequests();
+        Http::fake([self::ENDPOINT => Http::response(['success' => true, 'lead_id' => 902], 201)]);
+        $this->record();
+
+        app(ForisLeadSync::class)->deliver(1);
+
+        Http::assertSent(fn (Request $request): bool => $request['api_key'] === 'test-secret'
+            && $request->hasHeader('X-API-KEY', 'test-secret')
+            && ! str_contains($request['remark'], 'test-secret'));
+        $this->assertDatabaseHas('foris_lead_deliveries', ['status' => 'delivered', 'remote_lead_id' => '902']);
+        $this->assertStringNotContainsString('test-secret', DB::table('counselling_enquiries')->value('metadata'));
+    }
+
     private function enableForis(): void
     {
         config(['foris.enabled' => true, 'foris.endpoint' => self::ENDPOINT, 'foris.api_key' => 'test-secret', 'foris.cache_store' => 'array']);

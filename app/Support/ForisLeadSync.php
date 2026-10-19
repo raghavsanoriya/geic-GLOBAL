@@ -125,6 +125,9 @@ class ForisLeadSync
             return null;
         }
         $limiter->hit('foris-api', 60);
+        if (config('foris.api_key_in_body', false)) {
+            $payload['api_key'] = (string) config('foris.api_key');
+        }
 
         try {
             $response = Http::acceptJson()->asJson()->withoutRedirecting()
