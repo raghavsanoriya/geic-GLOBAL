@@ -1,0 +1,11 @@
+@extends('admin.layout')
+@section('title','Reminders | GEIC Indore')
+@section('crumb','My CRM reminders')
+@section('content')
+@include('admin.crm.validation-feedback')
+<div class="crm-workspace"><section class="page-head"><div><span class="eyebrow">Personal workspace · In-app reminders</span><h1>Your next steps</h1><p class="sub">Due and approaching tasks and follow-ups. Visibility follows your current student access; times display in India time.</p></div><a class="button button--quiet" href="{{route('admin.crm.dashboard')}}">CRM overview</a></section>
+@if(session('status'))<div class="notice" role="status">{{session('status')}}</div>@endif
+<form class="panel crm-profile-form" method="post" action="{{route('admin.crm.reminders.preferences')}}">@csrf<h2>Reminder preferences</h2><p class="crm-help">In-app only. No email, SMS or push messages are sent by this setting.</p><input type="hidden" name="enabled" value="0"><label><input type="checkbox" name="enabled" value="1" @checked($enabled)> Generate reminders for my assigned tasks and follow-ups</label><button class="button button--quiet" type="submit">Save preference</button></form>
+<section class="panel crm-student-list">@forelse($reminders as $reminder)<article class="crm-student-row"><div><span class="pill">{{$reminder['read_at']?'Read':'Unread'}} · {{str_replace('_',' ',$reminder['kind'])}}</span><h2 style="font-size:16px;margin:10px 0 0">{{$reminder['title']}}</h2></div><time>{{\Carbon\CarbonImmutable::parse($reminder['due_at'],'UTC')->setTimezone('Asia/Kolkata')->format('d M Y h:i A')}} IST</time><a class="button button--quiet" href="{{$reminder['url']}}">Open details</a>@if(!$reminder['read_at'])<form method="post" action="{{route('admin.crm.reminders.read',$reminder['id'])}}">@csrf<button class="button button--quiet" type="submit">Mark read</button></form>@endif</article>@empty<div class="empty"><svg width="54" height="54" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><h2>No outstanding reminders</h2><p>Reminders appear when the scheduled worker runs for an approaching task or follow-up. Completed and inaccessible records are excluded.</p></div>@endforelse</section>{{$reminders->links()}}</div>
+@endsection
+@include('admin.crm.students.styles')

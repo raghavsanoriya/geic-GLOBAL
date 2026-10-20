@@ -1,0 +1,16 @@
+@extends('admin.layout')
+@section('title', 'CRM configuration | GEIC Indore')
+@section('crumb', 'CRM configuration')
+@section('content')
+<div class="crm-workspace">
+    <section class="page-head"><div><span class="eyebrow">Indore · Configuration</span><h1>{{ $kinds[$kind] }}</h1><p class="sub">Deactivate unused values; existing records and change history remain intact.</p></div><a class="button" href="{{ route('admin.crm.references.create', ['kind' => $kind]) }}">Add reference</a></section>
+    @if(session('status'))<div class="notice" role="status">{{session('status')}}</div>@endif
+    @include('admin.crm.validation-feedback')
+    @if(in_array($kind,['level','level_status','application_status','visa_status'],true))<details class="panel crm-profile-form"><summary>Install the audited workflow template</summary><p class="crm-help">Adds the four levels, 33 level statuses, 30 application statuses and eight visa statuses if missing. Preserves existing edits and records. Transfers always require explicit staff confirmation.</p><form method="post" action="{{route('admin.crm.references.install-workflow')}}">@csrf<label><input type="checkbox" name="confirm" value="1" required> Add missing configuration only; keep existing records unchanged</label><button class="button" type="submit">Install missing workflow configuration</button></form></details>@endif
+    <nav class="crm-stages" aria-label="Configuration dictionaries">@foreach($kinds as $key => $label)<a class="button button--quiet" href="{{ route('admin.crm.references.index', ['kind' => $key]) }}" @if($key === $kind) aria-current="page" @endif>{{ $label }}</a>@endforeach</nav>
+    <form method="get" action="{{ route('admin.crm.references.index') }}" class="panel crm-filters"><input type="hidden" name="kind" value="{{ $kind }}">@if(request('parent_id'))<input type="hidden" name="parent_id" value="{{request('parent_id')}}">@endif<label>Search name<input class="input" name="q" maxlength="160" value="{{ request('q') }}"></label><button class="button" type="submit">Search</button></form>
+    <section class="panel crm-student-list">@forelse($references as $item)<article class="crm-student-row"><div><strong>{{ $item->name }}</strong><p>{{ $item->code }}</p></div><div>{{ $item->parent?->name }}<p>{{ $item->country }}</p>@if($kind==='level_status')<p>{{($item->configuration['list_type']??'main')==='dead'?'Dead list':'Main list'}}@if($item->configuration['transfer_stage']??null) · Transfer to {{\App\Support\CrmStudentFields::STAGES[$item->configuration['transfer_stage']]??'Unconfigured'}}@endif</p>@endif</div><div>{{ $item->is_active ? 'Active' : 'Inactive' }}@if($kind==='level')<p><a href="{{route('admin.crm.references.index',['kind'=>'level_status','parent_id'=>$item->id])}}">Manage level statuses</a></p>@endif @if($kind==='university')<p><a href="{{route('admin.crm.references.index',['kind'=>'campus','parent_id'=>$item->id])}}">Manage campuses</a></p>@endif</div><a class="button button--quiet" href="{{ route('admin.crm.references.show', $item->id) }}">Edit reference</a></article>@empty<div class="empty"><h2>No references yet</h2><p>Add verified business values before using them in operational records.</p></div>@endforelse</section>
+    {{ $references->links() }}
+</div>
+@endsection
+@include('admin.crm.students.styles')

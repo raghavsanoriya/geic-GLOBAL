@@ -187,6 +187,9 @@ else
     vendor_archive_next=""
 fi
 
+backup_label="$(date -u +%Y%m%dT%H%M%SZ)-${release_name:0:12}-$$"
+"$php_bin" artisan crm:backup-database --label="$backup_label" --include-files --no-interaction
+
 "$php_bin" artisan migrate --force
 "$php_bin" artisan admin:bootstrap --no-interaction
 
@@ -208,6 +211,17 @@ if [[ "$branch_name" == "main" ]]; then
 fi
 
 "$php_bin" artisan crm:index-enquiry-contacts --no-interaction
+
+crm_enabled="$("$php_bin" -r '
+require "vendor/autoload.php";
+$app = require "bootstrap/app.php";
+$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+echo config("crm.enabled") ? "1" : "0";
+')"
+if [[ "$crm_enabled" == "1" ]]; then
+    "$php_bin" artisan db:seed --class='Database\Seeders\CrmWorkflowTemplateSeeder' --force --no-interaction
+    "$php_bin" artisan crm:backfill-students --limit=500 --no-interaction
+fi
 
 "$php_bin" artisan optimize:clear
 "$php_bin" artisan storage:link

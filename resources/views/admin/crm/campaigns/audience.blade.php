@@ -1,0 +1,7 @@
+@extends('admin.layout')
+@section('title','Audience preview | GEIC Indore')
+@section('crumb','Campaign audience')
+@section('content')
+<div class="crm-workspace"><section class="page-head"><div><span class="eyebrow">Marketing · Audience validation</span><h1>{{$campaign->name}}</h1><p class="sub">Preview only — no messages are sent and no recipient list is frozen until scheduling.</p></div><a class="button button--quiet" href="{{route('admin.crm.campaigns.show',$campaign->id)}}">Back to campaign</a></section><section class="panel crm-profile-form"><h2>Audience health</h2><div class="crm-form-grid">@foreach(['valid'=>'Eligible recipients','invalid'=>'Invalid addresses','duplicates'=>'Repeated addresses','suppressed'=>'Opted-out recipients'] as $key=>$label)<div><span class="pill">{{$label}}</span><p style="font-size:30px;margin:10px 0">{{$audience[$key]}}</p></div>@endforeach</div></section><section class="panel crm-student-list">@forelse($audience['recipients'] as $recipient)<article class="crm-student-row"><strong>{{$recipient['name']?:'Name not provided'}}</strong><span>{{$recipient['address']}}</span><span>{{$recipient['student_id']?'CRM-'.$recipient['student_id']:'Manual recipient'}}</span><span class="pill">Eligible</span></article>@empty<div class="empty"><h2>No eligible recipients</h2><p>Correct the audience, check active profiles and honor opt-outs before scheduling.</p></div>@endforelse</section></div>
+@endsection
+@include('admin.crm.students.styles')

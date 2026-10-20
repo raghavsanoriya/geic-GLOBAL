@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class RecordWebsiteEnquiry
 {
-    public function __construct(private ForisLeadSync $sync, private LeadDuplicateReview $duplicates) {}
+    public function __construct(private ForisLeadSync $sync, private LeadDuplicateReview $duplicates, private CaptureCrmStudent $crm) {}
 
     /** @param array<string, mixed> $attributes
      * @param  array<string, mixed>  $fields
@@ -28,6 +28,7 @@ class RecordWebsiteEnquiry
             $id = DB::table('counselling_enquiries')->insertGetId($attributes);
             $this->duplicates->capture($id);
             $this->sync->register($id);
+            $this->crm->capture($id);
 
             return $id;
         });

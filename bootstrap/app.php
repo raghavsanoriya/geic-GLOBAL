@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CrmInboundCors;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->prepend(CrmInboundCors::class);
         $middleware->redirectGuestsTo(fn () => route('admin.login'));
 
         $middleware->alias([
@@ -21,6 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        $exceptions->dontFlash(['sensitive_profile', 'secret', 'api_key', 'api_token', 'restricted']);
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );

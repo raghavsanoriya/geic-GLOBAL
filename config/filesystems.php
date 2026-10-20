@@ -29,6 +29,22 @@ return [
     */
 
     'disks' => [
+        'crm_campaign_attachments' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private/crm-campaign-attachments'),
+            'serve' => false,
+            'visibility' => 'private',
+            'throw' => false,
+            'report' => false,
+        ],
+        'crm_documents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private/crm-documents'),
+            'serve' => false,
+            'visibility' => 'private',
+            'throw' => false,
+            'report' => false,
+        ],
 
         'local' => [
             'driver' => 'local',

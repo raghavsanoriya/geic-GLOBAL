@@ -1,0 +1,9 @@
+@extends('admin.layout')
+@section('title','Loyalty members | GEIC Indore')
+@section('crumb','Loyalty · Members')
+@section('content')
+@can('crm.export')<nav class="crm-actions" aria-label="Loyalty exports"><a class="button button--quiet" href="{{route('admin.crm.loyalty.index',array_merge(request()->only('q'),['format'=>'csv']))}}">Export CSV</a><a class="button button--quiet" href="{{route('admin.crm.loyalty.index',array_merge(request()->only('q'),['format'=>'print']))}}">Print filtered members</a></nav>@endcan
+@can('crm.configure')<p><a class="button button--quiet" href="{{route('admin.crm.loyalty.rules')}}">Configure milestone rules</a></p>@endcan
+<div class="crm-workspace"><section class="page-head"><div><span class="eyebrow">Indore · Loyalty management</span><h1>Members</h1><p class="sub">Enroll from a student profile. Points have no automatic cash value.</p></div><a class="button button--quiet" href="{{ route('admin.crm.loyalty.points') }}">Points ledger</a></section><form method="get" class="panel crm-filters"><label>Search members<input class="input" name="q" maxlength="160" value="{{ request('q') }}"></label><button class="button" type="submit">Search</button></form><section class="panel crm-student-list">@forelse($members as $member)<article class="crm-student-row"><div><strong>{{ $member->name }}</strong><p>{{ $member->student->full_name }}</p></div><div>{{ number_format((int)$member->balance) }} points</div><div>{{ $member->is_active?'Active':'Inactive' }}</div><a class="button button--quiet" href="{{ route('admin.crm.loyalty.show',$member->id) }}">Open member</a></article>@empty<div class="empty"><h2>No matching members</h2><p>Open an accessible student profile to create a membership.</p></div>@endforelse</section>{{ $members->links() }}</div>
+@endsection
+@include('admin.crm.students.styles')

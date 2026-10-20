@@ -23,6 +23,13 @@
         @media(min-width:761px){.admin-shell{transition:grid-template-columns .22s ease}.admin-sidebar{position:fixed;top:0;bottom:0;left:0;width:var(--admin-sidebar)}.admin-main{grid-column:2}.admin-shell.sidebar-collapsed{grid-template-columns:82px minmax(0,1fr)}.admin-shell.sidebar-collapsed .admin-sidebar{width:82px;padding-right:12px;padding-left:12px}.admin-shell.sidebar-collapsed .admin-brand{justify-content:center;padding:0}.admin-shell.sidebar-collapsed .admin-brand__copy,.admin-shell.sidebar-collapsed .admin-sidebar__section,.admin-shell.sidebar-collapsed .admin-sidebar__account>span:last-child{position:absolute;width:1px;height:1px;overflow:hidden;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);white-space:nowrap}.admin-shell.sidebar-collapsed .admin-nav a{justify-content:center;padding:0}.admin-shell.sidebar-collapsed .admin-nav__label{position:absolute;width:1px;height:1px;overflow:hidden;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);white-space:nowrap}.admin-shell.sidebar-collapsed .admin-sidebar__section+.admin-nav{margin-top:16px}.admin-shell.sidebar-collapsed .admin-sidebar__footer{display:none}.admin-shell.sidebar-collapsed .admin-sidebar__account{justify-content:center;padding-right:0;padding-left:0}.admin-shell.sidebar-collapsed .admin-sidebar__collapse{left:56px}.admin-shell.sidebar-collapsed .admin-sidebar__collapse svg{transform:rotate(180deg)}}
         @media(max-width:760px){.admin-sidebar__collapse{display:none}.admin-sidebar{height:100dvh}.admin-sidebar__account{margin-top:12px}}
     </style>
+    <style>
+        .crm-toolbar-feedback:empty{display:none}
+        .crm-toolbar-feedback:not(:empty){position:fixed;right:20px;top:80px;max-width:min(320px,calc(100vw - 40px));padding:12px 16px;border:1px solid var(--admin-line);border-radius:12px;background:var(--admin-card);box-shadow:0 8px 24px #142d4b15;color:var(--admin-ink)}
+        .topbar-icon[hidden]{display:none}
+        .crm-toolbar-link:focus-visible,[data-crm-fullscreen]:focus-visible{outline:3px solid var(--admin-primary);outline-offset:2px}
+        @media(max-width:760px){.topbar-actions .crm-toolbar-link{display:inline-grid;width:44px;height:44px;flex:none}.topbar-actions .topbar-site{width:44px}.topbar-actions{gap:4px;flex-shrink:0}.topbar-left{min-width:0;flex:1}.menu-button{flex:none}.admin-crumb{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.admin-topbar{gap:8px}}
+    </style>
     @stack('styles')
     <style>
         /* Rocket LMS dashboard architecture adapted to the GEIC brand. Scoped
@@ -297,6 +304,9 @@
             @can('content.manage')<span class="admin-sidebar__section">Lead capture</span><nav class="admin-nav"><a href="{{ route('admin.forms.index') }}" title="Forms" @if(request()->routeIs('admin.forms.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="admin-nav__label">Forms</span></a></nav>@endcan
             @can('ads.view')<span class="admin-sidebar__section">Advertising</span><nav class="admin-nav"><a href="{{ route('admin.ads.index') }}" title="Ads & attribution" @if(request()->routeIs('admin.ads.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg><span class="admin-nav__label">Ads &amp; attribution</span></a>@can('ads.manage')<a href="{{ route('admin.expo-tracking.edit') }}" title="Expo tracking" @if(request()->routeIs('admin.expo-tracking.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2M18 6l2-2M6 18l-2 2"/></svg><span class="admin-nav__label">Expo tracking</span></a>@endcan</nav>@endcan
             @canany(['enquiries.view', 'enquiries.export'])<span class="admin-sidebar__section">Lead management</span><nav class="admin-nav">@can('enquiries.view')<a href="{{ route('admin.enquiries.index') }}" title="Student enquiries" @if(request()->routeIs('admin.enquiries.index')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4V5Z"/><path d="M8 10h8M8 14h5"/></svg><span class="admin-nav__label">Student enquiries</span></a>@endcan @can('enquiries.view')<a href="{{ route('admin.landing-leads') }}" title="Landing Page Leads" @if(request()->routeIs('admin.landing-leads')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4V5Z"/><path d="M8 10h8M8 14h5"/></svg><span class="admin-nav__label">Landing Page Leads</span></a>@endcan @can('enquiries.export')<a href="{{ route('admin.enquiries.export') }}" title="Export leads" @if(request()->routeIs('admin.enquiries.export')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M5 20h14"/></svg><span class="admin-nav__label">Export leads</span></a>@endcan</nav>@endcanany
+            @if(config('crm.enabled')) @can('crm.view')
+                @include('admin.crm.sidebar')
+            @endcan @endif
             @can('enquiries.view')<nav class="admin-nav"><a href="{{ route('admin.duplicates.index') }}" title="Duplicate review" @if(request()->routeIs('admin.duplicates.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v14h6M9 7h12v14H9V7ZM13 11h4M13 15h4"/></svg><span class="admin-nav__label">Duplicate review</span></a></nav>@endcan
             @can('foris.manage')<nav class="admin-nav"><a href="{{ route('admin.foris.index') }}" title="Foris CRM Sync" @if(request()->routeIs('admin.foris.*')) aria-current="page" @endif><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-5V2M4 17h5v5M20 7a8 8 0 0 0-14-3M4 17a8 8 0 0 0 14 3"/></svg><span class="admin-nav__label">Foris CRM Sync</span></a></nav>@endcan
             <span class="admin-sidebar__section">Account</span>
@@ -309,7 +319,22 @@
             <a class="admin-sidebar__account" href="{{ route('admin.profile.edit') }}"><span class="avatar">{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span><span><strong>{{ auth()->user()->name }}</strong><span>{{ auth()->user()->adminRoleLabel() }}</span></span></a>
         </aside>
         <button class="admin-sidebar__collapse" type="button" data-sidebar-collapse aria-label="Collapse sidebar" aria-expanded="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 7-5 5 5 5"/><path d="m18 7-5 5 5 5"/></svg><span>Collapse sidebar</span></button>
-        <div class="admin-main"><header class="admin-topbar"><div class="topbar-left"><button class="menu-button" type="button" data-side-toggle aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>@hasSection('backUrl')<a class="topbar-back" href="@yield('backUrl')" aria-label="@yield('backLabel', 'Go back')" title="@yield('backLabel', 'Go back')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></a>@endif<span class="admin-crumb">@yield('crumb', 'Dashboard') <small>Trans Globe Indore LMS</small></span></div><div class="topbar-actions"><a class="topbar-site" href="{{ url('/') }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5H5V5h5"/></svg><span>View website</span></a><button class="topbar-icon" type="button" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button><form method="post" action="{{ route('admin.logout') }}">@csrf<button class="sign-out" type="submit">Sign out</button></form></div></header><main class="admin-content" id="admin-main-content" tabindex="-1">@yield('content')</main></div>
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-button" type="button" data-side-toggle aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                    @hasSection('backUrl')<a class="topbar-back" href="@yield('backUrl')" aria-label="@yield('backLabel', 'Go back')" title="@yield('backLabel', 'Go back')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></a>@endif
+                    <span class="admin-crumb">@yield('crumb', 'Dashboard') <small>Trans Globe Indore LMS</small></span>
+                </div>
+                <div class="topbar-actions">
+                    @include('admin.crm.topbar-tools')
+                    <a class="topbar-site" href="{{ url('/') }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5H5V5h5"/></svg><span>View website</span></a>
+                    <button class="topbar-icon" type="button" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button>
+                    <form method="post" action="{{ route('admin.logout') }}">@csrf<button class="sign-out" type="submit">Sign out</button></form>
+                </div>
+            </header>
+            <main class="admin-content" id="admin-main-content" tabindex="-1">@yield('content')</main>
+        </div>
     </div>
     <script>(() => { const shell = document.querySelector('[data-admin-shell]'); const toggle = document.querySelector('[data-side-toggle]'); const collapse = document.querySelector('[data-sidebar-collapse]'); if (!shell) return; const storageKey = 'geic-admin-sidebar-collapsed'; const serverDefault = @json((bool) (auth()->user()->admin_preferences['sidebar_collapsed'] ?? false)); const setCollapsed = collapsed => { shell.classList.toggle('sidebar-collapsed', collapsed); if (collapse) { collapse.setAttribute('aria-expanded', String(!collapsed)); collapse.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar'); collapse.querySelector('span').textContent = collapsed ? 'Expand sidebar' : 'Collapse sidebar'; } }; const persistCollapsed = collapsed => { setCollapsed(collapsed); try { localStorage.setItem(storageKey, String(collapsed)); } catch (error) {} }; try { const saved = localStorage.getItem(storageKey); setCollapsed(saved === null ? serverDefault : saved === 'true'); } catch (error) { setCollapsed(serverDefault); } if (collapse) { let dragStartX = null; let dragged = false; collapse.addEventListener('pointerdown', event => { dragStartX = event.clientX; dragged = false; collapse.classList.add('is-dragging'); collapse.setPointerCapture?.(event.pointerId); }); collapse.addEventListener('pointermove', event => { if (dragStartX !== null && Math.abs(event.clientX - dragStartX) > 6) dragged = true; }); collapse.addEventListener('pointerup', event => { if (dragStartX === null) return; const distance = event.clientX - dragStartX; dragStartX = null; collapse.classList.remove('is-dragging'); if (Math.abs(distance) > 24) persistCollapsed(distance < 0); }); collapse.addEventListener('pointercancel', () => { dragStartX = null; dragged = false; collapse.classList.remove('is-dragging'); }); collapse.addEventListener('click', () => { if (dragged) { dragged = false; return; } persistCollapsed(!shell.classList.contains('sidebar-collapsed')); }); } if (toggle) toggle.addEventListener('click', () => { const open = shell.classList.toggle('nav-open'); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); }); })();</script>
     @can('enquiries.view')
@@ -317,7 +342,8 @@
         $notificationLeads = \Illuminate\Support\Facades\DB::table('counselling_enquiries')
             ->latest()->limit(5)->get();
     @endphp
-    <script>
+    <script type="module">
+    import { renderLeadNotifications } from '{{ asset('assets/transglobe/js/admin-notifications.js') }}';
     (() => {
         const button = document.querySelector('[aria-label="Notifications"]');
         if (!button) return;
@@ -331,7 +357,14 @@
         }
         let panel;
         button.addEventListener('click', () => {
-            if (!panel) { panel = document.createElement('div'); panel.className = 'notification-panel'; panel.style.position = 'fixed'; panel.style.top = '72px'; panel.style.right = '28px'; panel.hidden = true; panel.innerHTML = '<div class="notification-panel__head">Recent enquiries</div>' + (leads.length ? leads.map(lead => `<a class="notification-item" href="/admin/enquiries?q=${encodeURIComponent(lead.email || '')}"><strong>${lead.full_name || 'New enquiry'}</strong><small>${lead.destination || 'Destination not specified'} · ${lead.source_page || 'Path not captured'}</small></a>`).join('') : '<div class="notification-empty">No enquiries yet.</div>'); document.body.appendChild(panel); }
+            if (!panel) {
+                panel = document.createElement('div');
+                panel.className = 'notification-panel';
+                Object.assign(panel.style, { position: 'fixed', top: '72px', right: '28px' });
+                panel.hidden = true;
+                renderLeadNotifications(panel, leads, document);
+                document.body.appendChild(panel);
+            }
             panel.hidden = !panel.hidden;
             button.setAttribute('aria-expanded', String(!panel.hidden));
         });

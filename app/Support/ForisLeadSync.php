@@ -29,6 +29,11 @@ class ForisLeadSync
     public function register(int $enquiryId, bool $historical = false): bool
     {
         return DB::transaction(function () use ($enquiryId, $historical): bool {
+            $source = DB::table('counselling_enquiries')->where('id', $enquiryId)->first(['source', 'metadata']);
+            $metadata = $source ? json_decode((string) $source->metadata, true) : null;
+            if ($source?->source === 'crm_import' || ($metadata['import']['foris_forwarding_prohibited'] ?? false) === true) {
+                return false;
+            }
             $inserted = DB::table('foris_lead_deliveries')->insertOrIgnore([
                 'enquiry_id' => $enquiryId,
                 'is_historical' => $historical,
