@@ -1,10 +1,20 @@
 <?php
 
+if (config('crm.enabled')) {
+    Schedule::command('crm:process-imports --limit=100')->everyMinute()->withoutOverlapping(2);
+    Schedule::command('crm:generate-reminders --limit=100')->everyMinute()->withoutOverlapping(2);
+    Schedule::command('crm:process-campaigns --limit=20')->everyMinute()->withoutOverlapping(2);
+    Schedule::command('queue:work crm_campaigns --queue=crm-campaigns --stop-when-empty --max-time=40 --max-jobs=20 --sleep=0 --tries=1 --timeout=30')
+        ->everyMinute()->withoutOverlapping(2);
+    Schedule::command('crm:prune-inbound-attempts')->hourly()->withoutOverlapping(2);
+}
+
 use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Str;
 
 Artisan::command('inspire', function () {

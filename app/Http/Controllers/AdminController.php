@@ -12,6 +12,7 @@ use App\Models\SiteContent;
 use App\Models\User;
 use App\Support\BlogCatalog;
 use App\Support\CmsPageCatalog;
+use App\Support\CrmAccess;
 use App\Support\DestinationCatalog;
 use App\Support\EventCatalog;
 use App\Support\ScholarshipCatalog;
@@ -1214,6 +1215,10 @@ class AdminController extends Controller
     private function preferredAdminRoute(User $user): string
     {
         $preferred = $user->admin_preferences['default_screen'] ?? 'dashboard';
+        if ($preferred === 'dashboard' && config('crm.enabled') && $user->hasAdminPermission('crm.view')
+            && ! CrmAccess::viewsAll($user)) {
+            return 'admin.crm.students.index';
+        }
 
         return match ($preferred) {
             'pages' => $user->hasAdminPermission('content.manage') ? 'admin.pages.index' : 'admin.dashboard',

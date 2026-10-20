@@ -1,0 +1,9 @@
+@extends('admin.layout')
+@section('title','Organization activity | GEIC Indore')
+@section('crumb','Organization activity')
+@section('content')
+<div class="crm-workspace"><section class="page-head"><div><span class="eyebrow">Indore · Organization activity</span><h1>Workspace audit trail</h1><p class="sub">Administrative activity across modules you are allowed to inspect. Credentials, document contents and previous personal values are excluded.</p></div><a class="button button--quiet" href="{{route('admin.crm.logs.index')}}">Student activity</a></section>
+<form class="panel crm-profile-form" method="get" action="{{route('admin.crm.logs.index')}}"><input type="hidden" name="scope" value="organization"><div class="crm-form-grid"><label>Exact action<input class="input" name="action" maxlength="80" value="{{request('action')}}"></label><label>From (India time)<input class="input" type="date" name="from" value="{{request('from')}}"></label><label>Through (India time)<input class="input" type="date" name="to" value="{{request('to')}}"></label></div><button class="button" type="submit">Filter activity</button></form>
+<section class="panel crm-student-list">@forelse($events as $event)<article class="crm-student-row"><div><span class="pill">{{$event->module}}</span><h2 style="font-size:15px;margin:8px 0 0">{{$event->action}}</h2></div><span>Record #{{$event->entity_id??'configuration'}}</span><span>{{$event->actor_name?:'System / former staff'}}</span><time>{{\Carbon\CarbonImmutable::parse($event->created_at,'UTC')->setTimezone('Asia/Kolkata')->format('d M Y h:i A')}} IST</time></article>@empty<div class="empty"><h2>No matching activity</h2><p>Actions appear as staff manage the available modules.</p></div>@endforelse</section>{{$events->links()}}</div>
+@endsection
+@include('admin.crm.students.styles')

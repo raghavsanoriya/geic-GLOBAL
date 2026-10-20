@@ -59,6 +59,7 @@ class AdminProfileController extends Controller
 
         $request->user()->update([
             'admin_preferences' => [
+                ...($request->user()->admin_preferences ?? []),
                 'default_screen' => $validated['default_screen'],
                 'sidebar_collapsed' => $request->boolean('sidebar_collapsed'),
                 'email_notifications' => $request->boolean('email_notifications'),

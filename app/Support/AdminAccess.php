@@ -10,6 +10,74 @@ class AdminAccess
     public static function permissions(): array
     {
         return [
+            'crm.export' => [
+                'label' => 'Export accessible operational student profiles',
+                'description' => 'Download scoped CRM contact lists or open printable lists. Restricted profile fields are excluded.',
+            ],
+            'crm.imports.manage' => [
+                'label' => 'Manage historical CRM lead imports',
+                'description' => 'Stage, validate, process and reconcile source exports. Also requires all-case visibility.',
+            ],
+            'crm.documents.view' => [
+                'label' => 'View private student documents',
+                'description' => 'Download private documents for currently accessible students. Does not grant public media access.',
+            ],
+            'crm.documents.manage' => [
+                'label' => 'Manage private student documents',
+                'description' => 'Upload and retire verified student documents while retaining the audit history.',
+            ],
+            'crm.marketing.manage' => [
+                'label' => 'Manage accessible CRM marketing campaigns',
+                'description' => 'Compose campaigns, preview consented audiences and review recipient delivery. Provider configuration is separate.',
+            ],
+            'crm.inbound.manage' => [
+                'label' => 'Manage inbound CRM forms and API keys',
+                'description' => 'Create scoped server-side form APIs, rotate credentials, configure field maps and review submission logs.',
+            ],
+            'crm.integrations.manage' => [
+                'label' => 'Manage CRM provider credentials',
+                'description' => 'Configure and test encrypted SMTP and OneSignal credentials. Sending requires a verified configuration.',
+            ],
+            'crm.loyalty.view' => [
+                'label' => 'View accessible loyalty memberships',
+                'description' => 'Read loyalty members and points for accessible student profiles.',
+            ],
+            'crm.loyalty.manage' => [
+                'label' => 'Manage accessible loyalty memberships and points',
+                'description' => 'Link referrals and record auditable point adjustments. Rules require configuration permission.',
+            ],
+            'crm.finance.view' => [
+                'label' => 'View accessible CRM finance records',
+                'description' => 'Read invoices and payment ledgers for students this user is allowed to access.',
+            ],
+            'crm.finance.manage' => [
+                'label' => 'Manage accessible CRM finance records',
+                'description' => 'Create and issue invoices, record receipts and make auditable reversals. Does not transfer money.',
+            ],
+            'crm.configure' => [
+                'label' => 'Configure CRM reference data',
+                'description' => 'Manage Indore CRM dictionaries, universities, campuses and lifecycle transition rules.',
+            ],
+            'crm.view' => [
+                'label' => 'View assigned CRM students',
+                'description' => 'Open the Indore CRM and view cases assigned to this staff member.',
+            ],
+            'crm.manage' => [
+                'label' => 'Edit accessible CRM students',
+                'description' => 'Update accessible student profiles and lifecycle stages.',
+            ],
+            'crm.view_all' => [
+                'label' => 'View all Indore CRM students',
+                'description' => 'View all Indore cases, including unassigned cases and original enquiry lists.',
+            ],
+            'crm.assign' => [
+                'label' => 'Assign CRM cases',
+                'description' => 'Change the counsellor and RE on an accessible case.',
+            ],
+            'crm.sensitive' => [
+                'label' => 'Access restricted student details',
+                'description' => 'View or update optional family, demographic and passport-status fields on accessible cases.',
+            ],
             'enquiries.view' => [
                 'label' => 'View student enquiries',
                 'description' => 'See enquiry totals, contact details, destinations, and study plans.',
@@ -50,7 +118,7 @@ class AdminAccess
      */
     public static function roles(): array
     {
-        return [
+        $roles = [
             'super_admin' => [
                 'label' => 'Super administrator',
                 'description' => 'Full access to every dashboard feature, including team access.',
@@ -59,7 +127,7 @@ class AdminAccess
             'administrator' => [
                 'label' => 'Administrator',
                 'description' => 'Manage enquiries, website content, and media without controlling team access.',
-                'permissions' => ['enquiries.view', 'enquiries.review', 'enquiries.export', 'ads.view', 'ads.manage', 'content.manage', 'media.manage'],
+                'permissions' => array_merge(config('crm.enabled') ? ['crm.view', 'crm.manage', 'crm.view_all', 'crm.assign', 'crm.sensitive'] : [], ['enquiries.view', 'enquiries.review', 'enquiries.export', 'ads.view', 'ads.manage', 'content.manage', 'media.manage']),
             ],
             'content_editor' => [
                 'label' => 'Content editor',
@@ -69,7 +137,12 @@ class AdminAccess
             'counsellor' => [
                 'label' => 'Counsellor',
                 'description' => 'Review and export student enquiries without changing website content.',
-                'permissions' => ['enquiries.view', 'enquiries.export'],
+                'permissions' => array_merge(config('crm.enabled') ? ['crm.view', 'crm.manage'] : [], ['enquiries.view', 'enquiries.export']),
+            ],
+            'relationship_executive' => [
+                'label' => 'RE',
+                'description' => 'Manage assigned Indore student cases without changing assignments or restricted details.',
+                'permissions' => ['crm.view', 'crm.manage'],
             ],
             'ads_manager' => [
                 'label' => 'Ads manager',
@@ -82,6 +155,11 @@ class AdminAccess
                 'permissions' => [],
             ],
         ];
+        if (! config('crm.enabled')) {
+            unset($roles['relationship_executive']);
+        }
+
+        return $roles;
     }
 
     /**

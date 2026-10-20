@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\CaptureCrmStudent;
 use App\Support\LeadDuplicateReview;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -73,7 +74,7 @@ class LeadDuplicateReviewController extends Controller
         return view('admin.enquiries.duplicate-review', $data);
     }
 
-    public function update(Request $request, int $review): RedirectResponse
+    public function update(Request $request, int $review, CaptureCrmStudent $crm): RedirectResponse
     {
         Gate::authorize('enquiries.review');
         $record = DB::table('lead_duplicate_reviews')->find($review);
@@ -84,14 +85,21 @@ class LeadDuplicateReviewController extends Controller
             'linked_enquiry_id' => ['required_if:decision,confirmed_duplicate', 'nullable', 'integer', Rule::in($matchIds)],
             'review_note' => ['nullable', 'string', 'max:500'],
         ]);
-        $updated = DB::table('lead_duplicate_reviews')->where('id', $review)->where('status', 'pending')->update([
-            'status' => $data['decision'],
-            'linked_enquiry_id' => $data['decision'] === 'confirmed_duplicate' ? $data['linked_enquiry_id'] : null,
-            'reviewed_by' => $request->user()->id,
-            'reviewed_at' => now(),
-            'review_note' => $data['review_note'] ?? null,
-            'updated_at' => now(),
-        ]);
+        $updated = DB::transaction(function () use ($review, $data, $request, $crm, $record): int {
+            $updated = DB::table('lead_duplicate_reviews')->where('id', $review)->where('status', 'pending')->update([
+                'status' => $data['decision'],
+                'linked_enquiry_id' => $data['decision'] === 'confirmed_duplicate' ? $data['linked_enquiry_id'] : null,
+                'reviewed_by' => $request->user()->id,
+                'reviewed_at' => now(),
+                'review_note' => $data['review_note'] ?? null,
+                'updated_at' => now(),
+            ]);
+            if ($updated) {
+                $crm->capture((int) $record->enquiry_id, $request->user());
+            }
+
+            return $updated;
+        });
 
         return back()->with('status', $updated
             ? 'Review saved. Both enquiries and their Foris delivery history have been preserved.'
