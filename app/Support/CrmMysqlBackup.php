@@ -31,7 +31,7 @@ class CrmMysqlBackup
         chmod($path, 0600);
         try {
             $counts = $connection->transaction(function () use ($connection, $tables, $stream): array {
-                $this->write($stream, "-- GEIC application-only backup; no DROP statements and no WordPress tables.\nSET NAMES utf8mb4;\nSET SESSION time_zone = '+00:00';\nSET SESSION explicit_defaults_for_timestamp = ON;\nSET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';\nSET FOREIGN_KEY_CHECKS = 0;\n");
+                $this->write($stream, "-- GEIC application-only backup; no DROP statements and no WordPress tables.\nSET NAMES utf8mb4;\nSET SESSION time_zone = '+00:00';\nSET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';\nSET FOREIGN_KEY_CHECKS = 0;\n");
                 $counts = [];
                 foreach ($tables as $table) {
                     $identifier = $connection->getQueryGrammar()->wrapTable($table);
