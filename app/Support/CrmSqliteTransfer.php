@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use App\Models\BlogPost;
 use Illuminate\Database\Connection;
 use RuntimeException;
 use SQLite3;
@@ -30,7 +31,7 @@ class CrmSqliteTransfer
     }
 
     /** @return array<string, array{rows: int, sha256: string}> */
-    public function copy(string $snapshotPath, Connection $target): array
+    public function copy(string $snapshotPath, Connection $target, bool $restoreBlogDefaults = false): array
     {
         if (! is_file($snapshotPath) || filesize($snapshotPath) > 100 * 1024 * 1024) {
             throw new RuntimeException('Use a verified SQLite snapshot no larger than 100 MB.');
@@ -96,7 +97,7 @@ class CrmSqliteTransfer
                 }
             }
 
-            return $target->transaction(function () use ($source, $target, $ordered, $definitions, $snapshotPath, $before, &$context): array {
+            return $target->transaction(function () use ($source, $target, $ordered, $definitions, $snapshotPath, $before, $restoreBlogDefaults, &$context): array {
                 $expected = [];
                 $occupied = false;
                 foreach ($ordered as $table) {
@@ -104,6 +105,12 @@ class CrmSqliteTransfer
                     $definition = $definitions[$table];
                     $expected[$table] = $this->fingerprint($this->sourceRows($source, $table, $definition['primary']), $definition['columns'], $definition['json']);
                     $occupied = $occupied || $target->table($table)->exists();
+                }
+                $restoredBlog = false;
+                if ($occupied && $restoreBlogDefaults && isset($definitions['blog_posts'])) {
+                    $context = ['phase' => 'migration_defaults', 'table' => 'blog_posts'];
+                    $restoredBlog = $this->restoreBlogDefaults($source, $target, $definitions['blog_posts']);
+                    $occupied = ! $restoredBlog;
                 }
                 if ($occupied) {
                     foreach ($ordered as $table) {
@@ -117,6 +124,9 @@ class CrmSqliteTransfer
                     return $expected;
                 }
                 foreach ($ordered as $table) {
+                    if ($restoredBlog && $table === 'blog_posts') {
+                        continue;
+                    }
                     $batch = [];
                     $context = ['phase' => 'insert', 'table' => $table];
                     foreach ($this->sourceRows($source, $table, $definitions[$table]['primary']) as $row) {
@@ -152,6 +162,38 @@ class CrmSqliteTransfer
         }
     }
 
+    /** @param array{columns: list<string>, primary: array<int, string>, foreign: list<string>, json: list<string>} $definition */
+    private function restoreBlogDefaults(SQLite3 $source, Connection $target, array $definition): bool
+    {
+        $schema = $target->getDriverName() === 'mysql' ? $target->getDatabaseName() : null;
+        foreach ($target->getSchemaBuilder()->getTableListing($schema, schemaQualified: false) as $table) {
+            if ($table !== 'blog_posts' && self::isApplicationTable($table) && $target->table($table)->exists()) {
+                return false;
+            }
+        }
+        $defaults = [];
+        foreach (BlogCatalog::defaultAttributes() as $index => $attributes) {
+            $defaults[] = ['id' => $index + 1] + (new BlogPost($attributes))->getAttributes();
+        }
+        $columns = array_values(array_diff($definition['columns'], ['created_at', 'updated_at']));
+        if (array_diff($columns, array_keys($defaults[0])) !== []
+            || $this->fingerprint($defaults, $columns, $definition['json']) !== $this->fingerprint($target->table('blog_posts')->select($columns)->lockForUpdate()->cursor(), $columns, $definition['json'])
+            || $target->table('blog_posts')->whereColumn('created_at', '<>', 'updated_at')->exists()) {
+            return false;
+        }
+        $originals = iterator_to_array($this->sourceRows($source, 'blog_posts', $definition['primary']));
+        if (array_map('intval', array_column($originals, 'id')) !== array_column($defaults, 'id')) {
+            return false;
+        }
+        foreach ($originals as $original) {
+            $id = $original['id'];
+            unset($original['id']);
+            $target->table('blog_posts')->where('id', $id)->update($original);
+        }
+
+        return true;
+    }
+
     /** @param array<int, string> $primary
      * @return \Generator<int, array<string, mixed>>
      */
@@ -178,7 +220,7 @@ class CrmSqliteTransfer
             $values = [];
             foreach ($columns as $column) {
                 $value = $row[$column];
-                $values[$column] = $value === null ? null : (string) $value;
+                $values[$column] = $value === null ? null : (string) (is_bool($value) ? (int) $value : $value);
                 if ($value !== null && in_array($column, $jsonColumns, true)) {
                     $values[$column] = $this->canonicalJson(json_decode((string) $value, true, 512, JSON_THROW_ON_ERROR | JSON_BIGINT_AS_STRING));
                 }

@@ -141,7 +141,7 @@ class PrepareCrmMysql extends Command
                 if ($checkCopy) {
                     $target->beginTransaction();
                     try {
-                        $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target);
+                        $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target, restoreBlogDefaults: true);
                     } finally {
                         $target->rollBack();
                     }
@@ -151,7 +151,7 @@ class PrepareCrmMysql extends Command
 
                     return self::SUCCESS;
                 }
-                $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target);
+                $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target, restoreBlogDefaults: true);
                 $report['snapshot'] = $label;
                 $report['state'] = 'copied';
                 $this->report($root, $report);

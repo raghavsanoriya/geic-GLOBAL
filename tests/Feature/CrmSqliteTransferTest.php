@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\BlogPost;
 use App\Models\User;
+use App\Support\BlogCatalog;
 use App\Support\CrmSqliteTransfer;
 use App\Support\CrmSqliteTransferException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -88,10 +90,13 @@ class CrmSqliteTransferTest extends TestCase
 
     public function test_a_foreign_key_failure_rolls_back_the_entire_copy(): void
     {
-        $snapshot = $this->snapshot(['users' => [User::factory()->make(['id' => 31])->getAttributes()], 'crm_students' => [['id' => 15, 'original_enquiry_id' => 9999, 'full_name' => 'Invalid relationship fixture']]]);
+        $blogs = $this->migrationBlogs();
+        $originals = $blogs;
+        $originals[0]['title'] = 'Original edited article';
+        $snapshot = $this->snapshot(['users' => [User::factory()->make(['id' => 31])->getAttributes()], 'blog_posts' => $originals, 'crm_students' => [['id' => 15, 'original_enquiry_id' => 9999, 'full_name' => 'Invalid relationship fixture']]]);
 
         try {
-            app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection());
+            app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection(), restoreBlogDefaults: true);
             $this->fail('A missing parent must abort the whole data copy.');
         } catch (CrmSqliteTransferException $exception) {
             $this->assertDatabaseCount('users', 0);
@@ -100,7 +105,68 @@ class CrmSqliteTransferTest extends TestCase
             $this->assertSame('crm_students', $exception->diagnostics['table']);
             $this->assertStringNotContainsString('Invalid relationship fixture', json_encode($exception->diagnostics));
             $this->assertNull($exception->getPrevious());
+            $this->assertSame($blogs, DB::table('blog_posts')->orderBy('id')->get()->map(fn (object $row): array => (array) $row)->all());
         }
+    }
+
+    public function test_only_known_migration_blog_defaults_are_replaced_by_the_complete_original_records(): void
+    {
+        $blogs = $this->migrationBlogs();
+        $blogs[0]['title'] = 'Original CMS-edited article';
+        $blogs[0]['created_at'] = '2026-08-29 08:00:00';
+        $blogs[0]['updated_at'] = '2026-09-01 08:00:00';
+        $user = User::factory()->make(['id' => 31])->getAttributes();
+        $snapshot = $this->snapshot(['users' => [$user], 'blog_posts' => $blogs]);
+
+        $report = app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection(), restoreBlogDefaults: true);
+
+        $this->assertDatabaseHas('users', ['id' => 31, 'password' => $user['password']]);
+        $this->assertDatabaseHas('blog_posts', ['id' => 1, 'title' => 'Original CMS-edited article', 'created_at' => '2026-08-29 08:00:00', 'updated_at' => '2026-09-01 08:00:00']);
+        $this->assertDatabaseCount('blog_posts', count($blogs));
+        $this->assertSame(count($blogs), $report['blog_posts']['rows']);
+        $this->assertSame($report, app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection(), restoreBlogDefaults: true));
+    }
+
+    public function test_edited_destination_articles_cannot_be_treated_as_migration_defaults(): void
+    {
+        $blogs = $this->migrationBlogs();
+        $snapshot = $this->snapshot(['users' => [User::factory()->make(['id' => 31])->getAttributes()], 'blog_posts' => $blogs]);
+        DB::table('blog_posts')->where('id', 1)->update(['title' => 'Existing destination edit']);
+
+        try {
+            app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection(), restoreBlogDefaults: true);
+            $this->fail('Edited target content must require review.');
+        } catch (CrmSqliteTransferException) {
+            $this->assertDatabaseCount('users', 0);
+            $this->assertDatabaseHas('blog_posts', ['id' => 1, 'title' => 'Existing destination edit']);
+        }
+    }
+
+    public function test_blog_identity_differences_cannot_remove_or_replace_destination_rows(): void
+    {
+        $blogs = $this->migrationBlogs();
+        $originalCount = count($blogs);
+        array_pop($blogs);
+        $snapshot = $this->snapshot(['users' => [User::factory()->make(['id' => 31])->getAttributes()], 'blog_posts' => $blogs]);
+
+        try {
+            app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection(), restoreBlogDefaults: true);
+            $this->fail('Different article identities must require review.');
+        } catch (CrmSqliteTransferException) {
+            $this->assertDatabaseCount('users', 0);
+            $this->assertDatabaseCount('blog_posts', $originalCount);
+        }
+    }
+
+    /** @return list<array<string, mixed>> */
+    private function migrationBlogs(): array
+    {
+        DB::table('blog_posts')->delete();
+        foreach (BlogCatalog::defaultAttributes() as $index => $attributes) {
+            DB::table('blog_posts')->insert(['id' => $index + 1] + (new BlogPost($attributes))->getAttributes() + ['created_at' => '2026-10-20 08:00:00', 'updated_at' => '2026-10-20 08:00:00']);
+        }
+
+        return DB::table('blog_posts')->orderBy('id')->get()->map(fn (object $row): array => (array) $row)->all();
     }
 
     public function test_wordpress_or_unknown_source_tables_are_never_written(): void

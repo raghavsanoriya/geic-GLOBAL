@@ -62,8 +62,17 @@ class BlogCatalog
             return;
         }
 
+        foreach (self::defaultAttributes() as $attributes) {
+            BlogPost::create($attributes);
+        }
+    }
+
+    /** @return list<array<string, mixed>> */
+    public static function defaultAttributes(): array
+    {
+        $records = [];
         foreach (self::posts() as $slug => $post) {
-            BlogPost::create([
+            $records[] = [
                 'slug' => $slug,
                 'title' => $post['title'],
                 'category' => $post['category'],
@@ -77,8 +86,10 @@ class BlogCatalog
                 'tags' => $post['tags'],
                 'status' => 'published',
                 'is_featured' => in_array($slug, array_slice(array_keys(self::posts()), 0, 3), true),
-            ]);
+            ];
         }
+
+        return $records;
     }
 
     private static function fromModel(BlogPost $post): array
