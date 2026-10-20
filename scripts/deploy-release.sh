@@ -36,9 +36,47 @@ current_link="$deploy_root/current"
 previous_target=""
 release_activated=false
 vendor_archive_next=""
+rollback_env_file=""
+maintenance_started=false
+maintenance_secret=""
+health_cookies=""
+release_committed=false
+php_bin=""
+
+exec 9>"$deploy_root/deploy.lock"
+if ! flock -n 9; then
+    echo "Another GEIC deployment is running." >&2
+    exit 75
+fi
 
 cleanup_partial_release() {
     status=$?
+
+    if [[ "$status" -ne 0 && "$release_committed" != true ]]; then
+        if [[ -n "$rollback_env_file" ]]; then
+            if [[ "$rollback_env_file" != "$shared_dir/storage/crm-backups/"*/.env || ! -f "$rollback_env_file" ]] \
+                || ! install -m 0600 "$rollback_env_file" "$shared_dir/.env.rollback" \
+                || ! cmp -s "$rollback_env_file" "$shared_dir/.env.rollback" \
+                || ! mv -f -- "$shared_dir/.env.rollback" "$shared_dir/.env"; then
+                echo "Environment rollback needs review. Maintenance remains enabled." >&2
+                return "$status"
+            fi
+        fi
+        if [[ "$release_activated" == true && -n "$previous_target" && "$previous_target" == "$releases_dir/"* && -d "$previous_target" ]]; then
+            rm -f -- "$next_link"
+            ln -s "$previous_target" "$next_link"
+            mv -Tf "$next_link" "$current_link"
+            release_activated=false
+            echo "Restored the previous GEIC release." >&2
+        fi
+    fi
+
+    if [[ "$maintenance_started" == true && -n "$php_bin" && -f "$current_link/artisan" ]]; then
+        "$php_bin" "$current_link/artisan" up --no-interaction >/dev/null
+    fi
+    if [[ -n "$health_cookies" && "$health_cookies" == "$shared_dir/storage/crm-mysql/health-"* && -f "$health_cookies" ]]; then
+        rm -f -- "$health_cookies"
+    fi
 
     if [[ "$status" -ne 0 && "$release_activated" != true && -d "$release_dir" && "$release_dir" == "$releases_dir/"* ]]; then
         rm -rf -- "$release_dir"
@@ -54,6 +92,10 @@ trap cleanup_partial_release EXIT
 
 if [[ -L "$current_link" ]]; then
     previous_target="$(readlink -f "$current_link")"
+    if [[ "$previous_target" != "$releases_dir/"* || ! -f "$previous_target/artisan" ]]; then
+        echo "The existing release target requires review before deployment." >&2
+        exit 78
+    fi
 fi
 
 if [[ ! -f "$shared_dir/.env" ]]; then
@@ -188,7 +230,29 @@ else
 fi
 
 backup_label="$(date -u +%Y%m%dT%H%M%SZ)-${release_name:0:12}-$$"
+database_driver="$("$php_bin" -r '
+require "vendor/autoload.php";
+$app = require "bootstrap/app.php";
+$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+echo Illuminate\Support\Facades\DB::connection()->getDriverName();
+')"
+if [[ "$database_driver" == "sqlite" && -f "$shared_dir/crm-mysql.json" ]]; then
+    "$php_bin" artisan crm:prepare-mysql --no-interaction
+    if [[ -f "$shared_dir/storage/framework/down" ]]; then
+        echo "A pre-existing maintenance window requires review." >&2
+        exit 75
+    fi
+    maintenance_secret="$("$php_bin" -r 'echo bin2hex(random_bytes(32));')"
+    "$php_bin" artisan down --retry=60 --secret="$maintenance_secret" --no-interaction >/dev/null
+    maintenance_started=true
+    echo "Draining existing requests and bounded workers before the verified database copy."
+    sleep 60
+fi
 "$php_bin" artisan crm:backup-database --label="$backup_label" --include-files --no-interaction
+if [[ "$maintenance_started" == true ]]; then
+    rollback_env_file="$shared_dir/storage/crm-backups/$backup_label/.env"
+    "$php_bin" artisan crm:prepare-mysql --snapshot="$backup_label" --activate --no-interaction
+fi
 
 "$php_bin" artisan migrate --force
 "$php_bin" artisan admin:bootstrap --no-interaction
@@ -259,8 +323,16 @@ if [[ ! "$app_url" =~ ^https?:// ]]; then
 else
     health_ok=true
 
+    health_options=()
+    if [[ "$maintenance_started" == true ]]; then
+        health_cookies="$(mktemp "$shared_dir/storage/crm-mysql/health-XXXXXXXX")"
+        chmod 0600 "$health_cookies"
+        curl --fail --silent --show-error --location --max-time 20 --cookie-jar "$health_cookies" --cookie "$health_cookies" --output /dev/null "$app_url/$maintenance_secret"
+        health_options=(--cookie "$health_cookies")
+    fi
+
     for path in /up / /landing /landing/styles.css /destinations /destinations/australia /assets/design_1/css/app.min.css; do
-        if ! curl --fail --silent --show-error --max-time 20 --output /dev/null "$app_url$path"; then
+        if ! curl --fail --silent --show-error --max-time 20 "${health_options[@]}" --output /dev/null "$app_url$path"; then
             echo "Health check failed: $app_url$path" >&2
             health_ok=false
             break
@@ -269,24 +341,14 @@ else
 fi
 
 if [[ "$health_ok" != true ]]; then
-    if [[ -n "$previous_target" && -d "$previous_target" ]]; then
-        rm -f -- "$next_link"
-        ln -s "$previous_target" "$next_link"
-        mv -Tf "$next_link" "$current_link"
-
-        if [[ "$branch_name" == "develop" ]]; then
-            "$release_dir/scripts/install-staging-bridge.sh" "$previous_target"
-        fi
-
-        echo "Restored previous release: $previous_target" >&2
-    else
-        rm -f -- "$current_link"
-        echo "No previous release was available for rollback." >&2
-    fi
-
-    release_activated=false
     exit 70
 fi
+
+if [[ "$maintenance_started" == true ]]; then
+    "$php_bin" artisan up --no-interaction
+    maintenance_started=false
+fi
+release_committed=true
 
 # Dependency archives are immutable and keyed by composer.json/composer.lock.
 # Retaining three avoids repeated network installs during a rollback while

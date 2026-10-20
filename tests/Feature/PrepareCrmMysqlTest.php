@@ -127,6 +127,30 @@ class PrepareCrmMysqlTest extends TestCase
         File::put(app()->environmentFilePath(), "APP_KEY=original-fixture-key\nDB_CONNECTION=sqlite\n");
     }
 
+    public function test_a_source_changed_after_backup_cannot_be_activated_or_overwrite_the_live_environment(): void
+    {
+        $this->mysqlFixture();
+        $source = $this->fixture.'/source.sqlite';
+        $database = new SQLite3($source);
+        $database->exec('CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT); INSERT INTO users VALUES (17, "Original");');
+        $database->close();
+        config(['database.default' => 'cutover_source', 'database.connections.cutover_source' => ['driver' => 'sqlite', 'database' => $source, 'prefix' => '']]);
+        $this->artisan('crm:backup-database', ['--label' => 'stale-fixture', '--include-files' => true])->assertSuccessful();
+        $before = File::get(app()->environmentFilePath());
+        $database = new SQLite3($source);
+        $database->exec('INSERT INTO users VALUES (18, "Later submission");');
+        $database->close();
+        app()->maintenanceMode()->activate(['retry' => 60]);
+
+        $this->artisan('crm:prepare-mysql', ['--activate' => true, '--snapshot' => 'stale-fixture'])->assertFailed();
+
+        $this->assertSame($before, File::get(app()->environmentFilePath()));
+        $this->assertSame(0, DB::connection('cutover_fixture_target')->table('users')->count());
+        $report = json_decode(File::get(storage_path('crm-mysql/report.json')), true, flags: JSON_THROW_ON_ERROR);
+        $this->assertSame('snapshot', $report['stage']);
+        $this->assertSame('https://geic.in', DB::connection('cutover_fixture_target')->table('wplb_options')->where('option_name', 'siteurl')->value('option_value'));
+    }
+
     public function test_mysql_backup_restores_exact_records_without_exporting_or_changing_wordpress_tables(): void
     {
         $this->mysqlFixture();

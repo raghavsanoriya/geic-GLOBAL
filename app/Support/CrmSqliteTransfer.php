@@ -17,6 +17,18 @@ class CrmSqliteTransfer
             && (in_array($name, self::BASE_TABLES, true) || str_starts_with($name, 'crm_'));
     }
 
+    /** @return array{database: string, wal: string|null} */
+    public static function sourceState(string $path): array
+    {
+        clearstatcache(true, $path);
+        clearstatcache(true, $path.'-wal');
+        if (! is_file($path)) {
+            throw new RuntimeException('The original SQLite source is unavailable.');
+        }
+
+        return ['database' => hash_file('sha256', $path), 'wal' => is_file($path.'-wal') ? hash_file('sha256', $path.'-wal') : null];
+    }
+
     /** @return array<string, array{rows: int, sha256: string}> */
     public function copy(string $snapshotPath, Connection $target): array
     {

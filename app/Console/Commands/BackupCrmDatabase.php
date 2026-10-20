@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Support\CrmMysqlBackup;
+use App\Support\CrmSqliteTransfer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use RecursiveDirectoryIterator;
@@ -64,6 +65,7 @@ class BackupCrmDatabase extends Command
         $source = null;
         $backup = null;
         try {
+            $sourceState = $driver === 'sqlite' ? CrmSqliteTransfer::sourceState($sourcePath) : null;
             $databasePath = $destination.DIRECTORY_SEPARATOR.($driver === 'sqlite' ? 'database.sqlite' : 'database.sql');
             if ($driver === 'mysql') {
                 $tables = $mysqlBackup->create($connection, $databasePath);
@@ -125,7 +127,10 @@ class BackupCrmDatabase extends Command
                     }
                 }
             }
-            $manifest = ['format' => $driver === 'sqlite' ? 1 : 2, 'driver' => $driver, 'created_at' => gmdate(DATE_ATOM),
+            if ($driver === 'sqlite' && $sourceState !== CrmSqliteTransfer::sourceState($sourcePath)) {
+                throw new RuntimeException('The original source changed during backup. Retry after active writers finish.');
+            }
+            $manifest = ['format' => $driver === 'sqlite' ? 1 : 2, 'driver' => $driver, 'source_state' => $sourceState, 'created_at' => gmdate(DATE_ATOM),
                 'database_sha256' => hash_file('sha256', $databasePath), 'tables' => $tables, 'files' => $files];
             $manifestPath = $destination.DIRECTORY_SEPARATOR.'verified.json';
             if (file_put_contents($manifestPath, json_encode($manifest, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT), LOCK_EX) === false) {
