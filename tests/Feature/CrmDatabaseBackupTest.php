@@ -41,6 +41,7 @@ class CrmDatabaseBackupTest extends TestCase
         $manifest = json_decode(File::get($backupRoot.'/verified.json'), true, flags: JSON_THROW_ON_ERROR);
         $this->assertSame(['leads' => 1], $manifest['tables']);
         $this->assertSame(hash_file('sha256', $backupRoot.'/database.sqlite'), $manifest['database_sha256']);
+        $this->assertSame(['database' => hash_file('sha256', $source), 'wal' => null], $manifest['source_state']);
         $this->assertSame('private-original-fixture', File::get($backupRoot.'/app/private/documents/test.pdf'));
         $this->assertSame('APP_KEY=unchanged-test-key', File::get($backupRoot.'/.env'));
         $this->assertSame('APP_KEY=unchanged-test-key', File::get(app()->environmentFilePath()));

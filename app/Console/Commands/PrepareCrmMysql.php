@@ -124,7 +124,11 @@ class PrepareCrmMysql extends Command
                     throw new RuntimeException('A private verified snapshot is required.');
                 }
                 $manifest = json_decode(file_get_contents($snapshotRoot.'/verified.json'), true, flags: JSON_THROW_ON_ERROR);
+                $source = DB::connection();
+                $sourcePath = $source->getDriverName() === 'sqlite' ? realpath($source->getDatabaseName()) : false;
                 if (($manifest['driver'] ?? null) !== 'sqlite'
+                    || $sourcePath === false
+                    || ($manifest['source_state'] ?? null) !== CrmSqliteTransfer::sourceState($sourcePath)
                     || ($manifest['database_sha256'] ?? null) !== hash_file('sha256', $snapshotRoot.'/database.sqlite')
                     || ($manifest['files']['.env'] ?? null) !== hash_file('sha256', $environmentPath)
                     || ! is_file($snapshotRoot.'/.env')
@@ -140,6 +144,9 @@ class PrepareCrmMysql extends Command
                     throw new RuntimeException('Protected WordPress tables did not pass verification.');
                 }
                 $stage = 'environment';
+                if ($manifest['source_state'] !== CrmSqliteTransfer::sourceState($sourcePath)) {
+                    throw new RuntimeException('The original source changed after backup. Activation was refused.');
+                }
                 $originalEnvironment = file_get_contents($environmentPath);
                 $values = ['DB_CONNECTION' => 'mysql', 'DB_HOST' => $settings['host'], 'DB_PORT' => (string) ($settings['port'] ?? 3306), 'DB_DATABASE' => $settings['database'], 'DB_USERNAME' => $settings['username'], 'DB_PASSWORD' => $settings['password'], 'DB_URL' => ''];
                 $next = preg_replace('/^(?:DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD|DB_URL)=.*\R?/m', '', $originalEnvironment);

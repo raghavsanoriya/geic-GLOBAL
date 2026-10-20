@@ -2,6 +2,9 @@
 set -Eeuo pipefail
 
 application_root="/home2/geicic3c/apps/geic-production/current"
+if [[ -f "$application_root/storage/framework/down" ]]; then
+    exit 0
+fi
 if [[ ! -f "$application_root/artisan" ]]; then
     echo "The active GEIC Laravel release is unavailable." >&2
     exit 78
