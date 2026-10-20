@@ -238,6 +238,8 @@ echo Illuminate\Support\Facades\DB::connection()->getDriverName();
 ')"
 if [[ "$database_driver" == "sqlite" && -f "$shared_dir/crm-mysql.json" ]]; then
     "$php_bin" artisan crm:prepare-mysql --no-interaction
+    "$php_bin" artisan crm:backup-database --label="$backup_label-preflight" --include-files --no-interaction
+    "$php_bin" artisan crm:prepare-mysql --snapshot="$backup_label-preflight" --check-copy --no-interaction
     if [[ -f "$shared_dir/storage/framework/down" ]]; then
         echo "A pre-existing maintenance window requires review." >&2
         exit 75

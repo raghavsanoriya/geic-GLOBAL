@@ -99,6 +99,13 @@ class PrepareCrmMysqlTest extends TestCase
         $hash = hash_file('sha256', $source);
         config(['database.default' => 'cutover_source', 'database.connections.cutover_source' => ['driver' => 'sqlite', 'database' => $source, 'prefix' => '']]);
         $this->artisan('crm:backup-database', ['--label' => 'cutover-fixture', '--include-files' => true])->assertSuccessful();
+        $beforeEnvironment = File::get(app()->environmentFilePath());
+        $this->prepareMysql(['--check-copy' => true, '--snapshot' => 'cutover-fixture']);
+        $this->assertSame(0, DB::connection('cutover_fixture_target')->table('users')->count());
+        $this->assertSame($beforeEnvironment, File::get(app()->environmentFilePath()));
+        $this->assertFalse(app()->isDownForMaintenance());
+        $preflightReport = json_decode(File::get(storage_path('crm-mysql/report.json')), true, flags: JSON_THROW_ON_ERROR);
+        $this->assertSame('copy_verified', $preflightReport['state']);
         app()->maintenanceMode()->activate(['retry' => 60]);
 
         $this->prepareMysql(['--activate' => true, '--snapshot' => 'cutover-fixture']);

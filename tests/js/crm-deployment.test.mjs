@@ -57,6 +57,7 @@ case "$command" in
     up) rm -f "$GEIC_TEST_SHARED/storage/framework/down";;
     crm:backup-database)
         [[ "$GEIC_TEST_FAILURE" != backup ]] || exit 21
+        [[ "$GEIC_TEST_FAILURE" != final-backup || "$*" == *-preflight* ]] || exit 21
         for argument in "$@"; do
             if [[ "$argument" == --label=* ]]; then
                 destination="$GEIC_TEST_SHARED/storage/crm-backups/\u0024{argument#--label=}"
@@ -65,7 +66,10 @@ case "$command" in
             fi
         done;;
     crm:prepare-mysql)
-        if [[ "$*" == *--activate* ]]; then
+        if [[ "$*" == *--check-copy* ]]; then
+            printf 'check-copy\\n' >> "$GEIC_TEST_EVENTS"
+            [[ "$GEIC_TEST_FAILURE" != check ]] || exit 25
+        elif [[ "$*" == *--activate* ]]; then
             printf 'APP_KEY=preserved-fixture-key\\nDB_CONNECTION=mysql\\n' > "$GEIC_TEST_SHARED/.env"
             [[ "$GEIC_TEST_FAILURE" != activate ]] || exit 22
         else
@@ -99,14 +103,16 @@ esac
             assert.notEqual(result.status, 0, result.stdout);
             assert.equal(environment, original);
             assert.equal(active, previous);
-            if (failure !== 'prepare') assert.equal(events.at(-1), 'up');
+            if (!['prepare', 'backup', 'check'].includes(failure)) assert.equal(events.at(-1), 'up');
+            else assert.equal(events.includes('down'), false);
         } else {
             assert.equal(result.status, 0, result.stderr);
             assert.equal(active, path.join(production, 'releases', sha));
             assert.equal(await fs.readFile(path.join(active, 'public/release.txt'), 'utf8'), sha);
             if (driver === 'sqlite') {
                 assert.match(environment, /DB_CONNECTION=mysql/);
-                assert.ok(events.indexOf('down') < events.indexOf('crm:backup-database'));
+                assert.ok(events.indexOf('check-copy') < events.indexOf('down'));
+                assert.ok(events.indexOf('drain') < events.lastIndexOf('crm:backup-database'));
                 assert.ok(events.lastIndexOf('crm:prepare-mysql') < events.indexOf('migrate'));
                 assert.ok(events.lastIndexOf('health') < events.indexOf('up'));
             } else {
@@ -125,6 +131,6 @@ esac
 
 test('cPanel activates the verified copy only after private health checks and preserves original SQLite data', { skip: process.platform === 'win32' }, () => deployment());
 test('ordinary MySQL releases do not repeat the SQLite cutover', { skip: process.platform === 'win32' }, () => deployment('', 'mysql'));
-for (const phase of ['prepare', 'backup', 'activate', 'migrate', 'health']) {
+for (const phase of ['prepare', 'backup', 'check', 'final-backup', 'activate', 'migrate', 'health']) {
     test(`cPanel failure during ${phase} restores configuration, release and site availability`, { skip: process.platform === 'win32' }, () => deployment(phase));
 }

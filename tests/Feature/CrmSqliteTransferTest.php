@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use App\Support\CrmSqliteTransfer;
+use App\Support\CrmSqliteTransferException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -92,9 +93,13 @@ class CrmSqliteTransferTest extends TestCase
         try {
             app(CrmSqliteTransfer::class)->copy($snapshot, DB::connection());
             $this->fail('A missing parent must abort the whole data copy.');
-        } catch (RuntimeException) {
+        } catch (CrmSqliteTransferException $exception) {
             $this->assertDatabaseCount('users', 0);
             $this->assertDatabaseCount('crm_students', 0);
+            $this->assertSame('insert', $exception->diagnostics['phase']);
+            $this->assertSame('crm_students', $exception->diagnostics['table']);
+            $this->assertStringNotContainsString('Invalid relationship fixture', json_encode($exception->diagnostics));
+            $this->assertNull($exception->getPrevious());
         }
     }
 
