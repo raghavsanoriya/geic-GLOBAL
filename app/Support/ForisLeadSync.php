@@ -64,7 +64,7 @@ class ForisLeadSync
         DB::table('foris_lead_deliveries')->where('status', 'processing')
             ->where('attempted_at', '<', now()->subMinutes(2))->update([
                 'status' => 'uncertain',
-                'last_error' => 'A worker stopped during delivery. Reconcile the GEIC reference in Foris before retrying.',
+                'last_error' => 'A worker stopped during delivery. Reconcile the submitted contact and time with the GEIC record before retrying.',
                 'updated_at' => now(),
             ]);
         if (! $this->configured()) {
@@ -134,7 +134,7 @@ class ForisLeadSync
             if (preg_match('/cURL error [67]:/', $error->getMessage()) === 1) {
                 return $this->temporaryFailure($deliveryId, (int) $delivery->attempts + 1, 'Foris could not be reached before the request was sent.');
             }
-            $this->finish($deliveryId, 'uncertain', ['last_error' => 'Delivery timed out or the connection ended without confirmation. Check Foris using GEIC-'.$lead->id.'.']);
+            $this->finish($deliveryId, 'uncertain', ['last_error' => 'Delivery timed out or the connection ended without confirmation. Compare the submitted contact and time in Foris with GEIC-'.$lead->id.' before retrying.']);
 
             return null;
         } catch (Throwable $error) {
@@ -172,7 +172,7 @@ class ForisLeadSync
             return $this->temporaryFailure($deliveryId, (int) $delivery->attempts + 1, 'Foris rate limit reached.', 429, (int) $response->header('Retry-After'));
         }
         if ($response->status() >= 500 || $response->successful()) {
-            $this->finish($deliveryId, 'uncertain', ['last_http_status' => $response->status(), 'last_error' => 'Foris returned no reliable acknowledgement. Check the GEIC reference in its audit trail before retrying.']);
+            $this->finish($deliveryId, 'uncertain', ['last_http_status' => $response->status(), 'last_error' => 'Foris returned no reliable acknowledgement. Compare the submitted contact and time in its audit trail with the GEIC record before retrying.']);
 
             return null;
         }

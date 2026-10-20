@@ -122,10 +122,19 @@ class ForisLeadSyncTest extends TestCase
             && $request['contact_number'] === '9876543210'
             && $request['phonecode'] === '91'
             && $request['pref_country'] === 'United Arab Emirates'
-            && str_contains($request['remark'], 'Percentage / CGPA: 8.1 CGPA')
-            && str_contains($request['remark'], 'GEIC-'.$id)
-            && ! str_contains($request['remark'], 'private-password')
-            && ! str_contains($request['remark'], 'private-hash'));
+            && $request['name'] === 'Test Student'
+            && $request['email'] === 'student@example.com'
+            && $request['city'] === 'Indore'
+            && $request['interest_area'] === 'Data Science'
+            && ! array_key_exists('intake', $request->data())
+            && ! array_key_exists('remark', $request->data())
+            && ! array_key_exists('intended_level_qua', $request->data())
+            && ! array_key_exists('intended_year_departure', $request->data())
+            && ! str_contains(json_encode($request->data()), 'private-password')
+            && ! str_contains(json_encode($request->data()), 'private-hash'));
+        $saved = DB::table('counselling_enquiries')->find($id);
+        $this->assertSame('8.1 CGPA', json_decode($saved->metadata, true)['form_fields']['score']);
+        $this->assertSame('Please contact me.', $saved->message);
     }
 
     #[DataProvider('responses')]
@@ -263,7 +272,7 @@ class ForisLeadSyncTest extends TestCase
 
         Http::assertSent(fn (Request $request): bool => ! isset($request['api_key'])
             && $request->hasHeader('X-API-KEY', 'test-secret')
-            && ! str_contains($request['remark'], 'test-secret'));
+            && ! str_contains(json_encode($request->data()), 'test-secret'));
         $this->assertDatabaseHas('foris_lead_deliveries', ['status' => 'delivered', 'remote_lead_id' => '902']);
         $this->assertStringNotContainsString('test-secret', DB::table('counselling_enquiries')->value('metadata'));
     }
@@ -286,6 +295,42 @@ class ForisLeadSyncTest extends TestCase
     public static function indianDialPrefixes(): array
     {
         return ['trunk prefix' => ['09876543210'], 'international prefix' => ['00919876543210']];
+    }
+
+    #[DataProvider('structuredStudyFields')]
+    public function test_forwards_verified_study_fields_without_guessing_from_passing_years_or_event_dates(string $studyLevel, string $intake, array $fields, ?string $expectedLevel, ?string $expectedIntake): void
+    {
+        $this->enableForis();
+        Http::preventStrayRequests();
+        Http::fake([self::ENDPOINT => Http::response(['success' => true, 'lead_id' => 904], 201)]);
+        $id = $this->record(['study_level' => $studyLevel, 'preferred_intake' => $intake], $fields);
+
+        app(ForisLeadSync::class)->deliver(1);
+
+        Http::assertSent(function (Request $request) use ($expectedLevel, $expectedIntake): bool {
+            $data = $request->data();
+
+            return ($data['intended_level_qua'] ?? null) === $expectedLevel
+                && ($data['intake'] ?? null) === $expectedIntake
+                && ! array_key_exists('remark', $data)
+                && ! array_key_exists('intended_year_departure', $data)
+                && array_diff(array_keys($data), ['name', 'contact_number', '_hp_check', 'phonecode', 'email', 'city', 'pref_country', 'interest_area', 'intended_level_qua', 'intake']) === [];
+        });
+        $this->assertDatabaseHas('counselling_enquiries', ['id' => $id, 'study_level' => $studyLevel, 'preferred_intake' => $intake]);
+        $this->assertDatabaseHas('foris_lead_deliveries', ['enquiry_id' => $id, 'status' => 'delivered']);
+        Http::assertSentCount(1);
+    }
+
+    public static function structuredStudyFields(): array
+    {
+        return [
+            'masters February' => ['Postgraduate', 'February intake', [], '1', '2'],
+            'bachelors July' => ['Undergraduate', 'July intake', [], '3', '7'],
+            'research October' => ['Research', 'October intake', [], '4', '10'],
+            'unspecified intake' => ['Postgraduate', 'Next available intake', [], '1', null],
+            'event date is not an intake' => ['Not sure yet', 'Global Uni Expo 2026 - 24 October 2026', ['event_date' => '2026-10-24'], null, null],
+            'passing year is not departure year' => ['Bachelors', 'Passing year: 2026', ['qualification' => 'Bachelors', 'passing_year' => 2026], null, null],
+        ];
     }
 
     private function enableForis(): void

@@ -2,7 +2,6 @@
 
 namespace App\Support;
 
-use Carbon\Carbon;
 use InvalidArgumentException;
 use stdClass;
 
@@ -62,41 +61,15 @@ class ForisLeadPayload
             }
         }
 
-        $notes = [
-            'GEIC reference' => 'GEIC-'.$lead->id,
-            'Source' => $lead->source ?? 'website',
-            'Source page' => $lead->source_page,
-            'Source form' => $lead->source_form ?? '',
-            'Submitted at (India)' => Carbon::parse($lead->created_at, config('app.timezone'))->setTimezone('Asia/Kolkata')->format('Y-m-d H:i:s P'),
-            'Original phone' => $lead->phone,
-            'Preferred destination' => $lead->destination,
-            'Study level / qualification' => $lead->study_level,
-            'Preferred intake / passing year' => $lead->preferred_intake,
-            'Course' => $lead->preferred_course,
-            'English test' => $lead->english_test,
-            'Message' => $lead->message,
-            'UTM source' => $lead->utm_source ?? '',
-            'UTM medium' => $lead->utm_medium ?? '',
-            'UTM campaign' => $lead->utm_campaign ?? '',
-        ];
-        $labels = [
-            'qualification' => 'Current qualification',
-            'passing_year' => 'Passing year',
-            'score' => 'Percentage / CGPA',
-            'country' => 'Selected country',
-            'interest' => 'Event interest',
-            'event_date' => 'Event date',
-            'event_city' => 'Event city',
-            'consent' => 'Contact consent',
-            'source_context' => 'Enquiry context',
-        ];
-        foreach ($labels as $key => $label) {
-            if (isset($form[$key]) && is_scalar($form[$key])) {
-                $notes[$label] = (string) $form[$key];
-            }
+        $intake = match (strtolower(trim((string) $lead->preferred_intake))) {
+            'february intake' => '2',
+            'july intake' => '7',
+            'october intake' => '10',
+            default => null,
+        };
+        if ($intake !== null && ! isset($form['passing_year'])) {
+            $payload['intake'] = $intake;
         }
-        $payload['remark'] = collect($notes)->filter(fn ($value): bool => $this->provided($value))
-            ->map(fn ($value, $label): string => $label.': '.$value)->implode("\n");
 
         return $payload;
     }
