@@ -80,6 +80,23 @@ class CrmIntegrationSettingControllerTest extends TestCase
         $this->assertFalse(app(CrmProviderTest::class)->verify($setting));
     }
 
+    public function test_verified_provider_remains_ready_after_json_key_reordering_but_not_configuration_changes(): void
+    {
+        $setting = CrmIntegrationSetting::create(['provider' => 'email', 'configuration' => ['host' => 'smtp.example.com', 'port' => 465, 'scheme' => 'smtps'],
+            'secret' => 'test-only-secret', 'is_enabled' => true, 'verified_at' => now()]);
+        $setting->verified_fingerprint = $setting->fingerprint();
+        $setting->save();
+
+        $this->assertTrue($setting->fresh()->ready());
+        $setting->configuration = ['scheme' => 'smtps', 'port' => 465, 'host' => 'smtp.example.com'];
+        $this->assertTrue($setting->ready());
+        $setting->configuration = ['scheme' => 'smtps', 'port' => 465, 'host' => 'changed.example.com'];
+        $this->assertFalse($setting->ready());
+        $setting->refresh();
+        $setting->secret = 'changed-test-secret';
+        $this->assertFalse($setting->ready());
+    }
+
     private function payload(): array
     {
         return ['version' => 0, 'configuration' => ['app_id' => '9f3c4b8c-2a28-47f3-8515-4f84ea87baab'], 'secret' => 'test-only-token', 'is_enabled' => false];

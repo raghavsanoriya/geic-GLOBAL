@@ -97,7 +97,8 @@ class CrmInboundSubmissionControllerTest extends TestCase
         $this->postJson($this->path($form), ['student_name' => 'Audit test', 'mobile' => '8765432190'], $headers)->assertCreated();
         $this->postJson($this->path($form), ['student_name' => 'Changed', 'mobile' => '8765432190'], $headers)->assertConflict();
         $this->assertDatabaseCount('crm_inbound_attempts', 4);
-        $this->assertDatabaseHas('crm_inbound_attempts', ['form_id' => $form->id, 'response_status' => 422, 'invalid_fields' => '["phone"]']);
+        $this->assertDatabaseHas('crm_inbound_attempts', ['form_id' => $form->id, 'response_status' => 422]);
+        $this->assertSame(['phone'], json_decode(DB::table('crm_inbound_attempts')->where('form_id', $form->id)->where('response_status', 422)->value('invalid_fields'), true, flags: JSON_THROW_ON_ERROR));
         $this->assertDatabaseHas('crm_inbound_attempts', ['outcome' => 'invalid_credentials']);
         $this->assertDatabaseHas('crm_inbound_attempts', ['outcome' => 'saved']);
         $this->assertDatabaseHas('crm_inbound_attempts', ['outcome' => 'idempotency_conflict']);

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Support\CrmMysqlBackup;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use RecursiveDirectoryIterator;
@@ -14,18 +15,19 @@ class BackupCrmDatabase extends Command
 {
     protected $signature = 'crm:backup-database {--label= : Unique safe backup label} {--include-files : Preserve the existing environment and application uploads too}';
 
-    protected $description = 'Verify a private, consistent snapshot of the existing SQLite database before release migrations';
+    protected $description = 'Verify a private SQLite or application-only MySQL snapshot before release migrations';
 
-    public function handle(): int
+    public function handle(CrmMysqlBackup $mysqlBackup): int
     {
         $connection = DB::connection();
-        if ($connection->getDriverName() !== 'sqlite' || ! class_exists(SQLite3::class)) {
-            $this->error('This backup command requires SQLite and its online-backup extension. No migration may run without a verified database backup.');
+        $driver = $connection->getDriverName();
+        if (! in_array($driver, ['sqlite', 'mysql'], true) || ($driver === 'sqlite' && ! class_exists(SQLite3::class))) {
+            $this->error('A supported SQLite or MySQL connection is required. No migration may run without a verified database backup.');
 
             return self::FAILURE;
         }
-        $sourcePath = realpath($connection->getDatabaseName());
-        if ($sourcePath === false || ! is_file($sourcePath)) {
+        $sourcePath = $driver === 'sqlite' ? realpath($connection->getDatabaseName()) : null;
+        if ($driver === 'sqlite' && ($sourcePath === false || ! is_file($sourcePath))) {
             $this->error('A file-backed SQLite database is required. The live database was not changed.');
 
             return self::FAILURE;
@@ -62,31 +64,35 @@ class BackupCrmDatabase extends Command
         $source = null;
         $backup = null;
         try {
-            $databasePath = $destination.DIRECTORY_SEPARATOR.'database.sqlite';
-            $handle = fopen($databasePath, 'xb');
-            if ($handle === false) {
-                throw new RuntimeException('Cannot create backup.');
+            $databasePath = $destination.DIRECTORY_SEPARATOR.($driver === 'sqlite' ? 'database.sqlite' : 'database.sql');
+            if ($driver === 'mysql') {
+                $tables = $mysqlBackup->create($connection, $databasePath);
+            } else {
+                $handle = fopen($databasePath, 'xb');
+                if ($handle === false) {
+                    throw new RuntimeException('Cannot create backup.');
+                }
+                fclose($handle);
+                chmod($databasePath, 0600);
+                $source = new SQLite3($sourcePath, SQLITE3_OPEN_READONLY);
+                $source->enableExceptions(true);
+                $source->busyTimeout(5000);
+                $backup = new SQLite3($databasePath, SQLITE3_OPEN_READWRITE);
+                $backup->enableExceptions(true);
+                if (! $source->backup($backup) || $backup->querySingle('PRAGMA integrity_check') !== 'ok') {
+                    throw new RuntimeException('Backup integrity check failed.');
+                }
+                $tables = [];
+                $result = $backup->query("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name");
+                while ($table = $result->fetchArray(SQLITE3_ASSOC)) {
+                    $identifier = '"'.str_replace('"', '""', $table['name']).'"';
+                    $tables[$table['name']] = (int) $backup->querySingle('SELECT COUNT(*) FROM '.$identifier);
+                }
+                $backup->close();
+                $backup = null;
+                $source->close();
+                $source = null;
             }
-            fclose($handle);
-            chmod($databasePath, 0600);
-            $source = new SQLite3($sourcePath, SQLITE3_OPEN_READONLY);
-            $source->enableExceptions(true);
-            $source->busyTimeout(5000);
-            $backup = new SQLite3($databasePath, SQLITE3_OPEN_READWRITE);
-            $backup->enableExceptions(true);
-            if (! $source->backup($backup) || $backup->querySingle('PRAGMA integrity_check') !== 'ok') {
-                throw new RuntimeException('Backup integrity check failed.');
-            }
-            $tables = [];
-            $result = $backup->query("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name");
-            while ($table = $result->fetchArray(SQLITE3_ASSOC)) {
-                $identifier = '"'.str_replace('"', '""', $table['name']).'"';
-                $tables[$table['name']] = (int) $backup->querySingle('SELECT COUNT(*) FROM '.$identifier);
-            }
-            $backup->close();
-            $backup = null;
-            $source->close();
-            $source = null;
             $files = [];
             if ($this->option('include-files')) {
                 $this->copyVerified(app()->environmentFilePath(), $destination.DIRECTORY_SEPARATOR.'.env');
@@ -119,7 +125,7 @@ class BackupCrmDatabase extends Command
                     }
                 }
             }
-            $manifest = ['format' => 1, 'driver' => 'sqlite', 'created_at' => gmdate(DATE_ATOM),
+            $manifest = ['format' => $driver === 'sqlite' ? 1 : 2, 'driver' => $driver, 'created_at' => gmdate(DATE_ATOM),
                 'database_sha256' => hash_file('sha256', $databasePath), 'tables' => $tables, 'files' => $files];
             $manifestPath = $destination.DIRECTORY_SEPARATOR.'verified.json';
             if (file_put_contents($manifestPath, json_encode($manifest, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT), LOCK_EX) === false) {

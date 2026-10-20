@@ -6,11 +6,11 @@ use App\Models\User;
 use App\Support\EnquiryPhoneNumber;
 use App\Support\LeadDuplicateReview;
 use App\Support\RecordWebsiteEnquiry;
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
@@ -25,12 +25,14 @@ class LeadDuplicateReviewTest extends TestCase
         Http::preventStrayRequests();
 
         $this->assertLessThan(400, $this->postJson($path, $payload)->status());
+        $firstId = (int) DB::table('counselling_enquiries')->value('id');
         $this->assertLessThan(400, $this->postJson($path, $payload)->status());
+        $newId = (int) DB::table('counselling_enquiries')->max('id');
 
         $this->assertDatabaseCount('counselling_enquiries', 2);
         $this->assertDatabaseCount('lead_contact_keys', 2);
-        $this->assertDatabaseHas('lead_duplicate_reviews', ['enquiry_id' => 2, 'status' => 'pending']);
-        $this->assertSame([['enquiry_id' => 1, 'reasons' => ['email', 'phone']]], json_decode(DB::table('lead_duplicate_reviews')->value('matches'), true));
+        $this->assertDatabaseHas('lead_duplicate_reviews', ['enquiry_id' => $newId, 'status' => 'pending']);
+        $this->assertSame([['enquiry_id' => $firstId, 'reasons' => ['email', 'phone']]], json_decode(DB::table('lead_duplicate_reviews')->value('matches'), true));
         $this->assertDatabaseCount('foris_lead_deliveries', 2);
         $this->assertDatabaseCount('jobs', 2);
         Http::assertNothingSent();
@@ -110,7 +112,11 @@ class LeadDuplicateReviewTest extends TestCase
     public function test_duplicate_queue_and_enquiry_are_rolled_back_together_on_failure(): void
     {
         $this->record();
-        Schema::drop('lead_duplicate_reviews');
+        DB::listen(function (QueryExecuted $query): void {
+            if (str_starts_with(strtolower($query->sql), 'insert') && str_contains($query->sql, 'lead_duplicate_reviews')) {
+                throw new \RuntimeException('Simulated duplicate-review persistence failure.');
+            }
+        });
 
         $this->postJson('/landing/form-handler.php', ForisLeadSyncTest::websiteForms()['landing forms'][1])->assertServerError();
 
@@ -164,9 +170,9 @@ class LeadDuplicateReviewTest extends TestCase
         $this->record();
 
         $this->actingAs($counsellor)->get('/admin/duplicate-review')->assertOk()->assertSee('Matching earlier enquiries')->assertDontSee('Keep as separate enquiry');
-        $this->actingAs($counsellor)->patch('/admin/duplicate-review/1', ['decision' => 'distinct'])->assertForbidden();
+        $this->actingAs($counsellor)->patch($this->reviewUrl(), ['decision' => 'distinct'])->assertForbidden();
         $this->assertFalse(Gate::forUser($counsellor)->allows('enquiries.review'));
-        $this->assertDatabaseHas('lead_duplicate_reviews', ['id' => 1, 'status' => 'pending']);
+        $this->assertDatabaseHas('lead_duplicate_reviews', ['status' => 'pending']);
     }
 
     public function test_confirms_only_a_known_match_without_merging_or_resending_and_audits_the_reviewer(): void
@@ -178,7 +184,7 @@ class LeadDuplicateReviewTest extends TestCase
         $beforeLeads = DB::table('counselling_enquiries')->get()->map(fn ($row): array => (array) $row)->all();
         $beforeDeliveries = DB::table('foris_lead_deliveries')->get()->map(fn ($row): array => (array) $row)->all();
 
-        $this->actingAs($super)->patch('/admin/duplicate-review/1', ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first, 'review_note' => 'Same contact confirmed.', 'reviewed_by' => 999])->assertRedirect();
+        $this->actingAs($super)->patch($this->reviewUrl(), ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first, 'review_note' => 'Same contact confirmed.', 'reviewed_by' => 999])->assertRedirect();
 
         $this->assertDatabaseHas('lead_duplicate_reviews', ['enquiry_id' => $newId, 'status' => 'confirmed_duplicate', 'linked_enquiry_id' => $first, 'reviewed_by' => $super->id, 'review_note' => 'Same contact confirmed.']);
         $this->assertSame($beforeLeads, DB::table('counselling_enquiries')->get()->map(fn ($row): array => (array) $row)->all());
@@ -192,9 +198,9 @@ class LeadDuplicateReviewTest extends TestCase
         $this->record();
         $other = $this->record(['phone' => '8765432190', 'email' => 'someoneelse@example.com']);
 
-        $this->actingAs($super)->patchJson('/admin/duplicate-review/1', ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $other])->assertUnprocessable()->assertJsonValidationErrors(['linked_enquiry_id']);
-        $this->actingAs($super)->patchJson('/admin/duplicate-review/1', ['decision' => 'delete'])->assertUnprocessable()->assertJsonValidationErrors(['decision']);
-        $this->assertDatabaseHas('lead_duplicate_reviews', ['id' => 1, 'status' => 'pending', 'reviewed_by' => null]);
+        $this->actingAs($super)->patchJson($this->reviewUrl(), ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $other])->assertUnprocessable()->assertJsonValidationErrors(['linked_enquiry_id']);
+        $this->actingAs($super)->patchJson($this->reviewUrl(), ['decision' => 'delete'])->assertUnprocessable()->assertJsonValidationErrors(['decision']);
+        $this->assertDatabaseHas('lead_duplicate_reviews', ['status' => 'pending', 'reviewed_by' => null]);
     }
 
     public function test_keeps_separate_without_a_link_and_does_not_overwrite_a_completed_review(): void
@@ -203,10 +209,10 @@ class LeadDuplicateReviewTest extends TestCase
         $first = $this->record();
         $this->record();
 
-        $this->actingAs($super)->patch('/admin/duplicate-review/1', ['decision' => 'distinct'])->assertRedirect();
-        $this->actingAs($super)->patch('/admin/duplicate-review/1', ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first])->assertRedirect();
+        $this->actingAs($super)->patch($this->reviewUrl(), ['decision' => 'distinct'])->assertRedirect();
+        $this->actingAs($super)->patch($this->reviewUrl(), ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first])->assertRedirect();
 
-        $this->assertDatabaseHas('lead_duplicate_reviews', ['id' => 1, 'status' => 'distinct', 'linked_enquiry_id' => null]);
+        $this->assertDatabaseHas('lead_duplicate_reviews', ['status' => 'distinct', 'linked_enquiry_id' => null]);
         $this->assertDatabaseCount('counselling_enquiries', 2);
     }
 
@@ -215,7 +221,7 @@ class LeadDuplicateReviewTest extends TestCase
         $super = $this->superAdmin();
         $this->record(['full_name' => '<script>alert("old")</script>']);
         $this->record(['full_name' => '<script>alert("new")</script>']);
-        $this->actingAs($super)->patch('/admin/duplicate-review/1', ['decision' => 'distinct', 'review_note' => '<img src=x onerror=alert(1)>']);
+        $this->actingAs($super)->patch($this->reviewUrl(), ['decision' => 'distinct', 'review_note' => '<img src=x onerror=alert(1)>'])->assertRedirect();
 
         $this->actingAs($super)->get('/admin/duplicate-review?status=distinct')
             ->assertSee('&lt;script&gt;', false)->assertDontSee('<script>alert("old")</script>', false)
@@ -253,7 +259,7 @@ class LeadDuplicateReviewTest extends TestCase
         $revision = $response->json('revision');
 
         $this->getJson('/admin/duplicate-review?revision='.$revision)->assertExactJson(['revision' => $revision, 'unchanged' => true]);
-        $this->actingAs($super)->patch('/admin/duplicate-review/1', ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first])->assertRedirect();
+        $this->actingAs($super)->patch($this->reviewUrl(), ['decision' => 'confirmed_duplicate', 'linked_enquiry_id' => $first])->assertRedirect();
         $changed = $this->getJson('/admin/duplicate-review?revision='.$revision)->assertJsonPath('unchanged', false);
         $this->assertNotSame($revision, $changed->json('revision'));
         $this->assertStringContainsString('No pending duplicates', $changed->json('html'));
@@ -283,6 +289,11 @@ class LeadDuplicateReviewTest extends TestCase
     private function superAdmin(): User
     {
         return User::factory()->create(['is_admin' => true, 'is_active' => true, 'admin_role' => 'super_admin']);
+    }
+
+    private function reviewUrl(): string
+    {
+        return '/admin/duplicate-review/'.DB::table('lead_duplicate_reviews')->value('id');
     }
 
     private function record(array $overrides = []): int

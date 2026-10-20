@@ -19,7 +19,10 @@ class CrmIntegrationSetting extends Model
 
     public function fingerprint(): string
     {
-        return hash_hmac('sha256', json_encode([$this->provider, $this->configuration, $this->secret], JSON_THROW_ON_ERROR), (string) config('app.key'));
+        $configuration = $this->configuration ?? [];
+        ksort($configuration);
+
+        return hash_hmac('sha256', json_encode([$this->provider, $configuration, $this->secret], JSON_THROW_ON_ERROR), (string) config('app.key'));
     }
 
     public function ready(): bool

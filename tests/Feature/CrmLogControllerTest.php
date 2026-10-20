@@ -24,7 +24,7 @@ class CrmLogControllerTest extends TestCase
         app(CrmAudit::class)->record($student, 'student.updated', $staff, ['email']);
         app(CrmAudit::class)->record($other, 'student.created');
         $this->actingAs($staff)->getJson('/admin/crm/logs')->assertOk()->assertJsonPath('total', 1)
-            ->assertJsonMissingPath('data.0.changes')->assertJsonPath('data.0.student_id', $student->id);
+            ->assertJsonMissingPath('data.0.changes')->assertJsonPath('data.0.student_id', $student->id)->assertJsonPath('data.0.module', 'Student records');
         $this->get('/admin/crm/logs')->assertOk()->assertDontSee('<script>private()</script>', false)->assertSee('&lt;script&gt;', false);
         $this->getJson('/admin/crm/logs?action=student.created')->assertJsonPath('total', 0);
         $this->getJson('/admin/crm/logs?student='.$other->id)->assertNotFound();
