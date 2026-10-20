@@ -5,8 +5,13 @@ namespace App\Providers;
 use App\Models\User;
 use App\Support\AdminAccess;
 use App\Support\CrmAccess;
+use App\Support\CrmMysqlSchemaGrammar;
+use Closure;
+use Illuminate\Database\Connection;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use PDO;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +20,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        Connection::resolverFor('mysql', static function (PDO|Closure $pdo, string $database, string $prefix, array $config): MySqlConnection {
+            $connection = new MySqlConnection($pdo, $database, $prefix, $config);
+            if ($config['utc_datetime_columns'] ?? false) {
+                $connection->setSchemaGrammar(new CrmMysqlSchemaGrammar($connection));
+            }
+
+            return $connection;
+        });
     }
 
     /**

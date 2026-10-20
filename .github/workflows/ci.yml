@@ -105,6 +105,8 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: isolated-ci-password
           MYSQL_DATABASE: geic_crm_tests
+          MYSQL_USER: geic_crm_ci
+          MYSQL_PASSWORD: isolated-app-password
         ports:
           - 3306:3306
         options: >-
@@ -115,8 +117,8 @@ jobs:
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
       DB_DATABASE: geic_crm_tests
-      DB_USERNAME: root
-      DB_PASSWORD: isolated-ci-password
+      DB_USERNAME: geic_crm_ci
+      DB_PASSWORD: isolated-app-password
       CACHE_STORE: array
       SESSION_DRIVER: array
       FORIS_ENABLED: 'false'
@@ -133,6 +135,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
       - name: Prepare isolated MySQL environment
         run: |
+          docker exec ${{ job.services.mysql.id }} mysql -uroot -pisolated-ci-password -e 'GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, REFERENCES, DROP ON `geic_cutover_fixture_%`.* TO "geic_crm_ci"@"%";'
           cp .env.example .env
           php artisan key:generate --no-interaction
           php artisan migrate --force --no-interaction

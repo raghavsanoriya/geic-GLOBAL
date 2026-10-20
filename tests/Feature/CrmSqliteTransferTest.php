@@ -110,16 +110,19 @@ class CrmSqliteTransferTest extends TestCase
         }
     }
 
-    public function test_mysql_connection_uses_utc_and_explicit_timestamp_defaults(): void
+    public function test_mysql_connection_uses_utc_and_strict_dates_without_server_admin_privileges(): void
     {
         if (DB::connection()->getDriverName() !== 'mysql') {
             $this->markTestSkipped('Executed by the isolated MySQL CRM CI service.');
         }
 
-        $settings = DB::selectOne('SELECT @@session.time_zone AS zone, @@session.explicit_defaults_for_timestamp AS explicit_defaults');
+        $settings = DB::selectOne('SELECT @@session.time_zone AS zone, @@session.sql_mode AS modes, CURRENT_USER() AS account');
 
         $this->assertSame('+00:00', $settings->zone);
-        $this->assertSame(1, (int) $settings->explicit_defaults);
+        $this->assertStringContainsString('NO_ZERO_DATE', $settings->modes);
+        if (app()->environment('testing') && config('database.connections.mysql.database') === 'geic_crm_tests') {
+            $this->assertStringStartsWith('geic_crm_ci@', $settings->account);
+        }
     }
 
     /** @param array<string, list<array<string, mixed>>> $tables */
