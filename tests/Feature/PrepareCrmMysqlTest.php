@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use App\Support\CrmSqliteTransfer;
 use Dotenv\Dotenv;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -67,8 +69,8 @@ class PrepareCrmMysqlTest extends TestCase
         $this->mysqlFixture();
         $before = File::get(app()->environmentFilePath());
 
-        $this->artisan('crm:prepare-mysql')->assertSuccessful();
-        $this->artisan('crm:prepare-mysql')->assertSuccessful();
+        $this->prepareMysql();
+        $this->prepareMysql();
 
         $this->assertSame($before, File::get(app()->environmentFilePath()));
         $this->assertSame('https://geic.in', DB::connection('cutover_fixture_target')->table('wplb_options')->where('option_name', 'siteurl')->value('option_value'));
@@ -99,7 +101,7 @@ class PrepareCrmMysqlTest extends TestCase
         $this->artisan('crm:backup-database', ['--label' => 'cutover-fixture', '--include-files' => true])->assertSuccessful();
         app()->maintenanceMode()->activate(['retry' => 60]);
 
-        $this->artisan('crm:prepare-mysql', ['--activate' => true, '--snapshot' => 'cutover-fixture'])->assertSuccessful();
+        $this->prepareMysql(['--activate' => true, '--snapshot' => 'cutover-fixture']);
 
         $environment = Dotenv::parse(File::get(app()->environmentFilePath()));
         $this->assertSame('original-fixture-key', $environment['APP_KEY']);
@@ -125,6 +127,48 @@ class PrepareCrmMysqlTest extends TestCase
         File::put(app()->environmentFilePath(), "APP_KEY=original-fixture-key\nDB_CONNECTION=sqlite\n");
     }
 
+    public function test_mysql_backup_restores_exact_records_without_exporting_or_changing_wordpress_tables(): void
+    {
+        $this->mysqlFixture();
+        $this->prepareMysql();
+        $target = DB::connection('cutover_fixture_target');
+        $user = User::factory()->make(['id' => 17, 'name' => "O'Reilly; DROP TABLE wplb_options; --\nUnicode ✓"])->getAttributes();
+        $target->table('users')->insert($user);
+        config(['database.default' => 'cutover_fixture_target']);
+        $beforeEnvironment = File::get(app()->environmentFilePath());
+
+        $this->artisan('crm:backup-database', ['--label' => 'mysql-roundtrip', '--include-files' => true])->assertSuccessful();
+
+        $root = storage_path('crm-backups/mysql-roundtrip');
+        $manifest = json_decode(File::get($root.'/verified.json'), true, flags: JSON_THROW_ON_ERROR);
+        $this->assertSame('mysql', $manifest['driver']);
+        $this->assertSame(1, $manifest['tables']['users']);
+        $this->assertArrayNotHasKey('wplb_options', $manifest['tables']);
+        $this->assertSame(hash_file('sha256', $root.'/database.sql'), $manifest['database_sha256']);
+        $sql = File::get($root.'/database.sql');
+        $this->assertStringNotContainsString('CREATE TABLE `wplb_', $sql);
+        $this->assertStringNotContainsString('INSERT INTO `wplb_', $sql);
+        $this->assertSame($this->mysqlOwner, $target->table('wplb_options')->where('option_name', 'owned-test-fixture')->value('option_value'));
+        $this->assertSame($this->mysqlDatabase, $target->getDatabaseName());
+        $this->assertTrue(app()->environment('testing'));
+        $target->getSchemaBuilder()->disableForeignKeyConstraints();
+        foreach (array_keys($manifest['tables']) as $table) {
+            $this->assertTrue($table === 'migrations' || CrmSqliteTransfer::isApplicationTable($table));
+            $target->getSchemaBuilder()->drop($table);
+        }
+
+        $target->unprepared($sql);
+
+        $this->assertSame($user['name'], $target->table('users')->where('id', 17)->value('name'));
+        $this->assertSame($user['password'], $target->table('users')->where('id', 17)->value('password'));
+        $this->assertSame('https://geic.in', $target->table('wplb_options')->where('option_name', 'siteurl')->value('option_value'));
+        $this->assertSame($beforeEnvironment, File::get($root.'/.env'));
+        $this->assertSame($beforeEnvironment, File::get(app()->environmentFilePath()));
+        foreach ($manifest['tables'] as $table => $count) {
+            $this->assertSame($count, $target->table($table)->count());
+        }
+    }
+
     private function mysqlFixture(): void
     {
         if (! app()->environment('testing') || config('database.default') !== 'mysql'
@@ -144,5 +188,12 @@ class PrepareCrmMysqlTest extends TestCase
         $target->table('wplb_options')->insert([['option_name' => 'siteurl', 'option_value' => 'https://geic.in'], ['option_name' => 'owned-test-fixture', 'option_value' => $this->mysqlOwner]]);
         File::put(dirname(app()->environmentFilePath()).'/crm-mysql.json', json_encode(['host' => '127.0.0.1', 'port' => 3306, 'database' => $this->mysqlDatabase, 'username' => $configuration['username'], 'password' => $configuration['password']], JSON_THROW_ON_ERROR));
         chmod(dirname(app()->environmentFilePath()).'/crm-mysql.json', 0600);
+    }
+
+    private function prepareMysql(array $options = []): void
+    {
+        $exit = Artisan::call('crm:prepare-mysql', $options);
+        $report = File::exists(storage_path('crm-mysql/report.json')) ? File::get(storage_path('crm-mysql/report.json')) : 'No preparation report';
+        $this->assertSame(0, $exit, Artisan::output().$report);
     }
 }

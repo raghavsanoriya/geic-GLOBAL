@@ -38,7 +38,7 @@ class CrmLogController extends Controller
             ->leftJoin('users as actor', 'actor.id', '=', 'event.actor_id')
             ->whereIn('event.student_id', CrmStudent::visibleTo($request->user())->select('id'))
             ->select(['event.id', 'event.student_id', 'event.action', 'event.created_at', 'student.full_name as student_name', 'actor.name as actor_name'])
-            ->selectRaw('? as module', ['Student records']);
+            ->selectRaw('CAST(? AS CHAR) as module', ['Student records']);
         $this->restrictStudentEvents($query);
         foreach ([['crm_finance_events', 'invoice_id', 'crm_invoices', 'Finance', 'crm.finance.view'],
             ['crm_loyalty_events', 'member_id', 'crm_loyalty_members', 'Loyalty management', 'crm.loyalty.view']] as [$table,$foreign,$parent,$module,$permission]) {
@@ -49,23 +49,23 @@ class CrmLogController extends Controller
                 ->join('crm_students as student', 'student.id', '=', 'record.student_id')->leftJoin('users as actor', 'actor.id', '=', 'event.actor_id')
                 ->whereIn('record.student_id', CrmStudent::visibleTo($request->user())->select('id'))
                 ->select(['event.id', 'record.student_id', 'event.action', 'event.created_at', 'student.full_name as student_name', 'actor.name as actor_name'])
-                ->selectRaw('? as module', [$module]);
+                ->selectRaw('CAST(? AS CHAR) as module', [$module]);
             $query->unionAll($events);
         }
-        $query = DB::query()->fromSub($query, 'event');
+        $query = DB::query()->fromSub($query, 'activity');
         if ($student) {
-            $query->where('event.student_id', $student->id);
+            $query->where('activity.student_id', $student->id);
         }
         if (! empty($filters['action'])) {
-            $query->where('event.action', $filters['action']);
+            $query->where('activity.action', $filters['action']);
         }
         foreach (['from' => '>=', 'to' => '<'] as $key => $operator) {
             if (! empty($filters[$key])) {
                 $date = CarbonImmutable::parse($filters[$key], 'Asia/Kolkata')->startOfDay();
-                $query->where('event.created_at', $operator, ($key === 'to' ? $date->addDay() : $date)->utc());
+                $query->where('activity.created_at', $operator, ($key === 'to' ? $date->addDay() : $date)->utc());
             }
         }
-        $events = $query->orderByDesc('event.created_at')->orderByDesc('event.id')->orderBy('event.module')->paginate(50)->withQueryString();
+        $events = $query->orderByDesc('activity.created_at')->orderByDesc('activity.id')->orderBy('activity.module')->paginate(50)->withQueryString();
         if ($request->expectsJson()) {
             return response()->json($events, 200, ['Cache-Control' => 'private, no-store']);
         }
@@ -107,7 +107,7 @@ class CrmLogController extends Controller
             }
             $query = DB::table($table.' as event')->leftJoin('users as actor', 'actor.id', '=', 'event.actor_id')
                 ->select(['event.id', 'event.created_at', 'actor.name as actor_name'])
-                ->selectRaw('event.'.$entity.' as entity_id, ? as module, '.($hasAction ? 'event.action' : "'updated'").' as action', [$module]);
+                ->selectRaw('event.'.$entity.' as entity_id, CAST(? AS CHAR) as module, '.($hasAction ? 'event.action' : "'updated'").' as action', [$module]);
             if ($table === 'crm_audit_events') {
                 $this->restrictStudentEvents($query);
             }

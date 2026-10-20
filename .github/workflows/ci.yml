@@ -16,6 +16,36 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  scope:
+    name: Select affected applications
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      mobile: ${{ steps.scope.outputs.mobile }}
+      native: ${{ steps.scope.outputs.native }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - name: Keep dashboard-only pushes separate from Android builds
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [[ ! "$BASE_SHA" =~ ^[0-9a-f]{40}$ || "$BASE_SHA" == "0000000000000000000000000000000000000000" ]]; then
+            printf 'mobile=true\nnative=true\n' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          fi
+          changed=$(git diff --name-only "$BASE_SHA" HEAD -- mobile/ ai-studio-app/ app/Support/MobileStudioCatalog.php app/Http/Controllers/Api/MobileCatalogController.php app/Http/Controllers/Api/MobileEnquiryController.php app/Http/Controllers/Api/MobileProfileEvaluationController.php routes/api.php tests/Feature/Api/)
+          mobile=false
+          native=false
+          if grep -Eq '^(mobile/|app/Support/Mobile|app/Http/Controllers/Api/Mobile|routes/api\.php|tests/Feature/Api/)' <<< "$changed"; then mobile=true; fi
+          if grep -Eq '^(ai-studio-app/|app/Support/Mobile|app/Http/Controllers/Api/Mobile|routes/api\.php|tests/Feature/Api/)' <<< "$changed"; then native=true; fi
+          printf 'mobile=%s\nnative=%s\n' "$mobile" "$native" >> "$GITHUB_OUTPUT"
+
   test:
     name: Test and build
     runs-on: ubuntu-latest
@@ -202,6 +232,8 @@ jobs:
 
   mobile:
     name: Expo Go mobile verification
+    needs: scope
+    if: needs.scope.outputs.mobile == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -225,6 +257,8 @@ jobs:
 
   native-app:
     name: Tranglobe native Android verification
+    needs: scope
+    if: needs.scope.outputs.native == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

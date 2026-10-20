@@ -92,8 +92,12 @@ class PrepareCrmMysql extends Command
                     throw new RuntimeException('Cannot establish preparation ownership.');
                 }
                 chmod($ownershipPath, 0600);
-                fwrite($handle, json_encode($ownership, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT));
+                $contents = json_encode($ownership, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
+                $written = fwrite($handle, $contents);
                 fclose($handle);
+                if ($written !== strlen($contents) || hash_file('sha256', $ownershipPath) !== hash('sha256', $contents)) {
+                    throw new RuntimeException('Preparation ownership could not be verified.');
+                }
             }
             $protected = $ownership['protected_tables'];
             if ($this->protectedTables($target, array_keys($protected)) !== $protected) {
@@ -169,7 +173,7 @@ class PrepareCrmMysql extends Command
                 $this->writePrivate($environmentPath, $originalEnvironment);
             }
             if (is_dir($root) && ! is_link($root) && realpath($root) === realpath(storage_path()).DIRECTORY_SEPARATOR.'crm-mysql') {
-                $this->report($root, ['state' => 'stopped', 'stage' => $stage, 'code' => preg_match('/\A[A-Z0-9]{1,10}\z/D', (string) $exception->getCode()) ? (string) $exception->getCode() : 'CHECK_REQUIRED', 'checked_at' => gmdate(DATE_ATOM)]);
+                $this->report($root, ['state' => 'stopped', 'stage' => $stage, 'exception' => class_basename($exception), 'code' => preg_match('/\A[A-Z0-9]{1,10}\z/D', (string) $exception->getCode()) ? (string) $exception->getCode() : 'CHECK_REQUIRED', 'checked_at' => gmdate(DATE_ATOM)]);
             }
             $this->error('MySQL preparation stopped at '.$stage.'. No source data or WordPress tables were changed. Check the private preparation report.');
 
