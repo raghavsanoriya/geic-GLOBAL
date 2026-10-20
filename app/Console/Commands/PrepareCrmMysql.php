@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Support\CrmSqliteTransfer;
+use App\Support\CrmSqliteTransferException;
 use Dotenv\Dotenv;
 use Illuminate\Console\Command;
 use Illuminate\Database\Connection;
@@ -12,7 +13,7 @@ use Throwable;
 
 class PrepareCrmMysql extends Command
 {
-    protected $signature = 'crm:prepare-mysql {--snapshot= : Verified SQLite backup label for a maintenance-mode cutover} {--activate : Copy verified records and switch only the database environment settings}';
+    protected $signature = 'crm:prepare-mysql {--snapshot= : Verified SQLite backup label} {--check-copy : Verify a copy inside a rolled-back transaction without maintenance or environment changes} {--activate : Copy verified records and switch only the database environment settings}';
 
     protected $description = 'Prepare separate Laravel tables in the existing GEIC MySQL database without changing WordPress tables';
 
@@ -40,8 +41,9 @@ class PrepareCrmMysql extends Command
             }
             chmod($root.'/prepare.lock', 0600);
             $activate = (bool) $this->option('activate');
+            $checkCopy = (bool) $this->option('check-copy');
             $label = (string) $this->option('snapshot');
-            if ($activate !== ($label !== '') || ($activate && ! app()->isDownForMaintenance())) {
+            if (($activate || $checkCopy) !== ($label !== '') || ($activate && $checkCopy) || ($activate && ! app()->isDownForMaintenance())) {
                 throw new RuntimeException('A data cutover requires maintenance mode and a verified snapshot label.');
             }
             $settingsPath = dirname($environmentPath).DIRECTORY_SEPARATOR.'crm-mysql.json';
@@ -114,7 +116,7 @@ class PrepareCrmMysql extends Command
                 throw new RuntimeException('Target migrations did not complete.');
             }
             $report = ['state' => 'prepared', 'database' => $settings['database'], 'protected_table_count' => count($protected), 'checked_at' => gmdate(DATE_ATOM)];
-            if ($activate) {
+            if ($activate || $checkCopy) {
                 $stage = 'snapshot';
                 if (preg_match('/\A[A-Za-z0-9][A-Za-z0-9_-]{0,79}\z/D', $label) !== 1) {
                     throw new RuntimeException('Invalid backup label.');
@@ -128,7 +130,7 @@ class PrepareCrmMysql extends Command
                 $sourcePath = $source->getDriverName() === 'sqlite' ? realpath($source->getDatabaseName()) : false;
                 if (($manifest['driver'] ?? null) !== 'sqlite'
                     || $sourcePath === false
-                    || ($manifest['source_state'] ?? null) !== CrmSqliteTransfer::sourceState($sourcePath)
+                    || ($activate && ($manifest['source_state'] ?? null) !== CrmSqliteTransfer::sourceState($sourcePath))
                     || ($manifest['database_sha256'] ?? null) !== hash_file('sha256', $snapshotRoot.'/database.sqlite')
                     || ($manifest['files']['.env'] ?? null) !== hash_file('sha256', $environmentPath)
                     || ! is_file($snapshotRoot.'/.env')
@@ -136,6 +138,19 @@ class PrepareCrmMysql extends Command
                     throw new RuntimeException('Snapshot or unchanged environment verification failed.');
                 }
                 $stage = 'copy';
+                if ($checkCopy) {
+                    $target->beginTransaction();
+                    try {
+                        $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target);
+                    } finally {
+                        $target->rollBack();
+                    }
+                    $report['state'] = 'copy_verified';
+                    $this->report($root, $report);
+                    $this->info('The complete copy passed verification and was rolled back. The website and environment are unchanged.');
+
+                    return self::SUCCESS;
+                }
                 $report['tables'] = $transfer->copy($snapshotRoot.'/database.sqlite', $target);
                 $report['snapshot'] = $label;
                 $report['state'] = 'copied';
@@ -180,7 +195,7 @@ class PrepareCrmMysql extends Command
                 $this->writePrivate($environmentPath, $originalEnvironment);
             }
             if (is_dir($root) && ! is_link($root) && realpath($root) === realpath(storage_path()).DIRECTORY_SEPARATOR.'crm-mysql') {
-                $this->report($root, ['state' => 'stopped', 'stage' => $stage, 'exception' => class_basename($exception), 'code' => preg_match('/\A[A-Z0-9]{1,10}\z/D', (string) $exception->getCode()) ? (string) $exception->getCode() : 'CHECK_REQUIRED', 'checked_at' => gmdate(DATE_ATOM)]);
+                $this->report($root, ['state' => 'stopped', 'stage' => $stage, 'exception' => class_basename($exception), 'code' => preg_match('/\A[A-Z0-9]{1,10}\z/D', (string) $exception->getCode()) ? (string) $exception->getCode() : 'CHECK_REQUIRED', 'checked_at' => gmdate(DATE_ATOM)] + ($exception instanceof CrmSqliteTransferException ? ['copy_diagnostics' => $exception->diagnostics] : []));
             }
             $this->error('MySQL preparation stopped at '.$stage.'. No source data or WordPress tables were changed. Check the private preparation report.');
 

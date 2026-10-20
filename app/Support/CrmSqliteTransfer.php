@@ -38,6 +38,7 @@ class CrmSqliteTransfer
         $before = hash_file('sha256', $snapshotPath);
         $source = new SQLite3($snapshotPath, SQLITE3_OPEN_READONLY);
         $source->enableExceptions(true);
+        $context = ['phase' => 'source_schema'];
         try {
             if ($source->querySingle('PRAGMA integrity_check') !== 'ok') {
                 throw new RuntimeException('The source snapshot did not pass its integrity check.');
@@ -55,6 +56,7 @@ class CrmSqliteTransfer
             }
             $definitions = [];
             foreach ($tables as $table) {
+                $context['table'] = $table;
                 $columns = [];
                 $primary = [];
                 $foreign = [];
@@ -80,6 +82,7 @@ class CrmSqliteTransfer
                 $definitions[$table] = compact('columns', 'primary', 'foreign', 'json');
             }
             $ordered = [];
+            $context = ['phase' => 'dependencies'];
             while (count($ordered) < count($tables)) {
                 $progress = false;
                 foreach ($tables as $table) {
@@ -93,16 +96,18 @@ class CrmSqliteTransfer
                 }
             }
 
-            return $target->transaction(function () use ($source, $target, $ordered, $definitions, $snapshotPath, $before): array {
+            return $target->transaction(function () use ($source, $target, $ordered, $definitions, $snapshotPath, $before, &$context): array {
                 $expected = [];
                 $occupied = false;
                 foreach ($ordered as $table) {
+                    $context = ['phase' => 'source_fingerprint', 'table' => $table];
                     $definition = $definitions[$table];
                     $expected[$table] = $this->fingerprint($this->sourceRows($source, $table, $definition['primary']), $definition['columns'], $definition['json']);
                     $occupied = $occupied || $target->table($table)->exists();
                 }
                 if ($occupied) {
                     foreach ($ordered as $table) {
+                        $context = ['phase' => 'occupied_verification', 'table' => $table];
                         $definition = $definitions[$table];
                         if ($expected[$table] !== $this->fingerprint($target->table($table)->select($definition['columns'])->cursor(), $definition['columns'], $definition['json'])) {
                             throw new RuntimeException('The target contains different records. Nothing was overwritten.');
@@ -113,6 +118,7 @@ class CrmSqliteTransfer
                 }
                 foreach ($ordered as $table) {
                     $batch = [];
+                    $context = ['phase' => 'insert', 'table' => $table];
                     foreach ($this->sourceRows($source, $table, $definitions[$table]['primary']) as $row) {
                         $batch[] = $row;
                         if (count($batch) === 100) {
@@ -126,19 +132,21 @@ class CrmSqliteTransfer
                 }
                 foreach ($ordered as $table) {
                     $definition = $definitions[$table];
+                    $context = ['phase' => 'copied_verification', 'table' => $table];
                     $actual = $this->fingerprint($target->table($table)->select($definition['columns'])->cursor(), $definition['columns'], $definition['json']);
                     if ($actual !== $expected[$table]) {
                         throw new RuntimeException('Copied records did not pass verification.');
                     }
                 }
                 if ($before !== hash_file('sha256', $snapshotPath)) {
+                    $context = ['phase' => 'snapshot_integrity'];
                     throw new RuntimeException('The source snapshot changed during verification.');
                 }
 
                 return $expected;
             });
-        } catch (Throwable) {
-            throw new RuntimeException('Verified database copy stopped. Target changes were rolled back; source records were not changed.');
+        } catch (Throwable $exception) {
+            throw new CrmSqliteTransferException($context + ['exception' => class_basename($exception), 'code' => preg_match('/\A[A-Z0-9]{1,10}\z/D', (string) $exception->getCode()) ? (string) $exception->getCode() : 'CHECK_REQUIRED']);
         } finally {
             $source->close();
         }
