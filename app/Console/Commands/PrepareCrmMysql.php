@@ -71,7 +71,7 @@ class PrepareCrmMysql extends Command
             $stage = 'connection';
             $target->getPdo();
             $ownershipPath = $root.'/ownership.json';
-            $existing = $target->getSchemaBuilder()->getTableListing(schemaQualified: false);
+            $existing = $target->getSchemaBuilder()->getTableListing($target->getDatabaseName(), schemaQualified: false);
             if (is_file($ownershipPath)) {
                 $ownership = json_decode(file_get_contents($ownershipPath), true, flags: JSON_THROW_ON_ERROR);
                 if (($ownership['database'] ?? null) !== $settings['database'] || ! is_array($ownership['protected_tables'] ?? null)) {
