@@ -14,7 +14,7 @@ class CrmMysqlBackup
             throw new RuntimeException('The verified GEIC MySQL connection is required.');
         }
         $tables = [];
-        foreach ($connection->getSchemaBuilder()->getTableListing(schemaQualified: false) as $table) {
+        foreach ($connection->getSchemaBuilder()->getTableListing($connection->getDatabaseName(), schemaQualified: false) as $table) {
             if ($table === 'migrations' || CrmSqliteTransfer::isApplicationTable($table)) {
                 $tables[] = $table;
             } elseif (! str_starts_with($table, 'wplb_')) {

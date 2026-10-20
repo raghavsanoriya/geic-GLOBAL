@@ -40,6 +40,7 @@ class CrmLogController extends Controller
             ->select(['event.id', 'event.student_id', 'event.action', 'event.created_at', 'student.full_name as student_name', 'actor.name as actor_name'])
             ->selectRaw('CAST(? AS CHAR) as module', ['Student records']);
         $this->restrictStudentEvents($query);
+        $hasAdditionalModules = false;
         foreach ([['crm_finance_events', 'invoice_id', 'crm_invoices', 'Finance', 'crm.finance.view'],
             ['crm_loyalty_events', 'member_id', 'crm_loyalty_members', 'Loyalty management', 'crm.loyalty.view']] as [$table,$foreign,$parent,$module,$permission]) {
             if (! Gate::allows($permission)) {
@@ -51,21 +52,25 @@ class CrmLogController extends Controller
                 ->select(['event.id', 'record.student_id', 'event.action', 'event.created_at', 'student.full_name as student_name', 'actor.name as actor_name'])
                 ->selectRaw('CAST(? AS CHAR) as module', [$module]);
             $query->unionAll($events);
+            $hasAdditionalModules = true;
         }
-        $query = DB::query()->fromSub($query, 'activity');
+        $alias = $hasAdditionalModules ? 'activity' : 'event';
+        if ($hasAdditionalModules) {
+            $query = DB::query()->fromSub($query, $alias);
+        }
         if ($student) {
-            $query->where('activity.student_id', $student->id);
+            $query->where($alias.'.student_id', $student->id);
         }
         if (! empty($filters['action'])) {
-            $query->where('activity.action', $filters['action']);
+            $query->where($alias.'.action', $filters['action']);
         }
         foreach (['from' => '>=', 'to' => '<'] as $key => $operator) {
             if (! empty($filters[$key])) {
                 $date = CarbonImmutable::parse($filters[$key], 'Asia/Kolkata')->startOfDay();
-                $query->where('activity.created_at', $operator, ($key === 'to' ? $date->addDay() : $date)->utc());
+                $query->where($alias.'.created_at', $operator, ($key === 'to' ? $date->addDay() : $date)->utc());
             }
         }
-        $events = $query->orderByDesc('activity.created_at')->orderByDesc('activity.id')->orderBy('activity.module')->paginate(50)->withQueryString();
+        $events = $query->orderByDesc($alias.'.created_at')->orderByDesc($alias.'.id')->orderBy('module')->paginate(50)->withQueryString();
         if ($request->expectsJson()) {
             return response()->json($events, 200, ['Cache-Control' => 'private, no-store']);
         }
