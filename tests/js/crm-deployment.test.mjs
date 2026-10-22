@@ -8,7 +8,7 @@ import { spawnSync } from 'node:child_process';
 
 const script = await fs.readFile(new URL('../../scripts/deploy-release.sh', import.meta.url), 'utf8');
 
-async function deployment(failure = '', driver = 'sqlite') {
+async function deployment(failure = '', driver = 'sqlite', retentionFixtures = false) {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), 'geic-deployment-test-'));
     const owner = randomUUID();
     const account = path.join(root, 'account');
@@ -33,6 +33,20 @@ async function deployment(failure = '', driver = 'sqlite') {
         await fs.writeFile(path.join(repository, 'composer.json'), '{}');
         await fs.writeFile(path.join(repository, 'composer.lock'), '{}');
         await fs.writeFile(path.join(bin, 'composer'), 'fixture-composer');
+        if (retentionFixtures) {
+            await fs.mkdir(path.join(shared, 'vendor-cache'), { recursive: true });
+            for (let index = 0; index < 6; index += 1) {
+                const directory = path.join(production, 'releases', `retained-${index}`);
+                const timestamp = new Date(Date.UTC(2020, 0, 1, 0, 0, index));
+                await fs.mkdir(directory);
+                await fs.utimes(directory, timestamp, timestamp);
+                if (index < 4) {
+                    const archive = path.join(shared, 'vendor-cache', `retained-${index}.tar`);
+                    await fs.writeFile(archive, 'owned-cache-fixture');
+                    await fs.utimes(archive, timestamp, timestamp);
+                }
+            }
+        }
         const executables = {
             git: '#!/usr/bin/env bash\ncase "$*" in *--show-toplevel*) echo "$GEIC_TEST_REPOSITORY";; *--abbrev-ref*) echo main;; *) printf a%.0s {1..40}; echo;; esac\n',
             sleep: '#!/usr/bin/env bash\nprintf "drain\\n" >> "$GEIC_TEST_EVENTS"\n',
@@ -112,6 +126,7 @@ esac
             }
         } else {
             assert.equal(result.status, 0, result.stderr);
+            assert.ok(result.stdout.includes(`Activated release ${sha}`), result.stdout);
             assert.equal(active, path.join(production, 'releases', sha));
             assert.equal(await fs.readFile(path.join(active, 'public/release.txt'), 'utf8'), sha);
             const healthRequests = (await fs.readFile(path.join(root, 'health-arguments'), 'utf8')).trim().split('\n');
@@ -131,6 +146,13 @@ esac
                 assert.equal(events.includes('down'), false);
                 assert.equal(events.includes('crm:prepare-mysql'), false);
             }
+            if (retentionFixtures) {
+                assert.deepEqual((await fs.readdir(path.join(production, 'releases'))).sort(), [sha, 'previous', 'retained-3', 'retained-4', 'retained-5'].sort());
+                const archives = (await fs.readdir(path.join(shared, 'vendor-cache'))).sort();
+                assert.equal(archives.length, 3);
+                assert.ok(archives.includes('retained-2.tar'));
+                assert.ok(archives.includes('retained-3.tar'));
+            }
         }
     } finally {
         assert.equal(await fs.readFile(path.join(root, 'owned-test-fixture'), 'utf8'), owner);
@@ -142,6 +164,7 @@ esac
 
 test('cPanel activates the verified copy only after private health checks and preserves original SQLite data', { skip: process.platform === 'win32' }, () => deployment());
 test('ordinary MySQL releases do not repeat the SQLite cutover', { skip: process.platform === 'win32' }, () => deployment('', 'mysql'));
+test('successful MySQL releases retain the latest five releases and three dependency caches', { skip: process.platform === 'win32' }, () => deployment('', 'mysql', true));
 test('a failed MySQL health check restores the previous release without a maintenance window', { skip: process.platform === 'win32' }, () => deployment('health', 'mysql'));
 for (const phase of ['prepare', 'backup', 'check', 'final-backup', 'activate', 'migrate', 'health']) {
     test(`cPanel failure during ${phase} restores configuration, release and site availability`, { skip: process.platform === 'win32' }, () => deployment(phase));
