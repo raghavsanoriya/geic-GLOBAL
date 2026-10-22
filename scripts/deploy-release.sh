@@ -319,22 +319,28 @@ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 echo rtrim((string) config("app.url"), "/");
 ')"
 
+check_release_health() {
+    if [[ -n "$health_cookies" ]]; then
+        curl --fail --silent --show-error --max-time 20 --cookie "$health_cookies" --output /dev/null "$1"
+    else
+        curl --fail --silent --show-error --max-time 20 --output /dev/null "$1"
+    fi
+}
+
 if [[ ! "$app_url" =~ ^https?:// ]]; then
     echo "APP_URL is invalid or missing: $app_url" >&2
     health_ok=false
 else
     health_ok=true
 
-    health_options=()
     if [[ "$maintenance_started" == true ]]; then
         health_cookies="$(mktemp "$shared_dir/storage/crm-mysql/health-XXXXXXXX")"
         chmod 0600 "$health_cookies"
         curl --fail --silent --show-error --location --max-time 20 --cookie-jar "$health_cookies" --cookie "$health_cookies" --output /dev/null "$app_url/$maintenance_secret"
-        health_options=(--cookie "$health_cookies")
     fi
 
     for path in /up / /landing /landing/styles.css /destinations /destinations/australia /assets/design_1/css/app.min.css; do
-        if ! curl --fail --silent --show-error --max-time 20 "${health_options[@]}" --output /dev/null "$app_url$path"; then
+        if ! check_release_health "$app_url$path"; then
             echo "Health check failed: $app_url$path" >&2
             health_ok=false
             break

@@ -36,7 +36,7 @@ async function deployment(failure = '', driver = 'sqlite') {
         const executables = {
             git: '#!/usr/bin/env bash\ncase "$*" in *--show-toplevel*) echo "$GEIC_TEST_REPOSITORY";; *--abbrev-ref*) echo main;; *) printf a%.0s {1..40}; echo;; esac\n',
             sleep: '#!/usr/bin/env bash\nprintf "drain\\n" >> "$GEIC_TEST_EVENTS"\n',
-            curl: '#!/usr/bin/env bash\nprintf "health\\n" >> "$GEIC_TEST_EVENTS"\n[[ "$GEIC_TEST_FAILURE" != health ]]\n',
+            curl: '#!/usr/bin/env bash\nprintf "health\\n" >> "$GEIC_TEST_EVENTS"\nprintf "<%s>" "$@" >> "$GEIC_TEST_HEALTH_ARGUMENTS"\nprintf "\\n" >> "$GEIC_TEST_HEALTH_ARGUMENTS"\n[[ "$GEIC_TEST_FAILURE" != health ]]\n',
             php: `#!/usr/bin/env bash
 set -euo pipefail
 if [[ "$1" == -r ]]; then
@@ -92,6 +92,7 @@ esac
         const result = spawnSync('bash', [location], { cwd: repository, encoding: 'utf8', timeout: 20000, env: {
             ...process.env, PATH: `${bin}:${process.env.PATH}`, GEIC_TEST_REPOSITORY: repository,
             GEIC_TEST_SHARED: shared, GEIC_TEST_EVENTS: path.join(root, 'events'), GEIC_TEST_FAILURE: failure, GEIC_TEST_DRIVER: driver,
+            GEIC_TEST_HEALTH_ARGUMENTS: path.join(root, 'health-arguments'),
         } });
         assert.equal(result.error, undefined);
         const events = (await fs.readFile(path.join(root, 'events'), 'utf8')).trim().split('\n');
@@ -103,12 +104,22 @@ esac
             assert.notEqual(result.status, 0, result.stdout);
             assert.equal(environment, original);
             assert.equal(active, previous);
-            if (!['prepare', 'backup', 'check'].includes(failure)) assert.equal(events.at(-1), 'up');
+            if (driver === 'sqlite' && !['prepare', 'backup', 'check'].includes(failure)) assert.equal(events.at(-1), 'up');
             else assert.equal(events.includes('down'), false);
+            if (driver === 'mysql' && failure === 'health') {
+                assert.equal(result.status, 70, result.stderr);
+                assert.equal(events.includes('up'), false);
+            }
         } else {
             assert.equal(result.status, 0, result.stderr);
             assert.equal(active, path.join(production, 'releases', sha));
             assert.equal(await fs.readFile(path.join(active, 'public/release.txt'), 'utf8'), sha);
+            const healthRequests = (await fs.readFile(path.join(root, 'health-arguments'), 'utf8')).trim().split('\n');
+            assert.equal(healthRequests.length, driver === 'sqlite' ? 8 : 7);
+            for (const request of healthRequests) {
+                assert.equal(request.includes('<>'), false, request);
+                assert.equal(request.includes('<--cookie>'), driver === 'sqlite', request);
+            }
             if (driver === 'sqlite') {
                 assert.match(environment, /DB_CONNECTION=mysql/);
                 assert.ok(events.indexOf('check-copy') < events.indexOf('down'));
@@ -131,6 +142,7 @@ esac
 
 test('cPanel activates the verified copy only after private health checks and preserves original SQLite data', { skip: process.platform === 'win32' }, () => deployment());
 test('ordinary MySQL releases do not repeat the SQLite cutover', { skip: process.platform === 'win32' }, () => deployment('', 'mysql'));
+test('a failed MySQL health check restores the previous release without a maintenance window', { skip: process.platform === 'win32' }, () => deployment('health', 'mysql'));
 for (const phase of ['prepare', 'backup', 'check', 'final-backup', 'activate', 'migrate', 'health']) {
     test(`cPanel failure during ${phase} restores configuration, release and site availability`, { skip: process.platform === 'win32' }, () => deployment(phase));
 }
