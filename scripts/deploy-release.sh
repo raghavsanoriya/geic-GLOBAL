@@ -361,30 +361,26 @@ release_committed=true
 # Dependency archives are immutable and keyed by composer.json/composer.lock.
 # Retaining three avoids repeated network installs during a rollback while
 # preventing the shared cache from growing indefinitely.
-mapfile -t old_vendor_archives < <(
+while IFS= read -r old_vendor_archive; do
+    if [[ "$old_vendor_archive" == "$shared_dir/vendor-cache/"*.tar ]]; then
+        rm -f -- "$old_vendor_archive"
+    fi
+done < <(
     find "$shared_dir/vendor-cache" -mindepth 1 -maxdepth 1 -type f -name '*.tar' -printf '%T@ %p\n' \
         | sort -rn \
         | tail -n +4 \
         | cut -d' ' -f2-
 )
 
-for old_vendor_archive in "${old_vendor_archives[@]}"; do
-    if [[ "$old_vendor_archive" == "$shared_dir/vendor-cache/"*.tar ]]; then
-        rm -f -- "$old_vendor_archive"
+while IFS= read -r old_release; do
+    if [[ "$old_release" == "$releases_dir/"* && "$old_release" != "$release_dir" ]]; then
+        rm -rf -- "$old_release"
     fi
-done
-
-mapfile -t old_releases < <(
+done < <(
     find "$releases_dir" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
         | sort -rn \
         | tail -n +6 \
         | cut -d' ' -f2-
 )
-
-for old_release in "${old_releases[@]}"; do
-    if [[ "$old_release" == "$releases_dir/"* && "$old_release" != "$release_dir" ]]; then
-        rm -rf -- "$old_release"
-    fi
-done
 
 echo "Activated release $release_name"
