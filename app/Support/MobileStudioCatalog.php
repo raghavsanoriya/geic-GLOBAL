@@ -5,6 +5,7 @@ namespace App\Support;
 use App\Models\BlogPost;
 use App\Models\SiteContent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 /** Projects Laravel content into the complete imported mobile screen contract. */
@@ -19,7 +20,8 @@ class MobileStudioCatalog
         $destinations = array_map(fn (string $slug): array => DestinationCatalog::find($slug), DestinationCatalog::slugs());
         $services = ServiceCatalog::all();
         $events = EventCatalog::all();
-        $upcoming = collect($events)->first(fn (array $event): bool => $event['status'] !== 'Past event' && strtotime($event['date']) !== false && strtotime($event['date']) >= strtotime('today'));
+        $today = now()->startOfDay();
+        $upcoming = collect($events)->first(fn (array $event): bool => $event['status'] !== 'Past event' && Carbon::parse($event['date'])->startOfDay()->gte($today));
         $universities = [];
         $partners = [];
         $roadmaps = [];
@@ -91,7 +93,7 @@ class MobileStudioCatalog
             'date' => $event['date'], 'time' => $event['time'], 'venue' => $event['location'], 'city' => 'Indore',
             'badge' => $event['status'], 'description' => $event['overview'], 'highlights' => $event['highlights'],
             'bannerUrl' => $asset($event['image']), 'category' => 'Summit',
-            'freeEntry' => null, 'registrationOpen' => $event['status'] !== 'Past event' && strtotime($event['date']) >= strtotime('today'),
+            'freeEntry' => null, 'registrationOpen' => $event['status'] !== 'Past event' && Carbon::parse($event['date'])->startOfDay()->gte($today),
             'agenda' => array_map(fn (array $step, int $index): array => ['step' => (string) ($index + 1), 'title' => $step[0], 'description' => $step[1]], $event['steps'], array_keys($event['steps'])), 'registrationPerks' => $event['highlights'], 'targetAudience' => $event['faqs'][0][1] ?? self::UNKNOWN,
             'faqs' => self::faqs($event['faqs']),
         ], $events);
