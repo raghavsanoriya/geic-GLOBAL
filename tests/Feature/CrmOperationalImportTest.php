@@ -577,12 +577,21 @@ class CrmOperationalImportTest extends TestCase
         foreach (['application_created', 'visa_approved'] as $milestone) {
             DB::table('crm_loyalty_rules')->insert(['code' => $milestone, 'name' => 'Active historical safety test', 'milestone' => $milestone, 'points' => 100, 'is_enabled' => true, 'version' => 1, 'created_at' => now(), 'updated_at' => now()]);
         }
-        $csv = "source_id,student_geic_id,university_code,status_code,course,intake,submitted_at\napp-1,{$student->id},snapshot_uni,snapshot_app,Historical course,January 2025,2024-12-01T10:00:00+05:30\n";
+        $csv = "source_id,student_geic_id,university_code,status_code,course,intake,tags,source_data,submitted_at\n"
+            ."app-1,{$student->id},snapshot_uni,snapshot_app,Historical course,January 2025,Priority;Archive,\"{\"\"Foris ID\"\":\"\"1699\"\",\"\"Course link\"\":\"\"https://example.test/course\"\"}\",2024-12-01T10:00:00+05:30\n";
         $batch = $this->upload('application', $csv);
         $this->process($batch);
         $application = CrmApplication::firstOrFail();
         $this->assertSame('2024-12-01 04:30:00', $application->created_at->format('Y-m-d H:i:s'));
         $this->assertNull($application->owner_id);
+        $this->assertSame(['Priority', 'Archive'], $application->tags);
+        $this->assertSame('1699', $application->source_data['Foris ID']);
+        $this->get('/admin/crm/applications/'.$application->id)->assertOk()->assertSee('Original Foris application data')->assertSee('https://example.test/course');
+        $unsafe = "source_id,student_geic_id,university_code,status_code,course,intake,source_data,submitted_at\n"
+            .sprintf('app-unsafe,%d,snapshot_uni,snapshot_app,Unsafe application,January 2025,"{""API key"":""must-not-import""}",2024-12-01T10:00:00+05:30'."\n", $student->id);
+        $unsafeBatch = $this->upload('application', $unsafe);
+        $this->process($unsafeBatch);
+        $this->assertSame('invalid', DB::table('crm_import_rows')->where('import_id', $unsafeBatch)->value('status'));
         $application->update(['course' => 'GEIC edited course', 'version' => 2]);
         $again = $this->upload('application', $csv);
         $this->process($again);

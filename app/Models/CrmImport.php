@@ -110,7 +110,8 @@ class CrmImport extends Model
             return $base + ['university_code' => 'Configured GEIC university code', 'campus_code' => 'Configured GEIC campus code',
                 'agent_code' => 'Configured GEIC agent code', 'program_code' => 'Optional GEIC program code',
                 'status_code' => 'Configured GEIC application status code', 'course' => 'Course', 'intake' => 'Intake',
-                'submitted_on' => 'Application submitted on (YYYY-MM-DD)', 'remark' => 'Original remark'];
+                'submitted_on' => 'Application submitted on (YYYY-MM-DD)', 'tags' => 'Original tags separated by semicolons',
+                'source_data' => 'Original source fields as an allowlisted JSON object', 'remark' => 'Original remark'];
         }
 
         return $base + ($type === 'follow_up' ? ['subject' => 'Subject', 'channel' => 'Channel (phone/whatsapp/email/meeting/other)',

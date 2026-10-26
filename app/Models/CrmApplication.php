@@ -13,13 +13,13 @@ class CrmApplication extends Model
     /** @use HasFactory<CrmApplicationFactory> */
     use HasFactory;
 
-    protected $fillable = ['student_id', 'creation_key', 'university_id', 'campus_id', 'program_id', 'agent_id', 'status_id', 'owner_id', 'created_by', 'course', 'intake', 'submitted_on', 'tags', 'version'];
+    protected $fillable = ['student_id', 'creation_key', 'university_id', 'campus_id', 'program_id', 'agent_id', 'status_id', 'owner_id', 'created_by', 'course', 'intake', 'submitted_on', 'tags', 'source_data', 'version'];
 
     protected $hidden = ['creation_key'];
 
     protected function casts(): array
     {
-        return ['student_id' => 'integer', 'status_id' => 'integer', 'created_by' => 'integer', 'owner_id' => 'integer', 'version' => 'integer', 'submitted_on' => 'immutable_date', 'tags' => 'array'];
+        return ['student_id' => 'integer', 'status_id' => 'integer', 'created_by' => 'integer', 'owner_id' => 'integer', 'version' => 'integer', 'submitted_on' => 'immutable_date', 'tags' => 'array', 'source_data' => 'array'];
     }
 
     public function scopeVisibleTo(Builder $query, User $user): Builder

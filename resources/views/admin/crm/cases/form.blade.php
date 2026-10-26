@@ -42,6 +42,13 @@
         </div></fieldset>
         @can('crm.manage')<footer class="crm-form-footer"><p class="crm-help">Student stages, website submissions, Google Sheets and Foris deliveries are not changed by saving this record.</p><button class="button" type="submit">Save {{ $type }}</button></footer>@endcan
     </form></div>
+    @if($record && $type === 'application' && filled($record->source_data))
+        <section class="panel crm-history"><h2>Original Foris application data</h2><div class="crm-detail-grid">
+            @foreach($record->source_data as $label => $value)
+                @if(filled($value))<article><strong>{{ $label }}</strong><p style="white-space:pre-wrap;overflow-wrap:anywhere">{{ $value }}</p></article>@endif
+            @endforeach
+        </div></section>
+    @endif
     @if($record)<section class="panel crm-history"><h2>Remarks</h2>@forelse($notes as $note)<article><strong>{{ $note->actor_name ?: 'Former staff member' }}</strong><p style="white-space:pre-wrap">{{ $note->remark }}</p><time>{{ \Carbon\CarbonImmutable::parse($note->created_at, 'UTC')->timezone('Asia/Kolkata')->format('d M Y, h:i A') }} IST</time></article>@empty<p>No remarks yet.</p>@endforelse{{ $notes->links() }}</section>@endif
 </div>
 @endsection

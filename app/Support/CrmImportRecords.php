@@ -168,7 +168,8 @@ class CrmImportRecords
                 'university_code' => ['required', 'string', 'max:60'], 'campus_code' => ['nullable', 'string', 'max:60'],
                 'agent_code' => ['nullable', 'string', 'max:60'], 'program_code' => ['nullable', 'string', 'max:60'],
                 'course' => ['required', 'string', 'max:160'], 'intake' => ['required', 'string', 'max:80'],
-                'submitted_on' => ['nullable', 'date_format:Y-m-d']];
+                'submitted_on' => ['nullable', 'date_format:Y-m-d'], 'tags' => ['nullable', 'string', 'max:1000'],
+                'source_data' => ['nullable', 'json', 'max:4000']];
         } else {
             $rules += ['application_source_id' => ['required_without:application_geic_id', 'nullable', 'string', 'max:160'],
                 'application_geic_id' => ['required_without:application_source_id', 'nullable', 'integer', 'min:1'],
@@ -185,6 +186,28 @@ class CrmImportRecords
         $errors = Validator::make($data, $rules)->errors()->all();
         if ($errors !== []) {
             return $errors;
+        }
+        if ($type === 'application' && filled($data['tags'] ?? null)) {
+            $tags = array_values(array_unique(array_filter(array_map('trim', explode(';', $data['tags'])))));
+            if (count($tags) > 10 || collect($tags)->contains(fn (string $tag): bool => mb_strlen($tag) > 50)) {
+                $errors[] = 'Use at most 10 tags, each no longer than 50 characters.';
+            }
+        }
+        if ($type === 'application' && filled($data['source_data'] ?? null)) {
+            $sourceData = json_decode($data['source_data'], true, 32, JSON_THROW_ON_ERROR);
+            if (! is_array($sourceData) || ($sourceData !== [] && array_is_list($sourceData)) || count($sourceData) > 30) {
+                $errors[] = 'Original source data must be a JSON object with at most 30 labelled fields.';
+            } else {
+                foreach ($sourceData as $label => $value) {
+                    if (! is_string($label) || mb_strlen($label) > 80
+                        || preg_match('/password|credential|secret|api[ _-]?key|access[ _-]?token/i', $label)
+                        || (! is_scalar($value) && $value !== null)
+                        || (is_string($value) && mb_strlen($value) > 1000)) {
+                        $errors[] = 'Original source data may contain only short, non-sensitive labelled scalar values.';
+                        break;
+                    }
+                }
+            }
         }
         if (! $this->reference($type.'_status', $data['status_code'])) {
             $errors[] = 'Map the original outcome to a configured GEIC status code of the correct type. No status is guessed.';
@@ -595,13 +618,15 @@ class CrmImportRecords
                 'voided_at' => filled($data['voided_at'] ?? null) ? CarbonImmutable::parse($data['voided_at'], 'Asia/Kolkata')->utc() : null,
                 'void_reason' => filled($data['void_reason'] ?? null) ? $data['void_reason'] : null]);
         } elseif ($import->entity_type === 'application') {
+            $tags = filled($data['tags'] ?? null) ? array_values(array_unique(array_filter(array_map('trim', explode(';', $data['tags']))))) : [];
             $record = new CrmApplication([...Arr::except($base, ['created_at', 'updated_at']), 'student_id' => $student->id, 'owner_id' => null,
                 'university_id' => $this->reference('university', $data['university_code'])->id,
                 'campus_id' => filled($data['campus_code'] ?? null) ? $this->reference('campus', $data['campus_code'])->id : null,
                 'agent_id' => filled($data['agent_code'] ?? null) ? $this->reference('agent', $data['agent_code'])->id : null,
                 'program_id' => filled($data['program_code'] ?? null) ? CrmProgram::where('code', $data['program_code'])->value('id') : null,
                 'status_id' => $this->reference('application_status', $data['status_code'])->id, 'course' => $data['course'], 'intake' => $data['intake'],
-                'submitted_on' => filled($data['submitted_on'] ?? null) ? $data['submitted_on'] : null, 'tags' => []]);
+                'submitted_on' => filled($data['submitted_on'] ?? null) ? $data['submitted_on'] : null, 'tags' => $tags,
+                'source_data' => filled($data['source_data'] ?? null) ? json_decode($data['source_data'], true, 32, JSON_THROW_ON_ERROR) : null]);
         } elseif ($import->entity_type === 'visa') {
             $dates = [];
             foreach (['lodged_on', 'decision_on', 'admission_on', 'census_on'] as $field) {
