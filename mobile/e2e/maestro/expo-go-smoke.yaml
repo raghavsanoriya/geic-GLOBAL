@@ -1,41 +1,39 @@
-# AUITestAgent-inspired interaction → verification flow for Expo Go.
+# Native Expo Go smoke flow for the GEIC mobile experience.
 # Run after starting the app with: npx expo start --go
 appId: host.exp.exponent
 
 ---
 - launchApp
-- assertVisible: "Good morning, Sarfaraz"
-- assertVisible: "Jump back in"
-- assertVisible: "Compare destinations"
-- tapOn: "EMI calculator"
-- assertVisible: "Service guide"
-- tapOn: "Go back"
+- assertVisible: "Make your next decision easier"
+- assertVisible: "Explore countries"
+- assertVisible: "Home tab"
 
 - tapOn: "Explore tab"
 - assertVisible: "Find your place"
-- tapOn: "Search destinations, tools or guides"
+- tapOn: "Search destinations"
 - inputText: "Australia"
 - hideKeyboard
-- assertVisible: "Australia"
 - tapOn: "Open Australia destination"
-- assertVisible: "Destination guide"
+- assertVisible: "Plan with verified guidance"
 - tapOn: "Go back"
 
-- tapOn: "Events tab"
-- assertVisible: "Events that move"
-- tapOn: "Open Global Uni Expo"
-- assertVisible: "Event details"
-- tapOn: "Reserve my place"
-- assertVisible: "Your place is reserved locally"
-- tapOn: "Go back"
+- tapOn: "AI Advisor tab"
+- assertVisible: "Ask your next question"
+- assertVisible: "Message the AI Advisor"
 
-- tapOn: "Services tab"
-- assertVisible: "Support for your"
-- tapOn: "Open Destination planning"
-- assertVisible: "Service guide"
-- tapOn: "Go back"
+- tapOn: "Evaluate tab"
+- assertVisible: "See what to strengthen next"
+- tapOn: "Evaluate my profile"
+- assertVisible: "Choose at least one destination"
+- tapOn: "Australia"
+- tapOn: "Valid passport"
+- assertVisible: "1 of 6 ready"
 
-- tapOn: "Apply tab"
-- assertVisible: "Your plan starts"
+- tapOn: "More tab"
+- assertVisible: "Everything for your journey"
+- tapOn: "Open Expert Counselling"
+- assertVisible: "What this helps you achieve"
+- tapOn: "Go back"
+- tapOn: "Send my enquiry"
 - tapOn: "Submit counselling request"
-- assertVisible: "Please complete every field"
+- assertVisible: "Please check the highlighted fields"

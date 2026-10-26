@@ -13,6 +13,25 @@ class EventCatalog
     {
         return [
             self::event(
+                slug: 'global-uni-expo-dubai-europe-2026',
+                title: 'Global Uni Expo 2026 — Dubai & Europe',
+                date: '24 October 2026',
+                time: '10:00 AM - 04:00 PM',
+                destination: 'Dubai, Europe & worldwide',
+                image: 'assets/transglobe/events/global-uni-expo-2026.png',
+                status: 'Upcoming',
+                location: 'Hotel Sayaji, Scheme No. 54, Vijay Nagar, Indore',
+                summary: 'Meet representatives from 100+ global university partners and explore direct admissions, scholarships, visa guidance and test preparation in one place.',
+                overview: 'Global Uni Expo 2026 connects students and families directly with leading universities from around the world. The Indore event brings course discovery, admissions conversations, scholarship opportunities, visa guidance and application planning together at Hotel Sayaji.',
+                highlights: ['100+ participating university partners', 'Direct university admissions conversations', 'Scholarship and financial-aid opportunities', 'Professional visa guidance and support', 'On-spot application support', 'IELTS, TOEFL and GRE preparation guidance'],
+                steps: [
+                    ['Register your free seat', 'Share your contact details and preferred study destination with the Trans Globe Indore team.'],
+                    ['Meet global universities', 'Connect face to face with representatives and compare international courses and entry routes.'],
+                    ['Review funding and visas', 'Explore scholarships, financial planning and professional visa guidance for your destination.'],
+                    ['Plan your application', 'Use on-spot application support to define documents, tests and the next admission milestone.'],
+                ],
+            ),
+            self::event(
                 slug: 'meet-eu-business-school-2026',
                 title: 'Meet EU Business School',
                 date: '27 August 2026',
@@ -104,6 +123,8 @@ class EventCatalog
         string $overview,
         array $highlights,
         string $status = 'Past event',
+        string $location = 'Trans Globe Indore',
+        ?array $steps = null,
     ): array {
         return [
             'slug' => $slug,
@@ -111,14 +132,14 @@ class EventCatalog
             'date' => $date,
             'time' => $time,
             'destination' => $destination,
-            'location' => 'Trans Globe Indore',
+            'location' => $location,
             'image' => $image,
             'image_alt' => $title.' event artwork',
             'status' => $status,
             'summary' => $summary,
             'overview' => $overview,
             'highlights' => $highlights,
-            'steps' => [
+            'steps' => $steps ?? [
                 ['Share your profile', 'Tell us your academic background, intended intake and the questions you want answered.'],
                 ['Explore the event', 'Use the session to compare programmes, requirements and study pathways.'],
                 ['Review your fit', 'Discuss what the information means for your profile, budget and career direction.'],

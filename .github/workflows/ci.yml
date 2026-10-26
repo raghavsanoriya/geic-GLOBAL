@@ -159,9 +159,45 @@ jobs:
         working-directory: mobile
         run: npx expo export --platform web --output-dir .expo-ci-export
 
+  native-app:
+    name: Tranglobe native Android verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+          tools: composer:v2
+      - name: Prepare local API contract
+        run: |
+          composer install --prefer-dist --no-interaction --no-progress
+          cp .env.example .env
+          php artisan key:generate
+          touch database/database.sqlite
+          php artisan migrate --force
+          php artisan serve --host=127.0.0.1 --port=8085 > storage/logs/native-api.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8085/api/mobile/catalog > /dev/null; then break; fi
+            sleep 1
+          done
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ai-studio-app/package-lock.json
+      - name: Install native dependencies
+        working-directory: ai-studio-app
+        run: npm ci
+      - name: Verify types, native logic and Android bundle
+        working-directory: ai-studio-app
+        run: npm run test:verify
+
   deploy:
     name: Release after verification
-    needs: [test, frontend, ui, mobile]
+    needs: [test, frontend, ui, mobile, native-app]
     # Production/staging releases must be started explicitly from the
     # controlled workflow_dispatch workflow. Never deploy as a side effect of
     # pushing to main or develop.

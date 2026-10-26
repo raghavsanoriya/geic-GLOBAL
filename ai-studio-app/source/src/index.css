@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../public/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+:root[data-native='1'],
+:root[data-native='1'] body,
+:root[data-native='1'] #root {
+  height: 100%;
+  overflow: hidden;
+}
+:root[data-native='1'] #root > .app-frame {
+  min-height: 100%;
+  background: white;
+}
+:root[data-native='1'] #root .app-preview-controls {
+  display: none;
+}
+:root[data-native='1'] #root .app-frame-stage {
+  padding: 0;
+  min-height: 0;
+}
+:root[data-native='1'] #root .app-device-shell {
+  max-width: none;
+  height: 100dvh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: 0;
+  ring: 0;
+}
+:root[data-native='1'] #root .app-device-content {
+  min-height: 0;
+}
+
+:root[data-native='1'] .app-status-row {
+  min-height: 48px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+:root[data-native='1'] .app-device-clock,
+:root[data-native='1'] .app-device-icons {
+  display: none;
+}
+
+:root[data-native='1'] .app-island-slot {
+  width: 100%;
+}
+
+:root[data-native='1'] #root .app-device-content {
+  scrollbar-width: none;
+}
+
+:root[data-native='1'] #root .app-device-content::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Shared controls preserve the imported layout while improving mobile usability. */
+button, a, input, select, textarea { touch-action: manipulation; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+
+/* A compact, consistent mobile surface, without changing screen structure. */
+.app-device-shell { --app-radius: 16px; }
+.app-device-content { padding-bottom: 104px; overscroll-behavior-y: contain; }
+.app-bottom-nav { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+.app-bottom-nav nav { border-radius: 18px; background: #0f172a; }
+.app-bottom-nav nav button { min-width: 52px; min-height: 52px; }
+.app-device-shell .rounded-3xl { border-radius: 18px; }
+.app-device-shell main { color: #0f172a; }
+#root button { touch-action: manipulation; }
+#root button:disabled { cursor: not-allowed; opacity: .55; }
+#root button:focus-visible, #root a:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+#root button:not([aria-label^="Jump to"]):not([aria-label^="Go to slide"]) { min-height: 44px; }
+#root button[aria-label^="Close"], #root button[aria-label^="Open"] { min-width: 44px; }
+#root button .lucide-arrow-right, #root button .lucide-chevron-right { display: none; }
+#root input:not([type="checkbox"]):not([type="range"]), #root select, #root textarea {
+  min-height: 46px; font-size: 16px; border-radius: 10px;
+}
+#root input[type="checkbox"] { width: 20px; height: 20px; accent-color: #dc2626; }
+#root form label { font-size: 12px; line-height: 1.5; }
+#root [role="alert"] { padding: 12px; border-radius: 10px; background: #fef2f2; color: #991b1b; }
+@media (max-width: 480px) {
+  #root .text-\\[9px\\], #root .text-\\[10px\\], #root .text-\\[11px\\] { font-size: 12px; line-height: 1.45; }
+  #root .text-xs { font-size: 13px; line-height: 1.5; }
+  #root h3 { line-height: 1.4; text-wrap: balance; }
+  #root [class*="grid-cols-2"] > * { min-width: 0; }
+}

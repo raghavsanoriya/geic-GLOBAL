@@ -1,112 +1,166 @@
-export type QuickAction = {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: string;
-  tab?: 'Explore' | 'Events' | 'Services' | 'Apply';
-  detail?: { kind: 'service'; id: string };
+import type { CatalogData, EnquiryDraft } from './types';
+
+export const fallbackCatalog: CatalogData = {
+  destinations: [
+    {
+      id: 'australia',
+      name: 'Australia',
+      tagline: 'Research-led universities and welcoming student cities.',
+      detail: 'Explore practical learning, flexible pathways and a wide choice of internationally recognised programs.',
+      image: require('../assets/australia.jpg'),
+      stat: '42 universities',
+      highlights: ['Research-led study', 'Flexible pathways', 'Student support'],
+      facts: [['Universities', '42'], ['Networks', 'Go8, ATN and IRU']],
+      costs: [['Undergraduate tuition', 'AUD 24K–40K'], ['Postgraduate tuition', 'AUD 25K–45K']],
+      intakes: [['February', 'Main intake'], ['July', 'Mid-year intake']],
+    },
+    {
+      id: 'canada',
+      name: 'Canada',
+      tagline: 'Career-focused study in diverse student communities.',
+      detail: 'Compare universities, colleges, costs and course pathways against your academic and career goals.',
+      image: require('../assets/canada.jpg'),
+      stat: 'Explore pathways',
+      highlights: ['Career-focused study', 'Diverse cities', 'Practical planning'],
+      intakes: [['September', 'Primary intake'], ['January', 'Secondary intake']],
+    },
+    {
+      id: 'uk',
+      name: 'United Kingdom',
+      tagline: 'Prestigious universities and shorter degree options.',
+      detail: 'Explore globally recognised qualifications, specialist courses and many one-year master’s programs.',
+      image: require('../assets/uk.jpg'),
+      stat: '1-year master’s',
+      highlights: ['Recognised degrees', 'Shorter programs', 'Industry exposure'],
+      intakes: [['September / October', 'Primary intake'], ['January / February', 'Secondary intake']],
+    },
+  ],
+  services: [
+    {
+      id: 'expert-counselling',
+      title: 'Expert Counselling',
+      subtitle: 'Start with the right direction',
+      description: 'Build a study plan around your academic profile, career ambitions and budget.',
+      overview: 'A GEIC counsellor helps you turn country, course and university choices into a practical roadmap.',
+      image: require('../assets/choose-study-destination.jpg'),
+      icon: 'account-voice',
+      highlights: ['Profile-led planning', 'Course and country shortlisting', 'A realistic timeline'],
+    },
+    {
+      id: 'university-admissions',
+      title: 'University Admissions',
+      subtitle: 'Apply with confidence',
+      description: 'Manage shortlisting, documents, portals, deadlines and offer decisions.',
+      overview: 'Get end-to-end support for a complete, accurate and well-timed university application.',
+      image: require('../assets/university-admissions.jpg'),
+      icon: 'school-outline',
+      highlights: ['Balanced shortlist', 'Document review', 'Offer support'],
+    },
+    {
+      id: 'visa-assistance',
+      title: 'Visa Assistance',
+      subtitle: 'Prepare every important detail',
+      description: 'Understand documents, financial evidence and interview preparation.',
+      overview: 'Visa rules change. GEIC helps you prepare a complete file and verify current requirements before submission.',
+      image: require('../assets/student-visa-mistakes.jpg'),
+      icon: 'passport',
+      highlights: ['Document guidance', 'Financial evidence', 'Interview readiness'],
+    },
+    {
+      id: 'test-preparation',
+      title: 'Test Preparation',
+      subtitle: 'Reach the score your plan needs',
+      description: 'Prepare for IELTS, PTE, TOEFL, GRE, GMAT, SAT and German.',
+      overview: 'Structured practice and expert feedback help connect your test target to your course and intake.',
+      image: require('../assets/student-guidance.jpg'),
+      icon: 'notebook-edit-outline',
+      highlights: ['Target planning', 'Expert coaching', 'Mock-test reviews'],
+    },
+    {
+      id: 'scholarship-guidance',
+      title: 'Scholarship Guidance',
+      subtitle: 'Find relevant funding options',
+      description: 'Review merit, course and destination-based opportunities early.',
+      image: require('../assets/canada.jpg'),
+      icon: 'medal-outline',
+      highlights: ['Eligibility review', 'Deadline planning', 'Application support'],
+    },
+    {
+      id: 'loans-financial-guide',
+      title: 'Loans & Financial Guide',
+      subtitle: 'Plan the money side',
+      description: 'Understand education loans, living costs and financial evidence.',
+      image: require('../assets/canada.jpg'),
+      icon: 'cash-multiple',
+      highlights: ['Loan pathways', 'Budget planning', 'Financial documents'],
+    },
+  ],
+  events: [
+    {
+      id: 'meet-eu-business-school-2026',
+      title: 'Meet EU Business School',
+      type: 'Event archive',
+      date: '27 August 2026',
+      time: 'Event archive',
+      location: 'Trans Globe Indore',
+      destination: 'Europe',
+      description: 'Explore programs, international campuses and application routes with the GEIC team.',
+      image: require('../assets/student-guidance.jpg'),
+      highlights: ['Explore campus options', 'Understand documents', 'Discuss next steps'],
+    },
+    {
+      id: 'indore-global-uni-expo-2026',
+      title: 'Indore Global Uni Expo 2026',
+      type: 'Event archive',
+      date: '17 January 2026',
+      time: 'Event archive',
+      location: 'Trans Globe Indore',
+      destination: 'Multiple destinations',
+      description: 'A multi-destination university expo for course, country and application conversations.',
+      image: require('../assets/university-admissions.jpg'),
+      highlights: ['Compare destinations', 'Meet representatives', 'Plan applications'],
+    },
+  ],
+  tests: [
+    { id: 'ielts', title: 'IELTS', subtitle: 'English language proficiency', description: 'Prepare across listening, reading, writing and speaking.', image: require('../assets/student-guidance.jpg') },
+    { id: 'pte', title: 'PTE', subtitle: 'Computer-based English test', description: 'Build fluency and confidence for an integrated test format.', image: require('../assets/student-guidance.jpg') },
+    { id: 'toefl', title: 'TOEFL', subtitle: 'Academic English', description: 'Prepare for university-focused reading, listening, speaking and writing.', image: require('../assets/student-guidance.jpg') },
+  ],
+  scholarships: [
+    { id: 'australia', name: 'Australia', tagline: 'Merit awards and tuition reductions', description: 'Availability varies by university, course, intake and student profile.', image: require('../assets/australia.jpg') },
+    { id: 'uk', name: 'United Kingdom', tagline: 'University awards and bursaries', description: 'Some options are automatic while others require a separate application.', image: require('../assets/uk.jpg') },
+    { id: 'canada', name: 'Canada', tagline: 'Entrance, merit and research funding', description: 'Eligibility can consider academics, leadership, research and community work.', image: require('../assets/canada.jpg') },
+  ],
+  testimonials: [],
+  contact: { office: 'Trans Globe Indore', email: 'info@geic.in', website: 'https://geic.in' },
 };
 
-export type Destination = {
-  id: string;
-  name: string;
-  tagline: string;
-  detail: string;
-  image: number;
-  stat: string;
-  highlights: string[];
+export const emptyEnquiryDraft: EnquiryDraft = {
+  fullName: '',
+  email: '',
+  phone: '',
+  city: '',
+  destination: '',
+  studyLevel: '',
+  preferredIntake: '',
+  preferredCourse: '',
+  englishTest: '',
+  message: '',
+  consent: false,
 };
 
-export type Service = {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: number;
-  icon: string;
-  cta: string;
-};
-
-export type EventItem = {
-  id: string;
-  title: string;
-  type: string;
-  date: string;
-  day: string;
-  month: string;
-  time: string;
-  location: string;
-  description: string;
-  image: number;
-};
-
-export const destinations: Destination[] = [
-  {
-    id: 'australia', name: 'Australia', tagline: 'Study, work and grow', detail: 'World-class universities with flexible pathways and a lifestyle that feels welcoming from day one.',
-    image: require('../assets/australia.jpg'), stat: '12k+ courses', highlights: ['Top-ranked universities', 'Flexible pathways', 'Strong student support'],
-  },
-  {
-    id: 'canada', name: 'Canada', tagline: 'Build your next chapter', detail: 'Career-focused study routes, diverse communities and practical post-study opportunities.',
-    image: require('../assets/canada.jpg'), stat: '800+ partners', highlights: ['Work-friendly routes', 'Great student cities', 'Clear study plans'],
-  },
-  {
-    id: 'uk', name: 'United Kingdom', tagline: 'One year, big momentum', detail: 'Shorter master’s options, globally recognised universities and a rich academic culture.',
-    image: require('../assets/uk.jpg'), stat: '1-year masters', highlights: ['Globally recognised', 'Fast-track degrees', 'Creative communities'],
-  },
+export const documentChecklist = [
+  { id: 'passport', title: 'Valid passport', hint: 'Check validity for admission and visa processing.' },
+  { id: 'transcripts', title: 'Academic transcripts', hint: 'Class 10, Class 12 and previous degree records.' },
+  { id: 'english', title: 'English-test evidence', hint: 'Current result or a planned test date.' },
+  { id: 'sop', title: 'Statement of Purpose', hint: 'Your academic story and career direction.' },
+  { id: 'references', title: 'Recommendation letters', hint: 'Academic or professional, where required.' },
+  { id: 'finance', title: 'Financial evidence', hint: 'Funding plan, loan or sponsor documents.' },
 ];
 
-export const services: Service[] = [
-  {
-    id: 'destination-planning', title: 'Destination planning', subtitle: 'Compare your best-fit countries', description: 'Shortlist destinations by tuition, living costs, course fit and the kind of future you want to build.',
-    image: require('../assets/choose-study-destination.jpg'), icon: 'map-marker-radius-outline', cta: 'Compare destinations',
-  },
-  {
-    id: 'university-admissions', title: 'University admissions', subtitle: 'Build a stronger shortlist', description: 'Get practical guidance on courses, applications, documents, deadlines and offer decisions.',
-    image: require('../assets/university-admissions.jpg'), icon: 'school-outline', cta: 'Explore admissions',
-  },
-  {
-    id: 'visa-guidance', title: 'Visa guidance', subtitle: 'Prepare with confidence', description: 'Understand your document checklist and prepare for the next step with an experienced counsellor.',
-    image: require('../assets/student-visa-mistakes.jpg'), icon: 'passport', cta: 'View visa support',
-  },
-  {
-    id: 'test-preparation', title: 'Test preparation', subtitle: 'Target the right score', description: 'Plan IELTS, PTE, TOEFL and other tests around your course, destination and intake.',
-    image: require('../assets/student-guidance.jpg'), icon: 'head-lightbulb-outline', cta: 'Plan test prep',
-  },
-  {
-    id: 'loans-funding', title: 'Loans and funding', subtitle: 'Make the numbers clearer', description: 'Explore education loans, EMI planning and scholarship conversations for your study journey.',
-    image: require('../assets/canada.jpg'), icon: 'cash-multiple', cta: 'Explore funding',
-  },
-  {
-    id: 'ai-study-guidance', title: 'AI study guidance', subtitle: 'Ask your next question', description: 'Get a useful starting point for destinations, tests, scholarships, admissions and visas.',
-    image: require('../assets/student-guidance.jpg'), icon: 'robot-outline', cta: 'Ask the AI guide',
-  },
+export const starterPrompts = [
+  'Help me compare Australia and the UK.',
+  'Which English test may fit my plan?',
+  'Build a step-by-step study roadmap.',
+  'How should I prepare my university shortlist?',
 ];
-
-export const events: EventItem[] = [
-  {
-    id: 'global-uni-expo', title: 'Global Uni Expo', type: 'In-person counselling day', date: '24 Aug 2026', day: '24', month: 'AUG', time: '11:00 AM – 5:00 PM', location: 'Trans Globe House, Indore', description: 'Meet university representatives, compare courses and get practical next-step advice in one afternoon.', image: require('../assets/student-guidance.jpg'),
-  },
-  {
-    id: 'application-clinic', title: 'Application Clinic', type: 'Small-group workshop', date: '06 Sep 2026', day: '06', month: 'SEP', time: '12:00 PM – 2:00 PM', location: 'Online · Live with counsellors', description: 'Bring your shortlist and leave with a clearer application checklist for your preferred intake.', image: require('../assets/university-admissions.jpg'),
-  },
-  {
-    id: 'visa-ready-session', title: 'Visa Ready Session', type: 'Document workshop', date: '19 Sep 2026', day: '19', month: 'SEP', time: '3:00 PM – 4:30 PM', location: 'Trans Globe House, Indore', description: 'Learn how to organise your evidence, avoid common mistakes and prepare for a confident submission.', image: require('../assets/student-visa-mistakes.jpg'),
-  },
-];
-
-export const quickActions: QuickAction[] = [
-  { id: 'compare', title: 'Compare destinations', subtitle: 'Find your fit', icon: 'earth', tab: 'Explore' },
-  { id: 'emi', title: 'EMI calculator', subtitle: 'Plan your budget', icon: 'calculator-variant-outline', detail: { kind: 'service', id: 'loans-funding' } },
-  { id: 'loans', title: 'Education loans', subtitle: 'Explore funding', icon: 'cash-multiple', detail: { kind: 'service', id: 'loans-funding' } },
-  { id: 'tests', title: 'Test preparation', subtitle: 'Target your score', icon: 'notebook-edit-outline', detail: { kind: 'service', id: 'test-preparation' } },
-  { id: 'agents', title: 'AI study agents', subtitle: 'Ask a question', icon: 'robot-outline', detail: { kind: 'service', id: 'ai-study-guidance' } },
-  { id: 'counsellor', title: 'Talk to a counsellor', subtitle: 'Get a clear plan', icon: 'message-text-outline', tab: 'Apply' },
-];
-
-export const storyCards = [
-  { id: 'story-destination', eyebrow: 'START HERE', title: 'Choose your destination', copy: 'Compare costs, courses and next steps.', image: require('../assets/australia.jpg'), tab: 'Explore' as const },
-  { id: 'story-admissions', eyebrow: 'MAKE IT REAL', title: 'Build your shortlist', copy: 'Find a university path that fits.', image: require('../assets/university-admissions.jpg'), tab: 'Services' as const },
-  { id: 'story-visa', eyebrow: 'FEEL READY', title: 'Prepare your visa file', copy: 'Know what to do before you submit.', image: require('../assets/student-visa-mistakes.jpg'), tab: 'Services' as const },
-];
-
-export const exploreFilters = ['All', 'Destinations', 'Compare', 'Study tools', 'Scholarships', 'Visa'];

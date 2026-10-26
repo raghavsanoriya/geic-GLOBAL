@@ -1,0 +1,30 @@
+# Dependencies are installed by EAS from the lockfile.
+/node_modules/
+node_modules/
+node_modules/**
+
+# Local Expo state and generated output.
+.expo/
+dist/
+dist-*/
+web-build/
+.expo-ci-export/
+.expo-local-check/
+.expo-run-check/
+expo-env.d.ts
+
+# Local tests and agent tooling are not required for a native build.
+e2e/
+.claude/
+AGENTS.md
+CLAUDE.md
+
+# Local environment and transient files.
+.env*
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# Generated native projects are recreated by Expo prebuild.
+/android/
+/ios/

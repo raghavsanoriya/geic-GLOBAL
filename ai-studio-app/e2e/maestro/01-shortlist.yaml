@@ -1,0 +1,28 @@
+appId: in.geic.aistudioapp
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- openLink: "ai-studio-app://explore"
+- assertVisible: "Explore Countries & Universities"
+- tapOn: "Universities"
+- extendedWaitUntil:
+    visible: "Shortlist university"
+    timeout: 30000
+- tapOn: "Shortlist university"
+- assertVisible: "Remove from shortlist"
+- takeScreenshot: device-results/university-shortlisted
+- stopApp
+- launchApp
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- tapOn: "Open navigation menu"
+- scrollUntilVisible:
+    element: "My Saved Collection"
+    direction: DOWN
+- tapOn: "My Saved Collection"
+- assertVisible: "Australian National University"
+- takeScreenshot: device-results/saved-after-restart

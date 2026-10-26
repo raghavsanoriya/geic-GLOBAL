@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Support\DestinationCatalog;
 use App\Support\EventCatalog;
+use App\Support\MobileStudioCatalog;
 use App\Support\ScholarshipCatalog;
 use App\Support\ServiceCatalog;
 use App\Support\TestPrepCatalog;
@@ -18,6 +19,7 @@ class MobileCatalogController extends Controller
         return response()->json([
             'version' => '2026-09-04',
             'updatedAt' => now()->toIso8601String(),
+            'studio' => MobileStudioCatalog::all($request),
             'data' => [
                 'destinations' => collect(DestinationCatalog::slugs())
                     ->map(fn (string $slug): array => $this->destination($request, $slug))

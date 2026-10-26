@@ -1,0 +1,27 @@
+appId: in.geic.aistudioapp
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Open navigation menu"
+    timeout: 90000
+- tapOn: "Open navigation menu"
+- assertVisible: "Home Dashboard"
+- assertVisible: "Explore Universities"
+- tapOn: "Services"
+- assertVisible: "View all services"
+- tapOn: "Close menu"
+- tapOn: "GEIC Events"
+- assertVisible: "View events"
+- assertVisible: "Book 1-on-1"
+- tapOn: "Book 1-on-1"
+- assertVisible: "Book Free Counselling"
+- scrollUntilVisible:
+    element: "Send Counselling Request"
+    direction: DOWN
+- tapOn: "Send Counselling Request"
+- scrollUntilVisible:
+    element: "Enter your full name."
+    direction: UP
+- assertVisible: "Enter your full name."
+- takeScreenshot: device-results/booking-validation

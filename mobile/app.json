@@ -1,15 +1,19 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "GEIC",
+    "slug": "geic",
+    "owner": "raghavsanoriya",
+    "version": "1.1.0",
+    "scheme": "geic",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "in.geic.mobile"
     },
     "android": {
+      "package": "in.geic.mobile",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -23,6 +27,11 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e99e4f65-38d0-42fd-93c6-88ecbf761167"
+      }
+    }
   }
 }
