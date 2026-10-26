@@ -6,6 +6,7 @@ use App\Models\CrmReference;
 use App\Models\CrmStudent;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use stdClass;
 
 class CaptureCrmStudent
@@ -42,19 +43,25 @@ class CaptureCrmStudent
             } else {
                 $student = CrmStudent::where('original_enquiry_id', $enquiryId)->first();
                 if ($student === null) {
+                    $state = $this->initialState($enquiry);
                     $phone = EnquiryPhoneNumber::normalize($enquiry->phone);
                     $email = filter_var($enquiry->email, FILTER_VALIDATE_EMAIL)
                         && ! str_ends_with(mb_strtolower($enquiry->email), '.invalid')
                             ? mb_strtolower(trim($enquiry->email)) : null;
                     $student = CrmStudent::create([
                         'original_enquiry_id' => $enquiryId, 'full_name' => $enquiry->full_name,
-                        'email' => $email, 'phone' => $phone, 'stage' => 'lead',
-                        'lead_status' => 'new', 'stage_status_id' => CrmReference::defaultStatusId('lead'), 'is_active' => true, 'version' => 1,
+                        'email' => $email, 'phone' => $phone, 'stage' => $state['stage'],
+                        'lead_status' => 'new', 'stage_status_id' => $state['stage'] === 'lead' ? CrmReference::defaultStatusId('lead') : null,
+                        'is_active' => $state['is_active'], 'version' => 1,
                         'profile' => $this->profile($enquiry),
                         'correction_reason' => $phone === null ? 'The original submission has no valid phone number. Original details are preserved.' : null,
                     ]);
                     $this->audit->record($student, 'student.captured', $actor);
-                    DB::table('crm_student_stage_events')->insert(['student_id' => $student->id, 'actor_id' => $actor?->id, 'from_stage' => null, 'to_stage' => 'lead', 'occurred_at' => $enquiry->created_at ?? now(), 'created_at' => now()]);
+                    if ($state['stage'] === 'lead') {
+                        DB::table('crm_student_stage_events')->insert(['student_id' => $student->id, 'actor_id' => $actor?->id, 'from_stage' => null, 'to_stage' => 'lead', 'occurred_at' => $enquiry->created_at ?? now(), 'created_at' => now()]);
+                    } else {
+                        $this->audit->record($student, 'student.imported_stage_snapshot', $actor, ['stage', 'transition_date_unavailable']);
+                    }
                 }
             }
             $inserted = DB::table('crm_student_enquiries')->insertOrIgnore([
@@ -66,6 +73,23 @@ class CaptureCrmStudent
 
             return $student;
         });
+    }
+
+    /** @return array{stage: string, is_active: bool} */
+    private function initialState(stdClass $enquiry): array
+    {
+        if ($enquiry->source !== 'crm_import') {
+            return ['stage' => 'lead', 'is_active' => true];
+        }
+        $metadata = json_decode((string) $enquiry->metadata, true);
+        $fields = is_array($metadata['form_fields'] ?? null) ? $metadata['form_fields'] : [];
+        $state = Validator::make($fields, [
+            'stage' => ['nullable', 'string', 'in:'.implode(',', array_keys(CrmStudentFields::STAGES))],
+            'is_active' => ['nullable', 'boolean'],
+        ])->validate();
+
+        return ['stage' => filled($state['stage'] ?? null) ? $state['stage'] : 'lead',
+            'is_active' => filled($state['is_active'] ?? null) ? (bool) $state['is_active'] : true];
     }
 
     /** @return array<string, string> */

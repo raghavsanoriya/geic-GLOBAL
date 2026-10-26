@@ -84,7 +84,9 @@ class CrmImports
         $rules = ['source_id' => ['required', 'string', 'max:160'], 'full_name' => ['required', 'string', 'max:120'],
             'email' => ['nullable', 'email:rfc', 'max:160'], 'phone' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
             'submitted_at' => ['nullable', 'date', 'regex:'.CrmImport::TIMESTAMP_PATTERN], 'message' => ['nullable', 'string', 'max:4000'],
-            'foris_lead_id' => ['nullable', 'string', 'max:100', 'regex:/^[a-zA-Z0-9_-]+$/D']];
+            'foris_lead_id' => ['nullable', 'string', 'max:100', 'regex:/^[a-zA-Z0-9_-]+$/D'],
+            'stage' => ['nullable', 'string', 'in:'.implode(',', array_keys(CrmStudentFields::STAGES))],
+            'is_active' => ['nullable', 'boolean']];
         foreach (['city' => 100, 'country' => 80, 'course' => 160, 'study_level' => 50, 'intake' => 50, 'english_test' => 50, 'qualification' => 160, 'percentage' => 50, 'lead_category' => 160, 'source_reference' => 160] as $key => $maximum) {
             $rules[$key] = ['nullable', 'string', 'max:'.$maximum];
         }
