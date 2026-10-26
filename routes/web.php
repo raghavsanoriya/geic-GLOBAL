@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdminRolePresetController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AiAgentController;
 use App\Http\Controllers\CounsellingEnquiryController;
 use App\Http\Controllers\CrmApplicationController;
+use App\Http\Controllers\CrmBranchController;
 use App\Http\Controllers\CrmCampaignAttachmentController;
 use App\Http\Controllers\CrmCampaignController;
 use App\Http\Controllers\CrmCampaignReportController;
@@ -127,6 +129,7 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::get('/crm/campaigns/{campaign}', [CrmCampaignController::class, 'show'])->whereNumber('campaign')->middleware('can:crm.marketing.manage')->name('crm.campaigns.show');
             Route::patch('/crm/campaigns/{campaign}', [CrmCampaignController::class, 'update'])->whereNumber('campaign')->middleware('can:crm.marketing.manage')->name('crm.campaigns.update');
             Route::get('/crm/campaigns/{campaign}/preview', [CrmCampaignController::class, 'preview'])->whereNumber('campaign')->middleware('can:crm.marketing.manage')->name('crm.campaigns.preview');
+            Route::post('/crm/campaigns/{campaign}/audience-file', [CrmCampaignController::class, 'importAudience'])->whereNumber('campaign')->middleware(['can:crm.marketing.manage', 'throttle:10,1'])->name('crm.campaigns.audience-file');
             Route::post('/crm/campaigns/{campaign}/action', [CrmCampaignController::class, 'action'])->whereNumber('campaign')->middleware('can:crm.marketing.manage')->name('crm.campaigns.action');
             Route::get('/crm/inbound-forms', [CrmInboundFormController::class, 'index'])->middleware('can:crm.inbound.manage')->name('crm.inbound.index');
             Route::get('/crm/inbound-forms/create', [CrmInboundFormController::class, 'create'])->middleware('can:crm.inbound.manage')->name('crm.inbound.create');
@@ -185,6 +188,11 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::post('/crm/references', [CrmReferenceController::class, 'store'])->middleware('can:crm.configure')->name('crm.references.store');
             Route::get('/crm/references/{reference}', [CrmReferenceController::class, 'show'])->whereNumber('reference')->middleware('can:crm.configure')->name('crm.references.show');
             Route::patch('/crm/references/{reference}', [CrmReferenceController::class, 'update'])->whereNumber('reference')->middleware('can:crm.configure')->name('crm.references.update');
+            Route::get('/crm/branches', [CrmBranchController::class, 'index'])->middleware(['can:crm.configure', 'can:crm.sensitive'])->name('crm.branches.index');
+            Route::get('/crm/branches/create', [CrmBranchController::class, 'create'])->middleware(['can:crm.configure', 'can:crm.sensitive'])->name('crm.branches.create');
+            Route::post('/crm/branches', [CrmBranchController::class, 'store'])->middleware(['can:crm.configure', 'can:crm.sensitive'])->name('crm.branches.store');
+            Route::get('/crm/branches/{branch}', [CrmBranchController::class, 'show'])->whereNumber('branch')->middleware(['can:crm.configure', 'can:crm.sensitive'])->name('crm.branches.show');
+            Route::patch('/crm/branches/{branch}', [CrmBranchController::class, 'update'])->whereNumber('branch')->middleware(['can:crm.configure', 'can:crm.sensitive'])->name('crm.branches.update');
             Route::get('/crm/leads/create', [CrmManualLeadController::class, 'create'])->middleware('can:crm.manage')->name('crm.leads.create');
             Route::post('/crm/leads', [CrmManualLeadController::class, 'store'])->middleware('can:crm.manage')->name('crm.leads.store');
             Route::get('/crm/tasks', [CrmTaskController::class, 'index'])->middleware('can:crm.view')->name('crm.tasks.index');
@@ -263,6 +271,11 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::put('/settings', [AdminProfileController::class, 'updateSettings'])->name('settings.update');
 
             Route::middleware('can:users.manage')->group(function (): void {
+                Route::get('/roles', [AdminRolePresetController::class, 'index'])->name('roles.index');
+                Route::get('/roles/create', [AdminRolePresetController::class, 'create'])->name('roles.create');
+                Route::post('/roles', [AdminRolePresetController::class, 'store'])->name('roles.store');
+                Route::get('/roles/{role}', [AdminRolePresetController::class, 'show'])->whereNumber('role')->name('roles.show');
+                Route::patch('/roles/{role}', [AdminRolePresetController::class, 'update'])->whereNumber('role')->name('roles.update');
                 Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
                 Route::get('/users/create', [AdminUserController::class, 'create'])->name('users.create');
                 Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');

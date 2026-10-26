@@ -2,6 +2,9 @@
 
 namespace App\Support;
 
+use App\Models\AdminRolePreset;
+use Illuminate\Support\Facades\Schema;
+
 class AdminAccess
 {
     /**
@@ -159,7 +162,31 @@ class AdminAccess
             unset($roles['relationship_executive']);
         }
 
+        if (Schema::hasTable('admin_role_presets')) {
+            AdminRolePreset::query()->where('is_active', true)->orderBy('label')->get()->each(function (AdminRolePreset $preset) use (&$roles): void {
+                if (! isset($roles[$preset->key])) {
+                    $roles[$preset->key] = [
+                        'label' => $preset->label,
+                        'description' => $preset->description,
+                        'permissions' => self::normalizePermissions($preset->permissions),
+                    ];
+                }
+            });
+        }
+
         return $roles;
+    }
+
+    public static function roleLabel(string $key): string
+    {
+        $roles = self::roles();
+        if (isset($roles[$key])) {
+            return $roles[$key]['label'];
+        }
+
+        return Schema::hasTable('admin_role_presets')
+            ? (AdminRolePreset::query()->where('key', $key)->value('label') ?? 'Custom access')
+            : 'Custom access';
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminRolePreset;
+use App\Models\CrmBranch;
 use App\Models\User;
 use App\Support\AdminAccess;
 use Illuminate\Http\RedirectResponse;
@@ -42,6 +44,7 @@ class AdminUserController extends Controller
         return view('admin.users.create', [
             'roles' => AdminAccess::roles(),
             'permissions' => AdminAccess::permissions(),
+            'branches' => CrmBranch::query()->where('is_active', true)->orderBy('name')->get(['id', 'name']),
         ]);
     }
 
@@ -58,6 +61,7 @@ class AdminUserController extends Controller
             'password' => Hash::make($validated['password']),
             'is_admin' => true,
             'admin_role' => $role,
+            'crm_branch_id' => $validated['crm_branch_id'] ?? null,
             'admin_permissions' => $this->permissionsForRole($role, $validated['permissions'] ?? []),
             'is_active' => $request->boolean('is_active'),
         ]);
@@ -70,10 +74,16 @@ class AdminUserController extends Controller
         Gate::authorize('users.manage');
         abort_unless($user->is_admin, 404);
 
+        $roles = AdminAccess::roles();
+        if (! isset($roles[$user->admin_role]) && ($preset = AdminRolePreset::query()->where('key', $user->admin_role)->first())) {
+            $roles[$preset->key] = ['label' => $preset->label.' (inactive)', 'description' => 'This role is inactive. Choose an active role before saving.', 'permissions' => []];
+        }
+
         return view('admin.users.edit', [
             'managedUser' => $user,
-            'roles' => AdminAccess::roles(),
+            'roles' => $roles,
             'permissions' => AdminAccess::permissions(),
+            'branches' => CrmBranch::query()->where('is_active', true)->orWhereKey($user->crm_branch_id)->orderBy('name')->get(['id', 'name']),
         ]);
     }
 
@@ -98,6 +108,7 @@ class AdminUserController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'admin_role' => $role,
+            'crm_branch_id' => $validated['crm_branch_id'] ?? null,
             'admin_permissions' => $this->permissionsForRole($role, $validated['permissions'] ?? []),
             'is_active' => $isActive,
         ]);
@@ -145,6 +156,7 @@ class AdminUserController extends Controller
             'email' => ['required', 'email:rfc', 'max:160', Rule::unique('users', 'email')->ignore($user)],
             'password' => [$user ? 'nullable' : 'required', 'confirmed', Password::min(10)->mixedCase()->numbers()],
             'admin_role' => ['required', Rule::in(AdminAccess::roleKeys())],
+            'crm_branch_id' => ['nullable', 'integer', Rule::exists('crm_branches', 'id')->where('is_active', true)],
             'permissions' => ['nullable', 'array'],
             'permissions.*' => [Rule::in(AdminAccess::permissionKeys())],
             'is_active' => ['nullable', 'boolean'],

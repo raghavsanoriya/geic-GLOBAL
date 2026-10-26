@@ -29,6 +29,7 @@
         ['label'=>'Config','icon'=>'M4 7h16M4 17h16M8 3v8m8 2v8','children'=>[
             ['label'=>'Lead Management','children'=>$referenceLinks],
             ['label'=>'Settings','children'=>[
+                ['label'=>'Branches','url'=>route('admin.crm.branches.index'),'visible'=>auth()->user()->can('crm.configure')&&auth()->user()->can('crm.sensitive'),'active'=>request()->routeIs('admin.crm.branches.*')],
                 $navLink('Email / SMTP','admin.crm.integrations.show','crm.integrations.manage',request()->is('admin/crm/settings/email'),['provider'=>'email']),
                 $navLink('OneSignal','admin.crm.integrations.show','crm.integrations.manage',request()->is('admin/crm/settings/onesignal'),['provider'=>'onesignal']),
             ]],

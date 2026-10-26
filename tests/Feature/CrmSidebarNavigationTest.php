@@ -16,7 +16,7 @@ class CrmSidebarNavigationTest extends TestCase
         config(['crm.enabled' => true]);
     }
 
-    public function test_super_admin_sidebar_groups_existing_pages_and_exposes_no_branch_menu(): void
+    public function test_super_admin_sidebar_groups_existing_pages_and_exposes_branch_management(): void
     {
         $response = $this->actingAs(User::factory()->create(['is_admin' => true]))
             ->get('/admin/crm/reports')->assertOk();
@@ -27,7 +27,7 @@ class CrmSidebarNavigationTest extends TestCase
         }
         $this->assertSame(1, $xpath->query('//details[@data-menu="Config"]//details[@data-menu="Lead Management"]')->length);
         $this->assertSame(1, $xpath->query('//details[@data-menu="Config"]//details[@data-menu="Settings"]')->length);
-        $this->assertSame(0, $xpath->query('//nav[@aria-label="Indore CRM navigation"]//a[contains(@href,"branch")]')->length);
+        $this->assertSame(1, $xpath->query('//nav[@aria-label="Indore CRM navigation"]//a[contains(@href,"branch")]')->length);
         $this->assertSame(1, $xpath->query('//aside//a[contains(@href,"/crm/campaigns")]')->length);
         $this->assertSame(1, $xpath->query('//aside//a[contains(@href,"/crm/campaign-reports")]')->length);
         $this->assertSame(1, $xpath->query('//aside//a[contains(@href,"/crm/logs")]')->length);

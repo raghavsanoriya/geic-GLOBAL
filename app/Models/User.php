@@ -8,10 +8,11 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password', 'is_admin', 'admin_role', 'admin_permissions', 'is_active', 'admin_preferences'])]
+#[Fillable(['name', 'email', 'password', 'is_admin', 'admin_role', 'crm_branch_id', 'admin_permissions', 'is_active', 'admin_preferences'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -46,7 +47,12 @@ class User extends Authenticatable
 
     public function adminRoleLabel(): string
     {
-        return AdminAccess::roles()[$this->admin_role]['label'] ?? 'Custom access';
+        return AdminAccess::roleLabel($this->admin_role);
+    }
+
+    public function crmBranch(): BelongsTo
+    {
+        return $this->belongsTo(CrmBranch::class, 'crm_branch_id');
     }
 
     /**
@@ -60,6 +66,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'is_admin' => 'boolean',
+            'crm_branch_id' => 'integer',
             'admin_permissions' => 'array',
             'is_active' => 'boolean',
             'admin_preferences' => 'array',

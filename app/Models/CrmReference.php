@@ -21,7 +21,7 @@ class CrmReference extends Model
     public const STATUS_KINDS = ['application_status', 'visa_status'];
 
     public const DETAIL_FIELDS = [
-        'agent' => ['organisation_name' => 'Organisation name', 'address' => 'Business address', 'state' => 'State', 'state_code' => 'State code', 'gst_number' => 'GST number', 'contact_name' => 'Contact person', 'contact_phone' => 'Contact number', 'portal_url' => 'Portal URL'],
+        'agent' => ['title' => 'Title', 'organisation_name' => 'Organisation name', 'address' => 'Business address', 'state' => 'State', 'state_code' => 'State code', 'gst_number' => 'GST number', 'contact_name' => 'Contact person', 'contact_phone' => 'Contact number', 'portal_url' => 'CRM / portal URL'],
         'university' => ['website' => 'University website'],
         'campus' => ['address' => 'Campus address', 'city' => 'Campus city'],
     ];

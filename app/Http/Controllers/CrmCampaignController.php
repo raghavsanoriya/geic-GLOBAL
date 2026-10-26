@@ -8,6 +8,7 @@ use App\Models\CrmIntegrationSetting;
 use App\Rules\ValidEnquiryPhone;
 use App\Support\CrmAccess;
 use App\Support\CrmCampaigns;
+use App\Support\CrmXlsxReader;
 use App\Support\EnquiryPhoneNumber;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\JsonResponse;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class CrmCampaignController extends Controller
 {
@@ -142,6 +144,77 @@ class CrmCampaignController extends Controller
 
         return $request->expectsJson() ? response()->json($audience, 200, ['Cache-Control' => 'private, no-store'])
             : response()->view('admin.crm.campaigns.audience', ['campaign' => $record, 'audience' => $audience], 200, ['Cache-Control' => 'private, no-store']);
+    }
+
+    public function importAudience(Request $request, int $campaign, CrmCampaigns $service, CrmXlsxReader $xlsx): RedirectResponse
+    {
+        $this->authorizeAccess();
+        $data = $request->validate([
+            'version' => ['required', 'integer', 'min:1'],
+            'file' => ['required', 'file', 'mimes:csv,txt,xlsx', 'extensions:csv,xlsx', 'max:2048'],
+        ]);
+        $draft = CrmCampaign::visibleTo($request->user())->findOrFail($campaign);
+        abort_unless($draft->status === 'draft' && $draft->version === (int) $data['version'], 409, 'Reload this draft before importing recipients.');
+        $file = $data['file'];
+        $rows = mb_strtolower($file->getClientOriginalExtension()) === 'xlsx' ? $xlsx->rows($file) : $this->csvRows($file->getRealPath());
+        $header = array_map(fn (mixed $value): string => mb_strtolower(trim((string) $value)), array_shift($rows) ?? []);
+        $addressHeader = $draft->channel === 'sms' ? 'phone' : 'email';
+        $addressColumn = array_search($addressHeader, $header, true);
+        $nameColumn = array_search('name', $header, true);
+        if ($addressColumn === false) {
+            throw ValidationException::withMessages(['file' => 'The first row must contain an '.$addressHeader.' column. An optional name column is supported.']);
+        }
+        if (count($rows) > 1000) {
+            throw ValidationException::withMessages(['file' => 'Limit each campaign audience file to 1,000 data rows.']);
+        }
+        $manual = collect($rows)->map(function (array $row) use ($addressColumn, $nameColumn): string {
+            $address = trim((string) ($row[$addressColumn] ?? ''));
+            $name = $nameColumn === false ? '' : trim((string) ($row[$nameColumn] ?? ''));
+            $stream = fopen('php://temp', 'r+');
+            fputcsv($stream, [$address, $name], ',', '"', '');
+            rewind($stream);
+            $line = rtrim((string) stream_get_contents($stream));
+            fclose($stream);
+
+            return $line;
+        })->filter(fn (string $line): bool => trim($line, ",\" \t\r\n") !== '')->implode("\n");
+
+        $record = DB::transaction(function () use ($request, $campaign, $data, $manual, $service): CrmCampaign {
+            $record = CrmCampaign::visibleTo($request->user())->whereKey($campaign)->lockForUpdate()->firstOrFail();
+            abort_unless($record->status === 'draft' && $record->version === (int) $data['version'], 409, 'Reload this draft before importing recipients.');
+            $record->audience = [...($record->audience ?? []), 'mode' => 'manual', 'manual' => $manual];
+            $record->version++;
+            $record->save();
+            $service->record($record, 'audience.file_imported', $request->user());
+
+            return $record;
+        });
+
+        return to_route('admin.crm.campaigns.show', $record->id)->with('status', count($rows).' audience rows imported. Preview validates, deduplicates and applies suppressions before scheduling.');
+    }
+
+    private function csvRows(string $path): array
+    {
+        $stream = fopen($path, 'rb');
+        if ($stream === false) {
+            throw ValidationException::withMessages(['file' => 'The CSV file could not be read.']);
+        }
+        $rows = [];
+        try {
+            while (($row = fgetcsv($stream, 0, ',', '"', '')) !== false) {
+                if (count($rows) > 1000 || count($row) > 10 || collect($row)->contains(fn ($value) => mb_strlen((string) $value) > 1000)) {
+                    throw ValidationException::withMessages(['file' => 'Use a CSV with a header, at most 1,000 rows, 10 columns and 1,000 characters per cell.']);
+                }
+                $rows[] = $row;
+            }
+        } finally {
+            fclose($stream);
+        }
+        if ($rows === []) {
+            throw ValidationException::withMessages(['file' => 'The audience file is empty.']);
+        }
+
+        return $rows;
     }
 
     public function action(Request $request, int $campaign, CrmCampaigns $service): JsonResponse|RedirectResponse
