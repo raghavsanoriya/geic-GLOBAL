@@ -6,12 +6,15 @@ use App\Models\CrmImport;
 use App\Models\CrmLoyaltyMember;
 use App\Models\CrmStudent;
 use App\Models\User;
+use App\Support\CaptureCrmStudent;
 use App\Support\ForisLeadSync;
+use App\Support\LeadDuplicateReview;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use PHPUnit\Framework\Attributes\TestWith;
 use Tests\TestCase;
 
 class CrmImportControllerTest extends TestCase
@@ -31,13 +34,15 @@ class CrmImportControllerTest extends TestCase
         $student = CrmStudent::factory()->create(['full_name' => 'GEIC corrected name', 'phone' => '+918765432190', 'version' => 3]);
         DB::table('foris_lead_deliveries')->insert(['enquiry_id' => $student->original_enquiry_id, 'remote_lead_id' => 'foris_123',
             'status' => 'delivered', 'created_at' => now(), 'updated_at' => now()]);
-        $csv = "source_id,foris_lead_id,full_name,phone\nhistorical-123,foris_123,Old export name,9876543210\n";
+        $csv = "source_id,foris_lead_id,full_name,phone,stage,is_active\nhistorical-123,foris_123,Old export name,9876543210,billing,0\n";
         $batch = $this->upload($csv);
         $this->postJson('/admin/crm/imports/'.$batch.'/confirm', ['version' => 1])->assertOk();
         $this->artisan('crm:process-imports')->assertSuccessful();
         $this->assertDatabaseHas('crm_import_rows', ['import_id' => $batch, 'status' => 'existing', 'student_id' => $student->id]);
         $this->assertSame('GEIC corrected name', $student->fresh()->full_name);
         $this->assertSame(3, $student->fresh()->version);
+        $this->assertSame('lead', $student->fresh()->stage);
+        $this->assertTrue($student->fresh()->is_active);
         $this->assertDatabaseCount('counselling_enquiries', 1);
         $this->assertDatabaseCount('crm_students', 1);
         $this->assertDatabaseCount('foris_lead_deliveries', 1);
@@ -197,6 +202,69 @@ class CrmImportControllerTest extends TestCase
     private function upload(string $csv): int
     {
         return $this->postJson('/admin/crm/imports', ['creation_key' => (string) Str::uuid(), 'source' => 'Foris test', 'file' => UploadedFile::fake()->createWithContent('leads.csv', $csv)])->assertOk()->json('data.id');
+    }
+
+    #[TestWith(['lead', 1])]
+    #[TestWith(['application', 0])]
+    #[TestWith(['visa', 0])]
+    #[TestWith(['billing', 0])]
+    public function test_historical_stage_and_inactive_state_are_preserved_without_inventing_transitions(string $stage, int $eventCount): void
+    {
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+        $csv = "source_id,full_name,phone,stage,is_active,submitted_at\noriginal-stage,Historical student,9876543210,{$stage},0,2020-01-01\n";
+        $batch = $this->upload($csv);
+        $this->postJson('/admin/crm/imports/'.$batch.'/confirm', ['version' => 1])->assertOk();
+        $this->artisan('crm:process-imports')->assertSuccessful();
+        $student = CrmStudent::firstOrFail();
+        $this->assertSame($stage, $student->stage);
+        $this->assertFalse($student->is_active);
+        $this->assertDatabaseCount('crm_student_stage_events', $eventCount);
+        $this->assertDatabaseCount('crm_applications', 0);
+        $this->assertDatabaseCount('crm_visas', 0);
+        $this->assertDatabaseCount('foris_lead_deliveries', 0);
+        $this->assertDatabaseHas('crm_import_rows', ['import_id' => $batch, 'status' => 'imported', 'student_id' => $student->id]);
+        $student->update(['stage' => 'lead', 'is_active' => true]);
+        $again = $this->upload($csv);
+        $this->postJson('/admin/crm/imports/'.$again.'/confirm', ['version' => 1])->assertOk();
+        $this->artisan('crm:process-imports')->assertSuccessful();
+        $this->assertSame('lead', $student->fresh()->stage);
+        $this->assertTrue($student->fresh()->is_active);
+        $this->assertDatabaseCount('crm_students', 1);
+        Http::assertNothingSent();
+    }
+
+    public function test_invalid_historical_states_require_correction_without_creating_profiles(): void
+    {
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+        $batch = $this->upload("source_id,full_name,phone,stage,is_active\nbad-stage,Invalid stage,9876543210,approved,1\nbad-active,Invalid active,8765432190,lead,yes\n");
+        $this->getJson('/admin/crm/imports/'.$batch)->assertOk()->assertJsonPath('rows.0.errors.0', 'The selected stage is invalid.')
+            ->assertJsonPath('rows.1.errors.0', 'The is active field must be true or false.');
+        $this->postJson('/admin/crm/imports/'.$batch.'/confirm', ['version' => 1])->assertOk();
+        $this->artisan('crm:process-imports')->assertSuccessful();
+        $this->getJson('/admin/crm/imports/'.$batch)->assertOk()->assertJsonPath('counts.invalid', 2);
+        $this->assertDatabaseCount('crm_students', 0);
+        Http::assertNothingSent();
+    }
+
+    public function test_duplicate_review_preserves_historical_state_for_later_separate_profile_capture(): void
+    {
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+        $existing = CrmStudent::factory()->create(['phone' => '+919876543210']);
+        app(LeadDuplicateReview::class)->indexContact(DB::table('counselling_enquiries')->find($existing->original_enquiry_id));
+        $batch = $this->upload("source_id,full_name,phone,stage,is_active\nduplicate,Separate historical student,9876543210,visa,0\n");
+        $this->postJson('/admin/crm/imports/'.$batch.'/confirm', ['version' => 1])->assertOk();
+        $this->artisan('crm:process-imports')->assertSuccessful();
+        $row = DB::table('crm_import_rows')->where('import_id', $batch)->first();
+        $this->assertSame('duplicate_review', $row->status);
+        $this->assertSame('lead', $existing->fresh()->stage);
+        $this->assertTrue($existing->fresh()->is_active);
+        DB::table('lead_duplicate_reviews')->where('enquiry_id', $row->enquiry_id)->update(['status' => 'distinct']);
+        $separate = app(CaptureCrmStudent::class)->capture($row->enquiry_id);
+        $this->assertSame('visa', $separate->stage);
+        $this->assertFalse($separate->is_active);
+        $this->assertDatabaseMissing('crm_student_stage_events', ['student_id' => $separate->id]);
+        $this->assertDatabaseHas('crm_audit_events', ['student_id' => $separate->id, 'action' => 'student.imported_stage_snapshot']);
+        Http::assertNothingSent();
     }
 
     public function test_loyalty_relationships_prevent_reversal_of_otherwise_unchanged_imported_students(): void

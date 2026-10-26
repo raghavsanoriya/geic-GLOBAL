@@ -41,7 +41,9 @@ class CrmImport extends Model
     public static function fields(string $type): array
     {
         if ($type === 'lead') {
-            return self::FIELDS + ['foris_lead_id' => 'Optional confirmed Foris lead ID (reference-first existing GEIC link)'];
+            return self::FIELDS + ['foris_lead_id' => 'Optional confirmed Foris lead ID (reference-first existing GEIC link)',
+                'stage' => 'Original current stage (lead/application/visa/billing; new profiles only, no inferred transition history)',
+                'is_active' => 'Original active state (0/1; blank defaults active, new profiles only)'];
         }
         $base = ['source_id' => 'Stable source record ID', 'submitted_at' => 'Original creation date (ISO 8601)'];
         if ($type === 'reference') {
