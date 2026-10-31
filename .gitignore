@@ -5,6 +5,7 @@
 .env.production
 .phpactor.json
 .phpunit.result.cache
+/php-test.ini
 /.codex
 /.cursor/
 /.idea
