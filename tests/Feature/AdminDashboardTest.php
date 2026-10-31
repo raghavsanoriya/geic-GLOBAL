@@ -163,7 +163,7 @@ class AdminDashboardTest extends TestCase
             ->assertSee('A practical international future')
             ->assertSee('Support services')
             ->assertSee('Start my study plan')
-            ->assertSee('Build your international study plan with GEIC.')
+            ->assertDontSee('Build your international study plan with GEIC.')
             ->assertSee('Build your shortlist')
             ->assertSee('Our global university network')
             ->assertSee('How does GEIC support students?')
