@@ -287,9 +287,6 @@ echo config("crm.enabled") ? "1" : "0";
 if [[ "$crm_enabled" == "1" ]]; then
     "$php_bin" artisan db:seed --class='Database\Seeders\CrmWorkflowTemplateSeeder' --force --no-interaction
     "$php_bin" artisan crm:backfill-students --limit=500 --no-interaction
-    if [[ "$branch_name" == "main" ]]; then
-        "$php_bin" artisan crm:audit-retained-foris --json --no-interaction
-    fi
 fi
 
 "$php_bin" artisan optimize:clear
