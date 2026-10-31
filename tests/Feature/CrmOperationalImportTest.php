@@ -577,13 +577,15 @@ class CrmOperationalImportTest extends TestCase
         foreach (['application_created', 'visa_approved'] as $milestone) {
             DB::table('crm_loyalty_rules')->insert(['code' => $milestone, 'name' => 'Active historical safety test', 'milestone' => $milestone, 'points' => 100, 'is_enabled' => true, 'version' => 1, 'created_at' => now(), 'updated_at' => now()]);
         }
+        $historicalCourse = str_repeat('Long FORIS course URL segment ', 10);
         $csv = "source_id,student_geic_id,university_code,status_code,course,intake,tags,source_data,submitted_at\n"
-            ."app-1,{$student->id},snapshot_uni,snapshot_app,Historical course,January 2025,Priority;Archive,\"{\"\"Foris ID\"\":\"\"1699\"\",\"\"Course link\"\":\"\"https://example.test/course\"\"}\",2024-12-01T10:00:00+05:30\n";
+            ."app-1,{$student->id},snapshot_uni,snapshot_app,{$historicalCourse},January 2025,Priority;Archive,\"{\"\"Foris ID\"\":\"\"1699\"\",\"\"Course link\"\":\"\"https://example.test/course\"\"}\",2024-12-01T10:00:00+05:30\n";
         $batch = $this->upload('application', $csv);
         $this->process($batch);
         $application = CrmApplication::firstOrFail();
         $this->assertSame('2024-12-01 04:30:00', $application->created_at->format('Y-m-d H:i:s'));
         $this->assertNull($application->owner_id);
+        $this->assertSame($historicalCourse, $application->course);
         $this->assertSame(['Priority', 'Archive'], $application->tags);
         $this->assertSame('1699', $application->source_data['Foris ID']);
         $this->get('/admin/crm/applications/'.$application->id)->assertOk()->assertSee('Original Foris application data')->assertSee('https://example.test/course');

@@ -167,7 +167,7 @@ class CrmImportRecords
                 'student_geic_id' => ['required_without:student_source_id', 'nullable', 'integer', 'min:1'],
                 'university_code' => ['required', 'string', 'max:60'], 'campus_code' => ['nullable', 'string', 'max:60'],
                 'agent_code' => ['nullable', 'string', 'max:60'], 'program_code' => ['nullable', 'string', 'max:60'],
-                'course' => ['required', 'string', 'max:160'], 'intake' => ['required', 'string', 'max:80'],
+                'course' => ['required', 'string', 'max:1000'], 'intake' => ['required', 'string', 'max:80'],
                 'submitted_on' => ['nullable', 'date_format:Y-m-d'], 'tags' => ['nullable', 'string', 'max:1000'],
                 'source_data' => ['nullable', 'json', 'max:4000']];
         } else {

@@ -43,7 +43,7 @@ class CrmApplicationRequest extends FormRequest
             'program_id' => ['nullable', 'integer', 'min:1'],
             'agent_id' => ['nullable', 'integer', 'min:1'], 'status_id' => ['required', 'integer', 'min:1'],
             'owner_id' => ['sometimes', 'required', 'integer', 'min:1'],
-            'course' => ['required', 'string', 'max:160'], 'intake' => ['required', 'string', 'max:80'],
+            'course' => ['required', 'string', 'max:1000'], 'intake' => ['required', 'string', 'max:80'],
             'submitted_on' => ['nullable', 'date_format:Y-m-d'],
             'tags' => ['sometimes', 'array', 'max:10'], 'tags.*' => ['required', 'string', 'max:50', 'distinct'],
             'remark' => ['nullable', 'string', 'max:4000'],
