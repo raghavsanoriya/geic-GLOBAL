@@ -577,7 +577,7 @@ class CrmOperationalImportTest extends TestCase
         foreach (['application_created', 'visa_approved'] as $milestone) {
             DB::table('crm_loyalty_rules')->insert(['code' => $milestone, 'name' => 'Active historical safety test', 'milestone' => $milestone, 'points' => 100, 'is_enabled' => true, 'version' => 1, 'created_at' => now(), 'updated_at' => now()]);
         }
-        $historicalCourse = str_repeat('Long FORIS course URL segment ', 10);
+        $historicalCourse = str_repeat('Long FORIS course URL segment ', 9).'Long FORIS course URL segment';
         $csv = "source_id,student_geic_id,university_code,status_code,course,intake,tags,source_data,submitted_at\n"
             ."app-1,{$student->id},snapshot_uni,snapshot_app,{$historicalCourse},January 2025,Priority;Archive,\"{\"\"Foris ID\"\":\"\"1699\"\",\"\"Course link\"\":\"\"https://example.test/course\"\"}\",2024-12-01T10:00:00+05:30\n";
         $batch = $this->upload('application', $csv);
