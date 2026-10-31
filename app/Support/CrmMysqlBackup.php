@@ -18,7 +18,9 @@ class CrmMysqlBackup
             if ($table === 'migrations' || CrmSqliteTransfer::isApplicationTable($table)) {
                 $tables[] = $table;
             } elseif (! str_starts_with($table, 'wplb_')) {
-                throw new RuntimeException('An unexpected database namespace requires manual backup review.');
+                $safeTable = preg_match('/\A[a-z][a-z0-9_]{0,62}\z/D', $table) === 1 ? $table : 'invalid_identifier';
+
+                throw new RuntimeException('Unexpected database table: '.$safeTable.'.');
             }
         }
         if (! in_array('counselling_enquiries', $tables, true) || ! in_array('users', $tables, true)) {

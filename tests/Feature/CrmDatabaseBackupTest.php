@@ -86,7 +86,9 @@ class CrmDatabaseBackupTest extends TestCase
         $database->exec('CREATE TABLE leads (id INTEGER PRIMARY KEY); INSERT INTO leads VALUES (42);');
         $database->close();
 
-        $this->artisan('crm:backup-database', ['--label' => 'missing-environment', '--include-files' => true])->assertFailed();
+        $this->artisan('crm:backup-database', ['--label' => 'missing-environment', '--include-files' => true])
+            ->expectsOutputToContain('required_backup_file_unavailable')
+            ->assertFailed();
 
         $this->assertFileDoesNotExist(storage_path('crm-backups/missing-environment/verified.json'));
         $this->assertSame(1, DB::table('leads')->count());

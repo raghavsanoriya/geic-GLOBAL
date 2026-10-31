@@ -140,14 +140,41 @@ class BackupCrmDatabase extends Command
             $this->info('Verified private backup '.$label.'; '.count($tables).' tables. No original records or credentials were changed.');
 
             return self::SUCCESS;
-        } catch (Throwable) {
-            $this->error('Backup verification failed. Partial files were retained privately; stop deployment and inspect them before retrying with a new label.');
+        } catch (Throwable $exception) {
+            $this->error('Backup verification failed ('.$this->safeFailureReason($exception).'). Partial files were retained privately; stop deployment and inspect them before retrying with a new label.');
 
             return self::FAILURE;
         } finally {
             $backup?->close();
             $source?->close();
         }
+    }
+
+    private function safeFailureReason(Throwable $exception): string
+    {
+        $message = $exception->getMessage();
+        if (preg_match('/\AUnexpected database table: ([a-z][a-z0-9_]{0,62}|invalid_identifier)\.\z/D', $message, $match) === 1) {
+            return 'unexpected_database_table:'.$match[1];
+        }
+
+        return match ($message) {
+            'The verified GEIC MySQL connection is required.' => 'invalid_mysql_connection',
+            'The application tables are missing.' => 'application_tables_missing',
+            'Cannot create private MySQL backup.' => 'database_backup_file_unavailable',
+            'Cannot verify private MySQL backup.' => 'database_backup_unreadable',
+            'Unexpected table in the MySQL backup.' => 'unexpected_table_in_backup',
+            'The MySQL backup did not pass its completion and record-count checks.' => 'database_backup_count_mismatch',
+            'MySQL backup storage is unavailable.' => 'database_backup_storage_unavailable',
+            'A required backup file is unavailable.' => 'required_backup_file_unavailable',
+            'Application upload root must not be a symbolic link.' => 'upload_root_is_linked',
+            'A linked upload requires a separate verified backup.' => 'linked_upload_requires_review',
+            'Cannot preserve upload directory.' => 'upload_directory_unavailable',
+            'Unsupported upload entry.' => 'unsupported_upload_entry',
+            'Cannot preserve file.' => 'backup_file_copy_failed',
+            'File changed during backup.' => 'backup_file_changed',
+            'Cannot verify backup manifest.' => 'backup_manifest_unavailable',
+            default => 'internal_backup_error',
+        };
     }
 
     private function copyVerified(string $source, string $destination): void
