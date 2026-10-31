@@ -13,7 +13,7 @@ class MirrorPageTest extends TestCase
         $response->assertOk();
         $response->assertSee('Trans Globe', false);
         $response->assertSee('assets/design_1/css/app.min.css', false);
-        $response->assertSee('id="tg-home-offer"', false);
+        $response->assertDontSee('id="tg-home-offer"', false);
         $response->assertSee('Book Free Counselling', false);
     }
 
@@ -78,6 +78,25 @@ class MirrorPageTest extends TestCase
 
         $this->get('/landing/form-handler.php')->assertNotFound();
         $this->get('/landing/../.env')->assertNotFound();
+    }
+
+    public function test_expo_landing_page_no_longer_collects_leads(): void
+    {
+        foreach (['/uniexpo-dubai-europe', '/_geic_release/uniexpo-dubai-europe'] as $path) {
+            $this->get($path)
+                ->assertOk()
+                ->assertHeader('content-type', 'text/html; charset=UTF-8');
+        }
+        $html = file_get_contents(base_path('uniexpo-page/index.html'));
+        $this->assertStringContainsString('REGISTRATION CLOSED', $html);
+        $this->assertStringNotContainsString('id="registration-form"', $html);
+        $this->assertStringNotContainsString('REGISTER NOW', $html);
+
+        $this->get('/uniexpo-dubai-europe/js/expo-config.js')
+            ->assertOk()
+            ->assertSee('"registrationOpen":false', false)
+            ->assertSee('"appsScriptUrl":""', false)
+            ->assertDontSee('script.google.com', false);
     }
 
     public function test_destination_pages_are_available(): void

@@ -47,7 +47,6 @@ class ForisLeadSyncTest extends TestCase
             'preferred_course' => 'Business Analytics', 'english_test' => 'IELTS', 'consent' => '1',
         ];
         $hero = ['full_name' => 'Hero Student', 'email' => 'hero@example.com', 'phone' => '9876543210', 'consent' => '1'];
-        $expo = ['name' => 'Expo Student', 'email' => 'expo@example.com', 'mobile' => '9876543210', 'country' => 'Dubai', 'interest' => 'Indore Expo'];
         $landing = ['name' => 'Landing Student', 'email' => 'landing@example.com', 'phone' => '9876543210', 'qualification' => 'Bachelors', 'passing_year' => 2026, 'score' => '8.1 CGPA', 'country' => 'Germany'];
 
         return [
@@ -58,8 +57,6 @@ class ForisLeadSyncTest extends TestCase
             'test hero' => ['/hero-enquire', $hero + ['source_context' => 'IELTS', 'return_to' => '/tests/ielts#overview'], '/tests/ielts'],
             'scholarship hero' => ['/hero-enquire', $hero + ['source_context' => 'Scholarships', 'return_to' => '/scholarships/australia#overview'], '/scholarships/australia'],
             'landing forms' => ['/landing/form-handler.php', $landing, '/landing'],
-            'expo' => ['/uniexpo-dubai-europe/register', $expo, '/uniexpo-dubai-europe'],
-            'release expo alias' => ['/_geic_release/uniexpo-dubai-europe/register', $expo, '/uniexpo-dubai-europe'],
         ];
     }
 

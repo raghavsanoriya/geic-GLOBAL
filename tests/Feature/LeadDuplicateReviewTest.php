@@ -138,15 +138,18 @@ class LeadDuplicateReviewTest extends TestCase
         $this->assertDatabaseCount('foris_lead_deliveries', 0);
     }
 
-    public function test_expo_rejects_a_ten_digit_placeholder_before_registration(): void
+    public function test_expo_registration_endpoints_are_closed_without_saving(): void
     {
-        $payload = ForisLeadSyncTest::websiteForms()['expo'][1];
-        $payload['mobile'] = '9999999999';
+        $payload = ['name' => 'Expo Student', 'email' => 'expo@example.com', 'mobile' => '9876543210', 'country' => 'Dubai'];
 
-        $this->postJson('/_geic_release/uniexpo-dubai-europe/register', $payload)->assertUnprocessable()
-            ->assertJsonValidationErrors(['mobile'])->assertJsonPath('errors.mobile.0', EnquiryPhoneNumber::MESSAGE);
+        foreach (['/uniexpo-dubai-europe/register', '/_geic_release/uniexpo-dubai-europe/register'] as $path) {
+            $this->postJson($path, $payload)->assertGone()
+                ->assertJsonPath('success', false)
+                ->assertJsonPath('message', 'Global Uni Expo registration is closed.');
+        }
 
         $this->assertDatabaseCount('counselling_enquiries', 0);
+        $this->assertDatabaseCount('foris_lead_deliveries', 0);
     }
 
     public function test_contact_and_hero_forms_return_inline_phone_errors_without_saving(): void

@@ -69,52 +69,10 @@ class CounsellingEnquiryController extends Controller
      */
     public function storeExpo(Request $request): JsonResponse
     {
-        if ($request->filled('website')) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Thank you. Your registration has been received.',
-            ]);
-        }
-
-        $data = $request->validate([
-            'name' => ['required', 'string', 'max:120'],
-            'email' => ['required', 'email:rfc', 'max:160'],
-            'mobile' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
-            'country' => ['required', 'string', 'max:100'],
-            'interest' => ['nullable', 'string', 'max:120'],
-            'website' => ['nullable', 'max:0'],
-        ], [
-            'mobile.regex' => 'Enter a valid 10-digit mobile number.',
-        ]);
-
-        $sourcePage = '/uniexpo-dubai-europe';
-        $data['event_date'] = '2026-10-24';
-        $data['event_city'] = 'Indore';
-
-        $this->enquiries->store([
-            'destination' => $data['country'],
-            'full_name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['mobile'],
-            'city' => 'Indore',
-            'study_level' => 'Not provided',
-            'preferred_intake' => 'Global Uni Expo 2026 - 24 October 2026',
-            'preferred_course' => null,
-            'english_test' => 'Not sure yet',
-            'message' => 'Expo registration interest: '.($data['interest'] ?: 'Indore Expo'),
-            'source_page' => $sourcePage,
-            'source_form' => 'Global Uni Expo 2026 registration',
-            ...$this->trackingAttributes($request),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ], $data);
-
-        $this->recordConversion($request, $sourcePage, 'Global Uni Expo 2026 - '.$data['country']);
-
         return response()->json([
-            'success' => true,
-            'message' => 'Your seat for Global Uni Expo 2026 has been registered.',
-        ], 201);
+            'success' => false,
+            'message' => 'Global Uni Expo registration is closed.',
+        ], 410);
     }
 
     private function storePromotional(Request $request, string $sourcePage): JsonResponse
