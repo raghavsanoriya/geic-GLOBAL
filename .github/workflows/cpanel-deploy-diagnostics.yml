@@ -1,0 +1,82 @@
+name: cPanel deployment diagnostics
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    name: Inspect latest deployment failure
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: production
+
+    steps:
+      - name: Read sanitized error lines from newest cPanel deployment log
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: |
+          set -Eeuo pipefail
+
+          echo "::add-mask::$CPANEL_HOST"
+          echo "::add-mask::$CPANEL_USER"
+
+          listing=$(curl --fail-with-body --silent --show-error \
+            --retry 2 --retry-delay 2 --retry-all-errors \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+            --get \
+            --data-urlencode "dir=.cpanel/logs" \
+            --data-urlencode "types=file" \
+            "https://$CPANEL_HOST:2083/execute/Fileman/list_files")
+
+          status=$(jq -r '.result.status // .status // 0' <<< "$listing")
+          if [[ "$status" != "1" ]]; then
+            jq '{status: (.result.status // .status), errors: (.result.errors // .errors)}' <<< "$listing"
+            exit 1
+          fi
+
+          log_name=$(jq -r '
+            [(.result.data // .data // [])[]
+              | select((.file // .name // "") | test("^vc_[0-9.]+_git_deploy[.]log$"))]
+            | sort_by(.mtime // 0)
+            | last
+            | (.file // .name // empty)
+          ' <<< "$listing")
+
+          if [[ -z "$log_name" ]]; then
+            echo "No cPanel Git deployment log was returned by Fileman." >&2
+            exit 1
+          fi
+
+          log_path="/home2/$CPANEL_USER/.cpanel/logs/$log_name"
+          http_code=$(curl --silent --show-error \
+            --retry 2 --retry-delay 2 --retry-all-errors \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+            --output deploy.log \
+            --write-out '%{http_code}' \
+            --get \
+            --data-urlencode "file=$log_path" \
+            "https://$CPANEL_HOST:2083/download")
+
+          if [[ "$http_code" != "200" || ! -s deploy.log ]]; then
+            echo "Unable to download the newest deployment log (HTTP $http_code)." >&2
+            exit 1
+          fi
+
+          echo "Newest deployment log: $log_name"
+          echo "----- sanitized deployment errors -----"
+          tail -n 220 deploy.log \
+            | grep -E -i '(^|[^a-z])(error|exception|failed|failure|fatal|refus|denied|warning|rollback|restored|removed incomplete|SQLSTATE|exit code)([^a-z]|$)' \
+            | tail -n 80 \
+            | sed -E \
+                -e "s/$CPANEL_HOST/[CPANEL_HOST]/g" \
+                -e "s/$CPANEL_USER/[CPANEL_USER]/g" \
+                -e 's#(/home2/)[^/]+#\1[CPANEL_USER]#g' \
+                -e 's/((password|passwd|token|secret|api[_-]?key)[^=: ]{0,24})[=:][^ ]+/\1=[REDACTED]/Ig' \
+                -e 's#(https?://)[^/@: ]+:[^/@ ]+@#\1[REDACTED]@#g' \
+            || echo "No error-keyword lines found in the final deployment output."
