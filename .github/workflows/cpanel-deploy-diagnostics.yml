@@ -53,18 +53,25 @@ jobs:
             exit 1
           fi
 
-          log_path="/home2/$CPANEL_USER/.cpanel/logs/$log_name"
-          http_code=$(curl --silent --show-error \
+          log_response=$(curl --fail-with-body --silent --show-error \
             --retry 2 --retry-delay 2 --retry-all-errors \
             -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
-            --output deploy.log \
-            --write-out '%{http_code}' \
             --get \
-            --data-urlencode "file=$log_path" \
-            "https://$CPANEL_HOST:2083/download")
+            --data-urlencode "dir=.cpanel/logs" \
+            --data-urlencode "file=$log_name" \
+            --data-urlencode "charset=utf-8" \
+            "https://$CPANEL_HOST:2083/execute/Fileman/get_file_content")
 
-          if [[ "$http_code" != "200" || ! -s deploy.log ]]; then
-            echo "Unable to download the newest deployment log (HTTP $http_code)." >&2
+          content_status=$(jq -r '.result.status // .status // 0' <<< "$log_response")
+          if [[ "$content_status" != "1" ]]; then
+            jq '{status: (.result.status // .status), errors: (.result.errors // .errors)}' <<< "$log_response"
+            exit 1
+          fi
+
+          jq -r '.result.data.content // .result.data // .data.content // .data // empty' \
+            <<< "$log_response" > deploy.log
+          if [[ ! -s deploy.log ]]; then
+            echo "cPanel returned no deployment-log content." >&2
             exit 1
           fi
 
