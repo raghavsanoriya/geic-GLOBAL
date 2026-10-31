@@ -87,3 +87,31 @@ jobs:
                 -e 's/((password|passwd|token|secret|api[_-]?key)[^=: ]{0,24})[=:][^ ]+/\1=[REDACTED]/Ig' \
                 -e 's#(https?://)[^/@: ]+:[^/@ ]+@#\1[REDACTED]@#g' \
             || echo "No error-keyword lines found in the final deployment output."
+
+          backups=$(curl --fail-with-body --silent --show-error \
+            --retry 2 --retry-delay 2 --retry-all-errors \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+            --get \
+            --data-urlencode "dir=apps/geic-production/shared/storage/crm-backups" \
+            --data-urlencode "types=dir" \
+            "https://$CPANEL_HOST:2083/execute/Fileman/list_files")
+          backup_status=$(jq -r '.result.status // .status // 0' <<< "$backups")
+          if [[ "$backup_status" == "1" ]]; then
+            backup_name=$(jq -r '
+              [(.result.data // .data // [])[]]
+              | sort_by(.mtime // 0)
+              | last
+              | (.file // .name // empty)
+            ' <<< "$backups")
+            if [[ -n "$backup_name" && "$backup_name" =~ ^[A-Za-z0-9_-]{1,80}$ ]]; then
+              echo "----- newest partial backup metadata -----"
+              echo "Backup label: $backup_name"
+              curl --fail-with-body --silent --show-error \
+                --retry 2 --retry-delay 2 --retry-all-errors \
+                -H "Authorization: cpanel $CPANEL_USER:$CPANEL_API_TOKEN" \
+                --get \
+                --data-urlencode "dir=apps/geic-production/shared/storage/crm-backups/$backup_name" \
+                "https://$CPANEL_HOST:2083/execute/Fileman/list_files" \
+                | jq -r '(.result.data // .data // [])[] | [(.file // .name // "unknown"), (.type // "unknown"), (.size // 0)] | @tsv'
+            fi
+          fi
