@@ -10,7 +10,7 @@ use Throwable;
 
 class CrmSqliteTransfer
 {
-    private const BASE_TABLES = ['users', 'password_reset_tokens', 'sessions', 'cache', 'cache_locks', 'jobs', 'job_batches', 'failed_jobs', 'counselling_enquiries', 'site_contents', 'site_events', 'cms_page_states', 'cms_pages', 'cms_forms', 'media_assets', 'media_folders', 'blog_posts', 'ad_accounts', 'ad_campaigns', 'ad_performance', 'foris_lead_deliveries', 'lead_contact_keys', 'lead_duplicate_reviews'];
+    private const BASE_TABLES = ['users', 'password_reset_tokens', 'sessions', 'cache', 'cache_locks', 'jobs', 'job_batches', 'failed_jobs', 'counselling_enquiries', 'site_contents', 'site_events', 'cms_page_states', 'cms_pages', 'cms_forms', 'media_assets', 'media_folders', 'blog_posts', 'ad_accounts', 'ad_campaigns', 'ad_performance', 'foris_lead_deliveries', 'lead_contact_keys', 'lead_duplicate_reviews', 'admin_role_presets', 'admin_role_preset_events'];
 
     public static function isApplicationTable(string $name): bool
     {
