@@ -1,0 +1,285 @@
+/*
+ * Phone app layer. Loaded with media="(max-width: 767.98px)", so nothing here
+ * can affect tablet or desktop. Same light brand theme as desktop (white, red, navy);
+ * this file only adds the app structure: tab bar, sheet form, swipe rows, compact spacing.
+ */
+
+:root {
+    --m-bg: #f5f7fb;
+    --m-surface: #ffffff;
+    --m-surface-2: #f1f4f9;
+    --m-line: rgba(14, 33, 69, .08);
+    --m-text: #0e2145;
+    --m-muted: #5b6d84;
+    --m-red: #e31e24;
+    --m-red-soft: rgba(227, 30, 36, .1);
+    --m-radius: 20px;
+    --m-tabbar-h: 72px;
+    --m-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Base */
+body.tg-app { background: var(--m-bg); padding-bottom: calc(var(--m-tabbar-h) + 28px + var(--m-safe-bottom)); }
+.tg-app .section-padding { padding: 52px 0; }
+.tg-app .container { padding-left: 18px; padding-right: 18px; }
+.tg-app a:focus-visible, .tg-app button:focus-visible, .tg-app input:focus-visible,
+.tg-app select:focus-visible, .tg-app textarea:focus-visible, .tg-app summary:focus-visible {
+    outline: 2px solid var(--m-red); outline-offset: 2px;
+}
+
+/* Section titles: compact, left-aligned, red pill eyebrow */
+.tg-app .section-title { text-align: left; }
+.tg-app .section-title.text-center { text-align: center; }
+.tg-app .section-title h6:not(.text-white) {
+    display: inline-flex; padding: 7px 14px; margin-bottom: 12px; border-radius: 999px;
+    background: var(--m-red-soft); color: var(--m-red); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+}
+.tg-app .section-title h6::before { display: none; }
+.tg-app .section-title h2 { font-size: 28px; line-height: 1.2; }
+
+/* Buttons: full pill shape, tap-friendly height */
+.tg-app .theme-btn { border-radius: 999px; padding: 16px 26px; font-size: 15px; justify-content: center; min-height: 48px; }
+
+/* Top bar */
+.tg-app .marquee-section.style-header { display: none; }
+.tg-app #header-sticky {
+    background: rgba(255, 255, 255, .9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--m-line);
+}
+.tg-app .header-1 .header-main { padding: 12px 0; }
+.tg-app .header-1 .container-fluid { padding: 0 18px; }
+.tg-app .tg-logo img { height: 34px; }
+.tg-app .header__hamburger { display: none !important; }
+.tg-app .tg-header-call {
+    display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--m-red-soft); color: var(--m-red); font-size: 16px;
+}
+
+/* Hero */
+.tg-app .hero-2 { padding: 24px 0 20px; background: var(--m-surface); }
+.tg-app .hero-2 .hero-content { text-align: left; }
+.tg-app .hero-2 .hero-content h1 { font-size: 36px; line-height: 1.15; }
+.tg-app .hero-2 .hero-content p { font-size: 16px; margin-top: 16px; line-height: 1.7; }
+.tg-app .hero-2 .hero-content .hero-button { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
+.tg-app .hero-2 .hero-content .hero-button .button-text {
+    display: flex; align-items: center; justify-content: center; padding: 6px; border-radius: 999px;
+    background: var(--m-surface-2); border: 1px solid var(--m-line);
+}
+.tg-app .hero-2 .hero-content .hero-button .button-text .video-btn { width: 40px; height: 40px; line-height: 40px; }
+.tg-app .hero-2 .hero-content .hero-button .button-text span { font-size: 15px; }
+.tg-app .hero-2 .hero-image-items { margin-top: 8px; }
+.tg-app .hero-2 .hero-image-items .hero-image {
+    border-radius: 28px; overflow: hidden; padding-top: 18px;
+    background: linear-gradient(160deg, var(--tg-navy, #0e2145) 0%, #1d3d70 100%);
+}
+.tg-app .hero-2 .hero-image-items .hero-image > img { display: block; max-height: 380px; width: auto; margin: 0 auto; }
+.tg-app .hero-2 .hero-image-items .hero-image .hero-shape { display: none; }
+.tg-app .hero-2 .hero-image-items .hero-image .counter-box {
+    display: block; top: 14px; left: 14px; right: auto; padding: 12px 16px; border-radius: 16px;
+    background: rgba(255, 255, 255, .95); box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+}
+.tg-app .hero-2 .hero-image-items .hero-image .counter-box p { font-size: 12px; margin: 0; }
+.tg-app .hero-2 .hero-image-items .hero-image .counter-box h2 { font-size: 26px; }
+
+/* Shared card surface */
+.tg-app .feature-box-items,
+.tg-app .top-category-wrapper,
+.tg-app .courses-card-main-items .courses-card-items,
+.tg-app .tg-cost-card,
+.tg-app .testimonial-box-items.tg-review,
+.tg-app .req-item,
+.tg-app .faq-item {
+    border-radius: var(--m-radius) !important; border: 1px solid var(--m-line);
+    box-shadow: 0 6px 24px rgba(14, 33, 69, .06) !important;
+}
+.tg-app .feature-box-items, .tg-app .courses-card-main-items .courses-card-items, .tg-app .tg-cost-card,
+.tg-app .req-item, .tg-app .faq-item { background-color: var(--m-surface); }
+
+/* Horizontal swipe rows (credentials, journey, intakes) */
+.tg-app .tg-feature .row,
+.tg-app .tg-courses .row,
+.tg-app .tg-intakes .row {
+    flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-left: -18px; margin-right: -18px; padding: 4px 18px 14px; gap: 12px; --bs-gutter-x: 0;
+}
+.tg-app .tg-feature .row::-webkit-scrollbar, .tg-app .tg-courses .row::-webkit-scrollbar, .tg-app .tg-intakes .row::-webkit-scrollbar { display: none; }
+.tg-app .tg-feature .row > *, .tg-app .tg-courses .row > *, .tg-app .tg-intakes .row > * {
+    flex: 0 0 80%; max-width: 80%; scroll-snap-align: start; padding: 0; margin-top: 0;
+}
+
+/* Credentials strip */
+.tg-app .tg-feature { padding: 18px 0 4px; }
+.tg-app .tg-feature .container-fluid { padding: 0 18px; }
+.tg-app .tg-feature .feature-box-items { padding: 22px; text-align: left; }
+.tg-app .tg-feature .feature-box-items .icon {
+    display: grid; place-items: center; width: 52px; height: 52px; margin: 0; line-height: 1;
+    border-radius: 16px; background: var(--m-red-soft); border: 0; font-size: 22px;
+}
+.tg-app .tg-feature .feature-box-items .icon i { line-height: 1; }
+.tg-app .tg-feature .feature-box-items .content { margin: 18px 0 0; text-align: left; }
+.tg-app .tg-feature .feature-box-items .content h3 { font-size: 20px; }
+
+/* Why Dubai: two-column tiles */
+.tg-app .tg-category .row.g-5 { --bs-gutter-y: 1.5rem; }
+.tg-app .tg-category .top-category-wrapper { overflow: hidden; background: var(--m-surface); }
+.tg-app .tg-category .top-category-wrapper .row > div { width: 50%; }
+.tg-app .tg-category .top-category-box-items { padding: 18px 12px; }
+.tg-app .tg-category .top-category-box-items .icon { width: 46px; height: 46px; background: var(--m-red-soft) !important; color: var(--m-red); font-size: 18px; }
+.tg-app .tg-category .top-category-box-items.active .icon, .tg-app .tg-category .top-category-box-items:hover .icon { background: var(--m-red) !important; color: #fff; }
+.tg-app .tg-category .top-category-box-items h6 { font-size: 14px; margin-top: 14px; }
+.tg-app .tg-category .top-category-box-items p { font-size: 12.5px; }
+
+/* Internships */
+.tg-app .tg-about .about-content, .tg-app .tg-about .about-content p { text-align: left; }
+.tg-app .tg-about .about-image img, .tg-app .tg-about .about-image-items .about-image-2 img { height: 260px; border-radius: var(--m-radius); }
+.tg-app .tg-about .about-image-items { padding-bottom: 0; }
+.tg-app .tg-about .about-image-items .about-image-3 { display: none; }
+.tg-app .tg-about .about-content .counter-box-items {
+    align-items: flex-start; padding: 18px; border-radius: var(--m-radius);
+    background: var(--m-surface); border: 1px solid var(--m-line);
+}
+.tg-app .tg-about .about-content .counter-box-items .counter-content h2 { font-size: 40px; }
+
+/* Journey: segmented control + swipe cards */
+.tg-app .tg-courses .section-title-area { margin-bottom: 14px; }
+.tg-app .tg-tabs {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 4px; padding: 4px; margin-bottom: 16px;
+    border-radius: 999px; background: var(--m-surface); border: 1px solid var(--m-line); width: 100%;
+}
+.tg-app .tg-tabs::-webkit-scrollbar { display: none; }
+.tg-app .tg-tabs button { flex: 1 0 auto; border: 0; background: transparent; padding: 10px 14px; font-size: 13px; min-height: 40px; }
+.tg-app .tg-tabs button.active { background: var(--m-red); color: #fff; }
+.tg-app .courses-card-main-items .courses-card-items .courses-content { padding: 18px 18px 20px; }
+.tg-app .tg-courses .courses-card-items .courses-content h3 { font-size: 18px; }
+
+/* Costs */
+.tg-app .tg-cost-card { padding: 22px 18px; margin-top: 8px; }
+.tg-app .tg-cost-head span { display: none; }
+
+/* Photo strip */
+.tg-app .tg-strip { padding: 0 18px; }
+.tg-app .tg-strip .team-box-items .team-image img { height: 300px; border-radius: var(--m-radius); }
+
+/* Consultation banner (navy card, like desktop) */
+.tg-app .cta-newsletter-section { margin: 0 18px; border-radius: 28px; overflow: hidden; padding: 40px 0 34px; }
+.tg-app .cta-newsletter-section .girl-shape, .tg-app .cta-newsletter-section .shape-1, .tg-app .cta-newsletter-section .shape-2 { display: none; }
+.tg-app .cta-newsletter-section .newsletter-input-items { flex-direction: column; gap: 12px; background: transparent; padding: 0; }
+.tg-app .cta-newsletter-section .newsletter-input-items input { border-radius: 999px; min-height: 52px; width: 100%; }
+.tg-app .cta-newsletter-section .newsletter-input-items .theme-btn { width: 100%; }
+.tg-app .cta-newsletter-section .list-items { flex-direction: column; align-items: flex-start; gap: 8px; }
+.tg-app .cta-newsletter-section .tg-cta-links { flex-direction: column; gap: 10px; align-items: center; }
+
+/* Reviews */
+.tg-app .tg-reviews .tg-rating-line { flex-wrap: wrap; justify-content: center; }
+
+/* Requirements */
+.tg-app .tg-req .row { --bs-gutter-x: 10px; --bs-gutter-y: 10px; }
+.tg-app .tg-req .req-item { padding: 18px 12px; }
+.tg-app .tg-req .req-item i { font-size: 26px; }
+.tg-app .tg-req .section-title p br { display: none; }
+
+/* Intakes */
+.tg-app .tg-intakes .section-title-area .theme-btn { display: none; }
+.tg-app .tg-intakes .news-box-items { margin-top: 0; padding: 10px; border-radius: var(--m-radius); background: var(--m-surface); border: 1px solid var(--m-line); box-shadow: 0 6px 24px rgba(14, 33, 69, .06); }
+.tg-app .tg-intakes .news-box-items .news-image { border-radius: 14px; }
+.tg-app .tg-intakes .news-box-items .news-content { margin-top: 14px; padding: 0 6px 6px; }
+
+/* FAQ */
+.tg-app .tg-faq .faq-item summary { font-size: 16px; padding: 18px; min-height: 48px; }
+.tg-app .tg-faq .faq-item p { padding: 0 18px 18px; }
+
+/* Contact: info card + button; the form itself becomes a bottom sheet */
+.tg-app .tg-contact-info { padding: 26px 20px; border-radius: var(--m-radius); }
+.tg-app .tg-mobile-only.tg-open-sheet-inline { display: inline-flex; width: 100%; margin: 0 0 24px; gap: 10px; }
+.tg-app .tg-mobile-only.tg-open-sheet-inline i { margin: 0; }
+
+.tg-app .tg-contact .contact-form-items.tg-form-card {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 1200; margin: 0; height: auto;
+    max-height: 92vh; max-height: 92dvh; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 20px calc(24px + var(--m-safe-bottom));
+    background: var(--m-surface); border: 0; border-radius: 28px 28px 0 0;
+    box-shadow: 0 -20px 60px rgba(14, 33, 69, .25);
+    transform: translateY(105%); visibility: hidden;
+    transition: transform .32s cubic-bezier(.2, .8, .2, 1), visibility 0s linear .32s;
+}
+.tg-app.tg-sheet-open .tg-contact .contact-form-items.tg-form-card {
+    transform: translateY(0); visibility: visible; transition: transform .32s cubic-bezier(.2, .8, .2, 1);
+}
+.tg-app .tg-sheet-bar {
+    display: flex; position: sticky; top: 0; z-index: 2; align-items: center; justify-content: center;
+    padding: 12px 0 8px; margin: 0 -20px 6px; background: var(--m-surface);
+}
+.tg-app .tg-sheet-handle { width: 44px; height: 5px; border-radius: 5px; background: #d5dbe5; }
+.tg-app .tg-sheet-close {
+    position: absolute; right: 14px; top: 8px; width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--m-surface-2); border: 0; color: var(--m-text);
+}
+.tg-app .tg-form-card .title h2 { font-size: 24px; }
+.tg-app .tg-form-card .form-clt input, .tg-app .tg-form-card .form-clt select, .tg-app .tg-form-card .form-clt textarea { border-radius: 14px; min-height: 50px; }
+.tg-app .tg-form-card .theme-btn { width: 100%; }
+.tg-app .tg-consent { max-width: none; }
+.tg-app .tg-sheet-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 1150; background: rgba(14, 33, 69, .45);
+    opacity: 0; transition: opacity .3s ease;
+}
+.tg-app .tg-sheet-backdrop[hidden] { display: none; }
+.tg-app.tg-sheet-open .tg-sheet-backdrop { opacity: 1; }
+.tg-app.tg-sheet-open { overflow: hidden; }
+.tg-app.tg-sheet-open .tg-tabbar { transform: translate(-50%, 140%); }
+
+/* Sidebar menu */
+.tg-app .offcanvas__info { width: min(86vw, 360px); border-left: 0; padding-bottom: var(--m-safe-bottom); }
+.tg-app .offcanvas__info .offcanvas-title { font-size: 24px; }
+.tg-app .tg-mobile-nav { background: var(--m-surface-2); border-radius: var(--m-radius); padding: 6px; }
+.tg-app .tg-mobile-nav li a { display: flex; align-items: center; gap: 14px; padding: 10px; border: 0; border-radius: 14px; min-height: 52px; }
+.tg-app .tg-mobile-nav li a:hover { background: var(--m-surface); }
+.tg-app .tg-nav-icon { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--m-red-soft); color: var(--m-red); font-size: 14px; }
+.tg-app .tg-nav-chevron { margin-left: auto; font-size: 12px; color: #a9b3c3; }
+.tg-app .offcanvas__contact .theme-btn { width: 100%; }
+.tg-app .offcanvas__overlay.overlay-open { opacity: .45; }
+
+/* Bottom tab bar */
+.tg-app .tg-tabbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 4px;
+    position: fixed; left: 50%; bottom: calc(14px + var(--m-safe-bottom)); transform: translateX(-50%);
+    z-index: 1100; width: calc(100% - 28px); max-width: 440px; height: var(--m-tabbar-h); padding: 8px 10px;
+    border-radius: 999px; background: rgba(255, 255, 255, .92); border: 1px solid var(--m-line);
+    -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 16px 40px rgba(14, 33, 69, .18);
+    transition: transform .3s ease;
+}
+.tg-app .tg-tab {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    min-width: 44px; height: 56px; border-radius: 999px; border: 0; background: transparent;
+    color: var(--m-muted); font-size: 11px; font-weight: 600; letter-spacing: .02em; text-decoration: none;
+}
+/* One icon size token for every tab; every icon sits in a same-size pill so labels share a baseline. */
+.tg-app .tg-tab > i {
+    width: 40px; height: 28px; border-radius: 999px; display: grid; place-items: center;
+    font-size: 18px; line-height: 1; transition: background-color .15s ease, color .15s ease;
+}
+.tg-app .tg-tab.is-active { color: var(--m-red); }
+.tg-app .tg-tab.is-active > i { background: var(--m-red-soft); color: var(--m-red); }
+.tg-app .tg-tab:active > i { background: rgba(14, 33, 69, .08); }
+
+/* Centre action: icon alone in the raised circle, label underneath on the shared baseline. */
+.tg-app .tg-tab-main { flex: 0 0 64px; height: 56px; justify-content: flex-end; padding: 0 0 6px; color: var(--m-red); }
+.tg-app .tg-tab-main .tg-fab {
+    width: 54px; height: 54px; margin-top: -32px; margin-bottom: 2px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--m-red); color: #fff;
+    box-shadow: 0 0 0 5px var(--m-surface), 0 10px 22px rgba(227, 30, 36, .35);
+    transition: background-color .15s ease, box-shadow .15s ease;
+}
+/* The paper-plane glyph's visual weight sits up-right; nudge it to look centred. */
+.tg-app .tg-tab-main .tg-fab i { font-size: 20px; line-height: 1; transform: translate(-1px, 1px); }
+.tg-app .tg-tab-main:active .tg-fab { background: var(--tg-red-dark, #b8141a); box-shadow: 0 0 0 5px var(--m-surface), 0 4px 12px rgba(227, 30, 36, .3); }
+.tg-app .tg-tab span:not(.tg-fab) { line-height: 1; }
+
+/* Replaced on phones by the tab bar */
+.tg-app .tg-wa, .tg-app #back-top { display: none !important; }
+
+/* Footer */
+.tg-app .footer-name h2 { font-size: 64px; letter-spacing: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+    .tg-app .tg-contact .contact-form-items.tg-form-card, .tg-app .tg-tabbar, .tg-app .tg-sheet-backdrop { transition: none; }
+}

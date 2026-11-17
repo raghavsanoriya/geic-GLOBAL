@@ -396,6 +396,13 @@ class CmsPageCatalog
             'The primary promotional campaign page at /landing.'
         );
 
+        $pages[] = self::page(
+            DubaiPage::PAGE_KEY,
+            'Study in Dubai',
+            'The Dubai campaign landing page at /dubai. Sections, lists and images are all editable here.',
+            DubaiPage::fields()
+        );
+
         try {
             if (Schema::hasTable('cms_pages')) {
                 foreach (CmsPage::query()->orderBy('group')->orderBy('name')->get() as $customPage) {

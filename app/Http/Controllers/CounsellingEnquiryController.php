@@ -6,6 +6,7 @@ use App\Models\CmsPage;
 use App\Models\CmsPageState;
 use App\Rules\ValidEnquiryPhone;
 use App\Support\DestinationCatalog;
+use App\Support\DubaiPage;
 use App\Support\RecordWebsiteEnquiry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -197,6 +198,65 @@ class CounsellingEnquiryController extends Controller
 
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+    }
+
+    /**
+     * Store an enquiry from the Study in Dubai landing page.
+     */
+    public function storeDubai(Request $request): RedirectResponse
+    {
+        $returnUrl = DubaiPage::PUBLIC_PATH.'#contact';
+
+        if ($request->filled('website')) {
+            return redirect($returnUrl)
+                ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.');
+        }
+
+        $validator = Validator::make($request->all(), [
+            'full_name' => ['required', 'string', 'max:120'],
+            'email' => ['required', 'email:rfc', 'max:160'],
+            'phone' => ['required', 'string', 'max:24', new ValidEnquiryPhone],
+            'city' => ['nullable', 'string', 'max:100'],
+            'study_level' => ['required', Rule::in(['Undergraduate', 'Postgraduate', 'Not sure yet'])],
+            'preferred_intake' => ['required', Rule::in(['September intake', 'January intake', 'May intake', 'Not sure yet'])],
+            'preferred_course' => ['nullable', 'string', 'max:160'],
+            'message' => ['nullable', 'string', 'max:1200'],
+            'consent' => ['accepted'],
+            'website' => ['nullable', 'max:0'],
+        ], [
+            'phone.regex' => 'Enter a valid phone number using digits and standard phone symbols.',
+            'consent.accepted' => 'Please allow our counsellor to contact you about this enquiry.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect($returnUrl)->withErrors($validator)->withInput();
+        }
+
+        $data = $validator->validated();
+
+        $this->enquiries->store([
+            'destination' => 'Dubai',
+            'full_name' => $data['full_name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'city' => filled($data['city'] ?? null) ? $data['city'] : 'Not provided',
+            'study_level' => $data['study_level'],
+            'preferred_intake' => $data['preferred_intake'],
+            'preferred_course' => $data['preferred_course'] ?? null,
+            'english_test' => 'Not sure yet',
+            'message' => $data['message'] ?? null,
+            'source_page' => DubaiPage::PUBLIC_PATH,
+            'source_form' => 'Dubai landing page enquiry',
+            ...$this->trackingAttributes($request),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], $data);
+
+        $this->recordConversion($request, DubaiPage::PUBLIC_PATH, 'Dubai');
+
+        return redirect($returnUrl)
+            ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.')
+            ->with('dubai_lead', true);
     }
 
     private function store(Request $request, string $slug, string $destinationName, ?string $returnUrl = null): RedirectResponse

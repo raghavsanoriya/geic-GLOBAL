@@ -32,6 +32,8 @@ use App\Http\Controllers\CrmStudentController;
 use App\Http\Controllers\CrmStudentOperationsController;
 use App\Http\Controllers\CrmTaskController;
 use App\Http\Controllers\CrmVisaController;
+use App\Http\Controllers\DubaiPageController;
+use App\Http\Controllers\DubaiTrackingController;
 use App\Http\Controllers\ExpoTrackingController;
 use App\Http\Controllers\ForisSyncController;
 use App\Http\Controllers\LeadDuplicateReviewController;
@@ -219,6 +221,8 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::post('/ads/performance', [AdminController::class, 'storeAdPerformance'])->middleware('can:ads.manage')->name('ads.performance.store');
             Route::get('/expo-tracking', [ExpoTrackingController::class, 'edit'])->middleware('can:ads.manage')->name('expo-tracking.edit');
             Route::put('/expo-tracking', [ExpoTrackingController::class, 'update'])->middleware('can:ads.manage')->name('expo-tracking.update');
+            Route::get('/dubai-tracking', [DubaiTrackingController::class, 'edit'])->middleware('can:ads.manage')->name('dubai-tracking.edit');
+            Route::put('/dubai-tracking', [DubaiTrackingController::class, 'update'])->middleware('can:ads.manage')->name('dubai-tracking.update');
             Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
             Route::middleware('can:content.manage')->group(function (): void {
@@ -380,6 +384,14 @@ Route::get('/_geic_release/uniexpo-dubai-europe/{asset?}', function (?string $as
         'Content-Type' => $contentTypes[$file],
     ]);
 })->where('asset', '.*')->name('uniexpo.release');
+
+// Study in Dubai campaign page (CMS-driven). Registered before the mirror catch-all.
+Route::get('/dubai', [DubaiPageController::class, 'show'])->name('dubai.show');
+Route::post('/dubai/enquire', [CounsellingEnquiryController::class, 'storeDubai'])
+    ->middleware('throttle:10,1')
+    ->name('dubai.enquire');
+// Apache's trailing-slash rule rewrites /dubai/ to the release bridge path.
+Route::redirect('/_geic_release/dubai', '/dubai', 301);
 
 // The agent workspace is an internal tool and is not part of the public site.
 Route::get('/ai-agents', [MirrorPageController::class, 'show'])
