@@ -313,7 +313,7 @@
                 try { sessionStorage.setItem('tg_dubai_popup', '1'); } catch (e) {}
                 var info = document.querySelector('.offcanvas__info.info-open');
                 if (!info) { openSheet(); }
-            }, 3500);
+            }, 1000);
         }
     }
 

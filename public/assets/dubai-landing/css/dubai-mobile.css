@@ -301,3 +301,18 @@ body.tg-app { background: var(--m-bg); padding-bottom: calc(var(--m-tabbar-h) + 
 .tg-app.tg-sheet-open .tg-sheet-bar { display: flex; }
 @keyframes tgSheetUp { from { transform: translateY(100%); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .tg-app.tg-sheet-open .tg-contact .contact-form-items.tg-form-card { animation: none; } }
+
+/* Compact phone sheet: short fields two per row, optional message stays in the inline form only. */
+.tg-app.tg-sheet-open .tg-form-card .title { margin-bottom: 10px; }
+.tg-app.tg-sheet-open .tg-form-card .title h2 { font-size: 21px; margin-bottom: 2px; }
+.tg-app.tg-sheet-open .tg-form-card .title p { font-size: 12px; }
+.tg-app.tg-sheet-open .tg-form-card .row.g-4 { --bs-gutter-x: 10px; --bs-gutter-y: 10px; }
+.tg-app.tg-sheet-open .tg-form-card .tg-col-half { flex: 0 0 50%; max-width: 50%; }
+.tg-app.tg-sheet-open .tg-form-card .tg-col-message { display: none; }
+.tg-app.tg-sheet-open .tg-form-card .form-clt label { font-size: 12px; margin-bottom: 4px; }
+.tg-app.tg-sheet-open .tg-form-card .form-clt input,
+.tg-app.tg-sheet-open .tg-form-card .form-clt select { min-height: 42px; padding: 9px 12px; font-size: 16px; }
+.tg-app.tg-sheet-open .tg-form-card .tg-consent-check { font-size: 12px; gap: 8px; }
+.tg-app.tg-sheet-open .tg-form-card .theme-btn { min-height: 46px; padding: 13px 20px; }
+.tg-app.tg-sheet-open .tg-sheet-bar { padding: 8px 0 4px; margin-bottom: 0; }
+.tg-app.tg-sheet-open .tg-form-card .tg-alert { margin-bottom: 10px; padding: 9px 12px; font-size: 13px; }

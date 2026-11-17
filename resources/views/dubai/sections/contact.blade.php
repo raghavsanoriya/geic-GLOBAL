@@ -48,7 +48,7 @@
                                 ['id' => 'enq-email', 'name' => 'email', 'label' => 'Email address *', 'type' => 'email', 'auto' => 'email', 'max' => 160, 'mode' => 'email'],
                                 ['id' => 'enq-city', 'name' => 'city', 'label' => 'City', 'type' => 'text', 'auto' => 'address-level2', 'max' => 100, 'mode' => null],
                             ] as $input)
-                                <div class="col-md-6">
+                                <div class="col-md-6 tg-col-half">
                                     <div class="form-clt">
                                         <label for="{{ $input['id'] }}">{{ $input['label'] }}</label>
                                         <input type="{{ $input['type'] }}" id="{{ $input['id'] }}" name="{{ $input['name'] }}" value="{{ $oldText($input['name']) }}" maxlength="{{ $input['max'] }}" autocomplete="{{ $input['auto'] }}" @if ($input['mode']) inputmode="{{ $input['mode'] }}" @endif @if (str_ends_with($input['label'], '*')) required @endif @error($input['name']) aria-invalid="true" aria-describedby="{{ $input['id'] }}-error" @enderror>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="col-md-6">
+                            <div class="col-md-6 tg-col-half">
                                 <div class="form-clt">
                                     <label for="enq-level">Study level *</label>
                                     <select id="enq-level" name="study_level" required @error('study_level') aria-invalid="true" @enderror>
@@ -68,7 +68,7 @@
                                     @error('study_level')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 tg-col-half">
                                 <div class="form-clt">
                                     <label for="enq-intake">Preferred intake *</label>
                                     <select id="enq-intake" name="preferred_intake" required @error('preferred_intake') aria-invalid="true" @enderror>
@@ -80,14 +80,14 @@
                                     @error('preferred_intake')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 tg-col-course">
                                 <div class="form-clt">
                                     <label for="enq-course">Course of interest</label>
                                     <input type="text" id="enq-course" name="preferred_course" value="{{ $oldText('preferred_course') }}" maxlength="160" placeholder="For example: MBA, Computer Science, Hospitality">
                                     @error('preferred_course')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 tg-col-message">
                                 <div class="form-clt">
                                     <label for="enq-message">Message</label>
                                     <textarea id="enq-message" name="message" maxlength="1200" placeholder="Tell us your plans or any questions">{{ $oldText('message') }}</textarea>
