@@ -330,3 +330,10 @@ section[id], footer[id] { scroll-margin-top: 100px; }
 /* Consent checkbox on the enquiry form */
 .tg-consent-check { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.55; color: var(--text); cursor: pointer; }
 .tg-consent-check input { flex: 0 0 20px; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--tg-red); }
+
+/* Hero stat card: keep it off the student's face once the theme stacks it on the photo */
+@media (max-width: 1399px) {
+    .hero-2.tg-hero .hero-image-items .hero-image .counter-box { top: auto; bottom: 24px; left: 0; right: auto; padding: 16px 22px; }
+    .hero-2.tg-hero .hero-image-items .hero-image .counter-box p { font-size: 14px; margin: 0; }
+    .hero-2.tg-hero .hero-image-items .hero-image .counter-box h2 { font-size: 34px; line-height: 1.1; }
+}
