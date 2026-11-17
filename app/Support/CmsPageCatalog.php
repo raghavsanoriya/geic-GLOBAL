@@ -399,7 +399,7 @@ class CmsPageCatalog
         $pages[] = self::page(
             DubaiPage::PAGE_KEY,
             'Study in Dubai',
-            'The Dubai campaign landing page at /dubai. Sections, lists and images are all editable here.',
+            'The Dubai campaign landing page at /dubai. Sections, lists and images are all editable here; type a single - in a field to hide it.',
             DubaiPage::fields()
         );
 

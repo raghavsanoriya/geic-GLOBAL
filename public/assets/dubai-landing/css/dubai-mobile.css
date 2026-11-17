@@ -283,3 +283,21 @@ body.tg-app { background: var(--m-bg); padding-bottom: calc(var(--m-tabbar-h) + 
 @media (prefers-reduced-motion: reduce) {
     .tg-app .tg-contact .contact-form-items.tg-form-card, .tg-app .tg-tabbar, .tg-app .tg-sheet-backdrop { transition: none; }
 }
+
+/* Phones: keep the form inline at the bottom of the page; it becomes a bottom sheet only when opened. */
+.tg-app .tg-contact .contact-form-items.tg-form-card {
+    position: static; transform: none; visibility: visible; max-height: none; overflow: visible;
+    padding: 26px 20px; border: 1px solid var(--m-line); border-radius: var(--m-radius);
+    box-shadow: 0 6px 24px rgba(14, 33, 69, .06); transition: none;
+}
+.tg-app .tg-sheet-bar { display: none; }
+.tg-app .tg-mobile-only.tg-open-sheet-inline { display: none; }
+.tg-app.tg-sheet-open .tg-contact .contact-form-items.tg-form-card {
+    position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 1200;
+    max-height: 92vh; max-height: 92dvh; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 20px calc(24px + var(--m-safe-bottom)); border: 0; border-radius: 28px 28px 0 0;
+    box-shadow: 0 -20px 60px rgba(14, 33, 69, .25); animation: tgSheetUp .32s cubic-bezier(.2, .8, .2, 1);
+}
+.tg-app.tg-sheet-open .tg-sheet-bar { display: flex; }
+@keyframes tgSheetUp { from { transform: translateY(100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .tg-app.tg-sheet-open .tg-contact .contact-form-items.tg-form-card { animation: none; } }

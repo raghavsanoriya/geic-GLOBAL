@@ -26,7 +26,7 @@ class DubaiLandingPageTest extends TestCase
 
     public function test_trailing_slash_bridge_path_redirects_to_the_page(): void
     {
-        $this->get('/_geic_release/dubai')->assertRedirect('/dubai');
+        $this->get('/_geic_release/dubai?utm_source=facebook&gclid=abc')->assertRedirect('/dubai?gclid=abc&utm_source=facebook');
     }
 
     public function test_published_cms_values_override_text_and_control_sections(): void
@@ -43,6 +43,21 @@ class DubaiLandingPageTest extends TestCase
             ->assertSee('Is there a new intake?')
             ->assertDontSee('From First Call To Landing In Dubai')
             ->assertDontSee('Real Students. Real Google Reviews.');
+    }
+
+    public function test_array_query_values_do_not_break_the_page(): void
+    {
+        $this->get('/dubai?utm_source[]=x&utm_campaign[]=y')->assertOk()->assertSee('Study In Dubai With');
+    }
+
+    public function test_a_single_dash_hides_an_optional_field(): void
+    {
+        $this->publish(['internships_note' => '-', 'highlights' => '-']);
+
+        $this->get('/dubai')
+            ->assertOk()
+            ->assertDontSee('Graduation ke time aapke paas')
+            ->assertDontSee('marquee-section style-header', false);
     }
 
     public function test_dubai_page_is_listed_in_the_cms_editor(): void
@@ -75,14 +90,14 @@ class DubaiLandingPageTest extends TestCase
             ->assertSessionHas('dubai_lead', true);
 
         $this->assertDatabaseHas('counselling_enquiries', [
-            'destination' => 'Dubai',
+            'destination' => 'Dubai & UAE',
             'email' => 'dubai.student@example.com',
             'source_page' => '/dubai',
             'source_form' => 'Dubai landing page enquiry',
             'utm_source' => 'facebook',
             'utm_campaign' => 'dubai-leads',
         ]);
-        $this->assertDatabaseHas('site_events', ['event_type' => 'form_submit', 'path' => '/dubai', 'label' => 'Dubai']);
+        $this->assertDatabaseHas('site_events', ['event_type' => 'form_submit', 'path' => '/dubai', 'label' => 'Dubai & UAE']);
     }
 
     public function test_dubai_enquiry_requires_contact_details_and_consent(): void

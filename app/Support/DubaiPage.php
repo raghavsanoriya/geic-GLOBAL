@@ -22,6 +22,12 @@ class DubaiPage
 
     public const TRACKING_KEY = 'integration.dubai_tracking';
 
+    /** Matches the existing /destinations/dubai enquiries so filters and CRM country stay unified. */
+    public const DESTINATION = 'Dubai & UAE';
+
+    /** Editors type this alone in a field to hide that item (blank fields fall back to defaults). */
+    public const HIDE_TOKEN = '-';
+
     /** Sections the page knows how to render, in their default order. */
     public const SECTIONS = [
         'hero', 'credentials', 'why', 'internships', 'journey', 'industries', 'costs',
@@ -222,7 +228,11 @@ class DubaiPage
 
         foreach (self::fields() as $field) {
             $value = $saved[$field['key']] ?? null;
-            $text[$field['key']] = is_string($value) && trim($value) !== '' ? $value : $field['default'];
+            $text[$field['key']] = match (true) {
+                is_string($value) && trim($value) === self::HIDE_TOKEN => '',
+                is_string($value) && trim($value) !== '' => $value,
+                default => $field['default'],
+            };
         }
 
         $whatsappDigits = preg_replace('/\D+/', '', $text['whatsapp_number']) ?: '919826666886';
@@ -240,7 +250,7 @@ class DubaiPage
             ...$text,
             'sections' => self::sections($text['sections']),
             'whatsappUrl' => 'https://wa.me/'.$whatsappDigits.'?text='.rawurlencode($text['whatsapp_message']),
-            'telUrl' => 'tel:+'.ltrim(preg_replace('/[^\d+]/', '', $text['phone']) ?: '', '+'),
+            'telUrl' => 'tel:'.(preg_replace('/[^\d+]/', '', $text['phone']) ?: '+919826666886'),
             'heroImage' => self::imageUrl($text['hero_image']),
             'internshipImages' => [
                 'main' => self::imageUrl($text['internships_image_main']),
@@ -368,10 +378,11 @@ class DubaiPage
         return asset(ltrim($value, '/'));
     }
 
-    /** @param list<array{max: float}> $costs */
+    /** @param list<array{min: float, max: float}> $costs */
     private static function costScale(array $costs): float
     {
-        $highest = collect($costs)->max('max') ?: 80;
+        // Editors may type the range either way round, so scale to the larger end.
+        $highest = collect($costs)->map(fn (array $cost): float => max($cost['min'], $cost['max']))->max() ?: 80;
 
         return (float) (ceil($highest / 20) * 20);
     }

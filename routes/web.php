@@ -391,7 +391,7 @@ Route::post('/dubai/enquire', [CounsellingEnquiryController::class, 'storeDubai'
     ->middleware('throttle:10,1')
     ->name('dubai.enquire');
 // Apache's trailing-slash rule rewrites /dubai/ to the release bridge path.
-Route::redirect('/_geic_release/dubai', '/dubai', 301);
+Route::get('/_geic_release/dubai', [DubaiPageController::class, 'canonical'])->name('dubai.canonical');
 
 // The agent workspace is an internal tool and is not part of the public site.
 Route::get('/ai-agents', [MirrorPageController::class, 'show'])

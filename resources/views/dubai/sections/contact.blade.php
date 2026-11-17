@@ -1,3 +1,4 @@
+@php($oldText = fn (string $key): string => is_string(old($key)) ? old($key) : '')
 <section id="contact" class="contact-section-2 tg-contact section-padding pt-0">
     <div class="container">
         <div class="row g-4 align-items-stretch">
@@ -40,9 +41,6 @@
                     <form method="POST" action="{{ route('dubai.enquire') }}" novalidate>
                         @csrf
                         <div class="tg-hp" aria-hidden="true"><label for="enq-website">Website</label><input type="text" id="enq-website" name="website" tabindex="-1" autocomplete="off"></div>
-                        @foreach (['utm_source', 'utm_medium', 'utm_campaign'] as $utm)
-                            <input type="hidden" name="{{ $utm }}" value="{{ old($utm, request()->query($utm)) }}">
-                        @endforeach
                         <div class="row g-4">
                             @foreach ([
                                 ['id' => 'enq-name', 'name' => 'full_name', 'label' => 'Full name *', 'type' => 'text', 'auto' => 'name', 'max' => 120, 'mode' => null],
@@ -53,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-clt">
                                         <label for="{{ $input['id'] }}">{{ $input['label'] }}</label>
-                                        <input type="{{ $input['type'] }}" id="{{ $input['id'] }}" name="{{ $input['name'] }}" value="{{ old($input['name']) }}" maxlength="{{ $input['max'] }}" autocomplete="{{ $input['auto'] }}" @if ($input['mode']) inputmode="{{ $input['mode'] }}" @endif @if (str_ends_with($input['label'], '*')) required @endif @error($input['name']) aria-invalid="true" aria-describedby="{{ $input['id'] }}-error" @enderror>
+                                        <input type="{{ $input['type'] }}" id="{{ $input['id'] }}" name="{{ $input['name'] }}" value="{{ $oldText($input['name']) }}" maxlength="{{ $input['max'] }}" autocomplete="{{ $input['auto'] }}" @if ($input['mode']) inputmode="{{ $input['mode'] }}" @endif @if (str_ends_with($input['label'], '*')) required @endif @error($input['name']) aria-invalid="true" aria-describedby="{{ $input['id'] }}-error" @enderror>
                                         @error($input['name'])<span class="tg-field-error" id="{{ $input['id'] }}-error">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -64,7 +62,7 @@
                                     <select id="enq-level" name="study_level" required @error('study_level') aria-invalid="true" @enderror>
                                         <option value="">Select level</option>
                                         @foreach (['Undergraduate' => 'Undergraduate (Bachelor\'s)', 'Postgraduate' => 'Postgraduate (Master\'s)', 'Not sure yet' => 'Not sure yet'] as $value => $label)
-                                            <option value="{{ $value }}" @selected(old('study_level') === $value)>{{ $label }}</option>
+                                            <option value="{{ $value }}" @selected($oldText('study_level') === $value)>{{ $label }}</option>
                                         @endforeach
                                     </select>
                                     @error('study_level')<span class="tg-field-error">{{ $message }}</span>@enderror
@@ -76,7 +74,7 @@
                                     <select id="enq-intake" name="preferred_intake" required @error('preferred_intake') aria-invalid="true" @enderror>
                                         <option value="">Select intake</option>
                                         @foreach (['September intake', 'January intake', 'May intake', 'Not sure yet'] as $value)
-                                            <option value="{{ $value }}" @selected(old('preferred_intake') === $value)>{{ $value }}</option>
+                                            <option value="{{ $value }}" @selected($oldText('preferred_intake') === $value)>{{ $value }}</option>
                                         @endforeach
                                     </select>
                                     @error('preferred_intake')<span class="tg-field-error">{{ $message }}</span>@enderror
@@ -85,20 +83,20 @@
                             <div class="col-12">
                                 <div class="form-clt">
                                     <label for="enq-course">Course of interest</label>
-                                    <input type="text" id="enq-course" name="preferred_course" value="{{ old('preferred_course') }}" maxlength="160" placeholder="For example: MBA, Computer Science, Hospitality">
+                                    <input type="text" id="enq-course" name="preferred_course" value="{{ $oldText('preferred_course') }}" maxlength="160" placeholder="For example: MBA, Computer Science, Hospitality">
                                     @error('preferred_course')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-clt">
                                     <label for="enq-message">Message</label>
-                                    <textarea id="enq-message" name="message" maxlength="1200" placeholder="Tell us your plans or any questions">{{ old('message') }}</textarea>
+                                    <textarea id="enq-message" name="message" maxlength="1200" placeholder="Tell us your plans or any questions">{{ $oldText('message') }}</textarea>
                                     @error('message')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label class="tg-consent-check" for="enq-consent">
-                                    <input type="checkbox" id="enq-consent" name="consent" value="1" @checked(old('consent')) required @error('consent') aria-invalid="true" @enderror>
+                                    <input type="checkbox" id="enq-consent" name="consent" value="1" @checked($oldText('consent') !== '') required @error('consent') aria-invalid="true" @enderror>
                                     <span>I agree to be contacted by Trans Globe Indore about studying in Dubai. *</span>
                                 </label>
                                 @error('consent')<span class="tg-field-error">{{ $message }}</span>@enderror

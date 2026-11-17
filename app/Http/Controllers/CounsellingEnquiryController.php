@@ -235,7 +235,7 @@ class CounsellingEnquiryController extends Controller
         $data = $validator->validated();
 
         $this->enquiries->store([
-            'destination' => 'Dubai',
+            'destination' => DubaiPage::DESTINATION,
             'full_name' => $data['full_name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
@@ -252,7 +252,7 @@ class CounsellingEnquiryController extends Controller
             'updated_at' => now(),
         ], $data);
 
-        $this->recordConversion($request, DubaiPage::PUBLIC_PATH, 'Dubai');
+        $this->recordConversion($request, DubaiPage::PUBLIC_PATH, DubaiPage::DESTINATION);
 
         return redirect($returnUrl)
             ->with('enquiry_success', 'Thank you. Our Indore counselling team will contact you shortly.')

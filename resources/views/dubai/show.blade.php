@@ -17,6 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $page['meta_title'] }}</title>
     <meta name="description" content="{{ $page['meta_description'] }}">
     <link rel="canonical" href="{{ url('/dubai') }}">
@@ -219,6 +220,7 @@
 <button id="back-top" class="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-long-arrow-up"></i></button>
 <a class="tg-wa" href="{{ $page['whatsappUrl'] }}" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
+@include('mirror.partials.site-analytics')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 <script>
 (function () {
@@ -278,8 +280,7 @@
     var backdrop = document.querySelector('.tg-sheet-backdrop');
     var lastFocus = null;
     function openSheet(pushHistory) {
-        if (!sheet) { return; }
-        if (!phone.matches) { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return; }
+        if (!sheet || document.body.classList.contains('tg-sheet-open')) { return; }
         lastFocus = document.activeElement;
         sheet.setAttribute('role', 'dialog');
         sheet.setAttribute('aria-modal', 'true');
@@ -301,8 +302,20 @@
     document.querySelectorAll('[data-close-sheet]').forEach(function (el) { el.addEventListener('click', function () { closeSheet(); }); });
     window.addEventListener('popstate', function () { closeSheet(true); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); toggleMenu(false); } });
-    phone.addEventListener('change', function (e) { if (!e.matches) { closeSheet(); } });
-    if (phone.matches && sheet && sheet.querySelector('.tg-alert')) { openSheet(false); }
+    // After a submit, show the result in the popup; otherwise invite new visitors once per visit.
+    if (sheet && sheet.querySelector('.tg-alert')) {
+        openSheet(false);
+    } else if (sheet) {
+        var seen = false;
+        try { seen = sessionStorage.getItem('tg_dubai_popup') === '1'; } catch (e) {}
+        if (!seen) {
+            setTimeout(function () {
+                try { sessionStorage.setItem('tg_dubai_popup', '1'); } catch (e) {}
+                var info = document.querySelector('.offcanvas__info.info-open');
+                if (!info) { openSheet(); }
+            }, 3500);
+        }
+    }
 
     // Tab bar highlight + header shadow + back-to-top
     var spyTabs = document.querySelectorAll('.tg-tab[data-spy]');
