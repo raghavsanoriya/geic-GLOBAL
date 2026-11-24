@@ -89,7 +89,19 @@
                                     @error('preferred_intake')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-12 tg-col-course">
+                            <div class="col-md-6 tg-col-half">
+                                <div class="form-clt">
+                                    <label for="enq-budget">Your approx. budget *</label>
+                                    <select id="enq-budget" name="budget" required @error('budget') aria-invalid="true" @enderror>
+                                        <option value="">Select your budget</option>
+                                        @foreach (\App\Support\DubaiPage::BUDGETS as $value)
+                                            <option value="{{ $value }}" @selected($oldText('budget') === $value)>{{ $value }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('budget')<span class="tg-field-error">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 tg-col-half tg-col-course">
                                 <div class="form-clt">
                                     <label for="enq-course">Course of interest</label>
                                     <input type="text" id="enq-course" name="preferred_course" value="{{ $oldText('preferred_course') }}" maxlength="160" placeholder="For example: MBA, Computer Science, Hospitality">
@@ -103,14 +115,14 @@
                                     @error('message')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 tg-col-consent">
                                 <label class="tg-consent-check" for="enq-consent">
                                     <input type="checkbox" id="enq-consent" name="consent" value="1" @checked($oldText('consent') !== '') required @error('consent') aria-invalid="true" @enderror>
                                     <span>I agree to be contacted by Trans Globe Indore about studying in Dubai. *</span>
                                 </label>
                                 @error('consent')<span class="tg-field-error">{{ $message }}</span>@enderror
                             </div>
-                            <div class="col-12 d-flex justify-content-end">
+                            <div class="col-12 d-flex justify-content-end tg-col-submit">
                                 <button type="submit" class="theme-btn">{{ $page['form_button'] }}</button>
                             </div>
                         </div>

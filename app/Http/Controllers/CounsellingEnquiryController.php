@@ -219,6 +219,7 @@ class CounsellingEnquiryController extends Controller
             'city' => ['nullable', 'string', 'max:100'],
             'study_level' => ['required', Rule::in(['Undergraduate', 'Postgraduate', 'Not sure yet'])],
             'preferred_intake' => ['required', Rule::in(['September intake', 'January intake', 'May intake', 'Not sure yet'])],
+            'budget' => ['required', Rule::in(DubaiPage::BUDGETS)],
             'preferred_course' => ['nullable', 'string', 'max:160'],
             'message' => ['nullable', 'string', 'max:1200'],
             'consent' => ['accepted'],
@@ -226,6 +227,7 @@ class CounsellingEnquiryController extends Controller
         ], [
             'phone.regex' => 'Enter a valid phone number using digits and standard phone symbols.',
             'consent.accepted' => 'Please allow our counsellor to contact you about this enquiry.',
+            'budget.required' => 'Please choose your approximate budget.',
         ]);
 
         if ($validator->fails()) {
@@ -244,7 +246,8 @@ class CounsellingEnquiryController extends Controller
             'preferred_intake' => $data['preferred_intake'],
             'preferred_course' => $data['preferred_course'] ?? null,
             'english_test' => 'Not sure yet',
-            'message' => $data['message'] ?? null,
+            'message' => trim('Approx. yearly budget: '.$data['budget'].'
+'.($data['message'] ?? '')),
             'source_page' => DubaiPage::PUBLIC_PATH,
             'source_form' => 'Dubai landing page enquiry',
             ...$this->trackingAttributes($request),

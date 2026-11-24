@@ -89,6 +89,7 @@ class DubaiLandingPageTest extends TestCase
             'city' => 'Indore',
             'study_level' => 'Postgraduate',
             'preferred_intake' => 'September intake',
+            'budget' => '₹15–25 Lakhs – Preferred University Options',
             'preferred_course' => 'MBA',
             'message' => 'Please call me.',
             'consent' => '1',
@@ -106,6 +107,8 @@ class DubaiLandingPageTest extends TestCase
             'source_form' => 'Dubai landing page enquiry',
             'utm_source' => 'facebook',
             'utm_campaign' => 'dubai-leads',
+            'message' => 'Approx. yearly budget: ₹15–25 Lakhs – Preferred University Options
+Please call me.',
         ]);
         $this->assertDatabaseHas('site_events', ['event_type' => 'form_submit', 'path' => '/dubai', 'label' => 'Dubai & UAE']);
     }
@@ -114,7 +117,7 @@ class DubaiLandingPageTest extends TestCase
     {
         $this->post(route('dubai.enquire'), [])
             ->assertRedirect('/dubai#contact')
-            ->assertSessionHasErrors(['full_name', 'email', 'phone', 'study_level', 'preferred_intake', 'consent']);
+            ->assertSessionHasErrors(['full_name', 'email', 'phone', 'study_level', 'preferred_intake', 'budget', 'consent']);
 
         $this->assertDatabaseMissing('counselling_enquiries', ['source_page' => '/dubai']);
     }

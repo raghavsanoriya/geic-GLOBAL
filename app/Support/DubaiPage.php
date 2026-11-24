@@ -25,6 +25,14 @@ class DubaiPage
     /** Matches the existing /destinations/dubai enquiries so filters and CRM country stay unified. */
     public const DESTINATION = 'Dubai & UAE';
 
+    /** Approximate yearly budget choices on the enquiry form (tuition + living). */
+    public const BUDGETS = [
+        '₹6–10 Lakhs – Budget-Friendly Universities',
+        '₹10–15 Lakhs – Value-for-Money Universities',
+        '₹15–25 Lakhs – Preferred University Options',
+        '₹25–35 Lakhs – Premium & High-Ranking Universities',
+    ];
+
     /** Editors type this alone in a field to hide that item (blank fields fall back to defaults). */
     public const HIDE_TOKEN = '-';
 
