@@ -26,14 +26,23 @@
                         <span class="tg-sheet-handle" aria-hidden="true"></span>
                         <button type="button" class="tg-sheet-close" data-close-sheet aria-label="Close form"><i class="fas fa-times"></i></button>
                     </div>
+                    @if (session('enquiry_success'))
+                        {{-- After a successful submit the form is replaced by a confirmation, shown in the popup. --}}
+                        <div class="tg-alert tg-success-panel" role="status" data-enquiry-done>
+                            <span class="tg-success-icon" aria-hidden="true"><i class="fas fa-check"></i></span>
+                            <h2 id="enquiry-title">Thank you!</h2>
+                            <p>{{ session('enquiry_success') }}</p>
+                            <p class="tg-success-note">We usually call back within one working day. For a faster reply, message us on WhatsApp.</p>
+                            <div class="tg-success-actions">
+                                <a href="{{ $page['whatsappUrl'] }}" class="theme-btn"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp</a>
+                                <button type="button" class="tg-success-close" data-close-sheet>Close</button>
+                            </div>
+                        </div>
+                    @else
                     <div class="title">
                         <h2 id="enquiry-title">{{ $page['form_title'] }}</h2>
                         <p>Fields marked * are required.</p>
                     </div>
-
-                    @if (session('enquiry_success'))
-                        <div class="tg-alert tg-alert-success" role="status"><i class="fas fa-check-circle"></i><div><b>{{ session('enquiry_success') }}</b></div></div>
-                    @endif
                     @if ($errors->any())
                         <div class="tg-alert tg-alert-error" role="alert"><i class="fas fa-exclamation-circle"></i><div><b>Please check the highlighted fields.</b></div></div>
                     @endif
@@ -106,6 +115,7 @@
                             </div>
                         </div>
                     </form>
+                    @endif
                 </div>
             </div>
         </div>

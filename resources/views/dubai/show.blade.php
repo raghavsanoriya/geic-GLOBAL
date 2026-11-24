@@ -303,11 +303,12 @@
     window.addEventListener('popstate', function () { closeSheet(true); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); toggleMenu(false); } });
     // After a submit, show the result in the popup; otherwise invite new visitors once per visit.
+    if (sheet && sheet.querySelector('[data-enquiry-done]')) { try { localStorage.setItem('tg_dubai_lead', '1'); } catch (e) {} }
     if (sheet && sheet.querySelector('.tg-alert')) {
         openSheet(false);
     } else if (sheet) {
         var seen = false;
-        try { seen = sessionStorage.getItem('tg_dubai_popup') === '1'; } catch (e) {}
+        try { seen = sessionStorage.getItem('tg_dubai_popup') === '1' || localStorage.getItem('tg_dubai_lead') === '1'; } catch (e) {}
         if (!seen) {
             setTimeout(function () {
                 try { sessionStorage.setItem('tg_dubai_popup', '1'); } catch (e) {}

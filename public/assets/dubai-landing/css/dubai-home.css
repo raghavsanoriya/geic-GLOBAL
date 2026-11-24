@@ -374,3 +374,14 @@ section[id], footer[id] { scroll-margin-top: 100px; }
     .tg-app.tg-sheet-open .tg-form-card .tg-consent-check { font-size: 13px; }
     .tg-app.tg-sheet-open .tg-form-card .tg-alert { margin-bottom: 12px; padding: 10px 14px; }
 }
+
+/* Confirmation shown in place of the form after a successful enquiry */
+.tg-success-panel { display: block; text-align: center; padding: 18px 8px 6px; border: 0; background: none; margin: 0; }
+.tg-success-icon { display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; background: #e7f8ef; color: #16835c; font-size: 30px; }
+.tg-success-panel h2 { margin-bottom: 8px; }
+.tg-success-panel p { margin: 0 auto 8px; max-width: 460px; font-size: 16px; color: var(--header); }
+.tg-success-panel .tg-success-note { color: var(--text); font-size: 14px; }
+.tg-success-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.tg-success-actions .theme-btn i { margin: 0 6px 0 0; }
+.tg-success-close { border: 1px solid var(--border); background: #fff; color: var(--header); border-radius: 999px; padding: 14px 26px; font-weight: 600; cursor: pointer; }
+.tg-success-close:hover { border-color: var(--tg-red); color: var(--tg-red); }

@@ -45,6 +45,16 @@ class DubaiLandingPageTest extends TestCase
             ->assertDontSee('Real Students. Real Google Reviews.');
     }
 
+    public function test_form_is_replaced_by_confirmation_after_a_successful_enquiry(): void
+    {
+        $this->withSession(['enquiry_success' => 'Thank you. Our Indore counselling team will contact you shortly.'])
+            ->get('/dubai')
+            ->assertOk()
+            ->assertSee('Thank you!')
+            ->assertSee('data-enquiry-done', false)
+            ->assertDontSee('action="'.route('dubai.enquire').'"', false);
+    }
+
     public function test_array_query_values_do_not_break_the_page(): void
     {
         $this->get('/dubai?utm_source[]=x&utm_campaign[]=y')->assertOk()->assertSee('Study In Dubai With');
