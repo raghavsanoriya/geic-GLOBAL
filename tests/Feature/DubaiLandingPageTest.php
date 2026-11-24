@@ -187,6 +187,35 @@ Please call me.',
         $this->actingAs($manager)->get($url(['source' => ['x']]))->assertOk();
     }
 
+    public function test_export_downloads_only_filtered_dubai_leads(): void
+    {
+        $insert = fn (string $name, string $email, ?string $source) => DB::table('counselling_enquiries')->insert([
+            'destination' => 'Dubai & UAE', 'full_name' => $name, 'email' => $email, 'phone' => '9'.random_int(100000000, 999999999), 'city' => 'Indore',
+            'study_level' => 'Postgraduate', 'preferred_intake' => 'September intake', 'english_test' => 'Not sure yet',
+            'message' => "Approx. yearly budget: ₹10–15 Lakhs – Value-for-Money Universities\nCall after 6pm", 'source_page' => '/dubai',
+            'source' => 'website', 'utm_source' => $source, 'metadata' => '{}', 'created_at' => now(), 'updated_at' => now(),
+        ]);
+        $insert('Facebook Student', 'fb@example.com', 'fb');
+        $insert('=Formula Student', 'direct@example.com', null);
+
+        $exporter = $this->admin(['admin_permissions' => ['ads.view', 'ads.manage', 'enquiries.view', 'enquiries.export']]);
+        $response = $this->actingAs($exporter)->get(route('admin.dubai-tracking.export', ['source' => 'fb']));
+        $response->assertOk()->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+        $csv = $response->streamedContent();
+
+        $this->assertStringContainsString('Facebook Student', $csv);
+        $this->assertStringContainsString('₹10–15 Lakhs – Value-for-Money Universities', $csv);
+        $this->assertStringContainsString('Call after 6pm', $csv);
+        $this->assertStringNotContainsString('Formula Student', $csv);
+
+        $all = $this->actingAs($exporter)->get(route('admin.dubai-tracking.export'))->streamedContent();
+        $this->assertStringContainsString("'=Formula Student", $all);
+
+        $noExport = $this->admin(['admin_role' => 'ads_manager', 'admin_permissions' => ['ads.view', 'ads.manage', 'enquiries.view']]);
+        $this->actingAs($noExport)->get(route('admin.dubai-tracking.export'))->assertForbidden();
+        $this->actingAs($noExport)->get(route('admin.dubai-tracking.edit'))->assertDontSee('Export CSV');
+    }
+
     public function test_enabled_tracking_renders_pixel_and_lead_event_only_after_saved_enquiry(): void
     {
         $adsManager = $this->admin(['admin_permissions' => ['ads.view', 'ads.manage']]);

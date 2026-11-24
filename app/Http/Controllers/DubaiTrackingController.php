@@ -8,11 +8,13 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DubaiTrackingController extends Controller
 {
@@ -112,6 +114,64 @@ class DubaiTrackingController extends Controller
             : 'Dubai lead tracking is paused. The saved IDs remain available for a future re-enable.');
     }
 
+    /**
+     * Download the Dubai leads that match the current filters as a CSV file.
+     */
+    public function export(Request $request): StreamedResponse
+    {
+        Gate::authorize('enquiries.export');
+
+        $filters = $this->filters($request);
+        $budgetPrefix = 'Approx. yearly budget: ';
+        $repeatCounts = [
+            'email' => $this->valueCounts('email'),
+            'phone' => $this->valueCounts('phone'),
+        ];
+        // Stop spreadsheet apps from treating a cell as a formula.
+        $cell = fn (mixed $value): string => preg_match('/^[=+\-@\t\r]/', (string) $value) ? "'".$value : (string) $value;
+
+        return response()->streamDownload(function () use ($filters, $budgetPrefix, $repeatCounts, $cell): void {
+            $out = fopen('php://output', 'w');
+            fwrite($out, "\xEF\xBB\xBF"); // UTF-8 marker so Excel shows ₹ correctly
+            fputcsv($out, ['Received', 'Name', 'Email', 'Phone', 'City', 'Study level', 'Preferred intake', 'Study budget', 'Course of interest', 'Message', 'Source', 'Medium', 'Campaign', 'Times submitted']);
+
+            $this->leadQuery($filters)
+                ->select(['id', 'full_name', 'email', 'phone', 'city', 'study_level', 'preferred_intake', 'preferred_course', 'message', 'utm_source', 'utm_medium', 'utm_campaign', 'created_at'])
+                ->chunk(500, function (Collection $leads) use ($out, $budgetPrefix, $repeatCounts, $cell): void {
+                    foreach ($leads as $lead) {
+                        $message = (string) $lead->message;
+                        $firstLine = strtok($message, "\n") ?: '';
+                        $budget = str_starts_with($firstLine, $budgetPrefix) ? mb_substr($firstLine, mb_strlen($budgetPrefix)) : '';
+                        $note = $budget !== '' ? trim(mb_substr($message, mb_strlen($firstLine))) : $message;
+
+                        fputcsv($out, array_map($cell, [
+                            Carbon::parse($lead->created_at)->format('Y-m-d H:i'),
+                            $lead->full_name, $lead->email, $lead->phone, $lead->city,
+                            $lead->study_level, $lead->preferred_intake, $budget, $lead->preferred_course, $note,
+                            $lead->utm_source ?: 'Direct', $lead->utm_medium, $lead->utm_campaign,
+                            max((int) ($repeatCounts['email'][$lead->email] ?? 1), (int) ($repeatCounts['phone'][$lead->phone] ?? 1)),
+                        ]));
+                    }
+                });
+
+            fclose($out);
+        }, 'dubai-leads-'.now()->format('Y-m-d-His').'.csv', ['Content-Type' => 'text/csv; charset=UTF-8']);
+    }
+
+    /** @return array<string, int> */
+    private function valueCounts(string $column): array
+    {
+        return DB::table('counselling_enquiries')
+            ->where('source_page', DubaiPage::PUBLIC_PATH)
+            ->whereNotNull($column)
+            ->where($column, '!=', '')
+            ->groupBy($column)
+            ->selectRaw($column.', count(*) as total')
+            ->pluck('total', $column)
+            ->map(fn ($total): int => (int) $total)
+            ->all();
+    }
+
     /** @return array{total: int, week: int, today: int} */
     private function stats(): array
     {
@@ -143,6 +203,14 @@ class DubaiTrackingController extends Controller
     /** @param array{q: string, level: string, intake: string, budget: string, source: string, period: string, dup: string} $filters */
     private function filteredLeads(array $filters): LengthAwarePaginator
     {
+        return $this->leadQuery($filters)
+            ->paginate(25, ['id', 'full_name', 'email', 'phone', 'city', 'study_level', 'preferred_intake', 'message', 'utm_source', 'utm_campaign', 'created_at'])
+            ->withQueryString();
+    }
+
+    /** @param array{q: string, level: string, intake: string, budget: string, source: string, period: string, dup: string} $filters */
+    private function leadQuery(array $filters): Builder
+    {
         return DB::table('counselling_enquiries')
             ->where('source_page', DubaiPage::PUBLIC_PATH)
             ->when($filters['q'] !== '', function ($query) use ($filters): void {
@@ -164,8 +232,7 @@ class DubaiTrackingController extends Controller
             ->when($filters['period'] === 'today', fn ($query) => $query->where('created_at', '>=', now()->startOfDay()))
             ->when(in_array($filters['period'], ['7', '30'], true), fn ($query) => $query->where('created_at', '>=', now()->subDays((int) $filters['period'])))
             ->latest('created_at')
-            ->paginate(25, ['id', 'full_name', 'email', 'phone', 'city', 'study_level', 'preferred_intake', 'message', 'utm_source', 'utm_campaign', 'created_at'])
-            ->withQueryString();
+            ->orderByDesc('id');
     }
 
     /** Emails or phones that appear on more than one Dubai enquiry. */

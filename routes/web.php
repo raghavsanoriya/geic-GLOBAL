@@ -223,6 +223,7 @@ if (env('GEIC_PUBLIC_WEBSITE_ONLY', false)) {
             Route::put('/expo-tracking', [ExpoTrackingController::class, 'update'])->middleware('can:ads.manage')->name('expo-tracking.update');
             Route::get('/dubai-tracking', [DubaiTrackingController::class, 'edit'])->middleware('can:ads.manage')->name('dubai-tracking.edit');
             Route::put('/dubai-tracking', [DubaiTrackingController::class, 'update'])->middleware('can:ads.manage')->name('dubai-tracking.update');
+            Route::get('/dubai-tracking/export', [DubaiTrackingController::class, 'export'])->middleware(['can:ads.manage', 'can:enquiries.export'])->name('dubai-tracking.export');
             Route::get('/export', [AdminController::class, 'export'])->middleware('can:enquiries.export')->name('export');
 
             Route::middleware('can:content.manage')->group(function (): void {
