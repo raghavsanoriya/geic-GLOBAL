@@ -400,3 +400,6 @@ section[id], footer[id] { scroll-margin-top: 100px; }
     .tg-app.tg-sheet-open .tg-form-card .title { margin-bottom: 10px; }
     .tg-app.tg-sheet-open .tg-form-card .title h2 { font-size: 24px; margin-bottom: 2px; }
 }
+
+/* Long select options: truncate cleanly inside the closed field */
+.tg-form-card .form-clt select { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding-right: 36px; }

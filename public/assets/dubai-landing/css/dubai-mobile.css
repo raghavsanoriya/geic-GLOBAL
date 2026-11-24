@@ -316,3 +316,9 @@ body.tg-app { background: var(--m-bg); padding-bottom: calc(var(--m-tabbar-h) + 
 .tg-app.tg-sheet-open .tg-form-card .theme-btn { min-height: 46px; padding: 13px 20px; }
 .tg-app.tg-sheet-open .tg-sheet-bar { padding: 8px 0 4px; margin-bottom: 0; }
 .tg-app.tg-sheet-open .tg-form-card .tg-alert { margin-bottom: 10px; padding: 9px 12px; font-size: 13px; }
+
+/* Budget options are long: give the dropdown the full width on phones. */
+.tg-app .tg-form-card .tg-col-budget,
+.tg-app.tg-sheet-open .tg-form-card .tg-col-budget { flex: 0 0 100%; max-width: 100%; }
+.tg-app.tg-sheet-open .tg-form-card .tg-col-course { display: none; }
+.tg-app .tg-form-card select { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding-right: 36px; }

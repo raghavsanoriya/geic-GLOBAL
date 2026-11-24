@@ -89,7 +89,7 @@
                                     @error('preferred_intake')<span class="tg-field-error">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-md-6 tg-col-half">
+                            <div class="col-md-6 tg-col-half tg-col-budget">
                                 <div class="form-clt">
                                     <label for="enq-budget">Your approx. budget *</label>
                                     <select id="enq-budget" name="budget" required @error('budget') aria-invalid="true" @enderror>
