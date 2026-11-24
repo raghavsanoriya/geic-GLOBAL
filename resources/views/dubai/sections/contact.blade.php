@@ -93,7 +93,7 @@
                                 <div class="form-clt">
                                     <label for="enq-budget">Your approx. budget *</label>
                                     <select id="enq-budget" name="budget" required @error('budget') aria-invalid="true" @enderror>
-                                        <option value="">Select your budget</option>
+                                        <option value="">Select your study budget</option>
                                         @foreach (\App\Support\DubaiPage::BUDGETS as $value)
                                             <option value="{{ $value }}" @selected($oldText('budget') === $value)>{{ $value }}</option>
                                         @endforeach

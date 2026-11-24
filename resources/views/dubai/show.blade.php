@@ -29,9 +29,9 @@
     <link rel="stylesheet" href="{{ asset('assets/dubai-landing/static/css/3040a4c1aba51956.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dubai-landing/static/css/6ce99338b40f581f.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dubai-landing/static/css/79c932325e17b2d9.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/dubai-landing/css/dubai-home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dubai-landing/css/dubai-home.css') }}?v={{ @filemtime(public_path('assets/dubai-landing/css/dubai-home.css')) }}">
     {{-- Phone-only app layer: never loads on tablet or desktop widths. --}}
-    <link rel="stylesheet" href="{{ asset('assets/dubai-landing/css/dubai-mobile.css') }}" media="(max-width: 767.98px)">
+    <link rel="stylesheet" href="{{ asset('assets/dubai-landing/css/dubai-mobile.css') }}?v={{ @filemtime(public_path('assets/dubai-landing/css/dubai-mobile.css')) }}" media="(max-width: 767.98px)">
 
     @if ($tracking['enabled'] && $tracking['metaPixelId'] !== '')
         <script>
@@ -303,12 +303,13 @@
     window.addEventListener('popstate', function () { closeSheet(true); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSheet(); toggleMenu(false); } });
     // After a submit, show the result in the popup; otherwise invite new visitors once per visit.
-    if (sheet && sheet.querySelector('[data-enquiry-done]')) { try { localStorage.setItem('tg_dubai_lead', '1'); } catch (e) {} }
+    if (sheet && sheet.querySelector('[data-enquiry-done]')) { try { sessionStorage.setItem('tg_dubai_lead', '1'); } catch (e) {} }
     if (sheet && sheet.querySelector('.tg-alert')) {
         openSheet(false);
     } else if (sheet) {
         var seen = false;
-        try { seen = sessionStorage.getItem('tg_dubai_popup') === '1' || localStorage.getItem('tg_dubai_lead') === '1'; } catch (e) {}
+        // Open on every landing, except straight after this visitor has submitted.
+        try { seen = sessionStorage.getItem('tg_dubai_lead') === '1'; } catch (e) {}
         if (!seen) {
             setTimeout(function () {
                 try { sessionStorage.setItem('tg_dubai_popup', '1'); } catch (e) {}
