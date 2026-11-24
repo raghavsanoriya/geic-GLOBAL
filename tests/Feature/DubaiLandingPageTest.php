@@ -7,6 +7,7 @@ use App\Models\SiteContent;
 use App\Models\User;
 use App\Support\DubaiPage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
@@ -146,7 +147,44 @@ Please call me.',
         $this->actingAs($adsManager)->get(route('admin.dubai-tracking.edit'))
             ->assertOk()
             ->assertSee('Dubai lead tracking')
-            ->assertSee('Latest Dubai enquiries');
+            ->assertSee('Dubai enquiries')
+            ->assertSee('All study levels');
+    }
+
+    public function test_tracking_page_filters_dubai_leads_and_flags_duplicates(): void
+    {
+        $lead = fn (string $name, string $email, string $phone, ?string $source, string $level = 'Postgraduate', string $budget = '₹10–15 Lakhs – Value-for-Money Universities') => DB::table('counselling_enquiries')->insert([
+            'destination' => 'Dubai & UAE', 'full_name' => $name, 'email' => $email, 'phone' => $phone, 'city' => 'Indore',
+            'study_level' => $level, 'preferred_intake' => 'September intake', 'english_test' => 'Not sure yet',
+            'message' => 'Approx. yearly budget: '.$budget, 'source_page' => '/dubai', 'source' => 'website',
+            'utm_source' => $source, 'metadata' => '{}', 'created_at' => now(), 'updated_at' => now(),
+        ]);
+        $lead('Repeat Student', 'repeat@example.com', '9000000001', 'fb');
+        $lead('Repeat Student', 'repeat@example.com', '9000000001', 'fb');
+        $lead('Instagram Student', 'insta@example.com', '9000000002', 'ig', 'Undergraduate', '₹6–10 Lakhs – Budget-Friendly Universities');
+        $lead('Direct Student', 'direct@example.com', '9000000003', null);
+
+        $manager = $this->admin(['admin_permissions' => ['ads.view', 'ads.manage', 'enquiries.view']]);
+        $url = fn (array $query) => route('admin.dubai-tracking.edit', $query);
+
+        // The admin header lists recent lead names on every page, so check the table's own count and rows.
+        $table = function (array $query) use ($manager, $url): array {
+            $html = $this->actingAs($manager)->get($url($query))->assertOk()->getContent();
+            preg_match('~<span>(\d+) leads? found</span>~', $html, $count);
+            preg_match_all('~<td>([A-Za-z ]+ Student)~', $html, $names);
+
+            return [(int) ($count[1] ?? -1), array_values(array_unique($names[1]))];
+        };
+
+        $this->assertSame([1, ['Instagram Student']], $table(['source' => 'ig']));
+        $this->assertSame([1, ['Direct Student']], $table(['source' => 'direct']));
+        $this->assertSame([1, ['Instagram Student']], $table(['q' => 'insta@']));
+        $this->assertSame([1, ['Instagram Student']], $table(['level' => 'Undergraduate']));
+        $this->assertSame([1, ['Instagram Student']], $table(['budget' => '₹6–10 Lakhs – Budget-Friendly Universities']));
+        $this->assertSame([2, ['Repeat Student']], $table(['dup' => 'duplicates']));
+        $this->assertSame(3, $table(['dup' => 'unique'])[0]);
+        $this->actingAs($manager)->get($url(['dup' => 'duplicates']))->assertSee('Repeat ×2');
+        $this->actingAs($manager)->get($url(['source' => ['x']]))->assertOk();
     }
 
     public function test_enabled_tracking_renders_pixel_and_lead_event_only_after_saved_enquiry(): void
