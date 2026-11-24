@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-md-6 tg-col-half tg-col-budget">
                                 <div class="form-clt">
-                                    <label for="enq-budget">Your approx. budget *</label>
+                                    <label for="enq-budget">Study budget *</label>
                                     <select id="enq-budget" name="budget" required @error('budget') aria-invalid="true" @enderror>
                                         <option value="">Select your study budget</option>
                                         @foreach (\App\Support\DubaiPage::BUDGETS as $value)
